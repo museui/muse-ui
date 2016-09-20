@@ -4,6 +4,11 @@
       <mu-icon-button slot="left" icon="menu"></mu-icon-button>
       <mu-icon-button slot="right" icon="refresh" @click.native="refresh"></mu-icon-button>
     </mu-app-bar>
+    <mu-tab-bar :active="tabActive">
+      <mu-tab-item @tab-click="tabClick" icon="info" title="tab1"></mu-tab-item>
+      <mu-tab-item @tab-click="tabClick"  icon="home" title="tab2"></mu-tab-item>
+      <mu-tab-item @tab-click="tabClick" icon="refresh" title="tab3"></mu-tab-item>
+    </mu-tab-bar>
     <mu-scroll-view ref="scroll">
       <!-- <mu-refresh-control  @refresh="refresh" :refreshing="refreshing"></mu-refresh-control> -->
       <mu-content-block>
@@ -79,7 +84,8 @@ export default {
   data () {
     return {
       refreshing: false,
-      loading: false
+      loading: false,
+      tabActive: 1
     }
   },
   methods: {
@@ -94,6 +100,10 @@ export default {
       setTimeout(() => {
         this.loading = false
       }, 2000)
+    },
+    tabClick (index) {
+      console.log(index)
+      this.tabActive = index
     }
   }
 }

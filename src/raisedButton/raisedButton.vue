@@ -139,6 +139,10 @@ export default {
 }
 .mu-raised-button-wrapper{
   border-radius: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 .mu-raised-button-primary{
   background-color: @primary1Color;

@@ -19,6 +19,10 @@ export default {
     centerRipple: {
       type: Boolean,
       default: true
+    },
+    wrapperClass: {
+      type: String,
+      default: ''
     }
   },
   data () {
@@ -48,6 +52,7 @@ export default {
       children = this.$slots.default
     } else {
       children = [h(touchRipple, {
+        class: this.wrapperClass,
         props: {
           color: this.rippleColor,
           centerRipple: this.centerRipple,

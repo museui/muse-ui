@@ -15,6 +15,7 @@ import divider from './divider'
 import refreshControl from './refreshControl'
 import infiniteScroll from './infiniteScroll'
 import avatar from './avatar'
+import * as tabBar from './tabBar'
 const components = {
   page,
   scrollView,
@@ -31,7 +32,8 @@ const components = {
   divider,
   refreshControl,
   infiniteScroll,
-  avatar
+  avatar,
+  ...tabBar
 }
 
 export default {

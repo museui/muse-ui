@@ -1,6 +1,6 @@
 <template>
 <abstract-button
-  :disabled="disabled" :href="href" :style="buttonStyle" class="mu-flat-button"
+  :disabled="disabled" wrapperClass="mu-flat-button-wrapper" :href="href" :style="buttonStyle" class="mu-flat-button"
   :class="{'mu-flat-button-primary': primary, 'mu-flat-button-secondary': secondary, 'label-before': labelPosition === 'before'}" :centerRipple="false">
   <span class="mu-flat-button-label" :class="[labelClass]" v-if="label && labelPosition === 'before'">{{label}}</span>
   <icon :value="icon"></icon>
@@ -119,7 +119,12 @@ export default {
     }
   }
 }
-
+.mu-flat-button-wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
 .mu-flat-button-primary{
   color: @primary1Color;
 }

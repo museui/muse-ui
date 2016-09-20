@@ -88,6 +88,7 @@ export default {
     display: block;
     color: inherit;
     position: relative;
+    outline: none;
     &:active {
         background-color: fade(@textColor, 10%);
     }
