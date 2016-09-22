@@ -1,38 +1,38 @@
 <template>
-  <a :href="href" class="mu-item-wrapper">
-    <touch-ripple class="mu-item" :class="{'mu-item-link': link}" :center-ripple="false">
-      <div class="mu-item-media">
-        <slot name="media"></slot>
+  <abstract-button
+   :wrapperClass="itemClass" :href="href"
+    class="mu-item-wrapper" :centerRipple="false">
+    <div class="mu-item-media">
+      <slot name="media"></slot>
+    </div>
+    <div class="mu-item-content">
+      <div class="mu-item-title-row" v-if="title || afterText">
+        <div class="mu-item-title">
+            <div class="mu-item-title-text">
+                {{title}}
+            </div>
+        </div>
+        <div class="mu-item-after">
+            <slot name="after">
+                {{afterText}}
+            </slot>
+        </div>
+        <icon value="navigate_next" v-if="link" class="mu-item-link-icon"></icon>
       </div>
-      <div class="mu-item-content">
-        <div class="mu-item-title-row" v-if="title || afterText">
-          <div class="mu-item-title">
-              <div class="mu-item-title-text">
-                  {{title}}
-              </div>
-          </div>
-          <div class="mu-item-after">
-              <slot name="after">
-                  {{afterText}}
-              </slot>
-          </div>
-          <icon value="navigate_next" v-if="link" class="mu-item-link-icon"></icon>
-        </div>
-        <div class="mu-item-sub-title" v-if="subTitle">
-          {{subTitle}}
-        </div>
-        <div class="mu-item-text" :style="{'height': (20 * describeLine) + 'px', '-webkit-line-clamp': describeLine}" v-if="describeText">
-          {{describeText}}
-        </div>
-        <slot></slot>
+      <div class="mu-item-sub-title" v-if="subTitle">
+        {{subTitle}}
       </div>
-    </touch-ripple>
-  </a>
+      <div class="mu-item-text" :style="{'height': (20 * describeLine) + 'px', '-webkit-line-clamp': describeLine}" v-if="describeText">
+        {{describeText}}
+      </div>
+      <slot></slot>
+    </div>
+  </abstract-button>
 </template>
 
 <script>
 import icon from '../icon'
-import touchRipple from '../internal/touchRipple'
+import abstractButton from '../internal/abstractButton'
 export default {
   name: 'mu-list-item',
   props: {
@@ -67,11 +67,16 @@ export default {
   },
   components: {
     icon,
-    'touch-ripple': touchRipple
+    'abstract-button': abstractButton
   },
   data () {
     return {
       hover: false
+    }
+  },
+  computed: {
+    itemClass () {
+      return ['mu-item', this.link ? 'mu-item-link' : ''].join(' ')
     }
   },
   methods: {
@@ -169,7 +174,7 @@ export default {
 
 @media (min-width: 1024px) {
   .mu-item-wrapper {
-      &:hover {
+      &.hover {
           background-color: fade(@textColor, 10%);
       }
   }

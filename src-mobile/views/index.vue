@@ -4,11 +4,12 @@
       <mu-icon-button slot="left" icon="menu"></mu-icon-button>
       <mu-icon-button slot="right" icon="refresh" @click.native="refresh"></mu-icon-button>
     </mu-app-bar>
-    <mu-tab-bar :active="tabActive">
+    <!-- <mu-tab-bar :active="tabActive">
       <mu-tab-item @tab-click="tabClick" icon="info" title="tab1"></mu-tab-item>
       <mu-tab-item @tab-click="tabClick"  icon="home" title="tab2"></mu-tab-item>
       <mu-tab-item @tab-click="tabClick" icon="refresh" title="tab3"></mu-tab-item>
-    </mu-tab-bar>
+    </mu-tab-bar> -->
+    <mu-search-bar></mu-search-bar>
     <mu-scroll-view ref="scroll">
       <!-- <mu-refresh-control  @refresh="refresh" :refreshing="refreshing"></mu-refresh-control> -->
       <mu-content-block>
@@ -34,48 +35,17 @@
           <mu-badge slot="after" secondary circle>11</mu-badge>
         </mu-list-item>
         <mu-divider inset></mu-divider>
-        <mu-list-item  title="测试标题" link>
-          <mu-icon slot="media" value="info"></mu-icon>
-          <mu-badge slot="after" secondary circle>11</mu-badge>
-        </mu-list-item>
-        <mu-divider inset></mu-divider>
-        <mu-list-item  title="测试标题" link>
-          <mu-icon slot="media" value="info"></mu-icon>
-          <mu-badge slot="after" secondary circle>11</mu-badge>
-        </mu-list-item>
-        <mu-divider inset></mu-divider>
-        <mu-list-item  title="测试标题" link>
-          <mu-icon slot="media" value="info"></mu-icon>
-          <mu-badge slot="after" secondary circle>11</mu-badge>
-        </mu-list-item>
-        <mu-divider inset></mu-divider>
-        <mu-list-item  title="测试标题" link>
-          <mu-icon slot="media" value="info"></mu-icon>
-          <mu-badge slot="after" secondary circle>11</mu-badge>
-        </mu-list-item>
-        <mu-divider inset></mu-divider>
-        <mu-list-item  title="测试标题" link>
-          <mu-icon slot="media" value="info"></mu-icon>
-          <mu-badge slot="after" secondary circle>11</mu-badge>
-        </mu-list-item>
-        <mu-divider inset></mu-divider>
-        <mu-list-item  title="测试标题" link>
-          <mu-icon slot="media" value="info"></mu-icon>
-          <mu-badge slot="after" secondary circle>11</mu-badge>
-        </mu-list-item>
-        <mu-divider inset></mu-divider>
-        <mu-list-item  title="测试标题" link>
-          <mu-icon slot="media" value="info"></mu-icon>
-          <mu-badge slot="after" secondary circle>11</mu-badge>
-        </mu-list-item>
-        <mu-divider inset></mu-divider>
-        <mu-list-item  title="测试标题" link>
-          <mu-icon slot="media" value="info"></mu-icon>
-          <mu-badge slot="after" secondary circle>11</mu-badge>
-        </mu-list-item>
       </mu-list>
+      <mu-content-block>
+        <mu-paper class="demo-paper" :rounded="false" :zDepth="3" circle></mu-paper>
+      </mu-content-block>
       <!-- <mu-infinite-scroll :loading="loading" @load="load"></mu-infinite-scroll> -->
     </mu-scroll-view>
+    <mu-bottom-nav :active="tabActive">
+      <mu-bottom-nav-item icon="restore" @click="tabClick" title="Recents"></mu-bottom-nav-item>
+      <mu-bottom-nav-item icon="favorite" @click="tabClick" title="Favorite"></mu-bottom-nav-item>
+      <mu-bottom-nav-item icon="info" @click="tabClick" title="Info"></mu-bottom-nav-item>
+    </mu-bottom-nav>
   </mu-page>
 </template>
 
@@ -102,7 +72,6 @@ export default {
       }, 2000)
     },
     tabClick (index) {
-      console.log(index)
       this.tabActive = index
     }
   }
@@ -110,4 +79,8 @@ export default {
 </script>
 
 <style lang="css">
+.demo-paper{
+  width: 150px;
+  height: 150px;
+}
 </style>

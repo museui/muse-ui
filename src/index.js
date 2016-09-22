@@ -16,6 +16,9 @@ import refreshControl from './refreshControl'
 import infiniteScroll from './infiniteScroll'
 import avatar from './avatar'
 import * as tabBar from './tabBar'
+import paper from './paper'
+import searchBar from './searchBar'
+import * as bottomNav from './bottomNav'
 const components = {
   page,
   scrollView,
@@ -33,7 +36,10 @@ const components = {
   refreshControl,
   infiniteScroll,
   avatar,
-  ...tabBar
+  ...tabBar,
+  paper,
+  searchBar,
+  ...bottomNav
 }
 
 export default {
