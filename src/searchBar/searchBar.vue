@@ -1,13 +1,14 @@
 <template>
 <div class="mu-search-bar" :class="{'mu-searchbar-active': focus}">
   <div class="mu-searchbar-input">
-    <input type="search" ref="search" @focus="handlerFocus" @blur="handlerBlur" v-model="searchText" :placeholder="placeholder">
-    <a href="javascript:;" @click.stop="clear()" class="mu-searchbar-clear"></a>
+    <input type="search" ref="search" v-focus="focus" @focus="handlerFocus" @blur="handlerBlur" v-model="searchText" :placeholder="placeholder">
+    <a href="javascript:;" @click.stop="clear()" ref="clear" class="mu-searchbar-clear"></a>
   </div>
 </div>
 </template>
 
 <script>
+import focus from '../internal/focus'
 export default {
   name: 'mu-search-bar',
   props: {
@@ -29,8 +30,8 @@ export default {
     handlerFocus () {
       this.focus = true
     },
-    handlerBlur () {
-      this.focus = false
+    handlerBlur (e) {
+      if (e.relatedTarget !== this.$refs.clear) this.focus = false
     }
   },
   watch: {
@@ -44,6 +45,9 @@ export default {
         this.$emit('blur')
       }
     }
+  },
+  directives: {
+    focus
   }
 }
 </script>
