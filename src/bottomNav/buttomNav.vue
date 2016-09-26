@@ -26,7 +26,7 @@ export default {
 .mu-bottom-nav{
   height: 56px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   background-color: @canvasColor;
   text-align: center;

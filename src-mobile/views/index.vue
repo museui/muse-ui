@@ -9,9 +9,27 @@
       <mu-tab-item @tab-click="tabClick"  icon="home" title="tab2"></mu-tab-item>
       <mu-tab-item @tab-click="tabClick" icon="refresh" title="tab3"></mu-tab-item>
     </mu-tab-bar> -->
-    <mu-search-bar></mu-search-bar>
+    <!-- <mu-search-bar></mu-search-bar> -->
     <mu-scroll-view ref="scroll">
       <!-- <mu-refresh-control  @refresh="refresh" :refreshing="refreshing"></mu-refresh-control> -->
+
+      <div style="padding: 8px">
+        <mu-card>
+              <mu-card-header title="标题" subTitle="子标题">
+                <mu-avatar slot="avatar" src="http://www.myronliu.com/img/uicon.jpg"></mu-avatar>
+              </mu-card-header>
+              <mu-card-media>
+                <img src="http://vuejs.org/images/logo.png"/>
+              </mu-card-media>
+              <mu-card-text>
+                Vue.js 是用于构建交互式的 Web  界面的库。它提供了 MVVM 数据绑定和一个可组合的组件系统，具有简单、灵活的 API。
+              </mu-card-text>
+              <mu-card-actions>
+                <mu-flat-button labelPosition="before" label="button1" icon="info"></mu-flat-button>
+                <mu-flat-button label="button2" secondary></mu-flat-button>
+              </mu-card-actions>
+          </mu-card>
+      </div>
       <mu-content-block>
         <mu-flat-button labelPosition="before" label="测试按钮" icon="info"></mu-flat-button>
         <mu-float-button  icon="add" secondary></mu-float-button>

@@ -2,13 +2,11 @@
   <abstract-button :disabled="disabled" :href="href" :style="buttonStyle" class="mu-raised-button"
     :class="{'mu-raised-button-primary': primary, 'mu-raised-button-secondary': secondary,
     'label-before': labelPosition === 'before', 'mu-raised-button-inverse': inverse,
-    'mu-raised-button-full': fullWidth}" :centerRipple="false">
-    <div class="mu-raised-button-wrapper">
-      <span class="mu-raised-button-label" :class="[labelClass]" v-if="label && labelPosition === 'before'">{{label}}</span>
-      <icon :value="icon"></icon>
-      <span class="mu-raised-button-label" :class="[labelClass]" v-if="label && labelPosition === 'after'">{{label}}</span>
-      <slot></slot>
-    </div>
+    'mu-raised-button-full': fullWidth}" wrapperClass="mu-raised-button-wrapper" :centerRipple="false">
+    <span class="mu-raised-button-label" :class="[labelClass]" v-if="label && labelPosition === 'before'">{{label}}</span>
+    <icon :value="icon"></icon>
+    <span class="mu-raised-button-label" :class="[labelClass]" v-if="label && labelPosition === 'after'">{{label}}</span>
+    <slot></slot>
   </abstract-button>
 </template>
 
@@ -121,14 +119,19 @@ export default {
     vertical-align: middle;
     margin-left: 12px;
     margin-right: 0;
+    + .mu-raised-button-label {
+      padding-left: 8px;
+    }
   }
   &.label-before {
+    .mu-raised-button-wrapper{
+      padding-right: 8px;
+    }
     .mu-icon {
-      margin-right: 12px;
+      margin-right: 4px;
       margin-left: 0;
     }
     .mu-raised-button-label {
-      padding-left: 16px;
       padding-right: 8px;
     }
   }
@@ -171,7 +174,7 @@ export default {
 .mu-raised-button-label{
   vertical-align: middle;
   padding-right: 16px;
-  padding-left: 8px;
+  padding-left: 16px;
 }
 
 @media (min-width: 480px) {

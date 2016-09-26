@@ -19,6 +19,7 @@ import * as tabBar from './tabBar'
 import paper from './paper'
 import searchBar from './searchBar'
 import * as bottomNav from './bottomNav'
+import * as card from './card'
 const components = {
   page,
   scrollView,
@@ -39,7 +40,8 @@ const components = {
   ...tabBar,
   paper,
   searchBar,
-  ...bottomNav
+  ...bottomNav,
+  ...card
 }
 
 export default {

@@ -104,17 +104,20 @@ export default {
     vertical-align: middle;
     margin-left: 12px;
     margin-right: 0;
+    + .mu-flat-button-label {
+      padding-left: 8px;
+    }
   }
   .mu-circle-ripple{
     color: @textColor;
   }
   &.label-before {
+    padding-right: 8px;
     .mu-icon {
-      margin-right: 12px;
+      margin-right: 4px;
       margin-left: 0;
     }
     .mu-flat-button-label {
-      padding-left: 16px;
       padding-right: 8px;
     }
   }
@@ -136,7 +139,7 @@ export default {
 .mu-flat-button-label{
   vertical-align: middle;
   padding-right: 16px;
-  padding-left: 8px;
+  padding-left: 16px;
 }
 
 @media (min-width: 480px) {
