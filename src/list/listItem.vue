@@ -1,38 +1,42 @@
 <template>
-  <abstract-button
-   :wrapperClass="itemClass" :href="href"
-    class="mu-item-wrapper" :centerRipple="false">
-    <div class="mu-item-media">
-      <slot name="media"></slot>
-    </div>
-    <div class="mu-item-content">
-      <div class="mu-item-title-row" v-if="title || afterText">
-        <div class="mu-item-title">
-            <div class="mu-item-title-text">
-                {{title}}
-            </div>
+  <div>
+    <abstract-button
+     :wrapperClass="itemClass" :href="href"
+      class="mu-item-wrapper" :wrapperStyle="itemStyle" :centerRipple="false">
+      <div class="mu-item-media">
+        <slot name="media"></slot>
+      </div>
+      <div class="mu-item-content">
+        <div class="mu-item-title-row" v-if="title || afterText">
+          <div class="mu-item-title">
+             {{title}}
+          </div>
+          <div class="mu-item-after">
+              <slot name="after">
+                  {{afterText}}
+              </slot>
+              <icon value="navigate_next" v-if="link" class="mu-item-link-icon"></icon>
+          </div>
         </div>
-        <div class="mu-item-after">
-            <slot name="after">
-                {{afterText}}
-            </slot>
+        <div class="mu-item-sub-title" v-if="subTitle">
+          {{subTitle}}
         </div>
-        <icon value="navigate_next" v-if="link" class="mu-item-link-icon"></icon>
+        <div class="mu-item-text" :style="{'height': (20 * describeLine) + 'px', '-webkit-line-clamp': describeLine}" v-if="describeText">
+          {{describeText}}
+        </div>
+        <slot></slot>
       </div>
-      <div class="mu-item-sub-title" v-if="subTitle">
-        {{subTitle}}
-      </div>
-      <div class="mu-item-text" :style="{'height': (20 * describeLine) + 'px', '-webkit-line-clamp': describeLine}" v-if="describeText">
-        {{describeText}}
-      </div>
-      <slot></slot>
-    </div>
-  </abstract-button>
+    </abstract-button>
+    <mu-list :nestedLevel="nestedLevel" v-if="$slots.nested && $slots.nested.length > 0">
+      <slot name="nested"></slot>
+    </mu-list>
+  </div>
 </template>
 
 <script>
 import icon from '../icon'
 import abstractButton from '../internal/abstractButton'
+import list from './list'
 export default {
   name: 'mu-list-item',
   props: {
@@ -67,7 +71,8 @@ export default {
   },
   components: {
     icon,
-    'abstract-button': abstractButton
+    'abstract-button': abstractButton,
+    'mu-list': list
   },
   data () {
     return {
@@ -77,6 +82,14 @@ export default {
   computed: {
     itemClass () {
       return ['mu-item', this.link ? 'mu-item-link' : ''].join(' ')
+    },
+    itemStyle () {
+      return {
+        'margin-left': (18 * this.nestedLevel) + 'px'
+      }
+    },
+    nestedLevel () {
+      return this.$parent.nestedLevel + 1
     }
   },
   methods: {
@@ -101,7 +114,6 @@ export default {
 
 .mu-item {
   min-height: 48px;
-  width: 100%;
   display: flex;
   padding: 8px 16px;
   color: @textColor;
@@ -109,22 +121,31 @@ export default {
 
 .mu-item-link {
   padding-right: 8px;
+  .mu-item-title-row{
+    padding-right: 24px;
+  }
 }
 
 .mu-item-link-icon{
   color: @grey600;
   display: block;
+  position: absolute;
+  right: 0;
 }
 .mu-item-media{
   display: flex;
   align-items: center;
   justify-content: flex-start;
   width: 40px;
-  max-height: 40px;
+  height: 40px;
+  position: absolute;
   .flex-shrink(0);
   color: @grey600;
   + .mu-item-content {
-    padding-left: 16px;
+    padding-left: 56px;
+  }
+  .mu-icon {
+    margin-top: -8px;
   }
 }
 
@@ -149,10 +170,6 @@ export default {
 .mu-item-after{
   margin-left: auto;
   color: @secondaryTextColor;
-  line-height: 24px;
-  height: 24px;
-  .ellipsis();
-  max-width: 40%;
   display: flex;
   align-items: center;
 }

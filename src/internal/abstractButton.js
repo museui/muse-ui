@@ -23,6 +23,8 @@ export default {
     wrapperClass: {
       type: String,
       default: ''
+    },
+    wrapperStyle: {
     }
   },
   data () {
@@ -53,6 +55,7 @@ export default {
     } else {
       children = [h(touchRipple, {
         class: this.wrapperClass,
+        style: this.wrapperStyle,
         props: {
           color: this.rippleColor,
           centerRipple: this.centerRipple,

@@ -1,11 +1,25 @@
 <template>
-  <div class="mu-list">
+  <div class="mu-list" :class="{'first-sub-header': isFirstSubHeader}">
     <slot></slot>
   </div>
 </template>
 <script>
 export default {
-  name: 'mu-list'
+  name: 'mu-list',
+  props: {
+    nestedLevel: {
+      type: Number,
+      default: 0
+    }
+  },
+  data () {
+    return {
+      isFirstSubHeader: false
+    }
+  },
+  mounted () {
+    this.isFirstSubHeader = this.$slots.default[0].elm.classList.contains('mu-sub-header')
+  }
 }
 </script>
 <style lang="less">
@@ -16,5 +30,8 @@ export default {
   position: relative;
   overflow-x: hidden;
   overflow-y: visible;
+  &.first-sub-header {
+    padding-top: 0;
+  }
 }
 </style>

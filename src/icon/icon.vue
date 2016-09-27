@@ -1,3 +1,4 @@
+
 <template>
     <i v-if="value" class="mu-icon material-icons" :style="{'font-size': size + 'px'}" v-text="value" :class="[value]" aria-hidden="true"></i>
 </template>
@@ -7,8 +8,7 @@ export default {
   name: 'mu-icon',
   props: {
     value: {
-      type: String,
-      required: true
+      type: String
     },
     size: {
       type: Number,
