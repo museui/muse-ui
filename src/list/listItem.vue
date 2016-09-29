@@ -26,8 +26,11 @@
         </div>
         <slot></slot>
       </div>
+      <div class="mu-item-right">
+        <slot name="right"></slot>
+      </div>
     </abstract-button>
-    <mu-list :nestedLevel="nestedLevel" v-if="$slots.nested && $slots.nested.length > 0">
+    <mu-list :nestedLevel="nestedLevel" v-if="show">
       <slot name="nested"></slot>
     </mu-list>
   </div>
@@ -90,6 +93,9 @@ export default {
     },
     nestedLevel () {
       return this.$parent.nestedLevel + 1
+    },
+    show () {
+      return this.$slots.nested && this.$slots.nested.length > 0
     }
   },
   methods: {
@@ -137,15 +143,13 @@ export default {
   align-items: center;
   justify-content: flex-start;
   width: 40px;
-  height: 40px;
+  height: 100%;
   position: absolute;
-  .flex-shrink(0);
   color: @grey600;
+  top: 0;
+  max-height: 56px;
   + .mu-item-content {
     padding-left: 56px;
-  }
-  .mu-icon {
-    margin-top: -8px;
   }
 }
 
@@ -187,6 +191,10 @@ export default {
   display: -webkit-box;
   word-break: break-all;
   color: @secondaryTextColor;
+}
+
+.mu-item-right{
+  
 }
 
 @media (min-width: 1024px) {

@@ -18,7 +18,7 @@ export default {
     }
   },
   mounted () {
-    this.isFirstSubHeader = this.$slots.default[0].elm.classList.contains('mu-sub-header')
+    this.isFirstSubHeader = this.$slots.default && this.$slots.default[0].elm.classList.contains('mu-sub-header')
   }
 }
 </script>
