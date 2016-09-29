@@ -95,8 +95,11 @@ export default {
       return this.$parent.nestedLevel + 1
     },
     show () {
-      return this.$slots.nested && this.$slots.nested.length > 0
+      return this.$slots && this.$slots.nested && this.$slots.nested.length > 0
     }
+  },
+  mounted () {
+    console.log(this.$slots)
   },
   methods: {
     click () {
@@ -194,7 +197,7 @@ export default {
 }
 
 .mu-item-right{
-  
+
 }
 
 @media (min-width: 1024px) {

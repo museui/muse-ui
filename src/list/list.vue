@@ -1,5 +1,5 @@
 <template>
-  <div class="mu-list" :class="{'first-sub-header': isFirstSubHeader}">
+  <div class="mu-list">
     <slot></slot>
   </div>
 </template>
@@ -11,14 +11,6 @@ export default {
       type: Number,
       default: 0
     }
-  },
-  data () {
-    return {
-      isFirstSubHeader: false
-    }
-  },
-  mounted () {
-    this.isFirstSubHeader = this.$slots.default && this.$slots.default[0].elm.classList.contains('mu-sub-header')
   }
 }
 </script>
@@ -30,8 +22,8 @@ export default {
   position: relative;
   overflow-x: hidden;
   overflow-y: visible;
-  &.first-sub-header {
-    padding-top: 0;
+  .mu-sub-header:first-child{
+    margin-top: -8px;
   }
 }
 </style>
