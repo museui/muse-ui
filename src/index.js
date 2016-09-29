@@ -20,6 +20,7 @@ import paper from './paper'
 import searchBar from './searchBar'
 import * as bottomNav from './bottomNav'
 import * as card from './card'
+import chip from './chip'
 const components = {
   page,
   scrollView,
@@ -41,7 +42,8 @@ const components = {
   paper,
   searchBar,
   ...bottomNav,
-  ...card
+  ...card,
+  chip
 }
 
 export default {

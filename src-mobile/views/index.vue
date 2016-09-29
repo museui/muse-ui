@@ -32,7 +32,7 @@
       </div>
       <mu-content-block>
         <mu-flat-button labelPosition="before" label="测试按钮" icon="info"></mu-flat-button>
-        <mu-float-button  icon="add" secondary></mu-float-button>
+        <mu-float-button icon="add" secondary></mu-float-button>
         <mu-raised-button labelPosition="before" label="测试按钮" icon="info"></mu-raised-button>
         <mu-raised-button primary label="测试按钮" icon="info"></mu-raised-button>
         <mu-raised-button full-width secondary style="margin-top: 12px;" labelPosition="before" label="测试按钮" icon="info"></mu-raised-button>
@@ -41,6 +41,10 @@
           <mu-avatar>A</mu-avatar>
           <mu-avatar icon="info"></mu-avatar>
           <mu-avatar src="http://www.myronliu.com/img/uicon.jpg"></mu-avatar>
+          <mu-chip disabled>
+            <mu-avatar :size="32">A</mu-avatar>
+            测试啦
+          </mu-chip>
         </div>
       </mu-content-block>
       <mu-list>
@@ -57,6 +61,7 @@
           </mu-list-item>
 
         </mu-list-item>
+        <mu-divider inset></mu-divider>
         <!-- <mu-divider inset></mu-divider> -->
 
       </mu-list>

@@ -1,0 +1,15 @@
+.mu-chip {
+  background-color: @chipColor;
+  color: @chipTextColor;
+  &.hover{
+    .mu-chip-delete-icon{
+      color: @chipHoverDeleteColor;
+    }
+    background-color: @chipHoverColor;
+    cursor: pointer;
+  }
+}
+
+.mu-chip-delete-icon{
+  color: @chipDeleteColor;
+}

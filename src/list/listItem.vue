@@ -88,7 +88,7 @@ export default {
     },
     itemStyle () {
       return {
-        'margin-left': (18 * this.nestedLevel) + 'px'
+        'margin-left': (18 * (this.nestedLevel - 1)) + 'px'
       }
     },
     nestedLevel () {
@@ -97,9 +97,6 @@ export default {
     show () {
       return this.$slots && this.$slots.nested && this.$slots.nested.length > 0
     }
-  },
-  mounted () {
-    console.log(this.$slots)
   },
   methods: {
     click () {
