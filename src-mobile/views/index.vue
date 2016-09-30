@@ -55,13 +55,19 @@
         <mu-list-item  title="测试标题" link>
           <mu-icon slot="left" value="info"></mu-icon>
           <mu-badge slot="after" secondary circle>11</mu-badge>
-          <mu-list-item slot="nested" title="测试标题" link>
-            <mu-icon slot="right" value="info"></mu-icon>
+        </mu-list-item>
+        <mu-list :nestedLevel="1">
+          <mu-list-item title="测试标题" link>
             <mu-badge slot="after" secondary circle>11</mu-badge>
           </mu-list-item>
-
-        </mu-list-item>
-        <mu-divider inset></mu-divider>
+          <mu-list-item title="测试标题" link>
+            <mu-badge slot="after" secondary circle>11</mu-badge>
+          </mu-list-item>
+          <mu-list-item title="测试标题" link>
+            <mu-badge slot="after" secondary circle>11</mu-badge>
+          </mu-list-item>
+        </mu-list>
+        <!-- <mu-divider inset></mu-divider> -->
         <!-- <mu-divider inset></mu-divider> -->
 
       </mu-list>

@@ -32,15 +32,13 @@
         </div>
       </div>
     </abstract-button>
-    <mu-list :nestedLevel="nestedLevel" v-if="showNested">
-      <slot name="nested"></slot>
-    </mu-list>
   </div>
 </template>
 
 <script>
 import icon from '../icon'
 import abstractButton from '../internal/abstractButton'
+import iconButton from '../iconButton'
 import list from './list'
 export default {
   name: 'mu-list-item',
@@ -74,16 +72,6 @@ export default {
       default: 2
     }
   },
-  components: {
-    icon,
-    'abstract-button': abstractButton,
-    'mu-list': list
-  },
-  data () {
-    return {
-      hover: false
-    }
-  },
   computed: {
     itemClass () {
       var arr = ['mu-item']
@@ -100,9 +88,6 @@ export default {
     nestedLevel () {
       return this.$parent.nestedLevel + 1
     },
-    showNested () {
-      return this.$slots && this.$slots.nested && this.$slots.nested.length > 0
-    },
     showLeft () {
       return this.$slots && this.$slots.left && this.$slots.left.length > 0
     },
@@ -113,7 +98,16 @@ export default {
   methods: {
     click () {
       this.$emit('click')
+    },
+    toggleNested () {
+      this.open = !this.open
     }
+  },
+  components: {
+    icon,
+    'abstract-button': abstractButton,
+    'mu-list': list,
+    'icon-button': iconButton
   }
 }
 </script>
@@ -156,6 +150,7 @@ export default {
   display: block;
   position: absolute;
   right: 0;
+  top: 0;
 }
 .mu-item-right,
 .mu-item-left{
@@ -190,12 +185,14 @@ export default {
   position: relative;
   width: 100%;
 }
+
 .mu-item-title{
   flex: 1;
   display: block;
   font-size: 16px;
   max-width: 100%;
 }
+
 .mu-item-after{
   margin-left: auto;
   color: @secondaryTextColor;
@@ -217,5 +214,4 @@ export default {
   word-break: break-all;
   color: @secondaryTextColor;
 }
-
 </style>

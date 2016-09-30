@@ -78,6 +78,7 @@ export default {
       document.body.addEventListener('touchmove', this.handleMove, false)
     },
     handleMouseDown (event) {
+      event.stopPropagation()
       // only listen to left clicks
       if (event.button === 0) {
         this.start(event, false)
