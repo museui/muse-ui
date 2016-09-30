@@ -1,36 +1,38 @@
 <template>
   <div>
     <abstract-button
-     :wrapperClass="itemClass" :href="href"
+      :href="href"
       class="mu-item-wrapper" :wrapperStyle="itemStyle" :centerRipple="false">
-      <div class="mu-item-media">
-        <slot name="media"></slot>
-      </div>
-      <div class="mu-item-content">
-        <div class="mu-item-title-row" v-if="title || afterText">
-          <div class="mu-item-title">
-             {{title}}
+      <div style="position:relative;" :class="itemClass">
+        <div class="mu-item-left" v-if="showLeft">
+          <slot name="left"></slot>
+        </div>
+        <div class="mu-item-content">
+          <div class="mu-item-title-row" v-if="title || afterText">
+            <div class="mu-item-title">
+               {{title}}
+            </div>
+            <div class="mu-item-after">
+                <slot name="after">
+                    {{afterText}}
+                </slot>
+                <icon value="navigate_next" v-if="link" class="mu-item-link-icon"></icon>
+            </div>
           </div>
-          <div class="mu-item-after">
-              <slot name="after">
-                  {{afterText}}
-              </slot>
-              <icon value="navigate_next" v-if="link" class="mu-item-link-icon"></icon>
+          <div class="mu-item-sub-title" v-if="subTitle">
+            {{subTitle}}
           </div>
+          <div class="mu-item-text" :style="{'height': (20 * describeLine) + 'px', '-webkit-line-clamp': describeLine}" v-if="describeText">
+            {{describeText}}
+          </div>
+          <slot></slot>
         </div>
-        <div class="mu-item-sub-title" v-if="subTitle">
-          {{subTitle}}
+        <div class="mu-item-right" v-if="showRight">
+          <slot name="right"></slot>
         </div>
-        <div class="mu-item-text" :style="{'height': (20 * describeLine) + 'px', '-webkit-line-clamp': describeLine}" v-if="describeText">
-          {{describeText}}
-        </div>
-        <slot></slot>
-      </div>
-      <div class="mu-item-right">
-        <slot name="right"></slot>
       </div>
     </abstract-button>
-    <mu-list :nestedLevel="nestedLevel" v-if="show">
+    <mu-list :nestedLevel="nestedLevel" v-if="showNested">
       <slot name="nested"></slot>
     </mu-list>
   </div>
@@ -84,7 +86,11 @@ export default {
   },
   computed: {
     itemClass () {
-      return ['mu-item', this.link ? 'mu-item-link' : ''].join(' ')
+      var arr = ['mu-item']
+      if (this.link) arr.push('mu-item-link')
+      if (this.showLeft) arr.push('show-left')
+      if (this.showRight) arr.push('show-right')
+      return arr.join(' ')
     },
     itemStyle () {
       return {
@@ -94,8 +100,14 @@ export default {
     nestedLevel () {
       return this.$parent.nestedLevel + 1
     },
-    show () {
+    showNested () {
       return this.$slots && this.$slots.nested && this.$slots.nested.length > 0
+    },
+    showLeft () {
+      return this.$slots && this.$slots.left && this.$slots.left.length > 0
+    },
+    showRight () {
+      return this.$slots && this.$slots.right && this.$slots.right.length > 0
     }
   },
   methods: {
@@ -113,7 +125,7 @@ export default {
     color: inherit;
     position: relative;
     outline: none;
-    &:active {
+    &.hover {
         background-color: fade(@textColor, 10%);
     }
 }
@@ -123,6 +135,13 @@ export default {
   display: flex;
   padding: 8px 16px;
   color: @textColor;
+  position: relative;
+  &.show-left{
+    padding-left: 72px;
+  }
+  &.show-right{
+    padding-right: 56px;
+  }
 }
 
 .mu-item-link {
@@ -138,7 +157,8 @@ export default {
   position: absolute;
   right: 0;
 }
-.mu-item-media{
+.mu-item-right,
+.mu-item-left{
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -148,9 +168,14 @@ export default {
   color: @grey600;
   top: 0;
   max-height: 56px;
-  + .mu-item-content {
-    padding-left: 56px;
-  }
+}
+
+.mu-item-left{
+  left: 12px;
+}
+
+.mu-item-right{
+  right: 12px;
 }
 
 .mu-item-content{
@@ -193,15 +218,4 @@ export default {
   color: @secondaryTextColor;
 }
 
-.mu-item-right{
-
-}
-
-@media (min-width: 1024px) {
-  .mu-item-wrapper {
-      &.hover {
-          background-color: fade(@textColor, 10%);
-      }
-  }
-}
 </style>

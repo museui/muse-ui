@@ -9,6 +9,7 @@
 
 <script>
 import circleRipple from './circleRipple'
+import * as domUtil from '../utils/domUtil'
 export default {
   props: {
     centerRipple: {
@@ -105,31 +106,35 @@ export default {
       if (deltaY > 6 || deltaX > 6) this.end()
     },
     getRippleStyle (event) {
-      let holder = this.$refs.holder
-      let rect = holder.getBoundingClientRect()
-      let x = event.offsetX
-      let y
-      if (x !== undefined) {
-        y = event.offsetY
-      } else {
-        x = event.clientX - rect.left
-        y = event.clientY - rect.top
-      }
-      let max
-      if (rect.width === rect.height) {
-        max = rect.width * 1.412
-      } else {
-        max = Math.sqrt(
-          (rect.width * rect.width) + (rect.height * rect.height)
-        )
-      }
-      const dim = (max * 2) + 'px'
+      const el = this.$refs.holder
+      const elHeight = el.offsetHeight
+      const elWidth = el.offsetWidth
+      const offset = domUtil.getOffset(el)
+      const isTouchEvent = event.touches && event.touches.length
+      const pageX = isTouchEvent ? event.touches[0].pageX : event.pageX
+      const pageY = isTouchEvent ? event.touches[0].pageY : event.pageY
+      const pointerX = pageX - offset.left
+      const pointerY = pageY - offset.top
+      const topLeftDiag = this.calcDiag(pointerX, pointerY)
+      const topRightDiag = this.calcDiag(elWidth - pointerX, pointerY)
+      const botRightDiag = this.calcDiag(elWidth - pointerX, elHeight - pointerY)
+      const botLeftDiag = this.calcDiag(pointerX, elHeight - pointerY)
+      const rippleRadius = Math.max(
+        topLeftDiag, topRightDiag, botRightDiag, botLeftDiag
+      )
+      const rippleSize = rippleRadius * 2
+      const left = pointerX - rippleRadius
+      const top = pointerY - rippleRadius
       return {
-        width: dim,
-        height: dim,
-        'margin-left': -max + x + 'px',
-        'margin-top': -max + y + 'px'
+        directionInvariant: true,
+        height: rippleSize + 'px',
+        width: rippleSize + 'px',
+        top: top + 'px',
+        left: left + 'px'
       }
+    },
+    calcDiag (a, b) {
+      return Math.sqrt((a * a) + (b * b))
     }
   },
   components: {
