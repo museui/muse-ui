@@ -224,7 +224,7 @@ export default {
 .mu-item-title-row{
   display: flex;
   justify-content: flex-start;
-  align-items: flex-start;
+  align-items: center;
   position: relative;
   width: 100%;
 }

@@ -41,7 +41,7 @@
           <mu-avatar>A</mu-avatar>
           <mu-avatar icon="info"></mu-avatar>
           <mu-avatar src="http://www.myronliu.com/img/uicon.jpg"></mu-avatar>
-          <mu-chip disabled>
+          <mu-chip>
             <mu-avatar :size="32">A</mu-avatar>
             测试啦
           </mu-chip>
@@ -54,7 +54,7 @@
         <mu-divider></mu-divider>
         <mu-list-item title="测试标题" link toggleNested>
           <mu-avatar slot="left" src="http://www.myronliu.com/img/uicon.jpg"></mu-avatar>
-          <mu-badge slot="after" secondary circle>11</mu-badge>
+          <mu-badge slot="after" secondary >11</mu-badge>
           <mu-list-item slot="nested" :index="1" title="测试标题" link>
             <mu-badge slot="after" secondary circle>11</mu-badge>
           </mu-list-item>

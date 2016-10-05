@@ -3,7 +3,7 @@
       @mouseleave="onMouseleave" @touchstart="onTouchstart" @click= "handlerClick"
       @touchend="onTouchend" @touchcancel="onTouchend" :class="classNames" class="mu-chip">
     <slot></slot>
-    <mu-icon value="cancel" v-if="showDelete && !disabled" @click="handlerDelete" class="mu-chip-delete-icon" />
+    <mu-icon value="cancel" v-if="showDelete && !disabled" @click.stop="handlerDelete" class="mu-chip-delete-icon" />
   </div>
 </template>
 

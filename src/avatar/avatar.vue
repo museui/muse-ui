@@ -1,5 +1,5 @@
 <template>
-  <div class="mu-avatar" :style="style">
+  <div class="mu-avatar" @click="handlerClick" :style="style">
     <div class="mu-avatar-inner">
       <icon v-if="icon" :value="icon"></icon>
       <img :src="src" v-if="src" />
@@ -44,6 +44,11 @@ export default {
       }
     }
   },
+  methods: {
+    handlerClick () {
+      this.$emit('click')
+    }
+  },
   components: {
     icon
   }
@@ -54,7 +59,6 @@ export default {
 @import "../styles/import.less";
 .mu-avatar{
   display: inline-block;
-  vertical-align: middle;
   height: 40px;
   width: 40px;
   font-size: 20px;
