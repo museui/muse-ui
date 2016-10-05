@@ -34,6 +34,5 @@ export default {
   position: relative;
   width: 100%;
   z-index: 100;
-  .depth(1);
 }
 </style>

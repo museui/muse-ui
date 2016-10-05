@@ -23,6 +23,7 @@ import * as card from './card'
 import chip from './chip'
 import overlay from './internal/popup/overlay'
 import dialog from './dialog'
+import toast from './toast'
 const components = {
   page,
   scrollView,
@@ -47,7 +48,8 @@ const components = {
   ...card,
   chip,
   overlay,
-  dialog
+  dialog,
+  toast
 }
 
 export default {

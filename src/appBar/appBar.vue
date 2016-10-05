@@ -1,5 +1,5 @@
 <template>
-<div class="mu-app-bar" :class="{'shadow': shadow}">
+<div class="mu-app-bar">
   <div class="left">
     <slot name="left"></slot>
   </div>
@@ -21,10 +21,6 @@ export default {
     title: {
       type: String,
       default: ''
-    },
-    shadow: {
-      type: Boolean,
-      default: true
     }
   }
 }
@@ -45,9 +41,6 @@ export default {
   padding: 0 8px;
   .flex-shrink(0);
   z-index: 100;
-  &.shadow {
-    .depth(1);
-  }
   > .left,
   > .right{
     .flex-shrink(0);

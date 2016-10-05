@@ -1,9 +1,11 @@
 <template>
   <mu-page>
-    <mu-app-bar title="Muse UI">
-      <mu-icon-button slot="left" icon="menu"></mu-icon-button>
-      <mu-icon-button slot="right" icon="refresh" @click.native="refresh"></mu-icon-button>
-    </mu-app-bar>
+    <mu-paper>
+      <mu-app-bar title="Muse UI">
+        <mu-icon-button slot="left" icon="menu"></mu-icon-button>
+        <mu-icon-button slot="right" icon="refresh" @click.native="refresh"></mu-icon-button>
+      </mu-app-bar>
+    </mu-paper>
     <!-- <mu-tab-bar :active="tabActive">
       <mu-tab-item @tab-click="tabClick" icon="info" title="tab1"></mu-tab-item>
       <mu-tab-item @tab-click="tabClick"  icon="home" title="tab2"></mu-tab-item>
@@ -74,14 +76,17 @@
       </mu-content-block>
       <!-- <mu-infinite-scroll :loading="loading" @load="load"></mu-infinite-scroll> -->
     </mu-scroll-view>
+    <mu-paper>
     <mu-bottom-nav :active="tabActive">
       <mu-bottom-nav-item icon="restore" @click="tabClick" title="Recents"></mu-bottom-nav-item>
       <mu-bottom-nav-item icon="favorite" @click="tabClick" title="Favorite"></mu-bottom-nav-item>
       <mu-bottom-nav-item icon="info" @click="tabClick" title="Info"></mu-bottom-nav-item>
     </mu-bottom-nav>
+  </mu-paper>
     <mu-dialog title="test" scrollable @overlayClick="open = false" :open="open" msg="this is test msg">
       <mu-flat-button label="cancel" slot="actions" primary/>
     </mu-dialog>
+    <mu-toast message="啦啦啦"/>
   </mu-page>
 </template>
 
