@@ -1,8 +1,8 @@
 <template>
   <div>
-    <abstract-button
+    <abstract-button @click.native="handlerClick"  containerElement="div"
       :href="href"
-      class="mu-item-wrapper" :wrapperStyle="itemStyle" :centerRipple="false">
+      class="mu-item-wrapper" :class="{'active': active}" :wrapperStyle="itemStyle" :centerRipple="false">
       <div style="position:relative;" :class="itemClass">
         <div class="mu-item-left" v-if="showLeft">
           <slot name="left"></slot>
@@ -16,7 +16,7 @@
                 <slot name="after">
                     {{afterText}}
                 </slot>
-                <icon value="navigate_next" v-if="link" class="mu-item-link-icon"></icon>
+                <icon value="navigate_next" v-if="link && !toggleNested" class="mu-item-link-icon"></icon>
             </div>
           </div>
           <div class="mu-item-sub-title" v-if="subTitle">
@@ -28,10 +28,14 @@
           <slot></slot>
         </div>
         <div class="mu-item-right" v-if="showRight">
+          <icon-button  v-if="toggleNested" :icon="nestedOpen ? 'expand_less' : 'expand_more'"/>
           <slot name="right"></slot>
         </div>
       </div>
     </abstract-button>
+    <mu-list v-if="showNested" :nestedLevel="nestedLevel" @change="handlerNestedChange" :selectIndex="nestedSelectIndex">
+      <slot name="nested"></slot>
+    </mu-list>
   </div>
 </template>
 
@@ -44,8 +48,7 @@ export default {
   name: 'mu-list-item',
   props: {
     href: {
-      type: String,
-      default: 'javascript:;'
+      type: String
     },
     link: {
       type: Boolean,
@@ -70,12 +73,26 @@ export default {
     describeLine: {
       type: Number,
       default: 2
+    },
+    initiallyOpen: {
+      type: Boolean,
+      default: true
+    },
+    toggleNested: {
+      type: Boolean,
+      default: false
+    },
+    index: {}
+  },
+  data () {
+    return {
+      nestedOpen: this.initiallyOpen
     }
   },
   computed: {
     itemClass () {
       var arr = ['mu-item']
-      if (this.link) arr.push('mu-item-link')
+      if (this.link && !this.toggleNested) arr.push('mu-item-link')
       if (this.showLeft) arr.push('show-left')
       if (this.showRight) arr.push('show-right')
       return arr.join(' ')
@@ -92,15 +109,30 @@ export default {
       return this.$slots && this.$slots.left && this.$slots.left.length > 0
     },
     showRight () {
-      return this.$slots && this.$slots.right && this.$slots.right.length > 0
+      return this.toggleNested || (this.$slots && this.$slots.right && this.$slots.right.length > 0)
+    },
+    showNested () {
+      return this.nestedOpen && this.$slots && this.$slots.nested && this.$slots.nested.length > 0
+    },
+    active () {
+      return this.$parent.selectIndex && this.index && this.$parent.selectIndex === this.index
+    },
+    nestedSelectIndex () {
+      return this.$parent.selectIndex
     }
   },
   methods: {
-    click () {
-      this.$emit('click')
+    handlerToggleNested () {
+      this.nestedOpen = !this.nestedOpen
+      this.$emit('toggleNested', this.nestedOpen)
     },
-    toggleNested () {
-      this.open = !this.open
+    handlerClick (e) {
+      this.$emit('click', e)
+      if (this.index) this.$parent.handlerChange(this.index)
+      if (this.toggleNested) this.handlerToggleNested()
+    },
+    handlerNestedChange (index) {
+      this.$parent.handlerChange(index)
     }
   },
   components: {
@@ -121,6 +153,9 @@ export default {
     outline: none;
     &.hover {
         background-color: fade(@textColor, 10%);
+    }
+    &.active {
+      background-color: fade(@textColor, 20%);
     }
 }
 
@@ -150,6 +185,14 @@ export default {
   display: block;
   position: absolute;
   right: 0;
+  top: 0;
+}
+
+.mu-item-toggle-button {
+  position: absolute;
+  color: @textColor;
+  position: absolute;
+  right: 4px;
   top: 0;
 }
 .mu-item-right,
@@ -214,4 +257,5 @@ export default {
   word-break: break-all;
   color: @secondaryTextColor;
 }
+
 </style>

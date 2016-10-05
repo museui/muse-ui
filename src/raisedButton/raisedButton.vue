@@ -1,8 +1,6 @@
 <template>
-  <abstract-button :disabled="disabled" :href="href" :style="buttonStyle" class="mu-raised-button"
-    :class="{'mu-raised-button-primary': primary, 'mu-raised-button-secondary': secondary,
-    'label-before': labelPosition === 'before', 'mu-raised-button-inverse': inverse,
-    'mu-raised-button-full': fullWidth}" wrapperClass="mu-raised-button-wrapper" :centerRipple="false">
+  <abstract-button :disabled="disabled" @click.native="handlerClick" :href="href" :style="buttonStyle" class="mu-raised-button"
+    :class="buttonClass" wrapperClass="mu-raised-button-wrapper" :centerRipple="false">
     <span class="mu-raised-button-label" :class="[labelClass]" v-if="label && labelPosition === 'before'">{{label}}</span>
     <icon :value="icon"></icon>
     <span class="mu-raised-button-label" :class="[labelClass]" v-if="label && labelPosition === 'after'">{{label}}</span>
@@ -64,6 +62,20 @@ export default {
     },
     inverse () {
       return this.primary || this.secondary || this.backgroundColor
+    },
+    buttonClass () {
+      return {
+        'mu-raised-button-primary': this.primary,
+        'mu-raised-button-secondary': this.secondary,
+        'label-before': this.labelPosition === 'before',
+        'mu-raised-button-inverse': this.inverse,
+        'mu-raised-button-full': this.fullWidth
+      }
+    }
+  },
+  methods: {
+    handlerClick (e) {
+      this.$emit('click', e)
     }
   },
   components: {

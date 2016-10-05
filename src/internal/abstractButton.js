@@ -26,6 +26,9 @@ export default {
       default: ''
     },
     wrapperStyle: {
+    },
+    containerElement: {
+      type: String
     }
   },
   data () {
@@ -64,7 +67,7 @@ export default {
         }
       }, this.$slots.default)]
     }
-    return h(this.href ? 'a' : 'button', {
+    return h(this.href ? 'a' : this.containerElement ? this.containerElement : 'button', {
       class: this.buttonClass,
       domProps: {
         disabled: this.disabled,

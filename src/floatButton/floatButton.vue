@@ -1,5 +1,5 @@
 <template>
-<abstract-button :href="href" :style="buttonStyle" :disabled="disabled" class="mu-float-button" :class="[buttonClass]">
+<abstract-button :href="href" @click.native="handlerClick" :style="buttonStyle" :disabled="disabled" class="mu-float-button" :class="[buttonClass]">
   <div class="mu-float-button-wrapper">
     <icon :value="this.icon" :class="[iconClass]"></icon>
   </div>
@@ -52,6 +52,11 @@ export default {
       return {
         'background-color': getColor(this.backgroundColor)
       }
+    }
+  },
+  methods: {
+    handlerClick (e) {
+      this.$emit('click', e)
     }
   },
   components: {

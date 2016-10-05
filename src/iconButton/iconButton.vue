@@ -1,5 +1,5 @@
 <template>
-<abstract-button :href="href" :disabled="disabled" class="mu-icon-button">
+<abstract-button @click.native="handlerClick" :href="href" :disabled="disabled" class="mu-icon-button">
   <icon :value="this.icon" :class="[iconClass]"></icon>
 </abstract-button>
 </template>
@@ -24,6 +24,11 @@ export default {
     disabled: {
       type: Boolean,
       default: false
+    }
+  },
+  methods: {
+    handlerClick (e) {
+      this.$emit('click', e)
     }
   },
   components: {

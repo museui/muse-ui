@@ -47,26 +47,24 @@
           </mu-chip>
         </div>
       </mu-content-block>
-      <mu-list>
+      <mu-list @change="handlerChange" :selectIndex="active">
         <mu-sub-header>
             test sub header
         </mu-sub-header>
         <mu-divider></mu-divider>
-        <mu-list-item  title="测试标题" link>
-          <mu-icon slot="left" value="info"></mu-icon>
+        <mu-list-item title="测试标题" link toggleNested>
+          <mu-avatar slot="left" src="http://www.myronliu.com/img/uicon.jpg"></mu-avatar>
           <mu-badge slot="after" secondary circle>11</mu-badge>
+          <mu-list-item slot="nested" :index="1" title="测试标题" link>
+            <mu-badge slot="after" secondary circle>11</mu-badge>
+          </mu-list-item>
+          <mu-list-item slot="nested" :index="2" title="测试标题" link>
+            <mu-badge slot="after" secondary circle>11</mu-badge>
+          </mu-list-item>
+          <mu-list-item slot="nested" :index="3" title="测试标题" link>
+            <mu-badge slot="after" secondary circle>11</mu-badge>
+          </mu-list-item>
         </mu-list-item>
-        <mu-list :nestedLevel="1">
-          <mu-list-item title="测试标题" link>
-            <mu-badge slot="after" secondary circle>11</mu-badge>
-          </mu-list-item>
-          <mu-list-item title="测试标题" link>
-            <mu-badge slot="after" secondary circle>11</mu-badge>
-          </mu-list-item>
-          <mu-list-item title="测试标题" link>
-            <mu-badge slot="after" secondary circle>11</mu-badge>
-          </mu-list-item>
-        </mu-list>
         <!-- <mu-divider inset></mu-divider> -->
         <!-- <mu-divider inset></mu-divider> -->
 
@@ -90,7 +88,8 @@ export default {
     return {
       refreshing: false,
       loading: false,
-      tabActive: 1
+      tabActive: 1,
+      active: 0
     }
   },
   methods: {
@@ -108,6 +107,9 @@ export default {
     },
     tabClick (index) {
       this.tabActive = index
+    },
+    handlerChange (index) {
+      this.active = index
     }
   }
 }

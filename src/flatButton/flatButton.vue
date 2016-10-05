@@ -1,7 +1,8 @@
 <template>
 <abstract-button
   :disabled="disabled" wrapperClass="mu-flat-button-wrapper" :href="href" :style="buttonStyle" class="mu-flat-button"
-  :class="{'mu-flat-button-primary': primary, 'mu-flat-button-secondary': secondary, 'label-before': labelPosition === 'before'}" :centerRipple="false">
+  @click.native="handlerClick"
+  :class="buttonClass" :centerRipple="false">
   <span class="mu-flat-button-label" :class="[labelClass]" v-if="label && labelPosition === 'before'">{{label}}</span>
   <icon :value="icon"></icon>
   <span class="mu-flat-button-label" :class="[labelClass]" v-if="label && labelPosition === 'after'">{{label}}</span>
@@ -55,10 +56,22 @@ export default {
       default: ''
     }
   },
+  methods: {
+    handlerClick (e) {
+      this.$emit('click', e)
+    }
+  },
   computed: {
     buttonStyle () {
       return {
         'backgroud-color': this.hover ? getColor(this.hoverColor) : getColor(this.backgroundColor)
+      }
+    },
+    buttonClass () {
+      return {
+        'mu-flat-button-primary': this.primary,
+        'mu-flat-button-secondary': this.secondary,
+        'label-before': this.labelPosition === 'before'
       }
     }
   },

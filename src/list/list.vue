@@ -10,6 +10,12 @@ export default {
     nestedLevel: {
       type: Number,
       default: 0
+    },
+    selectIndex: {}
+  },
+  methods: {
+    handlerChange (index) {
+      if (index) this.$emit('change', index)
     }
   }
 }

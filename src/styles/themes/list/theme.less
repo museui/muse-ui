@@ -2,7 +2,10 @@
 // list
 .mu-item-wrapper{
   &.hover {
-    background-color: fade(@listTextColor, 10%);
+    background-color: @listHoverColor;
+  }
+  &.active {
+    background-color: @listActiveColor;
   }
 }
 .mu-item {
