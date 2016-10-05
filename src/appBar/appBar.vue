@@ -39,7 +39,7 @@ export default {
   align-items: center;
   color: @alternateTextColor;
   background-color: @primary1Color;
-  font-size: 20px;
+  font-size: 24px;
   height: @desktopToolbarHeight;
   width: 100%;
   padding: 0 8px;

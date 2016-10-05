@@ -91,11 +91,12 @@ export default {
   border-radius: 2px;
   height: 36px;
   line-height: 36px;
-  min-width: 64px;
+  min-width: 88px;
   transition-duration: 300ms;
   transition-timing-function: @easeOutFunction;
   transform: translate3d(0, 0, 0);
   text-decoration: none;
+  text-transform: uppercase;
   border: none;
   appearance: none;
   background: none;

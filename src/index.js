@@ -21,6 +21,7 @@ import searchBar from './searchBar'
 import * as bottomNav from './bottomNav'
 import * as card from './card'
 import chip from './chip'
+import dialog from './dialog'
 const components = {
   page,
   scrollView,
@@ -43,7 +44,8 @@ const components = {
   searchBar,
   ...bottomNav,
   ...card,
-  chip
+  chip,
+  dialog
 }
 
 export default {

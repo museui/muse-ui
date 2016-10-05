@@ -34,7 +34,7 @@
         <mu-flat-button labelPosition="before" label="测试按钮" icon="info"></mu-flat-button>
         <mu-float-button icon="add" secondary></mu-float-button>
         <mu-raised-button labelPosition="before" label="测试按钮" icon="info"></mu-raised-button>
-        <mu-raised-button primary label="测试按钮" icon="info"></mu-raised-button>
+        <mu-raised-button @click="openDialog" primary label="测试按钮" icon="info"></mu-raised-button>
         <mu-raised-button full-width secondary style="margin-top: 12px;" labelPosition="before" label="测试按钮" icon="info"></mu-raised-button>
         <!-- Muse UI 是基于 vue2 开发的material design ui 库 -->
         <div style="margin-top:10px;">
@@ -79,6 +79,9 @@
       <mu-bottom-nav-item icon="favorite" @click="tabClick" title="Favorite"></mu-bottom-nav-item>
       <mu-bottom-nav-item icon="info" @click="tabClick" title="Info"></mu-bottom-nav-item>
     </mu-bottom-nav>
+    <mu-dialog title="test" scrollable @overlayClick="open = false" :open="open" msg="this is test msg">
+      <mu-flat-button label="cancel" slot="actions" primary/>
+    </mu-dialog>
   </mu-page>
 </template>
 
@@ -89,7 +92,8 @@ export default {
       refreshing: false,
       loading: false,
       tabActive: 1,
-      active: 0
+      active: 0,
+      open: false
     }
   },
   methods: {
@@ -110,6 +114,9 @@ export default {
     },
     handlerChange (index) {
       this.active = index
+    },
+    openDialog () {
+      this.open = true
     }
   }
 }

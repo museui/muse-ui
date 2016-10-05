@@ -73,6 +73,9 @@ export default {
         disabled: this.disabled,
         href: this.disabled ? 'javascript:;' : this.href
       },
+      style: {
+        'user-select': 'none'
+      },
       on: {
         mouseenter: this.handlerHover,
         mouseleave: this.handlerOut,
