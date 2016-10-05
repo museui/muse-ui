@@ -21,6 +21,7 @@ import searchBar from './searchBar'
 import * as bottomNav from './bottomNav'
 import * as card from './card'
 import chip from './chip'
+import overlay from './internal/popup/overlay'
 import dialog from './dialog'
 const components = {
   page,
@@ -45,6 +46,7 @@ const components = {
   ...bottomNav,
   ...card,
   chip,
+  overlay,
   dialog
 }
 

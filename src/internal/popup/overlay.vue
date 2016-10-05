@@ -6,6 +6,7 @@
 <script>
 import {getZIndex} from './utils'
 export default {
+  name: 'mu-overlay',
   props: {
     show: {
       type: Boolean,
