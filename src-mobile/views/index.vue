@@ -1,10 +1,10 @@
 <template>
   <mu-page>
     <mu-paper>
-      <mu-app-bar title="Muse UI">
+      <mu-appbar title="Muse UI">
         <mu-icon-button slot="left" icon="menu"></mu-icon-button>
         <mu-icon-button slot="right" icon="refresh" @click.native="refresh"></mu-icon-button>
-      </mu-app-bar>
+      </mu-appbar>
     </mu-paper>
     <!-- <mu-tab-bar :active="tabActive">
       <mu-tab-item @tab-click="tabClick" icon="info" title="tab1"></mu-tab-item>

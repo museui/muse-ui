@@ -1,11 +1,11 @@
 <template>
-<div class="mu-app-bar">
+<div class="mu-appbar">
   <div class="left">
     <slot name="left"></slot>
   </div>
   <div class="center">
     <slot>
-      <h1 class="mu-app-title">{{title}}</h1>
+      <h1 class="mu-appbar-title">{{title}}</h1>
     </slot>
   </div>
   <div class="right">
@@ -16,7 +16,7 @@
 
 <script>
 export default {
-  name: 'mu-app-bar',
+  name: 'mu-appbar',
   props: {
     title: {
       type: String,
@@ -28,7 +28,7 @@ export default {
 
 <style lang="less">
 @import "../styles/import.less";
-.mu-app-bar {
+.mu-appbar {
   display: flex;
   align-self: flex-start;
   justify-content: flex-start;
@@ -56,7 +56,7 @@ export default {
   }
 }
 
-.mu-app-title {
+.mu-appbar-title {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -66,11 +66,11 @@ export default {
 }
 
 @media (min-width: 480px) {
-  .mu-app-bar {
+  .mu-appbar {
     height: @desktopKeylineIncrement;
     font-size: 24px;
   }
-  .mu-app-title {
+  .mu-appbar-title {
     font-size: 24px;
   }
 }

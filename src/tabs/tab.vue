@@ -11,7 +11,7 @@
 import touchRipple from '../internal/touchRipple'
 import icon from '../icon'
 export default {
-  name: 'mu-tab-item',
+  name: 'mu-tab',
   props: {
     icon: {
       type: String,

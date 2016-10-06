@@ -50,4 +50,14 @@ export default {
     min-width: 288px;
   }
 }
+
+@media (min-width: 992px) {
+  .mu-toast-wrapper {
+    bottom: auto;
+    left: auto;
+    top: 10%;
+    right: 7%;
+    width: auto;
+  }
+}
 </style>

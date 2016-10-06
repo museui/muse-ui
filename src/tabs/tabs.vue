@@ -1,5 +1,5 @@
 <template>
-  <div class="mu-tab-bar">
+  <div class="mu-tabs">
     <slot></slot>
     <span class="mu-tab-link-highlight" :style="tabLightStyle"></span>
   </div>
@@ -7,7 +7,7 @@
 
 <script>
 export default {
-  name: 'mu-tab-bar',
+  name: 'mu-tabs',
   props: {
     active: {
       type: Number,
@@ -34,7 +34,7 @@ export default {
 
 <style lang="less">
 @import "../styles/import.less";
-.mu-tab-bar{
+.mu-tabs{
   display: flex;
   justify-content: space-between;
   align-items: center;

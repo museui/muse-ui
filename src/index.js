@@ -3,7 +3,7 @@ import Vue from 'vue'
 import {page, scrollView} from './scrollView'
 import icon from './icon'
 import badge from './badge'
-import appBar from './appBar'
+import appbar from './appbar'
 import iconButton from './iconButton'
 import flatButton from './flatButton'
 import raisedButton from './raisedButton'
@@ -15,7 +15,7 @@ import divider from './divider'
 import refreshControl from './refreshControl'
 import infiniteScroll from './infiniteScroll'
 import avatar from './avatar'
-import * as tabBar from './tabBar'
+import * as tabs from './tabs'
 import paper from './paper'
 import searchBar from './searchBar'
 import * as bottomNav from './bottomNav'
@@ -29,7 +29,7 @@ const components = {
   scrollView,
   icon,
   badge,
-  appBar,
+  appbar,
   iconButton,
   flatButton,
   raisedButton,
@@ -41,7 +41,7 @@ const components = {
   refreshControl,
   infiniteScroll,
   avatar,
-  ...tabBar,
+  ...tabs,
   paper,
   searchBar,
   ...bottomNav,
