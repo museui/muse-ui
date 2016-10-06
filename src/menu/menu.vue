@@ -76,14 +76,13 @@ export default {
 .mu-menu {
   overflow-x: hidden;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   z-index: 90;
 }
 
 .mu-menu-list {
   padding: 8px 0;
-  display: table-cell;
   -webkit-user-select: none;
-  width: 168px;
   > .mu-divider {
     margin: 7px 0px 8px;
   }

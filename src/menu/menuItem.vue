@@ -85,6 +85,7 @@ export default {
   transition: all .45s @easeOutFunction;
   color: @textColor;
   position: relative;
+  cursor: pointer;
   .mu-menu-destop & {
     height: 32px;
     line-height: 32px;

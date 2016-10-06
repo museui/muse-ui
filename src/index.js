@@ -27,6 +27,7 @@ import toast from './toast'
 import snackbar from './snackbar'
 import popup from './popup'
 import * as menu from './menu'
+import actionsheet from './actionsheet'
 const components = {
   page,
   scrollView,
@@ -55,7 +56,8 @@ const components = {
   toast,
   snackbar,
   popup,
-  ...menu
+  ...menu,
+  actionsheet
 }
 
 export default {

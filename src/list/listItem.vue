@@ -147,16 +147,20 @@ export default {
 <style lang="less">
 @import "../styles/import.less";
 .mu-item-wrapper {
-    display: block;
-    color: inherit;
-    position: relative;
-    outline: none;
-    &.hover {
-        background-color: fade(@textColor, 10%);
-    }
-    &.active {
-      background-color: fade(@textColor, 20%);
-    }
+  display: block;
+  color: inherit;
+  position: relative;
+  outline: none;
+  cursor: pointer;
+  &.hover {
+    background-color: fade(@textColor, 10%);
+  }
+  &.active {
+    background-color: fade(@textColor, 20%);
+  }
+  &.disabled{
+    cursor: default;
+  }
 }
 
 .mu-item {
