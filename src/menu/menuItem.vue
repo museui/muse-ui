@@ -3,7 +3,7 @@
    <abstract-button @click.native="handlerClick" class="mu-menu-item-wrapper" :class="{'active': active}"
     :href="href" :centerRipple="false" :disabled="disabled" containerElement="div">
      <div class="mu-menu-item" :class="{'have-left-icon': leftIcon}">
-       <icon :value="leftIcon" class="mu-menu-item-left-icon" />
+       <icon :value="leftIcon" :style="{'color': filterColor(leftIconColor)}" class="mu-menu-item-left-icon" />
        <div>
          {{title}}
        </div>
@@ -11,7 +11,7 @@
          <span v-if="showAfterText">{{afterText}}</span>
          <slot></slot>
        </div>
-       <icon :value="rightIcon" class="mu-menu-item-right-icon"/>
+       <icon :value="rightIcon" :style="{'color': filterColor(rightIconColor)}" class="mu-menu-item-right-icon"/>
      </div>
    </abstract-button>
 </div>
@@ -20,6 +20,7 @@
 <script>
 import abstractButton from '../internal/abstractButton'
 import icon from '../icon'
+import {getColor} from '../utils'
 export default {
   name: 'mu-menu-item',
   props: {
@@ -37,6 +38,12 @@ export default {
       type: String
     },
     leftIcon: {
+      type: String
+    },
+    leftIconColor: {
+      type: String
+    },
+    rightIconColor: {
       type: String
     },
     rightIcon: {
@@ -57,6 +64,9 @@ export default {
       if (this.disabled) return
       this.$emit('click')
       if (this.index) this.$parent.handlerChange(this.index)
+    },
+    filterColor (color) {
+      return getColor(color)
     }
   },
   components: {

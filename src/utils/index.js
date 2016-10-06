@@ -1,10 +1,5 @@
 import * as colorsObj from './colors'
 
-let zIndex = 20141223
-export const getZIndex = function () {
-  return zIndex++
-}
-
 const colors = Object.keys(colorsObj)
 export const getColor = function (color) {
   if (!color) return ''
