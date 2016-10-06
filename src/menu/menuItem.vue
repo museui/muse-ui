@@ -56,7 +56,7 @@ export default {
       return !this.rightIcon && this.afterText && (!this.$slot || !this.$slot.default || this.$slot.default.length === 0)
     },
     active () {
-      return this.$parent.selectIndex && this.index && this.$parent.selectIndex === this.index
+      return this.$parent.selectIndex && this.index && (this.$parent.selectIndex === this.index || (this.$parent.multiple && this.$parent.selectIndex.indexOf(this.index) !== -1))
     }
   },
   methods: {

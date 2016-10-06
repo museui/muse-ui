@@ -1,6 +1,6 @@
 <template>
-<div class="mu-menu">
-  <div ref="list" class="mu-menu-list" :class="{'mu-menu-destop': desktop}">
+<div class="mu-menu" :style="{'width': contentWidth, 'maxHeight': maxHeight + 'px'}" >
+  <div ref="list" class="mu-menu-list" :style="{'width': contentWidth}" :class="{'mu-menu-destop': desktop}">
     <slot></slot>
   </div>
 </div>
@@ -33,6 +33,11 @@ export default {
   computed: {
     keyWidth () {
       return this.desktop ? 64 : 56
+    },
+    contentWidth () {
+      let width = String(this.width)
+      if (width && width.indexOf('%') === -1 && width.indexOf('px') === -1) width += 'px'
+      return this.autoWidth ? '' : width
     }
   },
   mounted () {

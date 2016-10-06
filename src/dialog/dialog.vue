@@ -23,9 +23,9 @@
 
 <script>
 import Vue from 'vue'
-import popup from '../internal/popup'
+import Popup from '../internal/popup'
 export default {
-  mixins: [popup],
+  mixins: [Popup],
   name: 'mu-dialog',
   props: {
     open: {
