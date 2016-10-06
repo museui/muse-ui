@@ -25,6 +25,7 @@ import overlay from './internal/popup/overlay'
 import dialog from './dialog'
 import toast from './toast'
 import snackbar from './snackbar'
+import popup from './popup'
 const components = {
   page,
   scrollView,
@@ -51,7 +52,8 @@ const components = {
   overlay,
   dialog,
   toast,
-  snackbar
+  snackbar,
+  popup
 }
 
 export default {
