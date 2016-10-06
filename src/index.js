@@ -26,6 +26,7 @@ import dialog from './dialog'
 import toast from './toast'
 import snackbar from './snackbar'
 import popup from './popup'
+import * as menu from './menu'
 const components = {
   page,
   scrollView,
@@ -53,7 +54,8 @@ const components = {
   dialog,
   toast,
   snackbar,
-  popup
+  popup,
+  ...menu
 }
 
 export default {

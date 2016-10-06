@@ -123,7 +123,7 @@ export default {
   }
   &.disabled{
     color: @disabledColor;
-    cursor: default;
+    cursor: not-allowed;
     background: none;
   }
   .mu-icon {

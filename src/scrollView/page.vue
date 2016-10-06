@@ -23,5 +23,8 @@ export default {
   background-color: @canvasColor;
   justify-content: center;
   align-items: flex-start;
+  > .mu-paper {
+    width: 100%;
+  }
 }
 </style>

@@ -1,5 +1,4 @@
 import touchRipple from './touchRipple'
-const IS_TOUCH = ('ontouchstart' in window) || window.DocumentTouch && document instanceof window.DocumentTouch
 export default {
   props: {
     href: {
@@ -46,7 +45,7 @@ export default {
   },
   methods: {
     handlerHover () {
-      if (!IS_TOUCH) this.hover = true
+      if (!this.disabled) this.hover = true
     },
     handlerOut () {
       this.hover = false

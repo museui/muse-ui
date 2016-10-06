@@ -72,22 +72,33 @@
 
       </mu-list>
       <mu-content-block>
-        <mu-paper class="demo-paper" :rounded="false" :zDepth="3" circle></mu-paper>
+        <mu-paper class="demo-paper">
+          <mu-menu :selectIndex="1">
+            <mu-sub-header>Sub Header</mu-sub-header>
+            <mu-menu-item disabled title="menu1"/>
+            <mu-menu-item :index="1" title="menu2">
+              <mu-badge secondary content="12"></mu-badge>
+            </mu-menu-item>
+            <mu-menu-item title="menu3"/>
+            <mu-divider/>
+            <mu-menu-item title="menu4"/>
+          </mu-menu>
+        </mu-paper>
       </mu-content-block>
       <!-- <mu-infinite-scroll :loading="loading" @load="load"></mu-infinite-scroll> -->
     </mu-scroll-view>
     <mu-paper>
-    <mu-bottom-nav :active="tabActive">
-      <mu-bottom-nav-item icon="restore" @click="tabClick" title="Recents"></mu-bottom-nav-item>
-      <mu-bottom-nav-item icon="favorite" @click="tabClick" title="Favorite"></mu-bottom-nav-item>
-      <mu-bottom-nav-item icon="info" @click="tabClick" title="Info"></mu-bottom-nav-item>
-    </mu-bottom-nav>
-  </mu-paper>
+      <mu-bottom-nav :active="tabActive">
+        <mu-bottom-nav-item icon="restore" @click="tabClick" title="Recents"></mu-bottom-nav-item>
+        <mu-bottom-nav-item icon="favorite" @click="tabClick" title="Favorite"></mu-bottom-nav-item>
+        <mu-bottom-nav-item icon="info" @click="tabClick" title="Info"></mu-bottom-nav-item>
+      </mu-bottom-nav>
+    </mu-paper>
     <mu-dialog title="test" scrollable @overlayClick="open = false" :open="open" message="this is test msg">
       <mu-flat-button label="cancel" slot="actions" primary/>
     </mu-dialog>
     <!-- <mu-toast  v-if="snackbar" @close="close()" message="啦啦啦"/> -->
-    <mu-snackbar message="啦啦啦" action="啦啦啦啦"/>
+    <!-- <mu-snackbar message="啦啦啦" action="啦啦啦啦"/> -->
   </mu-page>
 </template>
 
@@ -137,7 +148,6 @@ export default {
 
 <style lang="css">
 .demo-paper{
-  width: 150px;
-  height: 150px;
+display: inline-block;
 }
 </style>

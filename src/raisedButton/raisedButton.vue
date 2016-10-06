@@ -128,7 +128,7 @@ export default {
   }
   &.disabled{
     color: fade(@textColor, 30%);
-    cursor: default;
+    cursor: not-allowed;
     background-color: darken(@alternateTextColor, 10%);
     box-shadow: none;
     &.hover,

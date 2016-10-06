@@ -36,7 +36,6 @@ export default {
 <style lang="less">
 @import "../styles/import.less";
 .mu-paper {
-  width: 100%;
   transition: all .45s @easeOutFunction;
   color: @textColor;
   background-color: @canvasColor;
