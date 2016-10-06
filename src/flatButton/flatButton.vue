@@ -1,7 +1,8 @@
 <template>
 <abstract-button
   :disabled="disabled" wrapperClass="mu-flat-button-wrapper" :href="href" :style="buttonStyle" class="mu-flat-button"
-  @click.native="handlerClick"
+  @click.native="handlerClick" :rippleColor="rippleColor"
+  :rippleOpacity="rippleOpacity"
   :class="buttonClass" :centerRipple="false">
   <span class="mu-flat-button-label" :class="[labelClass]" v-if="label && labelPosition === 'before'">{{label}}</span>
   <icon :value="icon"></icon>
@@ -51,9 +52,19 @@ export default {
       type: String,
       default: ''
     },
+    color: {
+      type: String,
+      default: ''
+    },
     hoverColor: {
       type: String,
       default: ''
+    },
+    rippleColor: {
+      type: String
+    },
+    rippleOpacity: {
+      type: Number
     }
   },
   methods: {
@@ -64,7 +75,8 @@ export default {
   computed: {
     buttonStyle () {
       return {
-        'backgroud-color': this.hover ? getColor(this.hoverColor) : getColor(this.backgroundColor)
+        'backgroud-color': this.hover ? getColor(this.hoverColor) : getColor(this.backgroundColor),
+        'color': getColor(this.color)
       }
     },
     buttonClass () {

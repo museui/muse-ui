@@ -24,6 +24,7 @@ import chip from './chip'
 import overlay from './internal/popup/overlay'
 import dialog from './dialog'
 import toast from './toast'
+import snackbar from './snackbar'
 const components = {
   page,
   scrollView,
@@ -49,7 +50,8 @@ const components = {
   chip,
   overlay,
   dialog,
-  toast
+  toast,
+  snackbar
 }
 
 export default {

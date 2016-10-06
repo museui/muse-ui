@@ -83,10 +83,11 @@
       <mu-bottom-nav-item icon="info" @click="tabClick" title="Info"></mu-bottom-nav-item>
     </mu-bottom-nav>
   </mu-paper>
-    <mu-dialog title="test" scrollable @overlayClick="open = false" :open="open" msg="this is test msg">
+    <mu-dialog title="test" scrollable @overlayClick="open = false" :open="open" message="this is test msg">
       <mu-flat-button label="cancel" slot="actions" primary/>
     </mu-dialog>
-    <mu-toast message="啦啦啦"/>
+    <!-- <mu-toast  v-if="snackbar" @close="close()" message="啦啦啦"/> -->
+    <mu-snackbar message="啦啦啦" action="啦啦啦啦"/>
   </mu-page>
 </template>
 
@@ -98,7 +99,8 @@ export default {
       loading: false,
       tabActive: 1,
       active: 0,
-      open: false
+      open: false,
+      snackbar: true
     }
   },
   methods: {
@@ -122,6 +124,12 @@ export default {
     },
     openDialog () {
       this.open = true
+    },
+    close () {
+      this.snackbar = false
+      setTimeout(() => {
+        this.snackbar = true
+      }, 2000)
     }
   }
 }

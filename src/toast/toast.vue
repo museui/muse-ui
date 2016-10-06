@@ -1,18 +1,25 @@
 <template>
-<div class="mu-toast-wrapper" :style="{'z-index': zIndex}">
-  <div class="mu-toast">
+<transition name="mu-toast">
+  <div class="mu-toast" :style="{'z-index': zIndex}">
     {{message}}
   </div>
-</div>
+</transition>
 </template>
 
 <script>
 import {getZIndex} from '../internal/popup/utils'
+import clickoutside from '../internal/clickoutside'
 export default {
   name: 'mu-toast',
+  mixins: [clickoutside],
   props: {
     message: {
       type: String
+    }
+  },
+  methods: {
+    clickOutSide () {
+      this.$emit('close')
     }
   },
   data () {
@@ -25,15 +32,6 @@ export default {
 
 <style lang="less">
 @import "../styles/import.less";
-.mu-toast-wrapper {
-  position: fixed;
-  bottom: 16px;
-  left: 0;
-  display: flex;
-  width: 100%;
-  align-items: center;
-  justify-content: center;
-}
 .mu-toast {
   height: 48px;
   line-height: 48px;
@@ -42,22 +40,41 @@ export default {
   color: @alternateTextColor;
   border-radius: 24px;
   .ellipsis();
-  margin: auto;
+  max-width: 568px;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  bottom: 0;
 }
-@media (min-width: 480px) {
+
+
+@media only screen and (max-width: 992px) and (min-width: 601px) {
   .mu-toast {
-    max-width: 568px;
-    min-width: 288px;
+    width: auto;
+    min-width: 30%;
+    left: 5%;
+    bottom: 7%;
+  }
+}
+@media only screen and (min-width: 993px) {
+  .mu-toast {
+    width: auto;
+    min-width: 8%;
+    top: 10%;
+    right: 7%;
+    left: auto;
+    bottom: auto;
   }
 }
 
-@media (min-width: 992px) {
-  .mu-toast-wrapper {
-    bottom: auto;
-    left: auto;
-    top: 10%;
-    right: 7%;
-    width: auto;
-  }
+.mu-toast-enter-active,.mu-toast-leave-active{
+  transition: transform .4s @easeOutFunction, opacity .4s @easeOutFunction;
+  backface-visibility: hidden;
+}
+
+.mu-toast-enter,
+.mu-toast-leave-active{
+  transform: translate3d(0, 100%, 0);
+  opacity: 0;
 }
 </style>

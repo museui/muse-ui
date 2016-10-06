@@ -8,8 +8,8 @@
     </div>
     <div class="mu-dialog-body " :style="bodyStyle">
       <slot>
-        <div v-if="msg">
-          {{msg}}
+        <div v-if="message">
+          {{message}}
         </div>
       </slot>
     </div>
@@ -35,7 +35,7 @@ export default {
     title: {
       type: String
     },
-    msg: {
+    message: {
       type: String
     },
     scrollable: {
