@@ -37,7 +37,7 @@
         <mu-float-button icon="add" secondary></mu-float-button>
         <mu-raised-button labelPosition="before" label="测试按钮" icon="info"></mu-raised-button>
         <mu-raised-button @click="openDialog" primary label="测试按钮" icon="info"></mu-raised-button>
-        <mu-raised-button full-width secondary style="margin-top: 12px;" labelPosition="before" label="测试按钮" icon="info"></mu-raised-button>
+        <mu-raised-button @click="showPopover" full-width secondary style="margin-top: 12px;" labelPosition="before" label="测试按钮" icon="info"></mu-raised-button>
         <!-- Muse UI 是基于 vue2 开发的material design ui 库 -->
         <div style="margin-top:10px;">
           <mu-avatar>A</mu-avatar>
@@ -109,6 +109,18 @@
       <mu-divider/>
       <mu-menu-item title="menu4"/>
     </mu-actionsheet>
+    <mu-popover v-if="popover" :trigger="trigger" @close="closePopover">
+      <mu-menu :selectIndex="1">
+        <mu-sub-header>Sub Header</mu-sub-header>
+        <mu-menu-item disabled title="menu1"/>
+        <mu-menu-item :index="1" title="menu2">
+          <mu-badge secondary content="12"></mu-badge>
+        </mu-menu-item>
+        <mu-menu-item title="menu3"/>
+        <mu-divider/>
+        <mu-menu-item title="menu4"/>
+      </mu-menu>
+    </mu-popover>
   </mu-page>
 </template>
 
@@ -121,7 +133,9 @@ export default {
       tabActive: 1,
       active: 0,
       open: false,
-      snackbar: true
+      snackbar: true,
+      popover: false,
+      trigger: null
     }
   },
   methods: {
@@ -151,6 +165,13 @@ export default {
       setTimeout(() => {
         this.snackbar = true
       }, 2000)
+    },
+    showPopover (e) {
+      this.popover = true
+      this.trigger = e.target
+    },
+    closePopover () {
+      this.popover = false
     }
   }
 }
