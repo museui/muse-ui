@@ -102,6 +102,11 @@ export default {
           } else {
             position = 'top'
             top = anchorPostion.top - contentHeight
+            if (this.anchorOrigin.vertical === 'bottom') {
+              top -= elInfo.height
+            } else if (this.anchorOrigin.vertical === 'top') {
+              top += elInfo.height
+            }
           }
           break
         case 'center':
@@ -112,6 +117,11 @@ export default {
           if (anchorPostion.top > contentHeight) {
             position = 'top'
             top = anchorPostion.top - contentHeight
+            if (this.anchorOrigin.vertical === 'top') {
+              top += elInfo.height
+            } else if (this.anchorOrigin.vertical === 'bottom') {
+              top -= elInfo.height
+            }
           } else {
             position = 'bottom'
             top = anchorPostion.top
