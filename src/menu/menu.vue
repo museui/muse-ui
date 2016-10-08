@@ -28,7 +28,7 @@ export default {
     maxHeight: {
       type: Number
     },
-    selectIndex: {}
+    value: {}
   },
   computed: {
     keyWidth () {
@@ -64,8 +64,11 @@ export default {
       el.style.width = `${newWidth}px`
       listEl.style.width = `${newWidth}px`
     },
-    handlerChange (index) {
-      this.$emit('change')
+    handlerChange (value) {
+      this.$emit('change', value)
+    },
+    handlerClick (item) {
+      this.$emit('itemClick', item)
     }
   }
 }

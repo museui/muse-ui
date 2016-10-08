@@ -11,11 +11,11 @@ export default {
       type: Number,
       default: 0
     },
-    selectIndex: {}
+    value: {}
   },
   methods: {
-    handlerChange (index) {
-      if (index) this.$emit('change', index)
+    handlerChange (value) {
+      if (value) this.$emit('change', value)
     }
   }
 }

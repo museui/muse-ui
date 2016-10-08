@@ -33,7 +33,7 @@
         </div>
       </div>
     </abstract-button>
-    <mu-list v-if="showNested" :nestedLevel="nestedLevel" @change="handlerNestedChange" :selectIndex="nestedSelectIndex">
+    <mu-list v-if="showNested" :nestedLevel="nestedLevel" @change="handlerNestedChange" :value="nestedSelectValue">
       <slot name="nested"></slot>
     </mu-list>
   </div>
@@ -82,7 +82,7 @@ export default {
       type: Boolean,
       default: false
     },
-    index: {}
+    value: {}
   },
   data () {
     return {
@@ -115,10 +115,10 @@ export default {
       return this.nestedOpen && this.$slots && this.$slots.nested && this.$slots.nested.length > 0
     },
     active () {
-      return this.$parent.selectIndex && this.index && this.$parent.selectIndex === this.index
+      return this.$parent.value && this.value && this.$parent.value === this.value
     },
-    nestedSelectIndex () {
-      return this.$parent.selectIndex
+    nestedSelectValue () {
+      return this.$parent.value
     }
   },
   methods: {
@@ -128,11 +128,11 @@ export default {
     },
     handlerClick (e) {
       this.$emit('click', e)
-      if (this.index) this.$parent.handlerChange(this.index)
+      if (this.value) this.$parent.handlerChange(this.value)
       if (this.toggleNested) this.handlerToggleNested()
     },
-    handlerNestedChange (index) {
-      this.$parent.handlerChange(index)
+    handlerNestedChange (value) {
+      this.$parent.handlerChange(value)
     }
   },
   components: {

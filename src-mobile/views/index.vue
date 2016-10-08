@@ -2,7 +2,16 @@
   <div class="">
     <mu-paper>
       <mu-appbar title="Muse UI">
-        <mu-icon-button slot="left" icon="menu"></mu-icon-button>
+        <mu-icon-menu :value="1" slot="left" icon="menu">
+          <mu-sub-header>Sub Header</mu-sub-header>
+          <mu-menu-item disabled title="menu1"/>
+          <mu-menu-item :value="1" title="menu2">
+            <mu-badge secondary content="12"></mu-badge>
+          </mu-menu-item>
+          <mu-menu-item title="menu3"/>
+          <mu-divider/>
+          <mu-menu-item title="menu4"/>
+        </mu-icon-menu>
         <mu-icon-button slot="right" icon="refresh" @click.native="refresh"></mu-icon-button>
       </mu-appbar>
     </mu-paper>
@@ -49,7 +58,7 @@
           </mu-chip>
         </div>
       </mu-content-block>
-      <mu-list @change="handlerChange" :selectIndex="active">
+      <mu-list @change="handlerChange" :value="active">
         <mu-sub-header>
             test sub header
         </mu-sub-header>
@@ -57,13 +66,13 @@
         <mu-list-item title="测试标题" link toggleNested>
           <mu-avatar slot="left" src="http://www.myronliu.com/img/uicon.jpg"></mu-avatar>
           <mu-badge slot="after" secondary >11</mu-badge>
-          <mu-list-item slot="nested" :index="1" title="测试标题" link>
+          <mu-list-item slot="nested" :value="1" title="测试标题" link>
             <mu-badge slot="after" secondary circle>11</mu-badge>
           </mu-list-item>
-          <mu-list-item slot="nested" :index="2" title="测试标题" link>
+          <mu-list-item slot="nested" :value="2" title="测试标题" link>
             <mu-badge slot="after" secondary circle>11</mu-badge>
           </mu-list-item>
-          <mu-list-item slot="nested" :index="3" title="测试标题" link>
+          <mu-list-item slot="nested" :value="3" title="测试标题" link>
             <mu-badge slot="after" secondary circle>11</mu-badge>
           </mu-list-item>
         </mu-list-item>
@@ -73,10 +82,10 @@
       </mu-list>
       <mu-content-block>
         <mu-paper class="demo-paper">
-          <mu-menu :selectIndex="1">
+          <mu-menu :value="1">
             <mu-sub-header>Sub Header</mu-sub-header>
             <mu-menu-item disabled title="menu1"/>
-            <mu-menu-item :index="1" title="menu2">
+            <mu-menu-item :value="1" title="menu2">
               <mu-badge secondary content="12"></mu-badge>
             </mu-menu-item>
             <mu-menu-item title="menu3"/>
@@ -110,10 +119,10 @@
       <mu-menu-item title="menu4"/>
     </mu-actionsheet>
     <mu-popover v-if="popover" :trigger="trigger" @close="closePopover">
-      <mu-menu :selectIndex="1">
+      <mu-menu :value="1">
         <mu-sub-header>Sub Header</mu-sub-header>
         <mu-menu-item disabled title="menu1"/>
-        <mu-menu-item :index="1" title="menu2">
+        <mu-menu-item :value="1" title="menu2">
           <mu-badge secondary content="12"></mu-badge>
         </mu-menu-item>
         <mu-menu-item title="menu3"/>
@@ -151,11 +160,11 @@ export default {
         this.loading = false
       }, 2000)
     },
-    tabClick (index) {
-      this.tabActive = index
+    tabClick (value) {
+      this.tabActive = value
     },
-    handlerChange (index) {
-      this.active = index
+    handlerChange (value) {
+      this.active = value
     },
     openDialog () {
       this.open = true

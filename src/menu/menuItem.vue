@@ -49,21 +49,21 @@ export default {
     rightIcon: {
       type: String
     },
-    index: {}
+    value: {}
   },
   computed: {
     showAfterText () {
       return !this.rightIcon && this.afterText && (!this.$slot || !this.$slot.default || this.$slot.default.length === 0)
     },
     active () {
-      return this.$parent.selectIndex && this.index && (this.$parent.selectIndex === this.index || (this.$parent.multiple && this.$parent.selectIndex.indexOf(this.index) !== -1))
+      return this.$parent.value && this.value && (this.$parent.value === this.value || (this.$parent.multiple && this.$parent.value.indexOf(this.value) !== -1))
     }
   },
   methods: {
     handlerClick (e) {
       if (this.disabled) return
-      this.$emit('click')
-      if (this.index) this.$parent.handlerChange(this.index)
+      this.$parent.handlerClick(this)
+      if (this.value) this.$parent.handlerChange(this.value)
     },
     filterColor (color) {
       return getColor(color)

@@ -28,6 +28,7 @@ import popup from './popup'
 import * as menu from './menu'
 import actionsheet from './actionsheet'
 import popover from './popover'
+import iconMenu from './iconMenu'
 const components = {
   icon,
   badge,
@@ -56,7 +57,8 @@ const components = {
   popup,
   ...menu,
   actionsheet,
-  popover
+  popover,
+  iconMenu
 }
 
 export default {
