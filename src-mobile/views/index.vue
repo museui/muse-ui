@@ -94,7 +94,7 @@
         <mu-bottom-nav-item icon="info" @click="tabClick" title="Info"></mu-bottom-nav-item>
       </mu-bottom-nav>
     </mu-paper>
-    <!-- <mu-dialog title="test"  @overlayClick="open = false" :open="open" message="this is test msg">
+    <!-- <mu-dialog title="test"  @overlayClick="open = false" v-if="open" message="this is test msg">
       <mu-flat-button label="cancel" slot="actions" primary/>
     </mu-dialog> -->
     <!-- <mu-toast  v-if="snackbar" @close="close()" message="啦啦啦"/> -->

@@ -1,5 +1,5 @@
 <template>
-  <transition name="mu-actionsheet" v-if="open">
+  <transition name="mu-actionsheet">
     <div class="mu-actionsheet">
       <mu-menu :autoWidth="false" width="100%">
         <slot></slot>

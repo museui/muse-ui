@@ -145,7 +145,6 @@ export default {
       }
     },
     setStyle () {
-      // if (!this.open) return
       const position = this.computerPosition()
       this.$el.style.left = `${Math.max(0, position.left)}px`
       this.$el.style.top = `${Math.max(0, position.top)}px`
@@ -157,10 +156,9 @@ export default {
       this.close()
     },
     clickOutSide () {
-      // this.close()
+      this.close()
     },
     windowScroll () {
-      console.log(1)
       this.setStyle()
       const elInfo = this.getElInfo(this.trigger)
       if (elInfo.top < 0 || elInfo.left < 0) this.close()

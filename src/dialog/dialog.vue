@@ -1,6 +1,6 @@
 <template>
 <transition name="mu-dialog-scale">
-  <div class="mu-dialog" v-if="open">
+  <div class="mu-dialog">
     <div class="mu-dialog-header" ref="title" :class="{'scrollable': scrollable}" v-if="title">
       <div class="mu-dialog-title">
         {{title}}
@@ -22,16 +22,11 @@
 </template>
 
 <script>
-import Vue from 'vue'
 import Popup from '../internal/popup'
 export default {
   mixins: [Popup],
   name: 'mu-dialog',
   props: {
-    open: {
-      type: Boolean,
-      default: false
-    },
     title: {
       type: String
     },
@@ -57,17 +52,11 @@ export default {
       maxDialogContentHeight: null
     }
   },
-  watch: {
-    open (val) {
-      if (val) {
-        Vue.nextTick(() => {
-          let maxDialogContentHeight = window.innerHeight - 2 * 64
-          maxDialogContentHeight -= this.$refs.footer.offsetHeight
-          if (this.title) maxDialogContentHeight -= this.$refs.title.offsetHeight
-          this.maxDialogContentHeight = maxDialogContentHeight
-        })
-      }
-    }
+  mounted () {
+    let maxDialogContentHeight = window.innerHeight - 2 * 64
+    maxDialogContentHeight -= this.$refs.footer.offsetHeight
+    if (this.title) maxDialogContentHeight -= this.$refs.title.offsetHeight
+    this.maxDialogContentHeight = maxDialogContentHeight
   }
 }
 </script>

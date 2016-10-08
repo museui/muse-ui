@@ -2,10 +2,6 @@ import PopupManager from './manager'
 import {getZIndex} from './utils'
 export default {
   props: {
-    open: {
-      type: Boolean,
-      default: false
-    },
     overlay: {
       type: Boolean,
       default: true
@@ -19,30 +15,17 @@ export default {
       default: '#000'
     }
   },
-  watch: {
-    open (val) {
-      if (this.overlay) {
-        if (val) {
-          PopupManager.open(this)
-        } else {
-          PopupManager.close(this)
-        }
-      }
-    }
-  },
   methods: {
     overlayClick () {
       this.$emit('overlayClick')
     },
     setZIndex () {
-      if (this.open) {
-        const dom = this.$el
-        if (dom) dom.style.zIndex = getZIndex()
-      }
+      const dom = this.$el
+      if (dom) dom.style.zIndex = getZIndex()
     }
   },
   mounted () {
-    if (this.open && this.overlay) {
+    if (this.overlay) {
       PopupManager.open(this)
     } else {
       this.setZIndex()

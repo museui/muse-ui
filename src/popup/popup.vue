@@ -1,6 +1,6 @@
 <template>
 <transition :name="popupTransition">
-  <div v-if="open" class="mu-popup" :style="{'z-index': zIndex}" :class="[position ? 'mu-popup-' + position : '']">
+  <div class="mu-popup" :style="{'z-index': zIndex}" :class="[position ? 'mu-popup-' + position : '']">
     <slot></slot>
   </div>
 </transition>
