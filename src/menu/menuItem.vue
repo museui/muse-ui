@@ -9,11 +9,17 @@
        </div>
        <div v-if="!rightIcon">
          <span v-if="showAfterText">{{afterText}}</span>
-         <slot></slot>
+         <slot name="after"></slot>
        </div>
        <icon :value="rightIcon" :style="{'color': filterColor(rightIconColor)}" class="mu-menu-item-right-icon"/>
      </div>
    </abstract-button>
+   <popover v-if="openMenu" :anchorOrigin="{ vertical: 'top', horizontal: 'right'}"
+   @close="close" :trigger="trigger">
+     <mu-menu :desktop="$parent.desktop">
+       <slot></slot>
+     </mu-menu>
+   </popover>
 </div>
 </template>
 
@@ -21,6 +27,8 @@
 import abstractButton from '../internal/abstractButton'
 import icon from '../icon'
 import {getColor} from '../utils'
+import popover from '../popover'
+import menu from './menu'
 export default {
   name: 'mu-menu-item',
   props: {
@@ -53,25 +61,43 @@ export default {
   },
   computed: {
     showAfterText () {
-      return !this.rightIcon && this.afterText && (!this.$slot || !this.$slot.default || this.$slot.default.length === 0)
+      return !this.rightIcon && this.afterText && (!this.$slot || !this.$slot.after || this.$slot.after.length === 0)
     },
     active () {
       return this.$parent.value && this.value && (this.$parent.value === this.value || (this.$parent.multiple && this.$parent.value.indexOf(this.value) !== -1))
     }
   },
+  data () {
+    return {
+      openMenu: false,
+      trigger: null
+    }
+  },
+  mounted () {
+    this.trigger = this.$el
+  },
   methods: {
     handlerClick (e) {
       if (this.disabled) return
       this.$parent.handlerClick(this)
+      this.open()
       if (this.value) this.$parent.handlerChange(this.value)
     },
     filterColor (color) {
       return getColor(color)
+    },
+    open () {
+      this.openMenu = this.$slots && this.$slots.default && this.$slots.default.length > 0
+    },
+    close () {
+      this.openMenu = false
     }
   },
   components: {
     'abstract-button': abstractButton,
-    icon
+    icon,
+    popover,
+    'mu-menu': menu
   }
 }
 </script>

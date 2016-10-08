@@ -6,7 +6,7 @@
           <mu-sub-header>Sub Header</mu-sub-header>
           <mu-menu-item disabled title="menu1"/>
           <mu-menu-item :value="1" title="menu2">
-            <mu-badge secondary content="12"></mu-badge>
+            <mu-badge slot="after" secondary content="12"></mu-badge>
           </mu-menu-item>
           <mu-menu-item title="menu3"/>
           <mu-divider/>
@@ -86,7 +86,10 @@
             <mu-sub-header>Sub Header</mu-sub-header>
             <mu-menu-item disabled title="menu1"/>
             <mu-menu-item :value="1" title="menu2">
-              <mu-badge secondary content="12"></mu-badge>
+              <mu-badge slot="after" secondary content="12"></mu-badge>
+              <mu-menu-item title="menu3"/>
+              <mu-divider/>
+              <mu-menu-item title="menu4"/>
             </mu-menu-item>
             <mu-menu-item title="menu3"/>
             <mu-divider/>
@@ -123,7 +126,7 @@
         <mu-sub-header>Sub Header</mu-sub-header>
         <mu-menu-item disabled title="menu1"/>
         <mu-menu-item :value="1" title="menu2">
-          <mu-badge secondary content="12"></mu-badge>
+          <mu-badge secondary slot="after" content="12"></mu-badge>
         </mu-menu-item>
         <mu-menu-item title="menu3"/>
         <mu-divider/>
