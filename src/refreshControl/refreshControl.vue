@@ -19,6 +19,9 @@ export default {
     refreshing: {
       type: Boolean,
       default: false
+    },
+    trigger: {
+      type: window.Element
     }
   },
   data () {
@@ -73,7 +76,8 @@ export default {
     }
   },
   mounted () {
-    const drager = this.drager = new Drag(this.$parent.$el)
+    if (!this.trigger) return
+    const drager = this.drager = new Drag(this.trigger)
     const initTop = domUtil.getOffset(this.$el).top + INITY  // 初始化位置
     this.state = 'ready'
     drager.start(() => {

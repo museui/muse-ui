@@ -7,8 +7,10 @@
 
 <script>
 import circular from '../internal/circular'
+import Scroll from '../internal/scroll'
 export default {
   name: 'mu-infinite-scroll',
+  mixins: [Scroll],
   props: {
     loading: {
       type: Boolean,
@@ -20,24 +22,15 @@ export default {
     }
   },
   methods: {
-    onscroll () {
+    onScroll () {
       if (this.loading) return
-      const scroller = this.$parent.$el
+      const scroller = this.scroller
       let h = scroller.scrollHeight - scroller.scrollTop - 5
       let sh = scroller.offsetHeight
       if (h <= sh) {
         this.$emit('load')
       }
     }
-  },
-  mounted () {
-    this.handlerScroll = () => {
-      this.onscroll()
-    }
-    this.$parent.$el.addEventListener('scroll', this.handlerScroll, false)
-  },
-  beforeDestory () {
-    this.$parent.$el.removeEventListener('scroll', this.handlerScroll, false)
   },
   components: {
     circular

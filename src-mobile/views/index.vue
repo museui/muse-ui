@@ -1,5 +1,5 @@
 <template>
-  <mu-page>
+  <div class="">
     <mu-paper>
       <mu-appbar title="Muse UI">
         <mu-icon-button slot="left" icon="menu"></mu-icon-button>
@@ -12,7 +12,7 @@
       <mu-tab-item @tab-click="tabClick" icon="refresh" title="tab3"></mu-tab-item>
     </mu-tab-bar> -->
     <!-- <mu-search-bar></mu-search-bar> -->
-    <mu-scroll-view ref="scroll">
+    <div ref="scroll">
       <!-- <mu-refresh-control  @refresh="refresh" :refreshing="refreshing"></mu-refresh-control> -->
 
       <div style="padding: 8px">
@@ -86,7 +86,7 @@
         </mu-paper>
       </mu-content-block>
       <!-- <mu-infinite-scroll :loading="loading" @load="load"></mu-infinite-scroll> -->
-    </mu-scroll-view>
+    </div>
     <mu-paper>
       <mu-bottom-nav :active="tabActive">
         <mu-bottom-nav-item icon="restore" @click="tabClick" title="Recents"></mu-bottom-nav-item>
@@ -99,7 +99,7 @@
     </mu-dialog> -->
     <!-- <mu-toast  v-if="snackbar" @close="close()" message="啦啦啦"/> -->
     <!-- <mu-snackbar message="啦啦啦" action="啦啦啦啦"/> -->
-    <mu-actionsheet :open="open" @overlayClick="open = false" >
+    <mu-actionsheet v-if="open" @overlayClick="open = false" >
       <mu-sub-header>Sub Header</mu-sub-header>
       <mu-menu-item disabled title="menu1"/>
       <mu-menu-item title="menu2">
@@ -121,7 +121,7 @@
         <mu-menu-item title="menu4"/>
       </mu-menu>
     </mu-popover>
-  </mu-page>
+  </div>
 </template>
 
 <script>

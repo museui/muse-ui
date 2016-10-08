@@ -1,6 +1,5 @@
 import './styles/base.less'
 import Vue from 'vue'
-import {page, scrollView} from './scrollView'
 import icon from './icon'
 import badge from './badge'
 import appbar from './appbar'
@@ -30,8 +29,6 @@ import * as menu from './menu'
 import actionsheet from './actionsheet'
 import popover from './popover'
 const components = {
-  page,
-  scrollView,
   icon,
   badge,
   appbar,

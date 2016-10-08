@@ -158,7 +158,7 @@ export default {
     clickOutSide () {
       this.close()
     },
-    windowScroll () {
+    onScroll () {
       this.setStyle()
       const elInfo = this.getElInfo(this.trigger)
       if (elInfo.top < 0 || elInfo.left < 0) this.close()

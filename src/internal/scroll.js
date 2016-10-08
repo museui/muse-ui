@@ -1,12 +1,20 @@
 export default {
+  props: {
+    scroller: {
+      type: [window.HTMLDocument, window.Element, window.Window],
+      default () {
+        return window
+      }
+    }
+  },
   mounted () {
     this._handlerScroll = (e) => {
-      if (this.windowScroll) this.windowScroll()
+      if (this.onScroll) this.onScroll()
     }
-    window.addEventListener('scroll', this._handlerScroll)
+    this.scroller.addEventListener('scroll', this._handlerScroll)
   },
 
   beforeDestroy () {
-    window.removeEventListener('scroll', this._handlerScroll)
+    this.scroller.removeEventListener('scroll', this._handlerScroll)
   }
 }

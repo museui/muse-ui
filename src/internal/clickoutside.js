@@ -5,7 +5,9 @@ export default {
         if (this.clickOutSide) this.clickOutSide()
       }
     }
-    document.addEventListener('click', this._handlerClickOutSide)
+    setTimeout(() => {
+      document.addEventListener('click', this._handlerClickOutSide)
+    }, 0)
   },
 
   beforeDestroy () {
