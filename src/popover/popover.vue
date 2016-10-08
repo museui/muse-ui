@@ -8,7 +8,6 @@
 
 <script>
 import Popup from '../internal/popup'
-import * as domUtil from '../utils/domUtil'
 import clickoutside from '../internal/clickoutside'
 import scroll from '../internal/scroll'
 export default {
@@ -42,10 +41,10 @@ export default {
   },
   methods: {
     getElInfo (el) {
-      let offset = domUtil.getOffset(el)
+      let box = el.getBoundingClientRect()
       return {
-        left: offset.left,
-        top: offset.top,
+        left: box.left,
+        top: box.top,
         width: el.offsetWidth,
         height: el.offsetHeight
       }
