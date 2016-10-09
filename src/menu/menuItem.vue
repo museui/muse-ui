@@ -16,7 +16,7 @@
    </abstract-button>
    <popover v-if="openMenu" :anchorOrigin="{ vertical: 'top', horizontal: 'right'}"
    @close="close" :trigger="trigger">
-     <mu-menu :desktop="$parent.desktop">
+     <mu-menu :desktop="$parent.desktop" :maxHeight="$parent.maxHeight" :value="nestedValue">
        <slot></slot>
      </mu-menu>
    </popover>
@@ -57,7 +57,8 @@ export default {
     rightIcon: {
       type: String
     },
-    value: {}
+    value: {},
+    nestedMenuValue: {}
   },
   computed: {
     showAfterText () {

@@ -1,6 +1,6 @@
 <template>
 <transition name="mu-popover">
-  <div class="mu-popover">
+  <div class="mu-popover"  v-clickoutside="close">
     <slot></slot>
   </div>
 </transition>
@@ -12,7 +12,7 @@ import clickoutside from '../internal/clickoutside'
 import scroll from '../internal/scroll'
 export default {
   name: 'mu-popover',
-  mixins: [Popup, clickoutside, scroll],
+  mixins: [Popup, scroll],
   props: {
     overlay: {
       default: false
@@ -40,6 +40,32 @@ export default {
     }
   },
   methods: {
+    getAnchorPosition (el) {
+      const rect = el.getBoundingClientRect()
+      const a = {
+        top: rect.top,
+        left: rect.left,
+        width: el.offsetWidth,
+        height: el.offsetHeight
+      }
+
+      a.right = rect.right || a.left + a.width
+      a.bottom = rect.bottom || a.top + a.height
+      a.middle = a.left + ((a.right - a.left) / 2)
+      a.center = a.top + ((a.bottom - a.top) / 2)
+
+      return a
+    },
+    getTargetPosition (targetEl) {
+      return {
+        top: 0,
+        center: targetEl.offsetHeight / 2,
+        bottom: targetEl.offsetHeight,
+        left: 0,
+        middle: targetEl.offsetWidth / 2,
+        right: targetEl.offsetWidth
+      }
+    },
     getElInfo (el) {
       let box = el.getBoundingClientRect()
       return {
@@ -49,114 +75,92 @@ export default {
         height: el.offsetHeight
       }
     },
-    getAnchorPositon (elInfo) {
-      let left
-      let top
-      const windowWidth = window.innerWidth
-      const windowHeight = window.innerHeight
-      switch (this.anchorOrigin.horizontal) {
-        case 'left':
-          left = elInfo.left
-          break
-        case 'middle':
-          left = elInfo.left + elInfo.width / 2
-          break
-        case 'right':
-          left = elInfo.left + elInfo.width
-          break
-      }
-
-      switch (this.anchorOrigin.vertical) {
-        case 'top':
-          top = elInfo.top
-          break
-        case 'center':
-          top = elInfo.top + elInfo.height / 2
-          break
-        case 'bottom':
-          top = elInfo.top + elInfo.height
-          break
-      }
-
-      return {
-        left: left,
-        top: top,
-        right: windowWidth - left,
-        bottom: windowHeight - top
-      }
-    },
-    computerPosition () {
-      const elInfo = this.getElInfo(this.trigger)
-      const anchorPostion = this.getAnchorPositon(elInfo)
-      const contentHeight = this.$el.offsetHeight
-      const contentWidth = this.$el.offsetWidth
-      let position
-      let top
-      let left
-      switch (this.targetOrigin.vertical) {
-        case 'top':
-          if (anchorPostion.bottom > contentHeight) {
-            position = 'bottom'
-            top = anchorPostion.top
-          } else {
-            position = 'top'
-            top = anchorPostion.top - contentHeight
-            if (this.anchorOrigin.vertical === 'bottom') {
-              top -= elInfo.height
-            } else if (this.anchorOrigin.vertical === 'top') {
-              top += elInfo.height
-            }
-          }
-          break
-        case 'center':
-          position = 'bottom'
-          top = anchorPostion.top - contentHeight / 2
-          break
-        case 'bottom':
-          if (anchorPostion.top > contentHeight) {
-            position = 'top'
-            top = anchorPostion.top - contentHeight
-            if (this.anchorOrigin.vertical === 'top') {
-              top += elInfo.height
-            } else if (this.anchorOrigin.vertical === 'bottom') {
-              top -= elInfo.height
-            }
-          } else {
-            position = 'bottom'
-            top = anchorPostion.top
-          }
-          break
-      }
-
-      switch (this.targetOrigin.horizontal) {
-        case 'left':
-          if (anchorPostion.right > contentWidth) {
-            left = anchorPostion.left
-          } else {
-            left = anchorPostion.left - contentWidth
-          }
-          break
-        case 'middle':
-          left = anchorPostion.left - contentWidth / 2
-          break
-        case 'right':
-          if (anchorPostion.left > contentWidth) {
-            left = anchorPostion.left - contentWidth
-          } else {
-            left = anchorPostion.left
-          }
-          break
-      }
-      return {
-        position: position,
-        left: left,
-        top: top
-      }
-    },
     setStyle () {
-      const position = this.computerPosition()
-      this.$el.style.left = `${Math.max(0, position.left)}px`
-      this.$el.style.top = `${Math.max(0, position.top)}px`
+      const {targetOrigin, anchorOrigin} = this
+
+      const anchor = this.getAnchorPosition(this.trigger)
+      let target = this.getTargetPosition(this.$el)
+
+      let targetPosition = {
+        top: anchor[anchorOrigin.vertical] - target[targetOrigin.vertical],
+        left: anchor[anchorOrigin.horizontal] - target[targetOrigin.horizontal]
+      }
+      if (anchor.top < 0 || anchor.top > window.innerHeight ||
+          anchor.left < 0 || anchor.left > window.innerWidth) {
+        this.close()
+        return
+      }
+      target = this.getTargetPosition(this.$el) // update as height may have changed
+      targetPosition = this.applyAutoPositionIfNeeded(anchor, target, targetOrigin, anchorOrigin, targetPosition)
+
+      this.$el.style.left = `${Math.max(0, targetPosition.left)}px`
+      this.$el.style.top = `${Math.max(0, targetPosition.top)}px`
+    },
+    getOverlapMode (anchor, target, median) {
+      if ([anchor, target].indexOf(median) >= 0) return 'auto'
+      if (anchor === target) return 'inclusive'
+      return 'exclusive'
+    },
+
+    getPositions (anchor, target) {
+      const a = {...anchor}
+      const t = {...target}
+
+      const positions = {
+        x: ['left', 'right'].filter((p) => p !== t.horizontal),
+        y: ['top', 'bottom'].filter((p) => p !== t.vertical)
+      }
+
+      const overlap = {
+        x: this.getOverlapMode(a.horizontal, t.horizontal, 'middle'),
+        y: this.getOverlapMode(a.vertical, t.vertical, 'center')
+      }
+
+      positions.x.splice(overlap.x === 'auto' ? 0 : 1, 0, 'middle')
+      positions.y.splice(overlap.y === 'auto' ? 0 : 1, 0, 'center')
+
+      if (overlap.y !== 'auto') {
+        a.vertical = a.vertical === 'top' ? 'bottom' : 'top'
+        if (overlap.y === 'inclusive') {
+          t.vertical = t.vertical
+        }
+      }
+
+      if (overlap.x !== 'auto') {
+        a.horizontal = a.horizontal === 'left' ? 'right' : 'left'
+        if (overlap.y === 'inclusive') {
+          t.horizontal = t.horizontal
+        }
+      }
+
+      return {
+        positions: positions,
+        anchorPos: a
+      }
+    },
+
+    applyAutoPositionIfNeeded (anchor, target, targetOrigin, anchorOrigin, targetPosition) {
+      const {positions, anchorPos} = this.getPositions(anchorOrigin, targetOrigin)
+
+      if (targetPosition.top < 0 || targetPosition.top + target.bottom > window.innerHeight) {
+        let newTop = anchor[anchorPos.vertical] - target[positions.y[0]]
+        if (newTop + target.bottom <= window.innerHeight) {
+          targetPosition.top = Math.max(0, newTop)
+        } else {
+          newTop = anchor[anchorPos.vertical] - target[positions.y[1]]
+          if (newTop + target.bottom <= window.innerHeight) targetPosition.top = Math.max(0, newTop)
+        }
+      }
+      if (targetPosition.left < 0 || targetPosition.left + target.right > window.innerWidth) {
+        let newLeft = anchor[anchorPos.horizontal] - target[positions.x[0]]
+        if (newLeft + target.right <= window.innerWidth) {
+          targetPosition.left = Math.max(0, newLeft)
+        } else {
+          newLeft = anchor[anchorPos.horizontal] - target[positions.x[1]]
+          if (newLeft + target.right <= window.innerWidth) targetPosition.left = Math.max(0, newLeft)
+        }
+      }
+      return targetPosition
     },
     close () {
       this.$emit('close')
@@ -164,13 +168,8 @@ export default {
     overlayClick () {
       this.close()
     },
-    clickOutSide () {
-      this.close()
-    },
     onScroll () {
       this.setStyle()
-      const elInfo = this.getElInfo(this.trigger)
-      if (elInfo.top < 0 || elInfo.left < 0) this.close()
     }
   },
   mounted () {
@@ -178,6 +177,9 @@ export default {
   },
   updated () {
     this.setStyle()
+  },
+  directives: {
+    clickoutside
   }
 }
 </script>

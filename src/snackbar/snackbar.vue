@@ -1,6 +1,6 @@
 <template>
 <transition name="mu-snackbar">
-  <div class="mu-snackbar" :style="{'z-index': zIndex}">
+  <div class="mu-snackbar" v-clickoutside="clickOutSide" :style="{'z-index': zIndex}">
     <div class="mu-snackbar-message">
       {{message}}
     </div>
@@ -15,7 +15,6 @@ import {getZIndex} from '../internal/popup/utils'
 import clickoutside from '../internal/clickoutside'
 export default {
   name: 'mu-snackbar',
-  mixins: [clickoutside],
   props: {
     action: {
       type: String
@@ -39,6 +38,9 @@ export default {
   },
   components: {
     'flat-button': flatButton
+  },
+  directives: {
+    clickoutside
   }
 }
 </script>
