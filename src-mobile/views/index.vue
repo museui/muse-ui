@@ -21,97 +21,26 @@
       <mu-tab-item @tab-click="tabClick" icon="refresh" title="tab3"></mu-tab-item>
     </mu-tab-bar> -->
     <!-- <mu-search-bar></mu-search-bar> -->
-    <div ref="scroll">
-      <!-- <mu-refresh-control  @refresh="refresh" :refreshing="refreshing"></mu-refresh-control> -->
-
-      <div style="padding: 8px">
-        <mu-card>
-              <mu-card-header title="标题" subTitle="子标题">
-                <mu-avatar slot="avatar" src="http://www.myronliu.com/img/uicon.jpg"></mu-avatar>
-              </mu-card-header>
-              <mu-card-media>
-                <img src="http://vuejs.org/images/logo.png"/>
-              </mu-card-media>
-              <mu-card-text>
-                Vue.js 是用于构建交互式的 Web  界面的库。它提供了 MVVM 数据绑定和一个可组合的组件系统，具有简单、灵活的 API。
-              </mu-card-text>
-              <mu-card-actions>
-                <mu-flat-button labelPosition="before" label="button1" icon="info"></mu-flat-button>
-                <mu-flat-button label="button2" secondary></mu-flat-button>
-              </mu-card-actions>
-          </mu-card>
-      </div>
-      <mu-content-block>
-        <mu-flat-button labelPosition="before" label="测试按钮" icon="info"></mu-flat-button>
-        <mu-float-button icon="add" secondary></mu-float-button>
-        <mu-raised-button labelPosition="before" label="测试按钮" icon="info"></mu-raised-button>
-        <mu-raised-button @click="openDialog" primary label="测试按钮" icon="info"></mu-raised-button>
-        <mu-raised-button @click="showPopover" full-width secondary style="margin-top: 12px;" labelPosition="before" label="测试按钮" icon="info"></mu-raised-button>
-        <!-- Muse UI 是基于 vue2 开发的material design ui 库 -->
-        <div style="margin-top:10px;">
-          <mu-avatar>A</mu-avatar>
-          <mu-avatar icon="info"></mu-avatar>
-          <mu-avatar src="http://www.myronliu.com/img/uicon.jpg"></mu-avatar>
-          <mu-chip>
-            <mu-avatar :size="32">A</mu-avatar>
-            测试啦
-          </mu-chip>
-        </div>
-      </mu-content-block>
-      <mu-list @change="handlerChange" :value="active">
-        <mu-sub-header>
-            test sub header
-        </mu-sub-header>
-        <mu-divider></mu-divider>
-        <mu-list-item title="测试标题" link toggleNested>
-          <mu-avatar slot="left" src="http://www.myronliu.com/img/uicon.jpg"></mu-avatar>
-          <mu-badge slot="after" secondary >11</mu-badge>
-          <mu-list-item slot="nested" :value="1" title="测试标题" link>
-            <mu-badge slot="after" secondary circle>11</mu-badge>
-          </mu-list-item>
-          <mu-list-item slot="nested" :value="2" title="测试标题" link>
-            <mu-badge slot="after" secondary circle>11</mu-badge>
-          </mu-list-item>
-          <mu-list-item slot="nested" :value="3" title="测试标题" link>
-            <mu-badge slot="after" secondary circle>11</mu-badge>
-          </mu-list-item>
-        </mu-list-item>
-        <!-- <mu-divider inset></mu-divider> -->
-        <!-- <mu-divider inset></mu-divider> -->
-
-      </mu-list>
-      <mu-content-block>
-        <mu-paper class="demo-paper">
-          <mu-menu :value="1">
-            <mu-sub-header>Sub Header</mu-sub-header>
-            <mu-menu-item disabled title="menu1"/>
-            <mu-menu-item :value="1" title="menu2">
-              <mu-badge slot="after" secondary content="12"></mu-badge>
-              <mu-menu-item title="menu3"/>
-              <mu-divider/>
-              <mu-menu-item title="menu4"/>
-            </mu-menu-item>
-            <mu-menu-item title="menu3"/>
-            <mu-divider/>
-            <mu-menu-item title="menu4"/>
-          </mu-menu>
-        </mu-paper>
-      </mu-content-block>
-      <!-- <mu-infinite-scroll :loading="loading" @load="load"></mu-infinite-scroll> -->
-    </div>
-    <mu-paper>
+    <mu-dropDown-menu :value="dropDownMenu" @change="change" openImmediately>
+      <mu-menu-item  title="Item 1" :value="1"/>
+      <mu-menu-item  title="Item 2" :value="2"/>
+      <mu-menu-item  title="Item 3" :value="3"/>
+      <mu-menu-item  title="Item 4" :value="4"/>
+      <mu-menu-item  title="Item 5" :value="5"/>
+    </mu-dropDown-menu>
+    <!-- <mu-paper>
       <mu-bottom-nav :active="tabActive">
         <mu-bottom-nav-item icon="restore" @click="tabClick" title="Recents"></mu-bottom-nav-item>
         <mu-bottom-nav-item icon="favorite" @click="tabClick" title="Favorite"></mu-bottom-nav-item>
         <mu-bottom-nav-item icon="info" @click="tabClick" title="Info"></mu-bottom-nav-item>
       </mu-bottom-nav>
-    </mu-paper>
+    </mu-paper> -->
     <!-- <mu-dialog title="test"  @overlayClick="open = false" v-if="open" message="this is test msg">
       <mu-flat-button label="cancel" slot="actions" primary/>
     </mu-dialog> -->
     <!-- <mu-toast  v-if="snackbar" @close="close()" message="啦啦啦"/> -->
     <!-- <mu-snackbar message="啦啦啦" action="啦啦啦啦"/> -->
-    <mu-actionsheet v-if="open" @overlayClick="open = false" >
+    <!-- <mu-actionsheet v-if="open" @overlayClick="open = false" >
       <mu-sub-header>Sub Header</mu-sub-header>
       <mu-menu-item disabled title="menu1"/>
       <mu-menu-item title="menu2">
@@ -132,7 +61,7 @@
         <mu-divider/>
         <mu-menu-item title="menu4"/>
       </mu-menu>
-    </mu-popover>
+    </mu-popover> -->
   </div>
 </template>
 
@@ -147,7 +76,8 @@ export default {
       open: false,
       snackbar: true,
       popover: false,
-      trigger: null
+      trigger: null,
+      dropDownMenu: 1
     }
   },
   methods: {
@@ -184,6 +114,9 @@ export default {
     },
     closePopover () {
       this.popover = false
+    },
+    change (value) {
+      this.dropDownMenu = value
     }
   }
 }

@@ -16,7 +16,7 @@
    </abstract-button>
    <popover v-if="openMenu" :anchorOrigin="{ vertical: 'top', horizontal: 'right'}"
    @close="close" :trigger="trigger">
-     <mu-menu :desktop="$parent.desktop" :maxHeight="$parent.maxHeight" :value="nestedValue">
+     <mu-menu :desktop="$parent.desktop" :maxHeight="$parent.maxHeight" :value="nestedMenuValue">
        <slot></slot>
      </mu-menu>
    </popover>
