@@ -1,0 +1,22 @@
+.mu-picker{
+  background-color: @pickerColor;
+}
+
+.mu-picker-center-highlight {
+  &::before,
+  &::after {
+    background-color: @pickerBorderColor;
+  }
+}
+
+
+.mu-picker-slot.mu-picker-slot-divider {
+  color: @pickerSelectedTextColor;
+}
+
+.mu-picker-item{
+  color: @pickerTextColor;
+  &.selected {
+    color: @pickerSelectedTextColor;
+  }
+}
