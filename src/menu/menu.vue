@@ -7,6 +7,7 @@
 </template>
 
 <script>
+import {getWidth} from '../utils'
 export default {
   name: 'mu-menu',
   props: {
@@ -35,9 +36,7 @@ export default {
       return this.desktop ? 64 : 56
     },
     contentWidth () {
-      let width = String(this.width)
-      if (width && width.indexOf('%') === -1 && width.indexOf('px') === -1) width += 'px'
-      return this.autoWidth ? '' : width
+      return this.autoWidth ? '' : getWidth(this.width)
     }
   },
   mounted () {

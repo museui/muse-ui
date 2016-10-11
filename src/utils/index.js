@@ -20,3 +20,9 @@ export function merge (target) {
   }
   return target
 }
+
+export function getWidth (w) {
+  let width = String(w)
+  if (width && width.indexOf('%') === -1 && width.indexOf('px') === -1) width += 'px'
+  return width
+}

@@ -204,7 +204,7 @@ export default {
 }
 
 .mu-popover-enter, .mu-popover-leave-active {
-  transform: scale(0);
+  transform: scaleY(0);
   opacity: 0;
 }
 

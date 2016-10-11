@@ -30,6 +30,7 @@ import actionsheet from './actionsheet'
 import popover from './popover'
 import iconMenu from './iconMenu'
 import dropDownMenu from './dropDownMenu'
+import drawer from './drawer'
 const components = {
   icon,
   badge,
@@ -60,7 +61,8 @@ const components = {
   actionsheet,
   popover,
   iconMenu,
-  dropDownMenu
+  dropDownMenu,
+  drawer
 }
 
 export default {

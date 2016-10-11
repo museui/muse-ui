@@ -14,10 +14,18 @@ const PopupManager = {
     }
     this.instances.push(instance)
     this.changeOverlayStyle()
-    Vue.nextTick(() => {
-      const dom = instance.$el
-      dom.style.zIndex = getZIndex()
-    })
+    if (instance.$el) {
+      this.setZIndex(instance)
+    } else {
+      Vue.nextTick(() => {
+        this.setZIndex(instance)
+      })
+    }
+  },
+
+  setZIndex (instance) {
+    const dom = instance.$el
+    dom.style.zIndex = getZIndex()
   },
 
   close (instance) {
