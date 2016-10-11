@@ -31,6 +31,7 @@ import popover from './popover'
 import iconMenu from './iconMenu'
 import dropDownMenu from './dropDownMenu'
 import drawer from './drawer'
+import picker from './picker'
 const components = {
   icon,
   badge,
@@ -62,7 +63,8 @@ const components = {
   popover,
   iconMenu,
   dropDownMenu,
-  drawer
+  drawer,
+  picker
 }
 
 export default {

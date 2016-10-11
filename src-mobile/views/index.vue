@@ -16,7 +16,7 @@
       </mu-appbar>
     </mu-paper>
     <mu-content-block>
-      <mu-raised-button label="toggle drawer" @click="toggle"></mu-raised-button>
+        <mu-picker :slots="years" @change="yearChange" :values="[yearValues]" ></mu-picker>
     </mu-content-block>
     <!-- <mu-dropDown-menu :value="dropDownMenu" @change="change" openImmediately>
       <mu-menu-item  title="Item 1" :value="1"/>
@@ -25,17 +25,35 @@
       <mu-menu-item  title="Item 4" :value="4"/>
       <mu-menu-item  title="Item 5" :value="5"/>
     </mu-dropDown-menu> -->
-    <mu-drawer :open="open" :docked="false" @close="close">
+    <!-- <mu-drawer :open="open" :docked="false" @close="close">
 
-    </mu-drawer>
+    </mu-drawer> -->
   </div>
 </template>
 
 <script>
 export default {
   data () {
+    let fullYear = new Date().getFullYear()
+    let years = []
+    let dateSlots = [[], []]
+    for (let i = 0; i <= 20; i++) {
+      dateSlots[0].push({
+        value: fullYear - i,
+        text: (fullYear - i) + '年'
+      })
+      dateSlots[1].push({
+        value: fullYear - i,
+        text: (fullYear - i) + '年'
+      })
+      years.push({
+        value: fullYear - i,
+        text: (fullYear - i) + '年'
+      })
+    }
     return {
-      open: false
+      years: [{values: years}],
+      yearValues: years[10]
     }
   },
   methods: {
@@ -44,6 +62,9 @@ export default {
     },
     close () {
       this.open = false
+    },
+    yearChange (value, index) {
+      this.yearValues = value
     }
   }
 }
