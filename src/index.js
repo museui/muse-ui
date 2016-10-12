@@ -32,6 +32,7 @@ import iconMenu from './iconMenu'
 import dropDownMenu from './dropDownMenu'
 import drawer from './drawer'
 import picker from './picker'
+import tooltip from './tooltip'
 const components = {
   icon,
   badge,
@@ -64,7 +65,8 @@ const components = {
   iconMenu,
   dropDownMenu,
   drawer,
-  picker
+  picker,
+  tooltip
 }
 
 export default {

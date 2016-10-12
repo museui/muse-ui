@@ -12,11 +12,12 @@
           <mu-divider/>
           <mu-menu-item title="menu4"/>
         </mu-icon-menu>
-        <mu-icon-button slot="right" icon="refresh" @click.native="refresh"></mu-icon-button>
+        <mu-icon-button  slot="right" icon="refresh"></mu-icon-button>
       </mu-appbar>
     </mu-paper>
     <mu-content-block>
-        <mu-picker :slots="years" @change="yearChange" :values="[yearValues]" ></mu-picker>
+        <!-- <mu-picker :slots="years" @change="yearChange" :values="[yearValues]" ></mu-picker> -->
+        <mu-icon-button tooltip="refresh" tooltipPosition="top-center" icon="refresh"></mu-icon-button>
     </mu-content-block>
     <!-- <mu-dropDown-menu :value="dropDownMenu" @change="change" openImmediately>
       <mu-menu-item  title="Item 1" :value="1"/>

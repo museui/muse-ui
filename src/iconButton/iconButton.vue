@@ -1,12 +1,14 @@
 <template>
-<abstract-button @click.native="handlerClick" :href="href" :disabled="disabled" class="mu-icon-button">
+<abstract-button @click.native="handlerClick" @mouseenter.native="show()" @mouseleave.native="hide()"  :href="href" :disabled="disabled" class="mu-icon-button">
   <icon :value="this.icon" :class="[iconClass]"></icon>
+  <tooltip v-if="tooltip" :verticalPosition="verticalPosition" :horizontalPosition="horizontalPosition" :show="tooltipShown" :label="tooltip" :touch="touch"></tooltip>
 </abstract-button>
 </template>
 
 <script>
 import abstractButton from '../internal/abstractButton'
 import icon from '../icon'
+import tooltip from '../tooltip'
 export default {
   name: 'mu-icon-button',
   props: {
@@ -24,16 +26,49 @@ export default {
     disabled: {
       type: Boolean,
       default: false
+    },
+    tooltip: {
+      type: String
+    },
+    tooltipPosition: {
+      type: String,
+      default: 'bottom-center'
+    },
+    touch: {
+      type: Boolean,
+      default: false
+    }
+  },
+  computed: {
+    verticalPosition () {
+      const tooltipPosition = this.tooltipPosition.split('-')
+      return tooltipPosition[0]
+    },
+    horizontalPosition () {
+      const tooltipPosition = this.tooltipPosition.split('-')
+      return tooltipPosition[1]
+    }
+  },
+  data () {
+    return {
+      tooltipShown: false
     }
   },
   methods: {
     handlerClick (e) {
       this.$emit('click', e)
+    },
+    show (touchFlag) {
+      this.tooltipShown = true
+    },
+    hide () {
+      this.tooltipShown = false
     }
   },
   components: {
     'abstract-button': abstractButton,
-    icon
+    icon,
+    tooltip
   }
 }
 </script>
