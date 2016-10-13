@@ -1,5 +1,5 @@
 <template>
-  <abstract-button :disabled="disabled" @click.native="handlerClick" :href="href" :style="buttonStyle"
+  <abstract-button @KeyboardFocus="handlerKeyboardFocus" :disabled="disabled" @click.native="handlerClick" :href="href" :style="buttonStyle"
     class="mu-raised-button" :rippleColor="rippleColor":rippleOpacity="rippleOpacity"
     :class="buttonClass" wrapperClass="mu-raised-button-wrapper" :centerRipple="false">
     <span class="mu-raised-button-label" :class="[labelClass]" v-if="label && labelPosition === 'before'">{{label}}</span>
@@ -65,6 +65,11 @@ export default {
       type: Number
     }
   },
+  data () {
+    return {
+      focus: false
+    }
+  },
   computed: {
     buttonStyle () {
       return {
@@ -81,13 +86,17 @@ export default {
         'mu-raised-button-secondary': this.secondary,
         'label-before': this.labelPosition === 'before',
         'mu-raised-button-inverse': this.inverse,
-        'mu-raised-button-full': this.fullWidth
+        'mu-raised-button-full': this.fullWidth,
+        'focus': this.focus
       }
     }
   },
   methods: {
     handlerClick (e) {
       this.$emit('click', e)
+    },
+    handlerKeyboardFocus (isFocus) {
+      this.focus = isFocus
     }
   },
   components: {
@@ -121,6 +130,9 @@ export default {
   outline: 0;
   padding: 0;
   cursor: pointer;
+  &.focus {
+    .depth(2);
+  }
   &.hover {
     .mu-raised-button-wrapper {
       background-color: fade(@textColor, 10%);
@@ -200,14 +212,5 @@ export default {
   vertical-align: middle;
   padding-right: 16px;
   padding-left: 16px;
-}
-
-@media (min-width: 480px) {
-  .mu-raised-button {
-    min-width: 88px;
-    &:hover {
-      .depth(2);
-    }
-  }
 }
 </style>

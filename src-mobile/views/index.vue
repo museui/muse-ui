@@ -18,6 +18,8 @@
     <mu-content-block>
         <!-- <mu-picker :slots="years" @change="yearChange" :values="[yearValues]" ></mu-picker> -->
         <mu-icon-button tooltip="refresh" tooltipPosition="top-center" icon="refresh"></mu-icon-button>
+
+        <mu-raised-button primary label="test"></mu-raised-button>
     </mu-content-block>
     <!-- <mu-dropDown-menu :value="dropDownMenu" @change="change" openImmediately>
       <mu-menu-item  title="Item 1" :value="1"/>
