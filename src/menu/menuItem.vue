@@ -1,7 +1,7 @@
 <template>
 <div>
    <abstract-button @click.native="handlerClick" class="mu-menu-item-wrapper" :class="{'active': active}"
-    :href="href" :centerRipple="false" :disabled="disabled" containerElement="div">
+    :href="href" ref="button" :centerRipple="false" :disabled="disabled" containerElement="div">
      <div class="mu-menu-item" :class="{'have-left-icon': leftIcon}">
        <icon :value="leftIcon" :style="{'color': filterColor(leftIconColor)}" class="mu-menu-item-left-icon" />
        <div>
@@ -57,6 +57,13 @@ export default {
     rightIcon: {
       type: String
     },
+    // focusState: {
+    //   type: String,
+    //   default: 'none',
+    //   validator: function (value) {
+    //     return ['none', 'focused', 'keyboard-focused'].indexOf(value) !== -1
+    //   }
+    // },
     value: {},
     nestedMenuValue: {}
   },
@@ -69,13 +76,19 @@ export default {
     }
   },
   data () {
+    this._isMenuItem = true
     return {
       openMenu: false,
-      trigger: null
+      trigger: null,
+      focusState: 'none'
     }
   },
   mounted () {
     this.trigger = this.$el
+    this.applyFocusState()
+  },
+  updated () {
+    this.applyFocusState()
   },
   methods: {
     handlerClick (e) {
@@ -92,6 +105,31 @@ export default {
     },
     close () {
       this.openMenu = false
+    },
+    applyFocusState () {
+      const button = this.$refs.button
+
+      if (button) {
+        const buttonEl = button.$el
+
+        switch (this.focusState) {
+          case 'none':
+            buttonEl.blur()
+            break
+          case 'focused':
+            buttonEl.focus()
+            break
+          case 'keyboard-focused':
+            button.setKeyboardFocus()
+            buttonEl.focus()
+            break
+        }
+      }
+    }
+  },
+  watch: {
+    focusState () {
+      this.applyFocusState()
     }
   },
   components: {

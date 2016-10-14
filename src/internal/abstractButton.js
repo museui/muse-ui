@@ -1,6 +1,7 @@
 import touchRipple from './touchRipple'
 import focusRipple from './focusRipple'
 import keycode from 'keycode'
+import {isPc} from '../utils'
 
 let tabPressed = false
 let listening = false
@@ -107,7 +108,7 @@ export default {
   },
   methods: {
     handlerHover () {
-      if (!this.disabled) this.hover = true
+      if (!this.disabled && isPc) this.hover = true
     },
     handlerOut () {
       this.hover = false

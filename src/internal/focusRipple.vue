@@ -43,7 +43,9 @@ export default {
   mounted () {
     this.setRippleSize()
   },
-  components: {}
+  updated () {
+    this.setRippleSize()
+  }
 }
 </script>
 

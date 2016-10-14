@@ -2,35 +2,30 @@
   <div class="">
     <mu-paper>
       <mu-appbar title="Muse UI">
-        <mu-icon-menu :value="1" slot="left" icon="menu">
+        <mu-icon-menu desktop :maxHeight="250" :value="1" slot="left" icon="menu">
           <mu-sub-header>Sub Header</mu-sub-header>
-          <mu-menu-item disabled title="menu1"/>
-          <mu-menu-item :value="1" title="menu2">
+          <mu-menu-item title="menu1"/>
+          <mu-menu-item title="menu2">
             <mu-badge slot="after" secondary content="12"></mu-badge>
           </mu-menu-item>
           <mu-menu-item title="menu3"/>
           <mu-divider/>
           <mu-menu-item title="menu4"/>
+          <mu-menu-item title="menu5"/>
+          <mu-menu-item title="menu6"/>
+          <mu-menu-item title="menu7"/>
+          <mu-menu-item title="menu8"/>
+          <mu-menu-item title="menu9"/>
+          <mu-menu-item title="menu10"/>
         </mu-icon-menu>
         <mu-icon-button  slot="right" icon="refresh"></mu-icon-button>
       </mu-appbar>
     </mu-paper>
     <mu-content-block>
-        <!-- <mu-picker :slots="years" @change="yearChange" :values="[yearValues]" ></mu-picker> -->
         <mu-icon-button tooltip="refresh" tooltipPosition="top-center" icon="refresh"></mu-icon-button>
-
         <mu-raised-button primary label="test"></mu-raised-button>
     </mu-content-block>
-    <!-- <mu-dropDown-menu :value="dropDownMenu" @change="change" openImmediately>
-      <mu-menu-item  title="Item 1" :value="1"/>
-      <mu-menu-item  title="Item 2" :value="2"/>
-      <mu-menu-item  title="Item 3" :value="3"/>
-      <mu-menu-item  title="Item 4" :value="4"/>
-      <mu-menu-item  title="Item 5" :value="5"/>
-    </mu-dropDown-menu> -->
-    <!-- <mu-drawer :open="open" :docked="false" @close="close">
 
-    </mu-drawer> -->
   </div>
 </template>
 

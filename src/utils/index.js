@@ -26,3 +26,16 @@ export function getWidth (w) {
   if (width && width.indexOf('%') === -1 && width.indexOf('px') === -1) width += 'px'
   return width
 }
+
+export function isPc () {
+  var uaInfo = navigator.userAgent
+  var agents = ['Android', 'iPhone', 'Windows Phone', 'iPad', 'iPod']
+  var flag = true
+  for (var i = 0; i < agents.length; i++) {
+    if (uaInfo.indexOf(agents[i]) > 0) {
+      flag = false
+      break
+    }
+  }
+  return flag
+}
