@@ -1,7 +1,7 @@
 <template>
-<label class="mu-text-field-label" :class="{'float': float}" :for="htmlFor">
+<div class="mu-text-field-label" :class="{'float': float}" :for="htmlFor">
   <slot></slot>
-</label>
+</div>
 </template>
 
 <script>
@@ -25,18 +25,22 @@ export default {
 <style lang="less">
 @import "../styles/import.less";
 .mu-text-field-label {
-  position: absolute;
-  line-height: 22px;
-  top: 38px;
+  // position: absolute;
+  line-height: 20px;
   transition: all .45s @easeOutFunction;
   z-index: 1;
   cursor: text;
-  transform: scale(0.75) translate(0px, -28px);
+  transform: scale(0.75);
   transform-origin: left top;
   user-select: none;
   pointer-events: none;
-  &.float {
-    transform: scale(1) translate(0, 0);
+  .mu-text-field.has-label & {
+    top: 8px;
+    position: absolute;
+  }
+  .mu-text-field.has-label &.float {
+    transform: scale(1);
+    top: 38px;
     pointer-events: auto;
   }
   .mu-text-field.disabled & {

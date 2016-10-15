@@ -4,9 +4,12 @@
     <text-field-label v-if="label" :float="float">{{label}}</text-field-label>
     <slot>
       <input v-if="!multiLine" @input="handlerInput" @focus="handlerFocus" :value="value" @blur="handlerBlur" :placeholder="float ? '' : placeholder" class="mu-text-field-input" :name="name" :type="type">
-      <enhanced-textarea @change="handlerChange" @focus.native="handlerFocus" @blur.native="handlerBlur" v-if="multiLine" :placeholder="placeholder" :value="inputValue"></enhanced-textarea>
+      <enhanced-textarea :rows="rows" :rowsMax="rowsMax" @change="handlerChange" @focus.native="handlerFocus" @blur.native="handlerBlur" v-if="multiLine" :placeholder="float ? '' : placeholder" :value="value"></enhanced-textarea>
     </slot>
-    <underline :focus="focus" :error="error" :warning="warning"></underline>
+    <underline :focus="focus" :value="value"></underline>
+    <div class="mu-text-field-help" v-if="errorText">
+        {{errorText}}
+    </div>
   </div>
 </template>
 
@@ -51,6 +54,16 @@ export default {
     multiLine: {
       type: Boolean,
       default: false
+    },
+    rows: {
+      type: Number,
+      default: 1
+    },
+    rowsMax: {
+      type: Number
+    },
+    errorText: {
+      type: String
     }
   },
   data () {
@@ -106,12 +119,10 @@ export default {
 @import "../styles/import.less";
 .mu-text-field{
   font-size: 16px;
-  line-height: 48px;
-  height: 48px;
   width: 256px;
   display: inline-block;
   position: relative;
-  color: @disabledColor;
+  color: @secondaryTextColor;
   &.full-width {
     width: 100%;
   }
@@ -121,9 +132,10 @@ export default {
   &.focus-state {
     color: @primary1Color;
   }
-  &.has-label{
-    height: 72px;
-    line-height: 72px;
+  padding-bottom: 8px;
+  padding-top: 8px;
+  &.has-label {
+    padding-top: 28px;
   }
 }
 
@@ -148,22 +160,23 @@ export default {
   padding: 0;
   margin: 0;
   width: 100%;
-  height: 100%;
-  line-height: 100%;
+  height: 36px;
+  min-height: 36px;
   font-style: inherit;
   font-variant: inherit;
   font-weight: inherit;
   font-stretch: inherit;
   font-size: inherit;
-  line-height: inherit;
   font-family: inherit;
   color: @textColor;
   font-family: inherit;
-  .mu-text-field.has-label & {
-    margin-top: 14px;
-  }
   &::-webkit-input-placeholder {
     color: @disabledColor;
   }
+}
+
+.mu-text-field-help {
+  font-size: 12px;
+  color: @disabledColor;
 }
 </style>

@@ -24,9 +24,7 @@ export default {
   computed: {
     lineClass () {
       return {
-        focus: this.focus || this.value,
-        warning: this.warning && !this.error,
-        error: this.error
+        focus: this.focus || this.value
       }
     }
   }
@@ -40,12 +38,15 @@ export default {
   height: 1px;
   border: none;
   background-color: @borderColor;
-  bottom: 8px;
+  top: 43px;
   left: 0;
   right: 0;
   position: absolute;
   .mu-text-field.has-icon & {
     left: 56px;
+  }
+  .mu-text-field.has-label & {
+    top: 63px;
   }
 }
 
@@ -55,7 +56,7 @@ export default {
   border: none;
   background-color: @primary1Color;
   position: absolute;
-  bottom: 8px;
+  top: 42px;
   left: 0;
   right: 0;
   transform: scaleX(0);
@@ -63,14 +64,11 @@ export default {
   .mu-text-field.has-icon & {
     left: 56px;
   }
+  .mu-text-field.has-label & {
+    top: 62px;
+  }
   &.focus {
     transform: scaleX(1);
-  }
-  &.error {
-    background-color: @red;
-  }
-  &.warning {
-    background-color: @yellow;
   }
 }
 </style>

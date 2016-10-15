@@ -24,7 +24,7 @@
     <mu-content-block>
         <!-- <mu-icon-button tooltip="refresh" tooltipPosition="top-center" icon="refresh"></mu-icon-button>
         <mu-raised-button primary label="test"></mu-raised-button> -->
-        <mu-text-field  icon="info" label="testLabel" placeholder="test nennen" labelFloat :value="value" @change="handlerChange"></mu-text-field>
+        <mu-text-field :rows="4" :rowsMax="8"  icon="info" label="testLabel" placeholder="test nennen" labelFloat :value="value" @change="handlerChange"></mu-text-field>
     </mu-content-block>
 
   </div>
@@ -53,7 +53,7 @@ export default {
     return {
       years: [{values: years}],
       yearValues: years[10],
-      value: '222'
+      value: ''
     }
   },
   methods: {

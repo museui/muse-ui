@@ -1,5 +1,5 @@
 <template>
-  <textarea :value="value" @input="handlerInput" @focus="onfocus" @blur="onblur" :placeholder="placeholder"></textarea>
+  <textarea :value="value" class="mu-text-field-input mu-text-field-textarea" @input="handlerInput" :placeholder="placeholder"></textarea>
 </template>
 
 <script>
@@ -10,6 +10,13 @@ export default {
     },
     value: {
       type: String
+    },
+    rows: {
+      type: Number,
+      default: 1
+    },
+    rowsMax: {
+      type: Number
     }
   },
   methods: {
@@ -24,6 +31,7 @@ export default {
       pd = Number(pd.substring(0, pd.indexOf('px')))
       let line = this.getLineNum(this.value)
       line = line > this.rows ? line : this.rows
+      line = this.rowsMax && line > this.rowsMax ? this.rowsMax : line
       let height = pd + pt + lineHeight * line
       element.style.height = height + 'px'
     },
@@ -50,5 +58,8 @@ export default {
 }
 </script>
 
-<style lang="css">
+<style lang="less">
+.mu-text-field-textarea{
+  resize: vertical;
+}
 </style>
