@@ -33,6 +33,8 @@ import dropDownMenu from './dropDownMenu'
 import drawer from './drawer'
 import picker from './picker'
 import tooltip from './tooltip'
+
+import textField from './textField'
 const components = {
   icon,
   badge,
@@ -66,7 +68,8 @@ const components = {
   dropDownMenu,
   drawer,
   picker,
-  tooltip
+  tooltip,
+  textField
 }
 
 export default {

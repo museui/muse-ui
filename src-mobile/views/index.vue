@@ -22,8 +22,9 @@
       </mu-appbar>
     </mu-paper>
     <mu-content-block>
-        <mu-icon-button tooltip="refresh" tooltipPosition="top-center" icon="refresh"></mu-icon-button>
-        <mu-raised-button primary label="test"></mu-raised-button>
+        <!-- <mu-icon-button tooltip="refresh" tooltipPosition="top-center" icon="refresh"></mu-icon-button>
+        <mu-raised-button primary label="test"></mu-raised-button> -->
+        <mu-text-field  icon="info" label="testLabel" placeholder="test nennen" labelFloat :value="value" @change="handlerChange"></mu-text-field>
     </mu-content-block>
 
   </div>
@@ -51,7 +52,8 @@ export default {
     }
     return {
       years: [{values: years}],
-      yearValues: years[10]
+      yearValues: years[10],
+      value: '222'
     }
   },
   methods: {
@@ -60,6 +62,9 @@ export default {
     },
     close () {
       this.open = false
+    },
+    handlerChange (val) {
+      this.value = val
     },
     yearChange (value, index) {
       this.yearValues = value
