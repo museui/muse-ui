@@ -15,7 +15,10 @@ export default {
   mixins: [Popup, scroll],
   props: {
     overlay: {
-      default: false
+      default: true
+    },
+    overlayOpacity: {
+      default: 0.01
     },
     trigger: {
       type: window.Element
@@ -87,7 +90,7 @@ export default {
       }
       if (anchor.top < 0 || anchor.top > window.innerHeight ||
           anchor.left < 0 || anchor.left > window.innerWidth) {
-        this.close()
+        this.close('overflow')
         return
       }
       target = this.getTargetPosition(this.$el) // update as height may have changed
@@ -162,14 +165,17 @@ export default {
       }
       return targetPosition
     },
-    close () {
-      this.$emit('close')
+    close (reason) {
+      this.$emit('close', reason)
     },
     overlayClick () {
-      this.close()
+      this.close('overlay')
     },
     onScroll () {
       this.setStyle()
+    },
+    escPress () {
+      this.close('esc')
     }
   },
   mounted () {

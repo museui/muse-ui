@@ -85,16 +85,16 @@ const PopupManager = {
   }
 }
 
-window.addEventListener('keydown', function (event) {
-  if (event.keyCode === 27) { // ESC
-    if (PopupManager.instances.length > 0) {
-      const topInstance = PopupManager.instances[PopupManager.instances.length - 1]
-      if (!topInstance) return
-      if (topInstance.escPress) {
-        topInstance.escPress()
-      }
-    }
-  }
-})
+// window.addEventListener('keydown', function (event) {
+//   if (event.keyCode === 27) { // ESC
+//     if (PopupManager.instances.length > 0) {
+//       const topInstance = PopupManager.instances[PopupManager.instances.length - 1]
+//       if (!topInstance) return
+//       if (topInstance.escPress) {
+//         topInstance.escPress()
+//       }
+//     }
+//   }
+// })
 
 export default PopupManager

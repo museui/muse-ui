@@ -1,7 +1,7 @@
 <template>
   <div class="mu-icon-menu">
     <icon-button :icon="icon" @click="open"></icon-button>
-    <popover v-if="openMenu" :overlay="overlay" :trigger="trigger" :anchorOrigin="anchorOrigin"
+    <popover v-if="openMenu" :trigger="trigger" :anchorOrigin="anchorOrigin"
       :targetOrigin="targetOrigin" @close="close">
       <mu-menu @change="change" :value="value" @itemClick="itemClick" :multiple="multiple" :desktop="desktop" :maxHeight="maxHeight">
         <slot></slot>
@@ -50,10 +50,6 @@ export default {
           horizontal: 'left'
         }
       }
-    },
-    overlay: {
-      type: Boolean,
-      default: false
     },
     itemClickClose: {
       type: Boolean,

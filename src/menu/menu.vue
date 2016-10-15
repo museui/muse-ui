@@ -103,9 +103,6 @@ export default {
           event.preventDefault()
           this.incrementKeyboardFocusIndex()
           break
-        case 'esc':
-          this.props.onEscKeyDown(event)
-          break
         case 'tab':
           event.preventDefault()
           if (event.shiftKey) {

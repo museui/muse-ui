@@ -1,5 +1,6 @@
 import PopupManager from './manager'
 import {getZIndex} from './utils'
+import keycode from 'keycode'
 export default {
   props: {
     overlay: {
@@ -30,6 +31,9 @@ export default {
     } else {
       this.setZIndex()
     }
+    window.addEventListener('keydown', (event) => {
+      if (keycode(event) === 'esc' && this.escPress) this.escPress()
+    })
   },
   updated () {
     if (!this.overlay) {
