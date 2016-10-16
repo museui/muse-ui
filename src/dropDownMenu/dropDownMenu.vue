@@ -1,12 +1,15 @@
 <template>
-<div class="mu-dropDown-menu">
+<div class="mu-dropDown-menu" :class="{'disabled': disabled}">
   <icon class="mu-dropDown-menu-icon" :class="iconClass" value="arrow_drop_down"></icon>
   <div class="mu-dropDown-menu-text" @click="open" :class="labelClass">
     {{label}}
   </div>
   <div class="mu-dropDown-menu-line" :class="underlineClass"></div>
-  <popover v-if="openMenu && $slots && $slots.default && $slots.default.length > 0" :trigger="trigger" :anchorOrigin="anchorOrigin"  @close="close">
-    <mu-menu @change="change" :class="menuClass" :value="value" :autoWidth="autoWidth" @itemClick="itemClick" desktop :maxHeight="maxHeight">
+  <popover v-if="!disabled && openMenu && $slots && $slots.default && $slots.default.length > 0" :trigger="trigger" :anchorOrigin="anchorOrigin"  @close="close">
+    <mu-menu :style="{width: menuWidth + 'px'}" @change="change"
+      :class="menuClass" :value="value" :multiple="multiple"
+      :autoWidth="autoWidth" @itemClick="itemClick"
+      desktop :maxHeight="maxHeight">
       <slot></slot>
     </mu-menu>
   </popover>
@@ -28,6 +31,14 @@ export default {
       type: Boolean,
       default: true
     },
+    multiple: {
+      type: Boolean,
+      default: false
+    },
+    disabled: {
+      type: Boolean,
+      default: false
+    },
     labelClass: {
       type: [String, Array, Object]
     },
@@ -43,49 +54,61 @@ export default {
     openImmediately: {
       type: Boolean,
       default: false
+    },
+    anchorOrigin: {
+      type: Object,
+      default () {
+        return {
+          vertical: 'top',
+          horizontal: 'left'
+        }
+      }
     }
   },
   data () {
     return {
       openMenu: false,
       trigger: null,
-      anchorOrigin: {
-        vertical: 'top',
-        horizontal: 'left'
-      }
+      menuWidth: null
     }
   },
   computed: {
     label () {
-      if (!this.$slots || !this.$slots.default || this.$slots.length === 0 || !this.value) return ''
-      let text = ''
-      this.$slots.default.forEach((vNode) => {
-        if (!vNode.componentOptions || !vNode.componentOptions.propsData || !vNode.componentOptions.propsData.value) return
-        const {value, title} = vNode.componentOptions.propsData
-        if (value === this.value) {
-          text = title
-          return false
-        }
-      })
-      return text
+      return this.getText()
     }
   },
   mounted () {
     this.trigger = this.$el
     this.openMenu = this.openImmediately
+    this.menuWidth = this.$el.offsetWidth
   },
   methods: {
     close () {
+      this.$emit('close')
       this.openMenu = false
     },
     open () {
+      this.$emit('open')
       this.openMenu = true
     },
     itemClick () {
-      this.close()
+      if (!this.multiple) this.close()
     },
     change (value) {
       this.$emit('change', value)
+    },
+    getText () {
+      if (!this.$slots || !this.$slots.default || this.$slots.length === 0 || !this.value) return ''
+      let text = []
+      this.$slots.default.forEach((vNode) => {
+        if (!vNode.componentOptions || !vNode.componentOptions.propsData || !vNode.componentOptions.propsData.value) return
+        const {value, title} = vNode.componentOptions.propsData
+        if (value === this.value || (this.multiple && this.value.length && this.value.indexOf(value) !== -1)) {
+          text.push(title)
+          return false
+        }
+      })
+      return text.join(',')
     }
   },
   components: {
@@ -106,6 +129,10 @@ export default {
   transition: all .45s @easeOutFunction;
   cursor: pointer;
   overflow: hidden;
+  &.disabled{
+    color: @disabledColor;
+    cursor: not-allowed;
+  }
 }
 
 .mu-dropDown-menu-icon{
@@ -122,6 +149,9 @@ export default {
   opacity: 1;
   position: relative;
   color: @textColor;
+  .mu-dropDown-menu.disabled &{
+    color: @disabledColor;
+  }
 }
 .mu-dropDown-menu-line {
   bottom: 1px;

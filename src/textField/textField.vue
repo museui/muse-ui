@@ -6,7 +6,7 @@
       <input :disabled="disabled" v-if="!multiLine" @input="handlerInput" @focus="handlerFocus" :value="value" @blur="handlerBlur" :placeholder="float ? '' : placeholder" class="mu-text-field-input" :name="name" :type="type">
       <enhanced-textarea :disabled="disabled" :rows="rows" :rowsMax="rowsMax" @change="handlerChange" @focus.native="handlerFocus" @blur.native="handlerBlur" v-if="multiLine" :placeholder="float ? '' : placeholder" :value="value"></enhanced-textarea>
     </slot>
-    <underline :error="!!errorText" :disabled="disabled" :errorColor="errorColor" :focus="focus"></underline>
+    <underline v-if="underlineShow" :error="!!errorText" :disabled="disabled" :errorColor="errorColor" :focus="focus"></underline>
     <div class="mu-text-field-help" :style="errorStyle" v-if="errorText || helpText">
         <div>
             {{errorText || helpText}}
@@ -27,12 +27,6 @@ import {getColor} from '../utils'
 export default {
   name: 'mu-text-field',
   props: {
-    id: {
-      type: String,
-      default () {
-        return ''
-      }
-    },
     name: {
       type: String
     },
@@ -88,6 +82,10 @@ export default {
     fullWidth: {
       type: Boolean,
       default: false
+    },
+    underlineShow: {
+      type: Boolean,
+      default: true
     }
   },
   data () {

@@ -24,13 +24,26 @@
     <mu-content-block>
         <!-- <mu-icon-button tooltip="refresh" tooltipPosition="top-center" icon="refresh"></mu-icon-button>
         <mu-raised-button primary label="test"></mu-raised-button> -->
-        <mu-text-field :rows="4" :rowsMax="8"  icon="info" label="testLabel"
+        <!-- <mu-text-field :rows="4" :rowsMax="8"  icon="info" label="testLabel"
             placeholder="test nennen" labelFloat
-            errorText="This field is required."
-            errorColor="orange"
             :maxLength="200"
-            multiLine
-            :value="value" @change="handlerChange"></mu-text-field>
+            multiLine fullWidth
+            :value="value" @change="handlerChange"></mu-text-field> -->
+        <mu-select-field disabled label="测试 label" multiple :value="value" @change="handlerChange">
+          <mu-menu-item :value="1" title="menu1"/>
+          <mu-menu-item :value="2" title="menu2">
+            <mu-badge slot="after" secondary content="12"></mu-badge>
+          </mu-menu-item>
+          <mu-menu-item :value="3" title="menu3"/>
+          <mu-divider/>
+          <mu-menu-item :value="4" title="menu4"/>
+          <mu-menu-item :value="5" title="menu5"/>
+          <mu-menu-item :value="6" title="menu6"/>
+          <mu-menu-item :value="7" title="menu7"/>
+          <mu-menu-item :value="8" title="menu8"/>
+          <mu-menu-item :value="9" title="menu9"/>
+          <mu-menu-item :value="10" title="menu10"/>
+        </mu-select-field>
     </mu-content-block>
 
   </div>
@@ -59,7 +72,7 @@ export default {
     return {
       years: [{values: years}],
       yearValues: years[10],
-      value: ''
+      value: [1]
     }
   },
   methods: {
@@ -70,7 +83,12 @@ export default {
       this.open = false
     },
     handlerChange (val) {
-      this.value = val
+      const index = this.value.indexOf(val)
+      if (index === -1) {
+        this.value.push(val)
+      } else {
+        this.value.splice(index, 1)
+      }
     },
     yearChange (value, index) {
       this.yearValues = value
