@@ -41,10 +41,6 @@ export default {
   .mu-text-field.has-label &.float {
     transform: scale(1);
     top: 38px;
-    pointer-events: auto;
-  }
-  .mu-text-field.disabled & {
-    cursor: not-allowed;
   }
 }
 </style>

@@ -1,30 +1,38 @@
 <template>
   <div>
-    <hr class="mu-text-field-line" />
-    <hr class="mu-text-field-focus-line" :class="lineClass"/>
+    <hr class="mu-text-field-line" :class="{'disabled': disabled}" />
+    <hr v-if="!disabled" class="mu-text-field-focus-line" :style="errorStyle" :class="lineClass"/>
   </div>
 </template>
 
 <script>
+import {getColor} from '../utils'
 export default {
   props: {
     focus: {
       type: Boolean,
       default: false
     },
-    value: {
-    },
     error: {
       type: Boolean
     },
-    warning: {
+    errorColor: {
+      type: String
+    },
+    disabled: {
       type: Boolean
     }
   },
   computed: {
     lineClass () {
       return {
-        focus: this.focus || this.value
+        focus: this.focus,
+        error: this.error
+      }
+    },
+    errorStyle () {
+      return {
+        'background-color': this.error ? getColor(this.errorColor) : ''
       }
     }
   }
@@ -38,15 +46,22 @@ export default {
   height: 1px;
   border: none;
   background-color: @borderColor;
-  top: 43px;
   left: 0;
   right: 0;
   position: absolute;
   .mu-text-field.has-icon & {
     left: 56px;
   }
-  .mu-text-field.has-label & {
-    top: 63px;
+  &.disabled{
+    height: auto;
+    background-color: transparent;
+    border-bottom: 2px dotted @disabledColor;
+  }
+  html.pixel-ratio-2 & {
+    .transform(scaleY(0.5));
+  }
+  html.pixel-ratio-3 & {
+    .transform(scaleY(0.33));
   }
 }
 
@@ -56,7 +71,6 @@ export default {
   border: none;
   background-color: @primary1Color;
   position: absolute;
-  top: 42px;
   left: 0;
   right: 0;
   transform: scaleX(0);
@@ -64,11 +78,18 @@ export default {
   .mu-text-field.has-icon & {
     left: 56px;
   }
-  .mu-text-field.has-label & {
-    top: 62px;
-  }
   &.focus {
     transform: scaleX(1);
+  }
+  &.error {
+    transform: scaleX(1);
+    background-color: @red;
+  }
+  html.pixel-ratio-2 & {
+    .transform(scaleY(0.5));
+  }
+  html.pixel-ratio-3 & {
+    .transform(scaleY(0.33));
   }
 }
 </style>

@@ -24,7 +24,14 @@
     <mu-content-block>
         <!-- <mu-icon-button tooltip="refresh" tooltipPosition="top-center" icon="refresh"></mu-icon-button>
         <mu-raised-button primary label="test"></mu-raised-button> -->
-        <mu-text-field :rows="4" :rowsMax="8"  icon="info" label="testLabel" placeholder="test nennen" labelFloat :value="value" @change="handlerChange"></mu-text-field>
+        <mu-text-field :rows="4" :rowsMax="8"  icon="info" label="testLabel"
+            placeholder="test nennen" labelFloat
+            errorText="This field is required."
+            errorColor="orange"
+            :maxLength="200"
+            disabled
+            multiLine
+            :value="value" @change="handlerChange"></mu-text-field>
     </mu-content-block>
 
   </div>

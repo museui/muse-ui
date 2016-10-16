@@ -1,16 +1,21 @@
 <template>
-  <div class="mu-text-field" :class="textFieldClass">
+  <label class="mu-text-field" :class="textFieldClass" :style="focus ? errorStyle : {}">
     <icon  v-if="icon" class="mu-text-field-icon" :value="icon"></icon>
     <text-field-label v-if="label" :float="float">{{label}}</text-field-label>
     <slot>
-      <input v-if="!multiLine" @input="handlerInput" @focus="handlerFocus" :value="value" @blur="handlerBlur" :placeholder="float ? '' : placeholder" class="mu-text-field-input" :name="name" :type="type">
-      <enhanced-textarea :rows="rows" :rowsMax="rowsMax" @change="handlerChange" @focus.native="handlerFocus" @blur.native="handlerBlur" v-if="multiLine" :placeholder="float ? '' : placeholder" :value="value"></enhanced-textarea>
+      <input :disabled="disabled" v-if="!multiLine" @input="handlerInput" @focus="handlerFocus" :value="value" @blur="handlerBlur" :placeholder="float ? '' : placeholder" class="mu-text-field-input" :name="name" :type="type">
+      <enhanced-textarea :disabled="disabled" :rows="rows" :rowsMax="rowsMax" @change="handlerChange" @focus.native="handlerFocus" @blur.native="handlerBlur" v-if="multiLine" :placeholder="float ? '' : placeholder" :value="value"></enhanced-textarea>
     </slot>
-    <underline :focus="focus" :value="value"></underline>
-    <div class="mu-text-field-help" v-if="errorText">
-        {{errorText}}
+    <underline :error="!!errorText" :disabled="disabled" :errorColor="errorColor" :focus="focus"></underline>
+    <div class="mu-text-field-help" :style="errorStyle" v-if="errorText || helpText">
+        <div>
+            {{errorText || helpText}}
+        </div>
+        <div v-if="maxLength > 0">
+            {{charLength}}/{{maxLength}}
+        </div>
     </div>
-  </div>
+  </label>
 </template>
 
 <script>
@@ -18,6 +23,7 @@ import icon from '../icon'
 import underline from './textFieldUnderline'
 import enhancedTextarea from './enhancedTextarea'
 import textFieldLabel from './textFieldLabel'
+import {getColor} from '../utils'
 export default {
   name: 'mu-text-field',
   props: {
@@ -64,13 +70,29 @@ export default {
     },
     errorText: {
       type: String
+    },
+    errorColor: {
+      type: String
+    },
+    helpText: {
+      type: String
+    },
+    maxLength: {
+      type: Number,
+      default: 0
+    },
+    disabled: {
+      type: Boolean,
+      default: false
+    },
+    fullWidth: {
+      type: Boolean,
+      default: false
     }
   },
   data () {
     return {
-      focus: false,
-      error: false,
-      warning: false
+      focus: false
     }
   },
   mounted () {
@@ -82,7 +104,10 @@ export default {
         'focus-state': this.focus,
         'has-label': this.label,
         'no-empty-state': this.value,
-        'has-icon': this.icon
+        'has-icon': this.icon,
+        'error': this.errorText,
+        'disabled': this.disabled,
+        'full-width': this.fullWidth
       }
     },
     inputValue () {
@@ -90,6 +115,14 @@ export default {
     },
     float () {
       return this.labelFloat && !this.focus && !this.value
+    },
+    errorStyle () {
+      return {
+        color: !this.disabled && this.errorText ? getColor(this.errorColor) : ''
+      }
+    },
+    charLength () {
+      return this.value ? this.value.length : 0
     }
   },
   methods: {
@@ -122,7 +155,7 @@ export default {
   width: 256px;
   display: inline-block;
   position: relative;
-  color: @secondaryTextColor;
+  color: @disabledColor;
   &.full-width {
     width: 100%;
   }
@@ -131,6 +164,13 @@ export default {
   }
   &.focus-state {
     color: @primary1Color;
+    &.error{
+      color: @red;
+    }
+  }
+  &.disabled {
+    color: @disabledColor;
+    cursor: not-allowed;
   }
   padding-bottom: 8px;
   padding-top: 8px;
@@ -142,9 +182,9 @@ export default {
 .mu-text-field-icon {
   position: absolute;
   left: 16px;
-  top: 14px;
+  top: 12px;
   .mu-text-field.has-label &{
-    top: 38px;
+    top: 36px;
   }
 }
 
@@ -172,11 +212,20 @@ export default {
   font-family: inherit;
   &::-webkit-input-placeholder {
     color: @disabledColor;
+    opacity: 1;
   }
 }
 
 .mu-text-field-help {
   font-size: 12px;
-  color: @disabledColor;
+  margin-top: 6px;
+  display: flex;
+  justify-content: space-between;
+  .mu-text-field.error &{
+    color: @red;
+  }
+  .mu-text-field.disabled &{
+    color: inherit;
+  }
 }
 </style>
