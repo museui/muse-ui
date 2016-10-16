@@ -29,7 +29,6 @@
             errorText="This field is required."
             errorColor="orange"
             :maxLength="200"
-            disabled
             multiLine
             :value="value" @change="handlerChange"></mu-text-field>
     </mu-content-block>

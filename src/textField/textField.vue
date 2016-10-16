@@ -155,7 +155,7 @@ export default {
   width: 256px;
   display: inline-block;
   position: relative;
-  color: @disabledColor;
+  color: @secondaryTextColor;
   &.full-width {
     width: 100%;
   }
