@@ -29,7 +29,22 @@
             :maxLength="200"
             multiLine fullWidth
             :value="value" @change="handlerChange"></mu-text-field> -->
-        <mu-select-field disabled label="测试 label" multiple :value="value" @change="handlerChange">
+        <mu-select-field icon="phone" label="测试 label" multiple :value="value" @change="handlerChange">
+          <mu-menu-item :value="1" title="menu1"/>
+          <mu-menu-item :value="2" title="menu2">
+            <mu-badge slot="after" secondary content="12"></mu-badge>
+          </mu-menu-item>
+          <mu-menu-item :value="3" title="menu3"/>
+          <mu-divider/>
+          <mu-menu-item :value="4" title="menu4"/>
+          <mu-menu-item :value="5" title="menu5"/>
+          <mu-menu-item :value="6" title="menu6"/>
+          <mu-menu-item :value="7" title="menu7"/>
+          <mu-menu-item :value="8" title="menu8"/>
+          <mu-menu-item :value="9" title="menu9"/>
+          <mu-menu-item :value="10" title="menu10"/>
+        </mu-select-field>
+        <mu-select-field icon="phone" label="测试 label" multiple :value="value" @change="handlerChange">
           <mu-menu-item :value="1" title="menu1"/>
           <mu-menu-item :value="2" title="menu2">
             <mu-badge slot="after" secondary content="12"></mu-badge>

@@ -63,6 +63,9 @@ export default {
           horizontal: 'left'
         }
       }
+    },
+    anchorEl: {
+      type: window.Element
     }
   },
   data () {
@@ -78,7 +81,7 @@ export default {
     }
   },
   mounted () {
-    this.trigger = this.$el
+    this.trigger = this.anchorEl || this.$el
     this.openMenu = this.openImmediately
     this.menuWidth = this.$el.offsetWidth
   },
@@ -109,6 +112,11 @@ export default {
         }
       })
       return text.join(',')
+    }
+  },
+  watch: {
+    anchorEl (val) {
+      if (val) this.trigger = val
     }
   },
   components: {

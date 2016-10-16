@@ -1,21 +1,23 @@
 <template>
-  <label class="mu-text-field" :class="textFieldClass" :style="focus ? errorStyle : {}">
+  <div class="mu-text-field" :class="textFieldClass" :style="focus ? errorStyle : {}">
     <icon  v-if="icon" class="mu-text-field-icon" :value="icon"></icon>
-    <text-field-label v-if="label" :float="float">{{label}}</text-field-label>
-    <slot>
-      <input :disabled="disabled" v-if="!multiLine" @input="handlerInput" @focus="handlerFocus" :value="value" @blur="handlerBlur" :placeholder="float ? '' : placeholder" class="mu-text-field-input" :name="name" :type="type">
-      <enhanced-textarea :disabled="disabled" :rows="rows" :rowsMax="rowsMax" @change="handlerChange" @focus.native="handlerFocus" @blur.native="handlerBlur" v-if="multiLine" :placeholder="float ? '' : placeholder" :value="value"></enhanced-textarea>
-    </slot>
-    <underline v-if="underlineShow" :error="!!errorText" :disabled="disabled" :errorColor="errorColor" :focus="focus"></underline>
-    <div class="mu-text-field-help" :style="errorStyle" v-if="errorText || helpText">
-        <div>
-            {{errorText || helpText}}
-        </div>
-        <div v-if="maxLength > 0">
-            {{charLength}}/{{maxLength}}
-        </div>
-    </div>
-  </label>
+    <label ref="content" class="mu-text-field-content">
+      <text-field-label v-if="label" :float="float">{{label}}</text-field-label>
+      <slot>
+        <input :disabled="disabled" v-if="!multiLine" @input="handlerInput" @focus="handlerFocus" :value="value" @blur="handlerBlur" :placeholder="float ? '' : placeholder" class="mu-text-field-input" :name="name" :type="type">
+        <enhanced-textarea :disabled="disabled" :rows="rows" :rowsMax="rowsMax" @change="handlerChange" @focus.native="handlerFocus" @blur.native="handlerBlur" v-if="multiLine" :placeholder="float ? '' : placeholder" :value="value"></enhanced-textarea>
+      </slot>
+      <underline v-if="underlineShow" :error="!!errorText" :disabled="disabled" :errorColor="errorColor" :focus="focus"></underline>
+      <div class="mu-text-field-help" :style="errorStyle" v-if="errorText || helpText">
+          <div>
+              {{errorText || helpText}}
+          </div>
+          <div v-if="maxLength > 0">
+              {{charLength}}/{{maxLength}}
+          </div>
+      </div>
+    </label>
+  </div>
 </template>
 
 <script>
@@ -166,15 +168,6 @@ export default {
       color: @red;
     }
   }
-  &.disabled {
-    color: @disabledColor;
-    cursor: not-allowed;
-  }
-  padding-bottom: 8px;
-  padding-top: 8px;
-  &.has-label {
-    padding-top: 28px;
-  }
 }
 
 .mu-text-field-icon {
@@ -186,6 +179,19 @@ export default {
   }
 }
 
+.mu-text-field-content{
+  display: block;
+  cursor: pointer;
+  .mu-text-field.disabled &{
+    color: @disabledColor;
+    cursor: not-allowed;
+  }
+  padding-bottom: 8px;
+  padding-top: 8px;
+  .mu-text-field.has-label &{
+    padding-top: 28px;
+  }
+}
 
 .mu-text-field-input{
   appearance: none;

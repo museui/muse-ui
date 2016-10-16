@@ -1,6 +1,6 @@
 <template>
 <text-field class="mu-select-field" :fullWidth="fullWidth" :helpText="helpText" :icon="icon" :value="value" :disabled="disabled" :errorText="errorText" :errorColor="errorColor" :label="label">
-  <dropDown-menu @open="handlerOpen" @close="handlerClose"  @change="handlerChange" :value="value" :disabled="disabled" :maxHeight="maxHeight" :autoWidth="autoWidth"
+  <dropDown-menu :anchorEl="anchorEl" @open="handlerOpen" @close="handlerClose"  @change="handlerChange" :value="value" :disabled="disabled" :maxHeight="maxHeight" :autoWidth="autoWidth"
     :multiple="multiple" :anchorOrigin="{vertical: 'bottom', horizontal: 'left'}">
     <slot></slot>
   </dropDown-menu>
@@ -49,6 +49,14 @@ export default {
       default: false
     }
   },
+  data () {
+    return {
+      anchorEl: null
+    }
+  },
+  mounted () {
+    this.anchorEl = this.$children[0].$refs.content
+  },
   methods: {
     handlerChange (val) {
       this.$emit('change', val)
@@ -77,6 +85,7 @@ export default {
   }
   .mu-dropDown-menu-text{
     line-height: 36px;
+    height: 36px;
     padding-left: 0px;
     padding-right: 24px;
     word-wrap: break-word;
