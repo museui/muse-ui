@@ -1,0 +1,36 @@
+.mu-checkbox {
+  input[type="checkbox"] {
+    &:checked {
+      + .mu-checkbox-wrapper {
+        .mu-checkbox-icon-uncheck{
+          color: @checkboxCheckedColor;
+        }
+        .mu-checkbox-ripple-wrapper{
+          color: @checkboxCheckedColor;
+        }
+      }
+
+    }
+  }
+}
+
+.mu-checkbox-label {
+  color: @checkboxTextColor;
+  .mu-checkbox.disabled & {
+    color: @checkboxDisabledColor;
+  }
+}
+
+.mu-checkbox-icon-uncheck {
+  color: @checkboxColor;
+  .mu-checkbox.disabled & {
+    color: @checkboxDisabledColor;
+  }
+}
+
+.mu-checkbox-icon-checked {
+  color: @checkboxCheckedColor;
+  .mu-checkbox.disabled & {
+    color: @checkboxDisabledColor;
+  }
+}

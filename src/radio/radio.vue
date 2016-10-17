@@ -1,36 +1,37 @@
 <template>
-  <label @mousedown="handleMouseDown" @mouseup="handleMouseUp" @touchstart="handleTouchStart"
-    @touchend="handleTouchEnd" class="mu-checkbox" :class="{'label-left': labelLeft, 'disabled': disabled}">
-    <input type="checkbox" :disabled="disabled" :name="name" :value="nativeValue" v-model="inputValue">
-    <touch-ripple v-if="!disabled" rippleWrapperClass="mu-checkbox-ripple-wrapper" class="mu-checkbox-wrapper">
-      <div class="mu-checkbox-label"  v-if="label && labelLeft">{{label}}</div>
-      <div class="mu-checkbox-icon">
-        <icon :value="uncheckIcon" class="mu-checkbox-icon-uncheck"></icon>
-        <icon :value="checkedIcon" class="mu-checkbox-icon-checked"></icon>
-      </div>
-      <div class="mu-checkbox-label"  v-if="label && !labelLeft">{{label}}</div>
-    </touch-ripple>
-    <div class="mu-checkbox-wrapper" v-if="disabled">
-      <div class="mu-checkbox-label"  v-if="label && labelLeft">{{label}}</div>
-      <div class="mu-checkbox-icon">
-        <icon :value="uncheckIcon" class="mu-checkbox-icon-uncheck"></icon>
-        <icon :value="checkedIcon" class="mu-checkbox-icon-checked"></icon>
-      </div>
-      <div class="mu-checkbox-label"  v-if="label && !labelLeft">{{label}}</div>
+<label @mousedown="handleMouseDown" @mouseup="handleMouseUp" @touchstart="handleTouchStart" @touchend="handleTouchEnd" class="mu-radio" :class="{'label-left': labelLeft, 'disabled': disabled}">
+  <input type="radio" :disabled="disabled" :name="name" :value="nativeValue" v-model="inputValue">
+  <touch-ripple v-if="!disabled" rippleWrapperClass="mu-radio-ripple-wrapper" class="mu-radio-wrapper">
+    <div class="mu-radio-label"  v-if="label && labelLeft">{{label}}</div>
+    <div class="mu-radio-icon">
+      <icon :value="uncheckIcon" class="mu-radio-icon-uncheck"></icon>
+      <icon :value="checkedIcon" class="mu-radio-icon-checked"></icon>
     </div>
-  </label>
+    <div class="mu-radio-label"  v-if="label && !labelLeft">{{label}}</div>
+  </touch-ripple>
+  <div class="mu-radio-wrapper" v-if="disabled">
+    <div class="mu-radio-label"  v-if="label && labelLeft">{{label}}</div>
+    <div class="mu-radio-icon">
+      <icon :value="uncheckIcon" class="mu-radio-icon-uncheck"></icon>
+      <icon :value="checkedIcon" class="mu-radio-icon-checked"></icon>
+    </div>
+    <div class="mu-radio-label"  v-if="label && !labelLeft">{{label}}</div>
+  </div>
+</label>
 </template>
 
 <script>
 import icon from '../icon'
 import touchRipple from '../internal/touchRipple'
 export default {
-  name: 'mu-checkbox',
+  name: 'mu-radio',
   props: {
     name: {
       type: String
     },
-    value: {},
+    value: {
+      type: String
+    },
     nativeValue: {
       type: String
     },
@@ -48,11 +49,11 @@ export default {
     },
     uncheckIcon: {
       type: String,
-      default: 'check_box_outline_blank'
+      default: 'radio_button_unchecked'
     },
     checkedIcon: {
       type: String,
-      default: 'check_box'
+      default: 'radio_button_checked'
     }
   },
   data () {
@@ -102,28 +103,28 @@ export default {
 
 <style lang="less">
 @import "../styles/import.less";
-.mu-checkbox {
+.mu-radio {
   position: relative;
   display: inline-block;
   height: 36px;
   line-height: 36px;
   margin-right: 32px;
   cursor: pointer;
-  input[type="checkbox"] {
+  input[type="radio"] {
     display: none;
     &:checked {
-      + .mu-checkbox-wrapper {
-        .mu-checkbox-icon-uncheck{
+      + .mu-radio-wrapper {
+        .mu-radio-icon-uncheck{
           opacity: 0;
           transition: opacity 650ms @easeOutFunction 150ms;
           color: @primary1Color;
         }
-        .mu-checkbox-icon-checked{
+        .mu-radio-icon-checked{
           opacity: 1;
           transform: scale(1);
           transition: opacity 0ms @easeOutFunction, transform 800ms @easeOutFunction;
         }
-        .mu-checkbox-ripple-wrapper{
+        .mu-radio-ripple-wrapper{
           color: @primary1Color;
         }
       }
@@ -134,50 +135,51 @@ export default {
   * {
     pointer-events: none;
   }
+
   &.disabled  {
     cursor: not-allowed;
   }
 }
 
-.mu-checkbox-wrapper{
+.mu-radio-wrapper{
   display: flex;
   width: 100%;
   height: 24px;
   align-items: center;
   justify-content: space-between;
 }
-.mu-checkbox-icon{
+.mu-radio-icon{
   width: 24px;
   height: 24px;
   vertical-align: middle;
   position: relative;
   margin-right: 16px;
-  .mu-checkbox.label-left &{
+  .mu-radio.label-left &{
     margin-right: 0;
     margin-left: 16px;
   }
 }
 
-.mu-checkbox-label {
+.mu-radio-label {
   color: @textColor;
-  .mu-checkbox.disabled & {
+  .mu-radio.disabled & {
     color: @disabledColor;
   }
 }
 
-.mu-checkbox-icon-uncheck {
+.mu-radio-icon-uncheck {
   position: absolute;
   left: 0;
   top: 0;
   opacity: 1;
   transition: opacity 1s @easeOutFunction .2s;
   color: @textColor;
-  .mu-checkbox.disabled & {
+  .mu-radio.disabled & {
     color: @disabledColor;
   }
 }
 
-.mu-checkbox-icon-checked {
+.mu-radio-icon-checked {
   position: absolute;
   left: 0;
   top: 0;
@@ -185,19 +187,19 @@ export default {
   color: @primary1Color;
   transform: scale(0);
   transition: opacity 450ms @easeOutFunction, transform 0ms @easeOutFunction 450ms;
-  .mu-checkbox.disabled & {
-    color: @disabledColor;
-  }
+  .mu-radio.disabled & {
+     color: @disabledColor;
+   }
 }
 
-.mu-checkbox-ripple-wrapper {
+.mu-radio-ripple-wrapper {
   width: 48px;
   height: 48px;
   top: -12px;
   left: -12px;
-  .mu-checkbox.label-left & {
-      right: -12px;
-      left: auto;
+  .mu-radio.label-left & {
+    right: -12px;
+    left: auto;
   }
 }
 </style>

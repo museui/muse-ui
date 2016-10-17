@@ -36,6 +36,8 @@ import tooltip from './tooltip'
 
 import textField from './textField'
 import selectField from './selectField'
+import checkbox from './checkbox'
+import radio from './radio'
 const components = {
   icon,
   badge,
@@ -71,7 +73,9 @@ const components = {
   picker,
   tooltip,
   textField,
-  selectField
+  selectField,
+  checkbox,
+  radio
 }
 
 export default {
