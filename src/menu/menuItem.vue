@@ -57,13 +57,6 @@ export default {
     rightIcon: {
       type: String
     },
-    // focusState: {
-    //   type: String,
-    //   default: 'none',
-    //   validator: function (value) {
-    //     return ['none', 'focused', 'keyboard-focused'].indexOf(value) !== -1
-    //   }
-    // },
     value: {},
     nestedMenuValue: {}
   },
@@ -80,7 +73,7 @@ export default {
     return {
       openMenu: false,
       trigger: null,
-      focusState: 'none'
+      focusState: 'none' // 'none', 'focused', 'keyboard-focused'
     }
   },
   mounted () {

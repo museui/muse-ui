@@ -3,9 +3,10 @@
     <icon  v-if="icon" class="mu-text-field-icon" :value="icon"></icon>
     <label ref="content" class="mu-text-field-content">
       <text-field-label v-if="label" :float="float">{{label}}</text-field-label>
+      <text-field-hint v-if="hintText" :text="hintText" :show="showHint"></text-field-hint>
       <slot>
-        <input :disabled="disabled" v-if="!multiLine" @input="handlerInput" @focus="handlerFocus" :value="value" @blur="handlerBlur" :placeholder="float ? '' : placeholder" class="mu-text-field-input" :name="name" :type="type">
-        <enhanced-textarea :disabled="disabled" :rows="rows" :rowsMax="rowsMax" @change="handlerChange" @focus.native="handlerFocus" @blur.native="handlerBlur" v-if="multiLine" :placeholder="float ? '' : placeholder" :value="value"></enhanced-textarea>
+        <input :disabled="disabled" v-if="!multiLine" @focus="handlerFocus" v-model="inputValue" @blur="handlerBlur" class="mu-text-field-input" :name="name" :type="type">
+        <enhanced-textarea :disabled="disabled" :rows="rows" :rowsMax="rowsMax" @change="handlerChange" @focus.native="handlerFocus" @blur.native="handlerBlur" v-if="multiLine" :value="value"></enhanced-textarea>
       </slot>
       <underline v-if="underlineShow" :error="!!errorText" :disabled="disabled" :errorColor="errorColor" :focus="focus"></underline>
       <div class="mu-text-field-help" :style="errorStyle" v-if="errorText || helpText">
@@ -26,6 +27,7 @@ import underline from './textFieldUnderline'
 import enhancedTextarea from './enhancedTextarea'
 import textFieldLabel from './textFieldLabel'
 import {getColor} from '../utils'
+import textFieldHint from './textFieldHint'
 export default {
   name: 'mu-text-field',
   props: {
@@ -45,7 +47,7 @@ export default {
       type: Boolean,
       default: false
     },
-    placeholder: {
+    hintText: {
       type: String
     },
     value: {},
@@ -92,7 +94,8 @@ export default {
   },
   data () {
     return {
-      focus: false
+      focus: false,
+      inputValue: this.value
     }
   },
   mounted () {
@@ -103,18 +106,15 @@ export default {
       return {
         'focus-state': this.focus,
         'has-label': this.label,
-        'no-empty-state': this.value,
+        'no-empty-state': this.inputValue,
         'has-icon': this.icon,
         'error': this.errorText,
         'disabled': this.disabled,
         'full-width': this.fullWidth
       }
     },
-    inputValue () {
-      return this.value
-    },
     float () {
-      return this.labelFloat && !this.focus && !this.value
+      return this.labelFloat && !this.focus && !this.inputValue
     },
     errorStyle () {
       return {
@@ -122,7 +122,10 @@ export default {
       }
     },
     charLength () {
-      return this.value ? this.value.length : 0
+      return this.maxHeight && this.inputValue ? this.inputValue.length : 0
+    },
+    showHint () {
+      return !this.float && !this.inputValue
     }
   },
   methods: {
@@ -132,18 +135,28 @@ export default {
     handlerBlur () {
       this.focus = false
     },
-    handlerInput (e) {
-      this.$emit('change', e.target.value)
-    },
     handlerChange (val) {
+      this.inputValue = val
+    }
+  },
+  watch: {
+    value (val) {
+      this.inputValue = val
+    },
+    inputValue (val) {
+      this.$emit('input', val)
       this.$emit('change', val)
+    },
+    charLength (val) {
+      if (val > this.maxLength) this.$emit('textOverflow')
     }
   },
   components: {
     icon,
     underline,
     'enhanced-textarea': enhancedTextarea,
-    'text-field-label': textFieldLabel
+    'text-field-label': textFieldLabel,
+    'text-field-hint': textFieldHint
   }
 }
 </script>
@@ -214,10 +227,6 @@ export default {
   font-family: inherit;
   color: @textColor;
   font-family: inherit;
-  &::-webkit-input-placeholder {
-    color: @disabledColor;
-    opacity: 1;
-  }
 }
 
 .mu-text-field-help {

@@ -1,6 +1,6 @@
 <template>
-<text-field class="mu-select-field" :fullWidth="fullWidth" :helpText="helpText" :icon="icon" :value="value" :disabled="disabled" :errorText="errorText" :errorColor="errorColor" :label="label">
-  <dropDown-menu :anchorEl="anchorEl" @open="handlerOpen" @close="handlerClose"  @change="handlerChange" :value="value" :disabled="disabled" :maxHeight="maxHeight" :autoWidth="autoWidth"
+<text-field class="mu-select-field" :labelFloat="labelFloat" :hintText="hintText" :fullWidth="fullWidth" :helpText="helpText" :icon="icon" :value="inputValue instanceof Array ? inputValue.join('') : inputValue" :disabled="disabled" :errorText="errorText" :errorColor="errorColor" :label="label">
+  <dropDown-menu :anchorEl="anchorEl" @open="handlerOpen" @close="handlerClose"  @change="handlerChange" :value="inputValue" :disabled="disabled" :maxHeight="maxHeight" :autoWidth="autoWidth"
     :multiple="multiple" :anchorOrigin="{vertical: 'bottom', horizontal: 'left'}">
     <slot></slot>
   </dropDown-menu>
@@ -16,9 +16,16 @@ export default {
     label: {
       type: String
     },
+    labelFloat: {
+      type: Boolean,
+      default: false
+    },
     disabled: {
       type: Boolean,
       default: false
+    },
+    hintText: {
+      type: String
     },
     helpText: {
       type: String
@@ -50,8 +57,14 @@ export default {
     }
   },
   data () {
+    let defaultVal = this.value
+    if (!defaultVal) defaultVal = ''
+    if (this.multiple && !(defaultVal instanceof Array)) {
+      defaultVal = []
+    }
     return {
-      anchorEl: null
+      anchorEl: null,
+      inputValue: defaultVal
     }
   },
   mounted () {
@@ -59,13 +72,32 @@ export default {
   },
   methods: {
     handlerChange (val) {
-      this.$emit('change', val)
+      if (this.multiple) {
+        const index = this.inputValue.indexOf(val)
+        if (index === -1) {
+          this.inputValue.push(val)
+        } else {
+          this.inputValue.splice(index, 1)
+        }
+      } else {
+        this.inputValue = val
+      }
     },
     handlerOpen () {
       this.$children[0].handlerFocus()
     },
     handlerClose () {
       this.$children[0].handlerBlur()
+    }
+  },
+  watch: {
+    value (val) {
+      this.inputValue = val
+    },
+    inputValue (val, oldVal) {
+      if (val === oldVal) return
+      this.$emit('input', val)
+      this.$emit('change', val)
     }
   },
   components: {

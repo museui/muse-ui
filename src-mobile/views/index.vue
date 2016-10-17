@@ -24,12 +24,14 @@
     <mu-content-block>
         <!-- <mu-icon-button tooltip="refresh" tooltipPosition="top-center" icon="refresh"></mu-icon-button>
         <mu-raised-button primary label="test"></mu-raised-button> -->
-        <!-- <mu-text-field :rows="4" :rowsMax="8"  icon="info" label="testLabel"
-            placeholder="test nennen" labelFloat
+        <!-- <mu-text-field :rows="4" :rowsMax="8"  icon="phone" label="testLabel"
+            placeholder="test nennen"
             :maxLength="200"
-            multiLine fullWidth
-            :value="value" @change="handlerChange"></mu-text-field> -->
-        <mu-select-field icon="phone" label="测试 label" multiple :value="value" @change="handlerChange">
+            hintText="123456"
+            multiLine
+            fullWidth
+            v-model="value"></mu-text-field> -->
+        <mu-select-field labelFloat icon="phone" label="测试 label" hintText="select one" multiple v-model="value" @change="handlerChange">
           <mu-menu-item :value="1" title="menu1"/>
           <mu-menu-item :value="2" title="menu2">
             <mu-badge slot="after" secondary content="12"></mu-badge>
@@ -44,7 +46,7 @@
           <mu-menu-item :value="9" title="menu9"/>
           <mu-menu-item :value="10" title="menu10"/>
         </mu-select-field>
-        <mu-select-field icon="phone" label="测试 label" multiple :value="value" @change="handlerChange">
+        <!-- <mu-select-field icon="phone" label="测试 label" multiple :value="value" @change="handlerChange">
           <mu-menu-item :value="1" title="menu1"/>
           <mu-menu-item :value="2" title="menu2">
             <mu-badge slot="after" secondary content="12"></mu-badge>
@@ -58,7 +60,7 @@
           <mu-menu-item :value="8" title="menu8"/>
           <mu-menu-item :value="9" title="menu9"/>
           <mu-menu-item :value="10" title="menu10"/>
-        </mu-select-field>
+        </mu-select-field> -->
     </mu-content-block>
 
   </div>
@@ -88,6 +90,7 @@ export default {
       years: [{values: years}],
       yearValues: years[10],
       value: [1]
+      // value: '123'
     }
   },
   methods: {
