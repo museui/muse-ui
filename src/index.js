@@ -40,6 +40,7 @@ import checkbox from './checkbox'
 import radio from './radio'
 import _switch from './switch'
 import range from './range'
+import linearProgress from './linearProgress'
 const components = {
   icon,
   badge,
@@ -79,7 +80,8 @@ const components = {
   checkbox,
   radio,
   _switch,
-  range
+  range,
+  linearProgress
 }
 
 export default {

@@ -4,7 +4,7 @@
     <div class="mu-snackbar-message">
       {{message}}
     </div>
-    <flat-button v-if="action" :color="actionColor"  rippleColor="#FFF" :rippleOpacity="0.3" secondary :label="action"/>
+    <flat-button v-if="action" @click="handleActionClick" :color="actionColor"  rippleColor="#FFF" :rippleOpacity="0.3" secondary :label="action"/>
   </div>
 </transition>
 </template>
@@ -34,6 +34,9 @@ export default {
   methods: {
     clickOutSide () {
       this.$emit('close')
+    },
+    handleActionClick () {
+      this.$emit('actionClick')
     }
   },
   components: {
