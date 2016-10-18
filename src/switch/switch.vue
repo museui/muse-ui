@@ -1,16 +1,13 @@
 <template>
 <label @mousedown="handleMouseDown" @mouseup="handleMouseUp" @touchstart="handleTouchStart" @touchend="handleTouchEnd" class="mu-switch" :class="{'label-left': labelLeft, 'disabled': disabled}">
-  <input type="checkbox" :disabled="disabled" :value="nativeValue" v-model="inputValue">
-  <touch-ripple v-if="!disabled" rippleWrapperClass="mu-switch-ripple-wrapper" class="mu-switch-wrapper">
+  <input type="checkbox" :disabled="disabled"  v-model="inputValue">
+  <div class="mu-switch-wrapper">
     <div class="mu-switch-label"  v-if="label && labelLeft">{{label}}</div>
-    <div class="mu-switch-icon">
-    </div>
-    <div class="mu-switch-label"  v-if="label && !labelLeft">{{label}}</div>
-  </touch-ripple>
-  <div class="mu-switch-wrapper" v-if="disabled">
-    <div class="mu-switch-label"  v-if="label && labelLeft">{{label}}</div>
-    <div class="mu-switch-icon">
-
+    <div class="mu-switch-container">
+      <div class="mu-switch-track"></div>
+      <div class="mu-switch-thumb" v-if="disabled"></div>
+      <touch-ripple v-if="!disabled"  rippleWrapperClass="mu-switch-ripple-wrapper" class="mu-switch-thumb">
+      </touchRipple>
     </div>
     <div class="mu-switch-label"  v-if="label && !labelLeft">{{label}}</div>
   </div>
@@ -26,10 +23,7 @@ export default {
       type: String
     },
     value: {
-      type: String
-    },
-    nativeValue: {
-      type: String
+      type: Boolean
     },
     label: {
       type: String,
@@ -42,6 +36,20 @@ export default {
     disabled: {
       type: Boolean,
       default: false
+    }
+  },
+  data () {
+    return {
+      inputValue: this.value
+    }
+  },
+  watch: {
+    value (val) {
+      this.inputValue = val
+    },
+    inputValue (val) {
+      this.$emit('input', val)
+      this.$emit('change', val)
     }
   },
   methods: {
@@ -76,4 +84,110 @@ export default {
 
 <style lang="less">
 @import "../styles/import.less";
+.mu-switch {
+  position: relative;
+  display: inline-block;
+  height: 24px;
+  line-height: 24px;
+  margin-bottom: 16px;
+  margin-right: 24px;
+  cursor: pointer;
+  input[type="checkbox"] {
+    display: none;
+    &:checked {
+      + .mu-switch-wrapper {
+        .mu-switch-track{
+          background-color: fade(@primary1Color, 50%);
+        }
+        .mu-switch-thumb{
+          background-color: @primary1Color;
+          color: @primary1Color;
+          left: 18px;
+        }
+      }
+
+    }
+  }
+  &.disabled {
+    input[type="checkbox"]:checked{
+      + .mu-switch-wrapper {
+        .mu-switch-track{
+          background-color: @primary3Color;
+        }
+        .mu-switch-thumb{
+          background-color: @borderColor;
+        }
+      }
+    }
+  }
+
+  * {
+    pointer-events: none;
+  }
+  &.disabled  {
+    cursor: not-allowed;
+  }
+}
+
+.mu-switch-wrapper{
+  display: flex;
+  width: 100%;
+  height: 24px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mu-switch-container{
+  width: 38px;
+  padding: 4px 0px 6px 2px;
+  position: relative;
+  margin-right: 8px;
+  transition: all 450ms @easeOutFunction;
+  .mu-switch.label-left &{
+    margin-right: 0;
+    margin-left: 8px;
+  }
+}
+
+.mu-switch-label {
+  color: @textColor;
+  .mu-switch.disabled & {
+    color: @disabledColor;
+  }
+}
+
+.mu-switch-track {
+  width: 100%;
+  height: 14px;
+  border-radius: 30px;
+  background-color: @primary3Color;
+  transition: all 450ms @easeOutFunction;
+  .mu-switch.disabled & {
+    background-color: @primary3Color;
+  }
+}
+
+.mu-switch-thumb {
+  position: absolute;
+  top: 1px;
+  left: 0px;
+  width: 20px;
+  height: 20px;
+  line-height: 24px;
+  color: @textColor;
+  background-color: @accent2Color;
+  border-radius: 50%;
+  .depth(1);
+  transition: all 450ms @easeOutFunction;
+  .mu-switch.disabled & {
+    background-color: @borderColor;
+  }
+}
+
+.mu-switch-ripple-wrapper {
+  height: 200%;
+  width: 200%;
+  top: -10px;
+  left: -10px;
+}
 </style>

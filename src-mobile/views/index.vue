@@ -22,10 +22,11 @@
       </mu-appbar>
     </mu-paper>
     <mu-content-block>
-      <mu-checkbox disabled label="选择框1" name="test" @change="handlerChange" nativeValue="1" v-model="value"></mu-checkbox>
-      <mu-radio label="选择框2" name="test" nativeValue="2" v-model="value"></mu-radio>
+      <!-- <mu-checkbox disabled label="选择框1" name="test" @change="handlerChange" nativeValue="1" v-model="value"></mu-checkbox> -->
+      <mu-switch labelLeft label="开关" name="test" v-model="switchValue"></mu-switch>
+      <!-- <mu-radio label="选择框2" name="test" nativeValue="2" v-model="value"></mu-radio> -->
       <!-- <mu-radio disabled label="选择框3" name="test" nativeValue="3" v-model="value"></mu-radio> -->
-      <mu-radio label="选择框4" name="test" nativeValue="4" v-model="value"></mu-radio>
+      <!-- <mu-radio label="选择框4" name="test" nativeValue="4" v-model="value"></mu-radio> -->
         <!-- <mu-icon-button tooltip="refresh" tooltipPosition="top-center" icon="refresh"></mu-icon-button>
         <mu-raised-button primary label="test"></mu-raised-button> -->
         <!-- <mu-text-field :rows="4" :rowsMax="8"  icon="phone" label="testLabel"
@@ -93,7 +94,8 @@ export default {
     return {
       years: [{values: years}],
       yearValues: years[10],
-      value: '3'
+      value: '3',
+      switchValue: true
       // value: [1]
       // value: '123'
     }

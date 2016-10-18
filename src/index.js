@@ -38,6 +38,7 @@ import textField from './textField'
 import selectField from './selectField'
 import checkbox from './checkbox'
 import radio from './radio'
+import _switch from './switch'
 const components = {
   icon,
   badge,
@@ -75,7 +76,8 @@ const components = {
   textField,
   selectField,
   checkbox,
-  radio
+  radio,
+  _switch
 }
 
 export default {
