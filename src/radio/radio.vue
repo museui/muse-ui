@@ -92,6 +92,9 @@ export default {
     handleTouchEnd () {
       if (this.disabled) return
       this.$children[0].end()
+    },
+    handleFocus () {
+      console.log('focus')
     }
   },
   components: {
@@ -106,9 +109,10 @@ export default {
 .mu-radio {
   position: relative;
   display: inline-block;
-  height: 36px;
-  line-height: 36px;
-  margin-right: 32px;
+  height: 24px;
+  line-height: 24px;
+  margin-bottom: 16px;
+  margin-right: 24px;
   cursor: pointer;
   input[type="radio"] {
     display: none;
@@ -116,13 +120,12 @@ export default {
       + .mu-radio-wrapper {
         .mu-radio-icon-uncheck{
           opacity: 0;
-          transition: opacity 650ms @easeOutFunction 150ms;
+          transform: scale(0);
           color: @primary1Color;
         }
         .mu-radio-icon-checked{
           opacity: 1;
           transform: scale(1);
-          transition: opacity 0ms @easeOutFunction, transform 800ms @easeOutFunction;
         }
         .mu-radio-ripple-wrapper{
           color: @primary1Color;
@@ -172,7 +175,7 @@ export default {
   left: 0;
   top: 0;
   opacity: 1;
-  transition: opacity 1s @easeOutFunction .2s;
+  transition: all 450ms @easeOutFunction;
   color: @textColor;
   .mu-radio.disabled & {
     color: @disabledColor;
@@ -186,7 +189,7 @@ export default {
   opacity: 0;
   color: @primary1Color;
   transform: scale(0);
-  transition: opacity 450ms @easeOutFunction, transform 0ms @easeOutFunction 450ms;
+  transition: all 450ms @easeOutFunction;
   .mu-radio.disabled & {
      color: @disabledColor;
    }

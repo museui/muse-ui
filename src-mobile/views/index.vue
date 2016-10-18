@@ -24,7 +24,7 @@
     <mu-content-block>
       <mu-checkbox disabled label="选择框1" name="test" @change="handlerChange" nativeValue="1" v-model="value"></mu-checkbox>
       <mu-radio label="选择框2" name="test" nativeValue="2" v-model="value"></mu-radio>
-      <mu-radio disabled label="选择框3" name="test" nativeValue="3" v-model="value"></mu-radio>
+      <!-- <mu-radio disabled label="选择框3" name="test" nativeValue="3" v-model="value"></mu-radio> -->
       <mu-radio label="选择框4" name="test" nativeValue="4" v-model="value"></mu-radio>
         <!-- <mu-icon-button tooltip="refresh" tooltipPosition="top-center" icon="refresh"></mu-icon-button>
         <mu-raised-button primary label="test"></mu-raised-button> -->
@@ -93,7 +93,7 @@ export default {
     return {
       years: [{values: years}],
       yearValues: years[10],
-      value: '1'
+      value: '3'
       // value: [1]
       // value: '123'
     }

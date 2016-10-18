@@ -1,25 +1,24 @@
 <template>
-<label @mousedown="handleMouseDown" @mouseup="handleMouseUp" @touchstart="handleTouchStart" @touchend="handleTouchEnd" class="mu-radio" :class="{'label-left': labelLeft, 'disabled': disabled}">
-  <input type="radio" :disabled="disabled" :name="name" :value="nativeValue" v-model="inputValue">
-  <touch-ripple v-if="!disabled" rippleWrapperClass="mu-radio-ripple-wrapper" class="mu-radio-wrapper">
-    <div class="mu-radio-label"  v-if="label && labelLeft">{{label}}</div>
-    <div class="mu-radio-icon">
-      <icon :value="uncheckIcon" class="mu-radio-icon-uncheck"></icon>
-      <icon :value="checkedIcon" class="mu-radio-icon-checked"></icon>
+<label @mousedown="handleMouseDown" @mouseup="handleMouseUp" @touchstart="handleTouchStart" @touchend="handleTouchEnd" class="mu-switch" :class="{'label-left': labelLeft, 'disabled': disabled}">
+  <input type="checkbox" :disabled="disabled" :value="nativeValue" v-model="inputValue">
+  <touch-ripple v-if="!disabled" rippleWrapperClass="mu-switch-ripple-wrapper" class="mu-switch-wrapper">
+    <div class="mu-switch-label"  v-if="label && labelLeft">{{label}}</div>
+    <div class="mu-switch-icon">
     </div>
-    <div class="mu-radio-label"  v-if="label && !labelLeft">{{label}}</div>
+    <div class="mu-switch-label"  v-if="label && !labelLeft">{{label}}</div>
   </touch-ripple>
-  <div class="mu-radio-wrapper" v-if="disabled">
-    <div class="mu-radio-label"  v-if="label && labelLeft">{{label}}</div>
-    <div class="mu-radio-icon">
+  <div class="mu-switch-wrapper" v-if="disabled">
+    <div class="mu-switch-label"  v-if="label && labelLeft">{{label}}</div>
+    <div class="mu-switch-icon">
 
     </div>
-    <div class="mu-radio-label"  v-if="label && !labelLeft">{{label}}</div>
+    <div class="mu-switch-label"  v-if="label && !labelLeft">{{label}}</div>
   </div>
 </label>
 </template>
 
 <script>
+import touchRipple from '../internal/touchRipple'
 export default {
   name: 'mu-switch',
   props: {
@@ -44,6 +43,33 @@ export default {
       type: Boolean,
       default: false
     }
+  },
+  methods: {
+    handleMouseDown (event) {
+      if (this.disabled) return
+      if (event.button === 0) {
+        this.$children[0].start(event)
+      }
+    },
+    handleMouseUp () {
+      if (this.disabled) return
+      this.$children[0].end()
+    },
+    handleMouseLeave () {
+      if (this.disabled) return
+      this.$children[0].end()
+    },
+    handleTouchStart (event) {
+      if (this.disabled) return
+      this.$children[0].start(event)
+    },
+    handleTouchEnd () {
+      if (this.disabled) return
+      this.$children[0].end()
+    }
+  },
+  components: {
+    'touch-ripple': touchRipple
   }
 }
 </script>

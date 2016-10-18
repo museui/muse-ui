@@ -105,9 +105,10 @@ export default {
 .mu-checkbox {
   position: relative;
   display: inline-block;
-  height: 36px;
-  line-height: 36px;
-  margin-right: 32px;
+  height: 24px;
+  line-height: 24px;
+  margin-bottom: 16px;
+  margin-right: 24px;
   cursor: pointer;
   input[type="checkbox"] {
     display: none;
