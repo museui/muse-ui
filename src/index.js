@@ -41,6 +41,7 @@ import radio from './radio'
 import _switch from './switch'
 import range from './range'
 import linearProgress from './linearProgress'
+import * as gridList from './gridList'
 const components = {
   icon,
   badge,
@@ -81,7 +82,8 @@ const components = {
   radio,
   _switch,
   range,
-  linearProgress
+  linearProgress,
+  ...gridList
 }
 
 export default {

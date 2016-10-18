@@ -21,11 +21,30 @@
         <mu-icon-button  slot="right" icon="refresh"></mu-icon-button>
       </mu-appbar>
     </mu-paper>
-    <mu-content-block>
-      <mu-linear-progress mode="determinate" :value="progress"/>
-      <!-- <mu-raised-button label="show Snackbar" @click="show" fullWidth/>
-      <mu-raised-button style="margin-top: 16px;" label="show toast" @click="toggle" fullWidth/> -->
-    </mu-content-block>
+
+    <mu-grid-list>
+      <mu-grid-tile :cols="2" titlePosition="top" actionPosition="left">
+        <img src="http://www.material-ui.com/images/grid-list/00-52-29-429_640.jpg" />
+        <span slot="title">Breakfast</span>
+        <span slot="subTitle">by <b>jill111</b></span>
+        <mu-icon-button slot="action" icon="star_border"></mu-icon-button>
+      </mu-grid-tile>
+      <mu-grid-tile :cols="1" titlePosition="top" actionPosition="left">
+        <img src="http://www.material-ui.com/images/grid-list/00-52-29-429_640.jpg" />
+        <span slot="title">Breakfast</span>
+        <span slot="subTitle">by <b>jill111</b></span>
+        <mu-icon-button slot="action" icon="star_border"></mu-icon-button>
+      </mu-grid-tile>
+      <mu-grid-tile :cols="1" titlePosition="top" actionPosition="left">
+        <img src="http://www.material-ui.com/images/grid-list/00-52-29-429_640.jpg" />
+        <span slot="title">Breakfast</span>
+        <span slot="subTitle">by <b>jill111</b></span>
+        <mu-icon-button slot="action" icon="star_border"></mu-icon-button>
+      </mu-grid-tile>
+    </mu-grid-list>
+    <!-- <mu-content-block>
+
+    </mu-content-block> -->
     <!-- <mu-snackbar v-if="showTip" @close="close" message="This is test message" action="close" @actionClick="close"></mu-snackbar>
     <mu-toast v-if="toast" @close="toggle" message="This is test toast message"></mu-toast> -->
   </div>
