@@ -23,7 +23,8 @@
     </mu-paper>
     <mu-content-block>
       <!-- <mu-checkbox disabled label="选择框1" name="test" @change="handlerChange" nativeValue="1" v-model="value"></mu-checkbox> -->
-      <mu-switch labelLeft label="开关" name="test" v-model="switchValue"></mu-switch>
+      <!-- <mu-switch labelLeft label="开关" name="test" v-model="switchValue"></mu-switch> -->
+      <mu-range disabled />
       <!-- <mu-radio label="选择框2" name="test" nativeValue="2" v-model="value"></mu-radio> -->
       <!-- <mu-radio disabled label="选择框3" name="test" nativeValue="3" v-model="value"></mu-radio> -->
       <!-- <mu-radio label="选择框4" name="test" nativeValue="4" v-model="value"></mu-radio> -->
