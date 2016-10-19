@@ -1,0 +1,7 @@
+export {default as table} from './table'
+export {default as thead} from './thead'
+export {default as tbody} from './tbody'
+export {default as tfoot} from './tfoot'
+export {default as tr} from './tr'
+export {default as th} from './th'
+export {default as td} from './td'

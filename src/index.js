@@ -42,6 +42,7 @@ import _switch from './switch'
 import range from './range'
 import linearProgress from './linearProgress'
 import * as gridList from './gridList'
+import * as table from './table'
 const components = {
   icon,
   badge,
@@ -83,7 +84,8 @@ const components = {
   _switch,
   range,
   linearProgress,
-  ...gridList
+  ...gridList,
+  ...table
 }
 
 export default {

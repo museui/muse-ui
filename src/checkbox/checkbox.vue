@@ -1,6 +1,6 @@
 <template>
   <label @mousedown="handleMouseDown" @mouseup="handleMouseUp" @touchstart="handleTouchStart"
-    @touchend="handleTouchEnd" class="mu-checkbox" :class="{'label-left': labelLeft, 'disabled': disabled}">
+    @touchend="handleTouchEnd" class="mu-checkbox" :class="{'label-left': labelLeft, 'disabled': disabled, 'no-label': !label}">
     <input type="checkbox" :disabled="disabled" :name="name" :value="nativeValue" v-model="inputValue">
     <touch-ripple v-if="!disabled" rippleWrapperClass="mu-checkbox-ripple-wrapper" class="mu-checkbox-wrapper">
       <div class="mu-checkbox-label"  v-if="label && labelLeft">{{label}}</div>
@@ -107,8 +107,6 @@ export default {
   display: inline-block;
   height: 24px;
   line-height: 24px;
-  margin-bottom: 16px;
-  margin-right: 24px;
   cursor: pointer;
   input[type="checkbox"] {
     display: none;
@@ -156,6 +154,10 @@ export default {
   .mu-checkbox.label-left &{
     margin-right: 0;
     margin-left: 16px;
+  }
+  .mu-checkbox.no-label &{
+    margin-left: 0;
+    margin-right: 0;
   }
 }
 

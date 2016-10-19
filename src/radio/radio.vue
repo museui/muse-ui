@@ -1,5 +1,5 @@
 <template>
-<label @mousedown="handleMouseDown" @mouseup="handleMouseUp" @touchstart="handleTouchStart" @touchend="handleTouchEnd" class="mu-radio" :class="{'label-left': labelLeft, 'disabled': disabled}">
+<label @mousedown="handleMouseDown" @mouseup="handleMouseUp" @touchstart="handleTouchStart" @touchend="handleTouchEnd" class="mu-radio" :class="{'label-left': labelLeft, 'disabled': disabled, 'no-label': !label}">
   <input type="radio" :disabled="disabled" :name="name" :value="nativeValue" v-model="inputValue">
   <touch-ripple v-if="!disabled" rippleWrapperClass="mu-radio-ripple-wrapper" class="mu-radio-wrapper">
     <div class="mu-radio-label"  v-if="label && labelLeft">{{label}}</div>
@@ -111,8 +111,6 @@ export default {
   display: inline-block;
   height: 24px;
   line-height: 24px;
-  margin-bottom: 16px;
-  margin-right: 24px;
   cursor: pointer;
   input[type="radio"] {
     display: none;
@@ -160,6 +158,10 @@ export default {
   .mu-radio.label-left &{
     margin-right: 0;
     margin-left: 16px;
+  }
+  .mu-radio.no-label &{
+    margin-left: 0;
+    margin-right: 0;
   }
 }
 

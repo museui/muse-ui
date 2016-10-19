@@ -21,8 +21,32 @@
         <mu-icon-button  slot="right" icon="refresh"></mu-icon-button>
       </mu-appbar>
     </mu-paper>
-
-    <mu-grid-list>
+    <mu-table :fixedFooter="false" :fixedHeader="false" height="300px">
+      <mu-thead slot="header">
+        <mu-tr>
+          <mu-th>ID</mu-th>
+          <mu-th>Name</mu-th>
+          <mu-th>Status</mu-th>
+        </mu-tr>
+      </mu-thead>
+      <mu-tbody>
+        <mu-tr v-for="item,index in tableData">
+          <mu-td>
+          {{index + 1}}
+          </mu-td>
+          <mu-td>{{item.name}}</mu-td>
+          <mu-td>{{item.status}}</mu-td>
+        </mu-tr>
+      </mu-tbody>
+      <mu-tfoot slot="footer">
+        <mu-tr>
+          <mu-td>ID</mu-td>
+          <mu-td>Name</mu-td>
+          <mu-td>Status</mu-td>
+        </mu-tr>
+      </mu-tfoot>
+    </mu-table>
+    <!-- <mu-grid-list>
       <mu-grid-tile :cols="2" titlePosition="top" actionPosition="left">
         <img src="http://www.material-ui.com/images/grid-list/00-52-29-429_640.jpg" />
         <span slot="title">Breakfast</span>
@@ -41,7 +65,7 @@
         <span slot="subTitle">by <b>jill111</b></span>
         <mu-icon-button slot="action" icon="star_border"></mu-icon-button>
       </mu-grid-tile>
-    </mu-grid-list>
+    </mu-grid-list> -->
     <!-- <mu-content-block>
 
     </mu-content-block> -->
@@ -56,7 +80,39 @@ export default {
     return {
       showTip: false,
       toast: false,
-      progress: 0
+      progress: 0,
+      tableData: [
+        {
+          name: 'John Smith',
+          status: 'Employed',
+          selected: true
+        },
+        {
+          name: 'Randal White',
+          status: 'Unemployed'
+        },
+        {
+          name: 'Stephanie Sanders',
+          status: 'Employed',
+          selected: true
+        },
+        {
+          name: 'Steve Brown',
+          status: 'Employed'
+        },
+        {
+          name: 'Joyce Whitten',
+          status: 'Employed'
+        },
+        {
+          name: 'Samuel Roberts',
+          status: 'Employed'
+        },
+        {
+          name: 'Adam Moore',
+          status: 'Employed'
+        }
+      ]
     }
   },
   mounted () {

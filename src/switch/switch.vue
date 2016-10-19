@@ -1,5 +1,5 @@
 <template>
-<label @mousedown="handleMouseDown" @mouseup="handleMouseUp" @touchstart="handleTouchStart" @touchend="handleTouchEnd" class="mu-switch" :class="{'label-left': labelLeft, 'disabled': disabled}">
+<label @mousedown="handleMouseDown" @mouseup="handleMouseUp" @touchstart="handleTouchStart" @touchend="handleTouchEnd" class="mu-switch" :class="{'label-left': labelLeft, 'disabled': disabled, 'no-label': !label}">
   <input type="checkbox" :disabled="disabled"  v-model="inputValue">
   <div class="mu-switch-wrapper">
     <div class="mu-switch-label"  v-if="label && labelLeft">{{label}}</div>
@@ -89,8 +89,6 @@ export default {
   display: inline-block;
   height: 24px;
   line-height: 24px;
-  margin-bottom: 16px;
-  margin-right: 24px;
   cursor: pointer;
   input[type="checkbox"] {
     display: none;
@@ -146,6 +144,10 @@ export default {
   .mu-switch.label-left &{
     margin-right: 0;
     margin-left: 8px;
+  }
+  .mu-switch.no-label &{
+    margin-left: 0;
+    margin-right: 0;
   }
 }
 
