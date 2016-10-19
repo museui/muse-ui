@@ -57,6 +57,14 @@ export default {
     maxDialogContentHeight -= this.$refs.footer.offsetHeight
     if (this.title) maxDialogContentHeight -= this.$refs.title.offsetHeight
     this.maxDialogContentHeight = maxDialogContentHeight
+  },
+  methods: {
+    overlayClick () {
+      this.$emit('close', 'overlay')
+    },
+    escPress () {
+      this.$emit('close', 'esc')
+    }
   }
 }
 </script>

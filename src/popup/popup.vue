@@ -31,6 +31,14 @@ export default {
     if (this.popupTransition !== 'popup-fade') {
       this.popupTransition = `popup-slide-${this.position}`
     }
+  },
+  methods: {
+    overlayClick () {
+      this.$emit('close', 'overlay')
+    },
+    escPress () {
+      this.$emit('close', 'esc')
+    }
   }
 }
 </script>

@@ -1,6 +1,6 @@
 <template>
 <transition name="mu-popover">
-  <div class="mu-popover"  v-clickoutside="close">
+  <div class="mu-popover"  v-clickoutside="clickOutSide">
     <slot></slot>
   </div>
 </transition>
@@ -170,6 +170,9 @@ export default {
     },
     overlayClick () {
       this.close('overlay')
+    },
+    clickOutSide () {
+      this.close('clickOutSide')
     },
     onScroll () {
       this.setStyle()

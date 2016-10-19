@@ -18,7 +18,7 @@ export default {
   },
   methods: {
     clickOutSide () {
-      this.$emit('close')
+      this.$emit('close', 'clickOutSide')
     }
   },
   data () {

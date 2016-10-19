@@ -1,28 +1,30 @@
 <template>
-  <transition name="mu-actionsheet">
-    <div class="mu-actionsheet">
-      <mu-menu :autoWidth="false" width="100%">
-        <slot></slot>
-      </mu-menu>
+  <transition name="mu-bottom-sheet">
+    <div class="mu-bottom-sheet">
+      <slot></slot>
     </div>
   </transition>
 </template>
 
 <script>
 import Popup from '../internal/popup'
-import {menu} from '../menu'
 export default {
-  name: 'mu-actionsheet',
+  name: 'mu-bottom-sheet',
   mixins: [Popup],
-  components: {
-    'mu-menu': menu
+  methods: {
+    overlayClick () {
+      this.$emit('close', 'overlay')
+    },
+    escPress () {
+      this.$emit('close', 'esc')
+    }
   }
 }
 </script>
 
 <style lang="less">
 @import "../styles/import.less";
-.mu-actionsheet {
+.mu-bottom-sheet {
   background-color: @canvasColor;
   position: fixed;
   left: 0;
@@ -30,13 +32,13 @@ export default {
   bottom: 0;
 }
 
-.mu-actionsheet-enter-active,
-.mu-actionsheet-leave-active{
+.mu-bottom-sheet-enter-active,
+.mu-bottom-sheet-leave-active{
   transition: transform .45s @easeOutFunction;
 }
 
-.mu-actionsheet-enter,
-.mu-actionsheet-leave-active{
+.mu-bottom-sheet-enter,
+.mu-bottom-sheet-leave-active{
   transform: translate3d(0, 100%, 0);
 }
 </style>

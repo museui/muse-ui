@@ -26,7 +26,7 @@ import toast from './toast'
 import snackbar from './snackbar'
 import popup from './popup'
 import * as menu from './menu'
-import actionsheet from './actionsheet'
+import bottomSheet from './bottomSheet'
 import popover from './popover'
 import iconMenu from './iconMenu'
 import dropDownMenu from './dropDownMenu'
@@ -69,7 +69,7 @@ const components = {
   snackbar,
   popup,
   ...menu,
-  actionsheet,
+  bottomSheet,
   popover,
   iconMenu,
   dropDownMenu,

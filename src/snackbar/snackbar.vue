@@ -33,7 +33,7 @@ export default {
   },
   methods: {
     clickOutSide () {
-      this.$emit('close')
+      this.$emit('close', 'clickOutSide')
     },
     handleActionClick () {
       this.$emit('actionClick')
