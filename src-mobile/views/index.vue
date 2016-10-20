@@ -21,7 +21,7 @@
         <mu-icon-button  slot="right" icon="refresh"></mu-icon-button>
       </mu-appbar>
     </mu-paper>
-    <mu-table allRowsSelected multiSelectable>
+    <!-- <mu-table allRowsSelected multiSelectable>
       <mu-thead slot="header">
         <mu-tr>
           <mu-th tooltip="哈哈哈这是ID">ID</mu-th>
@@ -45,7 +45,7 @@
           <mu-td>Status</mu-td>
         </mu-tr>
       </mu-tfoot>
-    </mu-table>
+    </mu-table> -->
     <!-- <mu-grid-list>
       <mu-grid-tile :cols="2" titlePosition="top" actionPosition="left">
         <img src="http://www.material-ui.com/images/grid-list/00-52-29-429_640.jpg" />
@@ -71,6 +71,14 @@
     </mu-content-block> -->
     <!-- <mu-snackbar v-if="showTip" @close="close" message="This is test message" action="close" @actionClick="close"></mu-snackbar>
     <mu-toast v-if="toast" @close="toggle" message="This is test toast message"></mu-toast> -->
+    <mu-paper style="position:fixed; bottom: 0;left:0; right:0;">
+      <mu-bottom-nav shift :value="bottomNav" @change="handlerBottomChange">
+        <mu-bottom-nav-item :value="1" icon="ondemand_video" title="Movies"></mu-bottom-nav-item>
+        <mu-bottom-nav-item :value="2" icon="music_note" title="Music"></mu-bottom-nav-item>
+        <mu-bottom-nav-item :value="3" icon="books" title="Books"></mu-bottom-nav-item>
+        <mu-bottom-nav-item :value="4" icon="photo" title="Pictures"></mu-bottom-nav-item>
+      </mu-bottom-nav>
+    </mu-paper>
   </div>
 </template>
 
@@ -81,6 +89,7 @@ export default {
       showTip: false,
       toast: false,
       progress: 0,
+      bottomNav: 1,
       tableData: [
         {
           name: 'John Smith',
@@ -137,6 +146,9 @@ export default {
     },
     handleCellHoverExit () {
       console.log(arguments)
+    },
+    handlerBottomChange (val) {
+      this.bottomNav = val
     }
   }
 }

@@ -1,5 +1,5 @@
 <template>
-  <abstract-button class="mu-buttom-item" :class="{'mu-bottom-item-active': show}" :center-ripple="false" wrapperClass="mu-buttom-item-wrapper" @click.native="handlerClick">
+  <abstract-button :disableTouchRipple="shift" class="mu-buttom-item" :class="{'mu-bottom-item-active': active}" :center-ripple="false" wrapperClass="mu-buttom-item-wrapper" @click.native="handlerClick">
     <icon :value="icon" class="mu-bottom-item-icon"></icon>
     <span class="mu-bottom-item-text">{{title}}</span>
   </abstract-button>
@@ -18,29 +18,29 @@ export default {
     title: {
       type: String,
       default: ''
-    }
+    },
+    value: {}
   },
   data () {
     return {
-      index: -1,
-      show: false
+      bottomNav: null
     }
   },
+  created () {
+    this.isBottomNavItem = true
+  },
   computed: {
-    show () {
-      return (this.$parent.active === this.index)
+    active () {
+      return this.bottomNav && this.value && this.bottomNav.value === this.value
+    },
+    shift () {
+      return this.bottomNav && this.bottomNav.shift
     }
   },
   methods: {
     handlerClick () {
-      this.$emit('click', this.index)
+      if (this.bottomNav && this.bottomNav.handlerChange) this.bottomNav.handlerChange(this.value)
     }
-  },
-  created () {
-    this.$parent.renderData.push({
-      title: this.title,
-      active: false
-    })
   },
   mounted () {
     let children = this.$parent.$children
@@ -72,6 +72,14 @@ export default {
   appearance: none;
   border: none;
   outline: none;
+  transition: all .4s @easeInOutFunction;
+  .mu-bottom-nav-shift & {
+    color: fade(@alternateTextColor, 70%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 }
 .mu-buttom-item-wrapper {
   display: flex;
@@ -85,13 +93,31 @@ export default {
   .mu-bottom-item-text{
     font-size: 14px;
   }
+  .mu-bottom-nav-shift & {
+    color: @alternateTextColor;
+    flex: 1 1 72px;
+  }
 }
 
 .mu-bottom-item-text{
   font-size: 12px;
-  transition: color 0.3s, font-size 0.3s;
+  transition: all .4s @easeOutFunction, color 0.3s, font-size 0.3s;
+  .mu-bottom-nav-shift & {
+    opacity: 0;
+    transform: scale(1) translate3d(0, 6px, 0);
+  }
+  .mu-bottom-nav-shift .mu-bottom-item-active & {
+    transform: scale(1) translate3d(0, 2px, 0);
+    opacity: 1;
+  }
 }
 .mu-bottom-item-icon {
   transition: all 450ms @easeOutFunction 0ms;
+  .mu-bottom-nav-shift & {
+    transform: translate3d(0, 8px, 0);
+  }
+  .mu-bottom-nav-shift .mu-bottom-item-active & {
+    transform: scale(1) translateZ(0);
+  }
 }
 </style>

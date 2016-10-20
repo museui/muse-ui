@@ -1,5 +1,5 @@
 <template>
-  <div class="mu-avatar" @click="handlerClick" :style="style">
+  <div class="mu-avatar" @click="handleClick" :style="style">
     <div class="mu-avatar-inner">
       <icon v-if="icon" :value="icon"></icon>
       <img :src="src" v-if="src" />
@@ -45,7 +45,7 @@ export default {
     }
   },
   methods: {
-    handlerClick () {
+    handleClick () {
       this.$emit('click')
     }
   },

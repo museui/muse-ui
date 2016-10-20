@@ -212,7 +212,8 @@ export default {
       domProps: domProps,
       style: {
         'user-select': 'none',
-        'outline': 'none'
+        'outline': 'none',
+        'cursor': 'pointer'
       },
       on: {
         mouseenter: this.handlerHover,
