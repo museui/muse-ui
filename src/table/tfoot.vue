@@ -6,6 +6,14 @@
 
 <script>
 export default {
-  name: 'mu-tfoot'
+  name: 'mu-tfoot',
+  created () {
+    this.isTfoot = true
+  },
+  computed: {
+    showCheckbox () {
+      return this.$parent.showCheckbox
+    }
+  }
 }
 </script>

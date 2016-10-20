@@ -21,21 +21,21 @@
         <mu-icon-button  slot="right" icon="refresh"></mu-icon-button>
       </mu-appbar>
     </mu-paper>
-    <mu-table :fixedFooter="false" :fixedHeader="false" height="300px">
+    <mu-table allRowsSelected multiSelectable>
       <mu-thead slot="header">
         <mu-tr>
-          <mu-th>ID</mu-th>
+          <mu-th tooltip="哈哈哈这是ID">ID</mu-th>
           <mu-th>Name</mu-th>
           <mu-th>Status</mu-th>
         </mu-tr>
       </mu-thead>
       <mu-tbody>
         <mu-tr v-for="item,index in tableData">
-          <mu-td>
+          <mu-td name="id">
           {{index + 1}}
           </mu-td>
-          <mu-td>{{item.name}}</mu-td>
-          <mu-td>{{item.status}}</mu-td>
+          <mu-td name="name">{{item.name}}</mu-td>
+          <mu-td name="status">{{item.status}}</mu-td>
         </mu-tr>
       </mu-tbody>
       <mu-tfoot slot="footer">
@@ -134,6 +134,9 @@ export default {
     },
     toggle () {
       this.toast = !this.toast
+    },
+    handleCellHoverExit () {
+      console.log(arguments)
     }
   }
 }

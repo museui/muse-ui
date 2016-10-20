@@ -47,7 +47,7 @@
     "url-loader": "^0.5.7",
     "vue-hot-reload-api": "^2.0.6",
     "vue-html-loader": "^1.2.3",
-    "vue-loader": "^9.5.1",
+    "vue-loader": "^9.7.0",
     "vue-router": "^2.0.0-rc.5",
     "vue-style-loader": "^1.0.0",
     "webpack": "^1.13.2",
@@ -57,6 +57,7 @@
   },
   "dependencies": {
     "keycode": "^2.1.7",
-    "vue": "^2.0.1"
+    "vue": "^2.0.3",
+    "vue-loader": "^9.7.0"
   }
 }

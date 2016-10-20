@@ -9,6 +9,28 @@ export default {
   name: 'mu-thead',
   created () {
     this.isThead = true
+  },
+  computed: {
+    showCheckbox () {
+      return this.$parent.showCheckbox
+    },
+    allRowsSelected () {
+      return this.$parent.allRowsSelected
+    },
+    multiSelectable () {
+      return this.$parent.multiSelectable
+    },
+    isSelectAll () {
+      return this.$parent.isSelectAll
+    }
+  },
+  methods: {
+    selectAll () {
+      this.$parent.selectAll()
+    },
+    unSelectAll () {
+      this.$parent.unSelectAll()
+    }
   }
 }
 </script>

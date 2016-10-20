@@ -1,11 +1,12 @@
 <template>
-  <tr class="mu-tr" :key="rowId" @click="handleClick" @mouseenter="handleHover" @mouseleave="handleOut" :class="className">
-    <mu-th style="width: 72px;" v-if="isTh">
-      <checkbox :value="selected" disabled/>
+  <tr class="mu-tr" :key="rowId" @click="handleClick" @mouseenter="handleHover" @mouseleave="handleExit" :class="className">
+    <mu-th class="mu-checkbox-col" v-if="isTh && showCheckbox">
+      <checkbox :value="isSelectAll" @change="handleSelectAllChange" :disabled="!allRowsSelected || !multiSelectable" />
     </mu-th>
-    <mu-td v-if="!isTh">
-      <checkbox @click.native="handleCheckboxClick" :value="selected"/>
+    <mu-td class="mu-checkbox-col" v-if="isTb && showCheckbox">
+      <checkbox ref="checkLabel" :disabled="!selectable || !$parent.selectable" @change="handleCheckboxChange" @click.native="handleCheckboxClick" :value="selected"/>
     </mu-td>
+    <mu-td class="mu-checkbox-col" v-if="isTf && showCheckbox"></mu-td>
     <slot></slot>
   </tr>
 </template>
@@ -21,7 +22,7 @@ export default {
   props: {
     selectable: {
       type: Boolean,
-      default: false
+      default: true
     }
   },
   data () {
@@ -41,22 +42,78 @@ export default {
     isTh () {
       return this.$parent.isThead
     },
+    isTf () {
+      return this.$parent.isTfoot
+    },
+    isTb () {
+      return this.$parent.isTbody
+    },
     selected () {
       return this.$parent.selectedRows && this.$parent.selectedRows.indexOf(this.rowId) !== -1
+    },
+    showCheckbox () {
+      return this.$parent.showCheckbox
+    },
+    allRowsSelected () {
+      return this.$parent.allRowsSelected
+    },
+    multiSelectable () {
+      return this.$parent.multiSelectable
+    },
+    isSelectAll () {
+      return this.$parent.isSelectAll
     }
   },
   methods: {
-    handleHover () {
-      if (isPc() && this.$parent.isTbody) this.hover = true
+    handleHover (event) {
+      if (isPc() && this.$parent.isTbody) {
+        this.hover = true
+        if (this.$parent.handleRowHover) this.$parent.handleRowHover(event, this.rowId, this)
+      }
     },
-    handleOut () {
-      this.hover = false
+    handleExit (event) {
+      if (isPc() && this.$parent.isTbody) {
+        this.hover = false
+        if (this.$parent.handleRowHoverExit) this.$parent.handleRowHoverExit(event, this.rowId, this)
+      }
     },
     handleClick (e) {
-      if (this.$parent.handleRowClick) this.$parent.handleRowClick(e, this)
+      if (!this.$parent.isTbody) return
+      if (this.selectable) {
+        if (!this.selected) {
+          this.$parent.selectRow(this.rowId)
+        } else {
+          this.$parent.unSelectRow(this.rowId)
+        }
+      }
+      this.$parent.handleRowClick(e, this)
     },
     handleCheckboxClick (event) {
       event.stopPropagation()
+    },
+    handleCheckboxChange (val) {
+      if (!this.selectable) return
+      if (val) {
+        this.$parent.selectRow(this.rowId)
+      } else {
+        this.$parent.unSelectRow(this.rowId)
+      }
+    },
+    handleSelectAllChange (val) {
+      if (val) {
+        this.$parent.selectAll()
+      } else {
+        this.$parent.unSelectAll()
+      }
+    },
+    handleCellHover (event, name, td) {
+      if (this.$parent.handleCellHover) this.$parent.handleCellHover(event, name, td, this.rowId, this)
+    },
+    handleCellHoverExit (event, name, td) {
+      if (this.$parent.handleCellHoverExit) this.$parent.handleCellHoverExit(event, name, td, this.rowId, this)
+    },
+    handleCellClick (event, name, td) {
+      if (this.$parent.handleCellClick) this.$parent.handleCellClick(event, name, td, this.rowId, this)
     }
   },
   components: {
@@ -83,7 +140,7 @@ export default {
     background-color: @grey200;
   }
   &.stripe {
-    background-color: fade(lighten(@primary1Color, 50%), 40%)
+    background-color: fade(lighten(@primary1Color, 50%), 40%);
   }
 
   .mu-tfoot & {
@@ -92,5 +149,9 @@ export default {
   .mu-checkbox {
     vertical-align: middle;
   }
+}
+
+.mu-checkbox-col {
+  width: 72px;
 }
 </style>

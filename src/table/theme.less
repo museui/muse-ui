@@ -1,0 +1,29 @@
+.mu-table {
+  background-color: @tableBackgroundColor;
+}
+
+.mu-thead {
+  border-bottom-color: @tableBorderColor;
+}
+
+.mu-th {
+  color: @tableTheadTextColor;
+}
+
+.mu-tr {
+  border-bottom-color: @tableBorderColor;
+  color: @tableTextColor;
+  &.selected {
+    background-color: @tableRowSelectedBackgroundColor;
+  }
+  &.hover {
+    background-color: @tableRowHoverBackgroundColor;
+  }
+  &.stripe {
+    background-color: @tableRowStripeBackgroundColor;
+  }
+
+  .mu-tfoot & {
+    border-top-color: @tableBorderColor;
+  }
+}
