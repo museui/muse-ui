@@ -7,15 +7,10 @@
       </div>
     </div>
     <div class="mu-dialog-body " :style="bodyStyle">
-      <slot>
-        <div v-if="message">
-          {{message}}
-        </div>
-      </slot>
+      <slot></slot>
     </div>
     <div class="mu-dialog-footer" ref="footer" :class="{'scrollable': scrollable}">
-      <slot name="actions">
-      </slot>
+      <slot name="actions"></slot>
     </div>
   </div>
 </transition>
@@ -28,9 +23,6 @@ export default {
   name: 'mu-dialog',
   props: {
     title: {
-      type: String
-    },
-    message: {
       type: String
     },
     scrollable: {

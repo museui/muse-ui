@@ -3,12 +3,13 @@
       @mouseleave="onMouseleave" @touchstart="onTouchstart" @click= "handleClick"
       @touchend="onTouchend" @touchcancel="onTouchend" :class="classNames" class="mu-chip">
     <slot></slot>
-    <mu-icon value="cancel" v-if="showDelete && !disabled" @click.stop="handleDelete" class="mu-chip-delete-icon" />
+    <mu-icon value="cancel" v-if="showDelete && !disabled" @click.stop="handleDelete" :class="deleteIconClass" class="mu-chip-delete-icon" />
   </div>
 </template>
 
 <script>
 import icon from '../icon'
+import {isPc} from '../utils'
 export default {
   name: 'mu-chip',
   props: {
@@ -19,6 +20,9 @@ export default {
     disabled: {
       type: Boolean,
       default: false
+    },
+    deleteIconClass: {
+      type: [Array, String, Object]
     }
   },
   data () {
@@ -35,7 +39,7 @@ export default {
   },
   methods: {
     onMouseenter () {
-      this.hover = true
+      if (isPc()) this.hover = true
     },
     onMouseleave () {
       this.hover = false
