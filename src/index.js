@@ -39,7 +39,7 @@ import selectField from './selectField'
 import checkbox from './checkbox'
 import radio from './radio'
 import _switch from './switch'
-import range from './range'
+import slider from './slider'
 import linearProgress from './linearProgress'
 import * as gridList from './gridList'
 import * as table from './table'
@@ -82,7 +82,7 @@ const components = {
   checkbox,
   radio,
   _switch,
-  range,
+  slider,
   linearProgress,
   ...gridList,
   ...table

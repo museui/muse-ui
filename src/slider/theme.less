@@ -1,0 +1,22 @@
+.mu-slider-track {
+  background-color: @sliderTrackColor;
+}
+
+
+.mu-slider-fill{
+  background-color: @rangeSelectionColor;
+  &.disabled {
+    background-color: @rangeDisabledColor;
+  }
+}
+
+.mu-slider-thumb{
+  background-color: @sliderSelectionColor;
+  color: @sliderSelectionColor;
+  .mu-slider.zero &,
+  .mu-slider.disabled &{
+    border-color: @sliderDisabledColor;
+    color: @sliderDisabledColor;
+    background-color: @sliderZeroColor;
+  }
+}

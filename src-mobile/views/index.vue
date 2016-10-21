@@ -21,6 +21,9 @@
         <mu-icon-button  slot="right" icon="refresh"></mu-icon-button>
       </mu-appbar>
     </mu-paper>
+    <mu-content-block>
+      <mu-slider :value="100"></mu-slider>
+    </mu-content-block>
     <!-- <mu-table allRowsSelected multiSelectable>
       <mu-thead slot="header">
         <mu-tr>
