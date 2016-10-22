@@ -79,6 +79,7 @@ export default {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 8px 12px 10px;
   }
 }
 .mu-buttom-item-wrapper {
@@ -114,6 +115,7 @@ export default {
 .mu-bottom-item-icon {
   transition: all 450ms @easeOutFunction 0ms;
   .mu-bottom-nav-shift & {
+    margin: auto;
     transform: translate3d(0, 8px, 0);
   }
   .mu-bottom-nav-shift .mu-bottom-item-active & {
