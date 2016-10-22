@@ -22,7 +22,7 @@
       </mu-appbar>
     </mu-paper>
     <mu-content-block>
-      <mu-slider :value="100"></mu-slider>
+      <mu-text-field v-model="text" icon="phone" :maxLength="20" errorText="测试的"/>
     </mu-content-block>
     <!-- <mu-table allRowsSelected multiSelectable>
       <mu-thead slot="header">
@@ -93,6 +93,7 @@ export default {
       toast: false,
       progress: 0,
       bottomNav: 1,
+      text: '',
       tableData: [
         {
           name: 'John Smith',
@@ -153,6 +154,8 @@ export default {
     handlerBottomChange (val) {
       this.bottomNav = val
     }
+  },
+  components: {
   }
 }
 </script>

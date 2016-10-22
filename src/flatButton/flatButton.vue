@@ -166,11 +166,12 @@ export default {
   vertical-align: middle;
   padding-right: 16px;
   padding-left: 16px;
+  font-size: 14px;
 }
 
-@media (min-width: 480px) {
-  .mu-flat-button {
-    min-width: 88px;
-  }
-}
+// @media (min-width: 480px) {
+//   .mu-flat-button {
+//     min-width: 88px;
+//   }
+// }
 </style>

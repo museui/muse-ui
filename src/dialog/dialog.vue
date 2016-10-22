@@ -9,7 +9,7 @@
     <div class="mu-dialog-body " :style="bodyStyle">
       <slot></slot>
     </div>
-    <div class="mu-dialog-footer" ref="footer" :class="{'scrollable': scrollable}">
+    <div class="mu-dialog-footer" v-if="showFooter" ref="footer" :class="{'scrollable': scrollable}">
       <slot name="actions"></slot>
     </div>
   </div>
@@ -37,6 +37,9 @@ export default {
         'overflow-y': this.scrollable ? 'auto' : 'hidden',
         'max-height': this.scrollable ? this.maxDialogContentHeight + 'px' : 'none'
       }
+    },
+    showFooter () {
+      return this.$slots && this.$slots.actions && this.$slots.actions.length > 0
     }
   },
   data () {
@@ -46,7 +49,7 @@ export default {
   },
   mounted () {
     let maxDialogContentHeight = window.innerHeight - 2 * 64
-    maxDialogContentHeight -= this.$refs.footer.offsetHeight
+    if (this.$refs.footer) maxDialogContentHeight -= this.$refs.footer.offsetHeight
     if (this.title) maxDialogContentHeight -= this.$refs.title.offsetHeight
     this.maxDialogContentHeight = maxDialogContentHeight
   },

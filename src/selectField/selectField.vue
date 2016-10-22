@@ -116,8 +116,8 @@ export default {
     height: 36px;
   }
   .mu-dropDown-menu-text{
-    line-height: 36px;
-    height: 36px;
+    line-height: 32px;
+    height: 32px;
     padding-left: 0px;
     padding-right: 24px;
     word-wrap: break-word;

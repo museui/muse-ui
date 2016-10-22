@@ -1,7 +1,7 @@
 <template>
   <div class="mu-text-field" :class="textFieldClass" :style="focus ? errorStyle : {}">
     <icon  v-if="icon" class="mu-text-field-icon" :value="icon"></icon>
-    <label ref="content" class="mu-text-field-content">
+    <label @click="handleLabelClick" ref="content" class="mu-text-field-content">
       <text-field-label v-if="label" :float="float">{{label}}</text-field-label>
       <text-field-hint v-if="hintText" :text="hintText" :show="showHint"></text-field-hint>
       <slot>
@@ -103,7 +103,8 @@ export default {
   data () {
     return {
       focus: false,
-      inputValue: this.value
+      inputValue: this.value,
+      charLength: 0
     }
   },
   mounted () {
@@ -129,22 +130,24 @@ export default {
         color: !this.disabled && this.errorText ? getColor(this.errorColor) : ''
       }
     },
-    charLength () {
-      return this.maxHeight && this.inputValue ? this.inputValue.length : 0
-    },
     showHint () {
       return !this.float && !this.inputValue
     }
   },
   methods: {
-    handlerFocus () {
+    handlerFocus (event) {
       this.focus = true
+      this.$emit('focus', event)
     },
-    handlerBlur () {
+    handlerBlur (event) {
       this.focus = false
+      this.$emit('blur', event)
     },
     handlerChange (val) {
       this.inputValue = val
+    },
+    handleLabelClick () {
+      this.$emit('labelClick')
     }
   },
   watch: {
@@ -152,6 +155,7 @@ export default {
       this.inputValue = val
     },
     inputValue (val) {
+      this.charLength = this.maxLength && this.inputValue ? this.inputValue.length : 0
       this.$emit('input', val)
       this.$emit('change', val)
     },
@@ -174,6 +178,8 @@ export default {
 .mu-text-field{
   font-size: 16px;
   width: 256px;
+  height: 48px;
+  margin-bottom: 24px;
   display: inline-block;
   position: relative;
   color: @secondaryTextColor;
@@ -189,20 +195,24 @@ export default {
       color: @red;
     }
   }
+  &.has-label{
+    height: 72px;
+  }
 }
 
 .mu-text-field-icon {
   position: absolute;
   left: 16px;
-  top: 12px;
-  .mu-text-field.has-label &{
-    top: 36px;
+  bottom: 12px;
+  .mu-text-field.has-label & {
+    bottom: 16px;
   }
 }
 
 .mu-text-field-content{
   display: block;
   cursor: pointer;
+  height: 100%;
   .mu-text-field.disabled &{
     color: @disabledColor;
     cursor: not-allowed;
@@ -211,6 +221,7 @@ export default {
   padding-top: 8px;
   .mu-text-field.has-label &{
     padding-top: 28px;
+    padding-bottom: 12px;
   }
 }
 
@@ -225,8 +236,7 @@ export default {
   padding: 0;
   margin: 0;
   width: 100%;
-  height: 36px;
-  min-height: 36px;
+  height: 32px;
   font-style: inherit;
   font-variant: inherit;
   font-weight: inherit;
@@ -238,10 +248,17 @@ export default {
 }
 
 .mu-text-field-help {
-  font-size: 12px;
+  position: absolute;
   margin-top: 6px;
+  font-size: 12px;
+  line-height: 12px;
   display: flex;
   justify-content: space-between;
+  left: 0;
+  right: 0;
+  .mu-text-field.has-icon & {
+    left: 56px;
+  }
   .mu-text-field.error &{
     color: @red;
   }

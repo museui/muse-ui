@@ -90,6 +90,12 @@ export default {
   &.error {
     transform: scaleX(1);
     background-color: @red;
+    html.pixel-ratio-2 & {
+      .transform(scaleX(1) scaleY(0.5));
+    }
+    html.pixel-ratio-3 & {
+      .transform(scaleX(1) scaleY(0.33));
+    }
   }
   html.pixel-ratio-2 & {
     .transform(scaleX(0) scaleY(0.5));

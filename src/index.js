@@ -43,6 +43,7 @@ import slider from './slider'
 import linearProgress from './linearProgress'
 import * as gridList from './gridList'
 import * as table from './table'
+import datePicker from './datePicker'
 const components = {
   icon,
   badge,
@@ -85,7 +86,8 @@ const components = {
   slider,
   linearProgress,
   ...gridList,
-  ...table
+  ...table,
+  datePicker
 }
 
 export default {
