@@ -22,7 +22,7 @@
           <div class="mu-item-sub-title" v-if="subTitle">
             {{subTitle}}
           </div>
-          <div class="mu-item-text" :style="{'height': (20 * describeLine) + 'px', '-webkit-line-clamp': describeLine}" v-if="describeText">
+          <div class="mu-item-text" :style="{'max-height': (20 * describeLine) + 'px', '-webkit-line-clamp': describeLine}" v-if="describeText">
             {{describeText}}
           </div>
           <slot></slot>
@@ -166,7 +166,7 @@ export default {
 .mu-item {
   min-height: 48px;
   display: flex;
-  padding: 8px 16px;
+  padding: 16px 16px;
   color: @textColor;
   position: relative;
   &.show-left{
@@ -174,6 +174,10 @@ export default {
   }
   &.show-right{
     padding-right: 56px;
+  }
+  &.left-avatar {
+    padding-top: 20px;
+    padding-bottom: 20px;
   }
 }
 
@@ -209,15 +213,19 @@ export default {
   position: absolute;
   color: @grey600;
   top: 0;
-  max-height: 56px;
+  max-height: 72px;
 }
 
 .mu-item-left{
-  left: 12px;
+  left: 16px;
 }
 
 .mu-item-right{
   right: 12px;
+  justify-content: center;
+  .mu-icon-button {
+    align-self: flex-start;
+  }
 }
 
 .mu-item-content{
@@ -231,6 +239,7 @@ export default {
   align-items: center;
   position: relative;
   width: 100%;
+  line-height: 1;
 }
 
 .mu-item-title{
@@ -240,6 +249,10 @@ export default {
   max-width: 100%;
 }
 
+.mu-item-sub-title {
+  line-height: 1;
+  margin-top: 4px;
+}
 .mu-item-after{
   margin-left: auto;
   color: @secondaryTextColor;
@@ -250,7 +263,7 @@ export default {
 .mu-item-text{
   font-size: 14px;
   line-height: 20px;
-  height: 40px;
+  max-height: 40px;
   max-width: 100%;
   position: relative;
   overflow: hidden;

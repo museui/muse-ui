@@ -1,7 +1,7 @@
 <template>
   <div>
     <text-field @focus="handleFocus" @labelClick="handleClick" :value="inputValue" :label="label" :labelFloat="labelFloat" :disabled="disabled" :hintText="hintText" :helpText="helpText" :errorText="errorText" :errorColor="errorColor" :icon="icon" :fullWidth="fullWidth"/>
-    <date-picker-dialog @accept="handleAccept" :initialDate="dialogDate" ref="dialog" :mode="mode" :maxDate="maxLimitDate" :minDate="minLimitDate" :shouldDisableDate="shouldDisableDate" :firstDayOfWeek="firstDayOfWeek" :container="container" :disableYearSelection="disableYearSelection" :dateTimeFormat="dateTimeFormat" :autoOk="autoOk" :okLabel="okLabel" :cancelLabel="cancelLabel"/>
+    <date-picker-dialog v-if="!disabled" @accept="handleAccept" :initialDate="dialogDate" ref="dialog" :mode="mode" :maxDate="maxLimitDate" :minDate="minLimitDate" :shouldDisableDate="shouldDisableDate" :firstDayOfWeek="firstDayOfWeek" :container="container" :disableYearSelection="disableYearSelection" :dateTimeFormat="dateTimeFormat" :autoOk="autoOk" :okLabel="okLabel" :cancelLabel="cancelLabel"/>
   </div>
 </template>
 <script>
@@ -121,6 +121,7 @@ export default {
       this.$emit('focus', event)
     },
     openDialog () {
+      if (this.disabled) return
       this.dialogDate = this.inputValue ? dateUtils.strFormatToDate(this.inputValue, this.format) : new Date()
       this.$refs.dialog.open = true
     },

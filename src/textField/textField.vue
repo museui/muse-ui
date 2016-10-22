@@ -17,7 +17,7 @@
 
 
       <underline v-if="underlineShow" :error="!!errorText" :disabled="disabled" :errorColor="errorColor" :focus="focus"></underline>
-      <div class="mu-text-field-help" :style="errorStyle" v-if="errorText || helpText">
+      <div class="mu-text-field-help" :style="errorStyle" v-if="errorText || helpText || maxLength > 0">
           <div>
               {{errorText || helpText}}
           </div>
@@ -160,7 +160,14 @@ export default {
       this.$emit('change', val)
     },
     charLength (val) {
-      if (val > this.maxLength) this.$emit('textOverflow')
+      if (val > this.maxLength && !this.isTextOverflow) {
+        this.isTextOverflow = true
+        this.$emit('textOverflow', true)
+      }
+      if (this.isTextOverflow && val <= this.maxLength) {
+        this.isTextOverflow = false
+        this.$emit('textOverflow', false)
+      }
     }
   },
   components: {

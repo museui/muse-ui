@@ -18,11 +18,26 @@
           <mu-menu-item title="menu9"/>
           <mu-menu-item title="menu10"/>
         </mu-icon-menu>
-        <mu-icon-button  slot="right" icon="refresh"></mu-icon-button>
+        <mu-icon-button  slot="right" icon="android"></mu-icon-button>
       </mu-appbar>
     </mu-paper>
+    <mu-list>
+      <mu-list-item title="Item test one">
+        <mu-icon value="inbox" slot="left"/>
+        <mu-icon value="inbox" slot="right"/>
+      </mu-list-item>
+      <mu-divider/>
+      <mu-list-item subTitle="啦啦啦啦啦" describeText="lalal" title="Item test one">
+        <mu-avatar src="http://www.myronliu.com/img/uicon.jpg" slot="left" />
+        <mu-icon-button icon="more_vert" slot="right"/>
+      </mu-list-item>
+      <mu-divider/>
+      <mu-list-item title="Item test one">
+        <mu-avatar src="http://www.myronliu.com/img/uicon.jpg" slot="left" />
+      </mu-list-item>
+    </mu-list>
     <mu-content-block>
-      <mu-text-field v-model="text" icon="phone" :maxLength="20" errorText="测试的"/>
+
     </mu-content-block>
     <!-- <mu-table allRowsSelected multiSelectable>
       <mu-thead slot="header">
@@ -94,6 +109,7 @@ export default {
       progress: 0,
       bottomNav: 1,
       text: '',
+      errorText: null,
       tableData: [
         {
           name: 'John Smith',
@@ -153,6 +169,13 @@ export default {
     },
     handlerBottomChange (val) {
       this.bottomNav = val
+    },
+    handleOverflow (flag) {
+      if (flag) {
+        this.errorText = '太多了，太多了 fuck'
+      } else {
+        this.errorText = null
+      }
     }
   },
   components: {
