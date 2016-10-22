@@ -4,7 +4,6 @@
   </transition>
 </template>
 <script>
-import {getZIndex} from './utils'
 export default {
   name: 'mu-overlay',
   props: {
@@ -26,11 +25,9 @@ export default {
     color: {
       type: String,
       default: '#000'
-    }
-  },
-  data () {
-    return {
-      zIndex: getZIndex()
+    },
+    zIndex: {
+      type: Number
     }
   },
   computed: {

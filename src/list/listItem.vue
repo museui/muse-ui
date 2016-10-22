@@ -1,7 +1,7 @@
 <template>
   <div>
     <abstract-button @click.native="handlerClick"  containerElement="div"
-      :href="href"
+      :href="href" :disabled="disabled"
       class="mu-item-wrapper" :class="{'active': active}" :wrapperStyle="itemStyle" :centerRipple="false">
       <div style="position:relative;" :class="itemClass">
         <div class="mu-item-left" v-if="showLeft">
@@ -79,6 +79,10 @@ export default {
       default: true
     },
     toggleNested: {
+      type: Boolean,
+      default: false
+    },
+    disabled: {
       type: Boolean,
       default: false
     },

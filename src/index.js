@@ -44,6 +44,7 @@ import linearProgress from './linearProgress'
 import * as gridList from './gridList'
 import * as table from './table'
 import datePicker from './datePicker'
+import timePicker from './timePicker'
 const components = {
   icon,
   badge,
@@ -87,7 +88,8 @@ const components = {
   linearProgress,
   ...gridList,
   ...table,
-  datePicker
+  datePicker,
+  timePicker
 }
 
 export default {

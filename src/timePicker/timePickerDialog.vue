@@ -1,16 +1,12 @@
 <script>
-import {dateTimeFormat} from './dateUtils'
+import clock from './clock'
 import popover from '../popover'
 import dialog from '../dialog'
-import calendar from './calendar'
 export default {
   props: {
-    dateTimeFormat: {
-      type: Object,
-      default: dateTimeFormat
-    },
     autoOk: {
-      type: Boolean
+      type: Boolean,
+      default: false
     },
     cancelLabel: {
       type: String
@@ -25,21 +21,6 @@ export default {
         return val && ['dialog', 'inline'].indexOf(val) !== -1
       }
     },
-    disableYearSelection: {
-      type: Boolean
-    },
-    firstDayOfWeek: {
-      type: Number
-    },
-    initialDate: {
-      type: Date
-    },
-    maxDate: {
-      type: Date
-    },
-    minDate: {
-      type: Date
-    },
     mode: {
       type: String,
       default: 'portrait',
@@ -47,8 +28,15 @@ export default {
         return val && ['portrait', 'landscape'].indexOf(val) !== -1
       }
     },
-    shouldDisableDate: {
-      type: Function
+    format: {
+      type: String,
+      default: 'ampm',
+      validator (val) {
+        return ['ampm', '24hr'].indexOf(val) !== -1
+      }
+    },
+    initialTime: {
+      type: Date
     }
   },
   data () {
@@ -77,18 +65,14 @@ export default {
     }
   },
   render (h) {
-    const Calendar = h(calendar, {
+    const Clock = h(clock, {
       props: {
         autoOk: this.autoOk,
-        dateTimeFormat: this.dateTimeFormat,
-        okLabel: this.okLabel,
         cancelLabel: this.cancelLabel,
-        disableYearSelection: this.disableYearSelection,
-        firstDayOfWeek: this.firstDayOfWeek,
-        initialDate: this.initialDate,
-        maxDate: this.maxDate,
-        minDate: this.minDate,
-        mode: this.mode
+        okLabel: this.okLabel,
+        landscape: this.mode === 'landscape',
+        initialTime: this.initialTime,
+        format: this.format
       },
       on: {
         accept: this.handleAccept,
@@ -101,38 +85,37 @@ export default {
       }
     }, this.open ? [
       this.container === 'dialog' ? h(dialog, {
-        class: ['mu-date-picker-dialog', this.mode],
+        class: ['mu-time-picker-dialog', this.mode],
         on: {
           close: this.handleClose
         }
-      }, [Calendar]) : h(popover, {
+      }, [Clock]) : h(popover, {
         props: {
           trigger: this.trigger
         },
         on: {
           close: this.handleClose
         }
-      }, [Calendar])
+      }, [Clock])
     ] : [])
   }
 }
 </script>
 
 <style lang="less">
-@import "../styles/import.less";
-.mu-date-picker-dialog {
-   width: 310px;
-  &.landscape {
-    width: 479px;
-    .mu-dialog-body {
-      min-height: 330px;
-      min-width: 479px;
-    }
-  }
-  .mu-dialog-body {
-    padding: 0;
-    min-height: 434px;
-    min-width: 310px;
-  }
+.mu-time-picker-dialog{
+  width: 280px;
+ &.landscape {
+   width: 479px;
+   .mu-dialog-body {
+     min-height: 352px;
+     min-width: 479px;
+   }
+ }
+ .mu-dialog-body {
+   padding: 0;
+   min-height: 450px;
+   min-width: 280px;
+ }
 }
 </style>

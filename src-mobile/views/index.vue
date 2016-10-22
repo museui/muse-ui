@@ -21,7 +21,7 @@
         <mu-icon-button  slot="right" icon="android"></mu-icon-button>
       </mu-appbar>
     </mu-paper>
-    <mu-list>
+    <!-- <mu-list>
       <mu-list-item title="Item test one">
         <mu-icon value="inbox" slot="left"/>
         <mu-icon value="inbox" slot="right"/>
@@ -32,12 +32,13 @@
         <mu-icon-button icon="more_vert" slot="right"/>
       </mu-list-item>
       <mu-divider/>
-      <mu-list-item title="Item test one">
+      <mu-list-item title="Item test one" disabled>
         <mu-avatar src="http://www.myronliu.com/img/uicon.jpg" slot="left" />
+        <mu-switch slot="right"/>
       </mu-list-item>
-    </mu-list>
+    </mu-list> -->
     <mu-content-block>
-
+      <mu-time-picker v-model="text" label="select Time"/>
     </mu-content-block>
     <!-- <mu-table allRowsSelected multiSelectable>
       <mu-thead slot="header">
@@ -108,7 +109,7 @@ export default {
       toast: false,
       progress: 0,
       bottomNav: 1,
-      text: '',
+      text: '1:35 pm',
       errorText: null,
       tableData: [
         {

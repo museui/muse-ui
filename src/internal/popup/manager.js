@@ -47,6 +47,7 @@ const PopupManager = {
     overlay.fixed = true
     overlay.color = color
     overlay.opacity = opacity
+    overlay.zIndex = 2000
     overlay.onClick = this.handlerOverlayClick.bind(this)
     document.body.appendChild(overlay.$el)
     // body 操作

@@ -137,7 +137,7 @@ export default {
 
 .mu-switch-container{
   width: 38px;
-  padding: 4px 0px 6px 2px;
+  padding: 4px 0px 4px 2px;
   position: relative;
   margin-right: 8px;
   transition: all 450ms @easeOutFunction;

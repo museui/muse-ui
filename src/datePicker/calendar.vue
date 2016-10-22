@@ -200,9 +200,7 @@ export default {
     }
   },
   mounted () {
-    console.log(this.displayDates, this.initialDate)
     this.handleWindowKeyDown = (event) => {
-      console.log(1)
       this.handleKeyDown(event)
     }
     window.addEventListener('keydown', this.handleWindowKeyDown)
