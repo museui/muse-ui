@@ -1,0 +1,622 @@
+.mu-avatar {
+  color: @avatarColor;
+  background-color: @avatarBackgroundColor;
+}
+
+// appbar
+.mu-appbar{
+  background-color: @appbarColor;
+  color: @appbarTextColor;
+}
+
+// badge
+.mu-badge {
+  background-color: @badgeColor;
+  color: @badgeTextColor;
+}
+
+.mu-badge-primary {
+  background-color: @badgePrimaryColor;
+  color: @badgePrimaryTextColor;
+}
+
+.mu-badge-secondary {
+  background-color: @badgeSecondaryColor;
+  color: @badgeSecondaryTextColor;
+}
+
+body {
+  background-color: @baseBackgroundColor;
+  color: @baseTextColor;
+  font-family: @baseFontFamily;
+}
+
+.mu-bottom-nav {
+  background-color: @bottomNavBackgroundColor;
+}
+
+.mu-buttom-item {
+  color: @bottomNavUnselectedColor;
+}
+
+.mu-bottom-item-active{
+  color: @bottomNavSelectedColor;
+}
+
+.mu-bottom-sheet {
+  background-color: @bottomSheetColor;
+}
+
+.mu-card {
+  background-color: @cardBackgroudColor;
+}
+
+.mu-card-header-title{
+  .mu-card-title{
+    color: @cardTitleColor;
+  }
+  .mu-card-sub-title{
+    color: @cardSubtitleColor;
+  }
+}
+
+
+.mu-card-media-title {
+  background-color: @cardMediaOverlayContentBackground;
+  .mu-card-title {
+    color: @cardMediaTitleColor;
+  }
+  .mu-card-sub-title {
+    color: @cardMediaSubtitleColor;
+  }
+}
+
+.mu-card-title-container{
+  .mu-card-title{
+    color: @cardTitleColor;
+  }
+  .mu-card-sub-title{
+    color: @cardSubtitleColor;
+  }
+}
+
+.mu-card-text{
+  color: @cardTextColor;
+}
+
+.mu-checkbox {
+  input[type="checkbox"] {
+    &:checked {
+      + .mu-checkbox-wrapper {
+        .mu-checkbox-icon-uncheck{
+          color: @checkboxCheckedColor;
+        }
+        .mu-checkbox-ripple-wrapper{
+          color: @checkboxCheckedColor;
+        }
+      }
+
+    }
+  }
+}
+
+.mu-checkbox-label {
+  color: @checkboxTextColor;
+  .mu-checkbox.disabled & {
+    color: @checkboxDisabledColor;
+  }
+}
+
+.mu-checkbox-icon-uncheck {
+  color: @checkboxColor;
+  .mu-checkbox.disabled & {
+    color: @checkboxDisabledColor;
+  }
+}
+
+.mu-checkbox-icon-checked {
+  color: @checkboxCheckedColor;
+  .mu-checkbox.disabled & {
+    color: @checkboxDisabledColor;
+  }
+}
+
+.mu-chip {
+  background-color: @chipColor;
+  color: @chipTextColor;
+  &.hover{
+    .mu-chip-delete-icon{
+      color: @chipHoverDeleteColor;
+    }
+    background-color: @chipHoverColor;
+    cursor: pointer;
+  }
+}
+
+.mu-chip-delete-icon{
+  color: @chipDeleteColor;
+}
+
+.mu-calendar {
+  color: @datePickerCalendarTextColor;
+}
+
+.mu-calendar-year {
+  background-color: @datePickerCalendarYearBackgroundColor;
+}
+
+
+.mu-date-display{
+  background-color: @datePickerSelectColor;
+  color: @datePickerSelectTextColor;
+}
+
+
+.mu-day-button-bg {
+  background-color: @datePickerSelectColor;
+}
+
+.mu-day-button-text{
+  font-weight: 400;
+  position: relative;
+  color: @datePickerCalendarTextColor;
+  .mu-day-button.now &{
+    color: @datePickerColor;
+  }
+  .mu-day-button.hover &,
+  .mu-day-button.selected &{
+    color: @datePickerSelectTextColor;
+  }
+}
+
+.mu-year-button-text {
+  color: @datePickerCalendarTextColor;
+  .mu-year-button.selected &{
+    color: @datePickerColor;
+  }
+  .mu-year-button.hover &{
+    color: @datePickerColor;
+  }
+}
+
+.mu-dialog {
+  background-color: @dialogBackgroundColor;
+}
+
+.mu-dialog-footer,
+.mu-dialog-header {
+  &.scrollable{
+    border-bottom-color: @dialogBorderColor;
+  }
+}
+
+.mu-dialog-title{
+  color: @dialogTitleColor;
+}
+
+.mu-dialog-body {
+  color: @dialogBodyColor
+}
+
+.mu-dropDown-menu-text {
+  color: @dropDownMenuTextColor;
+}
+
+.mu-dropDown-menu-icon {
+  color: @dropDownMenuIconColor;
+}
+
+.mu-dropDown-menu-line {
+  background-color: @dropDownMenuLineColor;
+}
+
+// flatbutton
+.mu-flat-button {
+  color: @flatButtonTextColor;
+  background-color: @flatButtonColor;
+  .mu-circle-ripple {
+    color: @flatButtonTextColor;
+  }
+}
+
+.mu-flat-button-primary{
+  color: @flatButtonPrimaryTextColor;
+}
+
+.mu-flat-button-secondary{
+  color: @flatButtonSecondaryTextColor;
+}
+
+
+// floatButton
+.mu-float-button {
+  background-color: @floatButtonColor;
+  color: @floatButtonIconColor;
+  &.disabled{
+    color: @floatButtonDisabledIconColor;
+    cursor: default;
+    background-color: @floatButtonDisabledColor;
+  }
+  &.hover,
+  &:active{
+    .mu-float-button-wrapper {
+      background-color: fade(@floatButtonIconColor, 30%);
+    }
+  }
+}
+
+.mu-float-button-secondary {
+  background-color: @floatButtonSecondaryColor;
+  color: @floatButtonSecondaryIconColor;
+}
+
+
+// circle
+.mu-circle-spinner{
+  border-color: @circleColor;
+}
+
+.mu-circle-secondary {
+  border-color: @circleSecondaryColor;
+}
+
+
+// list
+.mu-item-wrapper{
+  &.hover {
+    background-color: @listHoverColor;
+  }
+  &.active {
+    background-color: @listActiveColor;
+  }
+}
+.mu-item {
+  color: @listTextColor;
+}
+
+.mu-item-link-icon{
+  color: @listRightIconColor;
+}
+
+.mu-item-left{
+  color: @listLeftIconColor;
+}
+
+.mu-item-right{
+  color: @listRightIconColor;
+}
+
+.mu-item-after{
+  color: @listSecondaryTextColor;
+}
+
+.mu-item-text{
+  color: @listSecondaryTextColor;
+}
+
+.mu-menu-item-wrapper{
+  color: @menuTextColor;
+  &.active {
+    color: @menuSelectColor;
+  }
+  &.hover {
+    background-color: @menuHoverColor;
+  }
+  &.disabled {
+    color: @menuDisabledColor;
+  }
+}
+
+.mu-menu-item-left-icon{
+  color: @menuLeftIconColor;
+}
+
+.mu-menu-item-right-icon {
+  color: @menuRightIconColor;
+}
+
+.mu-paper {
+  background-color: @paperBackgroundColor;
+  color: @paperColor;
+}
+
+.mu-picker{
+  background-color: @pickerColor;
+}
+
+.mu-picker-center-highlight {
+  &::before,
+  &::after {
+    background-color: @pickerBorderColor;
+  }
+}
+
+
+.mu-picker-slot.mu-picker-slot-divider {
+  color: @pickerSelectedTextColor;
+}
+
+.mu-picker-item{
+  color: @pickerTextColor;
+  &.selected {
+    color: @pickerSelectedTextColor;
+  }
+}
+
+.mu-popover {
+  background-color: @popoverColor;
+}
+
+.mu-radio {
+  input[type="radio"] {
+    &:checked {
+      + .mu-radio-wrapper {
+        .mu-radio-icon-uncheck{
+          color: @radioCheckedColor;
+        }
+        .mu-radio-ripple-wrapper{
+          color: @radioCheckedColor;
+        }
+      }
+
+    }
+  }
+}
+
+.mu-radio-label {
+  color: @radioTextColor;
+  .mu-radio.disabled & {
+    color: @radioDisabledColor;
+  }
+}
+
+.mu-radio-icon-uncheck {
+  color: @radioColor;
+  .mu-radio.disabled & {
+    color: @radioDisabledColor;
+  }
+}
+
+.mu-radio-icon-checked {
+  color: @radioCheckedColor;
+  .mu-radio.disabled & {
+     color: @radioDisabledColor;
+   }
+}
+
+
+
+// raisedButton
+.mu-raised-button{
+  background-color: @raisedButtonColor;
+  color: @raisedButtonTextColor;
+  &.hover {
+    .mu-raised-button-wrapper {
+      background-color: fade(@raisedButtonTextColor, 10%);
+    }
+  }
+  &.disabled{
+    color: @raisedButtonDisabledTextColor;
+    background-color: @raisedButtonDisabledColor;
+  }
+}
+
+.mu-raised-button-primary{
+  background-color: @raisedButtonPrimaryColor;
+}
+
+.mu-raised-button-secondary{
+  background-color: @raisedButtonSecondaryColor;
+}
+
+.mu-refresh-control {
+  color: @refreshControlColor;
+}
+
+.mu-snackbar {
+  background-color: @snackbarColor;
+  color: @snackbarTextColor;
+}
+
+.mu-slider-track {
+  background-color: @sliderTrackColor;
+}
+
+
+.mu-slider-fill{
+  background-color: @sliderSelectionColor;
+  &.disabled {
+    background-color: @sliderDisabledColor;
+  }
+}
+
+.mu-slider-thumb{
+  background-color: @sliderSelectionColor;
+  color: @sliderSelectionColor;
+  .mu-slider.zero &,
+  .mu-slider.disabled &{
+    border-color: @sliderDisabledColor;
+    color: @sliderDisabledColor;
+    background-color: @sliderZeroColor;
+  }
+}
+
+// subheader
+.mu-sub-header{
+  color: @subHeaderColor;
+}
+
+.mu-switch {
+  input[type="checkbox"] {
+    &:checked {
+      + .mu-switch-wrapper {
+        .mu-switch-track{
+          background-color: @switchTrackOnColor;
+        }
+        .mu-switch-thumb{
+          background-color: @switchThumbOnColor;
+          color: @switchThumbOnColor;
+        }
+      }
+
+    }
+  }
+  &.disabled {
+    input[type="checkbox"]:checked{
+      + .mu-switch-wrapper {
+        .mu-switch-track{
+          background-color: @switchTrackDisabledColor;
+        }
+        .mu-switch-thumb{
+          background-color: @switchThumbDisabledColor;
+        }
+      }
+    }
+  }
+}
+
+
+.mu-switch-label {
+  color: @switchTextColor;
+  .mu-switch.disabled & {
+    color: @switchTextDisabledColor;
+  }
+}
+
+.mu-switch-track {
+  background-color: @switchTrackOffColor;
+  .mu-switch.disabled & {
+    background-color: @switchTrackDisabledColor;
+  }
+}
+
+.mu-switch-thumb {
+  color: @switchTextColor;
+  background-color: @switchThumbOffColor;
+  .mu-switch.disabled & {
+    background-color: @switchThumbDisabledColor;
+  }
+}
+
+.mu-table {
+  background-color: @tableBackgroundColor;
+}
+
+.mu-thead {
+  border-bottom-color: @tableBorderColor;
+}
+
+.mu-th {
+  color: @tableTheadTextColor;
+}
+
+.mu-tr {
+  border-bottom-color: @tableBorderColor;
+  color: @tableTextColor;
+  &.selected {
+    background-color: @tableRowSelectedBackgroundColor;
+  }
+  &.hover {
+    background-color: @tableRowHoverBackgroundColor;
+  }
+  &.stripe {
+    background-color: @tableRowStripeBackgroundColor;
+  }
+
+  .mu-tfoot & {
+    border-top-color: @tableBorderColor;
+  }
+}
+
+.mu-tabs{
+  background-color: @tabsBackgroundColor;
+}
+.mu-tab-link-highlight {
+  background-color: @tabsLineColor;
+}
+.mu-tab-link{
+  color: @tabsTextColor;
+}
+.mu-tab-active {
+  color: @tabsSelectedTextColor;
+}
+
+.mu-text-field{
+  color: @textFieldTextColor;
+  &.focus-state {
+    color: @textFieldFocusTextColor;
+    &.error{
+      color: @textFieldErrorTextColor;
+    }
+  }
+  &.disabled {
+    color: @textFieldDisabledTextColor;
+  }
+}
+
+.mu-text-field-input {
+  color: @textFieldInputColor;
+  &::-webkit-input-placeholder {
+    color: @textFieldHintColor;
+  }
+}
+
+
+.mu-text-field-help {
+  .mu-text-field.error &{
+    color: @textFieldErrorTextColor;
+  }
+}
+
+.mu-text-field-line {
+  background-color: @textFieldLineColor;
+  &.disabled {
+    border-color: @textFieldDisabledLineColor;
+  }
+}
+
+.mu-text-field-focus-line{
+  background-color: @textFieldFocusLineColor;
+  &.error {
+    background-color: @textFieldErrorLineColor;
+  }
+}
+
+.mu-clock-circle {
+  background-color: @clockCircleColor;
+}
+
+.mu-time-display {
+  background-color: @timePickerSelectColor;
+  color: @timePickerSelectTextColor;
+}
+
+.mu-clock-number{
+  &.selected {
+    background-color: @timePickerSelectColor;
+    color: @timePickerSelectTextColor;
+  }
+}
+
+.mu-clock-pointer {
+  background-color: @timePickerSelectColor;
+
+}
+
+.mu-clock-pointer-mark {
+  background-color: @timePickerSelectTextColor;
+  border-color:  @timePickerSelectColor;
+}
+
+.mu-toast {
+  background-color: @toastColor;
+  color: @toastTextColor;
+}
+
+.mu-tooltip{
+  color: @tooltipTextColor;
+}
+
+.mu-tooltip-ripple.when-shown {
+  background-color: @tooltipRippleColor;
+}

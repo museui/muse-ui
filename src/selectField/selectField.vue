@@ -113,7 +113,7 @@ export default {
   .mu-dropDown-menu{
     display: block;
     width: 100%;
-    height: 36px;
+    height: 32px;
   }
   .mu-dropDown-menu-text{
     line-height: 32px;

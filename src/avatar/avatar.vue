@@ -49,6 +49,9 @@ export default {
       this.$emit('click')
     }
   },
+  created () {
+    this._isAvatar = true
+  },
   components: {
     icon
   }

@@ -21,7 +21,7 @@
         <mu-icon-button  slot="right" icon="android"></mu-icon-button>
       </mu-appbar>
     </mu-paper>
-    <!-- <mu-list>
+    <mu-list>
       <mu-list-item title="Item test one">
         <mu-icon value="inbox" slot="left"/>
         <mu-icon value="inbox" slot="right"/>
@@ -33,10 +33,10 @@
       </mu-list-item>
       <mu-divider/>
       <mu-list-item title="Item test one" disabled>
-        <mu-avatar src="http://www.myronliu.com/img/uicon.jpg" slot="left" />
+        <mu-avatar src="http://www.myronliu.com/img/uicon.jpg" slot="avatar" />
         <mu-switch slot="right"/>
       </mu-list-item>
-    </mu-list> -->
+    </mu-list>
     <mu-content-block>
       <mu-time-picker v-model="text" label="select Time"/>
     </mu-content-block>

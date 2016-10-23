@@ -5,7 +5,8 @@
       class="mu-item-wrapper" :class="{'active': active}" :wrapperStyle="itemStyle" :centerRipple="false">
       <div style="position:relative;" :class="itemClass">
         <div class="mu-item-left" v-if="showLeft">
-          <slot name="left"></slot>
+          <slot name="left" v-if="!hasAvatar"></slot>
+          <slot name="avatar"></slot>
         </div>
         <div class="mu-item-content">
           <div class="mu-item-title-row" v-if="title || afterText">
@@ -90,15 +91,20 @@ export default {
   },
   data () {
     return {
-      nestedOpen: this.initiallyOpen
+      nestedOpen: this.initiallyOpen,
+      hasAvatar: false
     }
   },
   computed: {
+    hasAvatar () {
+      return this.$slots && this.$slots.avatar && this.$slots.avatar.length > 0
+    },
     itemClass () {
       var arr = ['mu-item']
       if (this.link && !this.toggleNested) arr.push('mu-item-link')
       if (this.showLeft) arr.push('show-left')
       if (this.showRight) arr.push('show-right')
+      if (this.hasAvatar) arr.push('has-avatar')
       return arr.join(' ')
     },
     itemStyle () {
@@ -110,7 +116,7 @@ export default {
       return this.$parent.nestedLevel + 1
     },
     showLeft () {
-      return this.$slots && this.$slots.left && this.$slots.left.length > 0
+      return (this.$slots && this.$slots.left && this.$slots.left.length > 0) || this.hasAvatar
     },
     showRight () {
       return this.toggleNested || (this.$slots && this.$slots.right && this.$slots.right.length > 0)
@@ -179,9 +185,8 @@ export default {
   &.show-right{
     padding-right: 56px;
   }
-  &.left-avatar {
-    padding-top: 20px;
-    padding-bottom: 20px;
+  &.has-avatar {
+    min-height: 56px;
   }
 }
 

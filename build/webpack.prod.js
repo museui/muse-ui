@@ -8,7 +8,7 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var packageJson = require('../package.json')
 var env = process.env.NODE_ENV === 'testing'
   ? require('../config/test.env')
-  : config.build.env
+  : config.env
 
   var banner =
     '/*!\n' +
@@ -20,18 +20,17 @@ var env = process.env.NODE_ENV === 'testing'
 delete baseWebpackConfig.entry
 var webpackConfig = merge(baseWebpackConfig, {
   entry: {
-    'muse-ui': './src/index.js',
-    'muse-echarts': './src/echarts/index.js'
+    'muse-ui': './src/index.js'
   },
   module: {
-    loaders: utils.styleLoaders({ sourceMap: config.build.productionSourceMap, extract: true })
+    loaders: utils.styleLoaders({ sourceMap: config.productionSourceMap, extract: true })
   },
   banner: banner,
   devtool: false,
   output: {
-    path: config.build.assetsRoot,
+    path: config.assetsRoot,
     filename: utils.assetsPath('[name].js'),
-    library: 'VueCarbon',
+    library: 'MuseUI',
     libraryTarget: 'umd'
   },
   externals: {
@@ -44,7 +43,7 @@ var webpackConfig = merge(baseWebpackConfig, {
   },
   vue: {
     loaders: utils.cssLoaders({
-      sourceMap: config.build.productionSourceMap,
+      sourceMap: config.productionSourceMap,
       extract: true
     })
   },
