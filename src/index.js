@@ -45,6 +45,7 @@ import * as gridList from './gridList'
 import * as table from './table'
 import datePicker from './datePicker'
 import timePicker from './timePicker'
+import * as stepper from './stepper'
 const components = {
   icon,
   badge,
@@ -89,7 +90,8 @@ const components = {
   ...gridList,
   ...table,
   datePicker,
-  timePicker
+  timePicker,
+  ...stepper
 }
 
 export default {

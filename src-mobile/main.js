@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import MuseUI from '../src'
-import '../src/styles/themes/dark.less'
+// import '../src/styles/themes/dark.less'
 import App from './App.vue'
 import router from './router'
 import FastClick from 'fastclick'

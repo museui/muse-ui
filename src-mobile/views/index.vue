@@ -40,6 +40,19 @@
     <mu-content-block>
       <mu-time-picker v-model="text" label="select Time"/>
     </mu-content-block>
+
+
+    <mu-stepper>
+      <mu-step>
+        <mu-step-label>select awsome</mu-step-label>
+      </mu-step>
+      <mu-step>
+        <mu-step-label>create a group</mu-step-label>
+      </mu-step>
+      <mu-step>
+        <mu-step-label>addmember</mu-step-label>
+      </mu-step>
+    </mu-stepper>
     <!-- <mu-table allRowsSelected multiSelectable>
       <mu-thead slot="header">
         <mu-tr>
