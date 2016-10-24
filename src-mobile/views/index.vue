@@ -38,21 +38,49 @@
       </mu-list-item>
     </mu-list>
     <mu-content-block>
-      <mu-time-picker v-model="text" label="select Time"/>
+      <mu-date-picker maxDate="2016-10-31" container="inline" label="select Time"/>
     </mu-content-block>
 
 
-    <mu-stepper>
+    <mu-stepper orientation="vertical" :activeStep="activeStep">
       <mu-step>
-        <mu-step-label>select awsome</mu-step-label>
+        <mu-step-button>select awsome</mu-step-button>
+        <mu-step-content>
+          拉力赛老大撒范德萨了空间发好了撒打发点时空
+          拉力赛老大撒范德萨了空间发好了撒打发点时空
+          拉力赛老大撒范德萨了空间发好了撒打发点时空
+          拉力赛老大撒范德萨了空间发好了撒打发点时空
+          拉力赛老大撒范德萨了空间发好了撒打发点时空
+          拉力赛老大撒范德萨了空间发好了撒打发点时空
+        </mu-step-content>
       </mu-step>
       <mu-step>
-        <mu-step-label>create a group</mu-step-label>
+        <mu-step-button>create a group</mu-step-button>
+        <mu-step-content>
+          拉力赛老大撒范德萨了空间发好了撒打发点时空
+          拉力赛老大撒范德萨了空间发好了撒打发点时空
+          拉力赛老大撒范德萨了空间发好了撒打发点时空
+          拉力赛老大撒范德萨了空间发好了撒打发点时空
+          拉力赛老大撒范德萨了空间发好了撒打发点时空
+          拉力赛老大撒范德萨了空间发好了撒打发点时空
+        </mu-step-content>
       </mu-step>
       <mu-step>
-        <mu-step-label>addmember</mu-step-label>
+        <mu-step-button>addmember</mu-step-button>
+        <mu-step-content>
+          拉力赛老大撒范德萨了空间发好了撒打发点时空
+          拉力赛老大撒范德萨了空间发好了撒打发点时空
+          拉力赛老大撒范德萨了空间发好了撒打发点时空
+          拉力赛老大撒范德萨了空间发好了撒打发点时空
+          拉力赛老大撒范德萨了空间发好了撒打发点时空
+          拉力赛老大撒范德萨了空间发好了撒打发点时空
+        </mu-step-content>
       </mu-step>
     </mu-stepper>
+    <mu-content-block>
+      <mu-raised-button label="next" @click="nextActiveStep"/>
+
+    </mu-content-block>
     <!-- <mu-table allRowsSelected multiSelectable>
       <mu-thead slot="header">
         <mu-tr>
@@ -103,14 +131,14 @@
     </mu-content-block> -->
     <!-- <mu-snackbar v-if="showTip" @close="close" message="This is test message" action="close" @actionClick="close"></mu-snackbar>
     <mu-toast v-if="toast" @close="toggle" message="This is test toast message"></mu-toast> -->
-    <mu-paper style="position:fixed; bottom: 0;left:0; right:0;">
+    <!-- <mu-paper style="position:fixed; bottom: 0;left:0; right:0;">
       <mu-bottom-nav shift :value="bottomNav" @change="handlerBottomChange">
         <mu-bottom-nav-item :value="1" icon="ondemand_video" title="Movies"></mu-bottom-nav-item>
         <mu-bottom-nav-item :value="2" icon="music_note" title="Music"></mu-bottom-nav-item>
         <mu-bottom-nav-item :value="3" icon="books" title="Books"></mu-bottom-nav-item>
         <mu-bottom-nav-item :value="4" icon="photo" title="Pictures"></mu-bottom-nav-item>
       </mu-bottom-nav>
-    </mu-paper>
+    </mu-paper> -->
   </div>
 </template>
 
@@ -118,6 +146,7 @@
 export default {
   data () {
     return {
+      activeStep: 0,
       showTip: false,
       toast: false,
       progress: 0,
@@ -190,6 +219,10 @@ export default {
       } else {
         this.errorText = null
       }
+    },
+    nextActiveStep (index) {
+      this.activeStep ++
+      if (this.activeStep > 3) this.activeStep = 0
     }
   },
   components: {

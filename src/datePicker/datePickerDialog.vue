@@ -68,7 +68,8 @@ export default {
     handleDismiss () {
       this.dismiss()
     },
-    handleClose () {
+    handleClose (reson) {
+      console.log(reson)
       this.dismiss()
     },
     dismiss () {

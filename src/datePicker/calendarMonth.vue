@@ -43,7 +43,7 @@ export default {
     isDisableDate (day) {
       if (day === null) return false
       let disabled = false
-      if (this.maxDate && this.minDate) !dateUtils.isBetweenDates(day, this.minDate, this.maxDate)
+      if (this.maxDate && this.minDate) disabled = !dateUtils.isBetweenDates(day, this.minDate, this.maxDate)
       if (!disabled && this.shouldDisableDate) disabled = this.shouldDisableDate(day)
       return disabled
     },

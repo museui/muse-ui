@@ -41,7 +41,7 @@ export default {
         propsData.index = index++
         children.push(vNode)
       })
-      children[index - 1].componentOptions.propsData.last = true
+      if (children.length > 0) children[children.length - 1].componentOptions.propsData.last = true
     }
     return h('div', {
       class: ['mu-stepper', orientation === 'vertical' ? 'mu-stepper-vertical' : '']

@@ -52,6 +52,7 @@ export default {
       default: ''
     },
     wrapperStyle: {
+      type: [String, Object]
     },
     containerElement: {
       type: String

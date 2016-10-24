@@ -46,7 +46,11 @@ export default {
   flex: 0 0 auto;
   margin-left: -6px;
   .mu-stepper-vertical & {
-    margin-left: 14px;
+    margin-top: -14px;
+    margin-left: 0;
+  }
+  &:first-child {
+    margin-left: 0;
   }
 }
 </style>

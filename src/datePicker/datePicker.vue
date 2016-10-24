@@ -1,8 +1,8 @@
 <template>
-  <div>
-    <text-field @focus="handleFocus" @labelClick="handleClick" :value="inputValue" :label="label" :labelFloat="labelFloat" :disabled="disabled" :hintText="hintText" :helpText="helpText" :errorText="errorText" :errorColor="errorColor" :icon="icon" :fullWidth="fullWidth"/>
-    <date-picker-dialog v-if="!disabled" @accept="handleAccept" :initialDate="dialogDate" ref="dialog" :mode="mode" :maxDate="maxLimitDate" :minDate="minLimitDate" :shouldDisableDate="shouldDisableDate" :firstDayOfWeek="firstDayOfWeek" :container="container" :disableYearSelection="disableYearSelection" :dateTimeFormat="dateTimeFormat" :autoOk="autoOk" :okLabel="okLabel" :cancelLabel="cancelLabel"/>
-  </div>
+<div class="mu-date-picker" :class="{'fullWidth': fullWidth}">
+  <text-field @focus="handleFocus" @labelClick="handleClick" :value="inputValue" :label="label" :labelFloat="labelFloat" :disabled="disabled" :hintText="hintText" :helpText="helpText" :errorText="errorText" :errorColor="errorColor" :icon="icon" :fullWidth="fullWidth"/>
+  <date-picker-dialog v-if="!disabled" @accept="handleAccept" :initialDate="dialogDate" ref="dialog" :mode="mode" :maxDate="maxLimitDate" :minDate="minLimitDate" :shouldDisableDate="shouldDisableDate" :firstDayOfWeek="firstDayOfWeek" :container="container" :disableYearSelection="disableYearSelection" :dateTimeFormat="dateTimeFormat" :autoOk="autoOk" :okLabel="okLabel" :cancelLabel="cancelLabel"/>
+</div>
 </template>
 <script>
 import * as dateUtils from './dateUtils'
@@ -96,10 +96,10 @@ export default {
   },
   computed: {
     maxLimitDate () {
-      return null
+      return this.maxDate ? dateUtils.strFormatToDate(this.maxDate, this.format) : undefined
     },
     minLimitDate () {
-      return null
+      return this.minDate ? dateUtils.strFormatToDate(this.minDate, this.format) : undefined
     }
   },
   data () {
@@ -148,7 +148,11 @@ export default {
 <style lang="less">
 @import "../styles/import.less";
 .mu-date-picker{
-  height: 32px;
-  line-height: 32px;
+  display: inline-block;
+  position: relative;
+  width: 256px;
+  &.fullWidth {
+    width: 100%
+  }
 }
 </style>

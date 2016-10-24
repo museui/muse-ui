@@ -1,6 +1,6 @@
 <template>
 <div class="mu-calendar-toolbar">
-  <icon-button :disabled="!prevMonth" icon="chevron_left" @click="prev"/>
+  <icon-button :disabled="!prevMonth" icon="chevron_left" @click.stop="prev"/>
   <div class="mu-calendar-toolbar-title-wrapper">
     <transition :name="'mu-calendar-slide-' + slideType"  v-for="displayDate in displayDates">
       <div class="mu-calendar-toolbar-title" :key="displayDate.getTime()">
@@ -8,7 +8,7 @@
       </div>
     </transition>
   </div>
-  <icon-button :disabled="!nextMonth" icon="chevron_right" @click="next"/>
+  <icon-button :disabled="!nextMonth" icon="chevron_right" @click.stop="next"/>
 </div>
 </template>
 

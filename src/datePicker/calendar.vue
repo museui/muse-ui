@@ -94,18 +94,16 @@ export default {
       weekTexts: dateUtils.getWeekDayArray(this.firstDayOfWeek),
       displayDates: [this.initialDate],
       selectedDate: this.initialDate,
-      nextMonth: true,
-      prevMonth: true,
       slideType: 'next',
       displayMonthDay: true
     }
   },
   computed: {
     prevMonth () {
-      return this.displayDate && dateUtils.monthDiff(this.displayDate[0], this.minDate) > 0
+      return this.displayDates && dateUtils.monthDiff(this.displayDates[0], this.minDate) > 0
     },
     nextMonth () {
-      return this.displayDate && dateUtils.monthDiff(this.displayDate[0], this.maxDate) < 0
+      return this.displayDates && dateUtils.monthDiff(this.displayDates[0], this.maxDate) < 0
     }
   },
   methods: {

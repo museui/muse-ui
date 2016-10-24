@@ -29,6 +29,7 @@ export default {
     border-left-style: solid;
     border-left-width: 1px;
     min-height: 28px;
+    margin-left: 0;
   }
 }
 </style>

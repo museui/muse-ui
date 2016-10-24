@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="mu-time-picker" :class="{'fullWidth': fullWidth}">
   <text-field @focus="handleFocus" @labelClick="handleClick" :value="inputValue" :label="label" :labelFloat="labelFloat" :disabled="disabled" :hintText="hintText" :helpText="helpText" :errorText="errorText" :errorColor="errorColor" :icon="icon" :fullWidth="fullWidth"/>
   <time-picker-dialog v-if="!disabled" @accept="handleAccept" ref="dialog" :initialTime="dialogTime" :format="format" :mode="mode" :container="container" :autoOk="autoOk" :okLabel="okLabel" :cancelLabel="cancelLabel"/>
 </div>
@@ -120,5 +120,13 @@ export default {
 }
 </script>
 
-<style lang="css">
+<style lang="less">
+.mu-time-picker{
+  display: inline-block;
+  position: relative;
+  width: 256px;
+  &.fullWidth {
+    width: 100%;
+  }
+}
 </style>

@@ -1,5 +1,5 @@
 <template>
-<abstract-button @click="handleClick" class="mu-step-button" :disabled="disabled">
+<abstract-button @click="handleClick" :centerRipple="false" class="mu-step-button" :disabled="disabled">
   <step-label :active="active" :completed="completed" :num="num" :disabled="disabled" v-if="childredInLabel">
     <slot></slot>
   </step-label>

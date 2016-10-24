@@ -1,0 +1,48 @@
+.mu-step-button {
+  background-color: @stepperBackgroundColor;
+  &.hover {
+    background-color: @stepperHoverBackgroundColor
+  }
+}
+
+.mu-step-connector-line {
+  border-color: @stepperConnectorLineColor;
+}
+
+.mu-step-content{
+  .mu-stepper-vertical & {
+    border-left: 1px solid @stepperConnectorLineColor;
+  }
+}
+
+
+.mu-step-label{
+  color: @stepperTextColor;
+  &.disabled {
+    color: @stepperDisabledTextColor;
+  }
+}
+
+
+.mu-step-label-icon {
+  color: @stepperInactiveIconColor;
+  .mu-step-label.disabled &{
+    color: @stepperInactiveIconColor;
+  }
+  .mu-step-label.completed &,
+  .mu-step-label.active & {
+    color: @stepperIconColor;
+  }
+}
+
+.mu-step-label-circle{
+  background-color: @stepperInactiveIconColor;
+  color: @stepperNumTextColor;
+  .mu-step-label.disabled &{
+    background-color: @stepperInactiveIconColor;
+  }
+  .mu-step-label.completed &,
+  .mu-step-label.active & {
+    background-color: @stepperIconColor;
+  }
+}
