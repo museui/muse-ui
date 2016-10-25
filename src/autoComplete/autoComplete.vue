@@ -1,14 +1,22 @@
 <template>
 <div class="mu-auto-complete" :class="{'fullWidth': fullWidth}">
-  <text-field @focus="handleFocus" ref="textField" @blur="handleBlur" :value="inputValue" :label="label" :labelFloat="labelFloat" :disabled="disabled" :hintText="hintText" :helpText="helpText" :errorText="errorText" :errorColor="errorColor" :icon="icon" :fullWidth="fullWidth"/>
-  <popover v-if="open"></popover>
+  <text-field @focus="handleFocus" v-model="searchText" @input="handleInput" @keydown.native="handleKeyDown" ref="textField" @blur="handleBlur" :value="searchText" :label="label" :labelFloat="labelFloat" :disabled="disabled" :hintText="hintText" :helpText="helpText" :errorText="errorText" :errorColor="errorColor" :icon="icon" :fullWidth="fullWidth"/>
+  <popover :overlay="false" v-if="open && list.length > 0"  @close="handleClose" :trigger="anchorEl" :anchorOrigin="anchorOrigin" :targetOrigin="targetOrigin">
+    <mu-menu :style="{'width': menuWidth + 'px'}" :disableAutoFocus="focusTextField" @mousedown.native="handleMouseDown" initiallyKeyboardFocused :autoWidth="false" ref="menu" @itemClick="handleItemClick" class="mu-auto-complete-menu">
+      <menu-item class="mu-auto-complete-menu-item" v-for="item in list"  @mousedown.native="handleMouseDown" :disableFocusRipple="disableFocusRipple" :value="item.value" :title="item.text"/>
+    </mu-menu>
+  </popover>
 </div>
 </template>
 
 <script>
 import popover from '../popover'
-import menu from '../menu'
+import textField from '../textField'
+import {menu, menuItem} from '../menu'
+import * as filters from './filters'
+import keycode from 'keycode'
 export default {
+  name: 'mu-auto-complete',
   props: {
     anchorOrigin: {
       type: Object,
@@ -59,6 +67,10 @@ export default {
       type: Boolean,
       default: false
     },
+    menuCloseDelay: {
+      type: Number,
+      default: 300
+    },
     label: {
       type: String
     },
@@ -98,21 +110,150 @@ export default {
       anchorEl: null,
       focusTextField: true,
       open: false,
-      searchText: undefined
+      searchText: undefined,
+      menuWidth: null
+    }
+  },
+  computed: {
+    list () {
+      const filter = typeof this.filter === 'string' ? filters[this.filter] : this.filter
+      const {dataSourceConfig, maxSearchResults, searchText} = this
+      if (!filter) {
+        console.warn('not found filter:' + this.filter)
+        return
+      }
+      const list = []
+      this.dataSource.every((item, index) => {
+        switch (typeof item) {
+          case 'string':
+            if (filter(searchText, item, item)) {
+              list.push({
+                text: item,
+                value: item
+              })
+            }
+            break
+          case 'object':
+            if (item && typeof item[dataSourceConfig.text] === 'string') {
+              const itemText = item[dataSourceConfig.text]
+              if (!filter(searchText, itemText, item)) break
+              const itemValue = item[dataSourceConfig.value]
+              list.push({
+                text: itemText,
+                value: itemValue
+              })
+            }
+        }
+        return !(maxSearchResults && maxSearchResults > 0 && list.length === maxSearchResults)
+      })
+      return list
     }
   },
   methods: {
-    handleFocus () {
+    handleFocus (event) {
+      if (!this.open && this.openOnFocus) {
+        this.open = true
+      }
+      this.focusTextField = true
+      this.$emit('focus', event)
     },
-    handleBlur () {
+    handleBlur (event) {
+      if (this.focusTextField && this.timerTouchTapCloseId === null) {
+        this.close()
+      }
+      this.$emit('blur', event)
+    },
+    handleClose () {
+      if (!this.focusTextField) {
+        this.close()
+      }
+    },
+    handleMouseDown (event) {
+      event.preventDefault()
+    },
+    handleItemClick (child) {
+      const dataSource = this.dataSource
+
+      const index = this.$refs.menu.$children.indexOf(child)
+      const chosenRequest = dataSource[index]
+      const searchText = this.chosenRequestText(chosenRequest)
+
+      this.timerTouchTapCloseId = setTimeout(() => {
+        this.timerTouchTapCloseId = null
+        this.setSearchText(searchText)
+        this.close()
+        this.$emit('select', chosenRequest, index)
+      }, this.menuCloseDelay)
+    },
+    chosenRequestText (chosenRequest) {
+      if (typeof chosenRequest === 'string') {
+        return chosenRequest
+      } else {
+        return chosenRequest[this.dataSourceConfig.text]
+      }
+    },
+    handleInput () {
+      if (!this.notInput) {
+        this.open = true
+      } else {
+        this.notInput = false
+      }
+    },
+    blur () {
+      this.$refs.textField.$el.blur()
+    },
+    focus () {
+      this.$refs.textField.$el.focus()
+    },
+    close () {
+      this.open = false
+    },
+    handleKeyDown (event) {
+      this.$emit('keydown', event)
+
+      switch (keycode(event)) {
+        case 'enter':
+          this.close()
+          const searchText = this.searchText
+          if (searchText !== '') {
+            this.$emit('select', searchText, -1)
+          }
+          break
+        case 'esc':
+          this.close()
+          break
+        case 'down':
+          event.preventDefault()
+          this.open = true
+          this.focusTextField = false
+          break
+        default:
+          break
+      }
+    },
+    setSearchText (val) {
+      this.notInput = true
+      this.searchText = val
     }
   },
   mounted () {
     this.anchorEl = this.$refs.textField.$el
+    this.menuWidth = this.$el.offsetWidth
+  },
+  watch: {
+    value (val) {
+      if (val !== this.searchText) this.setSearchText(val)
+    },
+    searchText (val) {
+      this.$emit('input', val)
+      this.$emit('change', val)
+    }
   },
   components: {
     popover,
-    menu
+    'text-field': textField,
+    'mu-menu': menu,
+    'menu-item': menuItem
   }
 }
 </script>
@@ -125,5 +266,10 @@ export default {
   &.fullWidth {
     width: 100%;
   }
+}
+
+.mu-auto-complete-menu-item{
+  width: 100%;
+  overflow: hidden;
 }
 </style>

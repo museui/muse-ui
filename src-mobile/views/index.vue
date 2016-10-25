@@ -39,6 +39,7 @@
     </mu-list>
     <mu-content-block>
       <mu-date-picker maxDate="2016-10-31" container="inline" label="select Time"/>
+      <mu-auto-complete :dataSource="['222', '333', '444']" filter="noFilter" label="Auto Complete"/>
     </mu-content-block>
 
 

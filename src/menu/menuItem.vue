@@ -1,7 +1,7 @@
 <template>
 <div>
    <abstract-button @click.native="handlerClick" class="mu-menu-item-wrapper" :class="{'active': active}"
-    :href="href" ref="button" :centerRipple="false" :disabled="disabled" containerElement="div">
+    :href="href" ref="button" :centerRipple="false" :disableFocusRipple="disableFocusRipple" :disabled="disabled" containerElement="div">
      <div class="mu-menu-item" :class="{'have-left-icon': leftIcon}">
        <icon :value="leftIcon" :style="{'color': filterColor(leftIconColor)}" class="mu-menu-item-left-icon" />
        <div>
@@ -33,6 +33,10 @@ export default {
   name: 'mu-menu-item',
   props: {
     disabled: {
+      type: Boolean,
+      default: false
+    },
+    disableFocusRipple: {
       type: Boolean,
       default: false
     },

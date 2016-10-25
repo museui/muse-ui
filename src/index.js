@@ -46,6 +46,7 @@ import * as table from './table'
 import datePicker from './datePicker'
 import timePicker from './timePicker'
 import * as stepper from './stepper'
+import autoComplete from './autoComplete'
 const components = {
   icon,
   badge,
@@ -91,7 +92,8 @@ const components = {
   ...table,
   datePicker,
   timePicker,
-  ...stepper
+  ...stepper,
+  autoComplete
 }
 
 export default {

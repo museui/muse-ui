@@ -1,5 +1,5 @@
 <template>
-<abstract-button @click.native="handlerClick" @mouseenter.native="show()" @mouseleave.native="hide()"  :href="href" :disabled="disabled" class="mu-icon-button">
+<abstract-button @mousedown.native="handleMouseDown" @click.native="handleClick" @mouseenter.native="show()" @mouseleave.native="hide()"  :href="href" :disabled="disabled" class="mu-icon-button">
   <icon :value="this.icon" :class="[iconClass]"></icon>
   <tooltip v-if="tooltip" :verticalPosition="verticalPosition" :horizontalPosition="horizontalPosition" :show="tooltipShown" :label="tooltip" :touch="touch"></tooltip>
 </abstract-button>
@@ -55,7 +55,7 @@ export default {
     }
   },
   methods: {
-    handlerClick (e) {
+    handleClick (e) {
       this.$emit('click', e)
     },
     show (touchFlag) {
@@ -63,6 +63,9 @@ export default {
     },
     hide () {
       this.tooltipShown = false
+    },
+    handleMouseDown (event) {
+      event.stopPropagation() // 防止list中使用导致波纹点击重复
     }
   },
   components: {

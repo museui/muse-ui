@@ -107,10 +107,10 @@ export default {
     this.cancelFocusTimeout()
   },
   methods: {
-    handlerHover () {
+    handleHover () {
       if (!this.disabled && isPc()) this.hover = true
     },
-    handlerOut () {
+    handleOut () {
       this.hover = false
     },
     removeKeyboardFocus (event) {
@@ -132,7 +132,7 @@ export default {
         this.focusTimeout = null
       }
     },
-    handlerKeydown (event) {
+    handleKeydown (event) {
       if (!this.disabled && !this.disableKeyboardFocus) {
         if (keycode(event) === 'enter' && this.isKeyboardFocused) {
           this.$el.click()
@@ -142,14 +142,14 @@ export default {
         }
       }
     },
-    handlerKeyup (event) {
+    handleKeyup (event) {
       if (!this.disabled && !this.disableKeyboardFocus) {
         if (keycode(event) === 'space' && this.isKeyboardFocused) {
           this.handleTouchTap(event)
         }
       }
     },
-    handlerFocus (event) {
+    handleFocus (event) {
       if (!this.disabled && !this.disableKeyboardFocus) {
         this.focusTimeout = setTimeout(() => {
           if (tabPressed) {
@@ -159,7 +159,7 @@ export default {
         }, 150)
       }
     },
-    handlerBlur (event) {
+    handleBlur (event) {
       this.cancelFocusTimeout()
       this.removeKeyboardFocus(event)
     },
@@ -217,15 +217,15 @@ export default {
         'cursor': 'pointer'
       },
       on: {
-        mouseenter: this.handlerHover,
-        mouseleave: this.handlerOut,
-        touchend: this.handlerOut,
-        touchcancel: this.handlerOut,
+        mouseenter: this.handleHover,
+        mouseleave: this.handleOut,
+        touchend: this.handleOut,
+        touchcancel: this.handleOut,
         click: this.handleClick,
-        focus: this.handlerFocus,
-        blur: this.handlerBlur,
-        keydown: this.handlerKeydown,
-        keyup: this.handlerKeyup
+        focus: this.handleFocus,
+        blur: this.handleBlur,
+        keydown: this.handleKeydown,
+        keyup: this.handleKeyup
       }
     }, this.createButtonChildren(h))
   }
