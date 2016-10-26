@@ -15,7 +15,7 @@ export default {
   mixins: [Popup, scroll],
   props: {
     overlay: {
-      default: true
+      default: false
     },
     overlayOpacity: {
       default: 0.01

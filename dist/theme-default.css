@@ -1,10 +1,10 @@
-.mu-avatar {
-  color: #ffffff;
-  background-color: #bdbdbd;
-}
 .mu-appbar {
   background-color: #00bcd4;
   color: #ffffff;
+}
+.mu-avatar {
+  color: #ffffff;
+  background-color: #bdbdbd;
 }
 .mu-badge {
   background-color: #bdbdbd;
@@ -18,11 +18,6 @@
   background-color: #ff4081;
   color: #ffffff;
 }
-body {
-  background-color: #ffffff;
-  color: rgba(0, 0, 0, 0.87);
-  font-family: Roboto, Lato, sans-serif;
-}
 .mu-bottom-nav {
   background-color: #ffffff;
 }
@@ -31,6 +26,11 @@ body {
 }
 .mu-bottom-item-active {
   color: #00bcd4;
+}
+body {
+  background-color: #ffffff;
+  color: rgba(0, 0, 0, 0.87);
+  font-family: Roboto, Lato, sans-serif;
 }
 .mu-bottom-sheet {
   background-color: #ffffff;
@@ -323,6 +323,45 @@ body {
   border-color: #bdbdbd;
   color: #bdbdbd;
   background-color: #ffffff;
+}
+.mu-step-button {
+  background-color: transparent;
+}
+.mu-step-button.hover {
+  background-color: rgba(0, 0, 0, 0.06);
+}
+.mu-step-connector-line {
+  border-color: #bdbdbd;
+}
+.mu-stepper-vertical .mu-step-content {
+  border-left: 1px solid #bdbdbd;
+}
+.mu-step-label {
+  color: rgba(0, 0, 0, 0.87);
+}
+.mu-step-label.disabled {
+  color: rgba(0, 0, 0, 0.3);
+}
+.mu-step-label-icon {
+  color: #9e9e9e;
+}
+.mu-step-label.disabled .mu-step-label-icon {
+  color: #9e9e9e;
+}
+.mu-step-label.completed .mu-step-label-icon,
+.mu-step-label.active .mu-step-label-icon {
+  color: #00bcd4;
+}
+.mu-step-label-circle {
+  background-color: #9e9e9e;
+  color: #ffffff;
+}
+.mu-step-label.disabled .mu-step-label-circle {
+  background-color: #9e9e9e;
+}
+.mu-step-label.completed .mu-step-label-circle,
+.mu-step-label.active .mu-step-label-circle {
+  background-color: #00bcd4;
 }
 .mu-sub-header {
   color: rgba(0, 0, 0, 0.54);

@@ -2,10 +2,20 @@
   background-color: @bottomNavBackgroundColor;
 }
 
+.mu-bottom-nav-shift{
+  background-color: @bottomNavShiftBackgroundColor;
+}
+
 .mu-buttom-item {
   color: @bottomNavUnselectedColor;
+  .mu-bottom-nav-shift & {
+    color: @bottomNavShiftUnselectedColor;
+  }
 }
 
 .mu-bottom-item-active{
   color: @bottomNavSelectedColor;
+  .mu-bottom-nav-shift & {
+    color: @bottomNavShiftSelectedColor;
+  }
 }

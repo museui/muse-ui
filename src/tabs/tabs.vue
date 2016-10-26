@@ -12,7 +12,8 @@ export default {
     active: {
       type: Number,
       default: 0
-    }
+    },
+    value: {}
   },
   data () {
     return {

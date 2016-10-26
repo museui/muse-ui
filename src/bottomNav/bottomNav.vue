@@ -3,10 +3,6 @@ import abstractButton from '../internal/abstractButton'
 export default {
   name: 'mu-bottom-nav',
   props: {
-    active: {
-      type: Number,
-      default: 0
-    },
     shift: {
       type: Boolean,
       default: false

@@ -1,12 +1,12 @@
-.mu-avatar {
-  color: @avatarColor;
-  background-color: @avatarBackgroundColor;
-}
-
 // appbar
 .mu-appbar{
   background-color: @appbarColor;
   color: @appbarTextColor;
+}
+
+.mu-avatar {
+  color: @avatarColor;
+  background-color: @avatarBackgroundColor;
 }
 
 // badge
@@ -25,12 +25,6 @@
   color: @badgeSecondaryTextColor;
 }
 
-body {
-  background-color: @baseBackgroundColor;
-  color: @baseTextColor;
-  font-family: @baseFontFamily;
-}
-
 .mu-bottom-nav {
   background-color: @bottomNavBackgroundColor;
 }
@@ -41,6 +35,12 @@ body {
 
 .mu-bottom-item-active{
   color: @bottomNavSelectedColor;
+}
+
+body {
+  background-color: @baseBackgroundColor;
+  color: @baseTextColor;
+  font-family: @baseFontFamily;
 }
 
 .mu-bottom-sheet {
@@ -438,6 +438,55 @@ body {
     border-color: @sliderDisabledColor;
     color: @sliderDisabledColor;
     background-color: @sliderZeroColor;
+  }
+}
+
+.mu-step-button {
+  background-color: @stepperBackgroundColor;
+  &.hover {
+    background-color: @stepperHoverBackgroundColor
+  }
+}
+
+.mu-step-connector-line {
+  border-color: @stepperConnectorLineColor;
+}
+
+.mu-step-content{
+  .mu-stepper-vertical & {
+    border-left: 1px solid @stepperConnectorLineColor;
+  }
+}
+
+
+.mu-step-label{
+  color: @stepperTextColor;
+  &.disabled {
+    color: @stepperDisabledTextColor;
+  }
+}
+
+
+.mu-step-label-icon {
+  color: @stepperInactiveIconColor;
+  .mu-step-label.disabled &{
+    color: @stepperInactiveIconColor;
+  }
+  .mu-step-label.completed &,
+  .mu-step-label.active & {
+    color: @stepperIconColor;
+  }
+}
+
+.mu-step-label-circle{
+  background-color: @stepperInactiveIconColor;
+  color: @stepperNumTextColor;
+  .mu-step-label.disabled &{
+    background-color: @stepperInactiveIconColor;
+  }
+  .mu-step-label.completed &,
+  .mu-step-label.active & {
+    background-color: @stepperIconColor;
   }
 }
 

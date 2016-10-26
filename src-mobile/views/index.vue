@@ -1,6 +1,6 @@
 <template>
-  <div class="">
-    <mu-paper>
+  <div class="" style="padding-bottom: 56px;padding-top: 56px;">
+    <mu-paper style="position:fixed; top:0;left: 0; right: 0;">
       <mu-appbar title="Muse UI">
         <mu-icon-menu :maxHeight="250" :value="1" slot="left" icon="menu">
           <mu-sub-header>Sub Header</mu-sub-header>
@@ -39,7 +39,7 @@
     </mu-list>
     <mu-content-block>
       <mu-date-picker maxDate="2016-10-31" container="inline" label="select Time"/>
-      <mu-auto-complete :dataSource="['222', '333', '444']" filter="noFilter" label="Auto Complete"/>
+      <mu-auto-complete openOnFocus :dataSource="['222', '333', '444']" filter="noFilter" label="Auto Complete"/>
     </mu-content-block>
 
 
@@ -132,14 +132,14 @@
     </mu-content-block> -->
     <!-- <mu-snackbar v-if="showTip" @close="close" message="This is test message" action="close" @actionClick="close"></mu-snackbar>
     <mu-toast v-if="toast" @close="toggle" message="This is test toast message"></mu-toast> -->
-    <!-- <mu-paper style="position:fixed; bottom: 0;left:0; right:0;">
+    <mu-paper style="position:fixed; bottom: 0;left:0; right:0;">
       <mu-bottom-nav shift :value="bottomNav" @change="handlerBottomChange">
         <mu-bottom-nav-item :value="1" icon="ondemand_video" title="Movies"></mu-bottom-nav-item>
         <mu-bottom-nav-item :value="2" icon="music_note" title="Music"></mu-bottom-nav-item>
         <mu-bottom-nav-item :value="3" icon="books" title="Books"></mu-bottom-nav-item>
         <mu-bottom-nav-item :value="4" icon="photo" title="Pictures"></mu-bottom-nav-item>
       </mu-bottom-nav>
-    </mu-paper> -->
+    </mu-paper>
   </div>
 </template>
 

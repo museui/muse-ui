@@ -1,5 +1,5 @@
 <template>
-<touch-ripple class="mu-tab-link" :center-ripple="false" :class="{'mu-tab-active': show}" @click.native="tabClick()">
+<touch-ripple class="mu-tab-link" :center-ripple="false" :class="{'mu-tab-active': active}" @click.native="tabClick()">
   <slot>
     <icon :value="icon"></icon>
     <div class="mu-tab-text">{{title}}</div>
@@ -20,37 +20,17 @@ export default {
     title: {
       type: String,
       default: ''
-    }
-  },
-  data () {
-    return {
-      index: -1,
-      show: false
-    }
+    },
+    value: {}
   },
   computed: {
-    show () {
-      return (this.$parent.active === this.index)
+    active () {
+      return this.value && this.$parent.value === this.value
     }
   },
   methods: {
     tabClick () {
-      this.$emit('tab-click', this.index)
-    }
-  },
-  created () {
-    this.$parent.renderData.push({
-      title: this.title,
-      active: false
-    })
-  },
-  mounted () {
-    let children = this.$parent.$children
-    for (let i = 0; i < children.length; i++) {
-      if (children[i].$el === this.$el) {
-        this.index = i
-        break
-      }
+      this.$emit('tab-click', this.value)
     }
   },
   components: {
@@ -63,7 +43,7 @@ export default {
 <style lang="less">
 @import "../styles/import.less";
 .mu-tab-link{
-  mini-height: 48px;
+  min-height: 48px;
   padding-top: 12px;
   padding-bottom: 12px;
   font-size: 14px;

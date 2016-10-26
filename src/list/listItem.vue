@@ -2,8 +2,8 @@
   <div>
     <abstract-button @click.native="handlerClick"  containerElement="div"
       :href="href" :disabled="disabled"
-      class="mu-item-wrapper" :class="{'active': active}" :wrapperStyle="itemStyle" :centerRipple="false">
-      <div style="position:relative;" :class="itemClass">
+      class="mu-item-wrapper" :wrapperStyle="itemStyle" :centerRipple="false">
+      <div :class="itemClass">
         <div class="mu-item-left" v-if="showLeft">
           <slot name="left" v-if="!hasAvatar"></slot>
           <slot name="avatar"></slot>
@@ -105,6 +105,7 @@ export default {
       if (this.showLeft) arr.push('show-left')
       if (this.showRight) arr.push('show-right')
       if (this.hasAvatar) arr.push('has-avatar')
+      if (this.selected) arr.push('selected')
       return arr.join(' ')
     },
     itemStyle () {
@@ -124,7 +125,7 @@ export default {
     showNested () {
       return this.nestedOpen && this.$slots && this.$slots.nested && this.$slots.nested.length > 0
     },
-    active () {
+    selected () {
       return this.$parent.value && this.value && this.$parent.value === this.value
     },
     nestedSelectValue () {
@@ -165,9 +166,6 @@ export default {
   &.hover {
     background-color: fade(@textColor, 10%);
   }
-  &.active {
-    background-color: fade(@textColor, 20%);
-  }
   &.disabled{
     cursor: default;
   }
@@ -187,6 +185,9 @@ export default {
   }
   &.has-avatar {
     min-height: 56px;
+  }
+  &.selected {
+    background-color: @primary1Color;
   }
 }
 
@@ -212,6 +213,7 @@ export default {
   right: 4px;
   top: 0;
 }
+
 .mu-item-right,
 .mu-item-left{
   display: flex;
@@ -227,6 +229,9 @@ export default {
 
 .mu-item-left{
   left: 16px;
+  .mu-item.selected &{
+    color: @primary1Color;
+  }
 }
 
 .mu-item-right{

@@ -1,9 +1,12 @@
 <template>
-  <em class="mu-badge" :style="style" :class="{'mu-badge-circle': circle, 'mu-badge-primary': primary, 'mu-badge-secondary': secondary}">
-    <slot>
-      {{content}}
-    </slot>
-  </em>
+  <div class="mu-badge-container">
+    <slot></slot>
+    <em class="mu-badge" :style="style" :class="badgeClass">
+      <slot name="content">
+        {{content}}
+      </slot>
+    </em>
+  </div>
 </template>
 
 <script>
@@ -37,6 +40,14 @@ export default {
       return {
         'backgroud-color': getColor(this.color)
       }
+    },
+    badgeClass () {
+      return {
+        'mu-badge-circle': this.circle,
+        'mu-badge-primary': this.primary,
+        'mu-badge-secondary': this.secondary,
+        'mu-badge-float': this.slots.default && this.slots.default.length > 0
+      }
     }
   }
 }
@@ -44,6 +55,10 @@ export default {
 
 <style lang="less">
 @import "../styles/import.less";
+.mu-badge-container{
+  display: inline-block;
+  position: relative;
+}
 .mu-badge{
   font-size: 10px;
   display: flex;
@@ -59,6 +74,11 @@ export default {
   overflow: hidden;
 }
 
+.mu-badge-float {
+  position: absolute;
+  top: -12px;
+  right: -12px;
+}
 .mu-badge-circle {
   border-radius: 50%;
   padding: 0;

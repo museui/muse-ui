@@ -73,6 +73,7 @@ export default {
   position: absolute;
   left: 0;
   right: 0;
+  margin-top: -1px;
   transform: scaleX(0);
   transition: transform .45s @easeOutFunction;
   .mu-text-field.has-icon & {

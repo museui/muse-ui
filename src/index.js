@@ -1,5 +1,6 @@
 import './styles/base.less'
 import Vue from 'vue'
+import {retina} from './utils'
 import icon from './icon'
 import badge from './badge'
 import appbar from './appbar'
@@ -101,16 +102,6 @@ export default {
     Object.keys(components).forEach((key) => {
       Vue.component(components[key].name, components[key])
     })
-    // 处理retina屏幕显示效果
-    var classNames = []
-    let pixelRatio = window.devicePixelRatio || 1
-    classNames.push('pixel-ratio-' + Math.floor(pixelRatio))
-    if (pixelRatio >= 2) {
-      classNames.push('retina')
-    }
-
-    let html = document.getElementsByTagName('html')[0]
-
-    classNames.forEach((className) => html.classList.add(className))
+    retina()
   }
 }
