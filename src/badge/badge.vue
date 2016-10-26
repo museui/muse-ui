@@ -46,7 +46,7 @@ export default {
         'mu-badge-circle': this.circle,
         'mu-badge-primary': this.primary,
         'mu-badge-secondary': this.secondary,
-        'mu-badge-float': this.slots.default && this.slots.default.length > 0
+        'mu-badge-float': this.$slots && this.$slots.default && this.$slots.default.length > 0
       }
     }
   }

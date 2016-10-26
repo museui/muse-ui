@@ -1,5 +1,5 @@
 <template>
-<div class="mu-appbar">
+<div class="mu-appbar" :class="{'mu-paper-1': zDepth}">
   <div class="left">
     <slot name="left"></slot>
   </div>
@@ -21,6 +21,10 @@ export default {
     title: {
       type: String,
       default: ''
+    },
+    zDepth: {
+      type: Number,
+      default: 0
     }
   }
 }
@@ -37,7 +41,6 @@ export default {
   background-color: @primary1Color;
   font-size: 24px;
   height: @desktopToolbarHeight;
-  width: 100%;
   padding: 0 8px;
   .flex-shrink(0);
   z-index: 100;
@@ -53,6 +56,9 @@ export default {
     overflow: hidden;
     padding-left: 16px;
     padding-right: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
   }
 }
 

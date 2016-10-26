@@ -26,8 +26,8 @@ export default {
       el.style.display = 'block'
       if (el.scrollHeight !== 0) {
         el.style.height = el.scrollHeight + 'px'
-        el.style.paddingTop = el.dataset.oldPaddingTop
-        el.style.paddingBottom = el.dataset.oldPaddingBottom
+        // el.style.paddingTop = el.dataset.oldPaddingTop
+        // el.style.paddingBottom = el.dataset.oldPaddingBottom
       } else {
         el.style.height = ''
         el.style.paddingTop = el.dataset.oldPaddingTop
@@ -56,8 +56,8 @@ export default {
       if (el.scrollHeight !== 0) {
         setTimeout(() => {
           el.style.height = 0
-          el.style.paddingTop = 0
-          el.style.paddingBottom = 0
+          // el.style.paddingTop = 0
+          // el.style.paddingBottom = 0
         })
       }
     },

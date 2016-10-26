@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import MuseUI from 'muse-ui'
+import './assets/font-icons/style.css'
 import App from './App.vue'
 import router from './router'
 import FastClick from 'fastclick'

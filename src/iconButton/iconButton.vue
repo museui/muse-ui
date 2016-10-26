@@ -1,6 +1,8 @@
 <template>
 <abstract-button @mousedown.native="handleMouseDown" @click.native="handleClick" @mouseenter.native="show()" @mouseleave.native="hide()"  :href="href" :disabled="disabled" class="mu-icon-button">
-  <icon :value="this.icon" :class="[iconClass]"></icon>
+  <slot>
+    <icon :value="icon" :class="[iconClass]"></icon>
+  </slot>
   <tooltip v-if="tooltip" :verticalPosition="verticalPosition" :horizontalPosition="horizontalPosition" :show="tooltipShown" :label="tooltip" :touch="touch"></tooltip>
 </abstract-button>
 </template>

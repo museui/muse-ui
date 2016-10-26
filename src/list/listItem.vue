@@ -34,9 +34,11 @@
         </div>
       </div>
     </abstract-button>
-    <mu-list v-if="showNested" :nestedLevel="nestedLevel" @change="handlerNestedChange" :value="nestedSelectValue">
-      <slot name="nested"></slot>
-    </mu-list>
+    <expand-transition>
+      <mu-list v-if="showNested" :nestedLevel="nestedLevel" @change="handlerNestedChange" :value="nestedSelectValue">
+        <slot name="nested"></slot>
+      </mu-list>
+    </expand-transition>
   </div>
 </template>
 
@@ -45,6 +47,7 @@ import icon from '../icon'
 import abstractButton from '../internal/abstractButton'
 import iconButton from '../iconButton'
 import list from './list'
+import expandTransition from '../internal/expandTransition'
 export default {
   name: 'mu-list-item',
   props: {
@@ -150,7 +153,8 @@ export default {
     icon,
     'abstract-button': abstractButton,
     'mu-list': list,
-    'icon-button': iconButton
+    'icon-button': iconButton,
+    'expand-transition': expandTransition
   }
 }
 </script>
@@ -187,7 +191,7 @@ export default {
     min-height: 56px;
   }
   &.selected {
-    background-color: @primary1Color;
+    color: @primary1Color;
   }
 }
 
