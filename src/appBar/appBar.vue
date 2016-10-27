@@ -42,6 +42,7 @@ export default {
   font-size: 24px;
   height: @desktopToolbarHeight;
   padding: 0 8px;
+  width: 100%;
   .flex-shrink(0);
   z-index: 100;
   > .left,

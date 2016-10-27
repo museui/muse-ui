@@ -17,9 +17,11 @@
 import AppNavDrawer from './components/AppNavDrawer'
 export default {
   data () {
+    const desktop = isDesktop()
     return {
-      open: true,
-      docked: true
+      open: desktop,
+      docked: desktop,
+      desktop: desktop
     }
   },
   mounted () {
@@ -34,7 +36,16 @@ export default {
       this.open = !this.open
     },
     changeNav () {
-      this.open = this.docked = window.innerWidth > 993
+      const desktop = isDesktop()
+      this.docked = desktop
+      if (desktop === this.desktop) return
+      if (!desktop && this.desktop && this.open) {
+        this.open = false
+      }
+      if (desktop && !this.desktop && !this.open) {
+        this.open = true
+      }
+      this.desktop = desktop
     }
   },
   destroyed () {
@@ -43,6 +54,10 @@ export default {
   components: {
     'app-nav': AppNavDrawer
   }
+}
+
+function isDesktop () {
+  return window.innerWidth > 993
 }
 </script>
 
@@ -53,6 +68,7 @@ export default {
   left: 256px;
   right: 0;
   top: 0;
+  width: auto;
   transition: all .45s @easeOutFunction;
   &.nav-hide {
     left: 0;

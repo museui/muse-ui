@@ -56,8 +56,8 @@ export default {
       if (el.scrollHeight !== 0) {
         setTimeout(() => {
           el.style.height = 0
-          // el.style.paddingTop = 0
-          // el.style.paddingBottom = 0
+          el.style.paddingTop = 0
+          el.style.paddingBottom = 0
         })
       }
     },
@@ -76,7 +76,7 @@ export default {
 @import "../styles/import.less";
 .mu-expand-enter-active,
 .mu-expand-leave-active {
-  transition: height .45s @easeOutFunction;
+  transition: height .45s @easeOutFunction, padding .45s @easeOutFunction;
   backface-visibility: hidden;
   transform: translate3d(0, 0, 0);
 }

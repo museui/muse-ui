@@ -42,7 +42,6 @@ Object.keys(proxyTable).forEach(function (context) {
 
 // handle fallback for HTML5 history API
 app.use(require('connect-history-api-fallback')())
-
 // serve webpack bundle output
 app.use(devMiddleware)
 
@@ -51,8 +50,8 @@ app.use(devMiddleware)
 app.use(hotMiddleware)
 
 // serve pure static assets
-var staticPath = path.posix.join(config.assetsPublicPath, config.assetsSubDirectory)
-app.use(staticPath, express.static('./static'))
+// var staticPath = path.posix.join(config.assetsPublicPath, config.assetsSubDirectory)
+app.use('/favicon.ico', express.static('./src-docs/assets/favicon.ico'))
 
 module.exports = app.listen(port, function (err) {
   if (err) {

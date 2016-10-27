@@ -5,9 +5,12 @@
     <mu-badge content="alpha" class="exmaples-version" secondary/>
   </mu-appbar>
   <mu-divider/>
+  <mu-flexbox class="mu-version-box" align="center">
+    Version
+  </mu-flexbox>
   <mu-list>
     <mu-list-item title="快速开始" toggleNested>
-      <mu-list-item slot="nested" title="安装指南"/>
+      <mu-list-item slot="nested" title="安装"/>
       <mu-list-item slot="nested" title="颜色"/>
       <mu-list-item slot="nested" title="主题"/>
     </mu-list-item>
@@ -109,5 +112,12 @@ export default {
 
 .exmaples-nav-sub-header {
   padding-left: 34px;
+}
+
+.mu-version-box{
+  height: 48px;
+  line-height: 48px;
+  padding-left: 16px;
+  padding-right: 16px;
 }
 </style>

@@ -6,7 +6,6 @@
       <text-field-hint v-if="hintText" :text="hintText" :show="showHint"></text-field-hint>
       <slot>
         <input :name="name" type="text" :disabled="disabled" v-if="!multiLine && !type || type === 'text'" @focus="handlerFocus" v-model="inputValue" @blur="handlerBlur" class="mu-text-field-input" >
-        <input :name="name" type="number" :disabled="disabled" v-if="!multiLine && type === 'number'" @focus="handlerFocus" v-model="inputValue" @blur="handlerBlur" class="mu-text-field-input" >
         <input :name="name" type="password" :disabled="disabled" v-if="!multiLine && type === 'password'" @focus="handlerFocus" v-model="inputValue" @blur="handlerBlur" class="mu-text-field-input" >
         <input :name="name" type="email" :disabled="disabled" v-if="!multiLine && type === 'email'" @focus="handlerFocus" v-model="inputValue" @blur="handlerBlur" class="mu-text-field-input" >
         <input :name="name" type="url" :disabled="disabled" v-if="!multiLine && type === 'url'" @focus="handlerFocus" v-model="inputValue" @blur="handlerBlur" class="mu-text-field-input" >

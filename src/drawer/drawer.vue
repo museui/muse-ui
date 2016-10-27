@@ -53,6 +53,9 @@ export default {
       } else {
         PopupManager.close(this)
       }
+    },
+    docked (val, oldVal) {
+      if (val && !oldVal) PopupManager.close(this)
     }
   },
   components: {
