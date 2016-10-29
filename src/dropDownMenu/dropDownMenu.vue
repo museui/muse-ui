@@ -29,7 +29,7 @@ export default {
     },
     autoWidth: {
       type: Boolean,
-      default: true
+      default: false
     },
     multiple: {
       type: Boolean,

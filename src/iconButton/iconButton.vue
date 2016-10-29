@@ -1,5 +1,5 @@
 <template>
-<abstract-button @mousedown.native="handleMouseDown" @click.native="handleClick" @mouseenter.native="show()" @mouseleave.native="hide()"  :href="href" :disabled="disabled" class="mu-icon-button">
+<abstract-button @mousedown.native="handleMouseDown" @click.native="handleClick" @mouseenter.native="show()" @mouseleave.native="hide()" :target="target"  :href="href" :disabled="disabled" class="mu-icon-button">
   <slot>
     <icon :value="icon" :class="[iconClass]"></icon>
   </slot>
@@ -24,6 +24,9 @@ export default {
     href: {
       type: String,
       default: ''
+    },
+    target: {
+      type: String
     },
     disabled: {
       type: Boolean,

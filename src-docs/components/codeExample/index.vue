@@ -1,17 +1,23 @@
 <template>
 <mu-paper class="code-examples">
-  <div class="code-toolbar">
-    <span class="code-toolBar-title">{{title}}</span>
-    <mu-icon-button touch :tooltip="tooltip" icon="code"/>
+  <code-block :title="title" :description="description" :code="code"/>
+  <div class="code-examples-content">
+    <slot></slot>
   </div>
-
 </mu-paper>
 </template>
 
 <script>
+import codeBlock from './codeBlock'
 export default {
   props: {
     title: {
+      type: String
+    },
+    description: {
+      type: String
+    },
+    code: {
       type: String
     }
   },
@@ -19,6 +25,9 @@ export default {
     return {
       tooltip: ''
     }
+  },
+  components: {
+    'code-block': codeBlock
   }
 }
 </script>
@@ -28,24 +37,14 @@ export default {
 .code-examples {
   background-color: @canvasColor;
   margin-bottom: 32px;
+  .markdown-body + & {
+    margin-top: 24px;
+  }
 }
 
-.code-toolbar{
-  display: flex;
-  justify-content: space-between;
-  height: 56px;
-  padding: 0px 24px;
-  background-color: darken(@canvasColor, 26%);
-}
-
-.code-toolBar-title{
-  padding-right: 16px;
-  line-height: 56px;
-  font-size: 20px;
-  position: relative;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  color: @secondaryTextColor;
+.code-examples-content{
+  border-radius: 0 0 2px 0;
+  padding: 14px 24px 24px;
+  margin: 0;
 }
 </style>

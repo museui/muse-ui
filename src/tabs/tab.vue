@@ -1,7 +1,7 @@
 <template>
 <touch-ripple class="mu-tab-link" :center-ripple="false" :class="{'mu-tab-active': active}" @click.native="tabClick()">
   <slot>
-    <icon :value="icon"></icon>
+    <icon :value="icon"/>
     <div class="mu-tab-text">{{title}}</div>
   </slot>
 </touch-ripple>
@@ -30,7 +30,7 @@ export default {
   },
   methods: {
     tabClick () {
-      this.$emit('tab-click', this.value)
+      if (this.$parent.handleTabClick) this.$parent.handleTabClick(this.value, this)
     }
   },
   components: {

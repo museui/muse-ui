@@ -50,6 +50,8 @@ import * as stepper from './stepper'
 import autoComplete from './autoComplete'
 
 import * as grid from './grid'
+
+import * as flexbox from './flexbox'
 const components = {
   icon,
   badge,
@@ -97,7 +99,8 @@ const components = {
   timePicker,
   ...stepper,
   autoComplete,
-  ...grid
+  ...grid,
+  ...flexbox
 }
 
 export default {

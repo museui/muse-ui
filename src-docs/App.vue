@@ -1,12 +1,12 @@
 <template>
   <div id="app">
-    <mu-appbar :zDepth="0" class="example-appbar" :class="{'nav-hide': !open}">
+    <mu-appbar :zDepth="0" :title="title" class="example-appbar" :class="{'nav-hide': !open}">
       <mu-icon-button @click="toggleNav" icon="menu" slot="left"/>
-      <mu-icon-button slot="right">
+      <mu-icon-button slot="right" href="https://github.com/museui/muse-ui">
         <i class="mudocs-icon-custom-github"></i>
       </mu-icon-button>
     </mu-appbar>
-    <app-nav @close="toggleNav" :open="open" :docked="docked" />
+    <app-nav @change="handleMenuChange" @close="toggleNav" :open="open" :docked="docked" />
     <div class="example-content" :class="{'nav-hide': !open}">
       <router-view></router-view>
     </div>
@@ -21,10 +21,13 @@ export default {
     return {
       open: desktop,
       docked: desktop,
-      desktop: desktop
+      desktop: desktop,
+      title: ''
     }
   },
   mounted () {
+    this.routes = this.$router.options.routes
+    this.setTitle()
     this.changeNav()
     this.handleResize = () => {
       this.changeNav()
@@ -46,6 +49,21 @@ export default {
         this.open = true
       }
       this.desktop = desktop
+    },
+    handleMenuChange (path) {
+      if (!this.desktop) this.open = false
+      this.setTitle(path)
+    },
+    setTitle (path) {
+      if (!path) path = window.location.hash
+      if (path && path.length > 1) path = path.substring(1)
+      for (let i = 0; i < this.routes.length; i++) {
+        var route = this.routes[i]
+        if (route.path === path) {
+          this.title = route.title || ''
+          return
+        }
+      }
     }
   },
   destroyed () {
@@ -85,8 +103,7 @@ function isDesktop () {
 }
 
 .content-wrapper{
-  margin-top: 24px;
-  margin-left: 24px;
+  padding: 48px 72px;
 }
 
 @media (min-width: 480px) {
@@ -101,6 +118,9 @@ function isDesktop () {
   }
   .example-content{
     padding-left: 0;
+  }
+  .content-wrapper {
+    padding: 24px 36px;
   }
 }
 </style>

@@ -214,7 +214,8 @@ export default {
       style: {
         'user-select': 'none',
         'outline': 'none',
-        'cursor': 'pointer'
+        'cursor': 'pointer',
+        'appearance': 'none'
       },
       on: {
         mouseenter: this.handleHover,

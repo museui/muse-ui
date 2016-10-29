@@ -1,7 +1,7 @@
 <template>
   <div>
     <abstract-button @click.native="handlerClick"  containerElement="div"
-      :href="href" :disabled="disabled"
+      :href="href" :disabled="disabled" :target="target"
       class="mu-item-wrapper" :wrapperStyle="itemStyle" :centerRipple="false">
       <div :class="itemClass">
         <div class="mu-item-left" v-if="showLeft">
@@ -52,6 +52,9 @@ export default {
   name: 'mu-list-item',
   props: {
     href: {
+      type: String
+    },
+    target: {
       type: String
     },
     link: {

@@ -9,25 +9,35 @@
 export default {
   name: 'mu-tabs',
   props: {
-    active: {
-      type: Number,
-      default: 0
-    },
     value: {}
   },
-  data () {
-    return {
-      renderData: []
-    }
-  },
   computed: {
+    activeIndex () {
+      if (!this.$children || this.$children.length === 0) return -1
+      var index = -1
+      this.$children.forEach((tab, i) => {
+        if (tab.value === this.value) {
+          index = i
+          return false
+        }
+      })
+      return index
+    },
     tabLightStyle () {
-      let x = this.active * 100
-      let len = this.renderData.length
+      let x = this.activeIndex * 100
+      let len = this.$children.length
       return {
         width: len > 0 ? (100 / len).toFixed(4) + '%' : '100%',
         transform: 'translate3d(' + x + '%, 0, 0)'
       }
+    }
+  },
+  methods: {
+    handleTabClick (value, tab) {
+      if (this.value !== value) {
+        this.$emit('change', value)
+      }
+      this.$emit('tabClick', tab)
     }
   }
 }

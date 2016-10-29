@@ -12,7 +12,7 @@
           基于 Vue 2.0 和 Material Desigin 开发的 UI 组件库
         </h2>
         <div class="mu-banner-actions">
-          <mu-raised-button label="Get Start" color="lightBlue"/>
+          <mu-raised-button label="Get Started" color="lightBlue"/>
         </div>
       </div>
       <div class="mu-banner-appbar-height"></div>
@@ -53,14 +53,6 @@
 
 <script>
 export default {
-  data () {
-    return {}
-  },
-  computed: {},
-  ready () {},
-  attached () {},
-  methods: {},
-  components: {}
 }
 </script>
 
@@ -78,8 +70,8 @@ export default {
 .mu-banner-container {
   margin-right: auto;
   margin-left: auto;
-  padding-left: 16px;
-  padding-right: 16px;
+  padding-left: 24px;
+  padding-right: 24px;
 }
 
 .mu-logo{
