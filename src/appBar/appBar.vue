@@ -24,7 +24,7 @@ export default {
     },
     zDepth: {
       type: Number,
-      default: 0
+      default: 1
     }
   }
 }
@@ -55,8 +55,8 @@ export default {
   > .center{
     flex: 1;
     overflow: hidden;
-    padding-left: 16px;
-    padding-right: 16px;
+    padding-left: 8px;
+    padding-right: 8px;
     display: flex;
     align-items: center;
     justify-content: flex-start;

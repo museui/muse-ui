@@ -10,6 +10,8 @@
   <code-example title="加入搜索框和按钮" :code="exampleFieldCode">
     <ex-field/>
   </code-example>
+
+  <api-view :api="apiData"/>
 </div>
 </template>
 
@@ -21,13 +23,15 @@ import exampleIconMenu from './exampleIconMenu'
 import exampleIconMenuCode from '!raw!./exampleIconMenu'
 import exampleField from './exampleField'
 import exampleFieldCode from '!raw!./exampleField'
+import apiData from './api'
 export default {
   data () {
     return {
       text: description,
       exampleIconCode: exampleIconCode,
       exampleIconMenuCode,
-      exampleFieldCode
+      exampleFieldCode,
+      apiData
     }
   },
   components: {

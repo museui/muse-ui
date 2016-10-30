@@ -11,24 +11,11 @@ export default {
   props: {
     value: {}
   },
-  computed: {
-    activeIndex () {
-      if (!this.$children || this.$children.length === 0) return -1
-      var index = -1
-      this.$children.forEach((tab, i) => {
-        if (tab.value === this.value) {
-          index = i
-          return false
-        }
-      })
-      return index
-    },
-    tabLightStyle () {
-      let x = this.activeIndex * 100
-      let len = this.$children.length
-      return {
-        width: len > 0 ? (100 / len).toFixed(4) + '%' : '100%',
-        transform: 'translate3d(' + x + '%, 0, 0)'
+  data () {
+    return {
+      tabLightStyle: {
+        width: '100%',
+        transform: 'translate3d(0, 0, 0)'
       }
     }
   },
@@ -38,6 +25,34 @@ export default {
         this.$emit('change', value)
       }
       this.$emit('tabClick', tab)
+    },
+    getActiveIndex () {
+      if (!this.$children || this.$children.length === 0) return -1
+      let activeIndex = -1
+      this.$children.forEach((tab, i) => {
+        if (tab.value === this.value) {
+          activeIndex = i
+          return false
+        }
+      })
+      return activeIndex
+    },
+    setTabLightStyle () {
+      let x = this.getActiveIndex() * 100
+      let len = this.$children.length
+      this.tabLightStyle = {
+        width: len > 0 ? (100 / len).toFixed(4) + '%' : '100%',
+        transform: 'translate3d(' + x + '%, 0, 0)'
+      }
+    }
+  },
+  mounted () {
+    this.setTabLightStyle()
+  },
+  watch: {
+    value (val, oldVal) {
+      if (val === oldVal) return
+      this.setTabLightStyle()
     }
   }
 }
