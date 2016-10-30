@@ -88,7 +88,7 @@ export default {
     listenForTabPresses()
     if (this.isKeyboardFocused) {
       this.$el.focus()
-      this.$emit('KeyboardFocus', true)
+      this.$emit('keyboardFocus', true)
     }
   },
   updated () {
@@ -100,7 +100,7 @@ export default {
   beforeUpdate () {
     if ((this.disabled || this.disableKeyboardFocus) && this.isKeyboardFocused) {
       this.isKeyboardFocused = false
-      this.$emit('KeyboardFocus', false)
+      this.$emit('keyboardFocus', false)
     }
   },
   beforeDestory () {
@@ -108,10 +108,16 @@ export default {
   },
   methods: {
     handleHover () {
-      if (!this.disabled && isPc()) this.hover = true
+      if (!this.disabled && isPc()) {
+        this.hover = true
+        this.$emit('hover')
+      }
     },
     handleOut () {
-      this.hover = false
+      if (!this.disabled && isPc()) {
+        this.hover = false
+        this.$emit('hoverExit')
+      }
     },
     removeKeyboardFocus (event) {
       if (this.isKeyboardFocused) {
@@ -145,7 +151,6 @@ export default {
     handleKeyup (event) {
       if (!this.disabled && !this.disableKeyboardFocus) {
         if (keycode(event) === 'space' && this.isKeyboardFocused) {
-          this.handleTouchTap(event)
         }
       }
     },

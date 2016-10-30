@@ -2,6 +2,9 @@
 <abstract-button
   :disabled="disabled" wrapperClass="mu-flat-button-wrapper" :href="href" :style="buttonStyle" class="mu-flat-button"
   @click.native="handlerClick" :rippleColor="rippleColor"
+  @keyboardFocus="handleKeyboardFocus"
+  @hover="handleHover"
+  @hoverExit="handleHoverExit"
   :rippleOpacity="rippleOpacity"
   :class="buttonClass" :centerRipple="false">
   <span class="mu-flat-button-label" :class="[labelClass]" v-if="label && labelPosition === 'before'">{{label}}</span>
@@ -70,12 +73,21 @@ export default {
   methods: {
     handlerClick (e) {
       this.$emit('click', e)
+    },
+    handleKeyboardFocus (isFocus) {
+      this.$emit('keyboardFocus', isFocus)
+    },
+    handleHover () {
+      this.$emit('hover')
+    },
+    handleHoverExit () {
+      this.$emit('hoverExit')
     }
   },
   computed: {
     buttonStyle () {
       return {
-        'backgroud-color': this.hover ? getColor(this.hoverColor) : getColor(this.backgroundColor),
+        'background-color': this.hover ? getColor(this.hoverColor) : getColor(this.backgroundColor),
         'color': getColor(this.color)
       }
     },
@@ -83,7 +95,8 @@ export default {
       return {
         'mu-flat-button-primary': this.primary,
         'mu-flat-button-secondary': this.secondary,
-        'label-before': this.labelPosition === 'before'
+        'label-before': this.labelPosition === 'before',
+        'no-label': !this.label
       }
     }
   },
@@ -133,6 +146,10 @@ export default {
     + .mu-flat-button-label {
       padding-left: 8px;
     }
+
+  }
+  &.no-label .mu-icon {
+    margin-left: 0;
   }
   .mu-circle-ripple{
     color: @textColor;
@@ -169,9 +186,4 @@ export default {
   font-size: 14px;
 }
 
-// @media (min-width: 480px) {
-//   .mu-flat-button {
-//     min-width: 88px;
-//   }
-// }
 </style>
