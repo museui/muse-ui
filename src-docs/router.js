@@ -51,6 +51,11 @@ const BottomNav = resolve => {
   })
 }
 
+const BottomSheet = resolve => {
+  require.ensure(['./views/components/bottomSheet/index.vue'], () => {
+    resolve(require('./views/components/bottomSheet/index.vue'))
+  })
+}
 const router = new Router({
   mode: 'hash',
   routes: [
@@ -62,6 +67,7 @@ const router = new Router({
     { path: '/avatar', title: '组件-Avatar', component: Avatar },
     { path: '/badge', title: '组件-Badge', component: Badge },
     { path: '/bottomNav', title: '组件-BottomNavigation', component: BottomNav },
+    { path: '/bottomSheet', title: '组件BbottomSheet', component: BottomSheet },
     { path: '*', redirect: '/index' }
   ]
 })

@@ -63,7 +63,6 @@ export default {
   font-size: 18px;
   position: relative;
   width: 100%;
-  z-index: 100;
   color: @alternateTextColor;
 }
 
