@@ -41,6 +41,7 @@ export default {
   .mu-text-field.has-label &.float {
     transform: scale(1);
     top: 38px;
+    color: @disabledColor;
   }
 }
 </style>

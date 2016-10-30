@@ -13,9 +13,6 @@
 
 .mu-text-field-input {
   color: @textFieldInputColor;
-  &::-webkit-input-placeholder {
-    color: @textFieldHintColor;
-  }
 }
 
 
@@ -36,5 +33,15 @@
   background-color: @textFieldFocusLineColor;
   &.error {
     background-color: @textFieldErrorLineColor;
+  }
+}
+
+
+.mu-text-field-hint {
+  color: @textFieldHintColor;
+}
+.mu-text-field-label {
+  .mu-text-field.has-label &.float {
+    color: @textFieldHintColor
   }
 }

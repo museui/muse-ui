@@ -9,17 +9,17 @@
   <mu-table v-if="value === 'props'" class="api-view-table" :fixedFooter="false" :fixedHeader="false" :showCheckbox="false" :selectable="false">
     <mu-thead>
       <mu-tr>
-        <mu-th class="api-th" width="15%">名称</mu-th>
+        <mu-th class="api-th" width="20%">名称</mu-th>
         <mu-th class="api-th" width="15%">类型</mu-th>
-        <mu-th class="api-th" width="15%">默认值</mu-th>
-        <mu-th class="api-th" width="55%">描述</mu-th>
+        <mu-th class="api-th" width="25%">默认值</mu-th>
+        <mu-th class="api-th" width="40%">描述</mu-th>
       </mu-tr>
     </mu-thead>
     <mu-tbody>
       <mu-tr v-for="item in api.props">
         <mu-td class="api-td">{{item.name}}</mu-td>
         <mu-td class="api-td api-type-td">{{item.type}}</mu-td>
-        <mu-td class="api-td">{{item.default}}</mu-td>
+        <mu-td class="api-td api-default-td">{{item.default}}</mu-td>
         <mu-td class="api-desc-td api-td">{{item.desc}}</mu-td>
       </mu-tr>
     </mu-tbody>
@@ -112,6 +112,7 @@ export default {
 .api-type-td{
   color: @accent1Color;
 }
+.api-default-td,
 .api-desc-td {
   white-space: normal;
   text-overflow: inherit;
@@ -122,6 +123,7 @@ export default {
 .api-view-table {
   .mu-table {
     min-width: 700px;
+    // table-layout: auto;
   }
 }
 </style>

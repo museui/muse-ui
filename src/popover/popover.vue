@@ -23,6 +23,10 @@ export default {
     trigger: {
       type: window.Element
     },
+    autoPosition: {
+      type: Boolean,
+      default: true
+    },
     anchorOrigin: {
       type: Object,
       default () {
@@ -93,9 +97,10 @@ export default {
         this.close('overflow')
         return
       }
-      target = this.getTargetPosition(this.$el) // update as height may have changed
-      targetPosition = this.applyAutoPositionIfNeeded(anchor, target, targetOrigin, anchorOrigin, targetPosition)
-
+      if (this.autoPosition) {
+        target = this.getTargetPosition(this.$el) // update as height may have changed
+        targetPosition = this.applyAutoPositionIfNeeded(anchor, target, targetOrigin, anchorOrigin, targetPosition)
+      }
       this.$el.style.left = `${Math.max(0, targetPosition.left)}px`
       this.$el.style.top = `${Math.max(0, targetPosition.top)}px`
     },

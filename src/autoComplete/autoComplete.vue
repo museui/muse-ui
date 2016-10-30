@@ -1,9 +1,10 @@
 <template>
 <div class="mu-auto-complete" :class="{'fullWidth': fullWidth}">
   <text-field @focus="handleFocus" v-model="searchText" @input="handleInput" @keydown.native="handleKeyDown" ref="textField" @blur="handleBlur" :value="searchText" :label="label" :labelFloat="labelFloat" :disabled="disabled" :hintText="hintText" :helpText="helpText" :errorText="errorText" :errorColor="errorColor" :icon="icon" :fullWidth="fullWidth"/>
-  <popover :overlay="false" v-if="open && list.length > 0"  @close="handleClose" :trigger="anchorEl" :anchorOrigin="anchorOrigin" :targetOrigin="targetOrigin">
+  <popover :overlay="false" :autoPosition="false" v-if="open && list.length > 0"  @close="handleClose" :trigger="anchorEl" :anchorOrigin="anchorOrigin" :targetOrigin="targetOrigin">
     <mu-menu :style="{'width': menuWidth + 'px'}" :disableAutoFocus="focusTextField" @mousedown.native="handleMouseDown" initiallyKeyboardFocused :autoWidth="false" ref="menu" @itemClick="handleItemClick" class="mu-auto-complete-menu">
-      <menu-item class="mu-auto-complete-menu-item" v-for="item in list"  @mousedown.native="handleMouseDown" :disableFocusRipple="disableFocusRipple" :value="item.value" :title="item.text"/>
+      <menu-item class="mu-auto-complete-menu-item" v-for="item in list"  @mousedown.native="handleMouseDown" :disableFocusRipple="disableFocusRipple" afterText
+      :leftIcon="item.leftIcon" :leftIconColor="item.leftIconColor" :rightIconColor="item.rightIconColor" :rightIcon="item.rightIcon" :value="item.value" :title="item.text"/>
     </mu-menu>
   </popover>
 </div>
@@ -139,6 +140,7 @@ export default {
               if (!filter(searchText, itemText, item)) break
               const itemValue = item[dataSourceConfig.value]
               list.push({
+                ...item,
                 text: itemText,
                 value: itemValue
               })
@@ -158,13 +160,13 @@ export default {
       this.$emit('focus', event)
     },
     handleBlur (event) {
-      if (this.focusTextField && this.timerTouchTapCloseId === null) {
+      if (this.focusTextField && !this.timerTouchTapCloseId) {
         this.close()
       }
       this.$emit('blur', event)
     },
-    handleClose () {
-      if (!this.focusTextField) {
+    handleClose (reson) {
+      if (!this.focusTextField || reson === 'overflow') {
         this.close()
       }
     },
@@ -172,8 +174,7 @@ export default {
       event.preventDefault()
     },
     handleItemClick (child) {
-      const dataSource = this.dataSource
-
+      const dataSource = this.list
       const index = this.$refs.menu.$children.indexOf(child)
       const chosenRequest = dataSource[index]
       const searchText = this.chosenRequestText(chosenRequest)

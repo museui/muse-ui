@@ -1,6 +1,6 @@
 <template>
 <mu-drawer @close="handleClose" :open="open" :docked="docked" class="app-drawer" :zDepth="1">
-  <mu-appbar class="exmaples-nav-appbar">
+  <mu-appbar class="exmaples-nav-appbar" :zDepth="0">
     <a class="mu-appbar-title" @click="handleMenuChange('#/index')" href="#/index" style="display:inline-block;">Muse-UI</a>
     <mu-badge content="alpha" class="exmaples-version" secondary/>
   </mu-appbar>
@@ -24,7 +24,7 @@
     <mu-list-item title="基础组件" toggleNested>
       <mu-sub-header slot="nested" class="exmaples-nav-sub-header">Material Design</mu-sub-header>
       <mu-list-item slot="nested" href="#/appbar" value="#/appbar" title="App Bar"/>
-      <mu-list-item slot="nested" title="Auto Complete"/>
+      <mu-list-item slot="nested" href="#/autoComplete" value="#/autoComplete" title="Auto Complete"/>
       <mu-list-item slot="nested" title="Avatar"/>
       <mu-list-item slot="nested" title="badge"/>
       <mu-list-item slot="nested" title="Bottom Navigation"/>

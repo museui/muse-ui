@@ -27,6 +27,12 @@ const AppBar = resolve => {
   })
 }
 
+const AutoComplete = resolve => {
+  require.ensure(['./views/components/autoComplete/index.vue'], () => {
+    resolve(require('./views/components/autoComplete/index.vue'))
+  })
+}
+
 const router = new Router({
   mode: 'hash',
   routes: [
@@ -34,6 +40,7 @@ const router = new Router({
     { path: '/install', title: '快速开始-安装', component: Install },
     { path: '/usage', title: '快速开始-使用', component: Usage },
     { path: '/appbar', title: '组件-AppBar', component: AppBar },
+    { path: '/autoComplete', title: '组件-AutoComplete', component: AutoComplete },
     { path: '*', redirect: '/index' }
   ]
 })

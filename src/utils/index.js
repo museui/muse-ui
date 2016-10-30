@@ -42,6 +42,7 @@ export function isPc () {
 
 export function retina () {
   // 处理retina屏幕显示效果
+  if (isPc()) return
   var classNames = []
   let pixelRatio = window.devicePixelRatio || 1
   classNames.push('pixel-ratio-' + Math.floor(pixelRatio))

@@ -185,10 +185,10 @@ export default {
   font-size: 16px;
   width: 256px;
   height: 48px;
-  margin-bottom: 24px;
   display: inline-block;
   position: relative;
   color: @secondaryTextColor;
+  margin-bottom: 8px;
   &.full-width {
     width: 100%;
   }
