@@ -10,8 +10,11 @@ export default {
     value: {}
   },
   methods: {
-    handlerChange (value) {
-      this.$emit('change', value)
+    handleItemClick (value, item) {
+      if (value !== this.value) {
+        this.$emit('change', value)
+      }
+      this.$emit('itemClick', item)
     },
     setChildrenInstance () {
       var children = this.$slots.default

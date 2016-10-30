@@ -27,7 +27,7 @@
       <mu-list-item slot="nested" href="#/autoComplete" value="#/autoComplete" title="Auto Complete"/>
       <mu-list-item slot="nested" href="#/avatar" value="#/avatar" title="Avatar"/>
       <mu-list-item slot="nested" href="#/badge" value="#/badge" title="Badge"/>
-      <mu-list-item slot="nested" title="Bottom Navigation"/>
+      <mu-list-item slot="nested" href="#/bottomNav" value="#/bottomNav" title="Bottom Navigation"/>
       <mu-list-item slot="nested" title="Bottom Sheet"/>
       <mu-list-item slot="nested" title="Buttons"/>
       <mu-list-item slot="nested" title="Card"/>

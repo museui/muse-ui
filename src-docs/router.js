@@ -45,6 +45,12 @@ const Badge = resolve => {
   })
 }
 
+const BottomNav = resolve => {
+  require.ensure(['./views/components/bottomNav/index.vue'], () => {
+    resolve(require('./views/components/bottomNav/index.vue'))
+  })
+}
+
 const router = new Router({
   mode: 'hash',
   routes: [
@@ -55,6 +61,7 @@ const router = new Router({
     { path: '/autoComplete', title: '组件-AutoComplete', component: AutoComplete },
     { path: '/avatar', title: '组件-Avatar', component: Avatar },
     { path: '/badge', title: '组件-Badge', component: Badge },
+    { path: '/bottomNav', title: '组件-BottomNavigation', component: BottomNav },
     { path: '*', redirect: '/index' }
   ]
 })

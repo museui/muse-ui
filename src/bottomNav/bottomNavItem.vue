@@ -1,5 +1,5 @@
 <template>
-  <abstract-button :disableTouchRipple="shift" class="mu-buttom-item" :class="{'mu-bottom-item-active': active}" :center-ripple="false" wrapperClass="mu-buttom-item-wrapper" @click.native="handlerClick">
+  <abstract-button :disableTouchRipple="shift" class="mu-buttom-item" :class="{'mu-bottom-item-active': active}" :center-ripple="false" wrapperClass="mu-buttom-item-wrapper" @click.native="handleClick">
     <icon :value="icon" class="mu-bottom-item-icon"></icon>
     <span class="mu-bottom-item-text">{{title}}</span>
   </abstract-button>
@@ -38,8 +38,8 @@ export default {
     }
   },
   methods: {
-    handlerClick () {
-      if (this.bottomNav && this.bottomNav.handlerChange) this.bottomNav.handlerChange(this.value)
+    handleClick () {
+      if (this.bottomNav && this.bottomNav.handleItemClick) this.bottomNav.handleItemClick(this.value)
     }
   },
   mounted () {

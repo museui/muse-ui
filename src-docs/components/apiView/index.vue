@@ -1,7 +1,7 @@
 <template>
 <div>
-  <h2 class="api-view-title">API</h2>
-  <mu-tabs class="api-view-tabs" @change="handleChange" :value="value">
+  <h2 class="api-view-title">{{title}}</h2>
+  <mu-tabs class="api-view-tabs" v-if="showTabs" @change="handleChange" :value="value">
     <mu-tab value="props" v-if="api.props" title="Props"/>
     <mu-tab value="slots" v-if="api.slots" title="Slots"/>
     <mu-tab value="events" v-if="api.events" title="Events"/>
@@ -58,9 +58,18 @@
 <script>
 export default {
   props: {
+    title: {
+      type: String,
+      default: 'API'
+    },
     api: {
       type: Object,
       required: true
+    }
+  },
+  computed: {
+    showTabs () {
+      return (this.api.props && this.api.slots) || (this.api.props && this.api.events) || (this.api.events && this.api.slots)
     }
   },
   data () {
