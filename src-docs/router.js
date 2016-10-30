@@ -33,6 +33,12 @@ const AutoComplete = resolve => {
   })
 }
 
+const Avatar = resolve => {
+  require.ensure(['./views/components/avatar/index.vue'], () => {
+    resolve(require('./views/components/avatar/index.vue'))
+  })
+}
+
 const router = new Router({
   mode: 'hash',
   routes: [
@@ -41,6 +47,7 @@ const router = new Router({
     { path: '/usage', title: '快速开始-使用', component: Usage },
     { path: '/appbar', title: '组件-AppBar', component: AppBar },
     { path: '/autoComplete', title: '组件-AutoComplete', component: AutoComplete },
+    { path: '/avatar', title: '组件-Avatar', component: Avatar },
     { path: '*', redirect: '/index' }
   ]
 })

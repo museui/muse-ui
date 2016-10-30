@@ -236,6 +236,7 @@ export default {
 
 .mu-item-left{
   left: 16px;
+  justify-content: center;
   .mu-item.selected &{
     color: @primary1Color;
   }

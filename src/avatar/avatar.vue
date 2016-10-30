@@ -1,7 +1,7 @@
 <template>
   <div class="mu-avatar" @click="handleClick" :style="style">
     <div class="mu-avatar-inner">
-      <icon v-if="icon" :value="icon"></icon>
+      <icon v-if="icon" :value="icon" :size="iconSize"></icon>
       <img :src="src" v-if="src" />
       <slot></slot>
     </div>
@@ -31,6 +31,9 @@ export default {
       default: ''
     },
     size: {
+      type: Number
+    },
+    iconSize: {
       type: Number
     }
   },

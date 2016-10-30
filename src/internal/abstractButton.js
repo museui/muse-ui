@@ -212,9 +212,9 @@ export default {
       class: this.buttonClass,
       domProps: domProps,
       style: {
-        'user-select': 'none',
+        'user-select': this.disabled ? '' : 'none',
         'outline': 'none',
-        'cursor': 'pointer',
+        'cursor': this.disabled ? '' : 'pointer',
         'appearance': 'none'
       },
       on: {
