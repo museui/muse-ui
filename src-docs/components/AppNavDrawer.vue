@@ -26,7 +26,7 @@
       <mu-list-item slot="nested" href="#/appbar" value="#/appbar" title="App Bar"/>
       <mu-list-item slot="nested" href="#/autoComplete" value="#/autoComplete" title="Auto Complete"/>
       <mu-list-item slot="nested" href="#/avatar" value="#/avatar" title="Avatar"/>
-      <mu-list-item slot="nested" title="badge"/>
+      <mu-list-item slot="nested" href="#/badge" value="#/badge" title="Badge"/>
       <mu-list-item slot="nested" title="Bottom Navigation"/>
       <mu-list-item slot="nested" title="Bottom Sheet"/>
       <mu-list-item slot="nested" title="Buttons"/>

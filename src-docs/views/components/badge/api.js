@@ -1,0 +1,35 @@
+export default {
+  props: [{
+    name: 'content',
+    type: 'String',
+    default: '',
+    desc: '内容文本'
+  }, {
+    name: 'color',
+    type: 'String',
+    default: '',
+    desc: '颜色'
+  }, {
+    name: 'primary',
+    type: 'Boolean',
+    default: 'false',
+    desc: '颜色是否为主色'
+  }, {
+    name: 'secondary',
+    type: 'Boolean',
+    default: 'false',
+    desc: '颜色是否为第二主色'
+  }, {
+    name: 'circle',
+    type: 'Boolan',
+    default: 'false',
+    desc: '是否为圆形'
+  }],
+  slots: [{
+    name: 'content',
+    desc: '用于分发内容，这个 slot 会覆盖掉 content 属性'
+  }, {
+    name: 'default',
+    desc: '分发需要加入徽章的元素或者组件'
+  }]
+}

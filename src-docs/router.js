@@ -39,6 +39,12 @@ const Avatar = resolve => {
   })
 }
 
+const Badge = resolve => {
+  require.ensure(['./views/components/badge/index.vue'], () => {
+    resolve(require('./views/components/badge/index.vue'))
+  })
+}
+
 const router = new Router({
   mode: 'hash',
   routes: [
@@ -48,6 +54,7 @@ const router = new Router({
     { path: '/appbar', title: '组件-AppBar', component: AppBar },
     { path: '/autoComplete', title: '组件-AutoComplete', component: AutoComplete },
     { path: '/avatar', title: '组件-Avatar', component: Avatar },
+    { path: '/badge', title: '组件-Badge', component: Badge },
     { path: '*', redirect: '/index' }
   ]
 })
