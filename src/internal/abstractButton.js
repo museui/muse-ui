@@ -107,16 +107,16 @@ export default {
     this.cancelFocusTimeout()
   },
   methods: {
-    handleHover () {
+    handleHover (event) {
       if (!this.disabled && isPc()) {
         this.hover = true
-        this.$emit('hover')
+        this.$emit('hover', event)
       }
     },
-    handleOut () {
+    handleOut (event) {
       if (!this.disabled && isPc()) {
         this.hover = false
-        this.$emit('hoverExit')
+        this.$emit('hoverExit', event)
       }
     },
     removeKeyboardFocus (event) {
@@ -172,6 +172,7 @@ export default {
       if (!this.disabled) {
         tabPressed = false
         this.removeKeyboardFocus(event)
+        this.$emit('click', event)
       }
     },
     createButtonChildren (h) {

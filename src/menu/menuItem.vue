@@ -1,7 +1,9 @@
 <template>
 <div>
-   <abstract-button @click.native="handlerClick" class="mu-menu-item-wrapper" :class="{'active': active}"
-    :href="href" ref="button" :centerRipple="false" :disableFocusRipple="disableFocusRipple" :disabled="disabled" containerElement="div">
+   <abstract-button  class="mu-menu-item-wrapper" :class="{'active': active}" :href="href" ref="button" :centerRipple="false"
+      :disableFocusRipple="disableFocusRipple" :disabled="disabled"
+      @click="handlerClick" @keyboardFocus="handleKeyboardFocus" @hover="handleHover" @hoverExit="handleHoverExit"
+       containerElement="div">
      <div class="mu-menu-item" :class="{'have-left-icon': leftIcon}">
        <icon :value="leftIcon" :style="{'color': filterColor(leftIconColor)}" class="mu-menu-item-left-icon" />
        <div>
@@ -102,6 +104,15 @@ export default {
     },
     close () {
       this.openMenu = false
+    },
+    handleKeyboardFocus (isFocus) {
+      this.$emit('keyboardFocus', isFocus)
+    },
+    handleHover (event) {
+      this.$emit('hover', event)
+    },
+    handleHoverExit (event) {
+      this.$emit('hoverExit', event)
     },
     applyFocusState () {
       const button = this.$refs.button

@@ -1,5 +1,7 @@
 <template>
-<abstract-button @mousedown.native="handleMouseDown" @click.native="handleClick" @mouseenter.native="show()" @mouseleave.native="hide()" :target="target"  :href="href" :disabled="disabled" class="mu-icon-button">
+<abstract-button @mousedown.native="handleMouseDown" @click="handleClick"
+  @hover="handleHover" @hoverExit="handleHoverExit" @keyboardFocus="handleKeyboardFocus"
+  :target="target"  :href="href" :disabled="disabled" class="mu-icon-button">
   <slot>
     <icon :value="icon" :class="[iconClass]"></icon>
   </slot>
@@ -63,11 +65,16 @@ export default {
     handleClick (e) {
       this.$emit('click', e)
     },
-    show (touchFlag) {
+    handleHover (event) {
       this.tooltipShown = true
+      this.$emit('hover', event)
     },
-    hide () {
+    handleHoverExit (event) {
       this.tooltipShown = false
+      this.$emit('hoverExit', event)
+    },
+    handleKeyboardFocus (isFocus) {
+      this.$emit('keyboardFocus', isFocus)
     },
     handleMouseDown (event) {
       event.stopPropagation() // 防止list中使用导致波纹点击重复

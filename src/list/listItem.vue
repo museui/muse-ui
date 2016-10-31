@@ -1,7 +1,8 @@
 <template>
   <div>
-    <abstract-button @click.native="handlerClick"  containerElement="div"
+    <abstract-button @click="handlerClick"  containerElement="div"
       :href="href" :disabled="disabled" :target="target"
+      @keyboardFocus="handleKeyboardFocus" @hover="handleHover" @hoverExit="handleHoverExit"
       class="mu-item-wrapper" :wrapperStyle="itemStyle" :centerRipple="false">
       <div :class="itemClass">
         <div class="mu-item-left" v-if="showLeft">
@@ -147,6 +148,15 @@ export default {
       this.$emit('click', e)
       if (this.value) this.$parent.handlerChange(this.value)
       if (this.toggleNested) this.handlerToggleNested()
+    },
+    handleKeyboardFocus (isFocus) {
+      this.$emit('keyboardFocus', isFocus)
+    },
+    handleHover (event) {
+      this.$emit('hover', event)
+    },
+    handleHoverExit (event) {
+      this.$emit('hoverExit', event)
     },
     handlerNestedChange (value) {
       this.$parent.handlerChange(value)

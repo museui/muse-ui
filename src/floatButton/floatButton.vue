@@ -1,5 +1,7 @@
 <template>
-<abstract-button :href="href" @click.native="handlerClick" :style="buttonStyle" :disabled="disabled" class="mu-float-button" :class="[buttonClass]">
+<abstract-button :href="href" @click="handlerClick"
+  @keyboardFocus="handleKeyboardFocus" @hover="handleHover" @hoverExit="handleHoverExit"
+  :style="buttonStyle" :disabled="disabled" class="mu-float-button" :class="[buttonClass]">
   <div class="mu-float-button-wrapper">
     <icon :value="this.icon" :class="[iconClass]"></icon>
   </div>
@@ -57,6 +59,15 @@ export default {
   methods: {
     handlerClick (e) {
       this.$emit('click', e)
+    },
+    handleKeyboardFocus (isFocus) {
+      this.$emit('keyboardFocus', isFocus)
+    },
+    handleHover (event) {
+      this.$emit('hover', event)
+    },
+    handleHoverExit (event) {
+      this.$emit('hoverExit', event)
     }
   },
   components: {

@@ -1,6 +1,6 @@
 <template>
-  <abstract-button @KeyboardFocus="handlerKeyboardFocus" :disabled="disabled" @click.native="handlerClick" :href="href" :style="buttonStyle"
-    class="mu-raised-button" :rippleColor="rippleColor":rippleOpacity="rippleOpacity"
+  <abstract-button @KeyboardFocus="handlerKeyboardFocus" @hover="handleHover" @hoverExit="handleHoverExit" @click="handlerClick" :href="href" :style="buttonStyle"
+    class="mu-raised-button" :rippleColor="rippleColor":rippleOpacity="rippleOpacity"  :disabled="disabled"
     :class="buttonClass" wrapperClass="mu-raised-button-wrapper" :centerRipple="false">
     <span class="mu-raised-button-label" :class="[labelClass]" v-if="label && labelPosition === 'before'">{{label}}</span>
     <icon :value="icon"></icon>
@@ -97,6 +97,13 @@ export default {
     },
     handlerKeyboardFocus (isFocus) {
       this.focus = isFocus
+      this.$emit('keyboardFocus', isFocus)
+    },
+    handleHover (event) {
+      this.$emit('hover', event)
+    },
+    handleHoverExit (event) {
+      this.$emit('hoverExit', event)
     }
   },
   components: {

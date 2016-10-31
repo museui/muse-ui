@@ -1,10 +1,8 @@
 <template>
 <abstract-button
   :disabled="disabled" wrapperClass="mu-flat-button-wrapper" :href="href" :style="buttonStyle" class="mu-flat-button"
-  @click.native="handlerClick" :rippleColor="rippleColor"
-  @keyboardFocus="handleKeyboardFocus"
-  @hover="handleHover"
-  @hoverExit="handleHoverExit"
+  @click="handlerClick" :rippleColor="rippleColor"
+  @keyboardFocus="handleKeyboardFocus" @hover="handleHover" @hoverExit="handleHoverExit"
   :rippleOpacity="rippleOpacity"
   :class="buttonClass" :centerRipple="false">
   <span class="mu-flat-button-label" :class="[labelClass]" v-if="label && labelPosition === 'before'">{{label}}</span>
@@ -77,11 +75,11 @@ export default {
     handleKeyboardFocus (isFocus) {
       this.$emit('keyboardFocus', isFocus)
     },
-    handleHover () {
-      this.$emit('hover')
+    handleHover (event) {
+      this.$emit('hover', event)
     },
-    handleHoverExit () {
-      this.$emit('hoverExit')
+    handleHoverExit (event) {
+      this.$emit('hoverExit', event)
     }
   },
   computed: {
