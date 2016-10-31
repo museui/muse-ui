@@ -1,11 +1,11 @@
 <template>
 <div class="demo-flat-button-container">
-  <mu-flat-button label="选择文件">
+  <mu-flat-button label="选择文件" class="demo-flat-button">
     <input type="file" class="file-button">
   </mu-flat-button>
-  <mu-flat-button label="文字在后面" icon="android" primary/>
-  <mu-flat-button label="文字在前面" labelPosition="before" icon="folder" secondary/>
-  <mu-flat-button icon="android" backgroundColor="#a4c639" color="#FFF"/>
+  <mu-flat-button label="文字在后面" class="demo-flat-button" icon="android" primary/>
+  <mu-flat-button label="文字在前面" class="demo-flat-button" labelPosition="before" icon="folder" secondary/>
+  <mu-flat-button icon="android" class="demo-flat-button" backgroundColor="#a4c639" color="#FFF"/>
 </div>
 </template>
 
@@ -23,5 +23,8 @@
 .demo-flat-button-container{
   display: flex;
   align-items: center;
+}
+.demo-flat-button {
+  margin: 12px;
 }
 </style>

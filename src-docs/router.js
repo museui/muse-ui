@@ -62,6 +62,12 @@ const FlatButton = resolve => {
     resolve(require('./views/components/flatButton/index.vue'))
   })
 }
+
+const RaisedButton = resolve => {
+  require.ensure(['./views/components/raisedButton/index.vue'], () => {
+    resolve(require('./views/components/raisedButton/index.vue'))
+  })
+}
 const router = new Router({
   mode: 'hash',
   routes: [
@@ -75,6 +81,7 @@ const router = new Router({
     { path: '/bottomNav', title: '组件-BottomNavigation', component: BottomNav },
     { path: '/bottomSheet', title: '组件-BottomSheet', component: BottomSheet },
     { path: '/flatButton', title: '组件-FlatButton', component: FlatButton },
+    { path: '/raisedButton', title: '组件-RaisedButton', component: RaisedButton },
     { path: '*', redirect: '/index' }
   ]
 })

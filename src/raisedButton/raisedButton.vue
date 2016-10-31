@@ -4,8 +4,8 @@
     :class="buttonClass" wrapperClass="mu-raised-button-wrapper" :centerRipple="false">
     <span class="mu-raised-button-label" :class="[labelClass]" v-if="label && labelPosition === 'before'">{{label}}</span>
     <icon :value="icon"></icon>
-    <span class="mu-raised-button-label" :class="[labelClass]" v-if="label && labelPosition === 'after'">{{label}}</span>
     <slot></slot>
+    <span class="mu-raised-button-label" :class="[labelClass]" v-if="label && labelPosition === 'after'">{{label}}</span>
   </abstract-button>
 </template>
 
@@ -73,7 +73,7 @@ export default {
   computed: {
     buttonStyle () {
       return {
-        'backgroud-color': getColor(this.backgroundColor),
+        'background-color': getColor(this.backgroundColor),
         'color': getColor(this.color)
       }
     },
@@ -87,7 +87,8 @@ export default {
         'label-before': this.labelPosition === 'before',
         'mu-raised-button-inverse': this.inverse,
         'mu-raised-button-full': this.fullWidth,
-        'focus': this.focus
+        'focus': this.focus,
+        'no-label': !this.label
       }
     }
   },
@@ -99,11 +100,11 @@ export default {
       this.focus = isFocus
       this.$emit('keyboardFocus', isFocus)
     },
-    handleHover (event) {
-      this.$emit('hover', event)
+    handleHover (e) {
+      this.$emit('hover', e)
     },
-    handleHoverExit (event) {
-      this.$emit('hoverExit', event)
+    handleHoverExit (e) {
+      this.$emit('hoverExit', e)
     }
   },
   components: {
@@ -167,6 +168,11 @@ export default {
       padding-left: 8px;
     }
   }
+  &.no-label {
+    .mu-icon {
+      margin: 0;
+    }
+  }
   &.label-before {
     .mu-raised-button-wrapper{
       padding-right: 8px;
@@ -190,6 +196,7 @@ export default {
   justify-content: center;
   align-items: center;
   width: 100%;
+  height: 100%;
 }
 .mu-raised-button-primary{
   background-color: @primary1Color;

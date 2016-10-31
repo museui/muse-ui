@@ -23,17 +23,22 @@ export default {
     name: 'primary',
     type: 'Boolean',
     default: 'false',
-    desc: '颜色是否为主色'
+    desc: '背景色是否为主色'
   }, {
     name: 'secondary',
     type: 'Boolean',
     default: 'false',
-    desc: '颜色是否为第二主色'
+    desc: '背景色是否为第二主色'
   }, {
     name: 'disabled',
     type: 'Boolean',
     default: 'false',
     desc: '按钮是否不可用'
+  }, {
+    name: 'fullWidth',
+    type: 'Boolean',
+    default: 'false',
+    desc: '是否将宽度设置为 100%'
   }, {
     name: 'href',
     type: 'String',
@@ -49,11 +54,6 @@ export default {
     type: 'String',
     default: '',
     desc: '按钮颜色'
-  }, {
-    name: 'hoverColor',
-    type: 'String',
-    default: '',
-    desc: '鼠标移上去的背景色'
   }, {
     name: 'rippleColor',
     type: 'String',

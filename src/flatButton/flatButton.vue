@@ -7,8 +7,8 @@
   :class="buttonClass" :centerRipple="false">
   <span class="mu-flat-button-label" :class="[labelClass]" v-if="label && labelPosition === 'before'">{{label}}</span>
   <icon :value="icon"></icon>
-  <span class="mu-flat-button-label" :class="[labelClass]" v-if="label && labelPosition === 'after'">{{label}}</span>
   <slot></slot>
+  <span class="mu-flat-button-label" :class="[labelClass]" v-if="label && labelPosition === 'after'">{{label}}</span>
 </abstract-button>
 </template>
 
