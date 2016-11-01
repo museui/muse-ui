@@ -81,6 +81,12 @@ const FloatButton = resolve => {
   })
 }
 
+const Card = resolve => {
+  require.ensure(['./views/components/card/index.vue'], () => {
+    resolve(require('./views/components/card/index.vue'))
+  })
+}
+
 const router = new Router({
   mode: 'hash',
   routes: [
@@ -97,6 +103,7 @@ const router = new Router({
     { path: '/raisedButton', title: '组件-RaisedButton', component: RaisedButton },
     { path: '/iconButton', title: '组件-IconButton', component: IconButton },
     { path: '/floatButton', title: '组件-FloatActionButton', component: FloatButton },
+    { path: '/card', title: '组件-Card', component: Card },
     { path: '*', redirect: '/index' }
   ]
 })

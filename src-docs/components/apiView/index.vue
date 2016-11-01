@@ -74,7 +74,7 @@ export default {
   },
   data () {
     return {
-      value: 'props'
+      value: this.api ? this.api.props ? 'props' : this.api.slots ? 'slots' : 'events' : 'props'
     }
   },
   methods: {

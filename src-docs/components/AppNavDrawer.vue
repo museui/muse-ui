@@ -35,7 +35,7 @@
         <mu-list-item slot="nested" href="#/iconButton" value="#/iconButton" title="Icon Button"></mu-list-item>
         <mu-list-item slot="nested" href="#/floatButton" value="/floatButton" title="Floating Action Button"></mu-list-item>
       </mu-list-item>
-      <mu-list-item slot="nested" title="Card"/>
+      <mu-list-item slot="nested" href="#/card" value="#/card" title="Card"/>
       <mu-list-item slot="nested" title="Checkbox"/>
       <mu-list-item slot="nested" title="Chip"/>
       <mu-list-item slot="nested" title="Date Picker"/>
