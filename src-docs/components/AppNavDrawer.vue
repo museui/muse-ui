@@ -33,7 +33,7 @@
         <mu-list-item slot="nested" href="#/flatButton" value="#/flatButton" title="Flat Button"></mu-list-item>
         <mu-list-item slot="nested" href="#/raisedButton" value="#/raisedButton" title="Raised Button"></mu-list-item>
         <mu-list-item slot="nested" href="#/iconButton" value="#/iconButton" title="Icon Button"></mu-list-item>
-        <mu-list-item slot="nested" title="Floating Action Button"></mu-list-item>
+        <mu-list-item slot="nested" href="#/floatButton" value="/floatButton" title="Floating Action Button"></mu-list-item>
       </mu-list-item>
       <mu-list-item slot="nested" title="Card"/>
       <mu-list-item slot="nested" title="Checkbox"/>
@@ -46,7 +46,11 @@
       <mu-list-item slot="nested" title="Icon"/>
       <mu-list-item slot="nested" title="Linear Progress"/>
       <mu-list-item slot="nested" title="List"/>
-      <mu-list-item slot="nested" title="Menu"/>
+      <mu-list-item slot="nested" title="Menus" toggleNested>
+        <mu-list-item slot="nested" title="Menu"/>
+        <mu-list-item slot="nested" title="Icon Menu"/>
+        <mu-list-item slot="nested" title="DropDown Menu"/>
+      </mu-list-item>
       <mu-list-item slot="nested" title="Paper"/>
       <mu-list-item slot="nested" title="Popover"/>
       <mu-list-item slot="nested" title="Radio"/>

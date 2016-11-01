@@ -1,9 +1,11 @@
 <template>
-<abstract-button :href="href" @click="handlerClick"
+<abstract-button :href="href" @click="handlerClick" :target="target"
   @keyboardFocus="handleKeyboardFocus" @hover="handleHover" @hoverExit="handleHoverExit"
   :style="buttonStyle" :disabled="disabled" class="mu-float-button" :class="[buttonClass]">
   <div class="mu-float-button-wrapper">
-    <icon :value="this.icon" :class="[iconClass]"></icon>
+    <slot>
+      <icon :value="this.icon" :class="[iconClass]"></icon>
+    </slot>
   </div>
 </abstract-button>
 </template>
@@ -25,6 +27,9 @@ export default {
     href: {
       type: String,
       default: ''
+    },
+    target: {
+      type: String
     },
     disabled: {
       type: Boolean,

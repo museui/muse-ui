@@ -75,6 +75,12 @@ const IconButton = resolve => {
   })
 }
 
+const FloatButton = resolve => {
+  require.ensure(['./views/components/floatButton/index.vue'], () => {
+    resolve(require('./views/components/floatButton/index.vue'))
+  })
+}
+
 const router = new Router({
   mode: 'hash',
   routes: [
@@ -90,6 +96,7 @@ const router = new Router({
     { path: '/flatButton', title: '组件-FlatButton', component: FlatButton },
     { path: '/raisedButton', title: '组件-RaisedButton', component: RaisedButton },
     { path: '/iconButton', title: '组件-IconButton', component: IconButton },
+    { path: '/floatButton', title: '组件-FloatActionButton', component: FloatButton },
     { path: '*', redirect: '/index' }
   ]
 })
