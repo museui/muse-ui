@@ -68,6 +68,13 @@ const RaisedButton = resolve => {
     resolve(require('./views/components/raisedButton/index.vue'))
   })
 }
+
+const IconButton = resolve => {
+  require.ensure(['./views/components/iconButton/index.vue'], () => {
+    resolve(require('./views/components/iconButton/index.vue'))
+  })
+}
+
 const router = new Router({
   mode: 'hash',
   routes: [
@@ -82,6 +89,7 @@ const router = new Router({
     { path: '/bottomSheet', title: '组件-BottomSheet', component: BottomSheet },
     { path: '/flatButton', title: '组件-FlatButton', component: FlatButton },
     { path: '/raisedButton', title: '组件-RaisedButton', component: RaisedButton },
+    { path: '/iconButton', title: '组件-IconButton', component: IconButton },
     { path: '*', redirect: '/index' }
   ]
 })

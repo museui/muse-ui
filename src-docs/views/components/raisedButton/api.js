@@ -45,6 +45,11 @@ export default {
     default: '',
     desc: '相当于 a 标签的 href属性，设置之后会渲染成 a 标签，默认是使用button标签'
   }, {
+    name: 'target',
+    type: 'String',
+    default: '',
+    desc: '相当于 a 标签的target属性'
+  }, {
     name: 'backgroundColor',
     type: 'String',
     default: '',

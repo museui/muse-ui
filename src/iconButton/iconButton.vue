@@ -98,6 +98,7 @@ export default {
   width: 48px;
   height: 48px;
   border-radius: 50%;
+  font-size: 24px;
   padding: 12px;
   border: none;
   appearance: none;

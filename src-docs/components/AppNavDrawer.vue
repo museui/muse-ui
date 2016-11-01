@@ -32,7 +32,7 @@
       <mu-list-item slot="nested" title="Buttons" toggleNested>
         <mu-list-item slot="nested" href="#/flatButton" value="#/flatButton" title="Flat Button"></mu-list-item>
         <mu-list-item slot="nested" href="#/raisedButton" value="#/raisedButton" title="Raised Button"></mu-list-item>
-        <mu-list-item slot="nested" title="Icon Button"></mu-list-item>
+        <mu-list-item slot="nested" href="#/iconButton" value="#/iconButton" title="Icon Button"></mu-list-item>
         <mu-list-item slot="nested" title="Floating Action Button"></mu-list-item>
       </mu-list-item>
       <mu-list-item slot="nested" title="Card"/>

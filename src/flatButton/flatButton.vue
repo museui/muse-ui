@@ -1,6 +1,6 @@
 <template>
 <abstract-button
-  :disabled="disabled" wrapperClass="mu-flat-button-wrapper" :href="href" :style="buttonStyle" class="mu-flat-button"
+  :disabled="disabled" wrapperClass="mu-flat-button-wrapper" :href="href" :target="target" :style="buttonStyle" class="mu-flat-button"
   @click="handlerClick" :rippleColor="rippleColor"
   @keyboardFocus="handleKeyboardFocus" @hover="handleHover" @hoverExit="handleHoverExit"
   :rippleOpacity="rippleOpacity"
@@ -48,6 +48,9 @@ export default {
     href: {
       type: String,
       default: ''
+    },
+    target: {
+      type: String
     },
     backgroundColor: {
       type: String,

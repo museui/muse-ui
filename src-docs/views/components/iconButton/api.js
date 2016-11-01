@@ -1,34 +1,14 @@
 export default {
   props: [{
-    name: 'label',
-    type: 'String',
-    default: '',
-    desc: '按钮上的文字'
-  }, {
     name: 'icon',
     type: 'String',
     default: '',
     desc: '按钮上的图标'
   }, {
-    name: 'labelPosition',
+    name: 'iconClass',
     type: 'String',
     default: '',
-    desc: '文字的位置, before 在图标之前，after 在图标之后'
-  }, {
-    name: 'labelClass',
-    type: 'String',
-    default: '',
-    desc: '标签的样式'
-  }, {
-    name: 'primary',
-    type: 'Boolean',
-    default: 'false',
-    desc: '颜色是否为主色'
-  }, {
-    name: 'secondary',
-    type: 'Boolean',
-    default: 'false',
-    desc: '颜色是否为第二主色'
+    desc: '图标的样式'
   }, {
     name: 'disabled',
     type: 'Boolean',
@@ -45,34 +25,24 @@ export default {
     default: '',
     desc: '相当于 a 标签的target属性'
   }, {
-    name: 'backgroundColor',
+    name: 'tooltip',
     type: 'String',
     default: '',
-    desc: '按钮背景色'
+    desc: '当鼠标移上去提示的文字'
   }, {
-    name: 'color',
+    name: 'tooltipPosition',
     type: 'String',
-    default: '',
-    desc: '按钮颜色'
+    default: 'bottom-center',
+    desc: '提示文字文字, [垂直位置]-[水平文职]'
   }, {
-    name: 'hoverColor',
-    type: 'String',
-    default: '',
-    desc: '鼠标移上去的背景色'
-  }, {
-    name: 'rippleColor',
-    type: 'String',
-    default: '',
-    desc: '波纹效果的颜色'
-  }, {
-    name: 'rippleOpacity',
-    type: 'Number',
-    default: '',
-    desc: '波纹效果的透明度'
+    name: 'touch',
+    type: 'Boolean',
+    default: 'false',
+    desc: '是否为 touch 的样式，一般用在移动端，提示框会大一些'
   }],
   slots: [{
     name: 'default',
-    desc: '用来放置 input[type=file] 等特殊的按钮，或者自定义icon、文字'
+    desc: '用来放置 input[type=file] 等特殊的按钮，或者自定义icon'
   }],
   events: [{
     name: 'click',
