@@ -51,7 +51,8 @@ app.use(hotMiddleware)
 
 // serve pure static assets
 // var staticPath = path.posix.join(config.assetsPublicPath, config.assetsSubDirectory)
-app.use('/favicon.ico', express.static('./src-docs/assets/favicon.ico'))
+app.use('/favicon.ico', express.static('./docs/favicon.ico'))
+app.use('/version.json', express.static('./docs/version.json'))
 
 module.exports = app.listen(port, function (err) {
   if (err) {

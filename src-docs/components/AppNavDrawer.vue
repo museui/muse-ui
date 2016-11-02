@@ -36,7 +36,6 @@
         <mu-list-item slot="nested" href="#/floatButton" value="/floatButton" title="Floating Action Button"></mu-list-item>
       </mu-list-item>
       <mu-list-item slot="nested" href="#/card" value="#/card" title="Card"/>
-      <mu-list-item slot="nested" title="Checkbox"/>
       <mu-list-item slot="nested" title="Chip"/>
       <mu-list-item slot="nested" title="Date Picker"/>
       <mu-list-item slot="nested" title="Dialog"/>
@@ -53,13 +52,16 @@
       </mu-list-item>
       <mu-list-item slot="nested" title="Paper"/>
       <mu-list-item slot="nested" title="Popover"/>
-      <mu-list-item slot="nested" title="Radio"/>
       <mu-list-item slot="nested" title="Select Field"/>
+      <mu-list-item slot="nested" title="Selection Controls" toggleNested>
+        <mu-list-item slot="nested" title="Checkbox"/>
+        <mu-list-item slot="nested" title="Radio"/>
+        <mu-list-item slot="nested" title="Switch"/>
+      </mu-list-item>
       <mu-list-item slot="nested" title="Slider"/>
       <mu-list-item slot="nested" title="SnackBar & Toast"/>
       <mu-list-item slot="nested" title="Stepper"/>
       <mu-list-item slot="nested" title="Sub Header"/>
-      <mu-list-item slot="nested" title="Switch"/>
       <mu-list-item slot="nested" title="Table"/>
       <mu-list-item slot="nested" title="Tabs"/>
       <mu-list-item slot="nested" title="Text Field"/>
