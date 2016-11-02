@@ -1,7 +1,7 @@
 <template>
   <div @mouseenter="onMouseenter" @mouseup="onMouseup" @mousedown="onMousedown"
       @mouseleave="onMouseleave" @touchstart="onTouchstart" @click= "handleClick"
-      @touchend="onTouchend" @touchcancel="onTouchend" :class="classNames" class="mu-chip">
+      @touchend="onTouchend" @touchcancel="onTouchend" :class="classNames" class="mu-chip" :style="style">
     <slot></slot>
     <mu-icon value="cancel" v-if="showDelete && !disabled" @click.stop="handleDelete" :class="deleteIconClass" class="mu-chip-delete-icon" />
   </div>
@@ -9,7 +9,7 @@
 
 <script>
 import icon from '../icon'
-import {isPc} from '../utils'
+import {isPc, getColor} from '../utils'
 export default {
   name: 'mu-chip',
   props: {
@@ -23,6 +23,12 @@ export default {
     },
     deleteIconClass: {
       type: [Array, String, Object]
+    },
+    backgroundColor: {
+      type: String
+    },
+    color: {
+      type: String
     }
   },
   data () {
@@ -35,6 +41,12 @@ export default {
     classNames () {
       if (this.disabled) return null
       return this.focus ? ['hover', 'active'] : this.hover ? ['hover'] : null
+    },
+    style () {
+      return {
+        'background-color': getColor(this.backgroundColor),
+        'color': getColor(this.color)
+      }
     }
   },
   methods: {
@@ -42,7 +54,7 @@ export default {
       if (isPc()) this.hover = true
     },
     onMouseleave () {
-      this.hover = false
+      if (isPc()) this.hover = false
     },
     onMousedown () {
       this.focus = true

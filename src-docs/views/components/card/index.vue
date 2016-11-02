@@ -8,8 +8,8 @@
   <api-view :api="apiData.cardHeader" title="CardHeader"/>
   <api-view :api="apiData.cardMedia" title="CardMedia"/>
   <api-view :api="apiData.cardTitle" title="CardTitle"/>
-  <api-view :api="apiData.cardText" title="CardText"/>
-  <api-view :api="apiData.cardActions" title="CardActions"/>
+  <api-view :api="apiData.cardText" title="CardText Slots"/>
+  <api-view :api="apiData.cardActions" title="CardActions Slots"/>
 </div>
 </template>
 

@@ -1,6 +1,5 @@
-
 <template>
-    <i v-if="value" class="mu-icon material-icons" :style="style" v-text="value" :class="[value]" aria-hidden="true"></i>
+  <i v-if="value" @click="handleClick" class="mu-icon material-icons" :style="style" v-text="value" :class="[value]" aria-hidden="true"></i>
 </template>
 
 <script>
@@ -22,6 +21,11 @@ export default {
         'width': this.size + 'px',
         'height': this.size + 'px'
       }
+    }
+  },
+  methods: {
+    handleClick (e) {
+      this.$emit('click', e)
     }
   }
 }

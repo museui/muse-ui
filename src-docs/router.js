@@ -87,6 +87,12 @@ const Card = resolve => {
   })
 }
 
+const Chip = resolve => {
+  require.ensure(['./views/components/chip/index.vue'], () => {
+    resolve(require('./views/components/chip/index.vue'))
+  })
+}
+
 const router = new Router({
   mode: 'hash',
   routes: [
@@ -104,6 +110,7 @@ const router = new Router({
     { path: '/iconButton', title: '组件-IconButton', component: IconButton },
     { path: '/floatButton', title: '组件-FloatActionButton', component: FloatButton },
     { path: '/card', title: '组件-Card', component: Card },
+    { path: '/chip', title: '组件-Chip', component: Chip },
     { path: '*', redirect: '/index' }
   ]
 })
