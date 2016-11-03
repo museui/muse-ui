@@ -1,6 +1,6 @@
 <template>
 <abstract-button
-  :disabled="disabled" wrapperClass="mu-flat-button-wrapper" :href="href" :target="target" :style="buttonStyle" class="mu-flat-button"
+  :disabled="disabled" :keyboardFocused="keyboardFocused" wrapperClass="mu-flat-button-wrapper" :href="href" :target="target" :style="buttonStyle" class="mu-flat-button"
   @click="handlerClick" :rippleColor="rippleColor"
   @keyboardFocus="handleKeyboardFocus" @hover="handleHover" @hoverExit="handleHoverExit"
   :rippleOpacity="rippleOpacity"
@@ -42,6 +42,10 @@ export default {
       default: false
     },
     disabled: {
+      type: Boolean,
+      default: false
+    },
+    keyboardFocused: {
       type: Boolean,
       default: false
     },

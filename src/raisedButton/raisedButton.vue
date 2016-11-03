@@ -1,7 +1,8 @@
 <template>
   <abstract-button @KeyboardFocus="handlerKeyboardFocus" @hover="handleHover" @hoverExit="handleHoverExit" @click="handlerClick"
     :href="href" :target="target" :style="buttonStyle"
-    class="mu-raised-button" :rippleColor="rippleColor":rippleOpacity="rippleOpacity"   :disabled="disabled"
+    class="mu-raised-button" :rippleColor="rippleColor":rippleOpacity="rippleOpacity"
+    :disabled="disabled" :keyboardFocused="keyboardFocused"
     :class="buttonClass" wrapperClass="mu-raised-button-wrapper" :centerRipple="false">
     <span class="mu-raised-button-label" :class="[labelClass]" v-if="label && labelPosition === 'before'">{{label}}</span>
     <icon :value="icon"></icon>
@@ -40,6 +41,10 @@ export default {
       default: false
     },
     disabled: {
+      type: Boolean,
+      default: false
+    },
+    keyboardFocused: {
       type: Boolean,
       default: false
     },

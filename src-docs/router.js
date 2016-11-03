@@ -93,6 +93,12 @@ const Chip = resolve => {
   })
 }
 
+const DatePicker = resolve => {
+  require.ensure(['./views/components/datePicker/index.vue'], () => {
+    resolve(require('./views/components/datePicker/index.vue'))
+  })
+}
+
 const router = new Router({
   mode: 'hash',
   routes: [
@@ -111,6 +117,7 @@ const router = new Router({
     { path: '/floatButton', title: '组件-FloatActionButton', component: FloatButton },
     { path: '/card', title: '组件-Card', component: Card },
     { path: '/chip', title: '组件-Chip', component: Chip },
+    { path: '/datePicker', title: '组件-DatePicker', component: DatePicker },
     { path: '*', redirect: '/index' }
   ]
 })

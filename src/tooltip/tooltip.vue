@@ -41,7 +41,6 @@ export default {
       const touchMarginOffset = touch ? 10 : 0
       const touchOffsetTop = touch ? -20 : -10
       const offset = verticalPosition === 'bottom' ? 14 + touchMarginOffset : -14 - touchMarginOffset
-      console.log(verticalPosition)
       return {
         right: horizontalPosition === 'left' ? 12 + 'px' : null,
         left: horizontalPosition === 'center' ? ((offsetWidth - 48) / 2 * -1) + 'px' : null,

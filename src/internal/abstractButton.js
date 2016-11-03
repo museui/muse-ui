@@ -84,17 +84,17 @@ export default {
       return classNames.join(' ')
     }
   },
+  beforeMount () {
+    const {disabled, disableKeyboardFocus, keyboardFocused} = this
+    if (!disabled && keyboardFocused && !disableKeyboardFocus) {
+      this.isKeyboardFocused = true
+    }
+  },
   mounted () {
     listenForTabPresses()
     if (this.isKeyboardFocused) {
       this.$el.focus()
       this.$emit('keyboardFocus', true)
-    }
-  },
-  updated () {
-    const {disabled, disableKeyboardFocus, keyboardFocused} = this
-    if (!disabled && keyboardFocused && !disableKeyboardFocus) {
-      this.isKeyboardFocused = true
     }
   },
   beforeUpdate () {

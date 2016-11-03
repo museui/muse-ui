@@ -50,17 +50,34 @@ const PopupManager = {
     overlay.zIndex = 2000
     overlay.onClick = this.handlerOverlayClick.bind(this)
     document.body.appendChild(overlay.$el)
-    // body 操作
-    this.bodyOverflow = document.body.style.overflow
-    document.body.style.overflow = 'hidden'
+    this.preventScrolling()
     Vue.nextTick(() => {
       overlay.show = true
     })
   },
-
+  preventScrolling () {
+    if (this.locked) return
+    // body 操作
+    const body = document.getElementsByTagName('body')[0]
+    const html = document.getElementsByTagName('html')[0]
+    this.bodyOverflow = body.style.overflow
+    this.htmlOverflow = html.style.overflow
+    body.style.overflow = 'hidden'
+    html.style.overflow = 'hidden'
+    this.locked = true
+  },
+  allowScrolling () {
+    const body = document.getElementsByTagName('body')[0]
+    const html = document.getElementsByTagName('html')[0]
+    body.style.overflow = this.bodyOverflow || ''
+    html.style.overflow = this.htmlOverflow || ''
+    this.bodyOverflow = null
+    this.htmlOverflow = null
+    this.locked = false
+  },
   closeOverlay () {
     if (!this.overlay) return
-    document.body.style.overflow = this.bodyOverflow
+    this.allowScrolling()
     let overlay = this.overlay
     overlay.show = false
     this.overlay = null

@@ -1,7 +1,7 @@
 <template>
 <abstract-button @mousedown.native="handleMouseDown" @click="handleClick"
   @hover="handleHover" @hoverExit="handleHoverExit" @keyboardFocus="handleKeyboardFocus"
-  :target="target"  :href="href" :disabled="disabled" class="mu-icon-button">
+  :target="target"  :href="href" :disabled="disabled" :keyboardFocused="keyboardFocused" class="mu-icon-button">
   <slot>
     <icon :value="icon" :class="[iconClass]"></icon>
   </slot>
@@ -31,6 +31,10 @@ export default {
       type: String
     },
     disabled: {
+      type: Boolean,
+      default: false
+    },
+    keyboardFocused: {
       type: Boolean,
       default: false
     },

@@ -19,8 +19,12 @@
       <mu-tr v-for="item in api.props">
         <mu-td class="api-td">{{item.name}}</mu-td>
         <mu-td class="api-td api-type-td">{{item.type}}</mu-td>
-        <mu-td class="api-td api-default-td">{{item.default}}</mu-td>
-        <mu-td class="api-desc-td api-td">{{item.desc}}</mu-td>
+        <mu-td class="api-td api-default-td">
+          <markdown-element :text="item.default"/>
+        </mu-td>
+        <mu-td class="api-desc-td api-td">
+          <markdown-element :text="item.desc"/>
+        </mu-td>
       </mu-tr>
     </mu-tbody>
   </mu-table>
@@ -34,7 +38,9 @@
     <mu-tbody>
       <mu-tr v-for="item in api.slots">
         <mu-td class="api-td">{{item.name}}</mu-td>
-        <mu-td class="api-desc-td api-td">{{item.desc}}</mu-td>
+        <mu-td class="api-desc-td api-td">
+          <markdown-element :text="item.desc"/>
+        </mu-td>
       </mu-tr>
     </mu-tbody>
   </mu-table>
@@ -48,7 +54,9 @@
     <mu-tbody>
       <mu-tr v-for="item in api.events">
         <mu-td class="api-td">{{item.name}}</mu-td>
-        <mu-td class="api-desc-td api-td">{{item.desc}}</mu-td>
+        <mu-td class="api-desc-td api-td">
+          <markdown-element :text="item.desc"/>
+        </mu-td>
       </mu-tr>
     </mu-tbody>
   </mu-table>

@@ -69,7 +69,6 @@ export default {
       this.dismiss()
     },
     handleClose (reson) {
-      console.log(reson)
       this.dismiss()
     },
     dismiss () {
@@ -85,6 +84,7 @@ export default {
         okLabel: this.okLabel,
         cancelLabel: this.cancelLabel,
         disableYearSelection: this.disableYearSelection,
+        shouldDisableDate: this.shouldDisableDate,
         firstDayOfWeek: this.firstDayOfWeek,
         initialDate: this.initialDate,
         maxDate: this.maxDate,
@@ -98,7 +98,7 @@ export default {
     })
     return h('div', {
       style: {
-        'margin-top': '-28px'
+        // 'margin-top': '-28px'
       }
     }, this.open ? [
       this.container === 'dialog' ? h(dialog, {
