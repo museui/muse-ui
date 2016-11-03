@@ -99,6 +99,23 @@ const DatePicker = resolve => {
   })
 }
 
+const Dialog = resolve => {
+  require.ensure(['./views/components/dialog/index.vue'], () => {
+    resolve(require('./views/components/dialog/index.vue'))
+  })
+}
+
+const Divider = resolve => {
+  require.ensure(['./views/components/divider/index.vue'], () => {
+    resolve(require('./views/components/divider/index.vue'))
+  })
+}
+
+const Drawer = resolve => {
+  require.ensure(['./views/components/drawer/index.vue'], () => {
+    resolve(require('./views/components/drawer/index.vue'))
+  })
+}
 const router = new Router({
   mode: 'hash',
   routes: [
@@ -118,6 +135,9 @@ const router = new Router({
     { path: '/card', title: '组件-Card', component: Card },
     { path: '/chip', title: '组件-Chip', component: Chip },
     { path: '/datePicker', title: '组件-DatePicker', component: DatePicker },
+    { path: '/dialog', title: '组件-Dialog', component: Dialog },
+    { path: '/divider', title: '组件-Divider', component: Divider },
+    { path: '/drawer', title: '组件-Drawer', component: Drawer },
     { path: '*', redirect: '/index' }
   ]
 })

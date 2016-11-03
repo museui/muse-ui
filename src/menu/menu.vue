@@ -90,10 +90,10 @@ export default {
       el.style.width = `${newWidth}px`
       listEl.style.width = `${newWidth}px`
     },
-    handlerChange (value) {
+    handleChange (value) {
       this.$emit('change', value)
     },
-    handlerClick (item) {
+    handleClick (item) {
       this.$emit('itemClick', item)
     },
     handlerKeydown (event) {
@@ -197,6 +197,7 @@ export default {
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   z-index: 90;
+  outline: none;
 }
 
 .mu-menu-list {

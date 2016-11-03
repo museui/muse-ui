@@ -38,9 +38,9 @@
       <mu-list-item slot="nested" href="#/card" value="#/card" title="Card"/>
       <mu-list-item slot="nested" href="#/chip" value="#/chip" title="Chip"/>
       <mu-list-item slot="nested" href="#/datePicker" value="#/datePicker" title="Date Picker"/>
-      <mu-list-item slot="nested" title="Dialog"/>
-      <mu-list-item slot="nested" title="Divider"/>
-      <mu-list-item slot="nested" title="Drawer"/>
+      <mu-list-item slot="nested" href="#/dialog" value="#/dialog" title="Dialog"/>
+      <mu-list-item slot="nested" href="#/divider" value="#/divider" title="Divider"/>
+      <mu-list-item slot="nested" href="#/drawer" value="#/drawer" title="Drawer"/>
       <mu-list-item slot="nested" title="Grid List"/>
       <mu-list-item slot="nested" title="Icon"/>
       <mu-list-item slot="nested" title="Linear Progress"/>

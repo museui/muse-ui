@@ -2,7 +2,7 @@
 <div>
    <abstract-button  class="mu-menu-item-wrapper" :class="{'active': active}" :href="href" ref="button" :centerRipple="false"
       :disableFocusRipple="disableFocusRipple" :disabled="disabled"
-      @click="handlerClick" @keyboardFocus="handleKeyboardFocus" @hover="handleHover" @hoverExit="handleHoverExit"
+      @click="handleClick" @keyboardFocus="handleKeyboardFocus" @hover="handleHover" @hoverExit="handleHoverExit"
        containerElement="div">
      <div class="mu-menu-item" :class="{'have-left-icon': leftIcon}">
        <icon :value="leftIcon" :style="{'color': filterColor(leftIconColor)}" class="mu-menu-item-left-icon" />
@@ -90,11 +90,11 @@ export default {
     this.applyFocusState()
   },
   methods: {
-    handlerClick (e) {
+    handleClick (e) {
       if (this.disabled) return
-      this.$parent.handlerClick(this)
+      this.$parent.handleClick(this)
       this.open()
-      if (this.value) this.$parent.handlerChange(this.value)
+      if (this.value) this.$parent.handleChange(this.value)
     },
     filterColor (color) {
       return getColor(color)

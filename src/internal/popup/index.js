@@ -32,7 +32,7 @@ export default {
       this.setZIndex()
     }
     window.addEventListener('keydown', (event) => {
-      if (keycode(event) === 'esc' && this.escPress) this.escPress()
+      if (keycode(event) === 'esc' && this && this.escPress) this.escPress()
     })
   },
   updated () {

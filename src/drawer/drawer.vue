@@ -78,6 +78,7 @@ export default {
   border-radius: 0;
   left: 0;
   visibility: hidden;
+  z-index: 200;
   &.right {
     right: 0;
     left: auto;
