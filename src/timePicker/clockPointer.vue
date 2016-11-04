@@ -58,7 +58,7 @@ export default {
 @import "../styles/import.less";
 .mu-clock-pointer {
   height: 40%;
-  background-color: @primary2Color;
+  background-color: @primaryColor;
   width: 2px;
   left: calc(50% - 1px);
   position: absolute;
@@ -73,7 +73,7 @@ export default {
 .mu-clock-pointer-mark {
   box-sizing: content-box;
   background-color: @alternateTextColor;
-  border: 4px solid @primary2Color;
+  border: 4px solid @primaryColor;
   width: 7px;
   height: 7px;
   position: absolute;

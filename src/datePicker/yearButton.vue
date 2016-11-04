@@ -71,12 +71,12 @@ export default {
   position: relative;
   top: -1px;
   .mu-year-button.selected &{
-    color: @primary1Color;
+    color: @primaryColor;
     font-size: 26px;
     font-weight: 500;
   }
   .mu-year-button.hover &{
-    color: @primary1Color;
+    color: @primaryColor;
   }
 }
 </style>

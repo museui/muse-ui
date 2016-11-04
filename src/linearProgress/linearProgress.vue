@@ -55,7 +55,7 @@ export default {
   top: 0;
   bottom: 0;
   width: 40%;
-  background-color: @primary1Color;
+  background-color: @primaryColor;
   animation: mu-linear-progress-animate 840ms @easeInOutFunction;
   animation-iteration-count: infinite;
 }
@@ -65,7 +65,7 @@ export default {
   top: 0;
   bottom: 0;
   left: 0;
-  background-color: @primary1Color;
+  background-color: @primaryColor;
   transition: width .3s linear;
 }
 

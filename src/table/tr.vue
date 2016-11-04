@@ -140,7 +140,7 @@ export default {
     background-color: @grey200;
   }
   &.stripe {
-    background-color: fade(lighten(@primary1Color, 50%), 40%);
+    background-color: fade(lighten(@primaryColor, 50%), 40%);
   }
 
   .mu-tfoot & {

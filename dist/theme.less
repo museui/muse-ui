@@ -25,26 +25,32 @@
   color: @badgeSecondaryTextColor;
 }
 
-.mu-bottom-nav {
-  background-color: @bottomNavBackgroundColor;
-}
-
-.mu-buttom-item {
-  color: @bottomNavUnselectedColor;
-}
-
-.mu-bottom-item-active{
-  color: @bottomNavSelectedColor;
-}
-
 body {
   background-color: @baseBackgroundColor;
   color: @baseTextColor;
   font-family: @baseFontFamily;
 }
 
-.mu-bottom-sheet {
-  background-color: @bottomSheetColor;
+.mu-bottom-nav {
+  background-color: @bottomNavBackgroundColor;
+}
+
+.mu-bottom-nav-shift{
+  background-color: @bottomNavShiftBackgroundColor;
+}
+
+.mu-buttom-item {
+  color: @bottomNavUnselectedColor;
+  .mu-bottom-nav-shift & {
+    color: @bottomNavShiftUnselectedColor;
+  }
+}
+
+.mu-bottom-item-active{
+  color: @bottomNavSelectedColor;
+  .mu-bottom-nav-shift & {
+    color: @bottomNavShiftSelectedColor;
+  }
 }
 
 .mu-card {
@@ -82,6 +88,10 @@ body {
 
 .mu-card-text{
   color: @cardTextColor;
+}
+
+.mu-bottom-sheet {
+  background-color: @bottomSheetColor;
 }
 
 .mu-checkbox {
@@ -147,7 +157,7 @@ body {
 
 
 .mu-date-display{
-  background-color: @datePickerSelectColor;
+  background-color: @datePickerHeaderColor;
   color: @datePickerSelectTextColor;
 }
 
@@ -605,9 +615,6 @@ body {
 
 .mu-text-field-input {
   color: @textFieldInputColor;
-  &::-webkit-input-placeholder {
-    color: @textFieldHintColor;
-  }
 }
 
 
@@ -631,12 +638,22 @@ body {
   }
 }
 
+
+.mu-text-field-hint {
+  color: @textFieldHintColor;
+}
+.mu-text-field-label {
+  .mu-text-field.has-label &.float {
+    color: @textFieldHintColor
+  }
+}
+
 .mu-clock-circle {
   background-color: @clockCircleColor;
 }
 
 .mu-time-display {
-  background-color: @timePickerSelectColor;
+  background-color: @timePickerHeaderColor;
   color: @timePickerSelectTextColor;
 }
 

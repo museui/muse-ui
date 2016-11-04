@@ -83,7 +83,7 @@ export default {
   width: 100%;
   font-weight: 700;
   display: block;
-  background-color: @primary2Color;
+  background-color: @pickerHeaderColor;
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
   border-bottom-left-radius: 0;

@@ -43,7 +43,9 @@
       <mu-list-item slot="nested" href="#/drawer" value="#/drawer" title="Drawer"/>
       <mu-list-item slot="nested" title="Grid List"/>
       <mu-list-item slot="nested" title="Icon"/>
-      <mu-list-item slot="nested" title="Linear Progress"/>
+      <mu-list-item slot="nested" title="Progress" toggleNested>
+        <mu-list-item slot="nested" title="Linear Progress"/>
+      </mu-list-item>
       <mu-list-item slot="nested" title="List"/>
       <mu-list-item slot="nested" title="Menus" toggleNested>
         <mu-list-item slot="nested" title="Menu"/>

@@ -204,7 +204,7 @@ export default {
     min-height: 56px;
   }
   &.selected {
-    color: @primary1Color;
+    color: @primaryColor;
   }
 }
 
@@ -248,7 +248,7 @@ export default {
   left: 16px;
   justify-content: center;
   .mu-item.selected &{
-    color: @primary1Color;
+    color: @primaryColor;
   }
 }
 

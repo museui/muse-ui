@@ -94,7 +94,7 @@ export default {
   border-radius: 50%;
   border: none;
   appearance: none;
-  background-color: @primary1Color;
+  background-color: @primaryColor;
   color: @alternateTextColor;
   text-decoration: none;
   transition-duration: 300ms;
@@ -150,6 +150,6 @@ export default {
 }
 
 .mu-float-button-secondary {
-  background-color: @accent1Color;
+  background-color: @accentColor;
 }
 </style>

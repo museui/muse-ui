@@ -76,7 +76,7 @@ export default {
   }
   .mu-step-label.completed &,
   .mu-step-label.active & {
-    color: @primary1Color;
+    color: @primaryColor;
   }
 }
 
@@ -95,7 +95,7 @@ export default {
   }
   .mu-step-label.completed &,
   .mu-step-label.active & {
-    background-color: @primary1Color;
+    background-color: @primaryColor;
   }
 }
 </style>

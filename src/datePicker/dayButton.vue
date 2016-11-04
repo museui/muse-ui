@@ -103,7 +103,7 @@ export default {
   top: 0;
   left: 4px;
   height: 34px;
-  background-color: @primary2Color;
+  background-color: @primaryColor;
   border-radius: 50%;
   opacity: 0;
   transform: scale(0);
@@ -126,7 +126,7 @@ export default {
   position: relative;
   color: @textColor;
   .mu-day-button.now &{
-    color: @primary1Color;
+    color: @primaryColor;
   }
   .mu-day-button.hover &,
   .mu-day-button.selected &{

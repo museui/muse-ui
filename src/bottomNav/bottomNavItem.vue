@@ -90,7 +90,7 @@ export default {
   height: 100%;
 }
 .mu-bottom-item-active {
-  color: @primary1Color;
+  color: @primaryColor;
   .mu-bottom-item-text{
     font-size: 14px;
   }

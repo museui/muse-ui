@@ -202,7 +202,7 @@ export default {
   position: absolute;
   height: 2px;
   width: 100%;
-  background-color: @primary1Color;
+  background-color: @primaryColor;
   .mu-slider.disabled & {
     background-color: @primary3Color;
   }
@@ -212,8 +212,8 @@ export default {
   position: absolute;
   width: 12px;
   height: 12px;
-  background-color: @primary1Color;
-  color: @primary1Color;
+  background-color: @primaryColor;
+  color: @primaryColor;
   border-radius: 50%;
   transform: translate(-50%, 0);
   transition: background 450ms @easeOutFunction, border-color 450ms @easeOutFunction, width 450ms @easeOutFunction, height 450ms @easeOutFunction;

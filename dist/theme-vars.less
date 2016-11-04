@@ -1,5 +1,5 @@
 // appbar
-@appbarColor: @primary1Color;
+@appbarColor: @primaryColor;
 @appbarTextColor: @alternateTextColor;
 
 @avatarColor: @canvasColor;
@@ -8,9 +8,9 @@
 // badge
 @badgeColor: @primary3Color;
 @badgeTextColor: @alternateTextColor;
-@badgePrimaryColor: @primary1Color;
+@badgePrimaryColor: @primaryColor;
 @badgePrimaryTextColor: @alternateTextColor;
-@badgeSecondaryColor: @accent1Color;
+@badgeSecondaryColor: @accentColor;
 @badgeSecondaryTextColor: @alternateTextColor;
 
 @baseFontFamily: @fontFamily;
@@ -18,8 +18,13 @@
 @baseBackgroundColor: @canvasColor;
 
 @bottomNavBackgroundColor: @canvasColor;
+@bottomNavShiftBackgroundColor: @primaryColor;
 @bottomNavUnselectedColor: fade(@textColor, 54%);
-@bottomNavSelectedColor: @primary1Color;
+@bottomNavShiftUnselectedColor: fade(@alternateTextColor, 70%);
+@bottomNavSelectedColor: @primaryColor;
+@bottomNavShiftSelectedColor: @alternateTextColor;
+
+@bottomSheetColor: @canvasColor;
 
 @cardBackgroudColor: @alternateTextColor;
 @cardTitleColor: fade(@textColor, 87%);
@@ -30,12 +35,10 @@
 @cardMediaSubtitleColor: @lightWhite;
 @cardTextColor: @textColor;
 
-@bottomSheetColor: @canvasColor;
-
 @checkboxColor: @textColor;
 @checkboxTextColor: @textColor;
 @checkboxDisabledColor: @disabledColor;
-@checkboxCheckedColor: @primary1Color;
+@checkboxCheckedColor: @primaryColor;
 
 @chipColor: darken(@canvasColor, 12%);
 @chipHoverColor: rgb(206, 206, 206);
@@ -43,12 +46,13 @@
 @chipDeleteColor: fade(@textColor, 26%);
 @chipHoverDeleteColor: fade(fade(@textColor, 26%), 40%);
 
-@datePickerColor: @primary1Color;
+@datePickerColor: @primaryColor;
 @datePickerTextColor: @alternateTextColor;
 @datePickerCalendarTextColor: @textColor;
-@datePickerSelectColor: @primary2Color;
+@datePickerSelectColor: @primaryColor;
 @datePickerSelectTextColor: @alternateTextColor;
 @datePickerCalendarYearBackgroundColor: @canvasColor;
+@datePickerHeaderColor: @pickerHeaderColor;
 
 @dialogBorderColor: @borderColor;
 @dialogTitleColor: @textColor;
@@ -62,20 +66,20 @@
 // flatButton
 @flatButtonColor: transparent;
 @flatButtonTextColor: @textColor;
-@flatButtonPrimaryTextColor: @primary1Color;
-@flatButtonSecondaryTextColor: @accent1Color;
+@flatButtonPrimaryTextColor: @primaryColor;
+@flatButtonSecondaryTextColor: @accentColor;
 
 // floatButton
-@floatButtonColor: @primary1Color;
+@floatButtonColor: @primaryColor;
 @floatButtonIconColor: @alternateTextColor;
-@floatButtonSecondaryColor: @accent1Color;
+@floatButtonSecondaryColor: @accentColor;
 @floatButtonSecondaryIconColor: @alternateTextColor;
 @floatButtonDisabledColor: darken(@alternateTextColor, 10%);
 @floatButtonDisabledIconColor: fade(@textColor, 30%);
 
 // circle
-@circleColor: @primary1Color;
-@circleSecondaryColor: @accent1Color;
+@circleColor: @primaryColor;
+@circleSecondaryColor: @accentColor;
 
 // listItem
 @listTextColor: @textColor;
@@ -86,7 +90,7 @@
 @listRightIconColor: @grey600;
 
 @menuTextColor: @textColor;
-@menuSelectColor: @accent1Color;
+@menuSelectColor: @accentColor;
 @menuHoverColor: rgba(0, 0, 0, .1);
 @menuDisabledColor: @disabledColor;
 @menuLeftIconColor: @grey600;
@@ -105,29 +109,29 @@
 @radioColor: @textColor;
 @radioTextColor: @textColor;
 @radioDisabledColor: @disabledColor;
-@radioCheckedColor: @primary1Color;
+@radioCheckedColor: @primaryColor;
 
 // raisedButton
 @raisedButtonColor: @alternateTextColor;
 @raisedButtonTextColor: @textColor;
-@raisedButtonPrimaryColor: @primary1Color;
-@raisedButtonSecondaryColor: @accent1Color;
+@raisedButtonPrimaryColor: @primaryColor;
+@raisedButtonSecondaryColor: @accentColor;
 @raisedButtonDisabledColor: darken(@alternateTextColor, 10%);
 @raisedButtonDisabledTextColor: fade(@textColor, 30%);
 
-@refreshControlColor: @primary1Color;
+@refreshControlColor: @primaryColor;
 
 @snackbarTextColor: @alternateTextColor;
 @snackbarColor: @textColor;
 
 @sliderTrackColor: @primary3Color;
-@sliderSelectionColor: @primary1Color;
+@sliderSelectionColor: @primaryColor;
 @sliderDisabledColor:  @primary3Color;
 @sliderZeroColor: @alternateTextColor;
 
 @stepperBackgroundColor: transparent;
 @stepperHoverBackgroundColor: fade(@textColor, 6%);
-@stepperIconColor: @primary1Color;
+@stepperIconColor: @primaryColor;
 @stepperHoveredIconColor: @grey700;
 @stepperInactiveIconColor: @grey500;
 @stepperTextColor: @textColor;
@@ -138,10 +142,10 @@
 // subHeader
 @subHeaderColor: @secondaryTextColor;
 
-@switchThumbOnColor: @primary1Color;
+@switchThumbOnColor: @primaryColor;
 @switchThumbOffColor: @accent2Color;
 @switchThumbDisabledColor: @borderColor;
-@switchTrackOnColor: fade(@primary1Color, 50%);
+@switchTrackOnColor: fade(@primaryColor, 50%);
 @switchTrackOffColor: @primary3Color;
 @switchTrackDisabledColor: @primary3Color;
 @switchTextColor: @textColor;
@@ -152,33 +156,34 @@
 @tableTextColor: @textColor;
 @tableRowSelectedBackgroundColor: @grey100;
 @tableRowHoverBackgroundColor: @grey200;
-@tableRowStripeBackgroundColor: fade(lighten(@primary1Color, 50%), 40%);
+@tableRowStripeBackgroundColor: fade(lighten(@primaryColor, 50%), 40%);
 @tableTheadTextColor: @secondaryTextColor;
-
-@tabsBackgroundColor: @primary1Color;
-@tabsLineColor: @accent1Color;
-@tabsTextColor: fade(@alternateTextColor, 70%);
-@tabsSelectedTextColor: @alternateTextColor;
 
 @textFieldTextColor: @secondaryTextColor;
 @textFieldInputColor: @textColor;
 @textFieldHintColor: @disabledColor;
-@textFieldFocusTextColor: @primary1Color;
+@textFieldFocusTextColor: @primaryColor;
 @textFieldDisabledTextColor: @disabledColor;
 @textFieldErrorTextColor: @red;
 @textFieldLineColor: @borderColor;
-@textFieldFocusLineColor: @primary1Color;
+@textFieldFocusLineColor: @primaryColor;
 @textFieldErrorLineColor: @red;
 @textFieldDisabledLineColor: @disabledColor;
+
+@tabsBackgroundColor: @primaryColor;
+@tabsLineColor: @accentColor;
+@tabsTextColor: fade(@alternateTextColor, 70%);
+@tabsSelectedTextColor: @alternateTextColor;
+
+@toastTextColor: @alternateTextColor;
+@toastColor: @textColor;
 
 @timePickerColor: @alternateTextColor;
 @timePickerClockColor: @textColor;
 @timePickerClockCircleColor: @clockCircleColor;
-@timePickerSelectColor: @primary2Color;
+@timePickerSelectColor: @primaryColor;
 @timePickerSelectTextColor: @alternateTextColor;
-
-@toastTextColor: @alternateTextColor;
-@toastColor: @textColor;
+@timePickerHeaderColor: @pickerHeaderColor;
 
 @tooltipTextColor: @alternateTextColor;
 @tooltipRippleColor: @grey700;

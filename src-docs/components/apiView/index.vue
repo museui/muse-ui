@@ -100,14 +100,14 @@ export default {
   color: @textColor;
   margin-bottom: 16px;
   .mu-tab-link-highlight {
-    background-color: @primary1Color;
+    background-color: @primaryColor;
   }
   .mu-tab-link{
     color: @secondaryTextColor;
   }
 
   .mu-tab-active{
-    color: @primary1Color;
+    color: @primaryColor;
   }
 }
 
@@ -127,7 +127,7 @@ export default {
 }
 
 .api-type-td{
-  color: @accent1Color;
+  color: @accentColor;
 }
 .api-default-td,
 .api-desc-td {

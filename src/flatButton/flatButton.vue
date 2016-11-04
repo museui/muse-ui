@@ -177,11 +177,11 @@ export default {
   width: 100%;
 }
 .mu-flat-button-primary{
-  color: @primary1Color;
+  color: @primaryColor;
 }
 
 .mu-flat-button-secondary{
-  color: @accent1Color;
+  color: @accentColor;
 }
 
 .mu-flat-button-label{

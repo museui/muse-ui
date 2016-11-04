@@ -95,11 +95,11 @@ export default {
     &:checked {
       + .mu-switch-wrapper {
         .mu-switch-track{
-          background-color: fade(@primary1Color, 50%);
+          background-color: fade(@primaryColor, 50%);
         }
         .mu-switch-thumb{
-          background-color: @primary1Color;
-          color: @primary1Color;
+          background-color: @primaryColor;
+          color: @primaryColor;
           left: 18px;
         }
       }

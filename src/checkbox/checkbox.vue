@@ -115,7 +115,7 @@ export default {
         .mu-checkbox-icon-uncheck{
           opacity: 0;
           transition: opacity 650ms @easeOutFunction 150ms;
-          color: @primary1Color;
+          color: @primaryColor;
         }
         .mu-checkbox-icon-checked{
           opacity: 1;
@@ -123,7 +123,7 @@ export default {
           transition: opacity 0ms @easeOutFunction, transform 800ms @easeOutFunction;
         }
         .mu-checkbox-ripple-wrapper{
-          color: @primary1Color;
+          color: @primaryColor;
         }
       }
 
@@ -185,7 +185,7 @@ export default {
   left: 0;
   top: 0;
   opacity: 0;
-  color: @primary1Color;
+  color: @primaryColor;
   transform: scale(0);
   transition: opacity 450ms @easeOutFunction, transform 0ms @easeOutFunction 450ms;
   .mu-checkbox.disabled & {

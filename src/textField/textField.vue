@@ -196,7 +196,7 @@ export default {
     padding-left: 56px;
   }
   &.focus-state {
-    color: @primary1Color;
+    color: @primaryColor;
     &.error{
       color: @red;
     }

@@ -69,7 +69,7 @@ export default {
   margin: 0;
   height: 2px;
   border: none;
-  background-color: @primary1Color;
+  background-color: @primaryColor;
   position: absolute;
   left: 0;
   right: 0;

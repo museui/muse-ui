@@ -168,7 +168,7 @@ export default {
     background-color: rgba(0, 0, 0, .1);
   }
   &.active {
-    color: @accent1Color;
+    color: @accentColor;
   }
   &.disabled {
     color: @disabledColor;

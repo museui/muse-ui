@@ -67,7 +67,7 @@ export default {
 }
 
 .mu-bottom-nav-shift{
-  background-color: @primary1Color;
+  background-color: @primaryColor;
 }
 
 .mu-bottom-nav-shift-wrapper{

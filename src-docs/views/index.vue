@@ -59,7 +59,7 @@ export default {
 <style lang="less">
 @import "../../src/styles/vars.less";
 .mu-banner{
-  background-color: @primary1Color;
+  background-color: @primaryColor;
   z-index: 100;
 }
 
@@ -81,7 +81,7 @@ export default {
   text-align: center;
   background-color: @canvasColor;
   margin:  0 auto;
-  color: @primary1Color;
+  color: @primaryColor;
   font-size: 50px;
   border-radius: 50%;
   margin-bottom: 16px;

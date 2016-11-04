@@ -57,7 +57,7 @@ export default {
 .mu-search-bar {
   height: 48px;
   width: 100%;
-  background: @primary1Color;
+  background: @primaryColor;
   padding: 0 16px;
   overflow: hidden;
   position: relative;

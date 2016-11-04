@@ -64,7 +64,7 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: @primary1Color;
+  background-color: @primaryColor;
   color: #FFF;
   text-align: center;
   position: relative;
@@ -76,7 +76,7 @@ export default {
   left: 0;
   bottom: 0;
   height: 3px;
-  background-color: @accent1Color;
+  background-color: @accentColor;
   transition: all .3s;
   backface-visibility: hidden;
 }

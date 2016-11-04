@@ -87,11 +87,11 @@ export default {
   overflow: hidden;
 }
 .mu-badge-primary {
-  background-color: @primary1Color;
+  background-color: @primaryColor;
 }
 
 .mu-badge-secondary {
-  background-color: @accent1Color;
+  background-color: @accentColor;
 }
 
 </style>

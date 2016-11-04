@@ -38,7 +38,7 @@ export default {
   justify-content: flex-start;
   align-items: center;
   color: @alternateTextColor;
-  background-color: @primary1Color;
+  background-color: @primaryColor;
   font-size: 24px;
   height: @desktopToolbarHeight;
   padding: 0 8px;

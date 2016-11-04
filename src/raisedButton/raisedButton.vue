@@ -208,11 +208,11 @@ export default {
   height: 100%;
 }
 .mu-raised-button-primary{
-  background-color: @primary1Color;
+  background-color: @primaryColor;
 }
 
 .mu-raised-button-secondary{
-  background-color: @accent1Color;
+  background-color: @accentColor;
 }
 
 .mu-raised-button-full{

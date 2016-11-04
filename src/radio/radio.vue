@@ -119,14 +119,14 @@ export default {
         .mu-radio-icon-uncheck{
           opacity: 0;
           transform: scale(0);
-          color: @primary1Color;
+          color: @primaryColor;
         }
         .mu-radio-icon-checked{
           opacity: 1;
           transform: scale(1);
         }
         .mu-radio-ripple-wrapper{
-          color: @primary1Color;
+          color: @primaryColor;
         }
       }
 
@@ -189,7 +189,7 @@ export default {
   left: 0;
   top: 0;
   opacity: 0;
-  color: @primary1Color;
+  color: @primaryColor;
   transform: scale(0);
   transition: all 450ms @easeOutFunction;
   .mu-radio.disabled & {

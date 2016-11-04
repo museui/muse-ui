@@ -98,7 +98,7 @@ export default {
   transform: translate(0px, 5px);
   user-select: none;
   &.selected {
-    background-color: @primary2Color;
+    background-color: @primaryColor;
     color: @alternateTextColor;
   }
   &.inner {

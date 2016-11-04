@@ -79,14 +79,14 @@ export default {
   width: 100%;
   height: 100%;
   opacity: 0;
-  border-color: @primary1Color;
+  border-color: @primaryColor;
   opacity: 1;
   -webkit-animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
   animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
 }
 
 .mu-circle-secondary{
-  border-color: @accent1Color;
+  border-color: @accentColor;
 }
 
 .mu-circle-clipper {

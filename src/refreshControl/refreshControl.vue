@@ -156,7 +156,7 @@ export default {
   margin: 0 auto;
   width: 40px;
   height: 40px;
-  color: @primary1Color;
+  color: @primaryColor;
   align-items: center;
   justify-content: center;
   background-color: #FFF;
