@@ -123,6 +123,12 @@ const GridList = resolve => {
   })
 }
 
+const Icon = resolve => {
+  require.ensure(['./views/components/icon/index.vue'], () => {
+    resolve(require('./views/components/icon/index.vue'))
+  })
+}
+
 const router = new Router({
   mode: 'hash',
   routes: [
@@ -146,6 +152,7 @@ const router = new Router({
     { path: '/divider', title: '组件-Divider', component: Divider },
     { path: '/drawer', title: '组件-Drawer', component: Drawer },
     { path: '/gridList', title: '组件-GridList', component: GridList },
+    { path: '/icon', title: '组件-Icon', component: Icon },
     { path: '*', redirect: '/index' }
   ]
 })

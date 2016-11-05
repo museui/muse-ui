@@ -3,6 +3,7 @@
 </template>
 
 <script>
+import {getColor} from '../utils'
 export default {
   name: 'mu-icon',
   props: {
@@ -12,6 +13,10 @@ export default {
     size: {
       type: Number,
       default: 24
+    },
+    color: {
+      type: String,
+      default: ''
     }
   },
   computed: {
@@ -19,7 +24,8 @@ export default {
       return {
         'font-size': this.size + 'px',
         'width': this.size + 'px',
-        'height': this.size + 'px'
+        'height': this.size + 'px',
+        'color': getColor(this.color)
       }
     }
   },
