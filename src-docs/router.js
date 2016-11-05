@@ -116,6 +116,13 @@ const Drawer = resolve => {
     resolve(require('./views/components/drawer/index.vue'))
   })
 }
+
+const GridList = resolve => {
+  require.ensure(['./views/components/gridList/index.vue'], () => {
+    resolve(require('./views/components/gridList/index.vue'))
+  })
+}
+
 const router = new Router({
   mode: 'hash',
   routes: [
@@ -138,6 +145,7 @@ const router = new Router({
     { path: '/dialog', title: '组件-Dialog', component: Dialog },
     { path: '/divider', title: '组件-Divider', component: Divider },
     { path: '/drawer', title: '组件-Drawer', component: Drawer },
+    { path: '/gridList', title: '组件-GridList', component: GridList },
     { path: '*', redirect: '/index' }
   ]
 })

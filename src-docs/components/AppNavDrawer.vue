@@ -41,7 +41,7 @@
       <mu-list-item slot="nested" href="#/dialog" value="#/dialog" title="Dialog"/>
       <mu-list-item slot="nested" href="#/divider" value="#/divider" title="Divider"/>
       <mu-list-item slot="nested" href="#/drawer" value="#/drawer" title="Drawer"/>
-      <mu-list-item slot="nested" title="Grid List"/>
+      <mu-list-item slot="nested" href="#/gridList" value="#/gridList" title="Grid List"/>
       <mu-list-item slot="nested" title="Icon"/>
       <mu-list-item slot="nested" title="Progress" toggleNested>
         <mu-list-item slot="nested" title="Linear Progress"/>
