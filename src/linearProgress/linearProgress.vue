@@ -55,6 +55,7 @@ export default {
   top: 0;
   bottom: 0;
   width: 40%;
+  border-radius: 2px;
   background-color: @primaryColor;
   animation: mu-linear-progress-animate 840ms @easeInOutFunction;
   animation-iteration-count: infinite;
@@ -67,6 +68,7 @@ export default {
   left: 0;
   background-color: @primaryColor;
   transition: width .3s linear;
+  border-radius: 2px;
 }
 
 @keyframes mu-linear-progress-animate {

@@ -129,6 +129,12 @@ const Icon = resolve => {
   })
 }
 
+const LinearProgress = resolve => {
+  require.ensure(['./views/components/linearProgress/index.vue'], () => {
+    resolve(require('./views/components/linearProgress/index.vue'))
+  })
+}
+
 const router = new Router({
   mode: 'hash',
   routes: [
@@ -153,6 +159,7 @@ const router = new Router({
     { path: '/drawer', title: '组件-Drawer', component: Drawer },
     { path: '/gridList', title: '组件-GridList', component: GridList },
     { path: '/icon', title: '组件-Icon', component: Icon },
+    { path: '/linearProgress', title: '组件-LinearProgress', component: LinearProgress },
     { path: '*', redirect: '/index' }
   ]
 })
