@@ -141,6 +141,12 @@ const List = resolve => {
   })
 }
 
+const Menu = resolve => {
+  require.ensure(['./views/components/menu/index.vue'], () => {
+    resolve(require('./views/components/menu/index.vue'))
+  })
+}
+
 const router = new Router({
   mode: 'hash',
   routes: [
@@ -167,6 +173,7 @@ const router = new Router({
     { path: '/icon', title: '组件-Icon', component: Icon },
     { path: '/linearProgress', title: '组件-LinearProgress', component: LinearProgress },
     { path: '/list', title: '组件-List', component: List },
+    { path: '/menu', title: '组件-Menu', component: Menu },
     { path: '*', redirect: '/index' }
   ]
 })

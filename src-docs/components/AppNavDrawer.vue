@@ -45,7 +45,7 @@
       <mu-list-item slot="nested" href="#/icon" value="#/icon" title="Icon"/>
       <mu-list-item slot="nested" href="#/list" value="#/list" title="List"/>
       <mu-list-item slot="nested" title="Menus" toggleNested>
-        <mu-list-item slot="nested" title="Menu"/>
+        <mu-list-item slot="nested" href="#/menu" value="#/menu" title="Menu"/>
         <mu-list-item slot="nested" title="Icon Menu"/>
         <mu-list-item slot="nested" title="DropDown Menu"/>
       </mu-list-item>

@@ -53,7 +53,7 @@ export default {
       name: 'inset',
       type: 'Boolean',
       default: 'false',
-      desc: '是否向内缩进'
+      desc: '是否向内缩进, 会调整paddingLeft 为 72px'
     }, {
       name: 'disabled',
       type: 'Boolean',

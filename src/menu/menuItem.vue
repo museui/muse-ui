@@ -1,13 +1,16 @@
 <template>
 <div>
-   <abstract-button  class="mu-menu-item-wrapper" :class="{'active': active}" :href="href" ref="button" :centerRipple="false"
+   <abstract-button  class="mu-menu-item-wrapper" :class="{'active': active}" :href="href" :target="target"
+      ref="button" :centerRipple="false"
       :disableFocusRipple="disableFocusRipple" :disabled="disabled"
       @click="handleClick" @keyboardFocus="handleKeyboardFocus" @hover="handleHover" @hoverExit="handleHoverExit"
        containerElement="div">
-     <div class="mu-menu-item" :class="{'have-left-icon': leftIcon}">
+     <div class="mu-menu-item" :class="{'have-left-icon': leftIcon || inset}">
        <icon :value="leftIcon" :style="{'color': filterColor(leftIconColor)}" class="mu-menu-item-left-icon" />
        <div>
-         {{title}}
+         <slot name="title">
+           {{title}}
+         </slot>
        </div>
        <div v-if="!rightIcon">
          <span v-if="showAfterText">{{afterText}}</span>
@@ -34,6 +37,18 @@ import menu from './menu'
 export default {
   name: 'mu-menu-item',
   props: {
+    href: {
+      type: String
+    },
+    target: {
+      type: String
+    },
+    title: {
+      type: String
+    },
+    afterText: {
+      type: String
+    },
     disabled: {
       type: Boolean,
       default: false
@@ -42,14 +57,9 @@ export default {
       type: Boolean,
       default: false
     },
-    href: {
-      type: String
-    },
-    title: {
-      type: String
-    },
-    afterText: {
-      type: String
+    inset: {
+      type: Boolean,
+      default: false
     },
     leftIcon: {
       type: String
@@ -177,11 +187,14 @@ export default {
 }
 
 .mu-menu-item{
-  padding: 0px 24px;
+  padding: 0px 16px;
   position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  .mu-menu-destop & {
+    padding: 0 24px;
+  }
   &.have-left-icon{
     padding-left: 72px;
   }

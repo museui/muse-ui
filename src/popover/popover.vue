@@ -205,8 +205,7 @@ export default {
   background: @canvasColor;
   border-radius: 2px;
   max-height: 100%;
-  overflow-x: hidden;
-  overflow-y: auto;
+  overflow: visible;
   -webkit-overflow-scrolling: touch;
   .depth(1);
   transform-origin: center top;
