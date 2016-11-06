@@ -33,7 +33,7 @@ export default {
     name: 'tooltipPosition',
     type: 'String',
     default: 'bottom-center',
-    desc: '提示文字文字, [垂直位置]-[水平文职]'
+    desc: '提示文字文字, [垂直位置]-[水平位置]，垂直位置: top，middle, bottom; 水平位置: left, center, right'
   }, {
     name: 'touch',
     type: 'Boolean',

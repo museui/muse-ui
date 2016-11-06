@@ -46,11 +46,11 @@
       <mu-list-item slot="nested" href="#/list" value="#/list" title="List"/>
       <mu-list-item slot="nested" title="Menus" toggleNested>
         <mu-list-item slot="nested" href="#/menu" value="#/menu" title="Menu"/>
-        <mu-list-item slot="nested" title="Icon Menu"/>
-        <mu-list-item slot="nested" title="DropDown Menu"/>
+        <mu-list-item slot="nested" href="#/iconMenu" value="#/iconMenu" title="Icon Menu"/>
+        <mu-list-item slot="nested" href="#/dropDownMenu" value="#/dropDownMenu" title="DropDown Menu"/>
       </mu-list-item>
-      <mu-list-item slot="nested" title="Paper"/>
-      <mu-list-item slot="nested" title="Popover"/>
+      <mu-list-item slot="nested" href="#/paper" value="#/paper" title="Paper"/>
+      <mu-list-item slot="nested" href="#/popover" value="#/popover" title="Popover"/>
       <mu-list-item slot="nested" title="Progress" toggleNested>
         <mu-list-item slot="nested" href="#/linearProgress" value="#/linearProgress" title="Linear Progress"/>
       </mu-list-item>

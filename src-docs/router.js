@@ -147,6 +147,30 @@ const Menu = resolve => {
   })
 }
 
+const IconMenu = resolve => {
+  require.ensure(['./views/components/iconMenu/index.vue'], () => {
+    resolve(require('./views/components/iconMenu/index.vue'))
+  })
+}
+
+const DropDownMenu = resolve => {
+  require.ensure(['./views/components/dropDownMenu/index.vue'], () => {
+    resolve(require('./views/components/dropDownMenu/index.vue'))
+  })
+}
+
+const Paper = resolve => {
+  require.ensure(['./views/components/paper/index.vue'], () => {
+    resolve(require('./views/components/paper/index.vue'))
+  })
+}
+
+const Popover = resolve => {
+  require.ensure(['./views/components/popover/index.vue'], () => {
+    resolve(require('./views/components/popover/index.vue'))
+  })
+}
+
 const router = new Router({
   mode: 'hash',
   routes: [
@@ -174,6 +198,10 @@ const router = new Router({
     { path: '/linearProgress', title: '组件-LinearProgress', component: LinearProgress },
     { path: '/list', title: '组件-List', component: List },
     { path: '/menu', title: '组件-Menu', component: Menu },
+    { path: '/iconMenu', title: '组件-IconMenu', component: IconMenu },
+    { path: '/dropDownMenu', title: '组件-DropDownMenu', component: DropDownMenu },
+    { path: '/paper', title: '组件-Paper', component: Paper },
+    { path: '/popover', title: '组件-Popover', component: Popover },
     { path: '*', redirect: '/index' }
   ]
 })

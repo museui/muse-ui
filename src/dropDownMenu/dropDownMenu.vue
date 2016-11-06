@@ -1,11 +1,11 @@
 <template>
 <div class="mu-dropDown-menu" :class="{'disabled': disabled}">
   <icon class="mu-dropDown-menu-icon" :class="iconClass" value="arrow_drop_down"></icon>
-  <div class="mu-dropDown-menu-text" @click="open" :class="labelClass">
+  <div class="mu-dropDown-menu-text" @click="handleOpen" :class="labelClass">
     {{label}}
   </div>
   <div class="mu-dropDown-menu-line" :class="underlineClass"></div>
-  <popover v-if="!disabled && openMenu && $slots && $slots.default && $slots.default.length > 0" :trigger="trigger" :anchorOrigin="anchorOrigin"  @close="close">
+  <popover v-if="!disabled && openMenu && $slots && $slots.default && $slots.default.length > 0" :trigger="trigger" :anchorOrigin="anchorOrigin"  @close="handleClose">
     <mu-menu :style="{width: menuWidth + 'px'}" @change="change"
       :class="menuClass" :value="value" :multiple="multiple"
       :autoWidth="autoWidth" @itemClick="itemClick"
@@ -86,16 +86,16 @@ export default {
     this.menuWidth = this.$el.offsetWidth
   },
   methods: {
-    close () {
+    handleClose () {
       this.$emit('close')
       this.openMenu = false
     },
-    open () {
+    handleOpen () {
       this.$emit('open')
       this.openMenu = true
     },
     itemClick () {
-      if (!this.multiple) this.close()
+      if (!this.multiple) this.handleClose()
     },
     change (value) {
       this.$emit('change', value)

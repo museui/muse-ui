@@ -1,8 +1,8 @@
 <template>
   <div class="mu-icon-menu">
-    <icon-button :tooltip="tooltip" :tooltipPosition="tooltipPosition" :icon="icon" @click="open"></icon-button>
+    <icon-button :tooltip="tooltip" :tooltipPosition="tooltipPosition" :icon="icon" @click="handleOpen"></icon-button>
     <popover v-if="openMenu" :trigger="trigger" :anchorOrigin="anchorOrigin"
-      :targetOrigin="targetOrigin" @close="close">
+      :targetOrigin="targetOrigin" @close="handleClose">
       <mu-menu @change="change" :value="value" @itemClick="itemClick" :multiple="multiple" :desktop="desktop" :maxHeight="maxHeight">
         <slot></slot>
       </mu-menu>
@@ -27,6 +27,10 @@ export default {
       default: false
     },
     desktop: {
+      type: Boolean,
+      default: false
+    },
+    open: {
       type: Boolean,
       default: false
     },
@@ -65,30 +69,37 @@ export default {
   },
   data () {
     return {
-      openMenu: false,
+      openMenu: this.open,
       trigger: null
     }
   },
   methods: {
-    open () {
+    handleOpen () {
       this.openMenu = true
       this.$emit('open')
     },
-    close () {
+    handleClose () {
       this.openMenu = false
       this.$emit('close')
     },
     change (value) {
       this.$emit('change', value)
     },
-    itemClick () {
+    itemClick (item) {
       if (this.itemClickClose) {
-        this.close()
+        this.handleClose()
       }
+      this.$emit('itemClick', item)
     }
   },
   mounted () {
     this.trigger = this.$el
+  },
+  watch: {
+    open (val, oldVal) {
+      if (val === oldVal) return
+      this.openMenu = val
+    }
   },
   components: {
     'icon-button': iconButton,

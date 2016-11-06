@@ -172,6 +172,8 @@ export default {
 
 .mu-radio-label {
   color: @textColor;
+  flex: 1;
+  font-size: 16px;
   .mu-radio.disabled & {
     color: @disabledColor;
   }
