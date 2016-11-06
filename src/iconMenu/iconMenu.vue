@@ -1,6 +1,6 @@
 <template>
   <div class="mu-icon-menu">
-    <icon-button :icon="icon" @click="open"></icon-button>
+    <icon-button :tooltip="tooltip" :tooltipPosition="tooltipPosition" :icon="icon" @click="open"></icon-button>
     <popover v-if="openMenu" :trigger="trigger" :anchorOrigin="anchorOrigin"
       :targetOrigin="targetOrigin" @close="close">
       <mu-menu @change="change" :value="value" @itemClick="itemClick" :multiple="multiple" :desktop="desktop" :maxHeight="maxHeight">
@@ -54,6 +54,13 @@ export default {
     itemClickClose: {
       type: Boolean,
       default: true
+    },
+    tooltip: {
+      type: String
+    },
+    tooltipPosition: {
+      type: String,
+      default: 'bottom-center'
     }
   },
   data () {

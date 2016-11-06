@@ -1,37 +1,38 @@
 <template>
   <div>
     <abstract-button @click="handlerClick"  containerElement="div"
-      :href="href" :disabled="disabled" :target="target"
+      :href="href" :disabled="disabled" :disableFocusRipple="disableRipple"  :disableTouchRipple="disableRipple" :target="target"
       @keyboardFocus="handleKeyboardFocus" @hover="handleHover" @hoverExit="handleHoverExit"
-      class="mu-item-wrapper" :wrapperStyle="itemStyle" :centerRipple="false">
+      class="mu-item-wrapper" :wrapperStyle="itemStyle" :style="disabled ? itemStyle : {}" :centerRipple="false">
       <div :class="itemClass">
         <div class="mu-item-left" v-if="showLeft">
-          <slot name="left" v-if="!hasAvatar"></slot>
-          <slot name="avatar"></slot>
+          <slot name="left"></slot>
+          <slot name="leftAvatar"></slot>
         </div>
         <div class="mu-item-content">
-          <div class="mu-item-title-row" v-if="title || afterText">
+          <div class="mu-item-title-row" v-if="showTitleRow">
             <div class="mu-item-title">
-               {{title}}
+               <slot name="title">
+                 {{title}}
+               </slot>
             </div>
             <div class="mu-item-after">
                 <slot name="after">
                     {{afterText}}
                 </slot>
-                <icon value="navigate_next" v-if="link && !toggleNested" class="mu-item-link-icon"></icon>
             </div>
           </div>
-          <div class="mu-item-sub-title" v-if="subTitle">
-            {{subTitle}}
-          </div>
-          <div class="mu-item-text" :style="{'max-height': (20 * describeLine) + 'px', '-webkit-line-clamp': describeLine}" v-if="describeText">
-            {{describeText}}
+          <div class="mu-item-text" :style="textStyle" v-if="showDescribe">
+            <slot name="describe">
+              {{describeText}}
+            </slot>
           </div>
           <slot></slot>
         </div>
         <div class="mu-item-right" v-if="showRight">
-          <icon-button  v-if="toggleNested" :icon="nestedOpen ? 'expand_less' : 'expand_more'"/>
+          <icon-button @click.stop="handleToggleNested"  v-if="toggleNested" :icon="nestedOpen ? 'expand_less' : 'expand_more'"/>
           <slot name="right"></slot>
+          <slot name="rightAvatar"></slot>
         </div>
       </div>
     </abstract-button>
@@ -58,19 +59,11 @@ export default {
     target: {
       type: String
     },
-    link: {
-      type: Boolean,
-      default: false
-    },
     title: {
       type: String,
       default: ''
     },
     afterText: {
-      type: String,
-      default: ''
-    },
-    subTitle: {
       type: String,
       default: ''
     },
@@ -82,7 +75,11 @@ export default {
       type: Number,
       default: 2
     },
-    initiallyOpen: {
+    inset: {
+      type: Boolean,
+      default: false
+    },
+    open: {
       type: Boolean,
       default: true
     },
@@ -94,22 +91,40 @@ export default {
       type: Boolean,
       default: false
     },
+    disableRipple: {
+      type: Boolean,
+      default: false
+    },
     value: {}
   },
   data () {
     return {
-      nestedOpen: this.initiallyOpen,
-      hasAvatar: false
+      nestedOpen: this.open
     }
   },
   computed: {
     hasAvatar () {
-      return this.$slots && this.$slots.avatar && this.$slots.avatar.length > 0
+      return this.$slots && ((this.$slots.leftAvatar && this.$slots.leftAvatar.length > 0) || (this.$slots.rightAvatar && this.$slots.rightAvatar.length > 0))
+    },
+    nestedLevel () {
+      return this.$parent.nestedLevel + 1
+    },
+    showLeft () {
+      return this.$slots && ((this.$slots.left && this.$slots.left.length > 0) || (this.$slots.leftAvatar && this.$slots.leftAvatar.length > 0))
+    },
+    showRight () {
+      return this.toggleNested || (this.$slots && ((this.$slots.right && this.$slots.right.length > 0) || (this.$slots.rightAvatar && this.$slots.rightAvatar.length > 0)))
+    },
+    showTitleRow () {
+      return this.title || (this.$slots && this.$slots.title && this.$slots.title.length > 0) ||
+              this.afterText || (this.$slots && this.$slots.after && this.$slots.after.length > 0)
+    },
+    showDescribe () {
+      return this.describeText || (this.$slots && this.$slots.describe && this.$slots.describe.length > 0)
     },
     itemClass () {
       var arr = ['mu-item']
-      if (this.link && !this.toggleNested) arr.push('mu-item-link')
-      if (this.showLeft) arr.push('show-left')
+      if (this.showLeft || this.inset) arr.push('show-left')
       if (this.showRight) arr.push('show-right')
       if (this.hasAvatar) arr.push('has-avatar')
       if (this.selected) arr.push('selected')
@@ -120,14 +135,11 @@ export default {
         'margin-left': (18 * (this.nestedLevel - 1)) + 'px'
       }
     },
-    nestedLevel () {
-      return this.$parent.nestedLevel + 1
-    },
-    showLeft () {
-      return (this.$slots && this.$slots.left && this.$slots.left.length > 0) || this.hasAvatar
-    },
-    showRight () {
-      return this.toggleNested || (this.$slots && this.$slots.right && this.$slots.right.length > 0)
+    textStyle () {
+      return {
+        'max-height': (18 * this.describeLine) + 'px',
+        '-webkit-line-clamp': this.describeLine
+      }
     },
     showNested () {
       return this.nestedOpen && this.$slots && this.$slots.nested && this.$slots.nested.length > 0
@@ -140,14 +152,15 @@ export default {
     }
   },
   methods: {
-    handlerToggleNested () {
+    handleToggleNested () {
       this.nestedOpen = !this.nestedOpen
       this.$emit('toggleNested', this.nestedOpen)
     },
     handlerClick (e) {
       this.$emit('click', e)
+      if (this.$parent.handleItemClick) this.$parent.handleItemClick(e)
       if (this.value) this.$parent.handlerChange(this.value)
-      if (this.toggleNested) this.handlerToggleNested()
+      if (this.toggleNested) this.handleToggleNested()
     },
     handleKeyboardFocus (isFocus) {
       this.$emit('keyboardFocus', isFocus)
@@ -160,6 +173,12 @@ export default {
     },
     handlerNestedChange (value) {
       this.$parent.handlerChange(value)
+    }
+  },
+  watch: {
+    open (val, oldVal) {
+      if (val === oldVal) return
+      this.nestedOpen = val
     }
   },
   components: {
@@ -208,21 +227,6 @@ export default {
   }
 }
 
-.mu-item-link {
-  padding-right: 8px;
-  .mu-item-title-row{
-    padding-right: 24px;
-  }
-}
-
-.mu-item-link-icon{
-  color: @grey600;
-  display: block;
-  position: absolute;
-  right: 0;
-  top: 0;
-}
-
 .mu-item-toggle-button {
   position: absolute;
   color: @textColor;
@@ -246,7 +250,6 @@ export default {
 
 .mu-item-left{
   left: 16px;
-  justify-content: center;
   .mu-item.selected &{
     color: @primaryColor;
   }
@@ -255,7 +258,10 @@ export default {
 .mu-item-right{
   right: 12px;
   justify-content: center;
-  .mu-icon-button {
+  > .mu-icon-button {
+    align-self: flex-start;
+  }
+  > .mu-icon-menu {
     align-self: flex-start;
   }
 }
@@ -293,16 +299,17 @@ export default {
 }
 
 .mu-item-text{
-  font-size: 14px;
-  line-height: 20px;
-  max-height: 40px;
-  max-width: 100%;
-  position: relative;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
-  display: -webkit-box;
+  position: relative;
+  overflow: hidden;
+  font-size: 14px;
+  line-height: 18px;
+  margin-top: 4px;
+  max-height: 40px;
+  max-width: 100%;
+  text-overflow: ellipsis;
   word-break: break-all;
   color: @secondaryTextColor;
 }

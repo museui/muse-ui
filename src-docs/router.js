@@ -135,6 +135,12 @@ const LinearProgress = resolve => {
   })
 }
 
+const List = resolve => {
+  require.ensure(['./views/components/list/index.vue'], () => {
+    resolve(require('./views/components/list/index.vue'))
+  })
+}
+
 const router = new Router({
   mode: 'hash',
   routes: [
@@ -160,6 +166,7 @@ const router = new Router({
     { path: '/gridList', title: '组件-GridList', component: GridList },
     { path: '/icon', title: '组件-Icon', component: Icon },
     { path: '/linearProgress', title: '组件-LinearProgress', component: LinearProgress },
+    { path: '/list', title: '组件-List', component: List },
     { path: '*', redirect: '/index' }
   ]
 })

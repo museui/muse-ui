@@ -1,5 +1,5 @@
 <template>
-<label @mousedown="handleMouseDown" @mouseup="handleMouseUp" @touchstart="handleTouchStart" @touchend="handleTouchEnd" class="mu-switch" :class="{'label-left': labelLeft, 'disabled': disabled, 'no-label': !label}">
+<label @mousedown="handleMouseDown" @mouseup="handleMouseUp" @touchstart="handleTouchStart" @touchend="handleTouchEnd" @click.stop="handleClick" class="mu-switch" :class="{'label-left': labelLeft, 'disabled': disabled, 'no-label': !label}">
   <input type="checkbox" :disabled="disabled"  v-model="inputValue">
   <div class="mu-switch-wrapper">
     <div class="mu-switch-label"  v-if="label && labelLeft">{{label}}</div>
@@ -58,6 +58,9 @@ export default {
       if (event.button === 0) {
         this.$children[0].start(event)
       }
+    },
+    handleClick () {
+      // 阻止事件冒泡，放置外部控制的时候触发两次 click
     },
     handleMouseUp () {
       if (this.disabled) return
