@@ -177,6 +177,12 @@ const SelectField = resolve => {
   })
 }
 
+const Checkbox = resolve => {
+  require.ensure(['./views/components/checkbox/index.vue'], () => {
+    resolve(require('./views/components/checkbox/index.vue'))
+  })
+}
+
 const router = new Router({
   mode: 'hash',
   routes: [
@@ -209,6 +215,7 @@ const router = new Router({
     { path: '/paper', title: '组件-Paper', component: Paper },
     { path: '/popover', title: '组件-Popover', component: Popover },
     { path: '/selectField', title: '组件-SelectField', component: SelectField },
+    { path: '/checkbox', title: '组件-Checkbox', component: Checkbox },
     { path: '*', redirect: '/index' }
   ]
 })
