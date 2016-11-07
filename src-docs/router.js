@@ -189,6 +189,12 @@ const Radio = resolve => {
   })
 }
 
+const Switch = resolve => {
+  require.ensure(['./views/components/switch/index.vue'], () => {
+    resolve(require('./views/components/switch/index.vue'))
+  })
+}
+
 const router = new Router({
   mode: 'hash',
   routes: [
@@ -223,6 +229,7 @@ const router = new Router({
     { path: '/selectField', title: '组件-SelectField', component: SelectField },
     { path: '/checkbox', title: '组件-Checkbox', component: Checkbox },
     { path: '/radio', title: '组件-Radio', component: Radio },
+    { path: '/switch', title: '组件-Switch', component: Switch },
     { path: '*', redirect: '/index' }
   ]
 })
