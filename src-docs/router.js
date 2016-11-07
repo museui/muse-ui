@@ -183,6 +183,12 @@ const Checkbox = resolve => {
   })
 }
 
+const Radio = resolve => {
+  require.ensure(['./views/components/radio/index.vue'], () => {
+    resolve(require('./views/components/radio/index.vue'))
+  })
+}
+
 const router = new Router({
   mode: 'hash',
   routes: [
@@ -216,6 +222,7 @@ const router = new Router({
     { path: '/popover', title: '组件-Popover', component: Popover },
     { path: '/selectField', title: '组件-SelectField', component: SelectField },
     { path: '/checkbox', title: '组件-Checkbox', component: Checkbox },
+    { path: '/radio', title: '组件-Radio', component: Radio },
     { path: '*', redirect: '/index' }
   ]
 })

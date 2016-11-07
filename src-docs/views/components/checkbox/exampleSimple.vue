@@ -1,5 +1,5 @@
 <template>
-<div class="">
+<div>
   <mu-checkbox label="最简单的" class="demo-checkbox"/> <br/>
   <mu-checkbox label="自定义icon" class="demo-checkbox" uncheckIcon="favorite_border" checkedIcon="favorite"/> <br/>
   <mu-checkbox label="不同的图形的icon" class="demo-checkbox" uncheckIcon="visibility_off" checkedIcon="visibility"/><br/>
