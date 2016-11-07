@@ -53,7 +53,7 @@ export default {
 @media only screen and (max-width: 992px) and (min-width: 601px) {
   .mu-toast {
     width: auto;
-    min-width: 30%;
+    min-width: 288px;
     left: 5%;
     bottom: 7%;
   }
@@ -66,6 +66,7 @@ export default {
     right: 7%;
     left: auto;
     bottom: auto;
+    min-width: 288px;
   }
 }
 

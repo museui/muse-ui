@@ -201,6 +201,12 @@ const Slider = resolve => {
   })
 }
 
+const SnackbarToast = resolve => {
+  require.ensure(['./views/components/snackbarToast/index.vue'], () => {
+    resolve(require('./views/components/snackbarToast/index.vue'))
+  })
+}
+
 const router = new Router({
   mode: 'hash',
   routes: [
@@ -237,6 +243,7 @@ const router = new Router({
     { path: '/radio', title: '组件-Radio', component: Radio },
     { path: '/switch', title: '组件-Switch', component: Switch },
     { path: '/slider', title: '组件-Slider', component: Slider },
+    { path: '/snackbarToast', title: '组件-SnackbarToast', component: SnackbarToast },
     { path: '*', redirect: '/index' }
   ]
 })
