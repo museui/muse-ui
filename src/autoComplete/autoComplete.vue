@@ -1,6 +1,9 @@
 <template>
 <div class="mu-auto-complete" :class="{'fullWidth': fullWidth}">
-  <text-field @focus="handleFocus" v-model="searchText" @input="handleInput" @keydown.native="handleKeyDown" ref="textField" @blur="handleBlur" :value="searchText" :label="label" :labelFloat="labelFloat" :disabled="disabled" :hintText="hintText" :helpText="helpText" :errorText="errorText" :errorColor="errorColor" :icon="icon" :fullWidth="fullWidth"/>
+  <text-field @focus="handleFocus" v-model="searchText" @input="handleInput" @keydown.native="handleKeyDown" ref="textField"
+    @blur="handleBlur" :value="searchText" :label="label" :labelFloat="labelFloat" :disabled="disabled"
+    :hintText="hintText" :helpText="helpText" :errorText="errorText" :errorColor="errorColor"
+    :underlineShow="underlineShow" :icon="icon" :fullWidth="fullWidth"/>
   <popover :overlay="false" :autoPosition="false" v-if="open && list.length > 0"  @close="handleClose" :trigger="anchorEl" :anchorOrigin="anchorOrigin" :targetOrigin="targetOrigin">
     <mu-menu :style="{'width': menuWidth + 'px'}" :disableAutoFocus="focusTextField" @mousedown.native="handleMouseDown" initiallyKeyboardFocused :autoWidth="false" ref="menu" @itemClick="handleItemClick" class="mu-auto-complete-menu">
       <menu-item class="mu-auto-complete-menu-item" v-for="item in list"  @mousedown.native="handleMouseDown" :disableFocusRipple="disableFocusRipple" afterText
@@ -101,6 +104,10 @@ export default {
     fullWidth: {
       type: Boolean,
       default: false
+    },
+    underlineShow: {
+      type: Boolean,
+      default: true
     },
     value: {
       type: String

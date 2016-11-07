@@ -171,6 +171,12 @@ const Popover = resolve => {
   })
 }
 
+const SelectField = resolve => {
+  require.ensure(['./views/components/selectField/index.vue'], () => {
+    resolve(require('./views/components/selectField/index.vue'))
+  })
+}
+
 const router = new Router({
   mode: 'hash',
   routes: [
@@ -202,6 +208,7 @@ const router = new Router({
     { path: '/dropDownMenu', title: '组件-DropDownMenu', component: DropDownMenu },
     { path: '/paper', title: '组件-Paper', component: Paper },
     { path: '/popover', title: '组件-Popover', component: Popover },
+    { path: '/selectField', title: '组件-SelectField', component: SelectField },
     { path: '*', redirect: '/index' }
   ]
 })

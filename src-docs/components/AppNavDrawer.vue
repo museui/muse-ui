@@ -54,7 +54,7 @@
       <mu-list-item slot="nested" title="Progress" toggleNested>
         <mu-list-item slot="nested" href="#/linearProgress" value="#/linearProgress" title="Linear Progress"/>
       </mu-list-item>
-      <mu-list-item slot="nested" title="Select Field"/>
+      <mu-list-item slot="nested" href="#/selectField" value="#/selectField" title="Select Field"/>
       <mu-list-item slot="nested" title="Selection Controls" toggleNested>
         <mu-list-item slot="nested" title="Checkbox"/>
         <mu-list-item slot="nested" title="Radio"/>

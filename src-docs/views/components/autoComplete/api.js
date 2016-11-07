@@ -90,6 +90,11 @@ export default {
     default: 'false',
     desc: '是否将宽度设置为 100%, 默认 256px'
   }, {
+    name: 'underlineShow',
+    type: 'Boolean',
+    default: 'true',
+    desc: '是否显示底部的横线'
+  }, {
     name: 'value',
     type: 'String',
     default: '',

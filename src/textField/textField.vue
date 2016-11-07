@@ -5,16 +5,13 @@
       <text-field-label v-if="label" :float="float">{{label}}</text-field-label>
       <text-field-hint v-if="hintText" :text="hintText" :show="showHint"></text-field-hint>
       <slot>
-        <input :name="name" type="text" :disabled="disabled" v-if="!multiLine && !type || type === 'text'" @focus="handlerFocus" v-model="inputValue" @blur="handlerBlur" class="mu-text-field-input" >
-        <input :name="name" type="password" :disabled="disabled" v-if="!multiLine && type === 'password'" @focus="handlerFocus" v-model="inputValue" @blur="handlerBlur" class="mu-text-field-input" >
-        <input :name="name" type="email" :disabled="disabled" v-if="!multiLine && type === 'email'" @focus="handlerFocus" v-model="inputValue" @blur="handlerBlur" class="mu-text-field-input" >
-        <input :name="name" type="url" :disabled="disabled" v-if="!multiLine && type === 'url'" @focus="handlerFocus" v-model="inputValue" @blur="handlerBlur" class="mu-text-field-input" >
-        <input :name="name" type="number" :disabled="disabled" v-if="!multiLine && type === 'number'" @focus="handlerFocus" v-model.number="inputValue" @blur="handlerBlur" class="mu-text-field-input" >
-        <enhanced-textarea :disabled="disabled" :rows="rows" :rowsMax="rowsMax" @change="handlerChange" @focus.native="handlerFocus" @blur.native="handlerBlur" v-if="multiLine" :value="value"></enhanced-textarea>
+        <input ref="input" :name="name" type="text" :disabled="disabled" v-if="!multiLine && !type || type === 'text'" @focus="handlerFocus" v-model="inputValue" @blur="handlerBlur" class="mu-text-field-input" >
+        <input ref="input" :name="name" type="password" :disabled="disabled" v-if="!multiLine && type === 'password'" @focus="handlerFocus" v-model="inputValue" @blur="handlerBlur" class="mu-text-field-input" >
+        <input ref="input" :name="name" type="email" :disabled="disabled" v-if="!multiLine && type === 'email'" @focus="handlerFocus" v-model="inputValue" @blur="handlerBlur" class="mu-text-field-input" >
+        <input ref="input" :name="name" type="url" :disabled="disabled" v-if="!multiLine && type === 'url'" @focus="handlerFocus" v-model="inputValue" @blur="handlerBlur" class="mu-text-field-input" >
+        <input ref="input" :name="name" type="number" :disabled="disabled" v-if="!multiLine && type === 'number'" @focus="handlerFocus" v-model.number="inputValue" @blur="handlerBlur" class="mu-text-field-input" >
+        <enhanced-textarea ref="textarea" :disabled="disabled" :rows="rows" :rowsMax="rowsMax" @change="handlerChange" @focus.native="handlerFocus" @blur.native="handlerBlur" v-if="multiLine" :value="value"></enhanced-textarea>
       </slot>
-
-
-
       <underline v-if="underlineShow" :error="!!errorText" :disabled="disabled" :errorColor="errorColor" :focus="focus"></underline>
       <div class="mu-text-field-help" :style="errorStyle" v-if="errorText || helpText || maxLength > 0">
           <div>

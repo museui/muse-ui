@@ -1,6 +1,9 @@
 <template>
 <div class="mu-date-picker" :class="{'fullWidth': fullWidth}">
-  <text-field @focus="handleFocus" @labelClick="handleClick" :value="inputValue" :label="label" :labelFloat="labelFloat" :disabled="disabled" :hintText="hintText" :helpText="helpText" :errorText="errorText" :errorColor="errorColor" :icon="icon" :fullWidth="fullWidth"/>
+  <text-field @focus="handleFocus" @labelClick="handleClick" :value="inputValue"
+    :label="label" :labelFloat="labelFloat" :disabled="disabled" :hintText="hintText"
+    :helpText="helpText" :errorText="errorText" :errorColor="errorColor" :icon="icon"
+    :fullWidth="fullWidth" :underlineShow="underlineShow"/>
   <date-picker-dialog v-if="!disabled" @accept="handleAccept" :initialDate="dialogDate" ref="dialog" :mode="mode" :maxDate="maxLimitDate" :minDate="minLimitDate" :shouldDisableDate="shouldDisableDate" :firstDayOfWeek="firstDayOfWeek" :container="container" :disableYearSelection="disableYearSelection" :dateTimeFormat="dateTimeFormat" :autoOk="autoOk" :okLabel="okLabel" :cancelLabel="cancelLabel"/>
 </div>
 </template>
@@ -89,6 +92,10 @@ export default {
     fullWidth: {
       type: Boolean,
       default: false
+    },
+    underlineShow: {
+      type: Boolean,
+      default: true
     },
     value: {
       type: String

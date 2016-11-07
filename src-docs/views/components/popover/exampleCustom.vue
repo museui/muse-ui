@@ -34,7 +34,7 @@ targetOrigin: {{stringify(targetOrigin)}}</pre>
       <mu-radio class="demo-origin-raido" name="targetHorizontal" v-model="targetOrigin.horizontal" nativeValue="right" label="Right"/>
     </div>
   </div>
-  <mu-popover v-if="open" :trigger="trigger" :anchorOrigin="anchorOrigin" :targetOrigin="targetOrigin" @close="handleClose">
+  <mu-popover v-if="open" :autoPosition="false" :trigger="trigger" :anchorOrigin="anchorOrigin" :targetOrigin="targetOrigin" @close="handleClose">
     <mu-menu>
       <mu-menu-item title="Refresh" />
       <mu-menu-item title="Send feedback" />

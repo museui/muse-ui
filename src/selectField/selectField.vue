@@ -1,5 +1,8 @@
 <template>
-<text-field class="mu-select-field" :labelFloat="labelFloat" :hintText="hintText" :fullWidth="fullWidth" :helpText="helpText" :icon="icon" :value="inputValue instanceof Array ? inputValue.join('') : inputValue" :disabled="disabled" :errorText="errorText" :errorColor="errorColor" :label="label">
+<text-field class="mu-select-field" :underlineShow="underlineShow"
+  :labelFloat="labelFloat" :hintText="hintText" :fullWidth="fullWidth"
+  :helpText="helpText" :icon="icon" :value="inputValue instanceof Array ? inputValue.join('') : inputValue"
+   :disabled="disabled" :errorText="errorText" :errorColor="errorColor" :label="label">
   <dropDown-menu :anchorEl="anchorEl" @open="handlerOpen" @close="handlerClose"  @change="handlerChange" :value="inputValue" :disabled="disabled" :maxHeight="maxHeight" :autoWidth="autoWidth"
     :multiple="multiple" :anchorOrigin="{vertical: 'bottom', horizontal: 'left'}">
     <slot></slot>
@@ -50,6 +53,10 @@ export default {
       type: Boolean,
       default: false
     },
+    underlineShow: {
+      type: Boolean,
+      default: true
+    },
     value: {},
     multiple: {
       type: Boolean,
@@ -68,7 +75,7 @@ export default {
     }
   },
   mounted () {
-    this.anchorEl = this.$children[0].$refs.content
+    this.anchorEl = this.$children[0].$refs.input
   },
   methods: {
     handlerChange (val) {
