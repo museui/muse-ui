@@ -1,7 +1,7 @@
 <template>
 <mobile-tear-sheet>
   <mu-list>
-    <mu-sub-header>Folders</mu-sub-header>
+    <mu-sub-header inset>Folders</mu-sub-header>
     <mu-list-item title="Photos" describeText="Jan 9, 2014">
       <mu-avatar icon="folder" slot="leftAvatar"/>
       <mu-icon value="info" slot="right"/>
@@ -17,6 +17,7 @@
   </mu-list>
   <mu-divider inset/>
   <mu-list>
+    <mu-sub-header inset>Files</mu-sub-header>
     <mu-list-item title="Vacation itinerary" describeText="Jan 20, 2014">
       <mu-avatar icon="assignment" backgroundColor="blue" slot="leftAvatar" />
       <mu-icon value="info" slot="right"/>

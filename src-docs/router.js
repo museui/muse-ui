@@ -207,6 +207,12 @@ const SnackbarToast = resolve => {
   })
 }
 
+const SubHeader = resolve => {
+  require.ensure(['./views/components/subHeader/index.vue'], () => {
+    resolve(require('./views/components/subHeader/index.vue'))
+  })
+}
+
 const router = new Router({
   mode: 'hash',
   routes: [
@@ -244,6 +250,7 @@ const router = new Router({
     { path: '/switch', title: '组件-Switch', component: Switch },
     { path: '/slider', title: '组件-Slider', component: Slider },
     { path: '/snackbarToast', title: '组件-SnackbarToast', component: SnackbarToast },
+    { path: '/subHeader', title: '组件-SubHeader', component: SubHeader },
     { path: '*', redirect: '/index' }
   ]
 })
