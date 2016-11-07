@@ -60,7 +60,7 @@
         <mu-list-item slot="nested" href="#/radio" value="#/radio" title="Radio"/>
         <mu-list-item slot="nested" href="#/switch" value="#/switch" title="Switch"/>
       </mu-list-item>
-      <mu-list-item slot="nested" title="Slider"/>
+      <mu-list-item slot="nested" href="#/slider" value="#/slider" title="Slider"/>
       <mu-list-item slot="nested" title="SnackBar & Toast"/>
       <mu-list-item slot="nested" title="Stepper"/>
       <mu-list-item slot="nested" title="Sub Header"/>
