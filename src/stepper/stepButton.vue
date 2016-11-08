@@ -1,9 +1,10 @@
 <template>
 <abstract-button @click="handleClick" :centerRipple="false" class="mu-step-button" :disabled="disabled">
-  <step-label :active="active" :completed="completed" :num="num" :disabled="disabled" v-if="childredInLabel">
+  <step-label :active="active" :completed="completed" :num="num" :disabled="disabled" v-if="childrenInLabel">
     <slot></slot>
+    <slot name="icon" slot="icon"></slot>
   </step-label>
-  <slot v-if="!childredInLabel"></slot>
+  <slot v-if="!childrenInLabel"></slot>
 </abstract-button>
 </template>
 
@@ -28,7 +29,7 @@ export default {
     last: {
       type: Boolean
     },
-    childredInLabel: {
+    childrenInLabel: {
       type: Boolean,
       default: true
     }

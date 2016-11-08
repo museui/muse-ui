@@ -207,6 +207,12 @@ const SnackbarToast = resolve => {
   })
 }
 
+const Stepper = resolve => {
+  require.ensure(['./views/components/stepper/index.vue'], () => {
+    resolve(require('./views/components/stepper/index.vue'))
+  })
+}
+
 const SubHeader = resolve => {
   require.ensure(['./views/components/subHeader/index.vue'], () => {
     resolve(require('./views/components/subHeader/index.vue'))
@@ -250,6 +256,7 @@ const router = new Router({
     { path: '/switch', title: '组件-Switch', component: Switch },
     { path: '/slider', title: '组件-Slider', component: Slider },
     { path: '/snackbarToast', title: '组件-SnackbarToast', component: SnackbarToast },
+    { path: '/stepper', title: '组件-Stepper', component: Stepper },
     { path: '/subHeader', title: '组件-SubHeader', component: SubHeader },
     { path: '*', redirect: '/index' }
   ]
