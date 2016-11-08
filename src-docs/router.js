@@ -219,6 +219,12 @@ const SubHeader = resolve => {
   })
 }
 
+const Table = resolve => {
+  require.ensure(['./views/components/table/index.vue'], () => {
+    resolve(require('./views/components/table/index.vue'))
+  })
+}
+
 const router = new Router({
   mode: 'hash',
   routes: [
@@ -258,6 +264,7 @@ const router = new Router({
     { path: '/snackbarToast', title: '组件-SnackbarToast', component: SnackbarToast },
     { path: '/stepper', title: '组件-Stepper', component: Stepper },
     { path: '/subHeader', title: '组件-SubHeader', component: SubHeader },
+    { path: '/table', title: '组件-Table', component: Table },
     { path: '*', redirect: '/index' }
   ]
 })

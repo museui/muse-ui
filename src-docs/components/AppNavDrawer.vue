@@ -64,7 +64,7 @@
       <mu-list-item slot="nested" href="#/snackbarToast" value="#/snackbarToast" title="SnackBar & Toast"/>
       <mu-list-item slot="nested" href="#/stepper" value="#/stepper" title="Stepper"/>
       <mu-list-item slot="nested" href="#/subHeader" value="#/subHeader" title="Sub Header"/>
-      <mu-list-item slot="nested" title="Table"/>
+      <mu-list-item slot="nested" href="#/table" value="#/table" title="Table"/>
       <mu-list-item slot="nested" title="Tabs"/>
       <mu-list-item slot="nested" title="Text Field"/>
       <mu-list-item slot="nested" title="Time Picker"/>
