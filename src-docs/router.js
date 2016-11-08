@@ -249,6 +249,24 @@ const Tooltip = resolve => {
   })
 }
 
+const ContentBlock = resolve => {
+  require.ensure(['./views/components/contentBlock/index.vue'], () => {
+    resolve(require('./views/components/contentBlock/index.vue'))
+  })
+}
+
+const Flexbox = resolve => {
+  require.ensure(['./views/components/flexbox/index.vue'], () => {
+    resolve(require('./views/components/flexbox/index.vue'))
+  })
+}
+
+const Grid = resolve => {
+  require.ensure(['./views/components/grid/index.vue'], () => {
+    resolve(require('./views/components/grid/index.vue'))
+  })
+}
+
 const router = new Router({
   mode: 'hash',
   routes: [
@@ -293,6 +311,9 @@ const router = new Router({
     { path: '/textField', title: '组件-TextField', component: TextField },
     { path: '/timePicker', title: '组件-TimePicker', component: TimePicker },
     { path: '/tooltip', title: '组件-Tooltip', component: Tooltip },
+    { path: '/contentBlock', title: '组件-ContentBlock', component: ContentBlock },
+    { path: '/flexbox', title: '组件-FlexBox', component: Flexbox },
+    { path: '/grid', title: '组件-Grid', component: Grid },
     { path: '*', redirect: '/index' }
   ]
 })

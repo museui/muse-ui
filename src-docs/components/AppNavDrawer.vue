@@ -70,9 +70,9 @@
       <mu-list-item slot="nested" href="#/timePicker" value="#/timePicker" title="Time Picker"/>
       <mu-list-item slot="nested" href="#/tooltip" value="#/tooltip" title="Tooltip"/>
       <mu-sub-header slot="nested" class="exmaples-nav-sub-header">Others</mu-sub-header>
-      <mu-list-item slot="nested" title="Content Block"/>
-      <mu-list-item slot="nested" title="Flex Box"/>
-      <mu-list-item slot="nested" title="Grid"/>
+      <mu-list-item slot="nested" href="#/contentBlock" value="#/contentBlock" title="Content Block"/>
+      <mu-list-item slot="nested" href="#/flexbox" value="#/flexbox" title="Flex Box"/>
+      <mu-list-item slot="nested" href="#/grid" value="#/grid" title="Grid"/>
       <mu-list-item slot="nested" title="Infinite Scroll"/>
       <mu-list-item slot="nested" title="Picker"/>
       <mu-list-item slot="nested" title="Popup"/>

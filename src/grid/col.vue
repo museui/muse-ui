@@ -16,7 +16,7 @@ export default {
       type: String,
       default: ''
     },
-    pc: {
+    desktop: {
       type: String,
       default: ''
     }
@@ -30,9 +30,9 @@ export default {
         let tablet = 'tablet-' + this.tablet
         classObj[tablet] = true
       }
-      if (this.pc) {
-        let pc = 'pc-' + this.pc
-        classObj[pc] = true
+      if (this.desktop) {
+        let desktop = 'desktop-' + this.desktop
+        classObj[desktop] = true
       }
       return classObj
     }

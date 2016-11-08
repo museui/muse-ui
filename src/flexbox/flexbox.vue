@@ -18,16 +18,14 @@ export default {
     },
     justify: String,
     align: String,
-    wrap: String,
-    direction: String
+    wrap: String
   },
   computed: {
     styles () {
       return {
         'justify-content': this.justify,
         'align-items': this.align,
-        'flex-wrap': this.wrap,
-        'flex-direction': this.direction
+        'flex-wrap': this.wrap
       }
     }
   }
@@ -58,9 +56,11 @@ export default {
   box-orient: vertical;
   flex-direction: column;
 }
+
 .mu-flex-col > .mu-flexbox-item {
   width: 100%;
 }
+
 .mu-flex-row {
   box-direction: row;
   box-orient: horizontal;

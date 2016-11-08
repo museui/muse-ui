@@ -13,8 +13,7 @@ export default {
 <style lang="less">
 @import "../styles/import.less";
 .mu-content-block{
-  margin: 16px 0;
-  padding: 10px 16px;
+  padding: 8px 16px;
   width: 100%;
   p{
     margin-top: 1em;
