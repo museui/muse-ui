@@ -17,7 +17,6 @@ import infiniteScroll from './infiniteScroll'
 import avatar from './avatar'
 import * as tabs from './tabs'
 import paper from './paper'
-import searchBar from './searchBar'
 import * as bottomNav from './bottomNav'
 import * as card from './card'
 import chip from './chip'
@@ -69,7 +68,6 @@ const components = {
   avatar,
   ...tabs,
   paper,
-  searchBar,
   ...bottomNav,
   ...card,
   chip,
