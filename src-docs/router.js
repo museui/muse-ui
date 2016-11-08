@@ -231,6 +231,12 @@ const Tabs = resolve => {
   })
 }
 
+const TextField = resolve => {
+  require.ensure(['./views/components/textField/index.vue'], () => {
+    resolve(require('./views/components/textField/index.vue'))
+  })
+}
+
 const router = new Router({
   mode: 'hash',
   routes: [
@@ -272,6 +278,7 @@ const router = new Router({
     { path: '/subHeader', title: '组件-SubHeader', component: SubHeader },
     { path: '/table', title: '组件-Table', component: Table },
     { path: '/tabs', title: '组件-Tabs', component: Tabs },
+    { path: '/textField', title: '组件-TextField', component: TextField },
     { path: '*', redirect: '/index' }
   ]
 })

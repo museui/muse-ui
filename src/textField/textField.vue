@@ -5,12 +5,12 @@
       <text-field-label v-if="label" :float="float">{{label}}</text-field-label>
       <text-field-hint v-if="hintText" :text="hintText" :show="showHint"></text-field-hint>
       <slot>
-        <input ref="input" :name="name" type="text" :disabled="disabled" v-if="!multiLine && !type || type === 'text'" @focus="handlerFocus" v-model="inputValue" @blur="handlerBlur" class="mu-text-field-input" >
-        <input ref="input" :name="name" type="password" :disabled="disabled" v-if="!multiLine && type === 'password'" @focus="handlerFocus" v-model="inputValue" @blur="handlerBlur" class="mu-text-field-input" >
-        <input ref="input" :name="name" type="email" :disabled="disabled" v-if="!multiLine && type === 'email'" @focus="handlerFocus" v-model="inputValue" @blur="handlerBlur" class="mu-text-field-input" >
-        <input ref="input" :name="name" type="url" :disabled="disabled" v-if="!multiLine && type === 'url'" @focus="handlerFocus" v-model="inputValue" @blur="handlerBlur" class="mu-text-field-input" >
-        <input ref="input" :name="name" type="number" :disabled="disabled" v-if="!multiLine && type === 'number'" @focus="handlerFocus" v-model.number="inputValue" @blur="handlerBlur" class="mu-text-field-input" >
-        <enhanced-textarea ref="textarea" :disabled="disabled" :rows="rows" :rowsMax="rowsMax" @change="handlerChange" @focus.native="handlerFocus" @blur.native="handlerBlur" v-if="multiLine" :value="value"></enhanced-textarea>
+        <input ref="input" :name="name" type="text" :disabled="disabled" v-if="!multiLine && !type || type === 'text'" @focus="handleFocus" v-model="inputValue" @blur="handleBlur" class="mu-text-field-input" >
+        <input ref="input" :name="name" type="password" :disabled="disabled" v-if="!multiLine && type === 'password'" @focus="handleFocus" v-model="inputValue" @blur="handleBlur" class="mu-text-field-input" >
+        <input ref="input" :name="name" type="email" :disabled="disabled" v-if="!multiLine && type === 'email'" @focus="handleFocus" v-model="inputValue" @blur="handleBlur" class="mu-text-field-input" >
+        <input ref="input" :name="name" type="url" :disabled="disabled" v-if="!multiLine && type === 'url'" @focus="handleFocus" v-model="inputValue" @blur="handleBlur" class="mu-text-field-input" >
+        <input ref="input" :name="name" type="number" :disabled="disabled" v-if="!multiLine && type === 'number'" @focus="handleFocus" v-model.number="inputValue" @blur="handleBlur" class="mu-text-field-input" >
+        <enhanced-textarea ref="textarea" :disabled="disabled" :rows="rows" :rowsMax="rowsMax" @change="handleChange" @focus.native="handleFocus" @blur.native="handleBlur" v-if="multiLine" :value="inputValue"></enhanced-textarea>
       </slot>
       <underline v-if="underlineShow" :error="!!errorText" :disabled="disabled" :errorColor="errorColor" :focus="focus"></underline>
       <div class="mu-text-field-help" :style="errorStyle" v-if="errorText || helpText || maxLength > 0">
@@ -55,10 +55,6 @@ export default {
       type: String
     },
     value: {},
-    initiallyFocus: {
-      type: Boolean,
-      default: false
-    },
     multiLine: {
       type: Boolean,
       default: false
@@ -103,9 +99,6 @@ export default {
       charLength: 0
     }
   },
-  mounted () {
-    this.focus = this.initiallyFocus
-  },
   computed: {
     textFieldClass () {
       return {
@@ -131,15 +124,15 @@ export default {
     }
   },
   methods: {
-    handlerFocus (event) {
+    handleFocus (event) {
       this.focus = true
       this.$emit('focus', event)
     },
-    handlerBlur (event) {
+    handleBlur (event) {
       this.focus = false
       this.$emit('blur', event)
     },
-    handlerChange (val) {
+    handleChange (val) {
       this.inputValue = val
     },
     handleLabelClick () {
@@ -181,7 +174,7 @@ export default {
 .mu-text-field{
   font-size: 16px;
   width: 256px;
-  height: 48px;
+  min-height: 48px;
   display: inline-block;
   position: relative;
   color: @secondaryTextColor;
@@ -206,9 +199,9 @@ export default {
 .mu-text-field-icon {
   position: absolute;
   left: 16px;
-  bottom: 12px;
+  top: 12px;
   .mu-text-field.has-label & {
-    bottom: 16px;
+    top: 36px;
   }
 }
 
