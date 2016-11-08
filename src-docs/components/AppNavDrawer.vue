@@ -65,7 +65,7 @@
       <mu-list-item slot="nested" href="#/stepper" value="#/stepper" title="Stepper"/>
       <mu-list-item slot="nested" href="#/subHeader" value="#/subHeader" title="Sub Header"/>
       <mu-list-item slot="nested" href="#/table" value="#/table" title="Table"/>
-      <mu-list-item slot="nested" title="Tabs"/>
+      <mu-list-item slot="nested" href="#/tabs" value="#/tabs" title="Tabs"/>
       <mu-list-item slot="nested" title="Text Field"/>
       <mu-list-item slot="nested" title="Time Picker"/>
       <mu-list-item slot="nested" title="Tooltip"/>
@@ -118,8 +118,9 @@ export default {
   },
   mounted () {
     this.menuVal = window.location.hash
-  },
-  components: {
+    window.addEventListener('hashchange', () => {
+      this.menuVal = window.location.hash
+    })
   }
 }
 </script>

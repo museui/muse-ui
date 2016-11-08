@@ -81,6 +81,12 @@ export default {
       desc: '用于放置 `tr` 组件'
     }]
   },
+  tfoot: {
+    slots: [{
+      name: 'default',
+      desc: '用于放置 `tr` 组件'
+    }]
+  },
   tr: {
     props: [{
       name: 'selectable',

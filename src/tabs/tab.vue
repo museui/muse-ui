@@ -1,8 +1,8 @@
 <template>
-<touch-ripple class="mu-tab-link" :center-ripple="false" :class="{'mu-tab-active': active}" @click.native="tabClick()">
+<touch-ripple class="mu-tab-link" :center-ripple="false" :class="{'mu-tab-active': active}" @click.native="tabClick">
   <slot>
     <icon :value="icon"/>
-    <div class="mu-tab-text" :class="{'has-icon': icon}">{{title}}</div>
+    <div class="mu-tab-text" :class="{'has-icon': icon}" v-if="title">{{title}}</div>
   </slot>
 </touch-ripple>
 </template>
@@ -29,8 +29,15 @@ export default {
     }
   },
   methods: {
-    tabClick () {
+    tabClick (e) {
       if (this.$parent.handleTabClick) this.$parent.handleTabClick(this.value, this)
+      this.$emit('click', e)
+    }
+  },
+  watch: {
+    active (val, oldVal) {
+      if (val === oldVal) return
+      if (val) this.$emit('active')
     }
   },
   components: {
@@ -63,7 +70,6 @@ export default {
   color: @alternateTextColor;
 }
 .mu-tab-text{
-  font-size: 16px;
   &.has-icon {
     margin-top: 8px;
   }

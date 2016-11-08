@@ -225,6 +225,12 @@ const Table = resolve => {
   })
 }
 
+const Tabs = resolve => {
+  require.ensure(['./views/components/tabs/index.vue'], () => {
+    resolve(require('./views/components/tabs/index.vue'))
+  })
+}
+
 const router = new Router({
   mode: 'hash',
   routes: [
@@ -265,6 +271,7 @@ const router = new Router({
     { path: '/stepper', title: '组件-Stepper', component: Stepper },
     { path: '/subHeader', title: '组件-SubHeader', component: SubHeader },
     { path: '/table', title: '组件-Table', component: Table },
+    { path: '/tabs', title: '组件-Tabs', component: Tabs },
     { path: '*', redirect: '/index' }
   ]
 })

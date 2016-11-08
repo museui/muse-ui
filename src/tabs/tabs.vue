@@ -24,7 +24,6 @@ export default {
       if (this.value !== value) {
         this.$emit('change', value)
       }
-      this.$emit('tabClick', tab)
     },
     getActiveIndex () {
       if (!this.$children || this.$children.length === 0) return -1
@@ -75,7 +74,7 @@ export default {
   position: absolute;
   left: 0;
   bottom: 0;
-  height: 3px;
+  height: 2px;
   background-color: @accentColor;
   transition: all .3s;
   backface-visibility: hidden;
