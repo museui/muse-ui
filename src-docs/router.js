@@ -243,6 +243,12 @@ const TimePicker = resolve => {
   })
 }
 
+const Tooltip = resolve => {
+  require.ensure(['./views/components/tooltip/index.vue'], () => {
+    resolve(require('./views/components/tooltip/index.vue'))
+  })
+}
+
 const router = new Router({
   mode: 'hash',
   routes: [
@@ -286,6 +292,7 @@ const router = new Router({
     { path: '/tabs', title: '组件-Tabs', component: Tabs },
     { path: '/textField', title: '组件-TextField', component: TextField },
     { path: '/timePicker', title: '组件-TimePicker', component: TimePicker },
+    { path: '/tooltip', title: '组件-Tooltip', component: Tooltip },
     { path: '*', redirect: '/index' }
   ]
 })

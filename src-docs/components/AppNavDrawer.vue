@@ -68,7 +68,7 @@
       <mu-list-item slot="nested" href="#/tabs" value="#/tabs" title="Tabs"/>
       <mu-list-item slot="nested" href="#/textField" value="#/textField" title="Text Field"/>
       <mu-list-item slot="nested" href="#/timePicker" value="#/timePicker" title="Time Picker"/>
-      <mu-list-item slot="nested" title="Tooltip"/>
+      <mu-list-item slot="nested" href="#/tooltip" value="#/tooltip" title="Tooltip"/>
       <mu-sub-header slot="nested" class="exmaples-nav-sub-header">Others</mu-sub-header>
       <mu-list-item slot="nested" title="Content Block"/>
       <mu-list-item slot="nested" title="Flex Box"/>
