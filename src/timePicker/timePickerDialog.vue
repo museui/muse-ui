@@ -80,9 +80,6 @@ export default {
       }
     })
     return h('div', {
-      style: {
-        'margin-top': '-28px'
-      }
     }, this.open ? [
       this.container === 'dialog' ? h(dialog, {
         class: ['mu-time-picker-dialog', this.mode],

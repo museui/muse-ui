@@ -87,6 +87,7 @@ export default {
   display: inline-block;
   width: 32px;
   height: 32px;
+  line-height: 24px;
   position: absolute;
   top: 10px;
   text-align: center;

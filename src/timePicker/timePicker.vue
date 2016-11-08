@@ -1,6 +1,9 @@
 <template>
 <div class="mu-time-picker" :class="{'fullWidth': fullWidth}">
-  <text-field @focus="handleFocus" @labelClick="handleClick" :value="inputValue" :label="label" :labelFloat="labelFloat" :disabled="disabled" :hintText="hintText" :helpText="helpText" :errorText="errorText" :errorColor="errorColor" :icon="icon" :fullWidth="fullWidth"/>
+  <text-field @focus="handleFocus" @labelClick="handleClick" :value="inputValue"
+    :label="label" :labelFloat="labelFloat" :disabled="disabled" :hintText="hintText"
+    :helpText="helpText" :errorText="errorText" :errorColor="errorColor" :icon="icon"
+    :fullWidth="fullWidth" :underlineShow="underlineShow"/>
   <time-picker-dialog v-if="!disabled" @accept="handleAccept" ref="dialog" :initialTime="dialogTime" :format="format" :mode="mode" :container="container" :autoOk="autoOk" :okLabel="okLabel" :cancelLabel="cancelLabel"/>
 </div>
 </template>
@@ -72,6 +75,10 @@ export default {
     fullWidth: {
       type: Boolean,
       default: false
+    },
+    underlineShow: {
+      type: Boolean,
+      default: true
     },
     value: {
       type: String

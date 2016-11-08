@@ -237,6 +237,12 @@ const TextField = resolve => {
   })
 }
 
+const TimePicker = resolve => {
+  require.ensure(['./views/components/timePicker/index.vue'], () => {
+    resolve(require('./views/components/timePicker/index.vue'))
+  })
+}
+
 const router = new Router({
   mode: 'hash',
   routes: [
@@ -279,6 +285,7 @@ const router = new Router({
     { path: '/table', title: '组件-Table', component: Table },
     { path: '/tabs', title: '组件-Tabs', component: Tabs },
     { path: '/textField', title: '组件-TextField', component: TextField },
+    { path: '/timePicker', title: '组件-TimePicker', component: TimePicker },
     { path: '*', redirect: '/index' }
   ]
 })
