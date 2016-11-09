@@ -273,6 +273,12 @@ const InfiniteScroll = resolve => {
   })
 }
 
+const Picker = resolve => {
+  require.ensure(['./views/components/picker/index.vue'], () => {
+    resolve(require('./views/components/picker/index.vue'))
+  })
+}
+
 const router = new Router({
   mode: 'hash',
   routes: [
@@ -321,6 +327,7 @@ const router = new Router({
     { path: '/flexbox', title: '组件-FlexBox', component: Flexbox },
     { path: '/grid', title: '组件-Grid', component: Grid },
     { path: '/infiniteScroll', title: '组件-InfiniteScroll', component: InfiniteScroll },
+    { path: '/picker', title: '组件-Picker', component: Picker },
     { path: '*', redirect: '/index' }
   ]
 })
