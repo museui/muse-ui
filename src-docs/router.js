@@ -279,6 +279,12 @@ const Picker = resolve => {
   })
 }
 
+const Popup = resolve => {
+  require.ensure(['./views/components/popup/index.vue'], () => {
+    resolve(require('./views/components/popup/index.vue'))
+  })
+}
+
 const router = new Router({
   mode: 'hash',
   routes: [
@@ -328,6 +334,7 @@ const router = new Router({
     { path: '/grid', title: '组件-Grid', component: Grid },
     { path: '/infiniteScroll', title: '组件-InfiniteScroll', component: InfiniteScroll },
     { path: '/picker', title: '组件-Picker', component: Picker },
+    { path: '/popup', title: '组件-Popup', component: Popup },
     { path: '*', redirect: '/index' }
   ]
 })

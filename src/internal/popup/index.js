@@ -22,7 +22,8 @@ export default {
     },
     setZIndex () {
       const dom = this.$el
-      if (dom) dom.style.zIndex = getZIndex()
+      if (!this.zIndex) this.zIndex = getZIndex()
+      if (dom) dom.style.zIndex = this.zIndex
     }
   },
   mounted () {

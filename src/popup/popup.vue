@@ -1,6 +1,6 @@
 <template>
-<transition :name="popupTransition">
-  <div class="mu-popup" :style="{'z-index': zIndex}" :class="[position ? 'mu-popup-' + position : '']">
+<transition :name="transition">
+  <div class="mu-popup" :class="[position ? 'mu-popup-' + position : '']">
     <slot></slot>
   </div>
 </transition>
@@ -8,28 +8,27 @@
 
 <script>
 import Popup from '../internal/popup'
-import {getZIndex} from '../internal/popup/utils'
 export default {
   name: 'mu-popup',
   mixins: [Popup],
   props: {
     popupTransition: {
       type: String,
-      default: 'popup-slide'
+      default: ''
     },
     position: {
       type: String,
       default: ''
     }
   },
-  computed: {
-    zIndex () {
-      return this.overlay ? '' : getZIndex()
+  data () {
+    return {
+      transition: this.popupTransition
     }
   },
-  beforeMount () {
-    if (this.popupTransition !== 'popup-fade') {
-      this.popupTransition = `popup-slide-${this.position}`
+  created () {
+    if (!this.popupTransition) {
+      this.transition = `popup-slide-${this.position}`
     }
   },
   methods: {
@@ -38,6 +37,12 @@ export default {
     },
     escPress () {
       this.$emit('close', 'esc')
+    }
+  },
+  watch: {
+    popupTransition (val, oldVal) {
+      if (val === oldVal) return
+      this.transition = val
     }
   }
 }
@@ -84,39 +89,44 @@ export default {
   transform: translate3d(0, -50%, 0);
 }
 
-.popup-slide-top-transition,
-  .popup-slide-right-transition,
-  .popup-slide-bottom-transition,
-  .popup-slide-left-transition {
-    transition: transform .3s ease;
-  }
+.popup-slide-top-enter-active,
+.popup-slide-top-leave-active,
+.popup-slide-right-enter-active,
+.popup-slide-right-leave-active,
+.popup-slide-bottom-enter-active,
+.popup-slide-bottom-leave-active,
+.popup-slide-left-enter-active,
+.popup-slide-left-leave-active {
+  transition: transform .3s ease;
+}
 
-  .popup-slide-top-enter,
-  .popup-slide-top-leave {
-    transform: translate3d(-50%, -100%, 0);
-  }
+.popup-slide-top-enter,
+.popup-slide-top-leave-active {
+  transform: translate3d(-50%, -100%, 0);
+}
 
-  .popup-slide-right-enter,
-  .popup-slide-right-leave {
-    transform: translate3d(100%, -50%, 0);
-  }
+.popup-slide-right-enter,
+.popup-slide-right-leave-active {
+  transform: translate3d(100%, -50%, 0);
+}
 
-  .popup-slide-bottom-enter,
-  .popup-slide-bottom-leave {
-    transform: translate3d(-50%, 100%, 0);
-  }
+.popup-slide-bottom-enter,
+.popup-slide-bottom-leave-active {
+  transform: translate3d(-50%, 100%, 0);
+}
 
-  .popup-slide-left-enter,
-  .popup-slide-left-leave {
-    transform: translate3d(-100%, -50%, 0);
-  }
+.popup-slide-left-enter,
+.popup-slide-left-leave-active {
+  transform: translate3d(-100%, -50%, 0);
+}
 
-  .popup-fade-transition {
-    transition: opacity .3s;
-  }
+.popup-fade-enter-active,
+.popup-fade-leave-active {
+  transition: opacity .3s;
+}
 
-  .popup-fade-enter,
-  .popup-fade-leave {
-    opacity: 0;
-  }
+.popup-fade-enter,
+.popup-fade-leave-active {
+  opacity: 0;
+}
 </style>
