@@ -73,7 +73,7 @@
       <mu-list-item slot="nested" href="#/contentBlock" value="#/contentBlock" title="Content Block"/>
       <mu-list-item slot="nested" href="#/flexbox" value="#/flexbox" title="Flex Box"/>
       <mu-list-item slot="nested" href="#/grid" value="#/grid" title="Grid"/>
-      <mu-list-item slot="nested" title="Infinite Scroll"/>
+      <mu-list-item slot="nested" href="#/infiniteScroll" value="#/infiniteScroll" title="Infinite Scroll"/>
       <mu-list-item slot="nested" title="Picker"/>
       <mu-list-item slot="nested" title="Popup"/>
       <mu-list-item slot="nested" title="Refresh Control"/>

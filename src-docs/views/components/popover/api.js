@@ -5,6 +5,11 @@ export default {
     default: '',
     desc: '触发popover 的元素，需要根据此元素的位置计算弹出的位置'
   }, {
+    name: 'scroller',
+    type: 'HTMLDocument, Element, Window',
+    default: 'window',
+    desc: '滚动的元素，会监听它的 `scroll` 事件, 在滚动时会不断更新弹出框的位置'
+  }, {
     name: 'autoPosition',
     type: 'Boolean',
     default: 'true',

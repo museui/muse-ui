@@ -8,13 +8,29 @@ export default {
     }
   },
   mounted () {
-    this._handlerScroll = (e) => {
-      if (this.onScroll) this.onScroll()
-    }
-    this.scroller.addEventListener('scroll', this._handlerScroll)
+    this.$bindScroll()
   },
-
+  methods: {
+    $bindScroll () {
+      if (!this.scroller) return
+      this._handlerScroll = (e) => {
+        if (this.onScroll) this.onScroll()
+      }
+      this.scroller.addEventListener('scroll', this._handlerScroll)
+    },
+    $unbindScroll (scroller) {
+      scroller = scroller || this.scroller
+      if (this._handlerScroll) scroller.removeEventListener('scroll', this._handlerScroll)
+    }
+  },
   beforeDestroy () {
-    this.scroller.removeEventListener('scroll', this._handlerScroll)
+    this.$unbindScroll()
+  },
+  watch: {
+    scroller (scroller, oldScroller) {
+      if (scroller === oldScroller) return
+      this.$unbindScroll(oldScroller)
+      this.$bindScroll(scroller)
+    }
   }
 }

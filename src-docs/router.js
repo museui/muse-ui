@@ -267,6 +267,12 @@ const Grid = resolve => {
   })
 }
 
+const InfiniteScroll = resolve => {
+  require.ensure(['./views/components/infiniteScroll/index.vue'], () => {
+    resolve(require('./views/components/infiniteScroll/index.vue'))
+  })
+}
+
 const router = new Router({
   mode: 'hash',
   routes: [
@@ -314,6 +320,7 @@ const router = new Router({
     { path: '/contentBlock', title: '组件-ContentBlock', component: ContentBlock },
     { path: '/flexbox', title: '组件-FlexBox', component: Flexbox },
     { path: '/grid', title: '组件-Grid', component: Grid },
+    { path: '/infiniteScroll', title: '组件-InfiniteScroll', component: InfiniteScroll },
     { path: '*', redirect: '/index' }
   ]
 })
