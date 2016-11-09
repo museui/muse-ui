@@ -18,8 +18,7 @@ export default {
       default: ''
     },
     description: {
-      type: String,
-      default: ''
+      type: String
     },
     code: {
       type: String,

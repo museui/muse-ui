@@ -20,7 +20,7 @@
       <mu-list-item slot="nested" title="主题"/>
       <mu-list-item slot="nested" title="颜色"/>
     </mu-list-item> -->
-    <mu-list-item title="更新日志"/>
+
     <mu-list-item title="基础组件" toggleNested>
       <mu-sub-header slot="nested" class="exmaples-nav-sub-header">Material Design</mu-sub-header>
       <mu-list-item slot="nested" href="#/appbar" value="#/appbar" title="App Bar"/>
@@ -77,6 +77,10 @@
       <mu-list-item slot="nested" href="#/picker" value="#/picker" title="Picker"/>
       <mu-list-item slot="nested" href="#/popup" value="#/popup" title="Popup"/>
       <mu-list-item slot="nested" href="#/refreshControl" value="#/refreshControl" title="Refresh Control"/>
+    </mu-list-item>
+    <mu-list-item title="更多信息" toggleNested>
+      <mu-list-item slot="nested" title="更新日志" href="#/changeLog" value="#/changeLog"/>
+      <mu-list-item slot="nested" title="贡献指南" href="#/contributing" value="#/contributing"/>
     </mu-list-item>
   </mu-list>
   <mu-divider/>

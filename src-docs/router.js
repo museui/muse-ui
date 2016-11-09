@@ -21,6 +21,18 @@ const Usage = resolve => {
   })
 }
 
+const ChangeLog = resolve => {
+  require.ensure(['./views/more/changeLog.vue'], () => {
+    resolve(require('./views/more/changeLog.vue'))
+  })
+}
+
+const Contributing = resolve => {
+  require.ensure(['./views/more/contributing.vue'], () => {
+    resolve(require('./views/more/contributing.vue'))
+  })
+}
+
 const AppBar = resolve => {
   require.ensure(['./views/components/appbar/index.vue'], () => {
     resolve(require('./views/components/appbar/index.vue'))
@@ -297,6 +309,8 @@ const router = new Router({
     { path: '/index', component: Index },
     { path: '/install', title: '快速开始-安装', component: Install },
     { path: '/usage', title: '快速开始-使用', component: Usage },
+    { path: '/changeLog', title: '更新日志', component: ChangeLog },
+    { path: '/contributing', title: '贡献指南', component: Contributing },
     { path: '/appbar', title: '组件-AppBar', component: AppBar },
     { path: '/autoComplete', title: '组件-AutoComplete', component: AutoComplete },
     { path: '/avatar', title: '组件-Avatar', component: Avatar },

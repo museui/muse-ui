@@ -6,7 +6,7 @@ export default {
   }, {
     name: 'zDepth',
     type: 'Number',
-    default: 1,
+    default: '1',
     desc: '阴影等级,设置为 0就没有阴影效果'
   }],
   slots: [{
