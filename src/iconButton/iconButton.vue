@@ -1,5 +1,5 @@
 <template>
-<abstract-button @mousedown.native="handleMouseDown" @click="handleClick"
+<abstract-button @touchstart.native="handleStop" @mousedown.native="handleStop" @click="handleClick"
   @hover="handleHover" @hoverExit="handleHoverExit" @keyboardFocus="handleKeyboardFocus"
   :target="target"  :href="href" :disabled="disabled" :keyboardFocused="keyboardFocused" class="mu-icon-button">
   <slot>
@@ -80,7 +80,7 @@ export default {
     handleKeyboardFocus (isFocus) {
       this.$emit('keyboardFocus', isFocus)
     },
-    handleMouseDown (event) {
+    handleStop (event) {
       event.stopPropagation() // 防止list中使用导致波纹点击重复
     }
   },

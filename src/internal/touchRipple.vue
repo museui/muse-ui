@@ -74,7 +74,7 @@ export default {
       }
     },
     handleTouchStart (event) {
-      event.stopPropagation()
+      // event.stopPropagation()
       // If the user is swiping (not just tapping), save the position so we can
       // abort ripples if the user appears to be scrolling.
       if (event.touches) {

@@ -76,61 +76,68 @@ export default {
     }
   },
   mounted () {
-    if (!this.trigger) return
-    const drager = this.drager = new Drag(this.trigger)
-    const initTop = domUtil.getOffset(this.$el).top + INITY  // 初始化位置
-    this.state = 'ready'
-    drager.start(() => {
-      if (this.refreshing) return
-      this.state = 'dragStart'
-      let top = domUtil.getOffset(this.$el).top
-      if (top === initTop) this.draging = true
-    }).drag((pos, event) => {
-      if (pos.y < 5) return // 消除误差
-      let top = domUtil.getOffset(this.$el).top
-      if (this.refreshing || !initTop || top < initTop) {
-        this.draging = false
-        return
-      }
-
-      if (top === initTop && !this.draging) {
-        this.draging = true
-        drager.reset(event)
-      }
-
-      if (this.draging && pos.y > 0) {
-        event.preventDefault()
-        event.stopPropagation()
-      }
-
-      this.y = pos.y
-      if (this.y < 0) this.y = 1
-      if (this.y > LENGTH) this.y = LENGTH
-    }).end((pos, event) => {
-      if (!pos.y || pos.y < 5) {
-        this.clearState()
-        return // 消除误差
-      }
-      let canRefresh = pos.y + INITY > 0 && this.draging
-      this.state = 'dragAnimate'
-      if (canRefresh) {
-        this.draging = false
-        this.$emit('refresh')
-      } else {
-        this.y = 0
-        domUtil.transitionEnd(this.$el, this.clearState.bind(this))
-      }
-    })
+    this.bindDrag()
   },
   beforeDestory () {
-    this.drager.destory()
-    this.drager = null
+    this.unbindDrag()
   },
   methods: {
     clearState () {
       this.state = 'ready'
       this.draging = false
       this.y = 0
+    },
+    bindDrag () {
+      if (!this.trigger) return
+      const drager = this.drager = new Drag(this.trigger)
+      const initTop = domUtil.getOffset(this.$el).top + INITY  // 初始化位置
+      this.state = 'ready'
+      drager.start(() => {
+        if (this.refreshing) return
+        this.state = 'dragStart'
+        let top = domUtil.getOffset(this.$el).top
+        if (top === initTop) this.draging = true
+      }).drag((pos, event) => {
+        if (pos.y < 5) return // 消除误差
+        let top = domUtil.getOffset(this.$el).top
+        if (this.refreshing || !initTop || top < initTop) {
+          this.draging = false
+          return
+        }
+
+        if (top === initTop && !this.draging) {
+          this.draging = true
+          drager.reset(event)
+        }
+
+        if (this.draging && pos.y > 0) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+
+        this.y = pos.y
+        if (this.y < 0) this.y = 1
+        if (this.y > LENGTH) this.y = LENGTH
+      }).end((pos, event) => {
+        if (!pos.y || pos.y < 5) {
+          this.clearState()
+          return // 消除误差
+        }
+        let canRefresh = pos.y + INITY > 0 && this.draging
+        this.state = 'dragAnimate'
+        if (canRefresh) {
+          this.draging = false
+          this.$emit('refresh')
+        } else {
+          this.y = 0
+          domUtil.transitionEnd(this.$el, this.clearState.bind(this))
+        }
+      })
+    },
+    unbindDrag () {
+      if (!this.drager) return
+      this.drager.destory()
+      this.drager = null
     }
   },
   watch: {
@@ -140,6 +147,11 @@ export default {
       } else {
         this.state = 'refreshAnimate'
       }
+    },
+    trigger (trigger, oldTrigger) {
+      if (trigger === oldTrigger) return
+      this.unbindDrag()
+      this.bindDrag()
     }
   },
   components: {
@@ -166,7 +178,7 @@ export default {
   left: 50%;
   margin-left: -18px;
   margin-top: 24px;
-  z-index: 100;
+  z-index: 90;
   .mu-icon {
     display: inline-block;
     vertical-align: middle;

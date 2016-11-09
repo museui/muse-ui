@@ -76,7 +76,7 @@
       <mu-list-item slot="nested" href="#/infiniteScroll" value="#/infiniteScroll" title="Infinite Scroll"/>
       <mu-list-item slot="nested" href="#/picker" value="#/picker" title="Picker"/>
       <mu-list-item slot="nested" href="#/popup" value="#/popup" title="Popup"/>
-      <mu-list-item slot="nested" title="Refresh Control"/>
+      <mu-list-item slot="nested" href="#/refreshControl" value="#/refreshControl" title="Refresh Control"/>
     </mu-list-item>
   </mu-list>
   <mu-divider/>

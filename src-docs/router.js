@@ -285,6 +285,12 @@ const Popup = resolve => {
   })
 }
 
+const RefreshControl = resolve => {
+  require.ensure(['./views/components/refreshControl/index.vue'], () => {
+    resolve(require('./views/components/refreshControl/index.vue'))
+  })
+}
+
 const router = new Router({
   mode: 'hash',
   routes: [
@@ -335,6 +341,7 @@ const router = new Router({
     { path: '/infiniteScroll', title: '组件-InfiniteScroll', component: InfiniteScroll },
     { path: '/picker', title: '组件-Picker', component: Picker },
     { path: '/popup', title: '组件-Popup', component: Popup },
+    { path: '/refreshControl', title: '组件-RefreshControl', component: RefreshControl },
     { path: '*', redirect: '/index' }
   ]
 })
