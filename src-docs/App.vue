@@ -33,6 +33,9 @@ export default {
       this.changeNav()
     }
     window.addEventListener('resize', this.handleResize)
+    window.addEventListener('hashchange', () => {
+      this.setTitle()
+    })
   },
   methods: {
     toggleNav () {
@@ -52,10 +55,9 @@ export default {
     },
     handleMenuChange (path) {
       if (!this.desktop) this.open = false
-      this.setTitle(path)
     },
-    setTitle (path) {
-      if (!path) path = window.location.hash
+    setTitle () {
+      let path = window.location.hash
       if (path && path.length > 1) path = path.substring(1)
       for (let i = 0; i < this.routes.length; i++) {
         var route = this.routes[i]

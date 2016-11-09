@@ -7,7 +7,7 @@ var ora = require('ora')
 var webpack = require('webpack')
 var config = require('../config')
 var mdName = process.argv[2] || 'prod'
-var webpackConfig =  require('./webpack.' + (mdName === 'prod' ? 'prod' : 'examples' ) )
+var webpackConfig =  require('./webpack.' + (mdName === 'prod' ? 'prod' : 'docs' ) )
 
 console.log(
   '  Tip:\n' +
@@ -18,10 +18,10 @@ console.log(
 var spinner = ora('building for production...')
 spinner.start()
 
-var assetsPath = config.assetsPath
-rm('-rf', assetsPath)
-mkdir('-p', assetsPath)
-cp('-R', 'static/', assetsPath)
+// var assetsPath = config.assetsPath
+// rm('-rf', assetsPath)
+// mkdir('-p', assetsPath)
+// cp('-R', 'static/', assetsPath) // copy 未见
 
 webpack(webpackConfig, function (err, stats) {
   spinner.stop()

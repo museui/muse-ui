@@ -12,7 +12,7 @@
           基于 Vue 2.0 和 Material Desigin 开发的 UI 组件库
         </h2>
         <div class="mu-banner-actions">
-          <mu-raised-button label="Get Started" color="lightBlue"/>
+          <mu-raised-button label="Get Started" href="#/install" color="lightBlue"/>
         </div>
       </div>
       <div class="mu-banner-appbar-height"></div>

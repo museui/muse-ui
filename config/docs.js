@@ -11,7 +11,6 @@ module.exports = {
     env: '"production"',
     assetsSubDirectory: '',
     assetsPublicPath: '',
-    productionSourceMap: true,
     productionGzip: false,
     productionGzipExtensions: ['js', 'css']
   },

@@ -12,6 +12,7 @@
   "scripts": {
     "dev": "node build/dev-server.js",
     "build": "node build/build.js && gulp theme",
+    "docs": "node build/build.js docs",
     "test": ""
   },
   "devDependencies": {
