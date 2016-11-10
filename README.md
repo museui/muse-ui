@@ -1,16 +1,91 @@
-# muse-ui
+# Muse UI
 
-[material-ui](http://www.material-ui.com/) 的 vue2 实现， 支持多主题， 三端样式一致的响应式 UI 库。
+[![npm package](https://img.shields.io/npm/v/muse-ui.svg)](https://www.npmjs.org/package/muse-ui)
+[![NPM downloads](http://img.shields.io/npm/dm/muse-ui.svg)](https://npmjs.org/package/muse-ui)
+![JS gzip size](http://img.badgesize.io/https://unpkg.com/muse-ui/dist/muse-ui.js?compression=gzip&label=gzip%20size:%20JS)
+![CSS gzip size](http://img.badgesize.io/https://unpkg.com/muse-ui/dist/muse-ui.css?compression=gzip&label=gzip%20size:%20CSS)
 
-开发中。。。。
+> Material Desgin UI library for Vuejs 2.0
 
-## 依赖
+## Links
 
-* [vue2](http://rc.vuejs.org/)
+* [Home Page](https://museui.github.io/)
+* [中文文档](https://museui.github.io/#/install)
+
+## Install
+
+```bash
+npm install muse-ui -save
+```
+
+## Get Started
+
+```javascript
+import Vue from 'vue'
+import MuseUI from 'muse-ui'
+Vue.use(MuseUI)
+```
+
+or
+
+
+**webpack.conf.js**
+
+```javascript
+{
+  // ...
+  module: {
+    loaders: [
+      // ...
+      {
+        test: /muse-ui.src.*?js$/,
+        loader: 'babel'
+      }
+    ]
+  },
+  resolve: {
+    // ...
+    alias: {
+      'muse-components': 'muse-ui/src'
+    }
+  }
+}
+```
+
+**main.js**
+
+```javascript
+import Vue from 'vue'
+import appbar from 'muse-components/appbar'
+import avatar from 'muse-components/avatar'
+// ..
+Vue.component(appbar.name, appbar)
+Vue.component(avatar.name, avatar)
+```
+
+
+## Browser Support
+
+* IE 10+
+* Andorid 4.4+
+* IOS 7+
+
+## Changelog
+
+Detailed changes for each release are documented in the [release notes](https://museui.github.io/#/changeLog).
+
+## Contribution
+
+Please make sure to read the [Contributing Guide](https://museui.github.io/#/contributing) before making a pull request.
+
+## Dependencies
+
+* [vuejs 2.0](https://vuejs.org/)
+* [material desgin](https://material.google.com)
 * [material icons](https://fonts.googleapis.com/icon?family=Material+Icons)
 
-## 浏览器支持
+## Licence
 
-* IE 10
-* Andorid 4.2+
-* IOS 7+
+muse-ui is open source and released under the MIT Licence.
+
+Copyright (c) 2016 myron
