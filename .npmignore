@@ -1,10 +1,10 @@
 node_modules
 build
-examples
-src-mobile
-src
+config
 static
+docs
+src-docs
 .DS_Store
 .*
 index.html
-plain.md
+gulpfile.js

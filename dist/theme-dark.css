@@ -41,6 +41,9 @@
 .mu-bottom-nav-shift .theme-dark .mu-bottom-item-active {
   color: #303030;
 }
+.theme-dark .mu-bottom-sheet {
+  background-color: #303030;
+}
 .theme-dark .mu-card {
   background-color: #303030;
 }
@@ -67,9 +70,6 @@
 }
 .theme-dark .mu-card-text {
   color: #ffffff;
-}
-.theme-dark .mu-bottom-sheet {
-  background-color: #303030;
 }
 .theme-dark .mu-checkbox input[type="checkbox"]:checked + .mu-checkbox-wrapper .mu-checkbox-icon-uncheck {
   color: #0288d1;
@@ -309,10 +309,6 @@
 }
 .theme-dark .mu-refresh-control {
   color: #0288d1;
-}
-.theme-dark .mu-snackbar {
-  background-color: #ffffff;
-  color: #303030;
 }
 .theme-dark .mu-slider-track {
   background-color: #757575;

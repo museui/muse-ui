@@ -35,16 +35,16 @@
 @cardMediaSubtitleColor: @lightWhite;
 @cardTextColor: @textColor;
 
-@checkboxColor: @textColor;
-@checkboxTextColor: @textColor;
-@checkboxDisabledColor: @disabledColor;
-@checkboxCheckedColor: @primaryColor;
-
 @chipColor: darken(@canvasColor, 12%);
 @chipHoverColor: rgb(206, 206, 206);
 @chipTextColor: fade(@textColor, 87%);
 @chipDeleteColor: fade(@textColor, 26%);
 @chipHoverDeleteColor: fade(fade(@textColor, 26%), 40%);
+
+@checkboxColor: @textColor;
+@checkboxTextColor: @textColor;
+@checkboxDisabledColor: @disabledColor;
+@checkboxCheckedColor: @primaryColor;
 
 @datePickerColor: @primaryColor;
 @datePickerTextColor: @alternateTextColor;
@@ -121,9 +121,6 @@
 
 @refreshControlColor: @primaryColor;
 
-@snackbarTextColor: @alternateTextColor;
-@snackbarColor: @textColor;
-
 @sliderTrackColor: @primary3Color;
 @sliderSelectionColor: @primaryColor;
 @sliderDisabledColor:  @primary3Color;
@@ -159,6 +156,11 @@
 @tableRowStripeBackgroundColor: fade(lighten(@primaryColor, 50%), 40%);
 @tableTheadTextColor: @secondaryTextColor;
 
+@tabsBackgroundColor: @primaryColor;
+@tabsLineColor: @accentColor;
+@tabsTextColor: fade(@alternateTextColor, 70%);
+@tabsSelectedTextColor: @alternateTextColor;
+
 @textFieldTextColor: @secondaryTextColor;
 @textFieldInputColor: @textColor;
 @textFieldHintColor: @disabledColor;
@@ -170,20 +172,15 @@
 @textFieldErrorLineColor: @red;
 @textFieldDisabledLineColor: @disabledColor;
 
-@tabsBackgroundColor: @primaryColor;
-@tabsLineColor: @accentColor;
-@tabsTextColor: fade(@alternateTextColor, 70%);
-@tabsSelectedTextColor: @alternateTextColor;
-
-@toastTextColor: @alternateTextColor;
-@toastColor: @textColor;
-
 @timePickerColor: @alternateTextColor;
 @timePickerClockColor: @textColor;
 @timePickerClockCircleColor: @clockCircleColor;
 @timePickerSelectColor: @primaryColor;
 @timePickerSelectTextColor: @alternateTextColor;
 @timePickerHeaderColor: @pickerHeaderColor;
+
+@toastTextColor: @alternateTextColor;
+@toastColor: @textColor;
 
 @tooltipTextColor: @alternateTextColor;
 @tooltipRippleColor: @grey700;

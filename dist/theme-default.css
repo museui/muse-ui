@@ -41,6 +41,9 @@
 .mu-bottom-nav-shift .theme-default .mu-bottom-item-active {
   color: #ffffff;
 }
+.theme-default .mu-bottom-sheet {
+  background-color: #ffffff;
+}
 .theme-default .mu-card {
   background-color: #ffffff;
 }
@@ -67,9 +70,6 @@
 }
 .theme-default .mu-card-text {
   color: rgba(0, 0, 0, 0.87);
-}
-.theme-default .mu-bottom-sheet {
-  background-color: #ffffff;
 }
 .theme-default .mu-checkbox input[type="checkbox"]:checked + .mu-checkbox-wrapper .mu-checkbox-icon-uncheck {
   color: #03a9f4;
@@ -309,10 +309,6 @@
 }
 .theme-default .mu-refresh-control {
   color: #03a9f4;
-}
-.theme-default .mu-snackbar {
-  background-color: rgba(0, 0, 0, 0.87);
-  color: #ffffff;
 }
 .theme-default .mu-slider-track {
   background-color: #bdbdbd;

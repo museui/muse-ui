@@ -1,7 +1,7 @@
 <template>
 <abstract-button
   :disabled="disabled" :keyboardFocused="keyboardFocused" wrapperClass="mu-flat-button-wrapper" :href="href" :target="target" :style="buttonStyle" class="mu-flat-button"
-  @click="handlerClick" :rippleColor="rippleColor"
+  @click="handleClick" :rippleColor="rippleColor"
   @keyboardFocus="handleKeyboardFocus" @hover="handleHover" @hoverExit="handleHoverExit"
   :rippleOpacity="rippleOpacity"
   :class="buttonClass" :centerRipple="false">
@@ -76,7 +76,7 @@ export default {
     }
   },
   methods: {
-    handlerClick (e) {
+    handleClick (e) {
       this.$emit('click', e)
     },
     handleKeyboardFocus (isFocus) {

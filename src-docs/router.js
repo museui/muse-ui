@@ -1,307 +1,56 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-
+import Index from './views'
+import Install from './views/get-stared/install'
+import Usage from './views/get-stared/usage'
+import ChangeLog from './views/more/changeLog'
+import Contributing from './views/more/contributing'
+import AppBar from './views/components/appbar'
+import AutoComplete from './views/components/autoComplete'
+import Avatar from './views/components/avatar'
+import Badge from './views/components/badge'
+import BottomNav from './views/components/bottomNav'
+import BottomSheet from './views/components/bottomSheet'
+import FlatButton from './views/components/flatButton'
+import RaisedButton from './views/components/raisedButton'
+import IconButton from './views/components/iconButton'
+import FloatButton from './views/components/floatButton'
+import Card from './views/components/card'
+import Chip from './views/components/chip'
+import DatePicker from './views/components/datePicker'
+import Dialog from './views/components/dialog'
+import Divider from './views/components/divider'
+import Drawer from './views/components/drawer'
+import GridList from './views/components/gridList'
+import Icon from './views/components/icon'
+import LinearProgress from './views/components/linearProgress'
+import List from './views/components/list'
+import Menu from './views/components/menu'
+import IconMenu from './views/components/iconMenu'
+import DropDownMenu from './views/components/dropDownMenu'
+import Paper from './views/components/paper'
+import Popover from './views/components/popover'
+import SelectField from './views/components/selectField'
+import Checkbox from './views/components/checkbox'
+import Radio from './views/components/radio'
+import Switch from './views/components/switch'
+import Slider from './views/components/slider'
+import SnackbarToast from './views/components/snackbarToast'
+import Stepper from './views/components/stepper'
+import SubHeader from './views/components/subHeader'
+import Table from './views/components/table'
+import Tabs from './views/components/tabs'
+import TextField from './views/components/textField'
+import TimePicker from './views/components/timePicker'
+import Tooltip from './views/components/tooltip'
+import ContentBlock from './views/components/contentBlock'
+import Flexbox from './views/components/flexbox'
+import Grid from './views/components/grid'
+import InfiniteScroll from './views/components/infiniteScroll'
+import Picker from './views/components/picker'
+import Popup from './views/components/popup'
+import RefreshControl from './views/components/refreshControl'
 Vue.use(Router)
-
-const Index = resolve => {
-  require.ensure(['./views/index.vue'], () => {
-    resolve(require('./views/index.vue'))
-  })
-}
-
-const Install = resolve => {
-  require.ensure(['./views/get-stared/install.vue'], () => {
-    resolve(require('./views/get-stared/install.vue'))
-  })
-}
-
-const Usage = resolve => {
-  require.ensure(['./views/get-stared/usage.vue'], () => {
-    resolve(require('./views/get-stared/usage.vue'))
-  })
-}
-
-const ChangeLog = resolve => {
-  require.ensure(['./views/more/changeLog.vue'], () => {
-    resolve(require('./views/more/changeLog.vue'))
-  })
-}
-
-const Contributing = resolve => {
-  require.ensure(['./views/more/contributing.vue'], () => {
-    resolve(require('./views/more/contributing.vue'))
-  })
-}
-
-const AppBar = resolve => {
-  require.ensure(['./views/components/appbar/index.vue'], () => {
-    resolve(require('./views/components/appbar/index.vue'))
-  })
-}
-
-const AutoComplete = resolve => {
-  require.ensure(['./views/components/autoComplete/index.vue'], () => {
-    resolve(require('./views/components/autoComplete/index.vue'))
-  })
-}
-
-const Avatar = resolve => {
-  require.ensure(['./views/components/avatar/index.vue'], () => {
-    resolve(require('./views/components/avatar/index.vue'))
-  })
-}
-
-const Badge = resolve => {
-  require.ensure(['./views/components/badge/index.vue'], () => {
-    resolve(require('./views/components/badge/index.vue'))
-  })
-}
-
-const BottomNav = resolve => {
-  require.ensure(['./views/components/bottomNav/index.vue'], () => {
-    resolve(require('./views/components/bottomNav/index.vue'))
-  })
-}
-
-const BottomSheet = resolve => {
-  require.ensure(['./views/components/bottomSheet/index.vue'], () => {
-    resolve(require('./views/components/bottomSheet/index.vue'))
-  })
-}
-
-const FlatButton = resolve => {
-  require.ensure(['./views/components/flatButton/index.vue'], () => {
-    resolve(require('./views/components/flatButton/index.vue'))
-  })
-}
-
-const RaisedButton = resolve => {
-  require.ensure(['./views/components/raisedButton/index.vue'], () => {
-    resolve(require('./views/components/raisedButton/index.vue'))
-  })
-}
-
-const IconButton = resolve => {
-  require.ensure(['./views/components/iconButton/index.vue'], () => {
-    resolve(require('./views/components/iconButton/index.vue'))
-  })
-}
-
-const FloatButton = resolve => {
-  require.ensure(['./views/components/floatButton/index.vue'], () => {
-    resolve(require('./views/components/floatButton/index.vue'))
-  })
-}
-
-const Card = resolve => {
-  require.ensure(['./views/components/card/index.vue'], () => {
-    resolve(require('./views/components/card/index.vue'))
-  })
-}
-
-const Chip = resolve => {
-  require.ensure(['./views/components/chip/index.vue'], () => {
-    resolve(require('./views/components/chip/index.vue'))
-  })
-}
-
-const DatePicker = resolve => {
-  require.ensure(['./views/components/datePicker/index.vue'], () => {
-    resolve(require('./views/components/datePicker/index.vue'))
-  })
-}
-
-const Dialog = resolve => {
-  require.ensure(['./views/components/dialog/index.vue'], () => {
-    resolve(require('./views/components/dialog/index.vue'))
-  })
-}
-
-const Divider = resolve => {
-  require.ensure(['./views/components/divider/index.vue'], () => {
-    resolve(require('./views/components/divider/index.vue'))
-  })
-}
-
-const Drawer = resolve => {
-  require.ensure(['./views/components/drawer/index.vue'], () => {
-    resolve(require('./views/components/drawer/index.vue'))
-  })
-}
-
-const GridList = resolve => {
-  require.ensure(['./views/components/gridList/index.vue'], () => {
-    resolve(require('./views/components/gridList/index.vue'))
-  })
-}
-
-const Icon = resolve => {
-  require.ensure(['./views/components/icon/index.vue'], () => {
-    resolve(require('./views/components/icon/index.vue'))
-  })
-}
-
-const LinearProgress = resolve => {
-  require.ensure(['./views/components/linearProgress/index.vue'], () => {
-    resolve(require('./views/components/linearProgress/index.vue'))
-  })
-}
-
-const List = resolve => {
-  require.ensure(['./views/components/list/index.vue'], () => {
-    resolve(require('./views/components/list/index.vue'))
-  })
-}
-
-const Menu = resolve => {
-  require.ensure(['./views/components/menu/index.vue'], () => {
-    resolve(require('./views/components/menu/index.vue'))
-  })
-}
-
-const IconMenu = resolve => {
-  require.ensure(['./views/components/iconMenu/index.vue'], () => {
-    resolve(require('./views/components/iconMenu/index.vue'))
-  })
-}
-
-const DropDownMenu = resolve => {
-  require.ensure(['./views/components/dropDownMenu/index.vue'], () => {
-    resolve(require('./views/components/dropDownMenu/index.vue'))
-  })
-}
-
-const Paper = resolve => {
-  require.ensure(['./views/components/paper/index.vue'], () => {
-    resolve(require('./views/components/paper/index.vue'))
-  })
-}
-
-const Popover = resolve => {
-  require.ensure(['./views/components/popover/index.vue'], () => {
-    resolve(require('./views/components/popover/index.vue'))
-  })
-}
-
-const SelectField = resolve => {
-  require.ensure(['./views/components/selectField/index.vue'], () => {
-    resolve(require('./views/components/selectField/index.vue'))
-  })
-}
-
-const Checkbox = resolve => {
-  require.ensure(['./views/components/checkbox/index.vue'], () => {
-    resolve(require('./views/components/checkbox/index.vue'))
-  })
-}
-
-const Radio = resolve => {
-  require.ensure(['./views/components/radio/index.vue'], () => {
-    resolve(require('./views/components/radio/index.vue'))
-  })
-}
-
-const Switch = resolve => {
-  require.ensure(['./views/components/switch/index.vue'], () => {
-    resolve(require('./views/components/switch/index.vue'))
-  })
-}
-
-const Slider = resolve => {
-  require.ensure(['./views/components/slider/index.vue'], () => {
-    resolve(require('./views/components/slider/index.vue'))
-  })
-}
-
-const SnackbarToast = resolve => {
-  require.ensure(['./views/components/snackbarToast/index.vue'], () => {
-    resolve(require('./views/components/snackbarToast/index.vue'))
-  })
-}
-
-const Stepper = resolve => {
-  require.ensure(['./views/components/stepper/index.vue'], () => {
-    resolve(require('./views/components/stepper/index.vue'))
-  })
-}
-
-const SubHeader = resolve => {
-  require.ensure(['./views/components/subHeader/index.vue'], () => {
-    resolve(require('./views/components/subHeader/index.vue'))
-  })
-}
-
-const Table = resolve => {
-  require.ensure(['./views/components/table/index.vue'], () => {
-    resolve(require('./views/components/table/index.vue'))
-  })
-}
-
-const Tabs = resolve => {
-  require.ensure(['./views/components/tabs/index.vue'], () => {
-    resolve(require('./views/components/tabs/index.vue'))
-  })
-}
-
-const TextField = resolve => {
-  require.ensure(['./views/components/textField/index.vue'], () => {
-    resolve(require('./views/components/textField/index.vue'))
-  })
-}
-
-const TimePicker = resolve => {
-  require.ensure(['./views/components/timePicker/index.vue'], () => {
-    resolve(require('./views/components/timePicker/index.vue'))
-  })
-}
-
-const Tooltip = resolve => {
-  require.ensure(['./views/components/tooltip/index.vue'], () => {
-    resolve(require('./views/components/tooltip/index.vue'))
-  })
-}
-
-const ContentBlock = resolve => {
-  require.ensure(['./views/components/contentBlock/index.vue'], () => {
-    resolve(require('./views/components/contentBlock/index.vue'))
-  })
-}
-
-const Flexbox = resolve => {
-  require.ensure(['./views/components/flexbox/index.vue'], () => {
-    resolve(require('./views/components/flexbox/index.vue'))
-  })
-}
-
-const Grid = resolve => {
-  require.ensure(['./views/components/grid/index.vue'], () => {
-    resolve(require('./views/components/grid/index.vue'))
-  })
-}
-
-const InfiniteScroll = resolve => {
-  require.ensure(['./views/components/infiniteScroll/index.vue'], () => {
-    resolve(require('./views/components/infiniteScroll/index.vue'))
-  })
-}
-
-const Picker = resolve => {
-  require.ensure(['./views/components/picker/index.vue'], () => {
-    resolve(require('./views/components/picker/index.vue'))
-  })
-}
-
-const Popup = resolve => {
-  require.ensure(['./views/components/popup/index.vue'], () => {
-    resolve(require('./views/components/popup/index.vue'))
-  })
-}
-
-const RefreshControl = resolve => {
-  require.ensure(['./views/components/refreshControl/index.vue'], () => {
-    resolve(require('./views/components/refreshControl/index.vue'))
-  })
-}
 
 const router = new Router({
   mode: 'hash',

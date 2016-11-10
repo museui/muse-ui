@@ -1,5 +1,5 @@
 <template>
-<text-field class="mu-select-field" :underlineShow="underlineShow"
+<text-field ref="textField" class="mu-select-field" :underlineShow="underlineShow"
   :labelFloat="labelFloat" :hintText="hintText" :fullWidth="fullWidth"
   :helpText="helpText" :icon="icon" :value="inputValue instanceof Array ? inputValue.join('') : inputValue"
    :disabled="disabled" :errorText="errorText" :errorColor="errorColor" :label="label">
@@ -91,10 +91,10 @@ export default {
       }
     },
     handlerOpen () {
-      this.$children[0].handlerFocus()
+      this.$refs.textField.handleFocus()
     },
     handlerClose () {
-      this.$children[0].handlerBlur()
+      this.$refs.textField.handleBlur()
     }
   },
   watch: {
