@@ -57,7 +57,7 @@ ${this.code}
   align-items: center;
   height: 56px;
   padding: 0px 24px;
-  background-color: darken(@accent2Color, 5%);
+  background-color: darken(@darkerAccentColor, 5%);
   cursor: pointer;
 }
 

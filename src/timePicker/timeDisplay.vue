@@ -87,7 +87,7 @@ export default {
   padding: 14px 0px;
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
-  background-color: @pickerHeaderColor;
+  background-color: @primaryColor;
   color: @alternateTextColor;
   .mu-clock-landspace & {
     width: 179px;

@@ -22,6 +22,7 @@
 
 .demo-flat-button-container{
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
 }
 .demo-flat-button {

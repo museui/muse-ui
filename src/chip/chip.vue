@@ -89,7 +89,7 @@ export default {
   white-space: nowrap;
   display: inline-flex;
   align-items: center;
-  background-color: darken(@canvasColor, 12%);
+  background-color: darken(@alternateTextColor, 12%);
   color: fade(@textColor, 87%);
   padding: 0 12px;
   cursor: default;

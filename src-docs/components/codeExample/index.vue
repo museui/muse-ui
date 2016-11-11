@@ -35,7 +35,7 @@ export default {
 <style lang="less">
 @import "../../../src/styles/import.less";
 .code-examples {
-  background-color: @canvasColor;
+  background-color: @dialogBackgroundColor;
   margin-bottom: 32px;
   .markdown-body + & {
     margin-top: 24px;

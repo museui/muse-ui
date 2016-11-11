@@ -40,7 +40,7 @@ export default {
 <style lang="less">
 @import "../styles/import.less";
 .mu-picker{
-  background: @canvasColor;
+  background: @dialogBackgroundColor;
   overflow: hidden;
   width: 100%;
   display: flex;

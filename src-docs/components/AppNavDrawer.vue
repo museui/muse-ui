@@ -6,9 +6,9 @@
   </mu-appbar>
   <mu-divider/>
   <mu-flexbox class="mu-version-box" align="center">
-    <span class="mu-version-text">Version:</span>
-    <mu-dropDown-menu value="2.0.0.alpha">
-      <mu-menu-item value="2.0.0.alpha" title="2.0.0.alpha"/>
+    <span class="mu-version-text">Version: </span>
+    <mu-dropDown-menu :value="version" v-if="version">
+      <mu-menu-item v-for="vtext in versions" :value="vtext" :title="vtext"/>
     </mu-dropDown-menu>
   </mu-flexbox>
   <mu-list @change="handleMenuChange" :value="menuVal">
@@ -16,10 +16,10 @@
       <mu-list-item href="#/install" value="#/install" slot="nested" title="安装"/>
       <mu-list-item href="#/usage" value="#/usage" slot="nested" title="使用"/>
     </mu-list-item>
-    <!-- <mu-list-item title="私人定制" toggleNested>
+    <mu-list-item title="个性定制" toggleNested>
       <mu-list-item slot="nested" title="主题"/>
-      <mu-list-item slot="nested" title="颜色"/>
-    </mu-list-item> -->
+      <mu-list-item slot="nested" href="#/colors" value="#/colors" title="颜色"/>
+    </mu-list-item>
 
     <mu-list-item title="基础组件" toggleNested>
       <mu-sub-header slot="nested" class="exmaples-nav-sub-header">Material Design</mu-sub-header>
@@ -108,7 +108,9 @@ export default {
   },
   data () {
     return {
-      menuVal: '#/'
+      menuVal: '#/',
+      version: '',
+      versions: []
     }
   },
   methods: {
@@ -125,6 +127,19 @@ export default {
     window.addEventListener('hashchange', () => {
       this.menuVal = window.location.hash
     })
+    var xhr = new window.XMLHttpRequest()
+    xhr.open('GET', '/version.json', true)
+    xhr.onload = () => {
+      if (xhr.readyState === 4) {
+        if (xhr.status === 200) {
+          this.versions = JSON.parse(xhr.responseText)
+          this.version = this.versions[0]
+        } else {
+          console.error(xhr.statusText)
+        }
+      }
+    }
+    xhr.send()
   }
 }
 </script>

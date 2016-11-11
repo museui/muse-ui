@@ -68,8 +68,8 @@ export default {
   height: 40px;
   width: 40px;
   font-size: 20px;
-  color: @canvasColor;
-  background-color: darken(@canvasColor, 26%);
+  color: @alternateTextColor;
+  background-color: darken(@alternateTextColor, 26%);
   text-align: center;
   border-radius: 50%;
   img {

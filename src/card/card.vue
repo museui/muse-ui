@@ -11,7 +11,7 @@ export default {
 <style lang="less">
 @import "../styles/import.less";
 .mu-card {
-  background-color: @alternateTextColor;
+  background-color: @dialogBackgroundColor;
   position: relative;
   border-radius: 2px;
   .depth(1);

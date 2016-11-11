@@ -75,7 +75,7 @@ export default {
   max-width: 768px;
   margin: 0 auto;
   padding: 0;
-  background-color: @canvasColor;
+  background-color: @dialogBackgroundColor;
   border-radius: 2px;
   font-size: 16px;
   .depth(5);

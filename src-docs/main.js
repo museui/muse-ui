@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import MuseUI from 'muse-ui'
 import './assets/font-icons/style.css'
+import '../dist/theme-dark.min.css'
 import App from './App.vue'
 import markdownElement from './components/markdownElement'
 import codeExample from './components/codeExample'

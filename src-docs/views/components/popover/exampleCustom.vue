@@ -9,13 +9,13 @@ targetOrigin: {{stringify(targetOrigin)}}</pre>
     <div class="demo-origin-block">
       <span>vertical 垂直方向</span>
       <mu-radio class="demo-origin-raido" name="anchorVertical" v-model="anchorOrigin.vertical" nativeValue="top" label="Top"/>
-      <mu-radio class="demo-origin-raido" name="anchorVertical" v-model="anchorOrigin.vertical" nativeValue="middle" label="Middle"/>
+      <mu-radio class="demo-origin-raido" name="anchorVertical" v-model="anchorOrigin.vertical" nativeValue="center" label="Center"/>
       <mu-radio class="demo-origin-raido" name="anchorVertical" v-model="anchorOrigin.vertical" nativeValue="bottom" label="Bottom"/>
     </div>
     <div class="demo-origin-block">
       <span>horizontal 水平方向</span>
       <mu-radio class="demo-origin-raido" name="anchorHorizontal" v-model="anchorOrigin.horizontal" nativeValue="left" label="Left"/>
-      <mu-radio class="demo-origin-raido" name="anchorHorizontal" v-model="anchorOrigin.horizontal" nativeValue="center" label="Center"/>
+      <mu-radio class="demo-origin-raido" name="anchorHorizontal" v-model="anchorOrigin.horizontal" nativeValue="middle" label="Middle"/>
       <mu-radio class="demo-origin-raido" name="anchorHorizontal" v-model="anchorOrigin.horizontal" nativeValue="right" label="Right"/>
     </div>
   </div>
@@ -24,13 +24,13 @@ targetOrigin: {{stringify(targetOrigin)}}</pre>
     <div class="demo-origin-block">
       <span>vertical 垂直方向</span>
       <mu-radio class="demo-origin-raido" name="targetVertical" v-model="targetOrigin.vertical" nativeValue="top" label="Top"/>
-      <mu-radio class="demo-origin-raido" name="targetVertical" v-model="targetOrigin.vertical" nativeValue="middle" label="Middle"/>
+      <mu-radio class="demo-origin-raido" name="targetVertical" v-model="targetOrigin.vertical" nativeValue="center" label="Center"/>
       <mu-radio class="demo-origin-raido" name="targetVertical" v-model="targetOrigin.vertical" nativeValue="bottom" label="Bottom"/>
     </div>
     <div class="demo-origin-block">
       <span>horizontal 水平方向</span>
       <mu-radio class="demo-origin-raido" name="targetHorizontal" v-model="targetOrigin.horizontal" nativeValue="left" label="Left"/>
-      <mu-radio class="demo-origin-raido" name="targetHorizontal" v-model="targetOrigin.horizontal" nativeValue="center" label="Center"/>
+      <mu-radio class="demo-origin-raido" name="targetHorizontal" v-model="targetOrigin.horizontal" nativeValue="middle" label="Middle"/>
       <mu-radio class="demo-origin-raido" name="targetHorizontal" v-model="targetOrigin.horizontal" nativeValue="right" label="Right"/>
     </div>
   </div>
@@ -92,6 +92,7 @@ export default {
 .demo-origin-block{
   display: flex;
   flex-direction: column;
+  margin-left: 12px;
 }
 .demo-origin-raido {
   margin-top: 12px;

@@ -102,7 +102,7 @@ export default {
   right: 0;
   bottom: 0;
   height: 48px;
-  background: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.4);
   display: flex;
   align-items: center;
 

@@ -119,7 +119,7 @@ export default {
 <style lang="less">
 @import "../styles/import.less";
 .mu-table {
-  background-color: @canvasColor;
+  background-color: @alternateTextColor;
   padding: 0 24px;
   width: 100%;
   border-collapse: collapse;

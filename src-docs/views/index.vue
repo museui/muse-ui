@@ -79,7 +79,7 @@ export default {
   height: 100px;
   line-height: 100px;
   text-align: center;
-  background-color: @canvasColor;
+  background-color: @alternateTextColor;
   margin:  0 auto;
   color: @primaryColor;
   font-size: 50px;
@@ -106,7 +106,7 @@ export default {
   text-align: center;
 }
 .mu-desc-wrapper{
-  background-color: @accent2Color;
+  background-color: @grey100;
 }
 .mu-desc{
   padding: 24px 24px 48px 24px;

@@ -202,7 +202,7 @@ export default {
 @import "../styles/import.less";
 .mu-popover{
   position: fixed;
-  background: @canvasColor;
+  background: @dialogBackgroundColor;
   border-radius: 2px;
   max-height: 100%;
   overflow: visible;

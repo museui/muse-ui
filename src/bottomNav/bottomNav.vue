@@ -58,9 +58,8 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: @canvasColor;
+  background-color: @dialogBackgroundColor;
   text-align: center;
-  font-size: 18px;
   position: relative;
   width: 100%;
   color: @alternateTextColor;

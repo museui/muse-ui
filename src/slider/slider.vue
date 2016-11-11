@@ -195,7 +195,7 @@ export default {
   height: 2px;
   left: 0;
   right: 0;
-  background-color: @primary3Color;
+  background-color: @lighterPrimaryColor;
 }
 
 .mu-slider-fill{
@@ -204,7 +204,7 @@ export default {
   width: 100%;
   background-color: @primaryColor;
   .mu-slider.disabled & {
-    background-color: @primary3Color;
+    background-color: @lighterPrimaryColor;
   }
 }
 
@@ -223,8 +223,8 @@ export default {
   }
   .mu-slider.zero &,
   .mu-slider.disabled &{
-    border: 2px solid @primary3Color;
-    color: @primary3Color;
+    border: 2px solid @lighterPrimaryColor;
+    color: @lighterPrimaryColor;
     background-color: @alternateTextColor;
     .mu-focus-ripple-wrapper {
       top: -14px;

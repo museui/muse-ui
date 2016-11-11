@@ -147,6 +147,25 @@ body {
   color: @chipDeleteColor;
 }
 
+.mu-dialog {
+  background-color: @dialogBackgroundColor;
+}
+
+.mu-dialog-footer,
+.mu-dialog-header {
+  &.scrollable{
+    border-bottom-color: @dialogBorderColor;
+  }
+}
+
+.mu-dialog-title{
+  color: @dialogTitleColor;
+}
+
+.mu-dialog-body {
+  color: @dialogBodyColor
+}
+
 .mu-calendar {
   color: @datePickerCalendarTextColor;
 }
@@ -187,25 +206,6 @@ body {
   .mu-year-button.hover &{
     color: @datePickerColor;
   }
-}
-
-.mu-dialog {
-  background-color: @dialogBackgroundColor;
-}
-
-.mu-dialog-footer,
-.mu-dialog-header {
-  &.scrollable{
-    border-bottom-color: @dialogBorderColor;
-  }
-}
-
-.mu-dialog-title{
-  color: @dialogTitleColor;
-}
-
-.mu-dialog-body {
-  color: @dialogBodyColor
 }
 
 .mu-dropDown-menu-text {
@@ -260,6 +260,20 @@ body {
   color: @floatButtonSecondaryIconColor;
 }
 
+.mu-grid-tile-titlebar{
+  background-color: @gridListTitlebarColor;
+}
+
+.mu-grid-tile-title-container{
+  color: @gridListTextColor;
+}
+
+.mu-grid-tile-action {
+  .mu-icon {
+    color: @gridListTextColor;
+  }
+}
+
 
 // circle
 .mu-circle-spinner{
@@ -268,6 +282,27 @@ body {
 
 .mu-circle-secondary {
   border-color: @circleSecondaryColor;
+}
+
+.mu-menu-item-wrapper{
+  color: @menuTextColor;
+  &.active {
+    color: @menuSelectColor;
+  }
+  &.hover {
+    background-color: @menuHoverColor;
+  }
+  &.disabled {
+    color: @menuDisabledColor;
+  }
+}
+
+.mu-menu-item-left-icon{
+  color: @menuLeftIconColor;
+}
+
+.mu-menu-item-right-icon {
+  color: @menuRightIconColor;
 }
 
 
@@ -302,27 +337,6 @@ body {
 
 .mu-item-text{
   color: @listSecondaryTextColor;
-}
-
-.mu-menu-item-wrapper{
-  color: @menuTextColor;
-  &.active {
-    color: @menuSelectColor;
-  }
-  &.hover {
-    background-color: @menuHoverColor;
-  }
-  &.disabled {
-    color: @menuDisabledColor;
-  }
-}
-
-.mu-menu-item-left-icon{
-  color: @menuLeftIconColor;
-}
-
-.mu-menu-item-right-icon {
-  color: @menuRightIconColor;
 }
 
 .mu-paper {
@@ -446,6 +460,11 @@ body {
   }
 }
 
+.mu-snackbar {
+  color: @snackbarTextColor;
+  background-color: @snackbarColor;
+}
+
 .mu-step-button {
   background-color: @stepperBackgroundColor;
   &.hover {
@@ -493,11 +512,6 @@ body {
   .mu-step-label.active & {
     background-color: @stepperIconColor;
   }
-}
-
-// subheader
-.mu-sub-header{
-  color: @subHeaderColor;
 }
 
 .mu-switch {
@@ -552,6 +566,11 @@ body {
   }
 }
 
+// subheader
+.mu-sub-header{
+  color: @subHeaderColor;
+}
+
 .mu-table {
   background-color: @tableBackgroundColor;
 }
@@ -580,19 +599,6 @@ body {
   .mu-tfoot & {
     border-top-color: @tableBorderColor;
   }
-}
-
-.mu-tabs{
-  background-color: @tabsBackgroundColor;
-}
-.mu-tab-link-highlight {
-  background-color: @tabsLineColor;
-}
-.mu-tab-link{
-  color: @tabsTextColor;
-}
-.mu-tab-active {
-  color: @tabsSelectedTextColor;
 }
 
 .mu-text-field{
@@ -643,6 +649,24 @@ body {
   }
 }
 
+.mu-tabs{
+  background-color: @tabsBackgroundColor;
+}
+.mu-tab-link-highlight {
+  background-color: @tabsLineColor;
+}
+.mu-tab-link{
+  color: @tabsTextColor;
+}
+.mu-tab-active {
+  color: @tabsSelectedTextColor;
+}
+
+.mu-toast {
+  background-color: @toastColor;
+  color: @toastTextColor;
+}
+
 .mu-clock-circle {
   background-color: @clockCircleColor;
 }
@@ -667,11 +691,6 @@ body {
 .mu-clock-pointer-mark {
   background-color: @timePickerSelectTextColor;
   border-color:  @timePickerSelectColor;
-}
-
-.mu-toast {
-  background-color: @toastColor;
-  color: @toastTextColor;
 }
 
 .mu-tooltip{

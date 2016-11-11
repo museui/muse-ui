@@ -25,7 +25,7 @@ export default {
 <style lang="less">
 @import "../styles/import.less";
 .mu-bottom-sheet {
-  background-color: @canvasColor;
+  background-color: @dialogBackgroundColor;
   position: fixed;
   left: 0;
   right: 0;

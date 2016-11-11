@@ -96,7 +96,7 @@ export default {
 <style lang="less">
 @import "../../../src/styles/import.less";
 .api-view-tabs{
-  background-color: @canvasColor;
+  background-color: transparent;
   color: @textColor;
   margin-bottom: 16px;
   .mu-tab-link-highlight {

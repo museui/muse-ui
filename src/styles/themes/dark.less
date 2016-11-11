@@ -1,17 +1,36 @@
 @import "../vars.less";
+
 @primaryColor: @lightBlue700;
+@darkerPrimaryColor: @lightBlue700;
+@lighterPrimaryColor: @grey600;
 @accentColor: @pinkA200;
+@darkerAccentColor: @pinkA400;
+@lighterAccentColor: @pinkA100;
+
 @textColor: @fullWhite;
 @secondaryTextColor: fade(@fullWhite, 70%);
 @alternateTextColor: #303030;
-@canvasColor: #303030;
 @borderColor: fade(@fullWhite, 30%);
 @disabledColor: fade(@fullWhite, 30%);
-@pickerHeaderColor: fade(@fullWhite, 12%);
-@clockCircleColor: fade(@fullWhite, 12%);
-@primary3Color: @grey600;
-@accent2Color: @pinkA400;
+
+// background
+@backgroundColor: #303030;
+@statusBarBackgroundColor: @fullBlack;
+@appbarBackgroundColor: @grey900;
+@dialogBackgroundColor: #424242; // dialogs or cards
+
+// icon
+@activeIconColor: fade(@fullWhite, 100%);
+@inActiveIconColor: fade(@fullWhite, 50%);
+
 @import "../../../less/theme-vars.less";
+// components vars
+@avatarBackgroundColor: lighten(@alternateTextColor, 26%);
+@datePickerHeaderColor: fade(@fullWhite, 12%);
+@timePickerHeaderColor: fade(@fullWhite, 12%);
+@timePickerClockCircleColor: fade(@fullWhite, 12%);
+
+
 .theme-dark {
   @import "../../../less/theme.less";
 }

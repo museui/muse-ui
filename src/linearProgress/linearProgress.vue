@@ -44,7 +44,7 @@ export default {
   height: 4px;
   display: block;
   width: 100%;
-  background-color: @primary3Color;
+  background-color: @lighterPrimaryColor;
   border-radius: 2px;
   margin: 0px;
   overflow: hidden;

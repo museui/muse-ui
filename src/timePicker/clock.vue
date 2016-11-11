@@ -167,7 +167,7 @@ export default {
   width: 260px;
   height: 260px;
   border-radius: 100%;
-  background-color: @clockCircleColor;
+  background-color: fade(@darkBlack, 7%);
   .mu-clock-landspace &{
     left: 50%;
     margin-left: -130px;

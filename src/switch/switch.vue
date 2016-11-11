@@ -113,7 +113,7 @@ export default {
     input[type="checkbox"]:checked{
       + .mu-switch-wrapper {
         .mu-switch-track{
-          background-color: @primary3Color;
+          background-color: @lighterPrimaryColor;
         }
         .mu-switch-thumb{
           background-color: @borderColor;
@@ -165,10 +165,10 @@ export default {
   width: 100%;
   height: 14px;
   border-radius: 30px;
-  background-color: @primary3Color;
+  background-color: @lighterPrimaryColor;
   transition: all 450ms @easeOutFunction;
   .mu-switch.disabled & {
-    background-color: @primary3Color;
+    background-color: @lighterPrimaryColor;
   }
 }
 
@@ -180,7 +180,7 @@ export default {
   height: 20px;
   line-height: 24px;
   color: @textColor;
-  background-color: @accent2Color;
+  background-color: @darkerAccentColor;
   border-radius: 50%;
   .depth(1);
   transition: all 450ms @easeOutFunction;

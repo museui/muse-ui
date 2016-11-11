@@ -64,8 +64,9 @@ export default {
   height: 272px;
   overflow: hidden;
 }
+
 .mu-calendar-year {
-  background-color: @canvasColor;
+  background-color: @dialogBackgroundColor;
   height: inherit;
   line-height: 35px;
   overflow-x: hidden;

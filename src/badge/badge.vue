@@ -68,7 +68,7 @@ export default {
   line-height: 1.5;
   font-size: 12px;
   font-style: normal;
-  background-color: @primary3Color;
+  background-color: @lighterPrimaryColor;
   color: @alternateTextColor;
   border-radius: 3px;
   overflow: hidden;

@@ -38,7 +38,7 @@ export default {
 .mu-paper {
   transition: all .45s @easeOutFunction;
   color: @textColor;
-  background-color: @canvasColor;
+  background-color: @dialogBackgroundColor;
   .depth(1);
 }
 

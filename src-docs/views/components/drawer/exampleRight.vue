@@ -7,6 +7,7 @@
       <mu-menu-item title="Menu Item 1"/>
       <mu-menu-item title="Menu Item 2"/>
       <mu-menu-item title="Menu Item 3"/>
+      <mu-menu-item @click.native="open = false" title="Close"/>
     </mu-menu>
   </mu-drawer>
 </div>

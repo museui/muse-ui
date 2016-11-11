@@ -66,7 +66,7 @@ export default {
   max-width: 168px;
   position: relative;
   height: 100%;
-  color: fade(@textColor, 54%);
+  color: @secondaryTextColor;
   padding: 0;
   background: none;
   appearance: none;
@@ -80,6 +80,8 @@ export default {
     align-items: center;
     justify-content: center;
     padding: 8px 12px 10px;
+    min-width: 56px;
+    max-width: 168px;
   }
 }
 .mu-buttom-item-wrapper {
@@ -96,13 +98,16 @@ export default {
   }
   .mu-bottom-nav-shift & {
     color: @alternateTextColor;
-    flex: 1 1 72px;
+    flex: 1.7;
+    min-width: 96px;
+    max-width: 168px;
   }
 }
 
 .mu-bottom-item-text{
   font-size: 12px;
   transition: all .4s @easeOutFunction, color 0.3s, font-size 0.3s;
+  backface-visibility: hidden;
   .mu-bottom-nav-shift & {
     opacity: 0;
     transform: scale(1) translate3d(0, 6px, 0);
@@ -113,7 +118,8 @@ export default {
   }
 }
 .mu-bottom-item-icon {
-  transition: all 450ms @easeOutFunction 0ms;
+  transition: all .45s @easeOutFunction;
+  backface-visibility: hidden;
   .mu-bottom-nav-shift & {
     margin: auto;
     transform: translate3d(0, 8px, 0);

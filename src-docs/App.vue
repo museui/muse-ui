@@ -106,6 +106,7 @@ function isDesktop () {
 
 .content-wrapper{
   padding: 48px 72px;
+  background-color: @alternateTextColor;
 }
 
 @media (min-width: 480px) {

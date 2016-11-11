@@ -3,9 +3,9 @@
   <div class="left">
     <slot name="left"></slot>
   </div>
-  <div class="center">
+  <div class="mu-appbar-title">
     <slot>
-      <h1 class="mu-appbar-title">{{title}}</h1>
+      {{title}}
     </slot>
   </div>
   <div class="right">
@@ -39,8 +39,7 @@ export default {
   align-items: center;
   color: @alternateTextColor;
   background-color: @primaryColor;
-  font-size: 24px;
-  height: @desktopToolbarHeight;
+  height: 56px;
   padding: 0 8px;
   width: 100%;
   .flex-shrink(0);
@@ -52,21 +51,19 @@ export default {
     justify-content: flex-start;
     align-items: center;
   }
-  > .center{
-    flex: 1;
-    overflow: hidden;
-    padding-left: 8px;
-    padding-right: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-  }
 }
 
 .mu-appbar-title {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex: 1;
+  padding-left: 8px;
+  padding-right: 8px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  overflow: hidden;
   margin: 0;
   font-size: 20px;
   font-weight: 400;
@@ -74,8 +71,7 @@ export default {
 
 @media (min-width: 480px) {
   .mu-appbar {
-    height: @desktopKeylineIncrement;
-    font-size: 24px;
+    height: 64px;
   }
   .mu-appbar-title {
     font-size: 24px;
