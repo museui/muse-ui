@@ -140,7 +140,7 @@ export default {
   text-transform: uppercase;
   border: none;
   appearance: none;
-  background: @alternateTextColor;
+  background-color: @alternateTextColor;
   color: @textColor;
   .flex-shrink(0);
   margin: 0;
@@ -219,7 +219,7 @@ export default {
   width: 100%;
 }
 
-.mu-raised-button-inverse {
+.mu-raised-button.mu-raised-button-inverse {
   color: @alternateTextColor;
   .mu-circle-ripple {
     opacity: 0.3;

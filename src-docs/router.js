@@ -6,6 +6,7 @@ import Usage from './views/get-stared/usage'
 import ChangeLog from './views/more/changeLog'
 import Contributing from './views/more/contributing'
 import Colors from './views/customization/colors'
+import Theme from './views/customization/theme'
 import AppBar from './views/components/appbar'
 import AutoComplete from './views/components/autoComplete'
 import Avatar from './views/components/avatar'
@@ -62,6 +63,7 @@ const router = new Router({
     { path: '/changeLog', title: '更新日志', component: ChangeLog },
     { path: '/contributing', title: '贡献指南', component: Contributing },
     { path: '/colors', title: '颜色', component: Colors },
+    { path: '/theme', title: '主题', component: Theme },
     { path: '/appbar', title: '组件-AppBar', component: AppBar },
     { path: '/autoComplete', title: '组件-AutoComplete', component: AutoComplete },
     { path: '/avatar', title: '组件-Avatar', component: Avatar },

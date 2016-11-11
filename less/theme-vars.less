@@ -2,9 +2,6 @@
 @appbarColor: @primaryColor;
 @appbarTextColor: @alternateTextColor;
 
-@avatarColor: @alternateTextColor;
-@avatarBackgroundColor: darken(@alternateTextColor, 26%);
-
 // badge
 @badgeColor: @lighterPrimaryColor;
 @badgeTextColor: @alternateTextColor;
@@ -13,9 +10,14 @@
 @badgeSecondaryColor: @accentColor;
 @badgeSecondaryTextColor: @alternateTextColor;
 
+@avatarColor: @alternateTextColor;
+@avatarBackgroundColor: darken(@alternateTextColor, 26%);
+
 @baseFontFamily: @fontFamily;
 @baseTextColor: @textColor;
 @baseBackgroundColor: @backgroundColor;
+
+@bottomSheetColor: @dialogBackgroundColor;
 
 @bottomNavBackgroundColor: @dialogBackgroundColor;
 @bottomNavShiftBackgroundColor: @primaryColor;
@@ -23,8 +25,6 @@
 @bottomNavShiftUnselectedColor: fade(@alternateTextColor, 70%);
 @bottomNavSelectedColor: @primaryColor;
 @bottomNavShiftSelectedColor: @alternateTextColor;
-
-@bottomSheetColor: @dialogBackgroundColor;
 
 @cardBackgroudColor: @backgroundColor;
 @cardTitleColor: fade(@textColor, 87%);
@@ -46,6 +46,11 @@
 @chipDeleteColor: fade(@textColor, 26%);
 @chipHoverDeleteColor: fade(fade(@textColor, 26%), 40%);
 
+@dialogBorderColor: @borderColor;
+@dialogTitleColor: @textColor;
+@dialogBodyColor: fade(@textColor, 60%);;
+@dialogColor: @dialogBackgroundColor;
+
 @datePickerColor: @primaryColor;
 @datePickerTextColor: @alternateTextColor;
 @datePickerCalendarTextColor: @textColor;
@@ -53,11 +58,6 @@
 @datePickerSelectTextColor: @alternateTextColor;
 @datePickerCalendarYearBackgroundColor: @dialogBackgroundColor;
 @datePickerHeaderColor: @primaryColor;
-
-@dialogBorderColor: @borderColor;
-@dialogTitleColor: @textColor;
-@dialogBodyColor: fade(@textColor, 60%);;
-@dialogBackgroundColor: @dialogBackgroundColor;
 
 @dropDownMenuTextColor: @textColor;
 @dropDownMenuIconColor: @borderColor;
@@ -74,7 +74,7 @@
 @floatButtonIconColor: @alternateTextColor;
 @floatButtonSecondaryColor: @accentColor;
 @floatButtonSecondaryIconColor: @alternateTextColor;
-@floatButtonDisabledColor: darken(@alternateTextColor, 10%);
+@floatButtonDisabledColor: darken(@alternateTextColor, 12%);
 @floatButtonDisabledIconColor: fade(@textColor, 30%);
 
 @gridListTextColor: @white;
@@ -84,13 +84,16 @@
 @circleColor: @primaryColor;
 @circleSecondaryColor: @accentColor;
 
+@linearProgressColor: @lighterPrimaryColor;
+@linearProgressFillColor: @primaryColor;
+
 // listItem
 @listTextColor: @textColor;
 @listHoverColor: fade(@listTextColor, 10%);
-@listActiveColor: fade(@listTextColor, 20%);
 @listSecondaryTextColor: @secondaryTextColor;
 @listLeftIconColor: @grey600;
 @listRightIconColor: @grey600;
+@listSelectedColor: @primaryColor;
 
 @menuTextColor: @textColor;
 @menuSelectColor: @accentColor;

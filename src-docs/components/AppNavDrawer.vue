@@ -17,7 +17,7 @@
       <mu-list-item href="#/usage" value="#/usage" slot="nested" title="使用"/>
     </mu-list-item>
     <mu-list-item title="个性定制" toggleNested>
-      <mu-list-item slot="nested" title="主题"/>
+      <mu-list-item slot="nested" href="#/theme" value="#/theme" title="主题"/>
       <mu-list-item slot="nested" href="#/colors" value="#/colors" title="颜色"/>
     </mu-list-item>
 
@@ -33,7 +33,7 @@
         <mu-list-item slot="nested" href="#/flatButton" value="#/flatButton" title="Flat Button"></mu-list-item>
         <mu-list-item slot="nested" href="#/raisedButton" value="#/raisedButton" title="Raised Button"></mu-list-item>
         <mu-list-item slot="nested" href="#/iconButton" value="#/iconButton" title="Icon Button"></mu-list-item>
-        <mu-list-item slot="nested" href="#/floatButton" value="/floatButton" title="Floating Action Button"></mu-list-item>
+        <mu-list-item slot="nested" href="#/floatButton" value="#/floatButton" title="Floating Action Button"></mu-list-item>
       </mu-list-item>
       <mu-list-item slot="nested" href="#/card" value="#/card" title="Card"/>
       <mu-list-item slot="nested" href="#/chip" value="#/chip" title="Chip"/>
