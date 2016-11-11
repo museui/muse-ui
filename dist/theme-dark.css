@@ -18,11 +18,6 @@
   background-color: #ff4081;
   color: #303030;
 }
-body {
-  background-color: #303030;
-  color: #ffffff;
-  font-family: Roboto, Lato, sans-serif;
-}
 .mu-bottom-nav {
   background-color: #424242;
 }
@@ -40,6 +35,14 @@ body {
 }
 .mu-bottom-nav-shift .mu-bottom-item-active {
   color: #303030;
+}
+body {
+  background-color: #303030;
+  color: #ffffff;
+  font-family: Roboto, Lato, sans-serif;
+}
+a {
+  color: #ff4081;
 }
 .mu-bottom-sheet {
   background-color: #424242;
@@ -404,7 +407,7 @@ body {
   background-color: #757575;
 }
 .mu-switch.disabled input[type="checkbox"]:checked + .mu-switch-wrapper .mu-switch-thumb {
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: #e0e0e0;
 }
 .mu-switch-label {
   color: #ffffff;
@@ -423,7 +426,7 @@ body {
   background-color: #f50057;
 }
 .mu-switch.disabled .mu-switch-thumb {
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: #e0e0e0;
 }
 .mu-table {
   background-color: #303030;

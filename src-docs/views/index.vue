@@ -9,10 +9,10 @@
           Muse-UI
         </h1>
         <h2 class="mu-banner-sub-title">
-          基于 Vue 2.0 和 Material Desigin 开发的 UI 组件库
+          基于 Vue 2.0 和 Material Desigin 的 UI 组件库
         </h2>
         <div class="mu-banner-actions">
-          <mu-raised-button label="Get Started" href="#/install" color="lightBlue"/>
+          <mu-raised-button label="Get Started" href="#/install" class="mu-banner-button"/>
         </div>
       </div>
       <div class="mu-banner-appbar-height"></div>
@@ -42,6 +42,23 @@
             </div>
           </mu-col>
         </mu-row>
+      </div>
+    </div>
+    <mu-divider/>
+    <div  class="mu-desc-wrapper">
+      <div class="mu-desc">
+        <h2 class="mu-desc-title">致谢</h2>
+        <div class="mu-desc-item">
+          <div class="mu-desc-text">
+            Muse UI 基于一个非常优秀的前端框架
+            <a href="https://vuejs.org" target="_blank">Vue</a>
+            开发， 并且参考了
+            <a href="http://www.material-ui.com/" target="_blank">material-ui</a> 、
+            <a href="http://element.eleme.io/" target="_blank">element</a>
+            等众多优秀的UI框架的API和代码，
+            为了鼓励开发人员使用MUI，我们在MIT开源协议基础上上开放MUI的源代码。
+          </div>
+        </div>
       </div>
     </div>
     <div class="mu-footer">
@@ -102,6 +119,10 @@ export default {
   margin-bottom: 16px;
 }
 
+.mu-banner-button{
+  color: @primaryColor;
+}
+
 .mu-banner-actions{
   text-align: center;
 }
@@ -129,6 +150,11 @@ export default {
   padding-left: 16px;
   padding-right: 16px;
 }
+
+.mu-desc-text {
+  font-size: 16px;
+}
+
 @media (min-width: 480px) {
   .mu-banner-appbar-height{
     height: 64px;
@@ -136,9 +162,9 @@ export default {
 }
 
 .mu-footer{
-  padding: 16px;
   background-color: @grey900;
   text-align: center;
   color: @white;
+  padding: 50px 0;
 }
 </style>

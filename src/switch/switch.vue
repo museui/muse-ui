@@ -116,7 +116,7 @@ export default {
           background-color: @lighterPrimaryColor;
         }
         .mu-switch-thumb{
-          background-color: @borderColor;
+          background-color: @grey300;
         }
       }
     }
@@ -185,7 +185,7 @@ export default {
   .depth(1);
   transition: all 450ms @easeOutFunction;
   .mu-switch.disabled & {
-    background-color: @borderColor;
+    background-color: @grey300;
   }
 }
 

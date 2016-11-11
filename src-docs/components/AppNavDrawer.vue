@@ -1,7 +1,7 @@
 <template>
 <mu-drawer @close="handleClose" :open="open" :docked="docked" class="app-drawer" :zDepth="1">
   <mu-appbar class="exmaples-nav-appbar" :zDepth="0">
-    <a class="mu-appbar-title" @click="handleMenuChange('#/index')" href="#/index" style="display:inline-block;">Muse-UI</a>
+    <a class="exmaples-appbar-title" @click="handleMenuChange('#/index')" href="#/index" style="display:inline-block;">Muse-UI</a>
     <mu-badge content="alpha" class="exmaples-version" secondary/>
   </mu-appbar>
   <mu-divider/>
@@ -151,12 +151,12 @@ export default {
   border-right: 1px solid @borderColor;
 }
 
-.exmaples-nav-appbar{
+.exmaples-nav-appbar.mu-appbar{
   background-color: #FFF;
   color: @secondaryTextColor;
-  .mu-appbar-title{
-    color: @secondaryTextColor;
-  }
+}
+.exmaples-appbar-title{
+  color: @secondaryTextColor;
 }
 
 .exmaples-version {
