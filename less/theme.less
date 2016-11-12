@@ -25,6 +25,16 @@
   color: @badgeSecondaryTextColor;
 }
 
+body {
+  background-color: @baseBackgroundColor;
+  color: @baseTextColor;
+  font-family: @baseFontFamily;
+}
+
+a {
+  color: @baseLinkColor;
+}
+
 .mu-bottom-nav {
   background-color: @bottomNavBackgroundColor;
 }
@@ -45,16 +55,6 @@
   .mu-bottom-nav-shift & {
     color: @bottomNavShiftSelectedColor;
   }
-}
-
-body {
-  background-color: @baseBackgroundColor;
-  color: @baseTextColor;
-  font-family: @baseFontFamily;
-}
-
-a {
-  color: @baseLinkColor;
 }
 
 .mu-bottom-sheet {
@@ -162,7 +162,7 @@ a {
 
 .mu-date-display{
   background-color: @datePickerHeaderColor;
-  color: @datePickerSelectTextColor;
+  color: @datePickerTextColor;
 }
 
 
@@ -684,7 +684,7 @@ a {
 
 .mu-time-display {
   background-color: @timePickerHeaderColor;
-  color: @timePickerSelectTextColor;
+  color: @timePickerColor;
 }
 
 .mu-clock-number{

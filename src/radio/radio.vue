@@ -117,6 +117,7 @@ export default {
   height: 24px;
   line-height: 24px;
   cursor: pointer;
+  user-select: none;
   input[type="radio"] {
     display: none;
     &:checked {

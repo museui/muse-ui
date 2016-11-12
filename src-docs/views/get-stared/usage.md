@@ -7,6 +7,7 @@ Muse-UI 和其它 vue 的插件一样可以使用 `Vue.use()` 方法全部加载
 ```javascript
 import Vue from 'vue'
 import MuseUI from 'muse-ui'
+import 'muse-ui/dist/muse-ui.css'
 Vue.use(MuseUI)
 ```
 

@@ -127,7 +127,7 @@ export default {
   text-align: center;
 }
 .mu-desc-wrapper{
-  background-color: @grey100;
+  background-color: fade(@alternateTextColor, 30%);
 }
 .mu-desc{
   padding: 24px 24px 48px 24px;
@@ -165,6 +165,6 @@ export default {
   background-color: @grey900;
   text-align: center;
   color: @white;
-  padding: 50px 0;
+  padding: 50px 40px;
 }
 </style>

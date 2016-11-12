@@ -3,7 +3,7 @@
   <markdown-element :text="titleText"/>
   <mu-paper :class="['theme-' + theme, 'demo-theme-paper']">
     <mu-tabs :value="theme" @change="changeTheme">
-      <mu-tab title="LIGHT (DEFAULT)" value="default"/>
+      <mu-tab title="LIGHT (DEFAULT)" value="light"/>
       <mu-tab title="DARK" value="dark"/>
       <mu-tab title="CARBON" value="carbon"/>
       <mu-tab title="TEAL" value="teal"/>
@@ -46,7 +46,7 @@
           <mu-date-picker hintText="Landspace Dialog" style="width: 100%; overflow:hidden;"/>
         </div>
         <div class="demo-theme-item">
-          <mu-dropDown-menu :value="3" style="width: 100%;">
+          <mu-dropDown-menu :value="dropDown" @change="changeDropDown" style="width: 100%;">
             <mu-menu-item :value="1" title="Never" />
             <mu-menu-item :value="2" title="Every Night" />
             <mu-menu-item :value="3" title="Weeknights" />
@@ -95,6 +95,7 @@
 </template>
 
 <script>
+import light from '!raw!!less!../../assets/themes/theme-default.less'
 import dark from '!raw!!less!../../assets/themes/theme-dark.less'
 import carbon from '!raw!!less!../../assets/themes/theme-carbon.less'
 import teal from '!raw!!less!../../assets/themes/theme-teal.less'
@@ -110,11 +111,12 @@ const titleText = `
 `
 
 const themes = {
+  light,
   dark,
   carbon,
   teal
 }
-let theme = 'default'
+let theme = 'light'
 export default {
   data () {
     return {
@@ -122,11 +124,15 @@ export default {
       dialog: false,
       drawer: false,
       snackbar: false,
+      dropDown: 3,
       theme: theme,
       themeText
     }
   },
   methods: {
+    changeDropDown (val) {
+      this.dropDown = val
+    },
     showSnackbar () {
       this.snackbar = true
       if (this.snackTimer) clearTimeout(this.snackTimer)

@@ -18,6 +18,14 @@
   background-color: #ff4081;
   color: #303030;
 }
+body {
+  background-color: #303030;
+  color: #ffffff;
+  font-family: Roboto, Lato, sans-serif;
+}
+a {
+  color: #ff4081;
+}
 .mu-bottom-nav {
   background-color: #424242;
 }
@@ -35,14 +43,6 @@
 }
 .mu-bottom-nav-shift .mu-bottom-item-active {
   color: #303030;
-}
-body {
-  background-color: #303030;
-  color: #ffffff;
-  font-family: Roboto, Lato, sans-serif;
-}
-a {
-  color: #ff4081;
 }
 .mu-bottom-sheet {
   background-color: #424242;
@@ -120,7 +120,7 @@ a {
 }
 .mu-date-display {
   background-color: rgba(255, 255, 255, 0.12);
-  color: #303030;
+  color: #ffffff;
 }
 .mu-day-button-bg {
   background-color: #0288d1;
@@ -442,10 +442,10 @@ a {
   color: #ffffff;
 }
 .mu-tr.selected {
-  background-color: #f5f5f5;
+  background-color: rgba(255, 255, 255, 0.05);
 }
 .mu-tr.hover {
-  background-color: #eeeeee;
+  background-color: rgba(255, 255, 255, 0.1);
 }
 .mu-tr.stripe {
   background-color: rgba(211, 239, 255, 0.4);
@@ -506,7 +506,7 @@ a {
 }
 .mu-time-display {
   background-color: rgba(255, 255, 255, 0.12);
-  color: #303030;
+  color: #ffffff;
 }
 .mu-clock-number.selected {
   background-color: #0288d1;

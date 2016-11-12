@@ -93,6 +93,7 @@ export default {
   height: 24px;
   line-height: 24px;
   cursor: pointer;
+  user-select: none;
   input[type="checkbox"] {
     display: none;
     &:checked {

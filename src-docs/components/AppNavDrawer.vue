@@ -7,7 +7,7 @@
   <mu-divider/>
   <mu-flexbox class="mu-version-box" align="center">
     <span class="mu-version-text">Version: </span>
-    <mu-dropDown-menu :value="version" v-if="version">
+    <mu-dropDown-menu :value="version" @change="handleVersionChange" v-if="versions.length > 0">
       <mu-menu-item v-for="vtext in versions" :value="vtext" :title="vtext"/>
     </mu-dropDown-menu>
   </mu-flexbox>
@@ -95,6 +95,7 @@
 </template>
 
 <script>
+import packageJson from '../../package.json'
 export default {
   props: {
     open: {
@@ -109,11 +110,17 @@ export default {
   data () {
     return {
       menuVal: '#/',
-      version: '',
+      version: packageJson.version,
       versions: []
     }
   },
   methods: {
+    handleVersionChange (val) {
+      if (val !== this.version) {
+        var url = this.versions.indexOf(val) === 0 ? '/' : '/' + val
+        window.open(url)
+      }
+    },
     handleClose () {
       this.$emit('close')
     },
@@ -133,7 +140,6 @@ export default {
       if (xhr.readyState === 4) {
         if (xhr.status === 200) {
           this.versions = JSON.parse(xhr.responseText)
-          this.version = this.versions[0]
         } else {
           console.error(xhr.statusText)
         }
@@ -152,7 +158,7 @@ export default {
 }
 
 .exmaples-nav-appbar.mu-appbar{
-  background-color: #FFF;
+  background-color: @dialogBackgroundColor;
   color: @secondaryTextColor;
 }
 .exmaples-appbar-title{

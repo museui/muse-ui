@@ -121,11 +121,15 @@ export default {
   align-items: center;
   cursor: default;
   input[type="range"] {
-    position: relative;
+    position: absolute;
     display: block;
     height: 20px;
     width: 100%;
+    left: 0;
+    right: 0;
+    top: 50%;
     margin: 0;
+    margin-top: -10px;
     -webkit-appearance: none;
     -moz-appearance: none;
     -ms-appearance: none;
@@ -195,6 +199,8 @@ export default {
   height: 2px;
   left: 0;
   right: 0;
+  top: 50%;
+  margin-top: -1px;
   background-color: @lighterPrimaryColor;
 }
 
@@ -203,6 +209,9 @@ export default {
   height: 2px;
   width: 100%;
   background-color: @primaryColor;
+  left: 0;
+  top: 50%;
+  margin-top: -1px;
   .mu-slider.disabled & {
     background-color: @lighterPrimaryColor;
   }
@@ -210,6 +219,8 @@ export default {
 
 .mu-slider-thumb {
   position: absolute;
+  top: 50%;
+  margin-top: -6px;
   width: 12px;
   height: 12px;
   background-color: @primaryColor;
@@ -220,6 +231,7 @@ export default {
   .mu-slider.active &{
     width: 20px;
     height: 20px;
+    margin-top: -10px;
   }
   .mu-slider.zero &,
   .mu-slider.disabled &{

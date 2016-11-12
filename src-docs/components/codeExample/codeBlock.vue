@@ -5,7 +5,7 @@
     <mu-icon-button touch :tooltip="tooltip" icon="code"/>
   </div>
   <markdown-element :text="text" class="code-block-code-style" :class="{'hide': !open}"/>
-  <markdown-element :text="description" class="code-block-description"/>
+  <markdown-element v-if="description" :text="description" class="code-block-description"/>
 </div>
 </template>
 
@@ -76,6 +76,8 @@ ${this.code}
   overflow: auto;
   max-height: 1400px;
   transition: max-height 800ms @easeInOutFunction;
+  display: block;
+  overflow-x: auto;
   margin: 0;
   &.hide {
     max-height: 0;
@@ -83,7 +85,6 @@ ${this.code}
 }
 
 .code-block-description{
-  background: #FFF;
   overflow: auto;
   padding: 10px 20px 0;
   margin: 0;
