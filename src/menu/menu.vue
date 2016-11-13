@@ -1,5 +1,5 @@
 <template>
-<div class="mu-menu" tabIndex="0" v-clickoutside="clickoutside"  @keydown="handlerKeydown" :style="{'width': contentWidth, 'maxHeight': maxHeight + 'px'}" >
+<div class="mu-menu" tabindex="0" v-clickoutside="clickoutside"  @keydown="handleKeydown" :style="{'width': contentWidth, 'maxHeight': maxHeight + 'px'}" >
   <div ref="list" class="mu-menu-list" :style="{'width': contentWidth}" :class="{'mu-menu-destop': desktop}">
     <slot></slot>
   </div>
@@ -39,6 +39,11 @@ export default {
       type: Boolean,
       default: false
     },
+    // 内部使用，是否是嵌套菜单
+    nested: {
+      type: Boolean,
+      default: false
+    },
     value: {}
   },
   data () {
@@ -59,8 +64,9 @@ export default {
     if (this.autoWidth) this.setWidth()
     this.setScollPosition()
     const selectedIndex = this.getSelectedIndex()
-    this.focusIndex = this.disableAutoFocus ? -1 : selectedIndex >= 0 ? selectedIndex : 0
+    this.focusIndex = this.disableAutoFocus ? -1 : selectedIndex >= 0 ? selectedIndex : this.initiallyKeyboardFocused ? 0 : -1
     this.isKeyboardFocused = this.initiallyKeyboardFocused
+    if (this.nested) this.$el.focus()
   },
   beforeUpdate () {
     const selectedIndex = this.getSelectedIndex()
@@ -96,14 +102,16 @@ export default {
     handleClick (item) {
       this.$emit('itemClick', item)
     },
-    handlerKeydown (event) {
+    handleKeydown (event) {
       const key = keycode(event)
       switch (key) {
         case 'down':
+          event.stopPropagation()  // 防止菜单嵌套
           event.preventDefault()
           this.incrementKeyboardFocusIndex()
           break
         case 'tab':
+          event.stopPropagation()
           event.preventDefault()
           if (event.shiftKey) {
             this.decrementKeyboardFocusIndex()
@@ -112,6 +120,7 @@ export default {
           }
           break
         case 'up':
+          event.stopPropagation()
           event.preventDefault()
           this.decrementKeyboardFocusIndex()
           break

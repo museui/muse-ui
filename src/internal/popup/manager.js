@@ -48,7 +48,7 @@ const PopupManager = {
     overlay.color = color
     overlay.opacity = opacity
     overlay.zIndex = 2000
-    overlay.onClick = this.handlerOverlayClick.bind(this)
+    overlay.onClick = this.handleOverlayClick.bind(this)
     document.body.appendChild(overlay.$el)
     this.preventScrolling()
     Vue.nextTick(() => {
@@ -94,7 +94,7 @@ const PopupManager = {
     this.overlay.opacity = instance.overlayOpacity
   },
 
-  handlerOverlayClick () {
+  handleOverlayClick () {
     if (this.instances.length === 0) return
     const instance = this.instances[this.instances.length - 1]
     if (instance.overlayClick) {

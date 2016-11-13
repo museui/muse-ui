@@ -101,11 +101,16 @@ const components = {
   ...flexbox
 }
 
-export default {
-  install () {
-    Object.keys(components).forEach((key) => {
-      Vue.component(components[key].name, components[key])
-    })
-    retina()
-  }
+const install = function () {
+  Object.keys(components).forEach((key) => {
+    Vue.component(components[key].name, components[key])
+  })
+  retina()
+}
+
+if (typeof window !== 'undefined' && window.Vue) install(window.Vue)
+
+module.exports = {
+  ...components,
+  install
 }

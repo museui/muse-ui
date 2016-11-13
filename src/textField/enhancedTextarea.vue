@@ -1,5 +1,5 @@
 <template>
-  <textarea :value="value" class="mu-text-field-input mu-text-field-textarea" @input="handlerInput" :placeholder="placeholder"></textarea>
+  <textarea :value="value" class="mu-text-field-input mu-text-field-textarea" @input="handleInput" :placeholder="placeholder"></textarea>
 </template>
 
 <script>
@@ -42,7 +42,7 @@ export default {
       let num = value.indexOf('\n')
       return this.getLineNum(value.substring(num + 1), line)
     },
-    handlerInput (e) {
+    handleInput (e) {
       this.$emit('change', e.target.value)
     }
   },

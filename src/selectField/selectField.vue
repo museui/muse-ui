@@ -3,7 +3,7 @@
   :labelFloat="labelFloat" :hintText="hintText" :fullWidth="fullWidth"
   :helpText="helpText" :icon="icon" :value="inputValue instanceof Array ? inputValue.join('') : inputValue"
    :disabled="disabled" :errorText="errorText" :errorColor="errorColor" :label="label">
-  <dropDown-menu :anchorEl="anchorEl" @open="handlerOpen" @close="handlerClose"  @change="handlerChange" :value="inputValue" :disabled="disabled" :maxHeight="maxHeight" :autoWidth="autoWidth"
+  <dropDown-menu :anchorEl="anchorEl" @open="handleOpen" @close="handleClose"  @change="handlehange" :value="inputValue" :disabled="disabled" :maxHeight="maxHeight" :autoWidth="autoWidth"
     :multiple="multiple" :anchorOrigin="{vertical: 'bottom', horizontal: 'left'}">
     <slot></slot>
   </dropDown-menu>
@@ -78,7 +78,7 @@ export default {
     this.anchorEl = this.$children[0].$refs.input
   },
   methods: {
-    handlerChange (val) {
+    handlehange (val) {
       if (this.multiple) {
         const index = this.inputValue.indexOf(val)
         if (index === -1) {
@@ -90,10 +90,10 @@ export default {
         this.inputValue = val
       }
     },
-    handlerOpen () {
+    handleOpen () {
       this.$refs.textField.handleFocus()
     },
-    handlerClose () {
+    handleClose () {
       this.$refs.textField.handleBlur()
     }
   },

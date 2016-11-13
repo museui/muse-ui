@@ -61,22 +61,14 @@ export default {
     startListeningForScrollAbort (event) {
       this.firstTouchY = event.touches[0].clientY
       this.firstTouchX = event.touches[0].clientX
-      // Note that when scolling Chrome throttles this event to every 200ms
-      // Also note we don't listen for scroll events directly as there's no general
-      // way to cover cases like scrolling within containers on the page
       document.body.addEventListener('touchmove', this.handleMove, false)
     },
     handleMouseDown (event) {
-      // event.stopPropagation()
-      // only listen to left clicks
       if (event.button === 0) {
         this.start(event, false)
       }
     },
     handleTouchStart (event) {
-      // event.stopPropagation()
-      // If the user is swiping (not just tapping), save the position so we can
-      // abort ripples if the user appears to be scrolling.
       if (event.touches) {
         this.startListeningForScrollAbort(event)
         this.startTime = Date.now()
@@ -84,16 +76,15 @@ export default {
       this.start(event.touches[0], true)
     },
     handleTouchMove (event) {
-      const timeSinceStart = Math.abs(Date.now() - this.startTime)
-      if (timeSinceStart > 300) {
-        this.stopListeningForScrollAbort()
-        return
-      }
-      // If the user is scrolling...
       const deltaY = Math.abs(event.touches[0].clientY - this.firstTouchY)
       const deltaX = Math.abs(event.touches[0].clientX - this.firstTouchX)
-      // Call it a scroll after an arbitrary 6px (feels reasonable in testing)
+      // 判断滚动 6px
       if (deltaY > 6 || deltaX > 6) this.end()
+      // const timeSinceStart = Math.abs(Date.now() - this.startTime)
+      // if (timeSinceStart > 300) {
+      //   this.stopListeningForScrollAbort()
+      //   return
+      // }
     },
     getRippleStyle (event) {
       const el = this.$refs.holder

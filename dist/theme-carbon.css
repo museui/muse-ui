@@ -47,6 +47,30 @@ a {
 .mu-bottom-sheet {
   background-color: #ffffff;
 }
+.mu-checkbox input[type="checkbox"]:checked + .mu-checkbox-wrapper .mu-checkbox-icon-uncheck {
+  color: #ff5252;
+}
+.mu-checkbox input[type="checkbox"]:checked + .mu-checkbox-wrapper .mu-checkbox-ripple-wrapper {
+  color: #ff5252;
+}
+.mu-checkbox-label {
+  color: #474a4f;
+}
+.mu-checkbox.disabled .mu-checkbox-label {
+  color: #d3d6db;
+}
+.mu-checkbox-icon-uncheck {
+  color: #7e848c;
+}
+.mu-checkbox.disabled .mu-checkbox-icon-uncheck {
+  color: #d3d6db;
+}
+.mu-checkbox-icon-checked {
+  color: #ff5252;
+}
+.mu-checkbox.disabled .mu-checkbox-icon-checked {
+  color: #d3d6db;
+}
 .mu-card {
   background-color: #ffffff;
 }
@@ -73,30 +97,6 @@ a {
 }
 .mu-card-text {
   color: #474a4f;
-}
-.mu-checkbox input[type="checkbox"]:checked + .mu-checkbox-wrapper .mu-checkbox-icon-uncheck {
-  color: #ff5252;
-}
-.mu-checkbox input[type="checkbox"]:checked + .mu-checkbox-wrapper .mu-checkbox-ripple-wrapper {
-  color: #ff5252;
-}
-.mu-checkbox-label {
-  color: #474a4f;
-}
-.mu-checkbox.disabled .mu-checkbox-label {
-  color: #d3d6db;
-}
-.mu-checkbox-icon-uncheck {
-  color: #7e848c;
-}
-.mu-checkbox.disabled .mu-checkbox-icon-uncheck {
-  color: #d3d6db;
-}
-.mu-checkbox-icon-checked {
-  color: #ff5252;
-}
-.mu-checkbox.disabled .mu-checkbox-icon-checked {
-  color: #d3d6db;
 }
 .mu-chip {
   background-color: #e0e0e0;

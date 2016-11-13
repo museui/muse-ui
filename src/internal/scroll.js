@@ -13,14 +13,14 @@ export default {
   methods: {
     $bindScroll () {
       if (!this.scroller) return
-      this._handlerScroll = (e) => {
+      this._handleScroll = (e) => {
         if (this.onScroll) this.onScroll()
       }
-      this.scroller.addEventListener('scroll', this._handlerScroll)
+      this.scroller.addEventListener('scroll', this._handleScroll)
     },
     $unbindScroll (scroller) {
       scroller = scroller || this.scroller
-      if (this._handlerScroll) scroller.removeEventListener('scroll', this._handlerScroll)
+      if (this._handleScroll) scroller.removeEventListener('scroll', this._handleScroll)
     }
   },
   beforeDestroy () {

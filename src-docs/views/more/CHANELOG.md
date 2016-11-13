@@ -1,3 +1,11 @@
+## 2.0.0-alpha.3
+
+### Bugs
+
+  * 修复 refreshControl 和波纹点击冲突的问题
+  * 修复对 CommonJs 规范的支持不友好的问题
+  * 修复 menu 组件嵌套点击时会报错
+
 ## 2.0.0-alpha.2
 
 ### Features

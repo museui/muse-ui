@@ -1,6 +1,6 @@
 <template>
   <div>
-    <abstract-button @click="handlerClick"  containerElement="div"
+    <abstract-button @click="handleClick"  containerElement="div"
       :href="href" :disabled="disabled" :disableFocusRipple="disableRipple"  :disableTouchRipple="disableRipple" :target="target"
       @keyboardFocus="handleKeyboardFocus" @hover="handleHover" @hoverExit="handleHoverExit"
       class="mu-item-wrapper" :wrapperStyle="itemStyle" :style="disabled ? itemStyle : {}" :centerRipple="false">
@@ -37,7 +37,7 @@
       </div>
     </abstract-button>
     <expand-transition>
-      <mu-list v-if="showNested" :nestedLevel="nestedLevel" @change="handlerNestedChange" :value="nestedSelectValue">
+      <mu-list v-if="showNested" :nestedLevel="nestedLevel" @change="handleNestedChange" :value="nestedSelectValue">
         <slot name="nested"></slot>
       </mu-list>
     </expand-transition>
@@ -156,10 +156,10 @@ export default {
       this.nestedOpen = !this.nestedOpen
       this.$emit('toggleNested', this.nestedOpen)
     },
-    handlerClick (e) {
+    handleClick (e) {
       this.$emit('click', e)
       if (this.$parent.handleItemClick) this.$parent.handleItemClick(e)
-      if (this.value) this.$parent.handlerChange(this.value)
+      if (this.value) this.$parent.handleChange(this.value)
       if (this.toggleNested) this.handleToggleNested()
     },
     handleKeyboardFocus (isFocus) {
@@ -171,8 +171,8 @@ export default {
     handleHoverExit (event) {
       this.$emit('hoverExit', event)
     },
-    handlerNestedChange (value) {
-      this.$parent.handlerChange(value)
+    handleNestedChange (value) {
+      this.$parent.handleChange(value)
     }
   },
   watch: {

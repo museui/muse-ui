@@ -1,5 +1,5 @@
 <template>
-<abstract-button :href="href" @click="handlerClick" :target="target"
+<abstract-button :href="href" @click="handleClick" :target="target"
   @keyboardFocus="handleKeyboardFocus" @hover="handleHover" @hoverExit="handleHoverExit"
   :style="buttonStyle" :disabled="disabled" class="mu-float-button" :class="[buttonClass]">
   <div class="mu-float-button-wrapper">
@@ -62,7 +62,7 @@ export default {
     }
   },
   methods: {
-    handlerClick (e) {
+    handleClick (e) {
       this.$emit('click', e)
     },
     handleKeyboardFocus (isFocus) {

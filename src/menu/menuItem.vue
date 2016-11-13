@@ -21,7 +21,7 @@
    </abstract-button>
    <popover v-if="openMenu" :anchorOrigin="{ vertical: 'top', horizontal: 'right'}"
    @close="close" :trigger="trigger">
-     <mu-menu :desktop="$parent.desktop" :maxHeight="$parent.maxHeight" :value="nestedMenuValue">
+     <mu-menu :desktop="$parent.desktop" nested :maxHeight="$parent.maxHeight" :value="nestedMenuValue">
        <slot></slot>
      </mu-menu>
    </popover>
@@ -96,9 +96,6 @@ export default {
     this.trigger = this.$el
     this.applyFocusState()
   },
-  updated () {
-    this.applyFocusState()
-  },
   methods: {
     handleClick (e) {
       if (this.disabled) return
@@ -126,7 +123,6 @@ export default {
     },
     applyFocusState () {
       const button = this.$refs.button
-
       if (button) {
         const buttonEl = button.$el
 

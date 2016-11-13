@@ -14,7 +14,7 @@ export default {
     value: {}
   },
   methods: {
-    handlerChange (value) {
+    handleChange (value) {
       if (value) this.$emit('change', value)
     },
     handleItemClick (e) {

@@ -1,6 +1,6 @@
 <template>
   <transition name="mu-overlay-fade">
-    <div class="mu-overlay" v-if="show" @click="handlerClick" @touchmove="prevent" :style="style" ></div>
+    <div class="mu-overlay" v-if="show" @click="handleClick" @touchmove="prevent" :style="style" ></div>
   </transition>
 </template>
 <script>
@@ -45,7 +45,7 @@ export default {
       event.preventDefault()
       event.stopPropagation()
     },
-    handlerClick () {
+    handleClick () {
       if (this.onClick) {
         this.onClick()
       }

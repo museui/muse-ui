@@ -1,5 +1,5 @@
 <template>
-  <abstract-button @KeyboardFocus="handlerKeyboardFocus" @hover="handleHover" @hoverExit="handleHoverExit" @click="handlerClick"
+  <abstract-button @KeyboardFocus="handleKeyboardFocus" @hover="handleHover" @hoverExit="handleHoverExit" @click="handleClick"
     :href="href" :target="target" :style="buttonStyle"
     class="mu-raised-button" :rippleColor="rippleColor":rippleOpacity="rippleOpacity"
     :disabled="disabled" :keyboardFocused="keyboardFocused"
@@ -102,10 +102,10 @@ export default {
     }
   },
   methods: {
-    handlerClick (e) {
+    handleClick (e) {
       this.$emit('click', e)
     },
-    handlerKeyboardFocus (isFocus) {
+    handleKeyboardFocus (isFocus) {
       this.focus = isFocus
       this.$emit('keyboardFocus', isFocus)
     },

@@ -12,7 +12,7 @@ import circular from '../internal/circular'
 import * as domUtil from '../utils/domUtil'
 
 const LENGTH = 130 // 下拉最大长度
-const INITY = -63  // 初始化Y轴位置
+const INITY = -68  // 初始化Y轴位置
 export default {
   name: 'mu-refresh-control',
   props: {
@@ -191,7 +191,7 @@ export default {
 
 .mu-refresh-control-hide{
   opacity: 1;
-  transform: translate3d(0, -63px, 0);
+  transform: translate3d(0, -68px, 0);
 }
 
 .mu-refresh-control-noshow{
