@@ -37,7 +37,7 @@ export default {
   }, {
     name: 'backgroundColor',
     type: 'String',
-    default: '如果设置为true，按钮背景色变为第二主色',
+    default: '如果设置为true，按钮背景色变为强调色',
     desc: '按钮背景色'
   }],
   slots: [{

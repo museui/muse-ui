@@ -28,7 +28,7 @@ export default {
     name: 'secondary',
     type: 'Boolean',
     default: 'false',
-    desc: '颜色是否为第二主色'
+    desc: '颜色是否为强调色'
   }, {
     name: 'disabled',
     type: 'Boolean',
