@@ -3,12 +3,12 @@
     <mu-raised-button label="toggle drawer" @click="toggle()"/>
     <mu-raised-button label="undocked drawer" @click="toggle(true)"/>
     <mu-drawer :open="open" :docked="docked" @close="toggle()">
-      <mu-menu @itemClick="docked ? '' : toggle()">
-        <mu-menu-item title="Menu Item 1"/>
-        <mu-menu-item title="Menu Item 2"/>
-        <mu-menu-item title="Menu Item 3"/>
-        <mu-menu-item v-if="docked" @click.native="open = false" title="Close"/>
-      </mu-menu>
+      <mu-list @itemClick="docked ? '' : toggle()">
+        <mu-list-item title="Menu Item 1"/>
+        <mu-list-item title="Menu Item 2"/>
+        <mu-list-item title="Menu Item 3"/>
+        <mu-list-item v-if="docked" @click.native="open = false" title="Close"/>
+      </mu-list>
     </mu-drawer>
 </div>
 </template>
