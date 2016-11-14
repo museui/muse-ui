@@ -1,7 +1,9 @@
 <template>
   <th class="mu-th" @mouseenter="showTooltip" @mouseleave="hideTooltip">
-    <slot></slot>
-    <tooltip v-if="tooltip" :verticalPosition="verticalPosition" :horizontalPosition="horizontalPosition" :show="tooltipShown" :label="tooltip" :touch="touch"></tooltip>
+    <div class="mu-th-wrapper" ref="wrapper">
+      <slot></slot>
+      <tooltip v-if="tooltip" :trigger="tooltipTrigger" :verticalPosition="verticalPosition" :horizontalPosition="horizontalPosition" :show="tooltipShown" :label="tooltip" :touch="touch"></tooltip>
+    </div>
   </th>
 </template>
 
@@ -15,7 +17,7 @@ export default {
     },
     tooltipPosition: {
       type: String,
-      default: 'bottom-center'
+      default: 'bottom-right'
     },
     touch: {
       type: Boolean,
@@ -24,8 +26,12 @@ export default {
   },
   data () {
     return {
-      tooltipShown: false
+      tooltipShown: false,
+      tooltipTrigger: null
     }
+  },
+  mounted () {
+    this.tooltipTrigger = this.$refs.wrapper
   },
   computed: {
     verticalPosition () {
@@ -64,5 +70,11 @@ export default {
   text-overflow: ellipsis;
   color: @secondaryTextColor;
   position: relative;
+}
+
+.mu-th-wrapper{
+  position: relative;
+  padding-top: 12px;
+  padding-bottom: 12px;
 }
 </style>

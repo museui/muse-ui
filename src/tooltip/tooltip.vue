@@ -13,6 +13,9 @@ export default {
     label: {
       type: String
     },
+    trigger: {
+      type: window.Element
+    },
     verticalPosition: {
       type: String, // top bottom
       default: 'bottom'
@@ -32,19 +35,21 @@ export default {
   },
   data () {
     return {
-      offsetWidth: null
+      offsetWidth: 0,
+      triggerWidth: 0,
+      triggerHeight: 0
     }
   },
   computed: {
     style () {
-      const {horizontalPosition, verticalPosition, offsetWidth, touch} = this
+      const {horizontalPosition, verticalPosition, offsetWidth, touch, triggerWidth, triggerHeight} = this
       const touchMarginOffset = touch ? 10 : 0
       const touchOffsetTop = touch ? -20 : -10
       const offset = verticalPosition === 'bottom' ? 14 + touchMarginOffset : -14 - touchMarginOffset
       return {
         right: horizontalPosition === 'left' ? 12 + 'px' : null,
-        left: horizontalPosition === 'center' ? ((offsetWidth - 48) / 2 * -1) + 'px' : null,
-        top: verticalPosition === 'top' ? touchOffsetTop + 'px' : 36 + 'px',
+        left: horizontalPosition === 'center' ? ((offsetWidth - triggerWidth) / 2 * -1) + 'px' : null,
+        top: verticalPosition === 'top' ? touchOffsetTop + 'px' : (triggerHeight - offset + touchMarginOffset + 2) + 'px',
         transform: `translate(0px, ${offset}px)`
       }
     },
@@ -71,16 +76,19 @@ export default {
         ripple.style.height = '0px'
       }
     },
-    setTooltipPosition () {
+    setTooltipSize () {
       this.offsetWidth = this.$el.offsetWidth
+      if (!this.trigger) return
+      this.triggerWidth = this.trigger.offsetWidth
+      this.triggerHeight = this.trigger.offsetHeight
     }
   },
   mounted () {
     this.setRippleSize()
-    this.setTooltipPosition()
+    this.setTooltipSize()
   },
   beforeUpdate () {
-    this.setTooltipPosition()
+    this.setTooltipSize()
   },
   updated () {
     this.setRippleSize()

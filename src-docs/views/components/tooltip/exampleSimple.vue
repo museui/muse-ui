@@ -1,8 +1,8 @@
 <template>
 <div>
-  <div class="demo-icon-tip" @mouseenter="handleHover" @mouseleave="handleHoverExit">
+  <div class="demo-icon-tip" ref="demo" @mouseenter="handleHover" @mouseleave="handleHoverExit">
     <mu-icon value="print"/>
-    <mu-tooltip :show="show" label="打印" :touch="touch" :verticalPosition="verticalPosition" :horizontalPosition="horizontalPosition"/>
+    <mu-tooltip label="打印" :show="show" :trigger="trigger" :touch="touch" :verticalPosition="verticalPosition" :horizontalPosition="horizontalPosition"/>
   </div>
   <div class="demo-tip-setting">
     <p>
@@ -29,9 +29,13 @@ export default {
     return {
       show: false,
       touch: false,
+      trigger: null,
       verticalPosition: 'bottom',
       horizontalPosition: 'center'
     }
+  },
+  mounted () {
+    this.trigger = this.$refs.demo
   },
   methods: {
     handleHover () {
@@ -49,7 +53,6 @@ export default {
   display: inline-block;
   cursor: default;
   position: relative;
-  padding: 12px;
 }
 
 .demo-tip-setting p{

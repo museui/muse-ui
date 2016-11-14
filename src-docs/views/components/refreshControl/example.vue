@@ -3,7 +3,7 @@
     <mu-refresh-control :refreshing="refreshing" :trigger="trigger" @refresh="refresh"/>
     <mu-list>
       <template v-for="item in list">
-        <mu-list-item :title="item"/>
+        <mu-list-item disableRipple :title="item"/>
         <mu-divider/>
       </template>
     </mu-list>

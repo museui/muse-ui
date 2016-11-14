@@ -5,7 +5,7 @@
   <slot>
     <icon :value="icon" :class="[iconClass]"></icon>
   </slot>
-  <tooltip v-if="tooltip" :verticalPosition="verticalPosition" :horizontalPosition="horizontalPosition" :show="tooltipShown" :label="tooltip" :touch="touch"></tooltip>
+  <tooltip v-if="tooltip" :trigger="tooltipTrigger" :verticalPosition="verticalPosition" :horizontalPosition="horizontalPosition" :show="tooltipShown" :label="tooltip" :touch="touch"></tooltip>
 </abstract-button>
 </template>
 
@@ -62,7 +62,8 @@ export default {
   },
   data () {
     return {
-      tooltipShown: false
+      tooltipShown: false,
+      tooltipTrigger: null
     }
   },
   methods: {
@@ -83,6 +84,9 @@ export default {
     handleStop (event) {
       event.stopPropagation() // 防止list中使用导致波纹点击重复
     }
+  },
+  mounted () {
+    this.tooltipTrigger = this.$el
   },
   components: {
     'abstract-button': abstractButton,
