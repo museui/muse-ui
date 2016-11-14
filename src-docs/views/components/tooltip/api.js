@@ -1,5 +1,10 @@
 export default {
   props: [{
+    name: 'trigger',
+    type: 'Element',
+    default: '',
+    desc: '触发 tooltip 的元素，需要根据此元素计算tooltip出现的位置'
+  }, {
     name: 'label',
     type: 'String',
     default: '',

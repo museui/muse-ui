@@ -14,6 +14,7 @@ export default {
   },
   created () {
     this.isTbody = true
+    this._unSelectAll = false
   },
   computed: {
     showCheckbox () {
@@ -43,24 +44,37 @@ export default {
         if (!this.multiSelectable) this.selectedRows = []
         this.selectedRows.push(rowId)
         if (this.$parent.handleRowSelect) this.$parent.handleRowSelect(this.selectedRows)
+        if (this.isSelectAllRow()) this.selectAll(true)
       }
+    },
+    isSelectAllRow () {
+      let count = 0
+      this.$children.forEach((child) => {
+        if (child.selectable) count++
+      })
+      return count === this.selectedRows.length
     },
     unSelectRow (rowId) {
       if (!this.selectable) return
       const index = this.selectedRows.indexOf(rowId)
       if (index !== -1) this.selectedRows.splice(index, 1)
+      this._unSelectAll = true
+      this.$parent.changeSelectAll(false)
     },
-    selectAll () {
+    selectAll (isSelectAll) {
       if (!this.selectable || !this.multiSelectable) return
-      this.selectedRows = []
-      this.$children.forEach((child) => {
-        if (child.selectable) this.selectedRows.push(child.rowId)
-      })
+      this._unSelectAll = false
+      if (!isSelectAll) {
+        this.selectedRows = []
+        this.$children.forEach((child) => {
+          if (child.selectable) this.selectedRows.push(child.rowId)
+        })
+      }
       this.$parent.changeSelectAll(true)
       if (this.$parent.handleRowSelect) this.$parent.handleRowSelect(this.selectedRows)
     },
     unSelectAll () {
-      if (!this.selectable || !this.multiSelectable) return
+      if (!this.selectable || !this.multiSelectable || this._unSelectAll) return
       this.selectedRows = []
       this.$parent.changeSelectAll(false)
     },
