@@ -58,6 +58,9 @@ export default {
       if (val && !oldVal) PopupManager.close(this)
     }
   },
+  beforeDestroy () {
+    PopupManager.close(this)
+  },
   components: {
     paper
   }
