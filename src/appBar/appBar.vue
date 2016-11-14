@@ -50,6 +50,16 @@ export default {
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    height: 100%;
+  }
+  .mu-icon-button {
+    color: inherit;
+  }
+  .mu-flat-button {
+    color: inherit;
+    height: 100%;
+    line-height: 100%;
+    min-width: auto;
   }
 }
 

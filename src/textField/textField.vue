@@ -107,6 +107,7 @@ export default {
         'no-empty-state': this.inputValue,
         'has-icon': this.icon,
         'error': this.errorText,
+        'multi-line': this.multiLine,
         'disabled': this.disabled,
         'full-width': this.fullWidth
       }

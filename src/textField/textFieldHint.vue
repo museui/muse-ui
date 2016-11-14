@@ -25,9 +25,12 @@ export default {
   opacity: 0;
   transition: opacity .45s @easeOutFunction;
   color: @disabledColor;
-  line-height: 36px;
+  line-height: 34px;
   &.show{
     opacity: 1;
+  }
+  .mu-text-field.multi-line &{
+    line-height: 1.5;
   }
 }
 </style>

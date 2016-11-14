@@ -61,5 +61,6 @@ export default {
 <style lang="less">
 .mu-text-field-textarea{
   resize: vertical;
+  line-height: 1.5;
 }
 </style>
