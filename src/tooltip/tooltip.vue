@@ -1,5 +1,5 @@
 <template>
-<div class="mu-tooltip" :class="{'touched': touch, 'when-shown': show}" :style="style">
+<div class="mu-tooltip" :class="{'touched': touch, 'when-shown': show}" :style="tooltipStyle">
   <div class="mu-tooltip-ripple" :style="rippleStyle" :class="{'when-shown': show}" ref="ripple">
   </div>
   <span class="mu-tooltip-label">{{label}}</span>
@@ -41,14 +41,14 @@ export default {
     }
   },
   computed: {
-    style () {
+    tooltipStyle () {
       const {horizontalPosition, verticalPosition, offsetWidth, touch, triggerWidth, triggerHeight} = this
       const touchMarginOffset = touch ? 10 : 0
       const touchOffsetTop = touch ? -20 : -10
       const offset = verticalPosition === 'bottom' ? 14 + touchMarginOffset : -14 - touchMarginOffset
       return {
-        right: horizontalPosition === 'left' ? 12 + 'px' : null,
-        left: horizontalPosition === 'center' ? ((offsetWidth - triggerWidth) / 2 * -1) + 'px' : null,
+        right: horizontalPosition === 'left' ? '0' : null,
+        left: horizontalPosition === 'center' ? ((offsetWidth - triggerWidth) / 2 * -1) + 'px' : horizontalPosition === 'right' ? '0' : '',
         top: verticalPosition === 'top' ? touchOffsetTop + 'px' : (triggerHeight - offset + touchMarginOffset + 2) + 'px',
         transform: `translate(0px, ${offset}px)`
       }

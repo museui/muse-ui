@@ -26,6 +26,8 @@ export default {
   transition: opacity .45s @easeOutFunction;
   color: @disabledColor;
   line-height: 34px;
+  user-select: none;
+  cursor: text;
   &.show{
     opacity: 1;
   }
