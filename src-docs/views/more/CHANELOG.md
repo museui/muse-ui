@@ -1,3 +1,13 @@
+## 2.0.0-alpha.4
+
+### Bugs
+
+  * 修复多行文本光标与提示文字不对齐
+  * 修复drawer组件销毁后overlay仍存在的问题
+  * 修复drawer docked切换后zIndex没有重置的问题
+  * 修复table选择后再取消以后全选框仍选中的问题
+  * 修改tooltip错位的问题
+
 ## 2.0.0-alpha.3
 
 ### Bugs

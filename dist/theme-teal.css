@@ -47,30 +47,6 @@ a {
 .mu-bottom-sheet {
   background-color: #ffffff;
 }
-.mu-checkbox input[type="checkbox"]:checked + .mu-checkbox-wrapper .mu-checkbox-icon-uncheck {
-  color: #009688;
-}
-.mu-checkbox input[type="checkbox"]:checked + .mu-checkbox-wrapper .mu-checkbox-ripple-wrapper {
-  color: #009688;
-}
-.mu-checkbox-label {
-  color: rgba(0, 0, 0, 0.87);
-}
-.mu-checkbox.disabled .mu-checkbox-label {
-  color: rgba(0, 0, 0, 0.38);
-}
-.mu-checkbox-icon-uncheck {
-  color: rgba(0, 0, 0, 0.87);
-}
-.mu-checkbox.disabled .mu-checkbox-icon-uncheck {
-  color: rgba(0, 0, 0, 0.38);
-}
-.mu-checkbox-icon-checked {
-  color: #009688;
-}
-.mu-checkbox.disabled .mu-checkbox-icon-checked {
-  color: rgba(0, 0, 0, 0.38);
-}
 .mu-card {
   background-color: #ffffff;
 }
@@ -97,6 +73,30 @@ a {
 }
 .mu-card-text {
   color: rgba(0, 0, 0, 0.87);
+}
+.mu-checkbox input[type="checkbox"]:checked + .mu-checkbox-wrapper .mu-checkbox-icon-uncheck {
+  color: #009688;
+}
+.mu-checkbox input[type="checkbox"]:checked + .mu-checkbox-wrapper .mu-checkbox-ripple-wrapper {
+  color: #009688;
+}
+.mu-checkbox-label {
+  color: rgba(0, 0, 0, 0.87);
+}
+.mu-checkbox.disabled .mu-checkbox-label {
+  color: rgba(0, 0, 0, 0.38);
+}
+.mu-checkbox-icon-uncheck {
+  color: rgba(0, 0, 0, 0.87);
+}
+.mu-checkbox.disabled .mu-checkbox-icon-uncheck {
+  color: rgba(0, 0, 0, 0.38);
+}
+.mu-checkbox-icon-checked {
+  color: #009688;
+}
+.mu-checkbox.disabled .mu-checkbox-icon-checked {
+  color: rgba(0, 0, 0, 0.38);
 }
 .mu-chip {
   background-color: #e0e0e0;

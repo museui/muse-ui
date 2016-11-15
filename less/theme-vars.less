@@ -5,6 +5,11 @@
 @avatarColor: @alternateTextColor;
 @avatarBackgroundColor: darken(@alternateTextColor, 26%);
 
+@baseFontFamily: @fontFamily;
+@baseTextColor: @textColor;
+@baseBackgroundColor: @backgroundColor;
+@baseLinkColor: @accentColor;
+
 // badge
 @badgeColor: @lighterPrimaryColor;
 @badgeTextColor: @alternateTextColor;
@@ -13,19 +18,12 @@
 @badgeSecondaryColor: @accentColor;
 @badgeSecondaryTextColor: @alternateTextColor;
 
-@baseFontFamily: @fontFamily;
-@baseTextColor: @textColor;
-@baseBackgroundColor: @backgroundColor;
-@baseLinkColor: @accentColor;
-
 @bottomNavBackgroundColor: @dialogBackgroundColor;
 @bottomNavShiftBackgroundColor: @primaryColor;
 @bottomNavUnselectedColor: @secondaryTextColor;
 @bottomNavShiftUnselectedColor: fade(@alternateTextColor, 70%);
 @bottomNavSelectedColor: @primaryColor;
 @bottomNavShiftSelectedColor: @alternateTextColor;
-
-@bottomSheetColor: @dialogBackgroundColor;
 
 @cardBackgroudColor: @backgroundColor;
 @cardTitleColor: fade(@textColor, 87%);
@@ -35,6 +33,8 @@
 @cardMediaTitleColor: @darkWhite;
 @cardMediaSubtitleColor: @lightWhite;
 @cardTextColor: @textColor;
+
+@bottomSheetColor: @dialogBackgroundColor;
 
 @checkboxColor: @textColor;
 @checkboxTextColor: @textColor;
@@ -118,8 +118,6 @@
 @radioDisabledColor: @disabledColor;
 @radioCheckedColor: @primaryColor;
 
-@refreshControlColor: @primaryColor;
-
 // raisedButton
 @raisedButtonColor: @alternateTextColor;
 @raisedButtonTextColor: @textColor;
@@ -127,6 +125,11 @@
 @raisedButtonSecondaryColor: @accentColor;
 @raisedButtonDisabledColor: darken(@alternateTextColor, 10%);
 @raisedButtonDisabledTextColor: fade(@textColor, 30%);
+
+@refreshControlColor: @primaryColor;
+
+@snackbarColor: @textColor;
+@snackbarTextColor: @alternateTextColor;
 
 @sliderTrackColor: @lighterPrimaryColor;
 @sliderSelectionColor: @primaryColor;
@@ -142,9 +145,6 @@
 @stepperNumTextColor: @alternateTextColor;
 @stepperDisabledTextColor: @disabledColor;
 @stepperConnectorLineColor: @grey400;
-
-@snackbarColor: @textColor;
-@snackbarTextColor: @alternateTextColor;
 
 // subHeader
 @subHeaderColor: @secondaryTextColor;
@@ -171,13 +171,6 @@
 @tabsTextColor: fade(@alternateTextColor, 70%);
 @tabsSelectedTextColor: @alternateTextColor;
 
-@timePickerColor: @alternateTextColor;
-@timePickerClockColor: @textColor;
-@timePickerClockCircleColor: fade(@darkBlack, 7%);
-@timePickerSelectColor: @primaryColor;
-@timePickerSelectTextColor: @alternateTextColor;
-@timePickerHeaderColor: @primaryColor;
-
 @textFieldTextColor: @secondaryTextColor;
 @textFieldInputColor: @textColor;
 @textFieldHintColor: @disabledColor;
@@ -188,6 +181,13 @@
 @textFieldFocusLineColor: @primaryColor;
 @textFieldErrorLineColor: @red;
 @textFieldDisabledLineColor: @disabledColor;
+
+@timePickerColor: @alternateTextColor;
+@timePickerClockColor: @textColor;
+@timePickerClockCircleColor: fade(@darkBlack, 7%);
+@timePickerSelectColor: @primaryColor;
+@timePickerSelectTextColor: @alternateTextColor;
+@timePickerHeaderColor: @primaryColor;
 
 @toastTextColor: @alternateTextColor;
 @toastColor: @textColor;
