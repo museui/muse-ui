@@ -58,7 +58,7 @@ export default {
       name: 'href',
       type: 'String',
       default: '',
-      desc: '相当于 a 标签的 href属性，设置之后会渲染成 a 标签，默认是使用button标签'
+      desc: '相当于 a 标签的 href属性，设置之后会渲染成 a 标签，默认是使用div标签'
     }, {
       name: 'target',
       type: 'String',
@@ -129,7 +129,10 @@ export default {
       name: 'default',
       desc: '用于放置嵌套的菜单项，会在点击时出现'
     }],
-    menuItem: [{
+    events: [{
+      name: 'click',
+      desc: '点击事件'
+    }, {
       name: 'hover',
       desc: '鼠标移到菜单项上的事件'
     }, {
