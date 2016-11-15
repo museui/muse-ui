@@ -64,9 +64,6 @@ export default {
 }
 
 .mu-appbar-title {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
   flex: 1;
   padding-left: 8px;
   padding-right: 8px;
@@ -74,12 +71,15 @@ export default {
   overflow: hidden;
   text-overflow: ellipsis;
   overflow: hidden;
-  margin: 0;
   font-size: 20px;
   font-weight: 400;
+  line-height: 56px;
 }
 
 @media (min-width: 480px) {
+  .mu-appbar-title {
+    line-height: 64px;
+  }
   .mu-appbar {
     height: 64px;
   }

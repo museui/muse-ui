@@ -1,7 +1,7 @@
 <template>
   <div class="mu-badge-container">
     <slot></slot>
-    <em class="mu-badge" :style="style" :class="badgeClass">
+    <em class="mu-badge" :style="badgeStyle" :class="badgeClass">
       <slot name="content">
         {{content}}
       </slot>
@@ -36,9 +36,9 @@ export default {
     }
   },
   computed: {
-    style () {
+    badgeStyle () {
       return {
-        'backgroud-color': getColor(this.color)
+        'background-color': getColor(this.color)
       }
     },
     badgeClass () {
