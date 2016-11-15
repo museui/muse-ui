@@ -5,7 +5,7 @@
 ![JS gzip size](http://img.badgesize.io/https://unpkg.com/muse-ui/dist/muse-ui.js?compression=gzip&label=gzip%20size:%20JS)
 ![CSS gzip size](http://img.badgesize.io/https://unpkg.com/muse-ui/dist/muse-ui.css?compression=gzip&label=gzip%20size:%20CSS)
 
-> Material Desgin UI library for Vuejs 2.0
+> Material Design UI library for Vuejs 2.0
 
 ## Links
 
@@ -82,7 +82,7 @@ Please make sure to read the [Contributing Guide](https://museui.github.io/#/con
 ## Dependencies
 
 * [vuejs 2.0](https://vuejs.org/)
-* [material desgin](https://material.google.com)
+* [material design](https://material.google.com)
 * [material icons](https://fonts.googleapis.com/icon?family=Material+Icons)
 
 ## Licence
