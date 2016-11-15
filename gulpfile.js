@@ -17,7 +17,7 @@ gulp.task('theme:var', function () {
 })
 
 gulp.task('theme:less', function () {
-  return gulp.src(['./sr/styles/color.less', './src/styles/mixins.less', './src/styles/vars.less'])
+  return gulp.src(['./src/styles/color.less', './src/styles/mixins.less', './src/styles/vars.less'])
       .pipe(gulp.dest('./less'))
 })
 
