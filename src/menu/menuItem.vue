@@ -98,7 +98,7 @@ export default {
   },
   methods: {
     handleClick (e) {
-      if (this.disabled) return
+      this.$emit('click', e)
       this.$parent.handleClick(this)
       this.open()
       if (this.value) this.$parent.handleChange(this.value)

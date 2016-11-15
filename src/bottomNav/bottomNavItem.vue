@@ -1,5 +1,5 @@
 <template>
-  <abstract-button :disableTouchRipple="shift" class="mu-buttom-item" :class="{'mu-bottom-item-active': active}" :center-ripple="false" wrapperClass="mu-buttom-item-wrapper" @click.native="handleClick">
+  <abstract-button :href="href" :disableTouchRipple="shift" class="mu-buttom-item" :class="{'mu-bottom-item-active': active}" :center-ripple="false" wrapperClass="mu-buttom-item-wrapper" @click.native="handleClick">
     <icon :value="icon" class="mu-bottom-item-icon"></icon>
     <span class="mu-bottom-item-text">{{title}}</span>
   </abstract-button>
@@ -18,6 +18,9 @@ export default {
     title: {
       type: String,
       default: ''
+    },
+    href: {
+      type: String
     },
     value: {}
   },
@@ -70,6 +73,7 @@ export default {
   padding: 0;
   background: none;
   appearance: none;
+  text-decoration: none;
   border: none;
   outline: none;
   transition: all .4s @easeInOutFunction;
