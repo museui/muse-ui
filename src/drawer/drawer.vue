@@ -55,7 +55,10 @@ export default {
       }
     },
     docked (val, oldVal) {
-      if (val && !oldVal) PopupManager.close(this)
+      if (val && !oldVal) {
+        PopupManager.close(this)
+        if (this.$el) this.$el.style.zIndex = ''
+      }
     }
   },
   beforeDestroy () {
