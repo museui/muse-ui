@@ -1,6 +1,7 @@
 <template>
 <abstract-button
-  :disabled="disabled" :keyboardFocused="keyboardFocused" wrapperClass="mu-flat-button-wrapper" :href="href" :target="target" :style="buttonStyle" class="mu-flat-button"
+  :disabled="disabled" :keyboardFocused="keyboardFocused" wrapperClass="mu-flat-button-wrapper"
+  :href="href" :target="target" :style="buttonStyle" class="mu-flat-button"
   @click="handleClick" :rippleColor="rippleColor"
   @keyboardFocus="handleKeyboardFocus" @hover="handleHover" @hoverExit="handleHoverExit"
   :rippleOpacity="rippleOpacity"

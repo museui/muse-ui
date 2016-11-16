@@ -1,14 +1,15 @@
 <template>
-<touch-ripple class="mu-tab-link" :center-ripple="false" :class="{'mu-tab-active': active}" @click.native="tabClick">
+<abstract-button class="mu-tab-link" :href="href" :disabled="disabled"
+  :center-ripple="false" :class="{'mu-tab-active': active}" @click="tabClick">
   <slot>
     <icon :value="icon"/>
     <div class="mu-tab-text" :class="{'has-icon': icon}" v-if="title">{{title}}</div>
   </slot>
-</touch-ripple>
+</abstract-button>
 </template>
 
 <script>
-import touchRipple from '../internal/touchRipple'
+import abstractButton from '../internal/abstractButton'
 import icon from '../icon'
 export default {
   name: 'mu-tab',
@@ -20,6 +21,12 @@ export default {
     title: {
       type: String,
       default: ''
+    },
+    href: {
+      type: String
+    },
+    disabled: {
+      type: Boolean
     },
     value: {}
   },
@@ -41,7 +48,7 @@ export default {
     }
   },
   components: {
-    'touch-ripple': touchRipple,
+    'abstract-button': abstractButton,
     icon
   }
 }
@@ -54,6 +61,11 @@ export default {
   padding-top: 12px;
   padding-bottom: 12px;
   font-size: 14px;
+  background: none;
+  appearance: none;
+  text-decoration: none;
+  border: none;
+  outline: none;
   flex: 1;
   color: inherit;
   position: relative;

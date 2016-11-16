@@ -31,6 +31,16 @@ export default {
       type: '',
       default: '',
       desc: '必需，当value 与父组件的 value值相等时，会变成选中状态'
+    }, {
+      name: 'href',
+      type: 'String',
+      default: '',
+      desc: '相当于 a 标签的 href属性，设置之后会渲染成 a 标签，默认是使用button标签'
+    }, {
+      name: 'disabled',
+      type: 'Boolean',
+      default: 'false',
+      desc: '是否禁用'
     }],
     events: [{
       name: 'active',
