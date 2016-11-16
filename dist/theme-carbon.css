@@ -428,6 +428,18 @@ a {
 .mu-switch.disabled .mu-switch-thumb {
   background-color: #e0e0e0;
 }
+.mu-tabs {
+  background-color: #474a4f;
+}
+.mu-tab-link-highlight {
+  background-color: #ff5252;
+}
+.mu-tab-link {
+  color: rgba(255, 255, 255, 0.7);
+}
+.mu-tab-active {
+  color: #ffffff;
+}
 .mu-table {
   background-color: #ffffff;
 }
@@ -452,18 +464,6 @@ a {
 }
 .mu-tfoot .mu-tr {
   border-top-color: #edeff2;
-}
-.mu-tabs {
-  background-color: #474a4f;
-}
-.mu-tab-link-highlight {
-  background-color: #ff5252;
-}
-.mu-tab-link {
-  color: rgba(255, 255, 255, 0.7);
-}
-.mu-tab-active {
-  color: #ffffff;
 }
 .mu-text-field {
   color: #7e848c;
