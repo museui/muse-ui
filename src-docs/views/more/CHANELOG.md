@@ -1,3 +1,17 @@
+## 2.0.0-alpha.5
+
+### Features
+
+  * bottomNavItem 新增 `href` 属性
+  * tab 新增 `href`, `disabled` 属性
+  * menuItem 增加 `click` 事件
+
+### Bugs
+
+  * 修复 textField 提示文字可以选择的问题
+  * 修复 appbar 标题溢出不显示的问题
+  * 修复 badge 组件 `color` 属性无效
+
 ## 2.0.0-alpha.4
 
 ### Bugs

@@ -4,6 +4,11 @@ const rename = require('gulp-rename')
 const concat = require('gulp-concat')
 const minify = require('gulp-minify-css')
 
+gulp.task('docs:resource', function () {
+  return gulp.src(['./src-docs/version.json', './src-docs/favicon.ico'])
+          .pipe(gulp.dest('./docs'))
+})
+
 gulp.task('theme:style', function () {
   return gulp.src(['./src/*/theme.less'])
       .pipe(concat('theme.less'))

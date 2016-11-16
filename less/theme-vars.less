@@ -5,11 +5,6 @@
 @avatarColor: @alternateTextColor;
 @avatarBackgroundColor: darken(@alternateTextColor, 26%);
 
-@baseFontFamily: @fontFamily;
-@baseTextColor: @textColor;
-@baseBackgroundColor: @backgroundColor;
-@baseLinkColor: @accentColor;
-
 // badge
 @badgeColor: @lighterPrimaryColor;
 @badgeTextColor: @alternateTextColor;
@@ -18,12 +13,19 @@
 @badgeSecondaryColor: @accentColor;
 @badgeSecondaryTextColor: @alternateTextColor;
 
+@baseFontFamily: @fontFamily;
+@baseTextColor: @textColor;
+@baseBackgroundColor: @backgroundColor;
+@baseLinkColor: @accentColor;
+
 @bottomNavBackgroundColor: @dialogBackgroundColor;
 @bottomNavShiftBackgroundColor: @primaryColor;
 @bottomNavUnselectedColor: @secondaryTextColor;
 @bottomNavShiftUnselectedColor: fade(@alternateTextColor, 70%);
 @bottomNavSelectedColor: @primaryColor;
 @bottomNavShiftSelectedColor: @alternateTextColor;
+
+@bottomSheetColor: @dialogBackgroundColor;
 
 @cardBackgroudColor: @backgroundColor;
 @cardTitleColor: fade(@textColor, 87%);
@@ -33,8 +35,6 @@
 @cardMediaTitleColor: @darkWhite;
 @cardMediaSubtitleColor: @lightWhite;
 @cardTextColor: @textColor;
-
-@bottomSheetColor: @dialogBackgroundColor;
 
 @checkboxColor: @textColor;
 @checkboxTextColor: @textColor;
@@ -88,6 +88,13 @@
 @linearProgressColor: @lighterPrimaryColor;
 @linearProgressFillColor: @primaryColor;
 
+@menuTextColor: @textColor;
+@menuSelectColor: @accentColor;
+@menuHoverColor: rgba(0, 0, 0, .1);
+@menuDisabledColor: @disabledColor;
+@menuLeftIconColor: @grey600;
+@menuRightIconColor: @grey600;
+
 // listItem
 @listTextColor: @textColor;
 @listHoverColor: fade(@listTextColor, 10%);
@@ -95,13 +102,6 @@
 @listLeftIconColor: @grey600;
 @listRightIconColor: @grey600;
 @listSelectedColor: @primaryColor;
-
-@menuTextColor: @textColor;
-@menuSelectColor: @accentColor;
-@menuHoverColor: rgba(0, 0, 0, .1);
-@menuDisabledColor: @disabledColor;
-@menuLeftIconColor: @grey600;
-@menuRightIconColor: @grey600;
 
 @paperColor: @textColor;
 @paperBackgroundColor: @dialogBackgroundColor;
@@ -128,13 +128,13 @@
 
 @refreshControlColor: @primaryColor;
 
-@snackbarColor: @textColor;
-@snackbarTextColor: @alternateTextColor;
-
 @sliderTrackColor: @lighterPrimaryColor;
 @sliderSelectionColor: @primaryColor;
 @sliderDisabledColor:  @lighterPrimaryColor;
 @sliderZeroColor: @alternateTextColor;
+
+@snackbarColor: @textColor;
+@snackbarTextColor: @alternateTextColor;
 
 @stepperBackgroundColor: transparent;
 @stepperHoverBackgroundColor: fade(@textColor, 6%);
@@ -149,6 +149,14 @@
 // subHeader
 @subHeaderColor: @secondaryTextColor;
 
+@tableBackgroundColor: @alternateTextColor;
+@tableBorderColor: @borderColor;
+@tableTextColor: @textColor;
+@tableRowSelectedBackgroundColor: @grey100;
+@tableRowHoverBackgroundColor: @grey200;
+@tableRowStripeBackgroundColor: fade(lighten(@primaryColor, 50%), 40%);
+@tableTheadTextColor: @secondaryTextColor;
+
 @switchThumbOnColor: @primaryColor;
 @switchThumbOffColor: @darkerAccentColor;
 @switchThumbDisabledColor: @grey300;
@@ -157,14 +165,6 @@
 @switchTrackDisabledColor: @lighterPrimaryColor;
 @switchTextColor: @textColor;
 @switchTextDisabledColor: @disabledColor;
-
-@tableBackgroundColor: @alternateTextColor;
-@tableBorderColor: @borderColor;
-@tableTextColor: @textColor;
-@tableRowSelectedBackgroundColor: @grey100;
-@tableRowHoverBackgroundColor: @grey200;
-@tableRowStripeBackgroundColor: fade(lighten(@primaryColor, 50%), 40%);
-@tableTheadTextColor: @secondaryTextColor;
 
 @tabsBackgroundColor: @primaryColor;
 @tabsLineColor: @accentColor;
