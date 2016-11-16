@@ -4,6 +4,7 @@
 [![NPM downloads](http://img.shields.io/npm/dm/muse-ui.svg)](https://npmjs.org/package/muse-ui)
 ![JS gzip size](http://img.badgesize.io/https://unpkg.com/muse-ui/dist/muse-ui.js?compression=gzip&label=gzip%20size:%20JS)
 ![CSS gzip size](http://img.badgesize.io/https://unpkg.com/muse-ui/dist/muse-ui.css?compression=gzip&label=gzip%20size:%20CSS)
+[![Join the chat at https://gitter.im/muse-ui/muse-ui](https://badges.gitter.im/muse-ui/muse-ui.svg)](https://gitter.im/muse-ui/muse-ui?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 > Material Design UI library for Vuejs 2.0
 
