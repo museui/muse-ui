@@ -1,5 +1,7 @@
 # Muse UI
 
+[![Join the chat at https://gitter.im/muse-ui/Lobby](https://badges.gitter.im/muse-ui/Lobby.svg)](https://gitter.im/muse-ui/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 [![npm package](https://img.shields.io/npm/v/muse-ui.svg)](https://www.npmjs.org/package/muse-ui)
 [![NPM downloads](http://img.shields.io/npm/dm/muse-ui.svg)](https://npmjs.org/package/muse-ui)
 ![JS gzip size](http://img.badgesize.io/https://unpkg.com/muse-ui/dist/muse-ui.js?compression=gzip&label=gzip%20size:%20JS)
