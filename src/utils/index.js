@@ -6,6 +6,14 @@ export const getColor = function (color) {
   return colors.indexOf(color) !== -1 ? colorsObj[color] : color
 }
 
+export function isNotNull (val) {
+  return val !== undefined && val !== null
+}
+
+export function isNull (val) {
+  return val === undefined || val === null
+}
+
 export function merge (target) {
   for (var i = 1, j = arguments.length; i < j; i++) {
     var source = arguments[i]

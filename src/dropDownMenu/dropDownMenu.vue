@@ -20,6 +20,7 @@
 import icon from '../icon'
 import popover from '../popover'
 import {menu} from '../menu'
+import {isNull} from '../utils'
 export default {
   name: 'mu-dropDown-menu',
   props: {
@@ -101,10 +102,10 @@ export default {
       this.$emit('change', value)
     },
     getText () {
-      if (!this.$slots || !this.$slots.default || this.$slots.length === 0 || !this.value) return ''
+      if (!this.$slots || !this.$slots.default || this.$slots.length === 0 || isNull(this.value)) return ''
       let text = []
       this.$slots.default.forEach((vNode) => {
-        if (!vNode.componentOptions || !vNode.componentOptions.propsData || !vNode.componentOptions.propsData.value) return
+        if (!vNode.componentOptions || !vNode.componentOptions.propsData || isNull(vNode.componentOptions.propsData.value)) return
         const {value, title} = vNode.componentOptions.propsData
         if (value === this.value || (this.multiple && this.value.length && this.value.indexOf(value) !== -1)) {
           text.push(title)

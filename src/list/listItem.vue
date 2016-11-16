@@ -50,6 +50,7 @@ import abstractButton from '../internal/abstractButton'
 import iconButton from '../iconButton'
 import list from './list'
 import expandTransition from '../internal/expandTransition'
+import {isNotNull} from '../utils'
 export default {
   name: 'mu-list-item',
   props: {
@@ -145,7 +146,7 @@ export default {
       return this.nestedOpen && this.$slots && this.$slots.nested && this.$slots.nested.length > 0
     },
     selected () {
-      return this.$parent.value && this.value && this.$parent.value === this.value
+      return isNotNull(this.$parent.value) && isNotNull(this.value) && this.$parent.value === this.value
     },
     nestedSelectValue () {
       return this.$parent.value
@@ -159,7 +160,7 @@ export default {
     handleClick (e) {
       this.$emit('click', e)
       if (this.$parent.handleItemClick) this.$parent.handleItemClick(e)
-      if (this.value) this.$parent.handleChange(this.value)
+      if (isNotNull(this.value)) this.$parent.handleChange(this.value)
       if (this.toggleNested) this.handleToggleNested()
     },
     handleKeyboardFocus (isFocus) {

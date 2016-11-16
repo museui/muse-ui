@@ -31,7 +31,7 @@
 <script>
 import abstractButton from '../internal/abstractButton'
 import icon from '../icon'
-import {getColor} from '../utils'
+import {getColor, isNotNull} from '../utils'
 import popover from '../popover'
 import menu from './menu'
 export default {
@@ -81,7 +81,7 @@ export default {
       return !this.rightIcon && this.afterText && (!this.$slot || !this.$slot.after || this.$slot.after.length === 0)
     },
     active () {
-      return this.$parent.value && this.value && (this.$parent.value === this.value || (this.$parent.multiple && this.$parent.value.indexOf(this.value) !== -1))
+      return isNotNull(this.$parent.value) && isNotNull(this.value) && (this.$parent.value === this.value || (this.$parent.multiple && this.$parent.value.indexOf(this.value) !== -1))
     }
   },
   data () {
@@ -101,7 +101,7 @@ export default {
       this.$emit('click', e)
       this.$parent.handleClick(this)
       this.open()
-      if (this.value) this.$parent.handleChange(this.value)
+      if (isNotNull(this.value)) this.$parent.handleChange(this.value)
     },
     filterColor (color) {
       return getColor(color)

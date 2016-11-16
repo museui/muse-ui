@@ -11,6 +11,7 @@
 <script>
 import abstractButton from '../internal/abstractButton'
 import icon from '../icon'
+import {isNotNull} from '../utils'
 export default {
   name: 'mu-tab',
   props: {
@@ -32,7 +33,7 @@ export default {
   },
   computed: {
     active () {
-      return this.value && this.$parent.value === this.value
+      return isNotNull(this.value) && this.$parent.value === this.value
     }
   },
   methods: {

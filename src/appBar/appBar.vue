@@ -5,7 +5,7 @@
   </div>
   <div class="mu-appbar-title">
     <slot>
-      {{title}}
+      <span>{{title}}</span>
     </slot>
   </div>
   <div class="right">

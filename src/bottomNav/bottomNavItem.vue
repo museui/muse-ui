@@ -8,6 +8,7 @@
 <script>
 import abstractButton from '../internal/abstractButton'
 import icon from '../icon'
+import {isNotNull} from '../utils'
 export default {
   name: 'mu-bottom-nav-item',
   props: {
@@ -34,7 +35,7 @@ export default {
   },
   computed: {
     active () {
-      return this.bottomNav && this.value && this.bottomNav.value === this.value
+      return this.bottomNav && isNotNull(this.value) && this.bottomNav.value === this.value
     },
     shift () {
       return this.bottomNav && this.bottomNav.shift
