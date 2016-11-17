@@ -1,7 +1,7 @@
 <template>
 <div>
   <mu-table :fixedFooter="fixedFooter" :fixedHeader="fixedHeader" :height="height"
-    :allRowsSelected="enableSelectAll" :multiSelectable="multiSelectable"
+    :enableSelectAll="enableSelectAll" :multiSelectable="multiSelectable"
     :selectable="selectable" :showCheckbox="showCheckbox">
     <mu-thead slot="header">
       <mu-tr>
@@ -11,7 +11,7 @@
       </mu-tr>
     </mu-thead>
     <mu-tbody>
-      <mu-tr v-for="item,index in tableData">
+      <mu-tr v-for="item,index in tableData" :selected="item.selected">
         <mu-td>{{index + 1}}</mu-td>
         <mu-td>{{item.name}}</mu-td>
         <mu-td>{{item.status}}</mu-td>
@@ -45,7 +45,8 @@ export default {
       tableData: [
         {
           name: 'John Smith',
-          status: 'Employed'
+          status: 'Employed',
+          selected: true
         },
         {
           name: 'Randal White',
@@ -53,7 +54,8 @@ export default {
         },
         {
           name: 'Stephanie Sanders',
-          status: 'Employed'
+          status: 'Employed',
+          selected: true
         },
         {
           name: 'Steve Brown',
@@ -75,7 +77,7 @@ export default {
       fixedHeader: true,
       fixedFooter: true,
       selectable: true,
-      multiSelectable: false,
+      multiSelectable: true,
       enableSelectAll: false,
       showCheckbox: true,
       height: '300px'

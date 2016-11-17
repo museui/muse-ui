@@ -35,6 +35,10 @@ export default {
     height: {
       type: String
     },
+    enableSelectAll: {
+      type: Boolean,
+      default: false
+    },
     allRowsSelected: {
       type: Boolean,
       default: false
@@ -65,27 +69,32 @@ export default {
       }
     }
   },
+  mounted () {
+    if (this.allRowsSelected) {
+      this.selectAll()
+    }
+  },
   methods: {
-    handleRowClick (index, rowId, tr) {
-      this.$emit('rowClick', index, rowId, tr)
+    handleRowClick (index, tr) {
+      this.$emit('rowClick', index, tr)
     },
-    handleRowHover (index, rowId, tr) {
-      this.$emit('rowHover', index, rowId, tr)
+    handleRowHover (index, tr) {
+      this.$emit('rowHover', index, tr)
     },
-    handleRowHoverExit (index, rowId, tr) {
-      this.$emit('rowHoverExit', index, rowId, tr)
+    handleRowHoverExit (index, tr) {
+      this.$emit('rowHoverExit', index, tr)
     },
     handleRowSelect (selectedRows) {
       this.$emit('rowSelection', selectedRows)
     },
-    handleCellClick (rowIndex, columnName, td, rowId, tr) {
-      this.$emit('cellClick', rowIndex, columnName, td, rowId, tr)
+    handleCellClick (rowIndex, columnName, td, tr) {
+      this.$emit('cellClick', rowIndex, columnName, td, tr)
     },
-    handleCellHover (rowIndex, columnName, td, rowId, tr) {
-      this.$emit('cellHover', rowIndex, columnName, td, rowId, tr)
+    handleCellHover (rowIndex, columnName, td, tr) {
+      this.$emit('cellHover', rowIndex, columnName, td, tr)
     },
-    handleCellHoverExit (rowIndex, columnName, td, rowId, tr) {
-      this.$emit('cellHoverExit', rowIndex, columnName, td, rowId, tr)
+    handleCellHoverExit (rowIndex, columnName, td, tr) {
+      this.$emit('cellHoverExit', rowIndex, columnName, td, tr)
     },
     changeSelectAll (isSelectAll) {
       this.isSelectAll = isSelectAll
@@ -98,18 +107,20 @@ export default {
       const tbody = this.getTbody()
       if (tbody) tbody.unSelectAll()
     },
-    selectRow (rowId) {
-      const tbody = this.getTbody()
-      if (tbody) tbody.selectRow(rowId)
-    },
-    unSelectRow (rowId) {
-      const tbody = this.getTbody()
-      if (tbody) tbody.unSelectRow(rowId)
-    },
     getTbody () {
       for (let i = 0; i < this.$children.length; i++) {
         const childItem = this.$children[i]
         if (childItem.isTbody) return childItem
+      }
+    }
+  },
+  watch: {
+    allRowsSelected (val, oldVal) {
+      if (val === oldVal) return
+      if (val) {
+        this.selectAll()
+      } else {
+        this.unSelectAll()
       }
     }
   }

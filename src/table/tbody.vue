@@ -26,8 +26,8 @@ export default {
     multiSelectable () {
       return this.$parent.multiSelectable
     },
-    allRowsSelected () {
-      return this.$parent.allRowsSelected
+    enableSelectAll () {
+      return this.$parent.enableSelectAll
     },
     isSelectAll () {
       return this.$parent.isSelectAll
@@ -43,7 +43,7 @@ export default {
       if (index === -1) {
         if (!this.multiSelectable) this.selectedRows = []
         this.selectedRows.push(rowId)
-        if (this.$parent.handleRowSelect) this.$parent.handleRowSelect(this.selectedRows)
+        if (this.$parent.handleRowSelect) this.$parent.handleRowSelect(this.convertSelectedRows(this.selectedRows))
         if (this.isSelectAllRow()) this.selectAll(true)
       }
     },
@@ -60,6 +60,7 @@ export default {
       if (index !== -1) this.selectedRows.splice(index, 1)
       this._unSelectAll = true
       this.$parent.changeSelectAll(false)
+      if (this.$parent.handleRowSelect) this.$parent.handleRowSelect(this.convertSelectedRows(this.selectedRows))
     },
     selectAll (isSelectAll) {
       if (!this.selectable || !this.multiSelectable) return
@@ -71,7 +72,7 @@ export default {
         })
       }
       this.$parent.changeSelectAll(true)
-      if (this.$parent.handleRowSelect) this.$parent.handleRowSelect(this.selectedRows)
+      if (this.$parent.handleRowSelect) this.$parent.handleRowSelect(this.convertSelectedRows(this.selectedRows))
     },
     unSelectAll () {
       if (!this.selectable || !this.multiSelectable || this._unSelectAll) return
@@ -95,6 +96,17 @@ export default {
     },
     getRowIndex (tr) {
       return this.$children.indexOf(tr)
+    },
+    convertSelectedRows () {
+      const selectedIndexs = this.selectedRows.map(rowId => this.convertRowIdToIndex(rowId))
+      return this.multiSelectable ? selectedIndexs : selectedIndexs[0]
+    },
+    convertRowIdToIndex (rowId) {
+      for (var i = 0; i < this.$children.length; i++) {
+        const child = this.$children[i]
+        if (child.rowId && child.rowId === rowId) return i
+      }
+      return -1
     }
   }
 }

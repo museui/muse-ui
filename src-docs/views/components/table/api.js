@@ -16,10 +16,15 @@ export default {
       default: 'auto',
       desc: '表格的高度'
     }, {
-      name: 'allRowsSelected',
+      name: 'enableSelectAll',
       type: 'Boolean',
       default: 'false',
       desc: '是否允许选择全部'
+    }, {
+      name: 'allRowsSelected',
+      type: 'Boolean',
+      default: 'false',
+      desc: '是否默认选择全部，设置为true 会选择所有行'
     }, {
       name: 'multiSelectable',
       type: 'Boolean',
@@ -48,7 +53,7 @@ export default {
     }],
     events: [{
       name: 'rowClick',
-      desc: '某一行被点击时触发, 参数 (index, rowId, tr): \n * index 这一行的下标 \n * rowId 这一行的id,有组件自动生成的唯一值 \n * tr tr组件实体'
+      desc: '某一行被点击时触发, 参数 (index, tr): \n * index 这一行的下标 \n  * tr tr组件实体'
     }, {
       name: 'rowHover',
       desc: '鼠标在某一行上时触发， 参数同 `rowClick` 一致'
@@ -57,10 +62,10 @@ export default {
       desc: '鼠标在从一行移出时触发， 参数同 `rowClick` 一致'
     }, {
       name: 'rowSelection',
-      desc: '当某一行被选择时触发，参数 (selectedRows) \n selectRows 是一个被选择 rowId 数组，'
+      desc: '当某一行被选择时触发，参数 (selectedRowsIndex) \n selectedRowsIndex 是一个被选择行下标，如果 `multiSelectable` 为 `true` , selectedRowsIndex 是一个数组'
     }, {
       name: 'cellClick',
-      desc: 'td被点击时触发, 参数 (rowIndex, columnName, td, rowId, tr) \n * rowIndex 所在行的下标 \n * td组件的name属性 \n * td 组件实体 \n * rowId 所在行的id \n * tr tr组件实体'
+      desc: 'td被点击时触发, 参数 (rowIndex, columnName, td, tr) \n * rowIndex 所在行的下标 \n * td组件的name属性 \n * td 组件实体 \n * tr tr组件实体'
     }, {
       name: 'cellHover',
       desc: '鼠标在这个 td 上时触发, 参数同 `cellClick` 一致'
@@ -90,7 +95,14 @@ export default {
   tr: {
     props: [{
       name: 'selectable',
+      type: 'Boolean',
+      default: 'false',
       desc: '是否可以被选择'
+    }, {
+      name: 'selected',
+      type: 'Boolean',
+      default: 'false',
+      desc: '是否已选择'
     }],
     slots: [{
       name: 'default',
@@ -106,7 +118,7 @@ export default {
     }, {
       name: 'tooltipPosition',
       type: 'String',
-      default: 'bottom-center',
+      default: 'bottom-right',
       desc: '提示文字文字, [垂直位置]-[水平位置]，垂直位置: top，middle, bottom; 水平位置: left, center, right'
     }, {
       name: 'touch',

@@ -14,8 +14,8 @@ export default {
     showCheckbox () {
       return this.$parent.showCheckbox
     },
-    allRowsSelected () {
-      return this.$parent.allRowsSelected
+    enableSelectAll () {
+      return this.$parent.enableSelectAll
     },
     multiSelectable () {
       return this.$parent.multiSelectable
