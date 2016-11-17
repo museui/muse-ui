@@ -1,6 +1,6 @@
 <template>
-  <label @mousedown="handleMouseDown" @mouseup="handleMouseUp" @touchstart="handleTouchStart"
-    @touchend="handleTouchEnd" @click.stop="handleClick"
+  <label @mousedown="handleMouseDown" @mouseup="handleMouseUp" @mouseleave="handleMouseLeave"
+    @touchstart="handleTouchStart" @touchend="handleTouchEnd" @touchcancel="handleTouchEnd" @click.stop="handleClick"
     class="mu-checkbox" :class="{'label-left': labelLeft, 'disabled': disabled, 'no-label': !label}">
     <input type="checkbox" :disabled="disabled" :name="name" :value="nativeValue" v-model="inputValue">
     <touch-ripple v-if="!disabled" rippleWrapperClass="mu-checkbox-ripple-wrapper" class="mu-checkbox-wrapper">

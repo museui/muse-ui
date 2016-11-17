@@ -1,7 +1,7 @@
 <template>
 <div class="content-wrapper">
   <markdown-element :text="description"/>
-  <code-example :code="exampleSimpleCode" title="简单使用" description="`Flat Button` 默认、主色、第二主色、不可用、四种不同状态的按钮示例">
+  <code-example :code="exampleSimpleCode" title="简单使用" description="`Flat Button` 默认、主色、强调色、不可用、四种不同状态的按钮示例">
     <ex-simple/>
   </code-example>
   <code-example :code="exampleComplexCode" title="稍复杂的使用" description="配合选择文件按钮，图标，定义label的位置">

@@ -53,7 +53,7 @@ export default {
     }],
     events: [{
       name: 'rowClick',
-      desc: '某一行被点击时触发, 参数 (index, tr): \n * index 这一行的下标 \n  * tr tr组件实体'
+      desc: '某一行被点击时触发, 参数 (index, tr): \n * index 这一行的下标 \n * tr `tr` 组件实体'
     }, {
       name: 'rowHover',
       desc: '鼠标在某一行上时触发， 参数同 `rowClick` 一致'
@@ -65,7 +65,7 @@ export default {
       desc: '当某一行被选择时触发，参数 (selectedRowsIndex) \n selectedRowsIndex 是一个被选择行下标，如果 `multiSelectable` 为 `true` , selectedRowsIndex 是一个数组'
     }, {
       name: 'cellClick',
-      desc: 'td被点击时触发, 参数 (rowIndex, columnName, td, tr) \n * rowIndex 所在行的下标 \n * td组件的name属性 \n * td 组件实体 \n * tr tr组件实体'
+      desc: 'td被点击时触发, 参数 (rowIndex, columnName, td, tr) \n * rowIndex 所在行的下标 \n * columnName td组件的name属性 \n * td 组件实体 \n * tr tr组件实体'
     }, {
       name: 'cellHover',
       desc: '鼠标在这个 td 上时触发, 参数同 `cellClick` 一致'
