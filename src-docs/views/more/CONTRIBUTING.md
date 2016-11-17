@@ -8,7 +8,7 @@ Muse UI 的成长离不开大家的支持，如果你愿意为 Muse UI 贡献代
 
 ## Issue 规范
 
-* issue 仅用于提交 Bug 或 Feature 相关的内容，其它内容可能会被直接关闭。使用上有问题可以来 [slack](https://museui.slack.com/) 大家一起讨论
+* issue 仅用于提交 Bug 或 Feature 相关的内容，其它内容可能会被直接关闭。使用上有问题可以来 [gitter](https://gitter.im/muse-ui/muse-ui) 大家一起讨论
 
 * 在提交 issue 之前，请搜索相关内容是否已被提出。
 

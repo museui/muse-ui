@@ -121,7 +121,7 @@ export default {
       }
     },
     showHint () {
-      return !this.float && !this.inputValue
+      return !this.float && !String(this.inputValue)
     }
   },
   methods: {
@@ -145,7 +145,7 @@ export default {
       this.inputValue = val
     },
     inputValue (val) {
-      this.charLength = this.maxLength && this.inputValue ? this.inputValue.length : 0
+      this.charLength = this.maxLength && String(this.inputValue) ? String(this.inputValue).length : 0
       this.$emit('input', val)
       this.$emit('change', val)
     },
