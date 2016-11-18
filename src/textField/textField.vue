@@ -121,7 +121,7 @@ export default {
       }
     },
     showHint () {
-      return !this.float && !String(this.inputValue)
+      return !this.float && !this.inputValue && this.inputValue !== 0
     }
   },
   methods: {
