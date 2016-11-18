@@ -1,3 +1,16 @@
+## 2.0.0-alpha.7
+
+### Features
+
+  * table 组件增加 `enableSelectAll` 属性
+  * tr 组件增加 `selected` 属性，控制tr选择
+
+### Bugs
+
+  * 修复 selectField无法选择 value 为 0 的项
+  * 修复 radio,checkbox,switch 鼠标移出后波纹不消失的问题
+  * 修复 mu-text-field设置type为number后，maxLength显示错误
+
 ## 2.0.0-alpha.5
 
 ### Features

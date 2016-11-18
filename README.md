@@ -58,6 +58,7 @@ or
 
 ```javascript
 import Vue from 'vue'
+import 'muse-components/styles/base.less' // 加载基础的样式
 import appbar from 'muse-components/appbar'
 import avatar from 'muse-components/avatar'
 // ..
