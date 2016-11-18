@@ -43,8 +43,11 @@ export default {
       if (index === -1) {
         if (!this.multiSelectable) this.selectedRows = []
         this.selectedRows.push(rowId)
+        if (this.isSelectAllRow()) {
+          this.selectAll(true)
+          return
+        }
         if (this.$parent.handleRowSelect) this.$parent.handleRowSelect(this.convertSelectedRows(this.selectedRows))
-        if (this.isSelectAllRow()) this.selectAll(true)
       }
     },
     isSelectAllRow () {
