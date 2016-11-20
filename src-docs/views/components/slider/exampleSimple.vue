@@ -1,6 +1,6 @@
 <template>
 <div>
-  <mu-slider v-model="value1" class="demo-slider"/>
+  <mu-slider v-model="value1" :min="20" class="demo-slider"/>
   <mu-slider v-model="value2" class="demo-slider"/>
   <mu-slider v-model="value3" class="demo-slider"/>
 </div>

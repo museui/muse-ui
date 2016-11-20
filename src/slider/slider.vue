@@ -63,7 +63,7 @@ export default {
     },
     sliderClass () {
       return {
-        zero: this.inputValue <= 0,
+        zero: this.inputValue <= this.min,
         active: this.active,
         disabled: this.disabled
       }
