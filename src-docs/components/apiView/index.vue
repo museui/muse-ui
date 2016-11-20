@@ -6,7 +6,7 @@
     <mu-tab value="slots" v-if="api.slots" title="Slots"/>
     <mu-tab value="events" v-if="api.events" title="Events"/>
   </mu-tabs>
-  <mu-table v-if="value === 'props'" class="api-view-table" :fixedFooter="false" :fixedHeader="false" :showCheckbox="false" :selectable="false">
+  <mu-table v-show="value === 'props'" class="api-view-table" :fixedFooter="false" :fixedHeader="false" :showCheckbox="false" :selectable="false">
     <mu-thead>
       <mu-tr>
         <mu-th class="api-th" width="20%">名称</mu-th>
@@ -28,7 +28,7 @@
       </mu-tr>
     </mu-tbody>
   </mu-table>
-  <mu-table v-if="value === 'slots'" class="api-view-table" :fixedFooter="false" :fixedHeader="false" :showCheckbox="false" :selectable="false">
+  <mu-table v-show="value === 'slots'" class="api-view-table" :fixedFooter="false" :fixedHeader="false" :showCheckbox="false" :selectable="false">
     <mu-thead>
       <mu-tr>
         <mu-th class="api-th" width="15%">名称</mu-th>
@@ -44,7 +44,7 @@
       </mu-tr>
     </mu-tbody>
   </mu-table>
-  <mu-table v-if="value === 'events'" class="api-view-table" :fixedFooter="false" :fixedHeader="false" :showCheckbox="false" :selectable="false">
+  <mu-table v-show="value === 'events'" class="api-view-table" :fixedFooter="false" :fixedHeader="false" :showCheckbox="false" :selectable="false">
     <mu-thead>
       <mu-tr>
         <mu-th class="api-th" width="15%">名称</mu-th>

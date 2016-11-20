@@ -80,6 +80,7 @@ export default {
   .scrollable();
   .no-scrollbar();
   transition-property: transform, visibility;
+  transition-duration: 0.45s;
   transform: translate3d(-100%, 0, 0);
   border-radius: 0;
   left: 0;

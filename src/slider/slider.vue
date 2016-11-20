@@ -48,7 +48,7 @@ export default {
   },
   computed: {
     percent () {
-      let percentNum = this.inputValue / (this.max - this.min) * 100
+      let percentNum = (this.inputValue - this.min) / (this.max - this.min) * 100
       return percentNum > 100 ? 100 : percentNum < 0 ? 0 : percentNum
     },
     fillStyle () {

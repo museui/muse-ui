@@ -219,6 +219,7 @@ export default {
       domProps: domProps,
       style: {
         'user-select': this.disabled ? '' : 'none',
+        '-webkit-user-select': this.disabled ? '' : 'none',
         'outline': 'none',
         'cursor': this.disabled ? '' : 'pointer',
         'appearance': 'none'

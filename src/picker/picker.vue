@@ -60,8 +60,8 @@ export default {
   top: 50%;
   margin-top: -18px;
   pointer-events: none;
-  .hairline(top, @borderColor);
-  .hairline(bottom, @borderColor);
+  border-top: 1px solid @borderColor;
+  border-bottom: 1px solid @borderColor;
 }
 
 .mu-picker-center-highlight:before {

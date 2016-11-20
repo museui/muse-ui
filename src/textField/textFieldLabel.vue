@@ -25,22 +25,21 @@ export default {
 <style lang="less">
 @import "../styles/import.less";
 .mu-text-field-label {
-  // position: absolute;
   line-height: 20px;
   transition: all .45s @easeOutFunction;
   z-index: 1;
   cursor: text;
-  transform: scale(0.75);
+  transform: translate3d(0, 0, 0) scale(0.75);
   transform-origin: left top;
   user-select: none;
   pointer-events: none;
+  backface-visibility: hidden;
   .mu-text-field.has-label & {
     top: 8px;
     position: absolute;
   }
   .mu-text-field.has-label &.float {
-    transform: scale(1);
-    top: 38px;
+    transform: translate3d(0, 28px, 0) scale(1);
     color: @disabledColor;
   }
 }

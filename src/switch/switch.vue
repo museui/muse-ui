@@ -106,7 +106,7 @@ export default {
         .mu-switch-thumb{
           background-color: @primaryColor;
           color: @primaryColor;
-          left: 18px;
+          transform: translate3d(18px, 0, 0);
         }
       }
 
@@ -187,6 +187,7 @@ export default {
   border-radius: 50%;
   .depth(1);
   transition: all 450ms @easeOutFunction;
+  backface-visibility: hidden;
   .mu-switch.disabled & {
     background-color: @grey300;
   }

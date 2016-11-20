@@ -78,6 +78,7 @@ export default {
   border: none;
   outline: none;
   transition: all .4s @easeInOutFunction;
+  user-select: none;
   .mu-bottom-nav-shift & {
     color: fade(@alternateTextColor, 70%);
     display: flex;

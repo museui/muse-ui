@@ -113,7 +113,7 @@ export default {
       }
     },
     float () {
-      return this.labelFloat && !this.focus && !this.inputValue
+      return this.labelFloat && !this.focus && !this.inputValue && this.inputValue !== 0
     },
     errorStyle () {
       return {

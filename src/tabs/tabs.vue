@@ -76,7 +76,7 @@ export default {
   bottom: 0;
   height: 2px;
   background-color: @accentColor;
-  transition: all .3s;
+  transition: transform .3s;
   backface-visibility: hidden;
 }
 

@@ -158,6 +158,7 @@ export default {
 <style lang="less">
 @import "../styles/import.less";
 .mu-menu-item-wrapper {
+  display: block;
   font-size: 16px;
   height: 48px;
   line-height: 48px;
@@ -165,6 +166,7 @@ export default {
   color: @textColor;
   position: relative;
   cursor: pointer;
+  user-select: none;
   .mu-menu-destop & {
     height: 32px;
     line-height: 32px;

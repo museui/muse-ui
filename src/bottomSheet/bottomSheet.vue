@@ -35,6 +35,7 @@ export default {
 .mu-bottom-sheet-enter-active,
 .mu-bottom-sheet-leave-active{
   transition: transform .45s @easeOutFunction;
+  backface-visibility: hidden;
 }
 
 .mu-bottom-sheet-enter,
