@@ -159,7 +159,7 @@ export default {
     },
     handleClick (e) {
       this.$emit('click', e)
-      if (this.$parent.handleItemClick) this.$parent.handleItemClick(e)
+      if (this.$parent.handleItemClick) this.$parent.handleItemClick(this)
       if (isNotNull(this.value)) this.$parent.handleChange(this.value)
       if (this.toggleNested) this.handleToggleNested()
     },

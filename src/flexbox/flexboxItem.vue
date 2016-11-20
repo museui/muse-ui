@@ -1,49 +1,38 @@
 <template>
-  <div class="mu-flexbox-item" :style="style">
+  <div class="mu-flexbox-item" :style="itemStyle">
     <slot></slot>
   </div>
 </template>
 
 <script>
-const prefixList = ['-moz-box-', '-webkit-box-', '']
 export default {
   name: 'mu-flexbox-item',
   props: {
-    span: [Number, String],
-    order: [Number, String]
-  },
-  methods: {
-    buildWidth (width) {
-      if (typeof width === 'number') {
-        if (width < 1) {
-          return width
-        } else {
-          return width / 12
-        }
-      } else if (typeof width === 'string') {
-        return width.replace('px', '') / this.bodyWidth
-      }
+    order: {
+      type: [Number, String],
+      default: 0
+    },
+    grow: {
+      type: [Number, String],
+      default: 1
+    },
+    shrink: {
+      type: [Number, String],
+      default: 1
+    },
+    basis: {
+      type: [Number, String],
+      default: 'auto'
     }
   },
   computed: {
-    style () {
+    itemStyle () {
       let styles = {}
       let marginName = this.$parent.orient === 'horizontal' ? 'marginLeft' : 'marginTop'
       styles[marginName] = `${this.$parent.gutter}px`
-      if (this.span) {
-        for (let i = 0; i < prefixList.length; i++) {
-          styles[prefixList[i] + 'flex'] = `0 0 ${this.buildWidth(this.span) * 100}%`
-        }
-      }
-      if (typeof this.order !== 'undefined') {
-        styles.order = this.order
-      }
+      styles['flex'] = `${this.grow} ${this.shrink} ${this.basis}`
+      styles['order'] = this.order
       return styles
-    }
-  },
-  data () {
-    return {
-      bodyWidth: document.documentElement.offsetWidth
     }
   }
 }

@@ -33,15 +33,25 @@ export default {
   },
   flexboxItem: {
     props: [{
-      name: 'span',
-      type: 'String',
-      default: '',
-      desc: '等于flexItem 的 `flex-basis` 属性'
+      name: 'grow',
+      type: 'String, Number',
+      default: '1',
+      desc: '相当于flexbox布局的 `flex-grow` 属性'
+    }, {
+      name: 'shrink',
+      type: 'String, Number',
+      default: '1',
+      desc: '相当于flexbox布局的 `flex-shrink` 属性'
+    }, {
+      name: 'basis',
+      type: 'String, Number',
+      default: 'auto',
+      desc: '相当于flexbox布局的 `flex-basis` 属性'
     }, {
       name: 'order',
       type: 'String, Number',
-      default: '',
-      desc: '等于flexItem 的 `order` 属性，用于排序'
+      default: '0',
+      desc: '相当于flexbox布局的 `order` 属性，用于排序'
     }],
     slots: [{
       name: 'default',

@@ -42,14 +42,14 @@ export default {
   },
   computed: {
     tooltipStyle () {
-      const {horizontalPosition, verticalPosition, offsetWidth, touch, triggerWidth, triggerHeight} = this
+      const {horizontalPosition, verticalPosition, offsetWidth, touch, triggerWidth, triggerHeight, show} = this
       const touchMarginOffset = touch ? 10 : 0
       const touchOffsetTop = touch ? -20 : -10
       const offset = verticalPosition === 'bottom' ? 14 + touchMarginOffset : -14 - touchMarginOffset
       return {
         right: horizontalPosition === 'left' ? '0' : null,
         left: horizontalPosition === 'center' ? ((offsetWidth - triggerWidth) / 2 * -1) + 'px' : horizontalPosition === 'right' ? '0' : '',
-        top: verticalPosition === 'top' ? touchOffsetTop + 'px' : (triggerHeight - offset + touchMarginOffset + 2) + 'px',
+        top: !show ? '-3000px' : verticalPosition === 'top' ? touchOffsetTop + 'px' : (triggerHeight - offset + touchMarginOffset + 2) + 'px',
         transform: `translate(0px, ${offset}px)`
       }
     },

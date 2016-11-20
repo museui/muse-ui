@@ -17,8 +17,8 @@ export default {
     handleChange (value) {
       this.$emit('change', value)
     },
-    handleItemClick (e) {
-      this.$emit('itemClick')
+    handleItemClick (listItem) {
+      this.$emit('itemClick', listItem)
     }
   }
 }

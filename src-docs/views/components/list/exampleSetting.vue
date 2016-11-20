@@ -6,25 +6,25 @@
     <mu-divider />
     <mu-list>
       <mu-sub-header>声音开启设置</mu-sub-header>
-      <mu-list-item disabledRipple @click="handleToggle('events')" title="事件和提醒">
+      <mu-list-item disableRipple @click="handleToggle('events')" title="事件和提醒">
         <mu-switch v-model="events"  slot="right"/>
       </mu-list-item>
-      <mu-list-item disabledRipple @click="handleToggle('calls')" title="电话">
+      <mu-list-item disableRipple @click="handleToggle('calls')" title="电话">
         <mu-switch v-model="calls" slot="right"/>
       </mu-list-item>
-      <mu-list-item disabledRipple @click="handleToggle('messages')" title="信息">
+      <mu-list-item disableRipple @click="handleToggle('messages')" title="信息">
         <mu-switch v-model="messages" slot="right"/>
       </mu-list-item>
     </mu-list>
     <mu-list>
       <mu-sub-header>通知设置</mu-sub-header>
-      <mu-list-item disabledRipple @click="handleToggle('notifications')"  title="通知">
+      <mu-list-item disableRipple @click="handleToggle('notifications')"  title="通知">
         <mu-checkbox v-model="notifications" slot="left"/>
       </mu-list-item>
-      <mu-list-item disabledRipple @click="handleToggle('sounds')"  title="声音">
+      <mu-list-item disableRipple @click="handleToggle('sounds')"  title="声音">
         <mu-checkbox v-model="sounds" slot="left"/>
       </mu-list-item>
-      <mu-list-item disabledRipple @click="handleToggle('videoSounds')" title="视频的声音">
+      <mu-list-item disableRipple @click="handleToggle('videoSounds')" title="视频的声音">
         <mu-checkbox v-model="videoSounds" slot="left"/>
       </mu-list-item>
     </mu-list>
@@ -46,7 +46,6 @@ export default {
   },
   methods: {
     handleToggle (key) {
-      console.log('toggle')
       this[key] = !this[key]
     }
   },

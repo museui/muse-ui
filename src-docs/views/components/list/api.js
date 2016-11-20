@@ -15,7 +15,7 @@ export default {
       desc: '当 `value` 需要被改变时触发'
     }, {
       name: 'itemClick',
-      desc: '`listItem` 组件被点击时触发'
+      desc: '`listItem` 组件被点击时触发, 会传入 `listItem` 组件对象'
     }]
   },
   listItem: {

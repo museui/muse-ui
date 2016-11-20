@@ -98,12 +98,10 @@ export default {
   height: 100%;
 }
 .mu-bottom-item-active {
-  color: @primaryColor;
   .mu-bottom-item-text{
     font-size: 14px;
   }
   .mu-bottom-nav-shift & {
-    color: @alternateTextColor;
     flex: 1.7;
     min-width: 96px;
     max-width: 168px;
@@ -114,6 +112,12 @@ export default {
   font-size: 12px;
   transition: all .4s @easeOutFunction, color 0.3s, font-size 0.3s;
   backface-visibility: hidden;
+  .mu-bottom-item-active &{
+    color: @primaryColor;
+  }
+  .mu-bottom-nav-shift .mu-bottom-item-active &{
+    color: @alternateTextColor;
+  }
   .mu-bottom-nav-shift & {
     opacity: 0;
     transform: scale(1) translate3d(0, 6px, 0);
@@ -126,6 +130,12 @@ export default {
 .mu-bottom-item-icon {
   transition: all .45s @easeOutFunction;
   backface-visibility: hidden;
+  .mu-bottom-item-active &{
+    color: @primaryColor;
+  }
+  .mu-bottom-nav-shift .mu-bottom-item-active & {
+    color: @alternateTextColor;
+  }
   .mu-bottom-nav-shift & {
     margin: auto;
     transform: translate3d(0, 8px, 0);
