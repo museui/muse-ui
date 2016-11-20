@@ -3,7 +3,7 @@ import Vue from 'vue'
 import {retina} from './utils'
 import icon from './icon'
 import badge from './badge'
-import appbar from './appbar'
+import appBar from './appBar'
 import iconButton from './iconButton'
 import flatButton from './flatButton'
 import raisedButton from './raisedButton'
@@ -54,7 +54,7 @@ import * as flexbox from './flexbox'
 const components = {
   icon,
   badge,
-  appbar,
+  appBar,
   iconButton,
   flatButton,
   raisedButton,
