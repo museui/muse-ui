@@ -97,9 +97,6 @@ export default {
     handleTouchEnd () {
       if (this.disabled) return
       this.$children[0].end()
-    },
-    handleFocus () {
-      console.log('focus')
     }
   },
   components: {

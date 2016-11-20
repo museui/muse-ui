@@ -39,8 +39,8 @@ export default {
       type: Boolean,
       default: false
     },
-    // 内部使用，是否是嵌套菜单
-    nested: {
+    // 内部使用，是否是弹出菜单
+    popover: {
       type: Boolean,
       default: false
     },
@@ -66,7 +66,7 @@ export default {
     const selectedIndex = this.getSelectedIndex()
     this.focusIndex = this.disableAutoFocus ? -1 : selectedIndex >= 0 ? selectedIndex : this.initiallyKeyboardFocused ? 0 : -1
     this.isKeyboardFocused = this.initiallyKeyboardFocused
-    if (this.nested) this.$el.focus()
+    if (this.popover) this.$el.focus()
   },
   beforeUpdate () {
     const selectedIndex = this.getSelectedIndex()

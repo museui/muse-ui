@@ -9,7 +9,7 @@
     <mu-menu :style="{width: menuWidth + 'px'}" @change="change"
       :class="menuClass" :value="value" :multiple="multiple"
       :autoWidth="autoWidth" @itemClick="itemClick"
-      desktop :maxHeight="maxHeight">
+      popover desktop :maxHeight="maxHeight">
       <slot></slot>
     </mu-menu>
   </popover>

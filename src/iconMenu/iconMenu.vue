@@ -5,7 +5,7 @@
     </icon-button>
     <popover v-if="openMenu" :trigger="trigger" :anchorOrigin="anchorOrigin"
       :targetOrigin="targetOrigin" @close="handleClose">
-      <mu-menu @change="change" :value="value" @itemClick="itemClick" :multiple="multiple" :desktop="desktop" :maxHeight="maxHeight">
+      <mu-menu @change="change" popover :value="value" @itemClick="itemClick" :multiple="multiple" :desktop="desktop" :maxHeight="maxHeight">
         <slot></slot>
       </mu-menu>
     </popover>
