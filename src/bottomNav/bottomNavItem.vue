@@ -1,7 +1,9 @@
 <template>
   <abstract-button :href="href" :disableTouchRipple="shift" class="mu-buttom-item" :class="{'mu-bottom-item-active': active}" :center-ripple="false" wrapperClass="mu-buttom-item-wrapper" @click.native="handleClick">
-    <icon :value="icon" class="mu-bottom-item-icon"></icon>
-    <span class="mu-bottom-item-text">{{title}}</span>
+    <slot>
+      <icon class="mu-bottom-item-icon" :value="icon"></icon>
+      <span class="mu-bottom-item-text">{{title}}</span>
+    </slot>
   </abstract-button>
 </template>
 
