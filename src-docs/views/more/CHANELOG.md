@@ -1,3 +1,18 @@
+## 2.0.0-alpha.8
+
+### Features
+
+  * bottomNavItem 增加 `default` slot
+  * iconMenu 增加 `icon` slot
+  * flexboxItem 增加 `grow` 和 `shrink` 属性, `basis` 替换 `span`
+
+### Bugs
+
+  * 修改 tbody 在 selectedRow 的时候全选时重复 emit 事件给父组件
+  * 修复slider min参数设置后显示于实际值不一致的问题
+  * 优化部分组件的动画效果
+  * 修复textField float效果在 `type=number` 时的bug
+
 ## 2.0.0-alpha.7
 
 ### Features

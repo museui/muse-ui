@@ -6,14 +6,8 @@ var path = require('path')
 var ora = require('ora')
 var webpack = require('webpack')
 var config = require('../config')
-var mdName = process.argv[2] || 'prod'
-var webpackConfig =  require('./webpack.' + (mdName === 'prod' ? 'prod' : 'docs' ) )
-
-console.log(
-  '  Tip:\n' +
-  '  Built files are meant to be served over an HTTP server.\n' +
-  '  Opening index.html over file:// won\'t work.\n'
-)
+var webpackConfig =  require('./webpack.docs.js')
+var version = require('../package.json').version
 
 var spinner = ora('building for production...')
 spinner.start()
@@ -21,7 +15,13 @@ spinner.start()
 var assetsPath = config.assetsRoot
 rm('-rf', assetsPath)
 mkdir('-p', assetsPath)
-// cp('-R', 'static/', assetsPath) // copy 未见
+
+const resFiles = ['src-docs/version.json', 'src-docs/favicon.ico'] //资源文件
+cp('-R', resFiles, assetsPath)
+const versionPath = assetsPath + '/' + version
+const versionFiles = ['img/', 'js/', 'index.html', '*.css', 'favicon.ico'].map((path) => {
+  return assetsPath + '/' + path
+})
 
 webpack(webpackConfig, function (err, stats) {
   spinner.stop()
@@ -33,4 +33,6 @@ webpack(webpackConfig, function (err, stats) {
     chunks: false,
     chunkModules: false
   }) + '\n')
+  mkdir('-p', versionPath)
+  cp('-R', versionFiles, versionPath)
 })
