@@ -1,6 +1,6 @@
 {
   "name": "muse-ui",
-  "version": "2.0.0-alpha.7",
+  "version": "2.0.0-alpha.8",
   "description": "material design ui for vue2",
   "main": "dist/muse-ui.js",
   "keywords": [
@@ -12,7 +12,7 @@
   "scripts": {
     "dev": "node build/dev-server.js",
     "build": "node build/build.js && gulp theme",
-    "docs": "node build/build.js docs",
+    "docs": "node build/docs.js docs",
     "test": ""
   },
   "devDependencies": {

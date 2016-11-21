@@ -56,6 +56,9 @@ export default {
     desc: '设置以后菜单将为可选择的菜单，当菜单项的value 和 当前 value相等，则菜单项为被选中状态'
   }],
   slots: [{
+    name: 'icon',
+    desc: '用来放置图标'
+  }, {
     name: 'default',
     desc: '用来放置`menuItem` 、 `subHeader` 、 `divider` 等组件'
   }],
