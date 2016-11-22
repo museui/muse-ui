@@ -15,13 +15,13 @@ export let transitionEnd = function (el, fun) {
   let arr = ['msTransitionEnd', 'mozTransitionEnd', 'oTransitionEnd', 'webkitTransitionEnd', 'transitionend']
   let handler = {
     handleEvent (event) {
-      arr.map(function (eventName) {
+      arr.forEach(function (eventName) {
         el.removeEventListener(eventName, handler, false)
       })
       fun.apply(el, arguments)
     }
   }
-  arr.map(function (eventName) {
+  arr.forEach(function (eventName) {
     el.addEventListener(eventName, handler, false)
   })
 }

@@ -9,6 +9,7 @@ import keycode from 'keycode'
 import paper from '../paper'
 import PopupManager from '../internal/popup/manager'
 import {getWidth} from '../utils'
+const transitionEvents = ['msTransitionEnd', 'mozTransitionEnd', 'oTransitionEnd', 'webkitTransitionEnd', 'transitionend']
 export default {
   name: 'mu-drawer',
   props: {
@@ -45,6 +46,21 @@ export default {
     },
     escPress () {
       this.$emit('close', 'keyboard')
+    },
+    bindTransition () {
+      this.handleTransition = (e) => {
+        if (e.propertyName !== 'transform') return
+        if (!this.docked) this.$emit(this.open ? 'show' : 'hide')
+      }
+      transitionEvents.forEach((eventName) => {
+        this.$el.addEventListener(eventName, this.handleTransition)
+      })
+    },
+    unBindTransition () {
+      if (!this.handleTransition) return
+      transitionEvents.forEach((eventName) => {
+        this.$el.removeEventListener(eventName, this.handleTransition)
+      })
     }
   },
   watch: {
@@ -67,9 +83,11 @@ export default {
     window.addEventListener('keydown', (event) => {
       if (keycode(event) === 'esc' && !this.docked) this.escPress()
     })
+    this.bindTransition()
   },
   beforeDestroy () {
     PopupManager.close(this)
+    this.unBindTransition()
   },
   components: {
     paper
