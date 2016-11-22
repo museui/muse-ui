@@ -77,6 +77,7 @@
       <mu-list-item slot="nested" href="#/picker" value="#/picker" title="Picker"/>
       <mu-list-item slot="nested" href="#/popup" value="#/popup" title="Popup"/>
       <mu-list-item slot="nested" href="#/refreshControl" value="#/refreshControl" title="Refresh Control"/>
+      <mu-list-item slot="nested" href="#/pagination" value="#/pagination" title="Pagination"/>
     </mu-list-item>
     <mu-list-item title="更多信息" toggleNested>
       <mu-list-item slot="nested" title="更新日志" href="#/changeLog" value="#/changeLog"/>
