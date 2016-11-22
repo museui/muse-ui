@@ -13,16 +13,15 @@ var spinner = ora('building for production...')
 spinner.start()
 
 var assetsPath = config.assetsRoot
-rm('-rf', assetsPath)
-mkdir('-p', assetsPath)
+// mkdir('-p', assetsPath)
 
 const resFiles = ['src-docs/version.json', 'src-docs/favicon.ico'] //资源文件
-cp('-R', resFiles, assetsPath)
 const versionPath = assetsPath + '/' + version
 const versionFiles = ['img/', 'js/', 'index.html', '*.css', 'favicon.ico'].map((path) => {
   return assetsPath + '/' + path
 })
-
+rm('-rf', versionFiles)
+cp('-R', resFiles, assetsPath)
 webpack(webpackConfig, function (err, stats) {
   spinner.stop()
   if (err) throw err

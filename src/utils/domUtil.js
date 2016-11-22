@@ -12,7 +12,7 @@ export let getOffset = function (el) {
 }
 
 export let transitionEnd = function (el, fun) {
-  let arr = ['webkitTransitionEnd', 'transitionend']
+  let arr = ['msTransitionEnd', 'mozTransitionEnd', 'oTransitionEnd', 'webkitTransitionEnd', 'transitionend']
   let handler = {
     handleEvent (event) {
       arr.map(function (eventName) {

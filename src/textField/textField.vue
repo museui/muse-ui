@@ -10,7 +10,7 @@
         <input ref="input" :name="name" type="email" :disabled="disabled" v-if="!multiLine && type === 'email'" @focus="handleFocus" v-model="inputValue" @blur="handleBlur" class="mu-text-field-input" >
         <input ref="input" :name="name" type="url" :disabled="disabled" v-if="!multiLine && type === 'url'" @focus="handleFocus" v-model="inputValue" @blur="handleBlur" class="mu-text-field-input" >
         <input ref="input" :name="name" type="number" :disabled="disabled" v-if="!multiLine && type === 'number'" @focus="handleFocus" v-model.number="inputValue" @blur="handleBlur" class="mu-text-field-input" >
-        <enhanced-textarea ref="textarea" :disabled="disabled" :rows="rows" :rowsMax="rowsMax" @change="handleChange" @focus.native="handleFocus" @blur.native="handleBlur" v-if="multiLine" :value="inputValue"></enhanced-textarea>
+        <enhanced-textarea ref="textarea" :disabled="disabled" :rows="rows" :rowsMax="rowsMax" @change="handleChange" @focus="handleFocus" @blur="handleBlur" v-if="multiLine" :value="inputValue"></enhanced-textarea>
       </slot>
       <underline v-if="underlineShow" :error="!!errorText" :disabled="disabled" :errorColor="errorColor" :focus="focus"></underline>
       <div class="mu-text-field-help" :style="errorStyle" v-if="errorText || helpText || maxLength > 0">

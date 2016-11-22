@@ -1,5 +1,8 @@
 <template>
-  <textarea :value="value" class="mu-text-field-input mu-text-field-textarea" @input="handleInput" :placeholder="placeholder"></textarea>
+  <div class="mu-text-field-multiline">
+    <textarea ref="textareaHidden" class="mu-text-field-textarea-hide mu-text-field-input" :value="value"></textarea>
+    <textarea ref="textarea" class="mu-text-field-input mu-text-field-textarea" :value="value"  @input="handleInput" @focus="handleFocus" @blur="handleBlur" :placeholder="placeholder"></textarea>
+  </div>
 </template>
 
 <script>
@@ -21,29 +24,28 @@ export default {
   },
   methods: {
     resizeTextarea () {
-      let element = this.$el
+      let element = this.$refs.textarea
       if (!element) return
+      let hiddenEl = this.$refs.textareaHidden
       let lineHeight = window.getComputedStyle(element, null).getPropertyValue('line-height')
       lineHeight = Number(lineHeight.substring(0, lineHeight.indexOf('px')))
       let pt = window.getComputedStyle(element, null).getPropertyValue('padding-top')
       pt = Number(pt.substring(0, pt.indexOf('px')))
       let pd = window.getComputedStyle(element, null).getPropertyValue('padding-bottom')
       pd = Number(pd.substring(0, pd.indexOf('px')))
-      let line = this.getLineNum(this.value)
-      line = line > this.rows ? line : this.rows
-      line = this.rowsMax && line > this.rowsMax ? this.rowsMax : line
-      let height = pd + pt + lineHeight * line
-      element.style.height = height + 'px'
-    },
-    getLineNum (value, line) {
-      line = line || 0
-      line++
-      if (!value || value.indexOf('\n') === -1) return line
-      let num = value.indexOf('\n')
-      return this.getLineNum(value.substring(num + 1), line)
+      let minHeight = pd + pt + lineHeight * this.rows
+      let maxHeight = pd + pt + lineHeight * (this.rowsMax || 0)
+      let height = hiddenEl.scrollHeight
+      element.style.height = (height < minHeight ? minHeight : height > maxHeight && maxHeight > 0 ? maxHeight : height) + 'px'
     },
     handleInput (e) {
       this.$emit('change', e.target.value)
+    },
+    handleFocus (e) {
+      this.$emit('focus', e)
+    },
+    handleBlur (e) {
+      this.$emit('blur', e)
     }
   },
   mounted () {
@@ -52,7 +54,9 @@ export default {
   watch: {
     value (val, oldVal) {
       if (val === oldVal) return
-      this.resizeTextarea()
+      this.$nextTick(() => {
+        this.resizeTextarea()
+      })
     }
   }
 }
@@ -62,5 +66,20 @@ export default {
 .mu-text-field-textarea{
   resize: vertical;
   line-height: 1.5;
+  position: relative;
+  height: 100%;
+}
+.mu-text-field-multiline{
+  width: 100%;
+  position: relative;
+}
+.mu-text-field-textarea-hide{
+  width: 100%;
+  height: initial;
+  resize: none;
+  position: absolute;
+  padding: 0;
+  overflow: auto;
+  visibility: hidden;
 }
 </style>
