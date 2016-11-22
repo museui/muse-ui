@@ -5,6 +5,7 @@
 </template>
 
 <script>
+import keycode from 'keycode'
 import paper from '../paper'
 import PopupManager from '../internal/popup/manager'
 import {getWidth} from '../utils'
@@ -60,6 +61,12 @@ export default {
         if (this.$el) this.$el.style.zIndex = ''
       }
     }
+  },
+  mounted () {
+    if (this.open && !this.docked) PopupManager.open(this)
+    window.addEventListener('keydown', (event) => {
+      if (keycode(event) === 'esc' && !this.docked) this.escPress()
+    })
   },
   beforeDestroy () {
     PopupManager.close(this)

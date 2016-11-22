@@ -7,7 +7,7 @@
        containerElement="div">
      <div class="mu-menu-item" :class="{'have-left-icon': leftIcon || inset}">
        <icon :value="leftIcon" :style="{'color': filterColor(leftIconColor)}" class="mu-menu-item-left-icon" />
-       <div>
+       <div class="mu-menu-item-title">
          <slot name="title">
            {{title}}
          </slot>
@@ -196,6 +196,13 @@ export default {
   &.have-left-icon{
     padding-left: 72px;
   }
+}
+
+.mu-menu-item-title{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
 }
 
 .mu-menu-item-left-icon{

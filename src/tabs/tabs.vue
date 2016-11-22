@@ -67,6 +67,7 @@ export default {
   color: #FFF;
   text-align: center;
   position: relative;
+  z-index: 100;
   width: 100%;
 }
 
