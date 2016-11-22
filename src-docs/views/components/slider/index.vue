@@ -1,7 +1,7 @@
 <template>
 <div class="content-wrapper">
   <markdown-element :text="description"/>
-  <code-example :code="exampleSimpleCode" title="简单的使用" description="slider组件内部使用 `input[type=range]` 组件，所以也可以使用 `v-model` 控制value">
+  <code-example :code="exampleSimpleCode" title="简单的使用" description="可以使用 `v-model` 控制value">
     <ex-simple/>
   </code-example>
   <code-example :code="exampleDisabledCode" title="禁用示例">

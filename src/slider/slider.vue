@@ -1,16 +1,20 @@
 <template>
-<div class="mu-slider" :class="sliderClass" @mouseenter="handleMouseEnter" @mouseleave="handleMouseLeave">
-  <input type="range"  @mousedown="handleMouseDown" @mouseup="handleMouseUp" @touchstart="handleTouchStart" @touchend="handleTouchEnd" @focus="handleFocus" @blur="handleBlur" :disabled="disabled" :name="name" :step="step" :min="min" :max="max" v-model="inputValue">
+<div class="mu-slider" :class="sliderClass" tabindex="0"
+  @focus="handleFocus" @blur="handleBlur" @keydown="handleKeydown"
+  @touchstart="handleTouchStart" @touchend="handleTouchEnd"
+  @touchcancel="handleTouchEnd"  @mousedown="handleMouseDown"
+  @mouseup="handleMouseUp" @mouseenter="handleMouseEnter" @mouseleave="handleMouseLeave">
   <div class="mu-slider-track"></div>
   <div class="mu-slider-fill" :style="fillStyle"></div>
   <div class="mu-slider-thumb" :style="thumbStyle">
-    <focus-ripple v-if="(focus || hover) && !active"></focus-ripple>
+    <focus-ripple v-if="(focused || hover) && !active"></focus-ripple>
   </div>
 </div>
 </template>
 
 <script>
 import focusRipple from '../internal/focusRipple'
+import keycode from 'keycode'
 export default {
   name: 'mu-slider',
   props: {
@@ -43,7 +47,8 @@ export default {
       inputValue: this.value,
       active: false,
       hover: false,
-      focus: false
+      focused: false,
+      dragging: false
     }
   },
   computed: {
@@ -69,30 +74,157 @@ export default {
       }
     }
   },
+  created () {
+    this.handleDragMouseMove = this.handleDragMouseMove.bind(this)
+    this.handleMouseEnd = this.handleMouseEnd.bind(this)
+    this.handleTouchMove = this.handleTouchMove.bind(this)
+    this.handleTouchEnd = this.handleTouchEnd.bind(this)
+  },
   methods: {
-    handleMouseDown () {
-      this.active = true
+    handleKeydown (e) {
+      const { min, max, step } = this
+      let action
+      switch (keycode(e)) {
+        case 'page down':
+        case 'down':
+          action = 'decrease'
+          break
+        case 'left':
+          action = 'decrease'
+          break
+        case 'page up':
+        case 'up':
+          action = 'increase'
+          break
+        case 'right':
+          action = 'increase'
+          break
+        case 'home':
+          action = 'min'
+          break
+        case 'end':
+          action = 'max'
+          break
+      }
+
+      if (action) {
+        e.preventDefault()
+        switch (action) {
+          case 'decrease':
+            this.inputValue -= step
+            break
+          case 'increase':
+            this.inputValue += step
+            break
+          case 'min':
+            this.inputValue = min
+            break
+          case 'max':
+            this.inputValue = max
+            break
+        }
+
+        this.inputValue = parseFloat(this.inputValue.toFixed(5))
+
+        if (this.inputValue > max) {
+          this.inputValue = max
+        } else if (this.inputValue < min) {
+          this.inputValue = min
+        }
+      }
+    },
+    handleMouseDown (e) {
+      if (this.disabled) return
+      this.setValue(e)
+      e.preventDefault()
+      document.addEventListener('mousemove', this.handleDragMouseMove)
+      document.addEventListener('mouseup', this.handleMouseEnd)
+      this.$el.focus()
+      this.onDragStart(e)
     },
     handleMouseUp () {
+      if (this.disabled) return
       this.active = false
     },
-    handleTouchStart () {
-      this.active = !this.disabled
+    handleTouchStart (e) {
+      if (this.disabled) return
+      this.setValue(e.touches[0])
+
+      document.addEventListener('touchmove', this.handleTouchMove)
+      document.addEventListener('touchup', this.handleTouchEnd)
+      document.addEventListener('touchend', this.handleTouchEnd)
+      document.addEventListener('touchcancel', this.handleTouchEnd)
+
+      e.preventDefault()
+      this.onDragStart(e)
     },
-    handleTouchEnd () {
-      this.active = false
+    handleTouchEnd (e) {
+      if (this.disabled) return
+      document.removeEventListener('touchmove', this.handleTouchMove)
+      document.removeEventListener('touchup', this.handleTouchEnd)
+      document.removeEventListener('touchend', this.handleTouchEnd)
+      document.removeEventListener('touchcancel', this.handleTouchEnd)
+      this.onDragStop(e)
     },
     handleFocus () {
-      this.focus = !this.disabled
+      if (this.disabled) return
+      this.focused = true
     },
     handleBlur () {
-      this.focus = false
+      if (this.disabled) return
+      this.focused = false
     },
     handleMouseEnter () {
-      this.hover = !this.disabled
+      if (this.disabled) return
+      this.hover = true
     },
     handleMouseLeave () {
+      if (this.disabled) return
       this.hover = false
+    },
+    // 从点击位置更新 value
+    setValue (e) {
+      const { $el, max, min, step } = this
+      let value = (e.clientX - $el.offsetLeft) / $el.offsetWidth * (max - min)
+      value = Math.round(value / step) * step + min
+      value = parseFloat(value.toFixed(5))
+
+      if (value > max) {
+        value = max
+      } else if (value < min) {
+        value = min
+      }
+      this.inputValue = value
+    },
+    // 拖拽控制
+    onDragStart (e) {
+      this.dragging = true
+      this.active = true
+      this.$emit('dragStart', e)
+    },
+    onDragUpdate (e) {
+      if (this.dragRunning) return
+      this.dragRunning = true
+      window.requestAnimationFrame(() => {
+        this.dragRunning = false
+        if (!this.disabled) this.setValue(e)
+      })
+    },
+    onDragStop (e) {
+      this.dragging = false
+      this.active = false
+      this.$emit('dragStop', e)
+    },
+    handleDragMouseMove (e) {
+      this.onDragUpdate(e)
+    },
+    handleTouchMove (e) {
+      this.onDragUpdate(e.touches[0])
+    },
+    handleMouseEnd (e) {
+      document.removeEventListener('mousemove', this.handleDragMouseMove)
+      document.removeEventListener('mouseup', this.handleMouseEnd)
+      this.onDragStop(e)
     }
   },
   watch: {
@@ -120,78 +252,8 @@ export default {
   display: flex;
   align-items: center;
   cursor: default;
-  input[type="range"] {
-    position: absolute;
-    display: block;
-    height: 20px;
-    width: 100%;
-    left: 0;
-    right: 0;
-    top: 50%;
-    margin: 0;
-    margin-top: -10px;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    -ms-appearance: none;
-    appearance: none;
-    background-position: center;
-    background-size: 100% 2px;
-    background-repeat: no-repeat;
-    outline: 0;
-    -ms-background-position-y: 500px;
-    z-index: 2;
-    opacity: 0;
-    &:active,
-    &:focus {
-      border: 0;
-      outline: 0 none;
-    }
-  }
-  // Range thumb mixin
-  .range-thumb() {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    -ms-appearance: none;
-    appearance: none;
-    border: none;
-    outline: 0;
-    height: 20px;
-    width: 20px;
-    position: relative;
-    opacity: 0;
-    border-radius: 20px;
-    z-index: 2;
-    cursor: pointer;
-  }
-  // ======= Webkit ========
-  input[type="range"]::-webkit-range-thumb {
-    .range-thumb();
-  }
-
-  // ======= FireFox ========
-  input[type="range"]::-moz-range-track {
-    width: 100%;
-    height: 2px;
-    border: none;
-    outline: 0;
-  }
-  input[type="range"]::-moz-range-thumb {
-    .range-thumb();
-  }
-
-  // ======= IE ========
-  input[type="range"]::-ms-track {
-    width: 100%;
-    height: 2px;
-    cursor: pointer;
-    background: transparent;
-    border-color: transparent;
-    color: transparent;
-  }
-
-  input[type="range"]::-ms-thumb {
-    .range-thumb();
-  }
+  user-select:none;
+  outline: none;
 }
 
 .mu-slider-track{
@@ -220,18 +282,17 @@ export default {
 .mu-slider-thumb {
   position: absolute;
   top: 50%;
-  margin-top: -6px;
   width: 12px;
   height: 12px;
   background-color: @primaryColor;
   color: @primaryColor;
   border-radius: 50%;
-  transform: translate(-50%, 0);
+  transform: translate(-50%, -50%);
   transition: background 450ms @easeOutFunction, border-color 450ms @easeOutFunction, width 450ms @easeOutFunction, height 450ms @easeOutFunction;
+  cursor: pointer;
   .mu-slider.active &{
     width: 20px;
     height: 20px;
-    margin-top: -10px;
   }
   .mu-slider.zero &,
   .mu-slider.disabled &{
@@ -242,6 +303,10 @@ export default {
       top: -14px;
       left: -14px;
     }
+  }
+
+  .mu-slider.disabled & {
+    cursor: default;
   }
 
   .mu-focus-ripple-wrapper {
