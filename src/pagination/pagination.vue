@@ -1,29 +1,20 @@
 <template>
   <ul class="pagination clearfix">
     <li>
-      <abstract-button  class="mu-pagination-wrapper" :class="{'circle': isCircle}":centerRipple="false" :disabled="leftDisabled"
-     @click="handleClick"  @hover="handleHover" @hoverExit="handleHoverExit" containerElement="div">
-      <icon value="chevron_left"></icon>
-      </abstract-button>
+      <mu-pageItem icon="chevron_left" :isCircle="isCircle" @click="handleClick" :disabled="leftDisabled">
+      </mu-pageItem>
     </li>
     <li v-for="index in total">
-       <abstract-button  class="mu-pagination-wrapper" :class="{'active': index == current, 'circle': isCircle}" :centerRipple="false"
-      @click="handleClick"  @hover="handleHover" @hoverExit="handleHoverExit" containerElement="div">
-       <slot name="title">{{index}}</slot>
-       </abstract-button>
+      <mu-pageItem :index="index" :isCircle="isCircle" @click="handleClick" :isActive="current ? current === index : defaultCurrent === index "></mu-pageItem>
     </li>
     <li>
-      <abstract-button  class="mu-pagination-wrapper" :centerRipple="false" :disabled="rightDisabled"
-     @click="handleClick"  @hover="handleHover" @hoverExit="handleHoverExit" containerElement="div" :class="{'circle': isCircle}">
-      <icon value="chevron_right"></icon>
-      </abstract-button>
+      <mu-pageItem icon="chevron_right" :isCircle="isCircle" @click="handleClick" :disabled="rightDisabled"></mu-pageItem>
     </li>
   </ul>
 </template>
 
 <script>
-import abstractButton from '../internal/abstractButton'
-import icon from '../icon'
+import pageItem from './pageItem'
 export default{
   name: 'mu-pagination',
   props: {
@@ -32,6 +23,17 @@ export default{
       default: 1
     },
     current: {
+      type: Number
+    },
+    defaultCurrent: {
+      type: Number,
+      default: 1
+    },
+    defaultPageSize: {
+      type: Number,
+      default: 10
+    },
+    pageSize: {
       type: Number
     },
     isCircle: {
@@ -52,23 +54,17 @@ export default{
 
   },
   methods: {
-    handleClick () {
-      this.$emit('click', this)
+    handleClick (index) {
+      this.$emit('click', index)
     },
-    handleHover (event) {
-      this.$emit('hover', event)
-    },
-    handleHoverExit (event) {
-      this.$emit('hoverExit', event)
-    },
+
     IconIsDisabled () {
       this.leftDisabled = this.current === 1
       this.rightDisabled = this.current === this.total
     }
   },
   components: {
-    'abstract-button': abstractButton,
-    icon
+    'mu-pageItem': pageItem
   },
   watch: {
     current: function (val) {
@@ -102,30 +98,5 @@ export default{
 .clearfix{
   /* 触发 hasLayout */
   zoom: 1;
-}
-
-.mu-pagination-wrapper {
-  font-size: 18px;
-  height: 30px;
-  width: 30px;
-  line-height: 30px;
-  transition: all .45s @easeOutFunction;
-  color: @textColor;
-  position: relative;
-  cursor: pointer;
-  &.hover {
-    background-color: rgba(0, 0, 0, .1);
-  }
-  &.active {
-    color: @white;
-    background-color: @primaryColor;
-  }
-  &.disabled {
-    color: @disabledColor;
-    cursor: not-allowed;
-  }
-  &.circle{
-    border-radius: 30px;
-  }
 }
 </style>
