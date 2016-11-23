@@ -1,5 +1,5 @@
 <template>
-  <mu-pagination :total="total" :current="current" :isCircle="true" @click="handleClick">
+  <mu-pagination :total="total" :current="current" @click="handleClick">
   </mu-pagination>
 </template>
 
@@ -7,13 +7,13 @@
 export default{
   data () {
     return {
-      total: 5,
+      total: 500,
       current: 1
     }
   },
   methods: {
     handleClick (newIndex) {
-      this.current = newIndex
+
     }
   }
 }

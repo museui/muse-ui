@@ -1,7 +1,7 @@
 <template>
     <abstract-button  class="mu-pagination-wrapper" :class="{'circle': isCircle, 'active': isActive}":centerRipple="false" :disabled="disabled"
    @click="handleClick"  @hover="handleHover" @hoverExit="handleHoverExit" containerElement="div">
-      <icon :value="icon" v-if="icon"></icon>
+      <span v-if="icon">{{icon}}</span>
       <span v-if="index">{{index}}</span>
     </abstract-button>
 </template>
@@ -19,9 +19,6 @@ export default{
     index: {
       type: Number
     },
-    current: {
-      type: Number
-    },
     isCircle: {
       type: Boolean,
       default: false
@@ -33,6 +30,9 @@ export default{
     isActive: {
       type: Boolean,
       default: false
+    },
+    identifier: {
+      type: String
     }
   },
   data () {
@@ -47,7 +47,11 @@ export default{
       this.$emit('hoverExit', event)
     },
     handleClick () {
-      this.$emit('click', this.index)
+      if (this.index) {
+        this.$emit('click', this.index)
+      } else {
+        this.$emit('click', this.identifier)
+      }
     }
   },
   components: {
