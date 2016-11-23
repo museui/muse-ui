@@ -7,7 +7,7 @@
 export default{
   data () {
     return {
-      total: 500,
+      total: 50,
       current: 1
     }
   },

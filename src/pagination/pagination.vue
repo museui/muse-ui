@@ -7,14 +7,14 @@
     <li>
       <mu-pageItem :index="1" :isCircle="isCircle" @click="handleClick" :isActive="actualCurrent === 1"></mu-pageItem>
     </li>
-    <li v-if="actualCurrent - 1 >= 4">
-      <mu-pageItem icon="..." identifier="backs" :isCircle="isCircle" @click="handleClick" @hover="handleHover" @hoverExit="handleHoverExit"></mu-pageItem>
+    <li v-if="totalPageCount > 5 && actualCurrent - 1 >= 4">
+      <mu-pageItem icon="..." identifier="backs" :isCircle="isCircle" @click="handleClick" @hover="handleHover" @hoverExit="handleHoverExit" title="前5页"></mu-pageItem>
     </li>
     <li v-for="item in pageList">
       <mu-pageItem :index="item" :isCircle="isCircle" @click="handleClick" :isActive="actualCurrent === item"></mu-pageItem>
     </li>
-    <li v-if="totalPageCount > 10 && totalPageCount - actualCurrent >= 4">
-      <mu-pageItem icon="..." identifier="forwards" :isCircle="isCircle" @click="handleClick" @hover="handleHover" @hoverExit="handleHoverExit"></mu-pageItem>
+    <li v-if="totalPageCount > 5 && totalPageCount - actualCurrent >= 4">
+      <mu-pageItem icon="..." identifier="forwards" :isCircle="isCircle" @click="handleClick" @hover="handleHover" @hoverExit="handleHoverExit" title="后5页"></mu-pageItem>
     </li>
     <li>
       <mu-pageItem :index="totalPageCount" :isCircle="isCircle" @click="handleClick" :isActive="actualCurrent === totalPageCount"></mu-pageItem>
@@ -22,13 +22,13 @@
     <li>
       <mu-pageItem icon=">" identifier="singleForward" :isCircle="isCircle" @click="handleClick" :disabled="rightDisabled"></mu-pageItem>
     </li>
-    <li :style="{width: '70px'}">
-      <mu-select-field v-model="selectedIndex" :style="{width: '70px'}">
+    <li :style="{width: '100px'}" v-if="showSizeChanger">
+      <mu-select-field v-model="actualPageSize" :style="{width: '100px'}">
           <mu-menu-item v-for="item in pageSizeOption" :value="item" :title="item + ' / 页'" :style="{width: '100px'}">
       </mu-select-field>
     </li>
-    <li :style="{width: '70px'}" @keyup.enter="quickJump">
-      <mu-text-field hintText="快速跳转" :style="{width: '70px'}" v-model="quickJumpPage" />
+    <li :style="{width: '70px'}" v-if="showQuickJumper">
+      <mu-text-field hintText="快速跳转" :style="{width: '70px'}" v-model="quickJumpPage" @keyup.native.enter="quickJump"/>
     </li>
   </ul>
 </template>
@@ -69,6 +69,10 @@ export default{
     pageSizeOption: {
       type: Array,
       default: () => ['10', '20', '30', '40']
+    },
+    showQuickJumper: {
+      type: Boolean,
+      default: false
     }
   },
   data () {
@@ -79,8 +83,6 @@ export default{
       actualPageSize: this.defaultPageSize,
       totalPageCount: 0,
       pageList: [],
-      pageSizeOptionTitle: this.pageSizeOption.map(item => `${item} / 页`),
-      selectedIndex: '10',
       quickJumpPage: ''
     }
   },
@@ -89,18 +91,23 @@ export default{
     if (this.current) {
       this.actualCurrent = this.current
     }
-    if (this.pageSize) {
+
+    // 优先使用pageSizeOption
+    if (this.pageSizeOption) {
+      this.actualPageSize = this.pageSizeOption[0]
+    } else if (this.pageSize) {
       this.actualPageSize = this.pageSize
     }
     this.totalPageCount = Math.ceil(this.total / this.actualPageSize)
     this.pageList = this.calcPageList(this.actualCurrent)
   },
   computed: {
-
+    totalPageCount: function () {
+      return Math.ceil(this.total / this.actualPageSize)
+    }
   },
   methods: {
     handleClick (res) {
-      console.log(res)
       if (typeof res === 'number') {
         this.actualCurrent = res
       } else {
@@ -119,7 +126,7 @@ export default{
             break
         }
       }
-      this.$emit('click', this.actualCurrent)
+      this.$emit('pageChange', this.actualCurrent)
     },
     handleHover () {
 
@@ -138,11 +145,11 @@ export default{
       let left = Math.max(2, current - 2)
       let right = Math.min(current + 2, this.totalPageCount - 1)
       if (current - 1 <= 2) {
-        right = 1 + 4
+        right = 1 + 3
       }
 
       if (this.totalPageCount - current <= 2) {
-        left = this.totalPageCount - 4
+        left = this.totalPageCount - 3
       }
 
       for (let i = left; i <= right; i++) {
@@ -152,7 +159,6 @@ export default{
       return pageList
     },
     quickJump () {
-      console.log(this.quickJumpPage)
       if (this.quickJumpPage) {
         this.actualCurrent = Math.min(this.quickJumpPage, this.totalPageCount)
       }
@@ -165,11 +171,13 @@ export default{
   },
   watch: {
     actualCurrent: function (val) {
-      console.log(val)
       this.leftDisabled = val === 1
       this.rightDisabled = val === this.totalPageCount
       this.actualCurrent = val
       this.pageList = this.calcPageList(val)
+    },
+    actualPageSize: function (val) {
+      this.$emit('pageSizeChange', val)
     }
   }
 }
