@@ -61,7 +61,7 @@ export default {
     }
   },
   mounted () {
-    if (this.autoWidth) this.setWidth()
+    this.setWidth()
     this.setScollPosition()
     const selectedIndex = this.getSelectedIndex()
     this.focusIndex = this.disableAutoFocus ? -1 : selectedIndex >= 0 ? selectedIndex : this.initiallyKeyboardFocused ? 0 : -1
@@ -73,16 +73,18 @@ export default {
     this.focusIndex = this.disableAutoFocus ? -1 : selectedIndex >= 0 ? selectedIndex : 0
   },
   updated () {
-    if (this.autoWidth) this.setWidth()
+    this.setWidth()
   },
   methods: {
     clickoutside () {
       this.setFocusIndex(-1, false)
     },
     setWidth () {
+      if (!this.autoWidth) return
       const el = this.$el
       const listEl = this.$refs.list
       const elWidth = el.offsetWidth
+      if (elWidth === 0) return // 被隐藏时不计算宽度
       const keyWidth = this.keyWidth
       const minWidth = keyWidth * 1.5
       let keyIncrements = elWidth / keyWidth

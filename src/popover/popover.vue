@@ -1,18 +1,20 @@
 <template>
-<transition name="mu-popover">
-  <div class="mu-popover"  v-clickoutside="clickOutSide">
-    <slot></slot>
-  </div>
-</transition>
+<span>
+  <transition name="mu-popover" @after-enter="show()" @after-leave="hide()">
+    <div class="mu-popover" ref="popup" v-show="open" :style="{'z-index': zIndex}">
+      <slot></slot>
+    </div>
+  </transition>
+</span>
 </template>
 
 <script>
-import Popup from '../internal/popup'
-import clickoutside from '../internal/clickoutside'
 import scroll from '../internal/scroll'
+import popup from '../internal/popup'
+import resize from '../internal/resize'
 export default {
   name: 'mu-popover',
-  mixins: [Popup, scroll],
+  mixins: [scroll, resize, popup],
   props: {
     overlay: {
       default: false
@@ -52,8 +54,8 @@ export default {
       const a = {
         top: rect.top,
         left: rect.left,
-        width: el.offsetWidth,
-        height: el.offsetHeight
+        width: el.width,
+        height: el.height
       }
 
       a.right = rect.right || a.left + a.width
@@ -75,6 +77,7 @@ export default {
     },
     getElInfo (el) {
       let box = el.getBoundingClientRect()
+      console.log(box)
       return {
         left: box.left,
         top: box.top,
@@ -83,11 +86,11 @@ export default {
       }
     },
     setStyle () {
+      if (!this.open) return
       const {targetOrigin, anchorOrigin} = this
-
+      const el = this.$refs.popup
       const anchor = this.getAnchorPosition(this.trigger)
-      let target = this.getTargetPosition(this.$el)
-
+      let target = this.getTargetPosition(el)
       let targetPosition = {
         top: anchor[anchorOrigin.vertical] - target[targetOrigin.vertical],
         left: anchor[anchorOrigin.horizontal] - target[targetOrigin.horizontal]
@@ -98,11 +101,11 @@ export default {
         return
       }
       if (this.autoPosition) {
-        target = this.getTargetPosition(this.$el) // update as height may have changed
+        target = this.getTargetPosition(el) // update as height may have changed
         targetPosition = this.applyAutoPositionIfNeeded(anchor, target, targetOrigin, anchorOrigin, targetPosition)
       }
-      this.$el.style.left = `${Math.max(0, targetPosition.left)}px`
-      this.$el.style.top = `${Math.max(0, targetPosition.top)}px`
+      el.style.left = `${Math.max(0, targetPosition.left)}px`
+      el.style.top = `${Math.max(0, targetPosition.top)}px`
     },
     getOverlapMode (anchor, target, median) {
       if ([anchor, target].indexOf(median) >= 0) return 'auto'
@@ -176,24 +179,32 @@ export default {
     overlayClick () {
       this.close('overlay')
     },
-    clickOutSide () {
+    clickOutSide (e) {
       this.close('clickOutSide')
     },
     onScroll () {
       this.setStyle()
     },
+    onResize () {
+      this.setStyle()
+    },
     escPress () {
       this.close('esc')
+    },
+    show () {
+      this.$emit('show')
+    },
+    hide () {
+      this.$emit('hide')
     }
   },
   mounted () {
     this.setStyle()
   },
   updated () {
-    this.setStyle()
-  },
-  directives: {
-    clickoutside
+    setTimeout(() => {
+      this.setStyle()
+    }, 0)
   }
 }
 </script>

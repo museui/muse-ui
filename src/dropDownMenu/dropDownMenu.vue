@@ -5,7 +5,7 @@
     {{label}}
   </div>
   <div class="mu-dropDown-menu-line" :class="underlineClass"></div>
-  <popover v-if="!disabled && openMenu && $slots && $slots.default && $slots.default.length > 0" :trigger="trigger" :anchorOrigin="anchorOrigin"  @close="handleClose">
+  <popover v-if="!disabled && $slots && $slots.default && $slots.default.length > 0" :open="openMenu" :trigger="trigger" :anchorOrigin="anchorOrigin"  @close="handleClose">
     <mu-menu :style="{width: menuWidth + 'px'}" @change="change"
       :class="menuClass" :value="value" :multiple="multiple"
       :autoWidth="autoWidth" @itemClick="itemClick"
@@ -21,8 +21,10 @@ import icon from '../icon'
 import popover from '../popover'
 import {menu} from '../menu'
 import {isNull} from '../utils'
+import resize from '../internal/resize'
 export default {
   name: 'mu-dropDown-menu',
+  mixins: [resize],
   props: {
     value: {},
     maxHeight: {
@@ -84,7 +86,7 @@ export default {
   mounted () {
     this.trigger = this.anchorEl || this.$el
     this.openMenu = this.openImmediately
-    this.menuWidth = this.$el.offsetWidth
+    this.setMenuWidth()
   },
   methods: {
     handleClose () {
@@ -101,6 +103,13 @@ export default {
     change (value) {
       this.$emit('change', value)
     },
+    setMenuWidth () {
+      if (!this.$el) return
+      this.menuWidth = this.$el.offsetWidth
+    },
+    onResize () {
+      this.setMenuWidth()
+    },
     getText () {
       if (!this.$slots || !this.$slots.default || this.$slots.length === 0 || isNull(this.value)) return ''
       let text = []
@@ -114,6 +123,9 @@ export default {
       })
       return text.join(',')
     }
+  },
+  updated () {
+    this.setMenuWidth()
   },
   watch: {
     anchorEl (val) {

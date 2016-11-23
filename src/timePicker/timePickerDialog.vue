@@ -42,6 +42,7 @@ export default {
   data () {
     return {
       open: false,
+      showClock: false,
       trigger: null
     }
   },
@@ -62,10 +63,18 @@ export default {
     dismiss () {
       this.open = false
       this.$emit('dismiss')
+    },
+    hideClock () {
+      this.showClock = false
+    }
+  },
+  watch: {
+    open (val) {
+      if (val) this.showClock = true
     }
   },
   render (h) {
-    const Clock = h(clock, {
+    const Clock = this.showClock ? h(clock, {
       props: {
         autoOk: this.autoOk,
         cancelLabel: this.cancelLabel,
@@ -78,23 +87,30 @@ export default {
         accept: this.handleAccept,
         dismiss: this.handleDismiss
       }
-    })
+    }) : undefined
     return h('div', {
-    }, this.open ? [
+    }, [
       this.container === 'dialog' ? h(dialog, {
-        class: ['mu-time-picker-dialog', this.mode],
+        props: {
+          open: this.open,
+          dialogClass: ['mu-time-picker-dialog', this.mode]
+        },
         on: {
-          close: this.handleClose
+          close: this.handleClose,
+          hide: this.hideClock
         }
       }, [Clock]) : h(popover, {
         props: {
-          trigger: this.trigger
+          trigger: this.trigger,
+          overlay: false,
+          open: this.open
         },
         on: {
-          close: this.handleClose
+          close: this.handleClose,
+          hide: this.hideClock
         }
       }, [Clock])
-    ] : [])
+    ])
   }
 }
 </script>

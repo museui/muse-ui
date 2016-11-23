@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import overlayOpt from './overlay'
-import {getZIndex} from './utils'
 const Overlay = Vue.extend(overlayOpt)
 
 const PopupManager = {
@@ -10,24 +9,11 @@ const PopupManager = {
   open (instance) {
     if (!instance || this.instances.indexOf(instance) !== -1) return
     if (this.instances.length === 0) {
-      this.showOverlay(instance.overlayColor, instance.overlayOpacity)
+      this.showOverlay(instance)
     }
     this.instances.push(instance)
     this.changeOverlayStyle()
-    if (instance.$el) {
-      this.setZIndex(instance)
-    } else {
-      Vue.nextTick(() => {
-        this.setZIndex(instance)
-      })
-    }
   },
-
-  setZIndex (instance) {
-    const dom = instance.$el
-    dom.style.zIndex = getZIndex()
-  },
-
   close (instance) {
     let index = this.instances.indexOf(instance)
     if (index === -1) return
@@ -40,14 +26,14 @@ const PopupManager = {
     })
   },
 
-  showOverlay (color, opacity) {
+  showOverlay (instance) {
     let overlay = this.overlay = new Overlay({
       el: document.createElement('div')
     })
     overlay.fixed = true
-    overlay.color = color
-    overlay.opacity = opacity
-    overlay.zIndex = 2000
+    overlay.color = instance.overlayColor
+    overlay.opacity = instance.overlayOpacity
+    overlay.zIndex = instance.overlayZIndex
     overlay.onClick = this.handleOverlayClick.bind(this)
     document.body.appendChild(overlay.$el)
     this.preventScrolling()
@@ -55,6 +41,7 @@ const PopupManager = {
       overlay.show = true
     })
   },
+  // 还原滚动设置
   preventScrolling () {
     if (this.locked) return
     // body 操作
@@ -66,6 +53,8 @@ const PopupManager = {
     html.style.overflow = 'hidden'
     this.locked = true
   },
+
+  // 禁止滚动
   allowScrolling () {
     const body = document.getElementsByTagName('body')[0]
     const html = document.getElementsByTagName('html')[0]
@@ -92,6 +81,7 @@ const PopupManager = {
     const instance = this.instances[this.instances.length - 1]
     this.overlay.color = instance.overlayColor
     this.overlay.opacity = instance.overlayOpacity
+    this.overlay.zIndex = instance.overlayZIndex
   },
 
   handleOverlayClick () {
@@ -102,17 +92,5 @@ const PopupManager = {
     }
   }
 }
-
-// window.addEventListener('keydown', function (event) {
-//   if (event.keyCode === 27) { // ESC
-//     if (PopupManager.instances.length > 0) {
-//       const topInstance = PopupManager.instances[PopupManager.instances.length - 1]
-//       if (!topInstance) return
-//       if (topInstance.escPress) {
-//         topInstance.escPress()
-//       }
-//     }
-//   }
-// })
 
 export default PopupManager

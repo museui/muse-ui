@@ -1,7 +1,7 @@
 <template>
 <div>
   <mu-raised-button label="点这里" ref="button" @click="toggle"/>
-  <mu-popover :trigger="trigger" v-if="open" @close="handleClose">
+  <mu-popover :trigger="trigger" :open="open" @close="handleClose">
     <mu-menu>
       <mu-menu-item title="Refresh" />
       <mu-menu-item title="Send feedback" />
@@ -28,7 +28,7 @@ export default {
     toggle () {
       this.open = !this.open
     },
-    handleClose () {
+    handleClose (e) {
       this.open = false
     }
   }

@@ -1,9 +1,11 @@
 <template>
-<transition :name="transition">
-  <div class="mu-popup" :class="[position ? 'mu-popup-' + position : '']">
-    <slot></slot>
-  </div>
-</transition>
+<span>
+  <transition :name="transition" @after-enter="show()" @after-leave="hide()">
+    <div class="mu-popup" ref="popup" v-show="open" :class="[position ? 'mu-popup-' + position : '', popupClass]" :style="{'z-index': zIndex}">
+      <slot></slot>
+    </div>
+  </transition>
+</span>
 </template>
 
 <script>
@@ -12,6 +14,9 @@ export default {
   name: 'mu-popup',
   mixins: [Popup],
   props: {
+    popupClass: {
+      type: String
+    },
     popupTransition: {
       type: String,
       default: ''
@@ -37,6 +42,12 @@ export default {
     },
     escPress () {
       this.$emit('close', 'esc')
+    },
+    show () {
+      this.$emit('show')
+    },
+    hide () {
+      this.$emit('hide')
     }
   },
   watch: {

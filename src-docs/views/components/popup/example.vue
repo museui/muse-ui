@@ -4,7 +4,7 @@
   <mu-raised-button label="下面弹出" @click="open('bottom')"/>
   <mu-raised-button label="左边弹出" @click="open('left')"/>
   <mu-raised-button label="右边弹出" @click="open('right')"/>
-  <mu-popup position="bottom" class="demo-popup-bottom" v-if="bottomPopup" @close="close('bottom')">
+  <mu-popup position="bottom" popupClass="demo-popup-bottom" :open="bottomPopup" @close="close('bottom')">
     <mu-appbar title="弹出">
       <mu-flat-button slot="right" label="关闭" color="white" @click="close('bottom')"/>
     </mu-appbar>
@@ -17,13 +17,13 @@
       </p>
     </mu-content-block>
   </mu-popup>
-  <mu-popup position="top" :overlay="false" class="demo-popup-top" v-if="topPopup">
+  <mu-popup position="top" :overlay="false" popupClass="demo-popup-top" :open="topPopup">
     更新成功
   </mu-popup>
-  <mu-popup position="left" class="demo-popup-left" v-if="leftPopup" @close="close('left')">
+  <mu-popup position="left" popupClass="demo-popup-left" :open="leftPopup" @close="close('left')">
     <mu-raised-button label="关闭弹框" @click="close('left')" primary fullWidth/>
   </mu-popup>
-  <mu-popup position="right" class="demo-popup-right" v-if="rightPopup" @close="close('right')">
+  <mu-popup position="right" popupClass="demo-popup-right" :open="rightPopup" @close="close('right')">
     <mu-raised-button label="关闭弹框" @click="close('right')" primary fullWidth/>
   </mu-popup>
 </div>

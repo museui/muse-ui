@@ -76,9 +76,9 @@
         </div>
       </mu-col>
     </mu-row>
-    <mu-dialog v-if="dialog" title="Dialog" @close="closeDialog">
+    <mu-dialog :open="dialog" title="Dialog" @close="closeDialog">
       这是一个简单的弹出框
-      <mu-flat-button slot="actions" keyboardFocused @click="closeDialog" primary label="取消"/>
+      <mu-flat-button slot="actions" @click="closeDialog" primary label="取消"/>
       <mu-flat-button slot="actions" primary @click="closeDialog" label="确定"/>
     </mu-dialog>
     <mu-drawer :open="drawer" :docked="false" @close="toggleDrawer()">

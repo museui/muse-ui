@@ -1,9 +1,11 @@
 <template>
-  <transition name="mu-bottom-sheet">
-    <div class="mu-bottom-sheet">
-      <slot></slot>
-    </div>
-  </transition>
+  <span>
+    <transition name="mu-bottom-sheet" @after-enter="show()" @after-leave="hide()">
+      <div class="mu-bottom-sheet" ref="popup" v-show="open" :style="{'z-index': zIndex}">
+        <slot></slot>
+      </div>
+    </transition>
+  </span>
 </template>
 
 <script>
@@ -17,6 +19,12 @@ export default {
     },
     escPress () {
       this.$emit('close', 'esc')
+    },
+    show () {
+      this.$emit('show')
+    },
+    hide () {
+      this.$emit('hide')
     }
   }
 }

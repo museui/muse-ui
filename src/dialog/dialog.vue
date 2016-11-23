@@ -1,19 +1,21 @@
 <template>
-<transition name="mu-dialog-scale">
-  <div class="mu-dialog">
-    <div class="mu-dialog-header" ref="title" :class="{'scrollable': scrollable}" v-if="title">
-      <div class="mu-dialog-title">
-        {{title}}
+  <span>
+    <transition name="mu-dialog-scale" @after-enter="show()" @after-leave="hide()">
+      <div class="mu-dialog" :class="dialogClass" ref="popup" v-show="open" :style="{'z-index': zIndex}">
+        <div class="mu-dialog-header" ref="title" :class="{'scrollable': scrollable}" v-if="title">
+          <div class="mu-dialog-title">
+            {{title}}
+          </div>
+        </div>
+        <div class="mu-dialog-body " :style="bodyStyle">
+          <slot></slot>
+        </div>
+        <div class="mu-dialog-footer" v-if="showFooter" ref="footer" :class="{'scrollable': scrollable}">
+          <slot name="actions"></slot>
+        </div>
       </div>
-    </div>
-    <div class="mu-dialog-body " :style="bodyStyle">
-      <slot></slot>
-    </div>
-    <div class="mu-dialog-footer" v-if="showFooter" ref="footer" :class="{'scrollable': scrollable}">
-      <slot name="actions"></slot>
-    </div>
-  </div>
-</transition>
+    </transition>
+  </span>
 </template>
 
 <script>
@@ -22,6 +24,9 @@ export default {
   mixins: [Popup],
   name: 'mu-dialog',
   props: {
+    dialogClass: {
+      type: [String, Array, Object]
+    },
     title: {
       type: String
     },
@@ -59,6 +64,12 @@ export default {
     },
     escPress () {
       this.$emit('close', 'esc')
+    },
+    show () {
+      this.$emit('show')
+    },
+    hide () {
+      this.$emit('hide')
     }
   }
 }

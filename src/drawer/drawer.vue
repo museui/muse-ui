@@ -1,5 +1,5 @@
 <template>
-<paper class="mu-drawer" :style="style" :class="{'open': open, 'right': right}" :zDepth="zDepth">
+<paper class="mu-drawer" :style="drawerStyle" :class="{'open': open, 'right': right}" :zDepth="zDepth">
   <slot></slot>
 </paper>
 </template>
@@ -8,6 +8,7 @@
 import keycode from 'keycode'
 import paper from '../paper'
 import PopupManager from '../internal/popup/manager'
+import {getZIndex} from '../internal/popup/utils'
 import {getWidth} from '../utils'
 const transitionEvents = ['msTransitionEnd', 'mozTransitionEnd', 'oTransitionEnd', 'webkitTransitionEnd', 'transitionend']
 export default {
@@ -33,10 +34,17 @@ export default {
       default: 2
     }
   },
+  data () {
+    return {
+      overlayZIndex: getZIndex(),
+      zIndex: getZIndex()
+    }
+  },
   computed: {
-    style () {
+    drawerStyle () {
       return {
-        width: getWidth(this.width)
+        width: getWidth(this.width),
+        'z-index': this.docked ? '' : this.zIndex
       }
     }
   },
@@ -61,11 +69,16 @@ export default {
       transitionEvents.forEach((eventName) => {
         this.$el.removeEventListener(eventName, this.handleTransition)
       })
+    },
+    resetZIndex () {
+      this.overlayZIndex = getZIndex()
+      this.zIndex = getZIndex()
     }
   },
   watch: {
     open (val) {
       if (val && !this.docked) {
+        this.resetZIndex()
         PopupManager.open(this)
       } else {
         PopupManager.close(this)
@@ -74,7 +87,6 @@ export default {
     docked (val, oldVal) {
       if (val && !oldVal) {
         PopupManager.close(this)
-        if (this.$el) this.$el.style.zIndex = ''
       }
     }
   },

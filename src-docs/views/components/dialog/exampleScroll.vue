@@ -1,7 +1,7 @@
 <template>
 <div>
   <mu-raised-button label="scrollable dialog" @click="open"/>
-  <mu-dialog v-if="dialog" title="Scrollable Dialog" scrollable>
+  <mu-dialog :open="dialog" title="Scrollable Dialog" scrollable>
     <mu-menu>
       <mu-menu-item :title="'menu item ' + menu" v-for="menu in menus"/>
     </mu-menu>

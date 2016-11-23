@@ -1,6 +1,6 @@
 <template>
   <transition name="mu-overlay-fade">
-    <div class="mu-overlay" v-if="show" @click="handleClick" @touchmove="prevent" :style="style" ></div>
+    <div class="mu-overlay" v-if="show" @click="handleClick" @touchmove="prevent" :style="overlayStyle" ></div>
   </transition>
 </template>
 <script>
@@ -31,7 +31,7 @@ export default {
     }
   },
   computed: {
-    style () {
+    overlayStyle () {
       return {
         'opacity': this.opacity,
         'background-color': this.color,
@@ -66,7 +66,7 @@ export default {
 }
 
 .mu-overlay-fade-enter-active, .mu-overlay-fade-leave-active {
-  transition: all .45s cubic-bezier(0.23, 1, 0.32, 1);
+  transition: opacity .45s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .mu-overlay-fade-enter,

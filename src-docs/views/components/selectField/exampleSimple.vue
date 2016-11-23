@@ -1,6 +1,6 @@
 <template>
 <div>
-  <mu-select-field v-model="game1" label="选择你喜欢的游戏">
+  <mu-select-field v-model="game1" fullWidth label="选择你喜欢的游戏">
     <mu-menu-item value="1" title="阴阳师"/>
     <mu-menu-item value="2" title="影之刃"/>
     <mu-menu-item value="3" title="天下HD"/>

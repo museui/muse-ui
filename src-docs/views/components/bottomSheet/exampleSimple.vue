@@ -1,7 +1,7 @@
 <template>
 <div>
   <mu-raised-button @click="openBottomSheet" label="Open Bottom Sheet" />
-  <mu-bottom-sheet v-if="bottomSheet" @close="closeBottomSheet">
+  <mu-bottom-sheet :open="bottomSheet" @close="closeBottomSheet">
     <mu-menu @itemClick="closeBottomSheet">
       <mu-sub-header>
         请选择一个

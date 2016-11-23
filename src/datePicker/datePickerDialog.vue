@@ -32,7 +32,10 @@ export default {
       type: Number
     },
     initialDate: {
-      type: Date
+      type: Date,
+      default () {
+        return new Date()
+      }
     },
     maxDate: {
       type: Date
@@ -54,6 +57,7 @@ export default {
   data () {
     return {
       open: false,
+      showCalendar: false,
       trigger: null
     }
   },
@@ -74,10 +78,18 @@ export default {
     dismiss () {
       this.open = false
       this.$emit('dismiss')
+    },
+    hideCanlendar () {
+      this.showCalendar = false
+    }
+  },
+  watch: {
+    open (val) {
+      if (val) this.showCalendar = true
     }
   },
   render (h) {
-    const Calendar = h(calendar, {
+    const Calendar = this.showCalendar ? h(calendar, {
       props: {
         autoOk: this.autoOk,
         dateTimeFormat: this.dateTimeFormat,
@@ -95,26 +107,33 @@ export default {
         accept: this.handleAccept,
         dismiss: this.handleDismiss
       }
-    })
+    }) : ''
     return h('div', {
       style: {
         // 'margin-top': '-28px'
       }
-    }, this.open ? [
+    }, [
       this.container === 'dialog' ? h(dialog, {
-        class: ['mu-date-picker-dialog', this.mode],
+        props: {
+          open: this.open,
+          dialogClass: ['mu-date-picker-dialog', this.mode]
+        },
         on: {
-          close: this.handleClose
+          close: this.handleClose,
+          hide: this.hideCanlendar
         }
       }, [Calendar]) : h(popover, {
         props: {
-          trigger: this.trigger
+          trigger: this.trigger,
+          overlay: false,
+          open: this.open
         },
         on: {
-          close: this.handleClose
+          close: this.handleClose,
+          hide: this.hideCanlendar
         }
       }, [Calendar])
-    ] : [])
+    ])
   }
 }
 </script>

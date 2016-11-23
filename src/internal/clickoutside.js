@@ -9,9 +9,9 @@ export default {
     const documentHandler = function (e) {
       if (!vnode.context || el.contains(e.target)) return
       if (binding.expression) {
-        vnode.context[el[clickoutsideContext].methodName]()
+        vnode.context[el[clickoutsideContext].methodName](e)
       } else {
-        el[clickoutsideContext].bindingFn()
+        el[clickoutsideContext].bindingFn(e)
       }
     }
     el[clickoutsideContext] = {
