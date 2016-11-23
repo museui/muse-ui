@@ -1,7 +1,7 @@
 <template>
   <span>
     <transition name="mu-bottom-sheet" @after-enter="show()" @after-leave="hide()">
-      <div class="mu-bottom-sheet" ref="popup" v-show="open" :style="{'z-index': zIndex}">
+      <div class="mu-bottom-sheet" :class="sheetClass" ref="popup" v-show="open" :style="{'z-index': zIndex}">
         <slot></slot>
       </div>
     </transition>
@@ -13,6 +13,11 @@ import Popup from '../internal/popup'
 export default {
   name: 'mu-bottom-sheet',
   mixins: [Popup],
+  props: {
+    sheetClass: {
+      type: [String, Object, Array]
+    }
+  },
   methods: {
     overlayClick () {
       this.$emit('close', 'overlay')

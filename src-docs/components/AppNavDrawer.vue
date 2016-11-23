@@ -177,7 +177,7 @@ export default {
 
 .exmaples-version {
   margin-left: 10px;
-  align-self: flex-start;
+  vertical-align: text-top;
 }
 
 .exmaples-nav-sub-header {

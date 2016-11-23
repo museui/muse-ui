@@ -1,7 +1,7 @@
 <template>
 <span>
   <transition :name="transition" @after-enter="show()" @after-leave="hide()">
-    <div class="mu-popup" ref="popup" v-show="open" :class="[position ? 'mu-popup-' + position : '', popupClass]" :style="{'z-index': zIndex}">
+    <div class="mu-popup" ref="popup" v-show="open" :class="popupCss" :style="{'z-index': zIndex}">
       <slot></slot>
     </div>
   </transition>
@@ -15,7 +15,7 @@ export default {
   mixins: [Popup],
   props: {
     popupClass: {
-      type: String
+      type: [String, Object, Array]
     },
     popupTransition: {
       type: String,
@@ -34,6 +34,24 @@ export default {
   created () {
     if (!this.popupTransition) {
       this.transition = `popup-slide-${this.position}`
+    }
+  },
+  computed: {
+    popupCss () {
+      const {position, popupClass} = this
+      let classNames = []
+      if (position) classNames.push('mu-popup-' + position)
+      if (!popupClass) return classNames
+      if (popupClass instanceof Object) {
+        for (const name in popupClass) {
+          if (popupClass[name]) classNames.push(name)
+        }
+      } else if (popupClass instanceof Array) {
+        classNames = classNames.concat(popupClass)
+      } else {
+        classNames = classNames.join(' ') + ' ' + popupClass
+      }
+      return classNames
     }
   },
   methods: {
@@ -59,10 +77,11 @@ export default {
 }
 </script>
 
-<style lang="css">
+<style lang="less">
+@import "../styles/import.less";
 .mu-popup {
   position: fixed;
-  background: #fff;
+  background-color: @dialogBackgroundColor;
   top: 50%;
   left: 50%;
   transform: translate3d(-50%, -50%, 0);

@@ -40,6 +40,7 @@ export default {
       return {
         'overflow-x': 'hidden',
         'overflow-y': this.scrollable ? 'auto' : 'hidden',
+        '-webkit-overflow-scrolling': 'touch',
         'max-height': this.scrollable ? this.maxDialogContentHeight + 'px' : 'none'
       }
     },
@@ -53,12 +54,18 @@ export default {
     }
   },
   mounted () {
-    let maxDialogContentHeight = window.innerHeight - 2 * 64
-    if (this.$refs.footer) maxDialogContentHeight -= this.$refs.footer.offsetHeight
-    if (this.title) maxDialogContentHeight -= this.$refs.title.offsetHeight
-    this.maxDialogContentHeight = maxDialogContentHeight
+    this.setMaxDialogContentHeight()
+  },
+  updated () {
+    this.setMaxDialogContentHeight()
   },
   methods: {
+    setMaxDialogContentHeight () {
+      let maxDialogContentHeight = window.innerHeight - 2 * 64
+      if (this.$refs.footer) maxDialogContentHeight -= this.$refs.footer.offsetHeight
+      if (this.title) maxDialogContentHeight -= this.$refs.title.offsetHeight
+      this.maxDialogContentHeight = maxDialogContentHeight
+    },
     overlayClick () {
       this.$emit('close', 'overlay')
     },

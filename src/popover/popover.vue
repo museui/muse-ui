@@ -1,7 +1,7 @@
 <template>
 <span>
   <transition name="mu-popover" @after-enter="show()" @after-leave="hide()">
-    <div class="mu-popover" ref="popup" v-show="open" :style="{'z-index': zIndex}">
+    <div class="mu-popover" :class="popoverClass" ref="popup" v-show="open" :style="{'z-index': zIndex}">
       <slot></slot>
     </div>
   </transition>
@@ -46,6 +46,9 @@ export default {
           horizontal: 'left'
         }
       }
+    },
+    popoverClass: {
+      type: [String, Object, Array]
     }
   },
   methods: {
