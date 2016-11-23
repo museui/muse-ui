@@ -1,17 +1,17 @@
 <template>
   <ul class="pagination clearfix">
-  <li>
-    <abstract-button  class="mu-pagination-wrapper" :class="{'circle': isCircle}":centerRipple="false" :disabled="leftDisabled"
-   @click="handleClick"  @hover="handleHover" @hoverExit="handleHoverExit" containerElement="div">
-    <icon value="chevron_left"></icon>
-    </abstract-button>
-  </li>
-  <li v-for="index in total">
-     <abstract-button  class="mu-pagination-wrapper" :class="{'active': index == current, 'circle': isCircle}" :centerRipple="false"
-    @click="handleClick"  @hover="handleHover" @hoverExit="handleHoverExit" containerElement="div">
-     <slot name="title">{{index}}</slot>
-     </abstract-button>
-   </li>
+    <li>
+      <abstract-button  class="mu-pagination-wrapper" :class="{'circle': isCircle}":centerRipple="false" :disabled="leftDisabled"
+     @click="handleClick"  @hover="handleHover" @hoverExit="handleHoverExit" containerElement="div">
+      <icon value="chevron_left"></icon>
+      </abstract-button>
+    </li>
+    <li v-for="index in total">
+       <abstract-button  class="mu-pagination-wrapper" :class="{'active': index == current, 'circle': isCircle}" :centerRipple="false"
+      @click="handleClick"  @hover="handleHover" @hoverExit="handleHoverExit" containerElement="div">
+       <slot name="title">{{index}}</slot>
+       </abstract-button>
+    </li>
     <li>
       <abstract-button  class="mu-pagination-wrapper" :centerRipple="false" :disabled="rightDisabled"
      @click="handleClick"  @hover="handleHover" @hoverExit="handleHoverExit" containerElement="div" :class="{'circle': isCircle}">
@@ -52,8 +52,8 @@ export default{
 
   },
   methods: {
-    handleClick (e) {
-      this.$emit('click', e)
+    handleClick () {
+      this.$emit('click', this)
     },
     handleHover (event) {
       this.$emit('hover', event)
