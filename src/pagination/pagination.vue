@@ -178,6 +178,9 @@ export default{
     },
     actualPageSize: function (val) {
       this.$emit('pageSizeChange', val)
+    },
+    current: function (val, oldVal) {
+      this.actualCurrent = val
     }
   }
 }

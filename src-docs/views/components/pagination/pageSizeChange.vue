@@ -1,5 +1,5 @@
 <template>
-  <mu-pagination :total="total" :defaultCurrent="defaultCurrent" :showSizeChanger="showSizeChanger" :pageSizeOption="pageSizeOption" @click="handleClick">
+  <mu-pagination :total="total" :defaultCurrent="defaultCurrent" :showSizeChanger="showSizeChanger" :pageSizeOption="pageSizeOption" @pageSizeChange="handleClick">
   </mu-pagination>
 </template>
 
