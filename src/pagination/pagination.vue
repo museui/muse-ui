@@ -126,7 +126,6 @@ export default{
             break
         }
       }
-      this.$emit('pageChange', this.actualCurrent)
     },
     handleHover () {
 
@@ -170,14 +169,19 @@ export default{
     'mu-menu-item': menuItem
   },
   watch: {
-    actualCurrent: function (val) {
+    actualCurrent: function (val, oldVal) {
+      if (val === oldVal) return
       this.leftDisabled = val === 1
       this.rightDisabled = val === this.totalPageCount
       this.actualCurrent = val
       this.pageList = this.calcPageList(val)
+      this.$emit('pageChange', this.actualCurrent)
     },
     actualPageSize: function (val) {
       this.$emit('pageSizeChange', val)
+    },
+    totalPageCount: function (val) {
+
     },
     current: function (val, oldVal) {
       this.actualCurrent = val
