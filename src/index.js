@@ -47,6 +47,7 @@ import datePicker from './datePicker'
 import timePicker from './timePicker'
 import * as stepper from './stepper'
 import autoComplete from './autoComplete'
+import pagination from './pagination'
 
 import * as grid from './grid'
 
@@ -98,7 +99,8 @@ const components = {
   ...stepper,
   autoComplete,
   ...grid,
-  ...flexbox
+  ...flexbox,
+  pagination
 }
 
 const install = function () {

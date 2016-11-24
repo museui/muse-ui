@@ -52,6 +52,7 @@ import InfiniteScroll from './views/components/infiniteScroll'
 import Picker from './views/components/picker'
 import Popup from './views/components/popup'
 import RefreshControl from './views/components/refreshControl'
+import Pagination from './views/components/pagination'
 Vue.use(Router)
 
 const router = new Router({
@@ -109,6 +110,7 @@ const router = new Router({
     { path: '/picker', title: '组件-Picker', component: Picker },
     { path: '/popup', title: '组件-Popup', component: Popup },
     { path: '/refreshControl', title: '组件-RefreshControl', component: RefreshControl },
+    {path: '/pagination', title: '组件-Pagination', component: Pagination},
     { path: '*', redirect: '/index' }
   ]
 })
