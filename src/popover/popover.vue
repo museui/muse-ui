@@ -80,7 +80,6 @@ export default {
     },
     getElInfo (el) {
       let box = el.getBoundingClientRect()
-      console.log(box)
       return {
         left: box.left,
         top: box.top,
