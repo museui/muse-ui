@@ -8,12 +8,11 @@ export default{
   data () {
     return {
       total: 500,
-      defaultCurrent: 1
+      current: 1
     }
   },
   methods: {
     handleClick (newIndex) {
-
     }
   }
 }

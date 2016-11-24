@@ -1,41 +1,28 @@
 <template>
-  <ul class="pagination clearfix">
-    <li>
-      <mu-pageItem icon="<" identifier="singleBack" :isCircle="isCircle" @click="handleClick" :disabled="leftDisabled">
-      </mu-pageItem>
-    </li>
-    <li>
-      <mu-pageItem :index="1" :isCircle="isCircle" @click="handleClick" :isActive="actualCurrent === 1"></mu-pageItem>
-    </li>
-    <li v-if="totalPageCount > 5 && actualCurrent - 1 >= 4">
-      <mu-pageItem icon="..." identifier="backs" :isCircle="isCircle" @click="handleClick" @hover="handleHover" @hoverExit="handleHoverExit" title="前5页"></mu-pageItem>
-    </li>
-    <li v-for="item in pageList">
-      <mu-pageItem :index="item" :isCircle="isCircle" @click="handleClick" :isActive="actualCurrent === item"></mu-pageItem>
-    </li>
-    <li v-if="totalPageCount > 5 && totalPageCount - actualCurrent >= 4">
-      <mu-pageItem icon="..." identifier="forwards" :isCircle="isCircle" @click="handleClick" @hover="handleHover" @hoverExit="handleHoverExit" title="后5页"></mu-pageItem>
-    </li>
-    <li>
-      <mu-pageItem :index="totalPageCount" :isCircle="isCircle" @click="handleClick" :isActive="actualCurrent === totalPageCount"></mu-pageItem>
-    </li>
-    <li>
-      <mu-pageItem icon=">" identifier="singleForward" :isCircle="isCircle" @click="handleClick" :disabled="rightDisabled"></mu-pageItem>
-    </li>
-    <li :style="{width: '100px'}" v-if="showSizeChanger">
-      <mu-select-field v-model="actualPageSize" :style="{width: '100px'}">
-          <mu-menu-item v-for="item in pageSizeOption" :value="item" :title="item + ' / 页'" :style="{width: '100px'}">
-      </mu-select-field>
-    </li>
-    <li :style="{width: '70px'}" v-if="showQuickJumper">
-      <mu-text-field hintText="快速跳转" :style="{width: '70px'}" v-model="quickJumpPage" @keyup.native.enter="quickJump"/>
-    </li>
-  </ul>
+<div class="mu-pagination">
+  <page-item icon="chevron_left" identifier="singleBack" @click="handleClick" :disabled="leftDisabled">
+  </page-item>
+  <page-item :index="1" @click="handleClick" :isActive="actualCurrent === 1"/>
+  <page-item v-if="totalPageCount > 5 && actualCurrent - 1 >= 4" identifier="backs" @click="handleClick" title="前5页">
+    <span>...</span>
+  </page-item>
+  <page-item v-for="item in pageList" :index="item" @click="handleClick" :isActive="actualCurrent === item"/>
+  <page-item v-if="totalPageCount > 5 && totalPageCount - actualCurrent >= 4" identifier="forwards" @click="handleClick" title="后5页">
+    <span>...</span>
+  </page-item>
+  <page-item :index="totalPageCount" @click="handleClick" :isActive="actualCurrent === totalPageCount"></page-item>
+  <page-item icon="chevron_right" identifier="singleForward" @click="handleClick" :disabled="rightDisabled"></page-item>
+  <select-field  v-if="showSizeChanger" v-model="actualPageSize" :style="{width: '100px'}">
+    <menu-item v-for="item in pageSizeOption" :value="item" :title="item + ' / 页'" :style="{width: '100px'}"/>
+  </select-field>
+  <!-- <text-field v-if="showQuickJumper" type="number" hintText="快速跳转" :style="{width: '70px'}" v-model="quickJumpPage" @keyup.native.enter="quickJump"/> -->
+</div>
 </template>
 
 <script>
 import pageItem from './pageItem'
 import selectField from '../selectField'
+import textField from '../textField'
 import menuItem from '../menu/menuItem'
 export default{
   name: 'mu-pagination',
@@ -45,9 +32,6 @@ export default{
       default: 1
     },
     current: {
-      type: Number
-    },
-    defaultCurrent: {
       type: Number,
       default: 1
     },
@@ -58,10 +42,6 @@ export default{
     pageSize: {
       type: Number
     },
-    isCircle: {
-      type: Boolean,
-      default: false
-    },
     showSizeChanger: {
       type: Boolean,
       default: false
@@ -69,17 +49,17 @@ export default{
     pageSizeOption: {
       type: Array,
       default: () => ['10', '20', '30', '40']
-    },
-    showQuickJumper: {
-      type: Boolean,
-      default: false
     }
+    // showQuickJumper: {
+    //   type: Boolean,
+    //   default: false
+    // }
   },
   data () {
     return {
       leftDisabled: false,
       rightDisabled: false,
-      actualCurrent: this.defaultCurrent,
+      actualCurrent: this.current,
       actualPageSize: this.defaultPageSize,
       totalPageCount: 0,
       pageList: [],
@@ -87,11 +67,7 @@ export default{
     }
   },
   mounted () {
-    this.IconIsDisabled()
-    if (this.current) {
-      this.actualCurrent = this.current
-    }
-
+    this.iconIsDisabled()
     // 优先使用pageSizeOption
     if (this.pageSizeOption) {
       this.actualPageSize = this.pageSizeOption[0]
@@ -127,14 +103,7 @@ export default{
         }
       }
     },
-    handleHover () {
-
-    },
-    handleHoverExit () {
-
-    },
-
-    IconIsDisabled () {
+    iconIsDisabled () {
       this.leftDisabled = this.current === 1
       this.rightDisabled = this.current === this.totalPageCount
     },
@@ -156,34 +125,37 @@ export default{
       }
 
       return pageList
-    },
-    quickJump () {
-      if (this.quickJumpPage) {
-        this.actualCurrent = Math.min(this.quickJumpPage, this.totalPageCount)
-      }
     }
+    // quickJump () {
+    //   if (this.quickJumpPage) {
+    //     this.actualCurrent = Math.min(this.quickJumpPage, this.totalPageCount)
+    //   }
+    // }
   },
   components: {
-    'mu-pageItem': pageItem,
-    'mu-select-field': selectField,
-    'mu-menu-item': menuItem
+    'page-item': pageItem,
+    'select-field': selectField,
+    'text-field': textField,
+    'menu-item': menuItem
   },
   watch: {
-    actualCurrent: function (val, oldVal) {
-      if (val === oldVal) return
+    actualCurrent: function (val) {
       this.leftDisabled = val === 1
       this.rightDisabled = val === this.totalPageCount
-      this.actualCurrent = val
       this.pageList = this.calcPageList(val)
-      this.$emit('pageChange', this.actualCurrent)
+      this.$emit('pageChange', val)
     },
-    actualPageSize: function (val) {
+    actualPageSize: function (val, oldVal) {
+      // 如果页面条数改变的时候,对应的当前页也是需要重新计算的
+      let itemIndex = oldVal * this.actualCurrent
+      this.actualCurrent = Math.ceil(itemIndex / val)
       this.$emit('pageSizeChange', val)
     },
-    totalPageCount: function (val) {
-
+    total: function (val) {
+      // 如果条目总数改变的时候当前页也需要重新计算
+      this.actualCurrent = Math.min(this.totalPageCount, this.actualCurrent)
     },
-    current: function (val, oldVal) {
+    current (val) {
       this.actualCurrent = val
     }
   }
@@ -192,26 +164,10 @@ export default{
 
 <style lang="less">
 @import "../styles/import.less";
-.pagination li{
-  font-size: 1.5rem;
-  float: left;
-  width: 30px;
-  height: 30px;
-  margin: 0 10px;
-  border-radius: 2px;
-  text-align: center;
-  list-style-type: none;
+.mu-pagination{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 
-.clearfix:after{
-  content: "020";
-  display: block;
-  height: 0;
-  clear: both;
-  visibility: hidden;
-}
-.clearfix{
-  /* 触发 hasLayout */
-  zoom: 1;
-}
 </style>

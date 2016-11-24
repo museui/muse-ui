@@ -185,7 +185,7 @@ export default {
     // 从点击位置更新 value
     setValue (e) {
       const { $el, max, min, step } = this
-      let value = (e.clientX - $el.offsetLeft) / $el.offsetWidth * (max - min)
+      let value = (e.clientX - $el.getBoundingClientRect().left) / $el.offsetWidth * (max - min)
       value = Math.round(value / step) * step + min
       value = parseFloat(value.toFixed(5))
 

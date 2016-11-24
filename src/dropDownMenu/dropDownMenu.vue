@@ -106,6 +106,7 @@ export default {
     setMenuWidth () {
       if (!this.$el) return
       this.menuWidth = this.$el.offsetWidth
+      console.log(this.menuWidth)
     },
     onResize () {
       this.setMenuWidth()

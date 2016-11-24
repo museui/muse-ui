@@ -193,7 +193,7 @@ export default {
     }
   }
   &.has-label{
-    height: 72px;
+    min-height: 72px;
   }
 }
 

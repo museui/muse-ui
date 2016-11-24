@@ -1,6 +1,6 @@
 {
   "name": "muse-ui",
-  "version": "2.0.0-alpha.9",
+  "version": "2.0.0-alpha.10",
   "description": "material design ui for vue2",
   "main": "dist/muse-ui.js",
   "keywords": [
@@ -14,6 +14,9 @@
     "build": "node build/build.js && gulp theme",
     "docs": "node build/docs.js docs",
     "test": ""
+  },
+  "peerDependencies": {
+    "vue": "^2.0.0"
   },
   "devDependencies": {
     "babel-core": "^6.14.0",
@@ -46,6 +49,7 @@
     "html-webpack-plugin": "^2.22.0",
     "http-proxy-middleware": "^0.17.1",
     "json-loader": "^0.5.4",
+    "keycode": "^2.1.7",
     "less": "^2.7.1",
     "less-loader": "^2.2.3",
     "lodash": "^4.15.0",
@@ -63,9 +67,5 @@
     "webpack-dev-middleware": "^1.7.0",
     "webpack-hot-middleware": "^2.12.2",
     "webpack-merge": "^0.14.1"
-  },
-  "dependencies": {
-    "keycode": "^2.1.7",
-    "vue": "^2.1.0"
   }
 }

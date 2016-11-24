@@ -4,7 +4,7 @@
     @blur="handleBlur" :value="searchText" :label="label" :labelFloat="labelFloat" :disabled="disabled"
     :hintText="hintText" :helpText="helpText" :errorText="errorText" :errorColor="errorColor"
     :underlineShow="underlineShow" :icon="icon" :fullWidth="fullWidth"/>
-  <popover :overlay="false" :autoPosition="false" v-if="open && list.length > 0"  @close="handleClose" :trigger="anchorEl" :anchorOrigin="anchorOrigin" :targetOrigin="targetOrigin">
+  <popover :overlay="false" :autoPosition="false" :open="open && list.length > 0"  @close="handleClose" :trigger="anchorEl" :anchorOrigin="anchorOrigin" :targetOrigin="targetOrigin">
     <mu-menu :style="{'width': menuWidth + 'px'}" :disableAutoFocus="focusTextField" @mousedown.native="handleMouseDown" initiallyKeyboardFocused :autoWidth="false" ref="menu" @itemClick="handleItemClick" class="mu-auto-complete-menu">
       <menu-item class="mu-auto-complete-menu-item" v-for="item in list"  @mousedown.native="handleMouseDown" :disableFocusRipple="disableFocusRipple" afterText
       :leftIcon="item.leftIcon" :leftIconColor="item.leftIconColor" :rightIconColor="item.rightIconColor" :rightIcon="item.rightIcon" :value="item.value" :title="item.text"/>
@@ -134,7 +134,7 @@ export default {
       this.dataSource.every((item, index) => {
         switch (typeof item) {
           case 'string':
-            if (filter(searchText, item, item)) {
+            if (filter(searchText || '', item, item)) {
               list.push({
                 text: item,
                 value: item
@@ -144,7 +144,7 @@ export default {
           case 'object':
             if (item && typeof item[dataSourceConfig.text] === 'string') {
               const itemText = item[dataSourceConfig.text]
-              if (!filter(searchText, itemText, item)) break
+              if (!filter(searchText || '', itemText, item)) break
               const itemValue = item[dataSourceConfig.value]
               list.push({
                 ...item,

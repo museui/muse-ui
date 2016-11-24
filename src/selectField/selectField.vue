@@ -47,7 +47,7 @@ export default {
     },
     autoWidth: {
       type: Boolean,
-      default: true
+      default: false
     },
     fullWidth: {
       type: Boolean,
