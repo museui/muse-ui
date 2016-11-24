@@ -264,6 +264,19 @@ a {
 .mu-menu-item-right-icon {
   color: #757575;
 }
+.mu-pagination-item {
+  color: rgba(0, 0, 0, 0.87);
+}
+.mu-pagination-item.hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.mu-pagination-item.active {
+  color: #ffffff;
+  background-color: #03a9f4;
+}
+.mu-pagination-item.disabled {
+  color: rgba(0, 0, 0, 0.38);
+}
 .mu-paper {
   background-color: #ffffff;
   color: rgba(0, 0, 0, 0.87);

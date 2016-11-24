@@ -107,10 +107,10 @@ const router = new Router({
     { path: '/flexbox', title: '组件-FlexBox', component: Flexbox },
     { path: '/grid', title: '组件-Grid', component: Grid },
     { path: '/infiniteScroll', title: '组件-InfiniteScroll', component: InfiniteScroll },
+    { path: '/pagination', title: '组件-Pagination', component: Pagination },
     { path: '/picker', title: '组件-Picker', component: Picker },
     { path: '/popup', title: '组件-Popup', component: Popup },
     { path: '/refreshControl', title: '组件-RefreshControl', component: RefreshControl },
-    {path: '/pagination', title: '组件-Pagination', component: Pagination},
     { path: '*', redirect: '/index' }
   ]
 })

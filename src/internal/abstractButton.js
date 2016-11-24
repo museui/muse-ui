@@ -80,7 +80,7 @@ export default {
     buttonClass () {
       let classNames = []
       if (this.disabled) classNames.push('disabled')
-      if (this.hover || this.isKeyboardFocused) classNames.push('hover')
+      if (!this.disabled && (this.hover || this.isKeyboardFocused)) classNames.push('hover')
       return classNames.join(' ')
     }
   },

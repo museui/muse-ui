@@ -1,17 +1,16 @@
 <template>
-    <abstract-button  class="mu-pagination-wrapper" :class="{'circle': isCircle, 'active': isActive}":centerRipple="false" :disabled="disabled"
-   @click="handleClick"  @hover="handleHover" @hoverExit="handleHoverExit" containerElement="div">
-      <span v-if="icon">{{icon}}</span>
-      <span v-if="index">{{index}}</span>
-    </abstract-button>
+<abstract-button  class="mu-pagination-item" wrapperClass="mu-pagination-item-wrapper" :class="{'circle': isCircle, 'active': isActive}":centerRipple="false" :disabled="disabled"
+  @click="handleClick"  @hover="handleHover" @hoverExit="handleHoverExit" containerElement="div">
+  <icon :value="icon" v-if="icon"/>
+  <span v-if="index">{{index}}</span>
+  <slot></slot>
+</abstract-button>
 </template>
 
 <script>
 import abstractButton from '../internal/abstractButton'
 import icon from '../icon'
-
 export default{
-  name: 'mu-pageItem',
   props: {
     icon: {
       type: String
@@ -63,15 +62,22 @@ export default{
 
 <style lang="less">
 @import "../styles/import.less";
-.mu-pagination-wrapper {
-  font-size: 18px;
-  height: 30px;
-  width: 30px;
-  line-height: 30px;
+.mu-pagination-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  height: 32px;
+  min-width: 32px;
+  padding-left: 8px;
+  padding-right: 8px;
+  line-height: 32px;
+  margin: 0 8px;
   transition: all .45s @easeOutFunction;
   color: @textColor;
   position: relative;
   cursor: pointer;
+  border-radius: 2px;
   &.hover {
     background-color: rgba(0, 0, 0, .1);
   }
@@ -84,7 +90,18 @@ export default{
     cursor: not-allowed;
   }
   &.circle{
-    border-radius: 30px;
+    border-radius: 50%;
+    .mu-ripple-wrapper {
+      border-radius: 50%;
+    }
   }
+}
+
+.mu-pagination-item-wrapper {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
 }
 </style>

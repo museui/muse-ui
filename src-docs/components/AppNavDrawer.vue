@@ -74,6 +74,7 @@
       <mu-list-item slot="nested" value="#/flexbox" title="Flex Box"/>
       <mu-list-item slot="nested" value="#/grid" title="Grid"/>
       <mu-list-item slot="nested" value="#/infiniteScroll" title="Infinite Scroll"/>
+      <mu-list-item slot="nested" value="#/pagination" title="Pagination"/>
       <mu-list-item slot="nested" value="#/picker" title="Picker"/>
       <mu-list-item slot="nested" value="#/popup" title="Popup"/>
       <mu-list-item slot="nested" value="#/refreshControl" title="Refresh Control"/>

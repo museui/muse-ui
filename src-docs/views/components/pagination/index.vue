@@ -10,9 +10,9 @@
   <code-example title="改变每页显示条目数" :code="pageSizeChangeCode">
     <ex-pageSizeChange/>
   </code-example>
-  <code-example title="快速跳转到某一页" :code="quickJumpCode">
+  <!-- <code-example title="快速跳转到某一页" :code="quickJumpCode">
     <ex-quickJump/>
-  </code-example>
+  </code-example> -->
   <api-view :api="apiData"/>
 </div>
 </template>
@@ -25,8 +25,8 @@ import morePagination from './morePagination'
 import morePaginationCode from '!raw!./morePagination'
 import pageSizeChange from './pageSizeChange'
 import pageSizeChangeCode from '!raw!./pageSizeChange'
-import quickJump from './quickJump'
-import quickJumpCode from '!raw!./quickJump'
+// import quickJump from './quickJump'
+// import quickJumpCode from '!raw!./quickJump'
 import apiData from './api'
 export default {
   data () {
@@ -35,15 +35,15 @@ export default {
       examplePaginationCode,
       morePaginationCode,
       pageSizeChangeCode,
-      quickJumpCode,
+      // quickJumpCode,
       apiData
     }
   },
   components: {
     'ex-pagination': examplePagination,
     'ex-morePagination': morePagination,
-    'ex-pageSizeChange': pageSizeChange,
-    'ex-quickJump': quickJump
+    // 'ex-quickJump': quickJump,
+    'ex-pageSizeChange': pageSizeChange
   }
 }
 </script>

@@ -1,3 +1,15 @@
+## 2.0.0-alpha.10
+
+### Features
+
+  * 新增 [pagination](#/pagination) 组件
+
+### Bugs
+
+  * 修复 Text Field multiLine，如果带浮动标签，则容器高度不对
+  * 在 slider 父级元素上加上定位属性会导致拖动定位异常
+  * 修复 autoComplete 组件提示内容不显示的问题
+
 ## 2.0.0-alpha.9
 
 ### Features
