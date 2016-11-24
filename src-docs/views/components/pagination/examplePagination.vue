@@ -13,8 +13,6 @@ export default{
   },
   methods: {
     handleClick (newIndex) {
-      console.log(newIndex)
-      this.current = 3
     }
   }
 }
