@@ -287,6 +287,9 @@ a {
 .mu-popover {
   background-color: #424242;
 }
+.mu-popup {
+  background-color: #424242;
+}
 .mu-radio input[type="radio"]:checked + .mu-radio-wrapper .mu-radio-icon-uncheck {
   color: #0288d1;
 }

@@ -1,6 +1,6 @@
 <template>
-<div class="mu-menu" tabindex="0" v-clickoutside="clickoutside"  @keydown="handleKeydown" :style="{'width': contentWidth, 'maxHeight': maxHeight + 'px'}" >
-  <div ref="list" class="mu-menu-list" :style="{'width': contentWidth}" :class="{'mu-menu-destop': desktop}">
+<div class="mu-menu" tabindex="0" v-clickoutside="clickoutside"  @keydown="handleKeydown" :style="{'width': contentWidth}" >
+  <div ref="list" class="mu-menu-list" :style="{'width': contentWidth, 'max-height': maxHeight + 'px'}" :class="{'mu-menu-destop': desktop}">
     <slot></slot>
   </div>
 </div>
@@ -204,16 +204,16 @@ export default {
 <style lang="less">
 @import "../styles/import.less";
 .mu-menu {
-  overflow-x: hidden;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
   z-index: 90;
   outline: none;
 }
 
 .mu-menu-list {
   padding: 8px 0;
-  -webkit-user-select: none;
+  user-select: none;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   > .mu-divider {
     margin: 7px 0px 8px;
   }

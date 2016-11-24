@@ -1,3 +1,20 @@
+## 2.0.0-alpha.9
+
+### Features
+
+  * 重构 slider 组件,内部不再使用 input[type=range]
+  * bottomSheet, dialog, popover, popup 组件新增 open 参数（用于控制打开于关闭）, 新增 `show` (打开动画结束后)，`hide` (关闭动画结束后) 事件
+  * drawer 新增 `show` (打开动画结束后)，`hide` (关闭动画结束后) 事件
+
+### Bugs
+
+  * 修复 menuItem 文本过长显示重叠
+  * 修复 Text Field multiLine模式下 rows & rowsMax 设置无效的问题
+  * 修复 drawer 的 open=true, docked=false 没有遮盖层
+  * 修复 tabs 组件 z-index 值过低的问题
+  * 修复 popover 在 dialog 组件中使用定位出错的问题
+  * 修复 dialog 嵌套使用时没有遮盖上一个 dialog 的问题
+
 ## 2.0.0-alpha.8
 
 ### Features

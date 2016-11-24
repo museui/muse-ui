@@ -57,7 +57,9 @@ export default {
     this.setMaxDialogContentHeight()
   },
   updated () {
-    this.setMaxDialogContentHeight()
+    setTimeout(() => {
+      this.setMaxDialogContentHeight()
+    }, 0)
   },
   methods: {
     setMaxDialogContentHeight () {
