@@ -145,8 +145,15 @@ export default{
       this.pageList = this.calcPageList(val)
       this.$emit('pageChange', val)
     },
-    actualPageSize: function (val) {
+    actualPageSize: function (val, oldVal) {
+      // 如果页面条数改变的时候,对应的当前页也是需要重新计算的
+      let itemIndex = oldVal * this.actualCurrent
+      this.actualCurrent = Math.ceil(itemIndex / val)
       this.$emit('pageSizeChange', val)
+    },
+    total: function (val) {
+      // 如果条目总数改变的时候当前页也需要重新计算
+      this.actualCurrent = Math.min(this.totalPageCount, this.actualCurrent)
     },
     current (val) {
       this.actualCurrent = val
