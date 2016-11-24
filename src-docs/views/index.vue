@@ -56,7 +56,7 @@
             <a href="http://www.material-ui.com/" target="_blank">material-ui</a> 、
             <a href="http://element.eleme.io/" target="_blank">element</a>
             等众多优秀的UI框架的API和代码，
-            为了鼓励开发人员使用MUI，我们在MIT开源协议基础上开放MUI的源代码。
+            为了鼓励开发人员使用Muse UI，我们在MIT开源协议基础上开放Muse UI的源代码。
           </div>
         </div>
       </div>
