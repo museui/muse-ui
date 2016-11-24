@@ -171,6 +171,7 @@ export default {
   opacity: 1;
   position: relative;
   color: @textColor;
+  white-space: nowrap;
   .mu-dropDown-menu.disabled &{
     color: @disabledColor;
   }
