@@ -1,5 +1,5 @@
 <template>
-  <mu-pagination :total="total" :defaultCurrent="defaultCurrent" :showQuickJumper="showQuickJumper"  @click="handleClick">
+  <mu-pagination :total="total" :defaultCurrent="defaultCurrent" :showQuickJumper="showQuickJumper"  @pageChange="handleClick">
   </mu-pagination>
 </template>
 
