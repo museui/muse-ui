@@ -10,7 +10,7 @@
   <page-item v-if="totalPageCount > 5 && totalPageCount - actualCurrent >= 4" identifier="forwards" @click="handleClick" title="后5页">
     <span>...</span>
   </page-item>
-  <page-item :index="totalPageCount" @click="handleClick" :isActive="actualCurrent === totalPageCount"></page-item>
+  <page-item :index="totalPageCount" @click="handleClick" :isActive="actualCurrent === totalPageCount" v-if="totalPageCount !== 1"></page-item>
   <page-item icon="chevron_right" identifier="singleForward" @click="handleClick" :disabled="rightDisabled"></page-item>
   <select-field  v-if="showSizeChanger" v-model="actualPageSize" :style="{width: '100px'}">
     <menu-item v-for="item in pageSizeOption" :value="item" :title="item + ' / 页'" :style="{width: '100px'}"/>
@@ -110,18 +110,25 @@ export default{
 
     calcPageList (current) {
       let pageList = []
-      let left = Math.max(2, current - 2)
-      let right = Math.min(current + 2, this.totalPageCount - 1)
-      if (current - 1 <= 2) {
-        right = 1 + 3
-      }
 
-      if (this.totalPageCount - current <= 2) {
-        left = this.totalPageCount - 3
-      }
+      if (this.totalPageCount > 5) {
+        let left = Math.max(2, current - 2)
+        let right = Math.min(current + 2, this.totalPageCount - 1)
+        if (current - 1 < 2) {
+          right = 4
+        }
 
-      for (let i = left; i <= right; i++) {
-        pageList.push(i)
+        if (this.totalPageCount - current < 2) {
+          left = this.totalPageCount - 4
+        }
+
+        for (let i = left; i <= right; i++) {
+          pageList.push(i)
+        }
+      } else {
+        for (let i = 2; i < this.totalPageCount; i++) {
+          pageList.push(i)
+        }
       }
 
       return pageList
