@@ -68,12 +68,14 @@ export default{
   },
   mounted () {
     this.iconIsDisabled()
-    // 优先使用pageSizeOption
-    if (this.pageSizeOption) {
+
+    // 优先使用pageSizeOption,如果props配置了默认值，那么该props无论在父组件中是否配置该值都不会为undefined,所以需要使用showSizeChanger来做这个判断才对
+    if (this.showSizeChanger) {
       this.actualPageSize = this.pageSizeOption[0]
     } else if (this.pageSize) {
       this.actualPageSize = this.pageSize
     }
+
     this.totalPageCount = Math.ceil(this.total / this.actualPageSize)
     this.pageList = this.calcPageList(this.actualCurrent)
   },
@@ -146,16 +148,18 @@ export default{
     'menu-item': menuItem
   },
   watch: {
-    actualCurrent: function (val) {
+    actualCurrent: function (val, oldVal) {
       this.leftDisabled = val === 1
       this.rightDisabled = val === this.totalPageCount
       this.pageList = this.calcPageList(val)
       this.$emit('pageChange', val)
     },
     actualPageSize: function (val, oldVal) {
-      // 如果页面条数改变的时候,对应的当前页也是需要重新计算的
-      let itemIndex = oldVal * this.actualCurrent
-      this.actualCurrent = Math.ceil(itemIndex / val)
+      // 如果页面条数改变的时候,对应的当前页也是需要重新计算的,
+      // 计算规则是根据当前页的起始索引来计算该索引位于新的pageSize
+      // 中的页码
+      let itemIndex = oldVal * (this.actualCurrent - 1)
+      this.actualCurrent = Math.floor(itemIndex / val) + 1
       this.$emit('pageSizeChange', val)
     },
     total: function (val) {
