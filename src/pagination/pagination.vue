@@ -10,7 +10,7 @@
   <page-item v-if="totalPageCount > 5 && totalPageCount - actualCurrent >= 4" identifier="forwards" @click="handleClick" title="后5页">
     <span>...</span>
   </page-item>
-  <page-item :index="totalPageCount" @click="handleClick" :isActive="actualCurrent === totalPageCount"></page-item>
+  <page-item :index="totalPageCount" @click="handleClick" :isActive="actualCurrent === totalPageCount" v-if="totalPageCount !== 1"></page-item>
   <page-item icon="chevron_right" identifier="singleForward" @click="handleClick" :disabled="rightDisabled"></page-item>
   <select-field  v-if="showSizeChanger" v-model="actualPageSize" :style="{width: '100px'}">
     <menu-item v-for="item in pageSizeOption" :value="item" :title="item + ' / 页'" :style="{width: '100px'}"/>
@@ -68,12 +68,14 @@ export default{
   },
   mounted () {
     this.iconIsDisabled()
-    // 优先使用pageSizeOption
-    if (this.pageSizeOption) {
+
+    // 优先使用pageSizeOption,如果props配置了默认值，那么该props无论在父组件中是否配置该值都不会为undefined,所以需要使用showSizeChanger来做这个判断才对
+    if (this.showSizeChanger) {
       this.actualPageSize = this.pageSizeOption[0]
     } else if (this.pageSize) {
       this.actualPageSize = this.pageSize
     }
+
     this.totalPageCount = Math.ceil(this.total / this.actualPageSize)
     this.pageList = this.calcPageList(this.actualCurrent)
   },
@@ -110,18 +112,25 @@ export default{
 
     calcPageList (current) {
       let pageList = []
-      let left = Math.max(2, current - 2)
-      let right = Math.min(current + 2, this.totalPageCount - 1)
-      if (current - 1 <= 2) {
-        right = 1 + 3
-      }
 
-      if (this.totalPageCount - current <= 2) {
-        left = this.totalPageCount - 3
-      }
+      if (this.totalPageCount > 5) {
+        let left = Math.max(2, current - 2)
+        let right = Math.min(current + 2, this.totalPageCount - 1)
+        if (current - 1 < 2) {
+          right = 4
+        }
 
-      for (let i = left; i <= right; i++) {
-        pageList.push(i)
+        if (this.totalPageCount - current < 2) {
+          left = this.totalPageCount - 4
+        }
+
+        for (let i = left; i <= right; i++) {
+          pageList.push(i)
+        }
+      } else {
+        for (let i = 2; i < this.totalPageCount; i++) {
+          pageList.push(i)
+        }
       }
 
       return pageList
@@ -139,16 +148,18 @@ export default{
     'menu-item': menuItem
   },
   watch: {
-    actualCurrent: function (val) {
+    actualCurrent: function (val, oldVal) {
       this.leftDisabled = val === 1
       this.rightDisabled = val === this.totalPageCount
       this.pageList = this.calcPageList(val)
       this.$emit('pageChange', val)
     },
     actualPageSize: function (val, oldVal) {
-      // 如果页面条数改变的时候,对应的当前页也是需要重新计算的
-      let itemIndex = oldVal * this.actualCurrent
-      this.actualCurrent = Math.ceil(itemIndex / val)
+      // 如果页面条数改变的时候,对应的当前页也是需要重新计算的,
+      // 计算规则是根据当前页的起始索引来计算该索引位于新的pageSize
+      // 中的页码
+      let itemIndex = oldVal * (this.actualCurrent - 1)
+      this.actualCurrent = Math.floor(itemIndex / val) + 1
       this.$emit('pageSizeChange', val)
     },
     total: function (val) {
