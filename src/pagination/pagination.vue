@@ -1,5 +1,5 @@
 <template>
-<div class="mu-pagination">
+<div class="mu-pagination" v-if="total">
   <page-item icon="chevron_left" identifier="singleBack" @click="handleClick" :disabled="leftDisabled">
   </page-item>
   <page-item :index="1" @click="handleClick" :isActive="actualCurrent === 1"/>
@@ -67,9 +67,11 @@ export default{
     }
   },
   mounted () {
-    this.iconIsDisabled()
+    this.iconIsDisabled(this.actualCurrent)
 
-    // 优先使用pageSizeOption,如果props配置了默认值，那么该props无论在父组件中是否配置该值都不会为undefined,所以需要使用showSizeChanger来做这个判断才对
+    // 优先使用pageSizeOption,如果props配置了默认值，那么该props无论在父组件
+    // 中是否配置该值都不会为undefined,所以需要使用showSizeChanger来做这个判断
+    // 才对
     if (this.showSizeChanger) {
       this.actualPageSize = this.pageSizeOption[0]
     } else if (this.pageSize) {
@@ -105,9 +107,9 @@ export default{
         }
       }
     },
-    iconIsDisabled () {
-      this.leftDisabled = this.current === 1
-      this.rightDisabled = this.current === this.totalPageCount
+    iconIsDisabled (current) {
+      this.leftDisabled = current === 1
+      this.rightDisabled = current === this.totalPageCount
     },
 
     calcPageList (current) {
@@ -121,7 +123,7 @@ export default{
         }
 
         if (this.totalPageCount - current < 2) {
-          left = this.totalPageCount - 4
+          left = this.totalPageCount - 3
         }
 
         for (let i = left; i <= right; i++) {
@@ -134,6 +136,10 @@ export default{
       }
 
       return pageList
+    },
+    pageSizeAndTotalChange (current) {
+      this.iconIsDisabled(current)
+      this.pageList = this.calcPageList(current)
     }
     // quickJump () {
     //   if (this.quickJumpPage) {
@@ -148,10 +154,11 @@ export default{
     'menu-item': menuItem
   },
   watch: {
-    actualCurrent: function (val, oldVal) {
-      this.leftDisabled = val === 1
-      this.rightDisabled = val === this.totalPageCount
-      this.pageList = this.calcPageList(val)
+    actualCurrent: function (val) {
+      if (val === 0) {
+        return
+      }
+      this.pageSizeAndTotalChange(val)
       this.$emit('pageChange', val)
     },
     actualPageSize: function (val, oldVal) {
@@ -159,12 +166,24 @@ export default{
       // 计算规则是根据当前页的起始索引来计算该索引位于新的pageSize
       // 中的页码
       let itemIndex = oldVal * (this.actualCurrent - 1)
+      let oldCurrent = this.actualCurrent
       this.actualCurrent = Math.floor(itemIndex / val) + 1
+      // 页码条数改变的时候当前页不一定改变,但是我们必须重新计算一些依赖的参数
+      if (oldCurrent === this.actualCurrent) {
+        this.pageSizeAndTotalChange(oldCurrent)
+      }
       this.$emit('pageSizeChange', val)
     },
     total: function (val) {
       // 如果条目总数改变的时候当前页也需要重新计算
+      let oldCurrent = this.actualCurrent
       this.actualCurrent = Math.min(this.totalPageCount, this.actualCurrent)
+      // 总条数改变的时候当前页不一定改变,但是我们必须重新计算一些依赖的参数,
+      // 比如total从10变为11(pageSize=10),那么current没变,不过右前进的按钮应该由
+      // disable变为enable的
+      if (oldCurrent === this.actualCurrent) {
+        this.pageSizeAndTotalChange(oldCurrent)
+      }
     },
     current (val) {
       this.actualCurrent = val
