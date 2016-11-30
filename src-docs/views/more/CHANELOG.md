@@ -1,3 +1,19 @@
+## 2.0.0-alpha.11
+
+### Features
+
+  * 新增 [circularProgress](#/circularProgress) 组件
+  * dropDownMenu, iconMenu, selectField, autoComplete 组件新增 `scroller` 属性
+  * autoComplete 组件新增 `maxHeight` 属性
+  * 更改所有表单组件 change 事件触发条件 (必须是因为用户行为导致value改变才触发)
+
+### Bugs
+
+  * 修复 pagination 修改 defaultPageSize 或者 pageSize 的时候不生效的问题
+  * 修复 pagination 页码小于5个的时候显示不正常
+  * 修复 dialog 中，两个action button，一个为 a，一个为 button 的话，样式显示问题
+  * 修复 datePicker 组件格式化显示不完善的问题
+
 ## 2.0.0-alpha.10
 
 ### Features

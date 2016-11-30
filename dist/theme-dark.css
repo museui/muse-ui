@@ -112,6 +112,9 @@ a {
 .mu-chip-delete-icon {
   color: rgba(255, 255, 255, 0.26);
 }
+.mu-circular-progress-determinate-path {
+  stroke: #0288d1;
+}
 .mu-calendar {
   color: #ffffff;
 }
