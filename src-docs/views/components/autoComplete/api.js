@@ -10,6 +10,16 @@ export default {
     default: `{vertical: 'top', horizontal: 'left' }`,
     desc: '锚点相对于弹出补全列表的位置'
   }, {
+    name: 'scroller',
+    type: 'Element',
+    default: 'window',
+    desc: '滚动的元素，会监听它的 `scroll` 事件, 在滚动时会不断更新弹出框的位置'
+  }, {
+    name: 'maxHeight',
+    type: 'Number',
+    default: '',
+    desc: '弹出选择内容的最大高度, 超过这个高度会显示滚动条'
+  }, {
     name: 'dataSource',
     type: 'Array',
     default: '',
@@ -111,9 +121,9 @@ export default {
     desc: '选择补全列表事件, 会传入这条数据和index值，(item, index)'
   }, {
     name: 'input',
-    desc: '输入时触发的事件，传入value, (value)'
+    desc: '当value改变时触发事件，传入value, (value)'
   }, {
     name: 'change',
-    desc: '同 input 事件一样'
+    desc: '用户输入或者选择补全选项时触发事件，传入输入框的 value'
   }]
 }

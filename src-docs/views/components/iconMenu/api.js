@@ -40,6 +40,11 @@ export default {
     default: '{vertical: \'top\',horizontal: \'left\'}',
     desc: '目标的的位置'
   }, {
+    name: 'scroller',
+    type: 'Element',
+    default: 'window',
+    desc: '滚动的元素，会监听它的 `scroll` 事件, 在滚动时会不断更新弹出框的位置'
+  }, {
     name: 'tooltip',
     type: 'String',
     default: '',

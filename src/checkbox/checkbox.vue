@@ -2,7 +2,7 @@
   <label @mousedown="handleMouseDown" @mouseup="handleMouseUp" @mouseleave="handleMouseLeave"
     @touchstart="handleTouchStart" @touchend="handleTouchEnd" @touchcancel="handleTouchEnd" @click.stop="handleClick"
     class="mu-checkbox" :class="{'label-left': labelLeft, 'disabled': disabled, 'no-label': !label}">
-    <input type="checkbox" :disabled="disabled" :name="name" :value="nativeValue" v-model="inputValue">
+    <input type="checkbox" :disabled="disabled" :name="name" :value="nativeValue" @change="handleChange" v-model="inputValue">
     <touch-ripple v-if="!disabled" rippleWrapperClass="mu-checkbox-ripple-wrapper" class="mu-checkbox-wrapper">
       <div class="mu-checkbox-label"  v-if="label && labelLeft">{{label}}</div>
       <div class="mu-checkbox-icon">
@@ -67,7 +67,6 @@ export default {
     },
     inputValue (val) {
       this.$emit('input', val)
-      this.$emit('change', val)
     }
   },
   methods: {
@@ -95,6 +94,9 @@ export default {
     handleTouchEnd () {
       if (this.disabled) return
       this.$children[0].end()
+    },
+    handleChange () {
+      this.$emit('change', this.inputValue)
     }
   },
   components: {

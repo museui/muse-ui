@@ -16,7 +16,8 @@
     "test": ""
   },
   "peerDependencies": {
-    "vue": "^2.0.0"
+    "vue": "^2.0.0",
+    "keycode": "^2.1.7"
   },
   "devDependencies": {
     "babel-core": "^6.14.0",
@@ -49,7 +50,6 @@
     "html-webpack-plugin": "^2.22.0",
     "http-proxy-middleware": "^0.17.1",
     "json-loader": "^0.5.4",
-    "keycode": "^2.1.7",
     "less": "^2.7.1",
     "less-loader": "^2.2.3",
     "lodash": "^4.15.0",

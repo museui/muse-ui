@@ -2,11 +2,11 @@
 <div class="mu-dropDown-menu" :class="{'disabled': disabled}">
   <icon class="mu-dropDown-menu-icon" :class="iconClass" value="arrow_drop_down"></icon>
   <div class="mu-dropDown-menu-text" @click="handleOpen" :class="labelClass">
-    {{label}}
+    <div class="mu-dropDown-menu-text-overflow">{{label}}</div>
   </div>
   <div class="mu-dropDown-menu-line" :class="underlineClass"></div>
-  <popover v-if="!disabled && $slots && $slots.default && $slots.default.length > 0" :open="openMenu" :trigger="trigger" :anchorOrigin="anchorOrigin"  @close="handleClose">
-    <mu-menu :style="{width: menuWidth + 'px'}" @change="change"
+  <popover v-if="!disabled && $slots && $slots.default && $slots.default.length > 0" :scroller="scroller" :open="openMenu" :trigger="trigger" :anchorOrigin="anchorOrigin"  @close="handleClose">
+    <mu-menu v-if="openMenu" :style="{width: menuWidth + 'px'}" @change="change"
       :class="menuClass" :value="value" :multiple="multiple"
       :autoWidth="autoWidth" @itemClick="itemClick"
       popover desktop :maxHeight="maxHeight">
@@ -69,6 +69,9 @@ export default {
     },
     anchorEl: {
       type: window.Element
+    },
+    scroller: {
+      type: [window.HTMLDocument, window.Element, window.Window]
     }
   },
   data () {
@@ -170,10 +173,15 @@ export default {
   opacity: 1;
   position: relative;
   color: @textColor;
-  white-space: nowrap;
   .mu-dropDown-menu.disabled &{
     color: @disabledColor;
   }
+}
+
+.mu-dropDown-menu-text-overflow{
+  white-space: nowrap;
+  overflow: hidden;
+  width: 100%;
 }
 .mu-dropDown-menu-line {
   bottom: 1px;

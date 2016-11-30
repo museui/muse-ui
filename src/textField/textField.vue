@@ -5,12 +5,8 @@
       <text-field-label v-if="label" :float="float">{{label}}</text-field-label>
       <text-field-hint v-if="hintText" :text="hintText" :show="showHint"></text-field-hint>
       <slot>
-        <input ref="input" :name="name" type="text" :disabled="disabled" v-if="!multiLine && !type || type === 'text'" @focus="handleFocus" v-model="inputValue" @blur="handleBlur" class="mu-text-field-input" >
-        <input ref="input" :name="name" type="password" :disabled="disabled" v-if="!multiLine && type === 'password'" @focus="handleFocus" v-model="inputValue" @blur="handleBlur" class="mu-text-field-input" >
-        <input ref="input" :name="name" type="email" :disabled="disabled" v-if="!multiLine && type === 'email'" @focus="handleFocus" v-model="inputValue" @blur="handleBlur" class="mu-text-field-input" >
-        <input ref="input" :name="name" type="url" :disabled="disabled" v-if="!multiLine && type === 'url'" @focus="handleFocus" v-model="inputValue" @blur="handleBlur" class="mu-text-field-input" >
-        <input ref="input" :name="name" type="number" :disabled="disabled" v-if="!multiLine && type === 'number'" @focus="handleFocus" v-model.number="inputValue" @blur="handleBlur" class="mu-text-field-input" >
-        <enhanced-textarea ref="textarea" :disabled="disabled" :rows="rows" :rowsMax="rowsMax" @change="handleChange" @focus="handleFocus" @blur="handleBlur" v-if="multiLine" :value="inputValue"></enhanced-textarea>
+        <input v-if="!multiLine" ref="input" :type="type" :value="inputValue" :disabled="disabled" @focus="handleFocus" @input="handleChange" @blur="handleBlur" class="mu-text-field-input" >
+        <enhanced-textarea v-if="multiLine" ref="textarea" :value="inputValue" :disabled="disabled" :rows="rows" :rowsMax="rowsMax" @change="handleChange" @focus="handleFocus" @blur="handleBlur"></enhanced-textarea>
       </slot>
       <underline v-if="underlineShow" :error="!!errorText" :disabled="disabled" :errorColor="errorColor" :focus="focus"></underline>
       <div class="mu-text-field-help" :style="errorStyle" v-if="errorText || helpText || maxLength > 0">
@@ -35,9 +31,6 @@ import textFieldHint from './textFieldHint'
 export default {
   name: 'mu-text-field',
   props: {
-    name: {
-      type: String
-    },
     type: {
       type: String
     },
@@ -134,7 +127,8 @@ export default {
       this.$emit('blur', event)
     },
     handleChange (val) {
-      this.inputValue = val
+      this.inputValue = val.target ? val.target.value : val
+      this.$emit('change', this.inputValue)
     },
     handleLabelClick () {
       this.$emit('labelClick')
@@ -147,7 +141,6 @@ export default {
     inputValue (val) {
       this.charLength = this.maxLength && String(this.inputValue) ? String(this.inputValue).length : 0
       this.$emit('input', val)
-      this.$emit('change', val)
     },
     charLength (val) {
       if (val > this.maxLength && !this.isTextOverflow) {

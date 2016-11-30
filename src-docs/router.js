@@ -26,6 +26,7 @@ import Drawer from './views/components/drawer'
 import GridList from './views/components/gridList'
 import Icon from './views/components/icon'
 import LinearProgress from './views/components/linearProgress'
+import CircularProgress from './views/components/circularProgress'
 import List from './views/components/list'
 import Menu from './views/components/menu'
 import IconMenu from './views/components/iconMenu'
@@ -84,6 +85,7 @@ const router = new Router({
     { path: '/gridList', title: '组件-GridList', component: GridList },
     { path: '/icon', title: '组件-Icon', component: Icon },
     { path: '/linearProgress', title: '组件-LinearProgress', component: LinearProgress },
+    { path: '/circularProgress', title: '组件-CircularProgress', component: CircularProgress },
     { path: '/list', title: '组件-List', component: List },
     { path: '/menu', title: '组件-Menu', component: Menu },
     { path: '/iconMenu', title: '组件-IconMenu', component: IconMenu },

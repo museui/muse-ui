@@ -13,6 +13,9 @@
   <code-example :code="exampleDisabledCode" title="通过函数指定不可选择的时间" description="`shouldDisableDate` 参数可以通过函数指定哪些时间不可选择。">
     <ex-disabled />
   </code-example>
+  <code-example :code="exampleLocaleCode" title="语言环境配置" description="通过自定义 `dateTimeFormat` 来格式化不同语言的显示">
+    <ex-locale/>
+  </code-example>
   <api-view :api="apiData"/>
 </div>
 </template>
@@ -27,6 +30,8 @@ import exampleSelect from './exmapleSelect'
 import exampleSelectCode from '!raw!./exmapleSelect'
 import exampleDisabled from './exampleDisabled'
 import exampleDisabledCode from '!raw!./exampleDisabled'
+import exampleLocale from './exampleLocale'
+import exampleLocaleCode from '!raw!./exampleLocale'
 import apiData from './api'
 export default {
   data () {
@@ -36,6 +41,7 @@ export default {
       exampleInlineCode,
       exampleSelectCode,
       exampleDisabledCode,
+      exampleLocaleCode,
       apiData
     }
   },
@@ -43,7 +49,8 @@ export default {
     'ex-simple': exampleSimple,
     'ex-inline': exampleInline,
     'ex-select': exampleSelect,
-    'ex-disabled': exampleDisabled
+    'ex-disabled': exampleDisabled,
+    'ex-locale': exampleLocale
   }
 }
 </script>

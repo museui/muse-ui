@@ -1,11 +1,11 @@
 <template>
-<div class="mu-linear-progress">
-  <div v-if="mode === 'indeterminate'" class="mu-linear-progress-indeterminate"></div>
-  <div v-if="mode === 'determinate'" :style="{'width': percent + '%'}" class="mu-linear-progress-determinate"></div>
+<div class="mu-linear-progress" :style="{'height': size + 'px', 'border-radius': (size ? size / 2 : '') + 'px'}">
+  <div :style="linearStyle" :class="linearClass"></div>
 </div>
 </template>
 
 <script>
+import {getColor} from '../utils'
 export default {
   name: 'mu-linear-progress',
   props: {
@@ -27,11 +27,29 @@ export default {
     value: {
       type: Number,
       default: 0
+    },
+    color: {
+      type: String
+    },
+    size: {
+      type: Number
     }
   },
   computed: {
     percent () {
       return (this.value - this.min) / (this.max - this.min) * 100
+    },
+    linearStyle () {
+      const {size, color, mode, percent} = this
+      return {
+        height: size + 'px',
+        'background-color': getColor(color),
+        'border-radius': (size ? size / 2 : '') + 'px',
+        width: mode === 'determinate' ? percent + '%' : ''
+      }
+    },
+    linearClass () {
+      return 'mu-linear-progress-' + this.mode
     }
   }
 }

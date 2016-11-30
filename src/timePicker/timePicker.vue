@@ -108,7 +108,10 @@ export default {
       this.$refs.dialog.open = true
     },
     handleAccept (val) {
-      this.inputValue = timeUtils.formatTime(val, this.format)
+      const newValue = timeUtils.formatTime(val, this.format)
+      if (this.inputValue === newValue) return
+      this.inputValue = newValue
+      this.$emit('change', newValue)
     }
   },
   watch: {
@@ -117,7 +120,6 @@ export default {
     },
     inputValue (val) {
       this.$emit('input', val)
-      this.$emit('change', val)
     }
   },
   components: {

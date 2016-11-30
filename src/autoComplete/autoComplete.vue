@@ -4,8 +4,9 @@
     @blur="handleBlur" :value="searchText" :label="label" :labelFloat="labelFloat" :disabled="disabled"
     :hintText="hintText" :helpText="helpText" :errorText="errorText" :errorColor="errorColor"
     :underlineShow="underlineShow" :icon="icon" :fullWidth="fullWidth"/>
-  <popover :overlay="false" :autoPosition="false" :open="open && list.length > 0"  @close="handleClose" :trigger="anchorEl" :anchorOrigin="anchorOrigin" :targetOrigin="targetOrigin">
-    <mu-menu :style="{'width': menuWidth + 'px'}" :disableAutoFocus="focusTextField" @mousedown.native="handleMouseDown" initiallyKeyboardFocused :autoWidth="false" ref="menu" @itemClick="handleItemClick" class="mu-auto-complete-menu">
+  <popover :overlay="false" :autoPosition="false" :scroller="scroller" :open="open && list.length > 0"  @close="handleClose" :trigger="anchorEl" :anchorOrigin="anchorOrigin" :targetOrigin="targetOrigin">
+    <mu-menu v-if="open" :maxHeight="maxHeight" :style="{'width': (menuWidth && menuWidth > inputWidth ? menuWidth : inputWidth) + 'px'}" :disableAutoFocus="focusTextField"
+      @mousedown.native="handleMouseDown" initiallyKeyboardFocused :autoWidth="false" ref="menu" @itemClick="handleItemClick" class="mu-auto-complete-menu">
       <menu-item class="mu-auto-complete-menu-item" v-for="item in list"  @mousedown.native="handleMouseDown" :disableFocusRipple="disableFocusRipple" afterText
       :leftIcon="item.leftIcon" :leftIconColor="item.leftIconColor" :rightIconColor="item.rightIconColor" :rightIcon="item.rightIcon" :value="item.value" :title="item.text"/>
     </mu-menu>
@@ -39,6 +40,9 @@ export default {
           horizontal: 'left'
         }
       }
+    },
+    scroller: {
+      type: [window.HTMLDocument, window.Element, window.Window]
     },
     dataSource: {
       type: Array,
@@ -105,6 +109,12 @@ export default {
       type: Boolean,
       default: false
     },
+    menuWidth: {
+      type: Number
+    },
+    maxHeight: {
+      type: Number
+    },
     underlineShow: {
       type: Boolean,
       default: true
@@ -119,7 +129,7 @@ export default {
       focusTextField: true,
       open: false,
       searchText: undefined,
-      menuWidth: null
+      inputWidth: null
     }
   },
   computed: {
@@ -181,16 +191,16 @@ export default {
       event.preventDefault()
     },
     handleItemClick (child) {
-      const dataSource = this.list
+      const dataSource = this.dataSource
       const index = this.$refs.menu.$children.indexOf(child)
       const chosenRequest = dataSource[index]
       const searchText = this.chosenRequestText(chosenRequest)
-
       this.timerTouchTapCloseId = setTimeout(() => {
         this.timerTouchTapCloseId = null
         this.setSearchText(searchText)
         this.close()
         this.$emit('select', chosenRequest, index)
+        this.$emit('change', searchText)
       }, this.menuCloseDelay)
     },
     chosenRequestText (chosenRequest) {
@@ -242,11 +252,18 @@ export default {
     setSearchText (val) {
       this.notInput = true
       this.searchText = val
+    },
+    setInputWidth () {
+      if (!this.$el) return
+      this.inputWidth = this.$el.offsetWidth
     }
   },
   mounted () {
     this.anchorEl = this.$refs.textField.$el
-    this.menuWidth = this.$el.offsetWidth
+    this.setInputWidth()
+  },
+  updated () {
+    this.setInputWidth()
   },
   watch: {
     value (val) {
@@ -254,7 +271,6 @@ export default {
     },
     searchText (val) {
       this.$emit('input', val)
-      this.$emit('change', val)
     }
   },
   components: {

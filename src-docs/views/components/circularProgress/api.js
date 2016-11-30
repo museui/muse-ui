@@ -8,7 +8,7 @@ export default {
     name: 'value',
     type: 'Number',
     default: '',
-    desc: '进度条的 `value` 值'
+    desc: '进度指示器的 `value` 值'
   }, {
     name: 'max',
     type: 'Number',
@@ -23,11 +23,16 @@ export default {
     name: 'size',
     type: 'Number',
     default: '',
-    desc: '进度条的大小(高度)'
+    desc: '圆形的大小'
+  }, {
+    name: 'strokeWidth',
+    type: 'Number',
+    default: '3',
+    desc: '圆形线的宽度'
   }, {
     name: 'color',
     type: 'String',
     default: '',
-    desc: '进度条的颜色'
+    desc: '圆形线的颜色'
   }]
 }

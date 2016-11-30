@@ -41,6 +41,7 @@ import radio from './radio'
 import _switch from './switch'
 import slider from './slider'
 import linearProgress from './linearProgress'
+import circularProgress from './circularProgress'
 import * as gridList from './gridList'
 import * as table from './table'
 import datePicker from './datePicker'
@@ -92,6 +93,7 @@ const components = {
   _switch,
   slider,
   linearProgress,
+  circularProgress,
   ...gridList,
   ...table,
   datePicker,

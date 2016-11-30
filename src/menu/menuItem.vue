@@ -19,9 +19,9 @@
        <icon :value="rightIcon" :style="{'color': filterColor(rightIconColor)}" class="mu-menu-item-right-icon"/>
      </div>
    </abstract-button>
-   <popover v-if="openMenu" :anchorOrigin="{ vertical: 'top', horizontal: 'right'}"
+   <popover :open="openMenu" v-if="$slots && $slots.default && $slots.default.length > 0" :anchorOrigin="{ vertical: 'top', horizontal: 'right'}"
    @close="close" :trigger="trigger">
-     <mu-menu :desktop="$parent.desktop" popover :maxHeight="$parent.maxHeight" :value="nestedMenuValue">
+     <mu-menu v-if="openMenu" :desktop="$parent.desktop" popover :maxHeight="$parent.maxHeight" :value="nestedMenuValue">
        <slot></slot>
      </mu-menu>
    </popover>

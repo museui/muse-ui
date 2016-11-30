@@ -1,3 +1,7 @@
+/**
+ * material-ui timeUtils.js
+ * https://github.com/callemall/material-ui/blob/master/src/TimePicker/timeUtils.js
+ */
 export function addHours (d, hours) {
   const newDate = clone(d)
   newDate.setHours(d.getHours() + hours)

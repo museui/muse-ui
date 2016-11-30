@@ -29,6 +29,11 @@ export default {
     type: 'Object',
     default: '{vertical: \'top\', horizontal: \'left\'}',
     desc: '锚点的位置'
+  }, {
+    name: 'scroller',
+    type: 'Element',
+    default: 'window',
+    desc: '滚动的元素，会监听它的 `scroll` 事件, 在滚动时会不断更新弹出框的位置'
   }],
   slots: [{
     name: 'default',

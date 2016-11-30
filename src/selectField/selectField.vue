@@ -3,7 +3,7 @@
   :labelFloat="labelFloat" :hintText="hintText" :fullWidth="fullWidth"
   :helpText="helpText" :icon="icon" :value="inputValue instanceof Array ? inputValue.join('') : inputValue"
    :disabled="disabled" :errorText="errorText" :errorColor="errorColor" :label="label">
-  <dropDown-menu :anchorEl="anchorEl" @open="handleOpen" @close="handleClose"  @change="handlehange" :value="inputValue" :disabled="disabled" :maxHeight="maxHeight" :autoWidth="autoWidth"
+  <dropDown-menu :anchorEl="anchorEl" :scroller="scroller" @open="handleOpen" @close="handleClose"  @change="handlehange" :value="inputValue" :disabled="disabled" :maxHeight="maxHeight" :autoWidth="autoWidth"
     :multiple="multiple" :anchorOrigin="{vertical: 'bottom', horizontal: 'left'}">
     <slot></slot>
   </dropDown-menu>
@@ -61,6 +61,9 @@ export default {
     multiple: {
       type: Boolean,
       default: false
+    },
+    scroller: {
+      type: [window.HTMLDocument, window.Element, window.Window]
     }
   },
   data () {
@@ -79,6 +82,7 @@ export default {
   },
   methods: {
     handlehange (val) {
+      if (val === this.inputValue) return
       if (this.multiple) {
         const index = this.inputValue.indexOf(val)
         if (index === -1) {
@@ -89,6 +93,7 @@ export default {
       } else {
         this.inputValue = val
       }
+      this.$emit('change', this.inputValue)
     },
     handleOpen () {
       this.$refs.textField.handleFocus()
@@ -104,7 +109,6 @@ export default {
     inputValue (val, oldVal) {
       if (val === oldVal) return
       this.$emit('input', val)
-      this.$emit('change', val)
     }
   },
   components: {

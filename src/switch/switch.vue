@@ -2,7 +2,7 @@
 <label @mousedown="handleMouseDown" @mouseleave="handleMouseLeave" @mouseup="handleMouseUp"
   @touchstart="handleTouchStart" @touchend="handleTouchEnd" @touchcancel="handleTouchEnd" @click.stop="handleClick"
   class="mu-switch" :class="{'label-left': labelLeft, 'disabled': disabled, 'no-label': !label}">
-  <input type="checkbox" :disabled="disabled"  v-model="inputValue">
+  <input type="checkbox" :disabled="disabled" @change="handleChange"  v-model="inputValue">
   <div class="mu-switch-wrapper">
     <div class="mu-switch-label"  v-if="label && labelLeft">{{label}}</div>
     <div class="mu-switch-container">
@@ -51,7 +51,6 @@ export default {
     },
     inputValue (val) {
       this.$emit('input', val)
-      this.$emit('change', val)
     }
   },
   methods: {
@@ -79,6 +78,9 @@ export default {
     handleTouchEnd () {
       if (this.disabled) return
       this.$children[0].end()
+    },
+    handleChange () {
+      this.$emit('change', this.inputValue)
     }
   },
   components: {

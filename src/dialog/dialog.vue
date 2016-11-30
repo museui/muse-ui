@@ -131,7 +131,9 @@ export default {
 .mu-dialog-footer {
   min-height: 48px;
   padding: 8px;
-  text-align: right;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
   .mu-raised-button + .mu-raised-button{
     margin-left: 10px;
   }

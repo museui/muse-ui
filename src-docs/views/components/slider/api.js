@@ -30,6 +30,6 @@ export default {
     desc: 'value 发生改变触发的事件，传入新的value, (value)'
   }, {
     name: 'change',
-    desc: '同 input 事件一样'
+    desc: '用于用户行为(点击，拖拽)导致value发生改变时, 触发事件，传入 value 属性值'
   }]
 }

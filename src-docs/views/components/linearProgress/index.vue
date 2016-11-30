@@ -7,6 +7,9 @@
   <code-example :code="exampleDeterminateCode" title="Determinate Progress" description="不过设置不同 `value` 来改变进度条的进度">
     <ex-determinate/>
   </code-example>
+  <code-example :code="exampleCustomCode" title="定制大小和颜色">
+    <ex-custom/>
+  </code-example>
   <api-view :api="apiData" />
 </div>
 </template>
@@ -17,6 +20,8 @@ import exampleIndeterminate from './exampleIndeterminate'
 import exampleIndeterminateCode from '!raw!./exampleIndeterminate'
 import exampleDeterminate from './exampleDeterminate'
 import exampleDeterminateCode from '!raw!./exampleDeterminate'
+import exampleCustom from './exampleCustom'
+import exampleCustomCode from '!raw!./exampleCustom'
 import apiData from './api'
 export default {
   data () {
@@ -24,12 +29,14 @@ export default {
       description,
       exampleIndeterminateCode,
       exampleDeterminateCode,
+      exampleCustomCode,
       apiData
     }
   },
   components: {
     'ex-indeterminate': exampleIndeterminate,
-    'ex-determinate': exampleDeterminate
+    'ex-determinate': exampleDeterminate,
+    'ex-custom': exampleCustom
   }
 }
 </script>

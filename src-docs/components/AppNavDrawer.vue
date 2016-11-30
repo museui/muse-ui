@@ -53,6 +53,7 @@
       <mu-list-item slot="nested" value="#/popover" title="Popover"/>
       <mu-list-item slot="nested" title="Progress" toggleNested>
         <mu-list-item slot="nested" value="#/linearProgress" title="Linear Progress"/>
+        <mu-list-item slot="nested" value="#/circularProgress" title="Circular Progress"/>
       </mu-list-item>
       <mu-list-item slot="nested" value="#/selectField" title="Select Field"/>
       <mu-list-item slot="nested" title="Selection Controls" toggleNested>

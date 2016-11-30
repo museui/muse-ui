@@ -1,3 +1,7 @@
+/**
+ * material-ui dateUtils.js
+ * https://github.com/callemall/material-ui/blob/master/src/DatePicker/dateUtils.js
+ */
 let localConfig = {
   dayAbbreviation: ['日', '一', '二', '三', '四', '五', '六'],
   dayList: ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'],
@@ -12,6 +16,19 @@ export const dateTimeFormat = {
   },
   formatMonth (date) {
     return `${date.getFullYear()} ${localConfig.monthLongList[date.getMonth()]}`
+  },
+  getWeekDayArray (firstDayOfWeek) {
+    let beforeArray = []
+    let afterArray = []
+    const dayAbbreviation = localConfig.dayAbbreviation
+    for (let i = 0; i < dayAbbreviation.length; i++) {
+      if (i < firstDayOfWeek) {
+        afterArray.push(dayAbbreviation[i])
+      } else {
+        beforeArray.push(dayAbbreviation[i])
+      }
+    }
+    return beforeArray.concat(afterArray)
   }
 }
 
@@ -26,20 +43,6 @@ export function getDaysInMonth (d) {
 
 export function getFirstDayOfMonth (d) {
   return new Date(d.getFullYear(), d.getMonth(), 1)
-}
-
-export function getWeekDayArray (firstDayOfWeek) {
-  let beforeArray = []
-  let afterArray = []
-  const dayAbbreviation = localConfig.dayAbbreviation
-  for (let i = 0; i < dayAbbreviation.length; i++) {
-    if (i < firstDayOfWeek) {
-      afterArray.push(dayAbbreviation[i])
-    } else {
-      beforeArray.push(dayAbbreviation[i])
-    }
-  }
-  return beforeArray.concat(afterArray)
 }
 
 export function getWeekArray (d, firstDayOfWeek) {

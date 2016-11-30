@@ -96,7 +96,7 @@ export default {
     desc: 'value 发生改变触发的事件，传入新的value, (value)'
   }, {
     name: 'change',
-    desc: '同 input 事件一样'
+    desc: '用户输入时触发事件，传入输入框的 value'
   }],
   slots: [{
     name: 'default',

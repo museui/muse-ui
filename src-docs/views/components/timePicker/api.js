@@ -90,6 +90,6 @@ export default {
     desc: 'value 发生改变触发的事件，传入新的value, (value)'
   }, {
     name: 'change',
-    desc: '同 input 事件一样'
+    desc: '由于用户行为(点击确定按钮)导致 value 值改变时触发事件, 传入 value 属性值'
   }]
 }

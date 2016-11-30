@@ -69,6 +69,11 @@ export default {
     type: 'String',
     default: '',
     desc: '下拉框的值，可不设置此参数，使用 `v-model` 指令代替'
+  }, {
+    name: 'scroller',
+    type: 'Element',
+    default: 'window',
+    desc: '滚动的元素，会监听它的 `scroll` 事件, 在滚动时会不断更新弹出框的位置'
   }],
   slots: [{
     name: 'default',
@@ -79,6 +84,6 @@ export default {
     desc: 'value 发生改变触发的事件，传入新的value, (value)'
   }, {
     name: 'change',
-    desc: '同 input 事件一样'
+    desc: '由于用户选择是value改变时触发事件，传入 value 属性值'
   }]
 }

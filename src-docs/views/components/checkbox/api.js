@@ -42,9 +42,9 @@ export default {
   }],
   events: [{
     name: 'input',
-    desc: '输入时触发的事件，传入value, (value)'
+    desc: '当value属性发生改变时触发事件，传入新的value, (value)'
   }, {
     name: 'change',
-    desc: '同 input 事件一样'
+    desc: '同 `input[type=checkbox]` 元素的change事件一致，传入 value 属性值'
   }]
 }

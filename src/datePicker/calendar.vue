@@ -91,7 +91,7 @@ export default {
   },
   data () {
     return {
-      weekTexts: dateUtils.getWeekDayArray(this.firstDayOfWeek),
+      weekTexts: this.dateTimeFormat.getWeekDayArray(this.firstDayOfWeek),
       displayDates: [this.initialDate],
       selectedDate: this.initialDate,
       slideType: 'next',

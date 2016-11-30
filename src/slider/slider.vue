@@ -195,6 +195,7 @@ export default {
         value = min
       }
       this.inputValue = value
+      this.$emit('change', value)
     },
     // 拖拽控制
     onDragStart (e) {
@@ -233,7 +234,6 @@ export default {
     },
     inputValue (val) {
       this.$emit('input', val)
-      this.$emit('change', val)
     }
   },
   components: {

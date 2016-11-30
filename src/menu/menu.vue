@@ -211,7 +211,6 @@ export default {
 .mu-menu-list {
   padding: 8px 0;
   user-select: none;
-  overflow-x: hidden;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   > .mu-divider {

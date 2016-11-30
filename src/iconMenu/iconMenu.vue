@@ -3,9 +3,9 @@
     <icon-button :tooltip="tooltip" :tooltipPosition="tooltipPosition" :icon="icon" @click="handleOpen">
       <slot name="icon"></slot>
     </icon-button>
-    <popover :open="openMenu" :trigger="trigger" :anchorOrigin="anchorOrigin"
+    <popover :open="openMenu" :trigger="trigger" :scroller="scroller" :anchorOrigin="anchorOrigin"
       :targetOrigin="targetOrigin" @close="handleClose">
-      <mu-menu @change="change" popover :value="value" @itemClick="itemClick" :multiple="multiple" :desktop="desktop" :maxHeight="maxHeight">
+      <mu-menu v-if="openMenu" @change="change" popover :value="value" @itemClick="itemClick" :multiple="multiple" :desktop="desktop" :maxHeight="maxHeight">
         <slot></slot>
       </mu-menu>
     </popover>
@@ -56,6 +56,9 @@ export default {
           horizontal: 'left'
         }
       }
+    },
+    scroller: {
+      type: [window.HTMLDocument, window.Element, window.Window]
     },
     itemClickClose: {
       type: Boolean,
