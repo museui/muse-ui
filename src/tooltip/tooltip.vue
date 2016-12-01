@@ -14,7 +14,7 @@ export default {
       type: String
     },
     trigger: {
-      type: window.Element
+      type: Element
     },
     verticalPosition: {
       type: String, // top bottom

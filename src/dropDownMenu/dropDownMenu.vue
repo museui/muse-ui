@@ -68,10 +68,10 @@ export default {
       }
     },
     anchorEl: {
-      type: window.Element
+      type: Element
     },
     scroller: {
-      type: [window.HTMLDocument, window.Element, window.Window]
+      type: [HTMLDocument, Element, Window]
     }
   },
   data () {

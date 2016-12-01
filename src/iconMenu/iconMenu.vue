@@ -58,7 +58,7 @@ export default {
       }
     },
     scroller: {
-      type: [window.HTMLDocument, window.Element, window.Window]
+      type: [HTMLDocument, Element, Window]
     },
     itemClickClose: {
       type: Boolean,

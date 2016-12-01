@@ -23,7 +23,7 @@ export default {
       default: 0.01
     },
     trigger: {
-      type: window.Element
+      type: Element
     },
     autoPosition: {
       type: Boolean,

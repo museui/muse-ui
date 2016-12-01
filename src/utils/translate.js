@@ -1,8 +1,8 @@
-var docStyle = document.documentElement.style
+var docStyle = document && document.documentElement.style
 var engine
 var translate3d = false
 
-if (window.opera && Object.prototype.toString.call(window.opera) === '[object Opera]') {
+if (window !== undefined && window.opera && Object.prototype.toString.call(window.opera) === '[object Opera]') {
   engine = 'presto'
 } else if ('MozAppearance' in docStyle) {
   engine = 'gecko'

@@ -1,4 +1,4 @@
-const IS_TOUCH = ('ontouchstart' in window) || window.DocumentTouch && document instanceof window.DocumentTouch
+const IS_TOUCH = window !== undefined && (('ontouchstart' in window) || window.DocumentTouch && document instanceof window.DocumentTouch)
 export default class Drag {
   constructor (element) {
     this.el = element

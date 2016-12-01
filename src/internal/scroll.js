@@ -1,7 +1,7 @@
 export default {
   props: {
     scroller: {
-      type: [window.HTMLDocument, window.Element, window.Window],
+      type: [HTMLDocument, Element, Window],
       default () {
         return window
       }
