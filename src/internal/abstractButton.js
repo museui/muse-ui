@@ -207,6 +207,11 @@ export default {
       return children
     }
   },
+  watch: {
+    disabled (val) {
+      if (!val) this.hover = false
+    }
+  },
   render (h) {
     var domProps = {
       disabled: this.disabled,

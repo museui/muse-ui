@@ -62,8 +62,8 @@ export default {
   },
   mounted () {
     this.setWidth()
-    this.setScollPosition()
     const selectedIndex = this.getSelectedIndex()
+    this.setScollPosition()
     this.focusIndex = this.disableAutoFocus ? -1 : selectedIndex >= 0 ? selectedIndex : this.initiallyKeyboardFocused ? 0 : -1
     this.isKeyboardFocused = this.initiallyKeyboardFocused
     if (this.popover) this.$el.focus()
@@ -164,9 +164,12 @@ export default {
       this.focusIndex = newIndex
       this.isKeyboardFocused = isKeyboardFocused
     },
-    setScollPosition () {
+    setScollPosition (selectedIndex) {
       const desktop = this.desktop
-      const focusedMenuItem = this.focusedMenuItem
+      let focusedMenuItem = null
+      this.$children.forEach((child) => {
+        if (child.active) focusedMenuItem = child
+      })
       const menuItemHeight = desktop ? 32 : 48
 
       if (focusedMenuItem) {
@@ -174,8 +177,7 @@ export default {
         // Make the focused item be the 2nd item in the list the user sees
         let scrollTop = selectedOffSet - menuItemHeight
         if (scrollTop < menuItemHeight) scrollTop = 0
-
-        this.$el.scrollTop = scrollTop
+        this.$refs.list.scrollTop = scrollTop
       }
     }
   },

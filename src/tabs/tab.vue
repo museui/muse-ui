@@ -3,8 +3,8 @@
   :center-ripple="false" :class="{'mu-tab-active': active}" @click="tabClick">
   <slot>
     <icon :value="icon"/>
-    <div class="mu-tab-text" :class="{'has-icon': icon}" v-if="title">{{title}}</div>
   </slot>
+  <div class="mu-tab-text" :class="{'has-icon': icon}" v-if="title">{{title}}</div>
 </abstract-button>
 </template>
 

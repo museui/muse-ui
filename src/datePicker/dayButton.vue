@@ -1,5 +1,3 @@
-
-
 <script>
 import {isPc} from '../utils'
 export default {

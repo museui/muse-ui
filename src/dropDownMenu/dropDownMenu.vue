@@ -1,6 +1,8 @@
 <template>
 <div class="mu-dropDown-menu" :class="{'disabled': disabled}">
-  <icon class="mu-dropDown-menu-icon" :class="iconClass" value="arrow_drop_down"></icon>
+  <svg viewBox="0 0 24 24"  class="mu-dropDown-menu-icon" :class="iconClass">
+    <path d="M7 10l5 5 5-5z"/>
+  </svg>
   <div class="mu-dropDown-menu-text" @click="handleOpen" :class="labelClass">
     <div class="mu-dropDown-menu-text-overflow">{{label}}</div>
   </div>
@@ -17,7 +19,6 @@
 </template>
 
 <script>
-import icon from '../icon'
 import popover from '../popover'
 import {menu} from '../menu'
 import {isNull} from '../utils'
@@ -136,7 +137,6 @@ export default {
     }
   },
   components: {
-    icon,
     popover,
     'mu-menu': menu
   }
@@ -164,6 +164,11 @@ export default {
   right: 16px;
   top: 16px;
   color: @borderColor;
+  fill: currentColor;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  user-select:none
 }
 
 .mu-dropDown-menu-text{

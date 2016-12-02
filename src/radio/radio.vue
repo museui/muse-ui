@@ -6,16 +6,28 @@
   <touch-ripple v-if="!disabled" rippleWrapperClass="mu-radio-ripple-wrapper" class="mu-radio-wrapper">
     <div class="mu-radio-label"  v-if="label && labelLeft">{{label}}</div>
     <div class="mu-radio-icon">
-      <icon :value="uncheckIcon" class="mu-radio-icon-uncheck"></icon>
-      <icon :value="checkedIcon" class="mu-radio-icon-checked"></icon>
+      <svg class="mu-radio-icon-uncheck mu-radio-svg-icon" v-if="!checkedIcon" viewBox="0 0 24 24">
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/>
+      </svg>
+      <svg class="mu-radio-icon-checked mu-radio-svg-icon" v-if="!uncheckIcon" viewBox="0 0 24 24">
+        <path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/>
+      </svg>
+      <icon :value="uncheckIcon" v-if="uncheckIcon" class="mu-radio-icon-uncheck"></icon>
+      <icon :value="checkedIcon" v-if="checkedIcon" class="mu-radio-icon-checked"></icon>
     </div>
     <div class="mu-radio-label"  v-if="label && !labelLeft">{{label}}</div>
   </touch-ripple>
   <div class="mu-radio-wrapper" v-if="disabled">
     <div class="mu-radio-label"  v-if="label && labelLeft">{{label}}</div>
     <div class="mu-radio-icon">
-      <icon :value="uncheckIcon" class="mu-radio-icon-uncheck"></icon>
-      <icon :value="checkedIcon" class="mu-radio-icon-checked"></icon>
+      <svg class="mu-radio-icon-uncheck mu-radio-svg-icon" v-if="!checkedIcon" viewBox="0 0 24 24">
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/>
+      </svg>
+      <svg class="mu-radio-icon-checked mu-radio-svg-icon" v-if="!uncheckIcon" viewBox="0 0 24 24">
+        <path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/>
+      </svg>
+      <icon :value="uncheckIcon" v-if="uncheckIcon" class="mu-radio-icon-uncheck"></icon>
+      <icon :value="checkedIcon" v-if="checkedIcon" class="mu-radio-icon-checked"></icon>
     </div>
     <div class="mu-radio-label"  v-if="label && !labelLeft">{{label}}</div>
   </div>
@@ -51,11 +63,11 @@ export default {
     },
     uncheckIcon: {
       type: String,
-      default: 'radio_button_unchecked'
+      default: ''
     },
     checkedIcon: {
       type: String,
-      default: 'radio_button_checked'
+      default: ''
     }
   },
   data () {
@@ -177,6 +189,14 @@ export default {
   .mu-radio.disabled & {
     color: @disabledColor;
   }
+}
+
+.mu-radio-svg-icon{
+  display: inline-block;
+  fill: currentColor;
+  height: 24px;
+  width: 24px;
+  user-select: none;
 }
 
 .mu-radio-icon-uncheck {

@@ -6,16 +6,28 @@
     <touch-ripple v-if="!disabled" rippleWrapperClass="mu-checkbox-ripple-wrapper" class="mu-checkbox-wrapper">
       <div class="mu-checkbox-label"  v-if="label && labelLeft">{{label}}</div>
       <div class="mu-checkbox-icon">
-        <icon :value="uncheckIcon" class="mu-checkbox-icon-uncheck"></icon>
-        <icon :value="checkedIcon" class="mu-checkbox-icon-checked"></icon>
+        <svg class="mu-checkbox-icon-uncheck mu-checkbox-svg-icon" v-if="!checkedIcon" viewBox="0 0 24 24">
+          <path d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/>
+        </svg>
+        <svg class="mu-checkbox-icon-checked mu-checkbox-svg-icon" v-if="!uncheckIcon" viewBox="0 0 24 24">
+          <path d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+        </svg>
+        <icon :value="uncheckIcon" v-if="uncheckIcon" class="mu-checkbox-icon-uncheck"></icon>
+        <icon :value="checkedIcon" v-if="checkedIcon" class="mu-checkbox-icon-checked"></icon>
       </div>
       <div class="mu-checkbox-label"  v-if="label && !labelLeft">{{label}}</div>
     </touch-ripple>
     <div class="mu-checkbox-wrapper" v-if="disabled">
       <div class="mu-checkbox-label"  v-if="label && labelLeft">{{label}}</div>
       <div class="mu-checkbox-icon">
-        <icon :value="uncheckIcon" class="mu-checkbox-icon-uncheck"></icon>
-        <icon :value="checkedIcon" class="mu-checkbox-icon-checked"></icon>
+        <svg class="mu-checkbox-icon-uncheck mu-checkbox-svg-icon" v-if="!checkedIcon" viewBox="0 0 24 24">
+          <path d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/>
+        </svg>
+        <svg class="mu-checkbox-icon-checked mu-checkbox-svg-icon" v-if="!uncheckIcon" viewBox="0 0 24 24">
+          <path d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+        </svg>
+        <icon :value="uncheckIcon" v-if="uncheckIcon" class="mu-checkbox-icon-uncheck"></icon>
+        <icon :value="checkedIcon" v-if="checkedIcon" class="mu-checkbox-icon-checked"></icon>
       </div>
       <div class="mu-checkbox-label"  v-if="label && !labelLeft">{{label}}</div>
     </div>
@@ -49,11 +61,11 @@ export default {
     },
     uncheckIcon: {
       type: String,
-      default: 'check_box_outline_blank'
+      default: ''
     },
     checkedIcon: {
       type: String,
-      default: 'check_box'
+      default: ''
     }
   },
   data () {
@@ -152,6 +164,7 @@ export default {
   align-items: center;
   justify-content: space-between;
 }
+
 .mu-checkbox-icon{
   width: 24px;
   height: 24px;
@@ -173,6 +186,14 @@ export default {
   .mu-checkbox.disabled & {
     color: @disabledColor;
   }
+}
+
+.mu-checkbox-svg-icon{
+  display: inline-block;
+  fill: currentColor;
+  height: 24px;
+  width: 24px;
+  user-select: none;
 }
 
 .mu-checkbox-icon-uncheck {

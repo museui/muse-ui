@@ -1,7 +1,6 @@
 <template>
 <abstract-button  class="mu-pagination-item" wrapperClass="mu-pagination-item-wrapper" :class="{'circle': isCircle, 'active': isActive}":centerRipple="false" :disabled="disabled"
   @click="handleClick"  @hover="handleHover" @hoverExit="handleHoverExit" containerElement="div">
-  <icon :value="icon" v-if="icon"/>
   <span v-if="index">{{index}}</span>
   <slot></slot>
 </abstract-button>
@@ -9,7 +8,6 @@
 
 <script>
 import abstractButton from '../internal/abstractButton'
-import icon from '../icon'
 export default{
   props: {
     icon: {
@@ -54,8 +52,7 @@ export default{
     }
   },
   components: {
-    'abstract-button': abstractButton,
-    icon
+    'abstract-button': abstractButton
   }
 }
 </script>

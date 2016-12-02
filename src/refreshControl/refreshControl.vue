@@ -1,13 +1,14 @@
 <template>
   <div class="mu-refresh-control" :style="refreshStyle" :class="refreshClass">
-    <icon v-show="!refreshing && draging" :size="28" value="refresh" :style="circularStyle"></icon>
+    <svg v-show="!refreshing && draging" viewBox="0 0 24 24" class="mu-refresh-svg-icon" :style="circularStyle">
+      <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/>
+    </svg>
     <circular v-show="refreshing" :size="24" :border-width="2"></circular>
   </div>
 </template>
 
 <script>
 import Drag from '../utils/drag'
-import icon from '../icon'
 import circular from '../internal/circular'
 import * as domUtil from '../utils/domUtil'
 
@@ -155,7 +156,6 @@ export default {
     }
   },
   components: {
-    icon,
     circular
   }
 }
@@ -183,6 +183,14 @@ export default {
     display: inline-block;
     vertical-align: middle;
   }
+}
+
+.mu-refresh-svg-icon {
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  fill: currentColor;
+  user-select: none;
 }
 
 .mu-refresh-control-animate{

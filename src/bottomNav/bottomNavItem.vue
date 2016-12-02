@@ -1,9 +1,8 @@
 <template>
   <abstract-button :href="href" :disableTouchRipple="shift" class="mu-buttom-item" :class="{'mu-bottom-item-active': active}" :center-ripple="false" wrapperClass="mu-buttom-item-wrapper" @click.native="handleClick">
-    <slot>
-      <icon class="mu-bottom-item-icon" :value="icon"></icon>
-      <span class="mu-bottom-item-text">{{title}}</span>
-    </slot>
+    <icon v-if="icon" class="mu-bottom-item-icon" :value="icon"></icon>
+    <slot></slot>
+    <span v-if="title" class="mu-bottom-item-text">{{title}}</span>
   </abstract-button>
 </template>
 

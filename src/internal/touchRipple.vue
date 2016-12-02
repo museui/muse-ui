@@ -1,9 +1,9 @@
 <template>
   <div @mousedown="handleMouseDown" @mouseup="end()" @mouseleave="end()" @touchstart="handleTouchStart"  @touchend="end()" @touchcancel="end()">
+    <slot></slot>
     <div class="mu-ripple-wrapper" :class="rippleWrapperClass" ref="holder">
       <circle-ripple :key="ripple.key" :color="ripple.color" :opacity="ripple.opacity" :merge-style="ripple.style" v-for="ripple in ripples"></circle-ripple>
     </div>
-    <slot></slot>
   </div>
 </template>
 

@@ -48,6 +48,10 @@ export default {
     }, {
       name: 'click',
       desc: '当 tab 被点击时触发'
+    }],
+    slots: [{
+      name: 'default',
+      desc: '用于自定义icon'
     }]
   }
 }

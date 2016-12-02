@@ -1,6 +1,9 @@
 <template>
 <div class="mu-pagination" v-if="total">
-  <page-item icon="chevron_left" identifier="singleBack" @click="handleClick" :disabled="leftDisabled">
+  <page-item identifier="singleBack" @click="handleClick" :disabled="leftDisabled">
+    <svg viewBox="0 0 24 24" class="mu-pagination-svg-icon">
+      <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+    </svg>
   </page-item>
   <page-item :index="1" @click="handleClick" :isActive="actualCurrent === 1"/>
   <page-item v-if="totalPageCount > 5 && actualCurrent - 1 >= 4" identifier="backs" @click="handleClick" title="前5页">
@@ -11,7 +14,11 @@
     <span>...</span>
   </page-item>
   <page-item :index="totalPageCount" @click="handleClick" :isActive="actualCurrent === totalPageCount" v-if="totalPageCount !== 1"></page-item>
-  <page-item icon="chevron_right" identifier="singleForward" @click="handleClick" :disabled="rightDisabled"></page-item>
+  <page-item identifier="singleForward" @click="handleClick" :disabled="rightDisabled">
+    <svg viewBox="0 0 24 24" class="mu-pagination-svg-icon">
+      <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+    </svg>
+  </page-item>
   <select-field  v-if="showSizeChanger" v-model="actualPageSize" :style="{width: '100px'}">
     <menu-item v-for="item in pageSizeOption" :value="item" :title="item + ' / 页'" :style="{width: '100px'}"/>
   </select-field>
@@ -198,6 +205,15 @@ export default{
   display: flex;
   justify-content: flex-start;
   align-items: center;
+}
+
+.mu-pagination-svg-icon{
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+  user-select: none;
+  transition: all 450ms @easeOutFunction;
 }
 
 </style>

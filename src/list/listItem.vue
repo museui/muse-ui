@@ -30,7 +30,14 @@
           <slot></slot>
         </div>
         <div class="mu-item-right" v-if="showRight">
-          <icon-button @click.stop="handleToggleNested"  v-if="toggleNested" :icon="nestedOpen ? 'expand_less' : 'expand_more'"/>
+          <icon-button @click.stop="handleToggleNested"  v-if="toggleNested">
+            <svg v-if="nestedOpen" class="mu-item-svg-icon" viewBox="0 0 24 24">
+              <path d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z"/>
+            </svg>
+            <svg v-if="!nestedOpen" class="mu-item-svg-icon" viewBox="0 0 24 24">
+              <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"/>
+            </svg>
+          </icon-button>
           <slot name="right"></slot>
           <slot name="rightAvatar"></slot>
         </div>
@@ -45,7 +52,6 @@
 </template>
 
 <script>
-import icon from '../icon'
 import abstractButton from '../internal/abstractButton'
 import iconButton from '../iconButton'
 import list from './list'
@@ -183,7 +189,6 @@ export default {
     }
   },
   components: {
-    icon,
     'abstract-button': abstractButton,
     'mu-list': list,
     'icon-button': iconButton,
@@ -313,6 +318,14 @@ export default {
   text-overflow: ellipsis;
   word-break: break-all;
   color: @secondaryTextColor;
+}
+
+.mu-item-svg-icon {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+  user-select: none;
 }
 
 </style>

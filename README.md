@@ -84,8 +84,9 @@ Please make sure to read the [Contributing Guide](https://museui.github.io/#/con
 ## Dependencies
 
 * [vuejs 2.0](https://vuejs.org/)
-* [material design](https://material.google.com)
+* [keycode](https://github.com/timoxley/keycode)
 * [material icons](https://fonts.googleapis.com/icon?family=Material+Icons)
+* [material design](https://material.google.com)
 
 ## Licence
 
