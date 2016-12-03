@@ -2,7 +2,6 @@ var path = require('path')
 var config = require('../config')
 var utils = require('./utils')
 var projectRoot = path.resolve(__dirname, '../')
-
 module.exports = {
   entry: config.entry,
   output: {
@@ -14,7 +13,8 @@ module.exports = {
     extensions: ['', '.js', '.vue'],
     fallback: [path.join(__dirname, '../node_modules')],
     alias: {
-      'muse-ui': path.resolve(__dirname, '../src')
+      'muse-ui': path.resolve(__dirname, '../src'),
+      'src': path.resolve(__dirname, '../src')
     }
   },
   resolveLoader: {
@@ -83,7 +83,7 @@ module.exports = {
     loaders: utils.cssLoaders({ sourceMap: false }),
     postcss: [
       require('autoprefixer')({
-        browsers: ['last 5 versions']
+        browsers: ['ie > 9', 'last 2 versions', 'chrome > 24']
       })
     ]
   }
