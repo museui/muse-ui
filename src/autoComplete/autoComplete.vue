@@ -147,7 +147,8 @@ export default {
             if (filter(searchText || '', item, item)) {
               list.push({
                 text: item,
-                value: item
+                value: item,
+                index: index
               })
             }
             break
@@ -159,7 +160,8 @@ export default {
               list.push({
                 ...item,
                 text: itemText,
-                value: itemValue
+                value: itemValue,
+                index: index
               })
             }
         }
@@ -191,16 +193,17 @@ export default {
       event.preventDefault()
     },
     handleItemClick (child) {
-      const dataSource = this.dataSource
-      const index = this.$refs.menu.$children.indexOf(child)
+      const {list, dataSource, setSearchText, close, $emit} = this
+      const childIndex = this.$refs.menu.$children.indexOf(child)
+      const index = list[childIndex].index
       const chosenRequest = dataSource[index]
       const searchText = this.chosenRequestText(chosenRequest)
       this.timerTouchTapCloseId = setTimeout(() => {
         this.timerTouchTapCloseId = null
-        this.setSearchText(searchText)
-        this.close()
-        this.$emit('select', chosenRequest, index)
-        this.$emit('change', searchText)
+        setSearchText(searchText)
+        close()
+        $emit('select', chosenRequest, index)
+        $emit('change', searchText)
       }, this.menuCloseDelay)
     },
     chosenRequestText (chosenRequest) {

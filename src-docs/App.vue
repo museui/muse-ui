@@ -2,9 +2,7 @@
   <div id="app">
     <mu-appbar :zDepth="0" :title="title" class="example-appbar" :class="{'nav-hide': !open}">
       <mu-icon-button @click="toggleNav" icon="menu" slot="left"/>
-      <mu-icon-button slot="right" href="https://github.com/museui/muse-ui">
-        <i class="mudocs-icon-custom-github"></i>
-      </mu-icon-button>
+      <mu-icon-button slot="right" href="https://github.com/museui/muse-ui" icon=":mudocs-icon-custom-github"/>
     </mu-appbar>
     <app-nav @change="handleMenuChange" @close="toggleNav" :open="open" :docked="docked" />
     <div class="example-content" :class="{'nav-hide': !open}">

@@ -18,7 +18,7 @@
             </div>
             <div class="mu-item-after">
                 <slot name="after">
-                    {{afterText}}
+                  {{afterText}}
                 </slot>
             </div>
           </div>

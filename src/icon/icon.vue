@@ -1,7 +1,3 @@
-<template>
-  <i v-if="value" @click="handleClick" class="mu-icon material-icons" :style="style" v-text="value" :class="[value]" aria-hidden="true"></i>
-</template>
-
 <script>
 import {getColor} from '../utils'
 export default {
@@ -20,7 +16,7 @@ export default {
     }
   },
   computed: {
-    style () {
+    iconStyle () {
       return {
         'font-size': this.size + 'px',
         'width': this.size + 'px',
@@ -33,6 +29,19 @@ export default {
     handleClick (e) {
       this.$emit('click', e)
     }
+  },
+  render (h) {
+    const {value, iconStyle, handleClick} = this
+    if (!value) return null
+    const isMaterial = value.indexOf(':') !== 0
+    const text = isMaterial ? value : ''
+    return h('i', {
+      class: ['mu-icon', isMaterial ? 'material-icons' : value.substring(1)],
+      style: iconStyle,
+      on: {
+        click: handleClick
+      }
+    }, text)
   }
 }
 </script>
