@@ -4,6 +4,10 @@ export default {
     type: 'String',
     desc: '标题, 显示在中间'
   }, {
+    name: 'titleClass',
+    type: 'String,Object,Array',
+    desc: '标题样式，同 `class` 绑定方式一致'
+  }, {
     name: 'zDepth',
     type: 'Number',
     default: '1',

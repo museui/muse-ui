@@ -1,7 +1,7 @@
 <template>
   <div class="mu-tabs">
     <slot></slot>
-    <span class="mu-tab-link-highlight" :style="tabLightStyle"></span>
+    <span class="mu-tab-link-highlight" :class="lineClass" :style="tabLightStyle"></span>
   </div>
 </template>
 
@@ -9,6 +9,9 @@
 export default {
   name: 'mu-tabs',
   props: {
+    lineClass: {
+      type: [String, Object, Array]
+    },
     value: {}
   },
   data () {

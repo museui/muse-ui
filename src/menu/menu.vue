@@ -1,13 +1,13 @@
 <template>
 <div class="mu-menu" tabindex="0" v-clickoutside="clickoutside"  @keydown="handleKeydown" :style="{'width': contentWidth}" >
-  <div ref="list" class="mu-menu-list" :style="{'width': contentWidth, 'max-height': maxHeight + 'px'}" :class="{'mu-menu-destop': desktop}">
+  <div ref="list" class="mu-menu-list" :style="{'width': contentWidth, 'max-height': maxHeight + 'px'}" :class="menuListClass">
     <slot></slot>
   </div>
 </div>
 </template>
 
 <script>
-import {getWidth} from '../utils'
+import {getWidth, convertClass} from '../utils'
 import keycode from 'keycode'
 import clickoutside from '../internal/clickoutside'
 export default {
@@ -39,6 +39,9 @@ export default {
       type: Boolean,
       default: false
     },
+    listClass: {
+      type: [String, Object, Array]
+    },
     // 内部使用，是否是弹出菜单
     popover: {
       type: Boolean,
@@ -58,6 +61,12 @@ export default {
     },
     contentWidth () {
       return this.autoWidth ? '' : getWidth(this.width)
+    },
+    menuListClass () {
+      const {desktop, listClass} = this
+      const classNames = []
+      if (desktop) classNames.push('mu-menu-destop')
+      return classNames.concat(convertClass(listClass))
     }
   },
   mounted () {

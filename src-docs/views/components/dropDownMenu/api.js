@@ -34,6 +34,31 @@ export default {
     type: 'Element',
     default: 'window',
     desc: '滚动的元素，会监听它的 `scroll` 事件, 在滚动时会不断更新弹出框的位置'
+  }, {
+    name: 'labelClass',
+    type: 'String,Object,Array',
+    default: '',
+    desc: '文字样式，同 `class` 绑定方式一致'
+  }, {
+    name: 'iconClass',
+    type: 'String,Object,Array',
+    default: '',
+    desc: '图标样式，同 `class` 绑定方式一致'
+  }, {
+    name: 'menuClass',
+    type: 'String,Object,Array',
+    default: '',
+    desc: '菜单样式，同 `class` 绑定方式一致'
+  }, {
+    name: 'menuListClass',
+    type: 'String,Object,Array',
+    default: '',
+    desc: '菜单列表部分样式，同 `class` 绑定方式一致'
+  }, {
+    name: 'underlineClass',
+    type: 'String,Object,Array',
+    default: '',
+    desc: '底部横线样式，同 `class` 绑定方式一致'
   }],
   slots: [{
     name: 'default',

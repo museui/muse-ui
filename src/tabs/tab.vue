@@ -2,16 +2,16 @@
 <abstract-button class="mu-tab-link" :href="href" :disabled="disabled"
   :center-ripple="false" :class="{'mu-tab-active': active}" @click="tabClick">
   <slot>
-    <icon :value="icon"/>
+    <icon :value="icon" :class="iconClass"/>
   </slot>
-  <div class="mu-tab-text" :class="{'has-icon': icon}" v-if="title">{{title}}</div>
+  <div class="mu-tab-text" :class="textClass" v-if="title">{{title}}</div>
 </abstract-button>
 </template>
 
 <script>
 import abstractButton from '../internal/abstractButton'
 import icon from '../icon'
-import {isNotNull} from '../utils'
+import {isNotNull, convertClass} from '../utils'
 export default {
   name: 'mu-tab',
   props: {
@@ -19,9 +19,15 @@ export default {
       type: String,
       default: ''
     },
+    iconClass: {
+      type: [String, Object, Array]
+    },
     title: {
       type: String,
       default: ''
+    },
+    titleClass: {
+      type: [String, Object, Array]
     },
     href: {
       type: String
@@ -34,6 +40,12 @@ export default {
   computed: {
     active () {
       return isNotNull(this.value) && this.$parent.value === this.value
+    },
+    textClass () {
+      const {icon, titleClass} = this
+      let classNames = []
+      if (icon) classNames.push('has-icon')
+      return classNames.concat(convertClass(titleClass))
     }
   },
   methods: {

@@ -15,6 +15,21 @@ export default {
     default: '',
     desc: '对话框的标题'
   }, {
+    name: 'titleClass',
+    type: 'String,Object,Array',
+    default: '',
+    desc: '标题栏样式, 同 `class` 绑定方式一致'
+  }, {
+    name: 'bodyClass',
+    type: 'String,Object,Array',
+    default: '',
+    desc: '内容区样式, 同 `class` 绑定方式一致'
+  }, {
+    name: 'actionsContainerClass',
+    type: 'String,Object,Array',
+    default: '',
+    desc: '操作按钮容器样式, 同 `class` 绑定方式一致'
+  }, {
     name: 'scrollable',
     type: 'Boolean',
     default: 'false',
@@ -31,6 +46,9 @@ export default {
     desc: '当 dialog 隐藏时(动画完成后)触发事件'
   }],
   slots: [{
+    name: 'title',
+    desc: '用于自定义标题栏'
+  }, {
     name: 'actions',
     desc: '用于放置底部操作按钮'
   }, {

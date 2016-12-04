@@ -1,6 +1,11 @@
 export default {
   tabs: {
     props: [{
+      name: 'lineClass',
+      type: 'String,Object,Array',
+      default: '',
+      desc: '高亮线的样式，同 `class` 绑定方式一致'
+    }, {
       name: 'value',
       type: '',
       default: '',
@@ -22,10 +27,20 @@ export default {
       default: '',
       desc: 'tab 上的图标'
     }, {
+      name: 'iconClass',
+      type: 'String,Object,Array',
+      default: '',
+      desc: '图标的样式，同 `class` 绑定方式一致'
+    }, {
       name: 'title',
       type: 'String',
       default: '',
       desc: 'tab 上的文字'
+    }, {
+      name: 'titleClass',
+      type: 'String,Object,Array',
+      default: '',
+      desc: '标题的样式，同 `class` 绑定方式一致'
     }, {
       name: 'value',
       type: '',

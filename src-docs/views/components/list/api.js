@@ -35,10 +35,20 @@ export default {
       default: '',
       desc: 'listItem 的标题文字'
     }, {
+      name: 'titleClass',
+      type: 'String,Object,Array',
+      default: '',
+      desc: '标题文字样式，同 `class` 绑定方式一致'
+    }, {
       name: 'afterText',
       type: 'String',
       default: '',
       desc: '标题行最右边的文字'
+    }, {
+      name: 'afterTextClass',
+      type: 'String,Object,Array',
+      default: '',
+      desc: '标题行最右边的文字样式，同 `class` 绑定方式一致'
     }, {
       name: 'describeText',
       type: 'String',
@@ -49,6 +59,11 @@ export default {
       type: 'Number',
       default: '2',
       desc: '描述文字行数'
+    }, {
+      name: 'describeTextClass',
+      type: 'String,Object,Array',
+      default: '',
+      desc: '描述文字样式，同 `class` 绑定方式一致'
     }, {
       name: 'inset',
       type: 'Boolean',
@@ -74,6 +89,16 @@ export default {
       type: 'Boolean',
       default: 'false',
       desc: '是否可以自动切换嵌套列表的显示'
+    }, {
+      name: 'toggleIconClass',
+      type: 'String,Object,Array',
+      default: '',
+      desc: '切换显示的图标样式，同 `class` 绑定方式一致'
+    }, {
+      name: 'nestedListClass',
+      type: 'String,Object,Array',
+      default: '',
+      desc: '嵌套列表样式'
     }, {
       name: 'open',
       type: 'Boolean',

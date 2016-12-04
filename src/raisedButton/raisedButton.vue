@@ -1,13 +1,14 @@
 <template>
-  <abstract-button @KeyboardFocus="handleKeyboardFocus" @hover="handleHover" @hoverExit="handleHoverExit" @click="handleClick"
-    :href="href" :target="target" :style="buttonStyle"
+  <abstract-button @KeyboardFocus="handleKeyboardFocus"
+    @hover="handleHover" @hoverExit="handleHoverExit" @click="handleClick"
+    :type="type" :href="href" :target="target" :style="buttonStyle"
     class="mu-raised-button" :rippleColor="rippleColor":rippleOpacity="rippleOpacity"
     :disabled="disabled" :keyboardFocused="keyboardFocused"
     :class="buttonClass" wrapperClass="mu-raised-button-wrapper" :centerRipple="false">
-    <span class="mu-raised-button-label" :class="[labelClass]" v-if="label && labelPosition === 'before'">{{label}}</span>
-    <icon :value="icon"></icon>
+    <span class="mu-raised-button-label" :class="labelClass" v-if="label && labelPosition === 'before'">{{label}}</span>
+    <icon :value="icon" :class="iconClass"></icon>
     <slot></slot>
-    <span class="mu-raised-button-label" :class="[labelClass]" v-if="label && labelPosition === 'after'">{{label}}</span>
+    <span class="mu-raised-button-label" :class="labelClass" v-if="label && labelPosition === 'after'">{{label}}</span>
   </abstract-button>
 </template>
 
@@ -18,10 +19,13 @@ import icon from '../icon'
 export default {
   name: 'mu-raised-button',
   props: {
-    label: {
+    icon: {
       type: String
     },
-    icon: {
+    iconClass: {
+      type: [String, Array, Object]
+    },
+    label: {
       type: String
     },
     labelPosition: {
@@ -29,7 +33,7 @@ export default {
       default: 'after'
     },
     labelClass: {
-      type: String,
+      type: [String, Array, Object],
       default: ''
     },
     primary: {
@@ -51,6 +55,9 @@ export default {
     fullWidth: {
       type: Boolean,
       default: false
+    },
+    type: {
+      type: String
     },
     href: {
       type: String,

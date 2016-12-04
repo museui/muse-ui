@@ -5,6 +5,21 @@ export default {
     default: '',
     desc: '显示的按钮的图标'
   }, {
+    name: 'iconClass',
+    type: 'String,Object,Array',
+    default: '',
+    desc: '图标样式，同 `class` 绑定方式一致'
+  }, {
+    name: 'menuClass',
+    type: 'String,Object,Array',
+    default: '',
+    desc: '菜单样式，同 `class` 绑定方式一致'
+  }, {
+    name: 'menuListClass',
+    type: 'String,Object,Array',
+    default: '',
+    desc: '菜单列表部分样式，同 `class` 绑定方式一致'
+  }, {
     name: 'multiple',
     type: 'Boolean',
     default: 'false',

@@ -65,6 +65,16 @@ export default {
     default: 'false',
     desc: '标签是否浮动'
   }, {
+    name: 'labelClass',
+    type: 'String,Object,Array',
+    default: '',
+    desc: '标签的样式, 同 `class` 绑定方式一致'
+  }, {
+    name: 'labelFocusClass',
+    type: 'String,Object,Array',
+    default: '',
+    desc: '输入框获取焦点时标签的样式, 同 `class` 绑定方式一致'
+  }, {
     name: 'disabled',
     type: 'Boolean',
     default: 'false',
@@ -73,12 +83,22 @@ export default {
     name: 'hintText',
     type: 'String',
     default: '',
-    desc: '提示文本'
+    desc: '提示文字'
+  }, {
+    name: 'hintTextClass',
+    type: 'String,Object,Array',
+    default: '',
+    desc: '提示文字样式, 同 `class` 绑定方式一致'
   }, {
     name: 'helpText',
     type: 'String',
     default: '',
-    desc: '输入的帮助文字'
+    desc: '帮助文字'
+  }, {
+    name: 'helpTextClass',
+    type: 'String,Object,Array',
+    default: '',
+    desc: '帮助文字样式, 同 `class` 绑定方式一致'
   }, {
     name: 'errorText',
     type: 'String',
@@ -95,6 +115,11 @@ export default {
     default: '',
     desc: '显示图标'
   }, {
+    name: 'iconClass',
+    type: 'String,Object,Array',
+    default: '',
+    desc: '图标的样式, 同 `class` 绑定方式一致'
+  }, {
     name: 'fullWidth',
     type: 'Boolean',
     default: 'false',
@@ -104,6 +129,21 @@ export default {
     type: 'Boolean',
     default: 'true',
     desc: '是否显示底部的横线'
+  }, {
+    name: 'underlineClass',
+    type: 'String,Object,Array',
+    default: '',
+    desc: '底部横线样式, 同 `class` 绑定方式一致'
+  }, {
+    name: 'underlineFocusClass',
+    type: 'String,Object,Array',
+    default: '',
+    desc: '输入框获取焦点时底部横线样式, 同 `class` 绑定方式一致'
+  }, {
+    name: 'inputClass',
+    type: 'String,Object,Array',
+    default: '',
+    desc: '输入框样式, 同 `class` 绑定方式一致'
   }, {
     name: 'value',
     type: 'String',

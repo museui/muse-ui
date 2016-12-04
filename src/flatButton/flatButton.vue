@@ -1,15 +1,15 @@
 <template>
 <abstract-button
   :disabled="disabled" :keyboardFocused="keyboardFocused" wrapperClass="mu-flat-button-wrapper"
-  :href="href" :target="target" :style="buttonStyle" class="mu-flat-button"
+  :type="type" :href="href" :target="target" :style="buttonStyle" class="mu-flat-button"
   @click="handleClick" :rippleColor="rippleColor"
   @keyboardFocus="handleKeyboardFocus" @hover="handleHover" @hoverExit="handleHoverExit"
   :rippleOpacity="rippleOpacity"
   :class="buttonClass" :centerRipple="false">
-  <span class="mu-flat-button-label" :class="[labelClass]" v-if="label && labelPosition === 'before'">{{label}}</span>
-  <icon :value="icon"></icon>
+  <span class="mu-flat-button-label" :class="labelClass" v-if="label && labelPosition === 'before'">{{label}}</span>
+  <icon :value="icon" :class="iconClass"></icon>
   <slot></slot>
-  <span class="mu-flat-button-label" :class="[labelClass]" v-if="label && labelPosition === 'after'">{{label}}</span>
+  <span class="mu-flat-button-label" :class="labelClass" v-if="label && labelPosition === 'after'">{{label}}</span>
 </abstract-button>
 </template>
 
@@ -20,10 +20,16 @@ import {getColor} from '../utils'
 export default {
   name: 'mu-flat-button',
   props: {
-    label: {
+    icon: {
       type: String
     },
-    icon: {
+    iconClass: {
+      type: [String, Array, Object]
+    },
+    type: {
+      type: String
+    },
+    label: {
       type: String
     },
     labelPosition: {
@@ -31,7 +37,7 @@ export default {
       default: 'after'
     },
     labelClass: {
-      type: String,
+      type: [String, Array, Object],
       default: ''
     },
     primary: {

@@ -27,10 +27,20 @@ export default {
       default: '',
       desc: '图标'
     }, {
+      name: 'iconClass',
+      type: 'String,Object,Array',
+      default: '',
+      desc: '图标的样式, 同 `class` 绑定方式一致'
+    }, {
       name: 'title',
       type: 'String',
       default: '',
       desc: '显示的标题'
+    }, {
+      name: 'titleClass',
+      type: 'String,Object,Array',
+      default: '',
+      desc: '标题的样式, 同 `class` 绑定方式一致'
     }, {
       name: 'value',
       type: '',

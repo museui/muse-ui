@@ -15,10 +15,20 @@ export default {
     default: '',
     desc: '相当于 img 标签的 src 属性'
   }, {
+    name: 'imgClass',
+    type: 'String,Object,Array',
+    default: '',
+    desc: '图片的样式, 同 `class` 绑定方式一致'
+  }, {
     name: 'icon',
     type: 'String',
     default: '',
     desc: '显示的图标'
+  }, {
+    name: 'iconClass',
+    type: 'String,Object,Array',
+    default: '',
+    desc: '图标的样式, 同 `class` 绑定方式一致'
   }, {
     name: 'iconSize',
     type: 'Number',

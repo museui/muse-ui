@@ -1,8 +1,8 @@
 <template>
-  <div class="mu-avatar" @click="handleClick" :style="style">
+  <div class="mu-avatar" @click="handleClick" :style="avatarStyle">
     <div class="mu-avatar-inner">
-      <icon v-if="icon" :value="icon" :size="iconSize"></icon>
-      <img :src="src" v-if="src" />
+      <icon v-if="icon" :value="icon" :size="iconSize" :class="iconClass"></icon>
+      <img :src="src" v-if="src" :class="imgClass" />
       <slot></slot>
     </div>
   </div>
@@ -26,9 +26,15 @@ export default {
       type: String,
       default: ''
     },
+    iconClass: {
+      type: [String, Object, Array]
+    },
     src: {
       type: String,
       default: ''
+    },
+    imgClass: {
+      type: [String, Object, Array]
     },
     size: {
       type: Number
@@ -38,7 +44,7 @@ export default {
     }
   },
   computed: {
-    style () {
+    avatarStyle () {
       return {
         width: this.size ? this.size + 'px' : '',
         height: this.size ? this.size + 'px' : '',

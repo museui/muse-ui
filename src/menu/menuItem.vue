@@ -1,27 +1,28 @@
 <template>
 <div>
-   <abstract-button  class="mu-menu-item-wrapper" :class="{'active': active}" :href="href" :target="target"
-      ref="button" :centerRipple="false"
-      :disableFocusRipple="disableFocusRipple" :disabled="disabled"
-      @click="handleClick" @keyboardFocus="handleKeyboardFocus" @hover="handleHover" @hoverExit="handleHoverExit"
-       containerElement="div">
+   <abstract-button  class="mu-menu-item-wrapper" :class="{'active': active}"
+      :href="href" :target="target" ref="button" :centerRipple="false"
+      :disableFocusRipple="disableFocusRipple" :disabled="disabled" containerElement="div"
+      @click="handleClick" @keyboardFocus="handleKeyboardFocus" @hover="handleHover" @hoverExit="handleHoverExit">
      <div class="mu-menu-item" :class="{'have-left-icon': leftIcon || inset}">
-       <icon :value="leftIcon" :style="{'color': filterColor(leftIconColor)}" class="mu-menu-item-left-icon" />
-       <div class="mu-menu-item-title">
+       <icon :value="leftIcon" :style="{'color': filterColor(leftIconColor)}" class="mu-menu-item-left-icon" :class="leftIconClass"/>
+       <div class="mu-menu-item-title" :class="titleClass">
          <slot name="title">
            {{title}}
          </slot>
        </div>
        <div v-if="!rightIcon">
-         <span v-if="showAfterText">{{afterText}}</span>
+         <span v-if="showAfterText" :class="afterTextClass">{{afterText}}</span>
          <slot name="after"></slot>
        </div>
-       <icon :value="rightIcon" :style="{'color': filterColor(rightIconColor)}" class="mu-menu-item-right-icon"/>
+       <icon :value="rightIcon" :style="{'color': filterColor(rightIconColor)}" class="mu-menu-item-right-icon" :class="rightIconClass"/>
      </div>
    </abstract-button>
    <popover :open="openMenu" v-if="$slots && $slots.default && $slots.default.length > 0" :anchorOrigin="{ vertical: 'top', horizontal: 'right'}"
    @close="close" :trigger="trigger">
-     <mu-menu v-if="openMenu" :desktop="$parent.desktop" popover :maxHeight="$parent.maxHeight" :value="nestedMenuValue">
+     <mu-menu v-if="openMenu" :desktop="$parent.desktop" popover
+      :class="nestedMenuClass" :listClass="nestedMenuListClass"
+      :maxHeight="$parent.maxHeight" :value="nestedMenuValue">
        <slot></slot>
      </mu-menu>
    </popover>
@@ -46,8 +47,14 @@ export default {
     title: {
       type: String
     },
+    titleClass: {
+      type: [String, Object, Array]
+    },
     afterText: {
       type: String
+    },
+    afterTextClass: {
+      type: [String, Object, Array]
     },
     disabled: {
       type: Boolean,
@@ -67,11 +74,23 @@ export default {
     leftIconColor: {
       type: String
     },
-    rightIconColor: {
-      type: String
+    leftIconClass: {
+      type: [String, Object, Array]
     },
     rightIcon: {
       type: String
+    },
+    rightIconColor: {
+      type: String
+    },
+    rightIconClass: {
+      type: [String, Object, Array]
+    },
+    nestedMenuClass: {
+      type: [String, Object, Array]
+    },
+    nestedMenuListClass: {
+      type: [String, Object, Array]
     },
     value: {},
     nestedMenuValue: {}

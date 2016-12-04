@@ -4,14 +4,14 @@
   class="mu-switch" :class="{'label-left': labelLeft, 'disabled': disabled, 'no-label': !label}">
   <input type="checkbox" :disabled="disabled" @change="handleChange"  v-model="inputValue">
   <div class="mu-switch-wrapper">
-    <div class="mu-switch-label"  v-if="label && labelLeft">{{label}}</div>
+    <div class="mu-switch-label" :class="labelClass" v-if="label && labelLeft">{{label}}</div>
     <div class="mu-switch-container">
-      <div class="mu-switch-track"></div>
-      <div class="mu-switch-thumb" v-if="disabled"></div>
+      <div class="mu-switch-track" :class="trackClass"></div>
+      <div class="mu-switch-thumb" :class="thumbClass" v-if="disabled"></div>
       <touch-ripple v-if="!disabled"  rippleWrapperClass="mu-switch-ripple-wrapper" class="mu-switch-thumb">
       </touchRipple>
     </div>
-    <div class="mu-switch-label"  v-if="label && !labelLeft">{{label}}</div>
+    <div class="mu-switch-label" :class="labelClass" v-if="label && !labelLeft">{{label}}</div>
   </div>
 </label>
 </template>
@@ -34,6 +34,15 @@ export default {
     labelLeft: {
       type: Boolean,
       default: false
+    },
+    labelClass: {
+      type: [String, Object, Array]
+    },
+    trackClass: {
+      type: [String, Object, Array]
+    },
+    thumbClass: {
+      type: [String, Object, Array]
     },
     disabled: {
       type: Boolean,

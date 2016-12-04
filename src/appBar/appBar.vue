@@ -3,7 +3,7 @@
   <div class="left">
     <slot name="left"></slot>
   </div>
-  <div class="mu-appbar-title">
+  <div class="mu-appbar-title" :class="titleClass">
     <slot>
       <span>{{title}}</span>
     </slot>
@@ -21,6 +21,9 @@ export default {
     title: {
       type: String,
       default: ''
+    },
+    titleClass: {
+      type: [String, Array, Object]
     },
     zDepth: {
       type: Number,

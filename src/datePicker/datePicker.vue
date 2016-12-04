@@ -1,9 +1,10 @@
 <template>
 <div class="mu-date-picker" :class="{'fullWidth': fullWidth}">
-  <text-field @focus="handleFocus" @labelClick="handleClick" :value="inputValue"
-    :label="label" :labelFloat="labelFloat" :disabled="disabled" :hintText="hintText"
-    :helpText="helpText" :errorText="errorText" :errorColor="errorColor" :icon="icon"
-    :fullWidth="fullWidth" :underlineShow="underlineShow"/>
+  <text-field @focus="handleFocus" @labelClick="handleClick" :value="inputValue" :disabled="disabled" :fullWidth="fullWidth"
+    :label="label" :labelFloat="labelFloat" :labelClass="labelClass" :labelFocusClass="labelFocusClass"
+    :hintText="hintText" :hintTextClass="hintTextClass" :helpText="helpText" :helpTextClass="helpTextClass"
+    :errorText="errorText" :errorColor="errorColor" :icon="icon" :iconClass="iconClass" :inputClass="inputClass"
+    :underlineShow="underlineShow" :underlineClass="underlineClass" :underlineFocusClass="underlineFocusClass"/>
   <date-picker-dialog v-if="!disabled" @accept="handleAccept" :initialDate="dialogDate" ref="dialog" :mode="mode" :maxDate="maxLimitDate" :minDate="minLimitDate" :shouldDisableDate="shouldDisableDate" :firstDayOfWeek="firstDayOfWeek" :container="container" :disableYearSelection="disableYearSelection" :dateTimeFormat="dateTimeFormat" :autoOk="autoOk" :okLabel="okLabel" :cancelLabel="cancelLabel"/>
 </div>
 </template>
@@ -70,6 +71,12 @@ export default {
       type: Boolean,
       default: false
     },
+    labelClass: {
+      type: [String, Array, Object]
+    },
+    labelFocusClass: {
+      type: [String, Array, Object]
+    },
     disabled: {
       type: Boolean,
       default: false
@@ -77,8 +84,14 @@ export default {
     hintText: {
       type: String
     },
+    hintTextClass: {
+      type: [String, Array, Object]
+    },
     helpText: {
       type: String
+    },
+    helpTextClass: {
+      type: [String, Array, Object]
     },
     errorText: {
       type: String
@@ -89,6 +102,12 @@ export default {
     icon: {
       type: String
     },
+    iconClass: {
+      type: [String, Array, Object]
+    },
+    inputClass: {
+      type: [String, Array, Object]
+    },
     fullWidth: {
       type: Boolean,
       default: false
@@ -96,6 +115,12 @@ export default {
     underlineShow: {
       type: Boolean,
       default: true
+    },
+    underlineClass: {
+      type: [String, Array, Object]
+    },
+    underlineFocusClass: {
+      type: [String, Array, Object]
     },
     value: {
       type: String

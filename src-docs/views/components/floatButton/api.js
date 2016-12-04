@@ -15,6 +15,11 @@ export default {
     default: 'false',
     desc: '按钮是否不可用'
   }, {
+    name: 'type',
+    type: 'String',
+    default: '',
+    desc: '相当于button元素的type属性'
+  }, {
     name: 'href',
     type: 'String',
     default: '',

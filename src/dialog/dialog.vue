@@ -2,15 +2,15 @@
   <span>
     <transition name="mu-dialog-scale" @after-enter="show()" @after-leave="hide()">
       <div class="mu-dialog" :class="dialogClass" ref="popup" v-show="open" :style="{'z-index': zIndex}">
-        <div class="mu-dialog-header" ref="title" :class="{'scrollable': scrollable}" v-if="title">
-          <div class="mu-dialog-title">
+        <h3 class="mu-dialog-title" v-if="showTitle" ref="title" :class="headerClass">
+          <slot name="title">
             {{title}}
-          </div>
-        </div>
-        <div class="mu-dialog-body " :style="bodyStyle">
+          </slot>
+        </h3>
+        <div class="mu-dialog-body " :style="bodyStyle" :class="bodyClass">
           <slot></slot>
         </div>
-        <div class="mu-dialog-footer" v-if="showFooter" ref="footer" :class="{'scrollable': scrollable}">
+        <div class="mu-dialog-actions" v-if="showFooter" ref="footer" :class="footerClass">
           <slot name="actions"></slot>
         </div>
       </div>
@@ -20,6 +20,7 @@
 
 <script>
 import Popup from '../internal/popup'
+import {convertClass} from '../utils'
 export default {
   mixins: [Popup],
   name: 'mu-dialog',
@@ -29,6 +30,15 @@ export default {
     },
     title: {
       type: String
+    },
+    titleClass: {
+      type: [String, Array, Object]
+    },
+    bodyClass: {
+      type: [String, Array, Object]
+    },
+    actionsContainerClass: {
+      type: [String, Array, Object]
     },
     scrollable: {
       type: Boolean,
@@ -44,8 +54,23 @@ export default {
         'max-height': this.scrollable ? this.maxDialogContentHeight + 'px' : 'none'
       }
     },
+    showTitle () {
+      return this.title || (this.$slots && this.$slots.title && this.$slots.title.length > 0)
+    },
     showFooter () {
       return this.$slots && this.$slots.actions && this.$slots.actions.length > 0
+    },
+    headerClass () {
+      const {scrollable} = this
+      const classNames = []
+      if (scrollable) classNames.push('scrollable')
+      return classNames.concat(convertClass(this.titleClass))
+    },
+    footerClass () {
+      const {scrollable} = this
+      const classNames = []
+      if (scrollable) classNames.push('scrollable')
+      return classNames.concat(convertClass(this.actionsContainerClass))
     }
   },
   data () {
@@ -101,11 +126,16 @@ export default {
   .depth(5);
 }
 
-.mu-dialog-header {
+.mu-dialog-title {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 24px 24px 20px;
+  margin: 0;
+  font-size: 22px;
+  font-weight: normal;
+  line-height: 32px;
+  color: @textColor;
   + .mu-dialog-body{
     padding-top: 0;
   }
@@ -113,22 +143,12 @@ export default {
     border-bottom: 1px solid @borderColor;
   }
 }
-.mu-dialog-title {
-  flex: 1;
-  font-size: 22px;
-  line-height: 32px;
-  display: flex;
-  align-items: center;
-  margin: 0;
-  font-weight: normal;
-  color: @textColor;
-}
 .mu-dialog-body {
   padding: 24px 24px 20px;
   color: fade(@textColor, 60%);
 }
 
-.mu-dialog-footer {
+.mu-dialog-actions {
   min-height: 48px;
   padding: 8px;
   display: flex;

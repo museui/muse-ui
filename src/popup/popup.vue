@@ -10,6 +10,7 @@
 
 <script>
 import Popup from '../internal/popup'
+import {convertClass} from '../utils'
 export default {
   name: 'mu-popup',
   mixins: [Popup],
@@ -41,17 +42,7 @@ export default {
       const {position, popupClass} = this
       let classNames = []
       if (position) classNames.push('mu-popup-' + position)
-      if (!popupClass) return classNames
-      if (popupClass instanceof Object) {
-        for (const name in popupClass) {
-          if (popupClass[name]) classNames.push(name)
-        }
-      } else if (popupClass instanceof Array) {
-        classNames = classNames.concat(popupClass)
-      } else {
-        classNames = classNames.join(' ') + ' ' + popupClass
-      }
-      return classNames
+      return classNames.concat(convertClass(popupClass))
     }
   },
   methods: {

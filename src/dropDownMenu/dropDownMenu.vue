@@ -9,7 +9,7 @@
   <div class="mu-dropDown-menu-line" :class="underlineClass"></div>
   <popover v-if="!disabled && $slots && $slots.default && $slots.default.length > 0" :scroller="scroller" :open="openMenu" :trigger="trigger" :anchorOrigin="anchorOrigin"  @close="handleClose">
     <mu-menu v-if="openMenu" :style="{width: menuWidth + 'px'}" @change="change"
-      :class="menuClass" :value="value" :multiple="multiple"
+      :class="menuClass" :listClass="menuListClass" :value="value" :multiple="multiple"
       :autoWidth="autoWidth" @itemClick="itemClick"
       popover desktop :maxHeight="maxHeight">
       <slot></slot>
@@ -47,6 +47,9 @@ export default {
       type: [String, Array, Object]
     },
     menuClass: {
+      type: [String, Array, Object]
+    },
+    menuListClass: {
       type: [String, Array, Object]
     },
     underlineClass: {

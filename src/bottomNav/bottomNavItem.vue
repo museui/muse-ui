@@ -1,8 +1,8 @@
 <template>
   <abstract-button :href="href" :disableTouchRipple="shift" class="mu-buttom-item" :class="{'mu-bottom-item-active': active}" :center-ripple="false" wrapperClass="mu-buttom-item-wrapper" @click.native="handleClick">
-    <icon v-if="icon" class="mu-bottom-item-icon" :value="icon"></icon>
+    <icon v-if="icon" class="mu-bottom-item-icon" :class="iconClass" :value="icon"></icon>
     <slot></slot>
-    <span v-if="title" class="mu-bottom-item-text">{{title}}</span>
+    <span v-if="title" class="mu-bottom-item-text" :class="titleClass">{{title}}</span>
   </abstract-button>
 </template>
 
@@ -17,9 +17,15 @@ export default {
       type: String,
       default: ''
     },
+    iconClass: {
+      type: [String, Object, Array]
+    },
     title: {
       type: String,
       default: ''
+    },
+    titleClass: {
+      type: [String, Object, Array]
     },
     href: {
       type: String

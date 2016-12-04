@@ -20,6 +20,11 @@ export default {
     default: 'false',
     desc: '标签文字是否在左边，默认在右边'
   }, {
+    name: 'labelClass',
+    type: 'String,Object,Array',
+    default: '',
+    desc: '标签的样式, 同 `class` 绑定方式一致'
+  }, {
     name: 'disabled',
     type: 'Boolean',
     default: 'false',
@@ -34,6 +39,11 @@ export default {
     type: 'String',
     default: 'check_box',
     desc: '已选中时显示的icon, 必须在 material design icon 库中选择'
+  }, {
+    name: 'iconClass',
+    type: 'String,Object,Array',
+    default: '',
+    desc: '图标的样式, 同 `class` 绑定方式一致'
   }, {
     name: 'value',
     type: 'String',

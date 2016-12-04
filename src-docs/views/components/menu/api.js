@@ -36,6 +36,11 @@ export default {
       default: 'false',
       desc: '初始化时是否获取焦点'
     }, {
+      name: 'listClass',
+      type: 'String,Object,Array',
+      default: '',
+      desc: '菜单列表部分样式'
+    }, {
       name: 'value',
       type: '',
       default: '',
@@ -70,10 +75,20 @@ export default {
       default: '',
       desc: '菜单项的标题文字'
     }, {
+      name: 'titleClass',
+      type: 'String,Object,Array',
+      default: '',
+      desc: '标题文字样式，同 `class` 绑定方式一致'
+    }, {
       name: 'afterText',
       type: 'String',
       default: '',
       desc: '标题行最右边的文字'
+    }, {
+      name: 'afterTextClass',
+      type: 'String,Object,Array',
+      default: '',
+      desc: '标题行最右边的文字样式，同 `class` 绑定方式一致'
     }, {
       name: 'inset',
       type: 'Boolean',
@@ -97,7 +112,13 @@ export default {
     }, {
       name: 'leftIconColor',
       type: 'String',
-      default: '左边图标的颜色'
+      default: '',
+      desc: '左边图标的颜色'
+    }, {
+      name: 'leftIconClass',
+      type: 'String,Object,Array',
+      default: '',
+      desc: '左边图标样式，同 `class` 绑定方式一致'
     }, {
       name: 'rightIcon',
       type: 'String',
@@ -108,6 +129,21 @@ export default {
       type: 'String',
       default: '',
       desc: '右边图标的颜色'
+    }, {
+      name: 'rightIconClass',
+      type: 'String,Object,Array',
+      default: '',
+      desc: '右边图标样式，同 `class` 绑定方式一致'
+    }, {
+      name: 'nestedMenuClass',
+      type: 'String,Object,Array',
+      default: '',
+      desc: '嵌套菜单样式，同 `class` 绑定方式一致'
+    }, {
+      name: 'nestedMenuListClass',
+      type: 'String,Object,Array',
+      default: '',
+      desc: '嵌套菜单列表部分样式，同 `class` 绑定方式一致'
     }, {
       name: 'value',
       type: '',

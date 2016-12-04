@@ -1,9 +1,9 @@
 <template>
 <abstract-button @touchstart.native="handleStop" @mousedown.native="handleStop" @click="handleClick"
   @hover="handleHover" @hoverExit="handleHoverExit" @keyboardFocus="handleKeyboardFocus"
-  :target="target"  :href="href" :disabled="disabled" :keyboardFocused="keyboardFocused" class="mu-icon-button">
+  :type="type" :href="href" :target="target" :disabled="disabled" :keyboardFocused="keyboardFocused" class="mu-icon-button">
   <slot>
-    <icon :value="icon" :class="[iconClass]"></icon>
+    <icon :value="icon" :class="iconClass"></icon>
   </slot>
   <tooltip v-if="tooltip" :trigger="tooltipTrigger" :verticalPosition="verticalPosition" :horizontalPosition="horizontalPosition" :show="tooltipShown" :label="tooltip" :touch="touch"></tooltip>
 </abstract-button>
@@ -20,8 +20,11 @@ export default {
       type: String
     },
     iconClass: {
-      type: String,
+      type: [String, Array, Object],
       default: ''
+    },
+    type: {
+      type: String
     },
     href: {
       type: String,

@@ -1,15 +1,18 @@
 <template>
   <div class="mu-text-field" :class="textFieldClass" :style="focus ? errorStyle : {}">
-    <icon  v-if="icon" class="mu-text-field-icon" :value="icon"></icon>
+    <icon  v-if="icon" class="mu-text-field-icon" :class="iconClass" :value="icon"></icon>
     <label @click="handleLabelClick" ref="content" class="mu-text-field-content">
-      <text-field-label v-if="label" :float="float">{{label}}</text-field-label>
-      <text-field-hint v-if="hintText" :text="hintText" :show="showHint"></text-field-hint>
+      <text-field-label v-if="label" :float="float" :focus="focus" :normalClass="labelClass" :focusClass="labelFocusClass">{{label}}</text-field-label>
+      <text-field-hint v-if="hintText" :text="hintText" :show="showHint" :class="hintTextClass"></text-field-hint>
       <slot>
-        <input v-if="!multiLine" ref="input" :type="type" :value="inputValue" :disabled="disabled" @focus="handleFocus" @input="handleChange" @blur="handleBlur" class="mu-text-field-input" >
-        <enhanced-textarea v-if="multiLine" ref="textarea" :value="inputValue" :disabled="disabled" :rows="rows" :rowsMax="rowsMax" @change="handleChange" @focus="handleFocus" @blur="handleBlur"></enhanced-textarea>
+        <input v-if="!multiLine" ref="input" :type="type" :value="inputValue"
+          :disabled="disabled" @focus="handleFocus" @input="handleChange" @blur="handleBlur"
+          class="mu-text-field-input" :class="inputClass">
+        <enhanced-textarea v-if="multiLine" ref="textarea" :normalClass="inputClass" :value="inputValue" :disabled="disabled" :rows="rows" :rowsMax="rowsMax" @change="handleChange" @focus="handleFocus" @blur="handleBlur"></enhanced-textarea>
       </slot>
-      <underline v-if="underlineShow" :error="!!errorText" :disabled="disabled" :errorColor="errorColor" :focus="focus"></underline>
-      <div class="mu-text-field-help" :style="errorStyle" v-if="errorText || helpText || maxLength > 0">
+      <underline v-if="underlineShow" :error="!!errorText" :disabled="disabled"
+      :errorColor="errorColor" :focus="focus" :normalClass="underlineClass" :focusClass="underlineFocusClass"/>
+      <div class="mu-text-field-help" :class="helpTextClass" :style="errorStyle" v-if="errorText || helpText || maxLength > 0">
           <div>
               {{errorText || helpText}}
           </div>
@@ -37,6 +40,9 @@ export default {
     icon: {
       type: String
     },
+    iconClass: {
+      type: [String, Array, Object]
+    },
     label: {
       type: String
     },
@@ -44,10 +50,22 @@ export default {
       type: Boolean,
       default: false
     },
+    labelClass: {
+      type: [String, Array, Object]
+    },
+    labelFocusClass: {
+      type: [String, Array, Object]
+    },
     hintText: {
       type: String
     },
+    hintTextClass: {
+      type: [String, Array, Object]
+    },
     value: {},
+    inputClass: {
+      type: [String, Array, Object]
+    },
     multiLine: {
       type: Boolean,
       default: false
@@ -68,6 +86,9 @@ export default {
     helpText: {
       type: String
     },
+    helpTextClass: {
+      type: [String, Array, Object]
+    },
     maxLength: {
       type: Number,
       default: 0
@@ -83,6 +104,12 @@ export default {
     underlineShow: {
       type: Boolean,
       default: true
+    },
+    underlineClass: {
+      type: [String, Array, Object]
+    },
+    underlineFocusClass: {
+      type: [String, Array, Object]
     }
   },
   data () {

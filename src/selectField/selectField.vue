@@ -1,9 +1,13 @@
 <template>
-<text-field ref="textField" class="mu-select-field" :underlineShow="underlineShow"
-  :labelFloat="labelFloat" :hintText="hintText" :fullWidth="fullWidth"
-  :helpText="helpText" :icon="icon" :value="inputValue instanceof Array ? inputValue.join('') : inputValue"
-   :disabled="disabled" :errorText="errorText" :errorColor="errorColor" :label="label">
-  <dropDown-menu :anchorEl="anchorEl" :scroller="scroller" @open="handleOpen" @close="handleClose"  @change="handlehange" :value="inputValue" :disabled="disabled" :maxHeight="maxHeight" :autoWidth="autoWidth"
+<text-field ref="textField" class="mu-select-field" :label="label" :labelFloat="labelFloat" :underlineShow="underlineShow"
+  :labelClass="labelClass" :labelFocusClass="labelFocusClass" :underlineClass="underlineClass" :underlineFocusClass="underlineFocusClass"
+  :fullWidth="fullWidth" :hintText="hintText" :hintTextClass="hintTextClass"
+  :helpText="helpText" :helpTextClass="helpTextClass" :icon="icon" :iconClass="iconClass"
+  :value="inputValue instanceof Array ? inputValue.join('') : inputValue"
+  :disabled="disabled" :errorText="errorText" :errorColor="errorColor">
+  <dropDown-menu :anchorEl="anchorEl" :scroller="scroller" @open="handleOpen"
+    @close="handleClose"  @change="handlehange" :value="inputValue" :disabled="disabled"
+    :maxHeight="maxHeight" :autoWidth="autoWidth" :iconClass="dropDownIconClass"
     :multiple="multiple" :anchorOrigin="{vertical: 'bottom', horizontal: 'left'}">
     <slot></slot>
   </dropDown-menu>
@@ -23,6 +27,12 @@ export default {
       type: Boolean,
       default: false
     },
+    labelClass: {
+      type: [String, Array, Object]
+    },
+    labelFocusClass: {
+      type: [String, Array, Object]
+    },
     disabled: {
       type: Boolean,
       default: false
@@ -30,8 +40,14 @@ export default {
     hintText: {
       type: String
     },
+    hintTextClass: {
+      type: [String, Array, Object]
+    },
     helpText: {
       type: String
+    },
+    helpTextClass: {
+      type: [String, Array, Object]
     },
     errorText: {
       type: String
@@ -41,6 +57,9 @@ export default {
     },
     icon: {
       type: String
+    },
+    iconClass: {
+      type: [String, Array, Object]
     },
     maxHeight: {
       type: Number
@@ -56,6 +75,15 @@ export default {
     underlineShow: {
       type: Boolean,
       default: true
+    },
+    underlineClass: {
+      type: [String, Array, Object]
+    },
+    underlineFocusClass: {
+      type: [String, Array, Object]
+    },
+    dropDownIconClass: {
+      type: [String, Array, Object]
     },
     value: {},
     multiple: {

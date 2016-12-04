@@ -1,9 +1,12 @@
 <template>
 <div class="mu-auto-complete" :class="{'fullWidth': fullWidth}">
-  <text-field @focus="handleFocus" v-model="searchText" @input="handleInput" @keydown.native="handleKeyDown" ref="textField"
-    @blur="handleBlur" :value="searchText" :label="label" :labelFloat="labelFloat" :disabled="disabled"
-    :hintText="hintText" :helpText="helpText" :errorText="errorText" :errorColor="errorColor"
-    :underlineShow="underlineShow" :icon="icon" :fullWidth="fullWidth"/>
+  <text-field @focus="handleFocus" v-model="searchText" @input="handleInput"
+    @keydown.native="handleKeyDown" ref="textField"
+    @blur="handleBlur" :value="searchText" :disabled="disabled" :inputClass="inputClass"
+    :label="label" :labelFloat="labelFloat" :labelClass="labelClass" :labelFocusClass="labelFocusClass"
+    :hintText="hintText" :hintTextClass="hintTextClass" :helpText="helpText" :helpTextClass="helpTextClass"
+    :errorText="errorText" :errorColor="errorColor" :icon="icon" :iconClass="iconClass" :fullWidth="fullWidth"
+    :underlineShow="underlineShow" :underlineClass="underlineClass" :underlineFocusClass="underlineFocusClass"/>
   <popover :overlay="false" :autoPosition="false" :scroller="scroller" :open="open && list.length > 0"  @close="handleClose" :trigger="anchorEl" :anchorOrigin="anchorOrigin" :targetOrigin="targetOrigin">
     <mu-menu v-if="open" :maxHeight="maxHeight" :style="{'width': (menuWidth && menuWidth > inputWidth ? menuWidth : inputWidth) + 'px'}" :disableAutoFocus="focusTextField"
       @mousedown.native="handleMouseDown" initiallyKeyboardFocused :autoWidth="false" ref="menu" @itemClick="handleItemClick" class="mu-auto-complete-menu">
@@ -86,6 +89,12 @@ export default {
       type: Boolean,
       default: false
     },
+    labelClass: {
+      type: [String, Array, Object]
+    },
+    labelFocusClass: {
+      type: [String, Array, Object]
+    },
     disabled: {
       type: Boolean,
       default: false
@@ -93,8 +102,14 @@ export default {
     hintText: {
       type: String
     },
+    hintTextClass: {
+      type: [String, Array, Object]
+    },
     helpText: {
       type: String
+    },
+    helpTextClass: {
+      type: [String, Array, Object]
     },
     errorText: {
       type: String
@@ -104,6 +119,12 @@ export default {
     },
     icon: {
       type: String
+    },
+    iconClass: {
+      type: [String, Array, Object]
+    },
+    inputClass: {
+      type: [String, Array, Object]
     },
     fullWidth: {
       type: Boolean,
@@ -118,6 +139,12 @@ export default {
     underlineShow: {
       type: Boolean,
       default: true
+    },
+    underlineClass: {
+      type: [String, Array, Object]
+    },
+    underlineFocusClass: {
+      type: [String, Array, Object]
     },
     value: {
       type: String

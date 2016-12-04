@@ -1,11 +1,12 @@
 <template>
   <div class="mu-icon-menu">
-    <icon-button :tooltip="tooltip" :tooltipPosition="tooltipPosition" :icon="icon" @click="handleOpen">
+    <icon-button :tooltip="tooltip" :tooltipPosition="tooltipPosition" :icon="icon" :iconClass="iconClass" @click="handleOpen">
       <slot name="icon"></slot>
     </icon-button>
     <popover :open="openMenu" :trigger="trigger" :scroller="scroller" :anchorOrigin="anchorOrigin"
       :targetOrigin="targetOrigin" @close="handleClose">
-      <mu-menu v-if="openMenu" @change="change" popover :value="value" @itemClick="itemClick" :multiple="multiple" :desktop="desktop" :maxHeight="maxHeight">
+      <mu-menu v-if="openMenu" @change="change" popover :value="value" :class="menuClass" :listClass="menuListClass"
+        @itemClick="itemClick" :multiple="multiple" :desktop="desktop" :maxHeight="maxHeight">
         <slot></slot>
       </mu-menu>
     </popover>
@@ -22,6 +23,15 @@ export default {
     icon: {
       type: String,
       required: true
+    },
+    iconClass: {
+      type: [String, Array, Object]
+    },
+    menuClass: {
+      type: [String, Array, Object]
+    },
+    menuListClass: {
+      type: [String, Array, Object]
     },
     value: {},
     multiple: {

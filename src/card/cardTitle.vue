@@ -1,9 +1,9 @@
 <template>
 <div class="mu-card-title-container">
-  <div class="mu-card-title">
+  <div class="mu-card-title" :class="titleClass">
     {{title}}
   </div>
-  <div class="mu-card-sub-title">
+  <div class="mu-card-sub-title" :class="subTitleClass">
     {{subTitle}}
   </div>
 </div>
@@ -14,12 +14,16 @@ export default {
   name: 'mu-card-title',
   props: {
     title: {
-      type: String,
-      default: ''
+      type: String
+    },
+    titleClass: {
+      type: [String, Array, Object]
     },
     subTitle: {
-      type: String,
-      default: ''
+      type: String
+    },
+    subTitleClass: {
+      type: [String, Array, Object]
     }
   }
 }

@@ -1,7 +1,10 @@
 <template>
   <div class="mu-text-field-multiline">
     <textarea ref="textareaHidden" class="mu-text-field-textarea-hide mu-text-field-input" :value="value"></textarea>
-    <textarea ref="textarea" class="mu-text-field-input mu-text-field-textarea" :value="value"  @input="handleInput" @focus="handleFocus" @blur="handleBlur" :placeholder="placeholder" :disabled="disabled"></textarea>
+    <textarea ref="textarea" class="mu-text-field-input mu-text-field-textarea"
+      :class="normalClass" :value="value"
+      @input="handleInput" @focus="handleFocus" @blur="handleBlur"
+      :placeholder="placeholder" :disabled="disabled"></textarea>
   </div>
 </template>
 
@@ -24,6 +27,9 @@ export default {
     disabled: {
       type: Boolean,
       default: false
+    },
+    normalClass: {
+      type: [String, Array, Object]
     }
   },
   methods: {

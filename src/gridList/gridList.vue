@@ -1,5 +1,5 @@
 <template>
-<div class="mu-grid-list" :style="style">
+<div class="mu-grid-list" :style="gridListStyle">
   <slot></slot>
 </div>
 </template>
@@ -22,7 +22,7 @@ export default {
     }
   },
   computed: {
-    style () {
+    gridListStyle () {
       return {
         margin: -this.padding / this.cols + 'px'
       }

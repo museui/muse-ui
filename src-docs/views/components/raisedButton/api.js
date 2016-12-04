@@ -1,14 +1,19 @@
 export default {
   props: [{
-    name: 'label',
-    type: 'String',
-    default: '',
-    desc: '按钮上的文字'
-  }, {
     name: 'icon',
     type: 'String',
     default: '',
     desc: '按钮上的图标'
+  }, {
+    name: 'iconClass',
+    type: 'String,Object,Array',
+    default: '',
+    desc: '图标的样式, 同 `class` 绑定方式一致'
+  }, {
+    name: 'label',
+    type: 'String',
+    default: '',
+    desc: '按钮上的文字'
   }, {
     name: 'labelPosition',
     type: 'String',
@@ -39,6 +44,11 @@ export default {
     type: 'Boolean',
     default: 'false',
     desc: '是否将宽度设置为 100%'
+  }, {
+    name: 'type',
+    type: 'String',
+    default: '',
+    desc: '相当于button元素的type属性'
   }, {
     name: 'href',
     type: 'String',

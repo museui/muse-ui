@@ -62,3 +62,21 @@ export function retina () {
 
   classNames.forEach((className) => html.classList.add(className))
 }
+
+/**
+ * 将 String, Object, Array 转成 Array
+ */
+export function convertClass (classes) {
+  let newClasses = []
+  if (!classes) return newClasses
+  if (classes instanceof Array) {
+    newClasses = newClasses.concat(classes)
+  } else if (classes instanceof Object) {
+    for (const name in classes) {
+      if (classes[name]) newClasses.push(name)
+    }
+  } else {
+    newClasses = newClasses.join(' ') + ' ' + classes
+  }
+  return newClasses
+}

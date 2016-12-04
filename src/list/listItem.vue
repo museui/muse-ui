@@ -11,18 +11,18 @@
         </div>
         <div class="mu-item-content">
           <div class="mu-item-title-row" v-if="showTitleRow">
-            <div class="mu-item-title">
+            <div class="mu-item-title" :class="titleClass">
                <slot name="title">
                  {{title}}
                </slot>
             </div>
-            <div class="mu-item-after">
+            <div class="mu-item-after" :class="afterTextClass">
                 <slot name="after">
                   {{afterText}}
                 </slot>
             </div>
           </div>
-          <div class="mu-item-text" :style="textStyle" v-if="showDescribe">
+          <div class="mu-item-text" :style="textStyle" :class="describeTextClass" v-if="showDescribe">
             <slot name="describe">
               {{describeText}}
             </slot>
@@ -31,10 +31,10 @@
         </div>
         <div class="mu-item-right" v-if="showRight">
           <icon-button @click.stop="handleToggleNested"  v-if="toggleNested">
-            <svg v-if="nestedOpen" class="mu-item-svg-icon" viewBox="0 0 24 24">
+            <svg v-if="nestedOpen" class="mu-item-svg-icon" :class="toggleIconClass" viewBox="0 0 24 24">
               <path d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z"/>
             </svg>
-            <svg v-if="!nestedOpen" class="mu-item-svg-icon" viewBox="0 0 24 24">
+            <svg v-if="!nestedOpen" class="mu-item-svg-icon" :class="toggleIconClass" viewBox="0 0 24 24">
               <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"/>
             </svg>
           </icon-button>
@@ -44,7 +44,7 @@
       </div>
     </abstract-button>
     <expand-transition>
-      <mu-list v-if="showNested" :nestedLevel="nestedLevel" @change="handleNestedChange" :value="nestedSelectValue">
+      <mu-list v-if="showNested" :class="nestedListClass" :nestedLevel="nestedLevel" @change="handleNestedChange" :value="nestedSelectValue">
         <slot name="nested"></slot>
       </mu-list>
     </expand-transition>
@@ -70,13 +70,22 @@ export default {
       type: String,
       default: ''
     },
+    titleClass: {
+      type: [String, Object, Array]
+    },
     afterText: {
       type: String,
       default: ''
     },
+    afterTextClass: {
+      type: [String, Object, Array]
+    },
     describeText: {
       type: String,
       default: ''
+    },
+    describeTextClass: {
+      type: [String, Object, Array]
     },
     describeLine: {
       type: Number,
@@ -86,6 +95,9 @@ export default {
       type: Boolean,
       default: false
     },
+    nestedListClass: {
+      type: [String, Object, Array]
+    },
     open: {
       type: Boolean,
       default: true
@@ -93,6 +105,9 @@ export default {
     toggleNested: {
       type: Boolean,
       default: false
+    },
+    toggleIconClass: {
+      type: [String, Object, Array]
     },
     disabled: {
       type: Boolean,

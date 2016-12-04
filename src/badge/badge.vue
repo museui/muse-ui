@@ -1,7 +1,7 @@
 <template>
   <div class="mu-badge-container">
     <slot></slot>
-    <em class="mu-badge" :style="badgeStyle" :class="badgeClass">
+    <em class="mu-badge" :style="badgeStyle" :class="badgeInternalClass">
       <slot name="content">
         {{content}}
       </slot>
@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import {getColor} from '../utils'
+import {getColor, convertClass} from '../utils'
 export default {
   name: 'mu-badge',
   props: {
@@ -33,6 +33,9 @@ export default {
     circle: {
       type: Boolean,
       default: false
+    },
+    badgeClass: {
+      type: [String, Object, Array]
     }
   },
   computed: {
@@ -41,13 +44,15 @@ export default {
         'background-color': getColor(this.color)
       }
     },
-    badgeClass () {
-      return {
-        'mu-badge-circle': this.circle,
-        'mu-badge-primary': this.primary,
-        'mu-badge-secondary': this.secondary,
-        'mu-badge-float': this.$slots && this.$slots.default && this.$slots.default.length > 0
-      }
+    badgeInternalClass () {
+      const {circle, primary, secondary, badgeClass} = this
+      const isFloat = this.$slots && this.$slots.default && this.$slots.default.length > 0
+      const classNames = []
+      if (circle) classNames.push('mu-badge-circle')
+      if (primary) classNames.push('mu-badge-primary')
+      if (secondary) classNames.push('mu-badge-secondary')
+      if (isFloat) classNames.push('mu-badge-float')
+      return classNames.concat(convertClass(badgeClass))
     }
   }
 }

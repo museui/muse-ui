@@ -1,9 +1,10 @@
 <template>
 <div class="mu-time-picker" :class="{'fullWidth': fullWidth}">
-  <text-field @focus="handleFocus" @labelClick="handleClick" :value="inputValue"
-    :label="label" :labelFloat="labelFloat" :disabled="disabled" :hintText="hintText"
-    :helpText="helpText" :errorText="errorText" :errorColor="errorColor" :icon="icon"
-    :fullWidth="fullWidth" :underlineShow="underlineShow"/>
+  <text-field @focus="handleFocus" @labelClick="handleClick" :value="inputValue" :fullWidth="fullWidth"
+    :inputClass="inputClass" :label="label" :labelFloat="labelFloat" :labelClass="labelClass" :labelFocusClass="labelFocusClass"
+    :hintText="hintText" :hintTextClass="hintTextClass" :helpText="helpText" :helpTextClass="helpTextClass"
+    :disabled="disabled" :errorText="errorText" :errorColor="errorColor" :icon="icon" :iconClass="iconClass"
+    :underlineShow="underlineShow" :underlineClass="underlineClass" :underlineFocusClass="underlineFocusClass"/>
   <time-picker-dialog v-if="!disabled" @accept="handleAccept" ref="dialog" :initialTime="dialogTime" :format="format" :mode="mode" :container="container" :autoOk="autoOk" :okLabel="okLabel" :cancelLabel="cancelLabel"/>
 </div>
 </template>
@@ -53,6 +54,12 @@ export default {
       type: Boolean,
       default: false
     },
+    labelClass: {
+      type: [String, Array, Object]
+    },
+    labelFocusClass: {
+      type: [String, Array, Object]
+    },
     disabled: {
       type: Boolean,
       default: false
@@ -60,8 +67,14 @@ export default {
     hintText: {
       type: String
     },
+    hintTextClass: {
+      type: [String, Array, Object]
+    },
     helpText: {
       type: String
+    },
+    helpTextClass: {
+      type: [String, Array, Object]
     },
     errorText: {
       type: String
@@ -72,6 +85,9 @@ export default {
     icon: {
       type: String
     },
+    iconClass: {
+      type: [String, Array, Object]
+    },
     fullWidth: {
       type: Boolean,
       default: false
@@ -79,6 +95,15 @@ export default {
     underlineShow: {
       type: Boolean,
       default: true
+    },
+    underlineClass: {
+      type: [String, Array, Object]
+    },
+    underlineFocusClass: {
+      type: [String, Array, Object]
+    },
+    inputClass: {
+      type: [String, Array, Object]
     },
     value: {
       type: String

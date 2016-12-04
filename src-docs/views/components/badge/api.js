@@ -21,9 +21,14 @@ export default {
     desc: '颜色是否为强调色'
   }, {
     name: 'circle',
-    type: 'Boolan',
+    type: 'Boolean',
     default: 'false',
     desc: '是否为圆形'
+  }, {
+    name: 'badgeClass',
+    type: 'String,Object,Array',
+    default: '',
+    desc: 'badge 样式, 同 `class` 绑定方式一致'
   }],
   slots: [{
     name: 'content',

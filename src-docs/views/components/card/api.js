@@ -12,10 +12,20 @@ export default {
       default: '',
       desc: '标题文字'
     }, {
+      name: 'titleClass',
+      type: 'String,Object,Array',
+      default: '',
+      desc: '标题样式,同 `class` 绑定方式一致'
+    }, {
       name: 'subTitle',
       type: 'String',
       default: '',
       desc: '子标题文字'
+    }, {
+      name: 'subTitleClass',
+      type: 'String,Object,Array',
+      default: '',
+      desc: '子标题样式,同 `class` 绑定方式一致'
     }],
     slots: [{
       name: 'avatar',
@@ -32,10 +42,20 @@ export default {
       default: '',
       desc: '标题文字'
     }, {
+      name: 'titleClass',
+      type: 'String,Object,Array',
+      default: '',
+      desc: '标题样式,同 `class` 绑定方式一致'
+    }, {
       name: 'subTitle',
       type: 'String',
       default: '',
       desc: '子标题文字'
+    }, {
+      name: 'subTitleClass',
+      type: 'String,Object,Array',
+      default: '',
+      desc: '子标题样式,同 `class` 绑定方式一致'
     }],
     slots: [{
       name: 'default',
@@ -49,10 +69,20 @@ export default {
       default: '',
       desc: '标题文字'
     }, {
+      name: 'titleClass',
+      type: 'String,Object,Array',
+      default: '',
+      desc: '标题样式,同 `class` 绑定方式一致'
+    }, {
       name: 'subTitle',
       type: 'String',
       default: '',
       desc: '子标题文字'
+    }, {
+      name: 'subTitleClass',
+      type: 'String,Object,Array',
+      default: '',
+      desc: '子标题样式,同 `class` 绑定方式一致'
     }]
   },
   cardText: {

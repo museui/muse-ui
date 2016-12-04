@@ -1,10 +1,10 @@
 <template>
-<abstract-button :href="href" @click="handleClick" :target="target"
+<abstract-button :type="type" :href="href" @click="handleClick" :target="target"
   @keyboardFocus="handleKeyboardFocus" @hover="handleHover" @hoverExit="handleHoverExit"
   :style="buttonStyle" :disabled="disabled" class="mu-float-button" :class="[buttonClass]">
   <div class="mu-float-button-wrapper">
     <slot>
-      <icon :value="this.icon" :class="[iconClass]"></icon>
+      <icon :value="this.icon" :class="iconClass"></icon>
     </slot>
   </div>
 </abstract-button>
@@ -21,8 +21,11 @@ export default {
       type: String
     },
     iconClass: {
-      type: String,
+      type: [String, Array, Object],
       default: ''
+    },
+    type: {
+      type: String
     },
     href: {
       type: String,

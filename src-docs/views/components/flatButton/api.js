@@ -1,14 +1,19 @@
 export default {
   props: [{
-    name: 'label',
-    type: 'String',
-    default: '',
-    desc: '按钮上的文字'
-  }, {
     name: 'icon',
     type: 'String',
     default: '',
     desc: '按钮上的图标'
+  }, {
+    name: 'iconClass',
+    type: 'String,Object,Array',
+    default: '',
+    desc: '图标的样式, 同 `class` 绑定方式一致'
+  }, {
+    name: 'label',
+    type: 'String',
+    default: '',
+    desc: '按钮上的文字'
   }, {
     name: 'labelPosition',
     type: 'String',
@@ -16,9 +21,9 @@ export default {
     desc: '文字的位置, before 在图标之前，after 在图标之后'
   }, {
     name: 'labelClass',
-    type: 'String',
+    type: 'String,Object,Array',
     default: '',
-    desc: '标签的样式'
+    desc: 'label的样式, 同 `class` 绑定方式一致'
   }, {
     name: 'primary',
     type: 'Boolean',
@@ -34,6 +39,11 @@ export default {
     type: 'Boolean',
     default: 'false',
     desc: '按钮是否不可用'
+  }, {
+    name: 'type',
+    type: 'String',
+    default: '',
+    desc: '相当于button元素的type属性'
   }, {
     name: 'href',
     type: 'String',
