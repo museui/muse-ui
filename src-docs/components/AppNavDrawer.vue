@@ -5,23 +5,31 @@
     <mu-badge content="alpha" class="exmaples-version" secondary/>
   </mu-appbar>
   <mu-divider/>
-  <mu-flexbox class="mu-version-box" align="center">
+  <div class="mu-version-box">
     <span class="mu-version-text">Version: </span>
     <mu-dropDown-menu :value="version" @change="handleVersionChange" v-if="versions.length > 0">
       <mu-menu-item v-for="vtext in versions" :value="vtext" :title="vtext"/>
     </mu-dropDown-menu>
-  </mu-flexbox>
+  </div>
+  <div class="mu-lang-box">
+    <span class="mu-lang-title">Lang: </span>
+    <span class="mu-lang-select">
+      <a href="javascript:;" class="mu-lang" :class="{'active': lang === 'zh'}" @click="changeLang('zh')">中文</a>
+      <span>/</span>
+      <a href="javascript:;" class="mu-lang" :class="{'active': lang === 'en'}" @click="changeLang('en')">En</a>
+    </span>
+  </div>
   <mu-list @change="handleMenuChange" :value="menuVal">
-    <mu-list-item title="快速开始" toggleNested>
-      <mu-list-item value="#/install" slot="nested" title="安装"/>
-      <mu-list-item value="#/usage" slot="nested" title="使用"/>
+    <mu-list-item :title="$t('getStarted')" toggleNested>
+      <mu-list-item value="#/install" slot="nested" :title="$t('installation')"/>
+      <mu-list-item value="#/usage" slot="nested" :title="$t('usage')"/>
     </mu-list-item>
-    <mu-list-item title="个性定制" toggleNested>
-      <mu-list-item slot="nested" value="#/theme" title="主题"/>
-      <mu-list-item slot="nested" value="#/colors" title="颜色"/>
+    <mu-list-item :title="$t('customization')" toggleNested>
+      <mu-list-item slot="nested" value="#/theme" :title="$t('theme')"/>
+      <mu-list-item slot="nested" value="#/colors" :title="$t('color')"/>
     </mu-list-item>
 
-    <mu-list-item title="基础组件" toggleNested>
+    <mu-list-item :title="$t('component')" toggleNested>
       <mu-sub-header slot="nested" class="exmaples-nav-sub-header">Material Design</mu-sub-header>
       <mu-list-item slot="nested" value="#/appbar" title="App Bar"/>
       <mu-list-item slot="nested" value="#/autoComplete" title="Auto Complete"/>
@@ -80,13 +88,13 @@
       <mu-list-item slot="nested" value="#/popup" title="Popup"/>
       <mu-list-item slot="nested" value="#/refreshControl" title="Refresh Control"/>
     </mu-list-item>
-    <mu-list-item title="更多信息" toggleNested>
-      <mu-list-item slot="nested" title="更新日志" value="#/changeLog"/>
-      <mu-list-item slot="nested" title="贡献指南" value="#/contributing"/>
+    <mu-list-item :title="$t('more')" toggleNested>
+      <mu-list-item slot="nested" :title="$t('changeLog')" value="#/changeLog"/>
+      <mu-list-item slot="nested" :title="$t('contributing')" value="#/contributing"/>
     </mu-list-item>
   </mu-list>
   <mu-divider/>
-  <mu-sub-header>资源</mu-sub-header>
+  <mu-sub-header>{{$t('resource')}}</mu-sub-header>
   <mu-list>
     <mu-list-item href="https://github.com/museui/muse-ui" target="_blank" title="GitHub"/>
     <mu-list-item href="http://vuejs.org/" target="_blank" title="Vue"/>
@@ -97,6 +105,9 @@
 </template>
 
 <script>
+import Vue from 'vue'
+import zh from './zh'
+import en from './en'
 import packageJson from '../../package.json'
 export default {
   props: {
@@ -114,6 +125,11 @@ export default {
       menuVal: '#/',
       version: packageJson.version,
       versions: []
+    }
+  },
+  computed: {
+    lang () {
+      return Vue.config.lang
     }
   },
   methods: {
@@ -139,6 +155,10 @@ export default {
       if (!this.changeHref) return
       window.location.hash = this.menuVal
       this.changeHref = false
+    },
+    changeLang (lang) {
+      Vue.config.lang = lang
+      window.localStorage.setItem('lang', lang)
     }
   },
   mounted () {
@@ -158,12 +178,16 @@ export default {
       }
     }
     xhr.send()
+  },
+  locales: {
+    zh,
+    en
   }
 }
 </script>
 
 <style lang="less">
-@import "../../src/styles/vars.less";
+@import "../../src/styles/import.less";
 .exmaples-drawer{
   box-shadow: none;
   border-right: 1px solid @borderColor;
@@ -187,6 +211,9 @@ export default {
 }
 
 .mu-version-box{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   height: 48px;
   margin-top: 8px;
   padding-left: 16px;
@@ -195,5 +222,30 @@ export default {
 .mu-version-text {
   font-size: 16px;
   margin-top: 8px;
+  width: 60px;
+}
+
+.mu-lang-box{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 48px;
+  margin-top: 8px;
+  padding-left: 16px;
+  padding-right: 40px;
+  font-size: 16px;
+}
+
+.mu-lang {
+  color: inherit;
+  margin-left: 2px;
+  margin-right: 2px;
+  &:last-child {
+    margin-right: 0;
+  }
+  &:hover,
+  &.active {
+    color: @accentColor;
+  }
 }
 </style>

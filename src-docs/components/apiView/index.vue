@@ -9,10 +9,10 @@
   <mu-table v-show="value === 'props'" class="api-view-table" :fixedFooter="false" :fixedHeader="false" :showCheckbox="false" :selectable="false">
     <mu-thead>
       <mu-tr>
-        <mu-th class="api-th" width="20%">名称</mu-th>
-        <mu-th class="api-th" width="15%">类型</mu-th>
-        <mu-th class="api-th" width="25%">默认值</mu-th>
-        <mu-th class="api-th" width="40%">描述</mu-th>
+        <mu-th class="api-th" width="20%">{{$t('name')}}</mu-th>
+        <mu-th class="api-th" width="15%">{{$t('type')}}</mu-th>
+        <mu-th class="api-th" width="25%">{{$t('default')}}</mu-th>
+        <mu-th class="api-th" width="40%">{{$t('description')}}</mu-th>
       </mu-tr>
     </mu-thead>
     <mu-tbody>
@@ -31,8 +31,8 @@
   <mu-table v-show="value === 'slots'" class="api-view-table" :fixedFooter="false" :fixedHeader="false" :showCheckbox="false" :selectable="false">
     <mu-thead>
       <mu-tr>
-        <mu-th class="api-th" width="15%">名称</mu-th>
-        <mu-th class="api-th" width="55%">描述</mu-th>
+        <mu-th class="api-th" width="15%">{{$t('name')}}</mu-th>
+        <mu-th class="api-th" width="55%">{{$t('description')}}</mu-th>
       </mu-tr>
     </mu-thead>
     <mu-tbody>
@@ -47,8 +47,8 @@
   <mu-table v-show="value === 'events'" class="api-view-table" :fixedFooter="false" :fixedHeader="false" :showCheckbox="false" :selectable="false">
     <mu-thead>
       <mu-tr>
-        <mu-th class="api-th" width="15%">名称</mu-th>
-        <mu-th class="api-th" width="55%">描述</mu-th>
+        <mu-th class="api-th" width="15%">{{$t('name')}}</mu-th>
+        <mu-th class="api-th" width="55%">{{$t('description')}}</mu-th>
       </mu-tr>
     </mu-thead>
     <mu-tbody>
@@ -64,6 +64,8 @@
 </template>
 
 <script>
+import zh from './zh'
+import en from './en'
 export default {
   props: {
     title: {
@@ -89,6 +91,10 @@ export default {
     handleChange (value) {
       this.value = value
     }
+  },
+  locales: {
+    zh,
+    en
   }
 }
 </script>
