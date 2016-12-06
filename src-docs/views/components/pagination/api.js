@@ -7,7 +7,7 @@ export default {
     name: 'total',
     type: 'Number',
     default: '0',
-    desc: '页码总数'
+    desc: '数据总数'
   }, {
     name: 'pageSize',
     type: 'Number',
