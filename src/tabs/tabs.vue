@@ -54,7 +54,9 @@ export default {
   watch: {
     value (val, oldVal) {
       if (val === oldVal) return
-      this.setTabLightStyle()
+      this.$nextTick(function () {
+        this.setTabLightStyle()
+      })
     }
   }
 }
