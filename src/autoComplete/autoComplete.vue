@@ -155,7 +155,7 @@ export default {
       anchorEl: null,
       focusTextField: true,
       open: false,
-      searchText: undefined,
+      searchText: this.value,
       inputWidth: null
     }
   },

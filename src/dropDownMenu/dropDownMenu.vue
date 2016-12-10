@@ -82,17 +82,14 @@ export default {
     return {
       openMenu: false,
       trigger: null,
-      menuWidth: null
-    }
-  },
-  computed: {
-    label () {
-      return this.getText()
+      menuWidth: null,
+      label: ''
     }
   },
   mounted () {
     this.trigger = this.anchorEl || this.$el
     this.openMenu = this.openImmediately
+    this.label = this.getText()
     this.setMenuWidth()
   },
   methods: {
@@ -137,6 +134,9 @@ export default {
   watch: {
     anchorEl (val) {
       if (val) this.trigger = val
+    },
+    value () {
+      this.label = this.getText()
     }
   },
   components: {

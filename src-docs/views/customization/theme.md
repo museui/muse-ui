@@ -121,7 +121,7 @@ export default {
 @darkerAccentColor: @grey100;        // 更深的强调色
 @lighterAccentColor: @grey500;       // 浅一点的强调色
 
-// 文本颜色和
+// 文本颜色
 @textColor: @darkBlack;
 @secondaryTextColor: fade(@fullBlack, 54%);
 @alternateTextColor: @white;
