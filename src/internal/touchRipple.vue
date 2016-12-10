@@ -37,7 +37,6 @@ export default {
   },
   methods: {
     start (event, isRippleTouchGenerated) {
-      console.log(isRippleTouchGenerated)
       if (this.ignoreNextMouseDown && !isRippleTouchGenerated) {
         this.ignoreNextMouseDown = false
         return
@@ -65,7 +64,6 @@ export default {
       document.body.addEventListener('touchmove', this.handleMove, false)
     },
     handleMouseDown (event) {
-      console.log('mouse down')
       if (event.button === 0) {
         this.start(event, false)
       }

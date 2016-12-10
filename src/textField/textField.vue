@@ -1,7 +1,7 @@
 <template>
   <div class="mu-text-field" :class="textFieldClass" :style="focus ? errorStyle : {}">
     <icon  v-if="icon" class="mu-text-field-icon" :class="iconClass" :value="icon"></icon>
-    <label @click="handleLabelClick" ref="content" class="mu-text-field-content">
+    <div @click="handleLabelClick" ref="content" class="mu-text-field-content">
       <text-field-label v-if="label" :float="float" :focus="focus" :normalClass="labelClass" :focusClass="labelFocusClass">{{label}}</text-field-label>
       <text-field-hint v-if="hintText" :text="hintText" :show="showHint" :class="hintTextClass"></text-field-hint>
       <slot>
@@ -20,7 +20,7 @@
               {{charLength}}/{{maxLength}}
           </div>
       </div>
-    </label>
+    </div>
   </div>
 </template>
 

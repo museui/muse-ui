@@ -1,16 +1,16 @@
 <template>
-  <div class="content-wrapper">
-    <markdown-element :text="text"/>
-  </div>
+<div class="content-wrapper">
+  <markdown-element :text="$t('usageDoc')"/>
+</div>
 </template>
 
 <script>
-import usageText from './usage.md'
+import zh from './zh'
+import en from './en'
 export default {
-  data () {
-    return {
-      text: usageText
-    }
+  locales: {
+    zh,
+    en
   }
 }
 </script>

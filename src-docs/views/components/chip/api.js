@@ -3,37 +3,37 @@ export default {
     name: 'showDelete',
     type: 'Boolean',
     default: 'false',
-    desc: '是否显示删除图标'
+    desc: 'props.showDelete'
   }, {
     name: 'deleteIconClass',
     type: 'String',
     default: '',
-    desc: '删除图标的样式'
+    desc: 'props.deleteIconClass'
   }, {
     name: 'disabled',
     type: 'Boolean',
     default: 'false',
-    desc: '设为true则不可点击'
+    desc: 'props.disabled'
   }, {
     name: 'backgroundColor',
     type: 'String',
     default: '',
-    desc: '背景色'
+    desc: 'props.backgroundColor'
   }, {
     name: 'color',
     type: 'String',
     default: '',
-    desc: '文字的颜色'
+    desc: 'props.color'
   }],
   slots: [{
     name: 'default',
-    desc: '用于放置 avatar 和简短的文字'
+    desc: 'slots.default'
   }],
   events: [{
     name: 'delete',
-    desc: '点击删除图标后触发'
+    desc: 'events.delete'
   }, {
     name: 'click',
-    desc: '点击时候触发'
+    desc: 'events.click'
   }]
 }

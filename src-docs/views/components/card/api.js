@@ -2,7 +2,7 @@ export default {
   card: {
     slots: [{
       name: 'default',
-      desc: '用于放置子组件'
+      desc: 'card.slots.default'
     }]
   },
   cardHeader: {
@@ -10,29 +10,29 @@ export default {
       name: 'title',
       type: 'String',
       default: '',
-      desc: '标题文字'
+      desc: 'cardHeader.props.title'
     }, {
       name: 'titleClass',
       type: 'String,Object,Array',
       default: '',
-      desc: '标题样式,同 `class` 绑定方式一致'
+      desc: 'cardHeader.props.titleClass'
     }, {
       name: 'subTitle',
       type: 'String',
       default: '',
-      desc: '子标题文字'
+      desc: 'cardHeader.props.subTitle'
     }, {
       name: 'subTitleClass',
       type: 'String,Object,Array',
       default: '',
-      desc: '子标题样式,同 `class` 绑定方式一致'
+      desc: 'cardHeader.props.subTitleClass'
     }],
     slots: [{
       name: 'avatar',
-      desc: '用于放置 avatar 组件'
+      desc: 'cardHeader.slots.avatar'
     }, {
       name: 'default',
-      desc: '用于放置一些其它内容'
+      desc: 'cardHeader.slots.default'
     }]
   },
   cardMedia: {
@@ -40,26 +40,26 @@ export default {
       name: 'title',
       type: 'String',
       default: '',
-      desc: '标题文字'
+      desc: 'cardMedia.props.title'
     }, {
       name: 'titleClass',
       type: 'String,Object,Array',
       default: '',
-      desc: '标题样式,同 `class` 绑定方式一致'
+      desc: 'cardMedia.props.titleClass'
     }, {
       name: 'subTitle',
       type: 'String',
       default: '',
-      desc: '子标题文字'
+      desc: 'cardMedia.props.subTitle'
     }, {
       name: 'subTitleClass',
       type: 'String,Object,Array',
       default: '',
-      desc: '子标题样式,同 `class` 绑定方式一致'
+      desc: 'cardMedia.props.subTitleClass'
     }],
     slots: [{
       name: 'default',
-      desc: '放置图片等媒体元素'
+      desc: 'cardMedia.slots.default'
     }]
   },
   cardTitle: {
@@ -67,34 +67,34 @@ export default {
       name: 'title',
       type: 'String',
       default: '',
-      desc: '标题文字'
+      desc: 'cardTitle.props.title'
     }, {
       name: 'titleClass',
       type: 'String,Object,Array',
       default: '',
-      desc: '标题样式,同 `class` 绑定方式一致'
+      desc: 'cardTitle.props.titleClass'
     }, {
       name: 'subTitle',
       type: 'String',
       default: '',
-      desc: '子标题文字'
+      desc: 'cardTitle.props.subTitle'
     }, {
       name: 'subTitleClass',
       type: 'String,Object,Array',
       default: '',
-      desc: '子标题样式,同 `class` 绑定方式一致'
+      desc: 'cardTitle.props.subTitleClass'
     }]
   },
   cardText: {
     slots: [{
       name: 'default',
-      desc: '用于放置大段介绍性的文字'
+      desc: 'cardText.slots.default'
     }]
   },
   cardActions: {
     slots: [{
       name: 'default',
-      desc: '用于放置动作按钮'
+      desc: 'cardText.slots.default'
     }]
   }
 }

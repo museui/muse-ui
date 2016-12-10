@@ -3,45 +3,45 @@ export default {
     name: 'backgroundColor',
     type: 'String',
     default: '',
-    desc: '背景色'
+    desc: 'props.backgroundColor'
   }, {
     name: 'color',
     type: 'String',
     default: '',
-    desc: '图标和文字的颜色'
+    desc: 'props.color'
   }, {
     name: 'src',
     type: 'String',
     default: '',
-    desc: '相当于 img 标签的 src 属性'
+    desc: 'props.src'
   }, {
     name: 'imgClass',
     type: 'String,Object,Array',
     default: '',
-    desc: '图片的样式, 同 `class` 绑定方式一致'
+    desc: 'props.imgClass'
   }, {
     name: 'icon',
     type: 'String',
     default: '',
-    desc: '显示的图标'
+    desc: 'props.icon'
   }, {
     name: 'iconClass',
     type: 'String,Object,Array',
     default: '',
-    desc: '图标的样式, 同 `class` 绑定方式一致'
+    desc: 'props.iconClass'
   }, {
     name: 'iconSize',
     type: 'Number',
     default: '',
-    desc: '图标的大小'
+    desc: 'props.iconSize'
   }, {
     name: 'size',
     type: 'Number',
     default: '',
-    desc: 'avatar 的大小, 默认 40px'
+    desc: 'props.size'
   }],
   slots: [{
     name: 'default',
-    desc: '用于放置 avatar 的文字'
+    desc: 'slots.default'
   }]
 }

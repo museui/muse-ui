@@ -1,21 +1,20 @@
 <template>
 <div class="content-wrapper">
-  <markdown-element :text="description"/>
-  <code-example :code="exampleFormCode" title="配合表单元素使用">
+  <markdown-element :text="$t('description')"/>
+  <code-example :code="exampleFormCode" :title="$t('formExample')">
     <ex-form />
   </code-example>
-  <code-example :code="exampleListCode" title="配合List组件使用">
+  <code-example :code="exampleListCode" :title="$t('listExample')">
     <ex-list />
   </code-example>
-  <code-example :code="exampleMenuCode" title="配合Menu组件使用">
+  <code-example :code="exampleMenuCode" :title="$t('menuExample')">
     <ex-menu />
   </code-example>
-  <api-view :api="apiData" />
+  <api-view :api="apiData" :i18n="$t.bind(this)"/>
 </div>
 </template>
 
 <script>
-import description from './README.md'
 import exampleForm from './exampleForm'
 import exampleFormCode from '!raw!./exampleForm'
 import exampleList from './exampleList'
@@ -23,10 +22,11 @@ import exampleListCode from '!raw!./exampleList'
 import exampleMenu from './exampleMenu'
 import exampleMenuCode from '!raw!./exampleMenu'
 import apiData from './api'
+import zh from './zh'
+import en from './en'
 export default {
   data () {
     return {
-      description,
       exampleFormCode,
       exampleListCode,
       exampleMenuCode,
@@ -37,6 +37,10 @@ export default {
     'ex-form': exampleForm,
     'ex-list': exampleList,
     'ex-menu': exampleMenu
+  },
+  locales: {
+    zh,
+    en
   }
 }
 </script>

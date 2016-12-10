@@ -3,56 +3,56 @@ export default {
     name: 'open',
     type: 'Boolean',
     default: 'false',
-    desc: '是否打开'
+    desc: 'props.open'
   }, {
     name: 'dialogClass',
     type: 'String,Object,Array',
     default: '',
-    desc: 'dialog 样式, 同 `class` 绑定方式一致'
+    desc: 'props.dialogClass'
   }, {
     name: 'title',
     type: 'String',
     default: '',
-    desc: '对话框的标题'
+    desc: 'props.title'
   }, {
     name: 'titleClass',
     type: 'String,Object,Array',
     default: '',
-    desc: '标题栏样式, 同 `class` 绑定方式一致'
+    desc: 'props.titleClass'
   }, {
     name: 'bodyClass',
     type: 'String,Object,Array',
     default: '',
-    desc: '内容区样式, 同 `class` 绑定方式一致'
+    desc: 'props.bodyClass'
   }, {
     name: 'actionsContainerClass',
     type: 'String,Object,Array',
     default: '',
-    desc: '操作按钮容器样式, 同 `class` 绑定方式一致'
+    desc: 'props.actionsContainerClass'
   }, {
     name: 'scrollable',
     type: 'Boolean',
     default: 'false',
-    desc: '内容是否可以滚动'
+    desc: 'props.scrollable'
   }],
   events: [{
     name: 'close',
-    desc: '当点击遮盖层或者按下`esc`键时触发该事件，会传入一个 `reason` 作为参数，```javascript\n (reason) => console.log(reason)  \n```'
+    desc: 'events.close'
   }, {
     name: 'show',
-    desc: '当 dialog 显示时(动画完成后)触发事件'
+    desc: 'events.show'
   }, {
     name: 'hide',
-    desc: '当 dialog 隐藏时(动画完成后)触发事件'
+    desc: 'events.hide'
   }],
   slots: [{
     name: 'title',
-    desc: '用于自定义标题栏'
+    desc: 'slots.title'
   }, {
     name: 'actions',
-    desc: '用于放置底部操作按钮'
+    desc: 'slots.actions'
   }, {
     name: 'default',
-    desc: '对话框的内容部分'
+    desc: 'slots.default'
   }]
 }

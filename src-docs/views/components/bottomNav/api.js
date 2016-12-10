@@ -4,20 +4,20 @@ export default {
       name: 'shift',
       type: 'Boolean',
       default: 'false',
-      desc: '是否使用 shift 模式'
+      desc: 'bottomNav.props.shift'
     }, {
       name: 'value',
       type: '',
       default: '',
-      desc: '必需，需要和子组件 bottomNavItem 配合'
+      desc: 'bottomNav.props.value'
     }],
     slots: [{
       name: 'default',
-      desc: '用于放置 bottomNavItem 组件'
+      desc: 'bottomNav.slots.default'
     }],
     events: [{
       name: 'change',
-      desc: '当 value 改变的时触发，参数(value) value 新的value'
+      desc: 'bottomNav.events.change'
     }]
   },
   bottomNavItem: {
@@ -25,32 +25,32 @@ export default {
       name: 'icon',
       type: 'String',
       default: '',
-      desc: '图标'
+      desc: 'bottomNavItem.props.icon'
     }, {
       name: 'iconClass',
       type: 'String,Object,Array',
       default: '',
-      desc: '图标的样式, 同 `class` 绑定方式一致'
+      desc: 'bottomNavItem.props.iconClass'
     }, {
       name: 'title',
       type: 'String',
       default: '',
-      desc: '显示的标题'
+      desc: 'bottomNavItem.props.title'
     }, {
       name: 'titleClass',
       type: 'String,Object,Array',
       default: '',
-      desc: '标题的样式, 同 `class` 绑定方式一致'
+      desc: 'bottomNavItem.props.titleClass'
     }, {
       name: 'value',
       type: '',
       default: '',
-      desc: '必需，当value 与父组件的 value值相等时，会变成选中状态'
+      desc: 'bottomNavItem.props.value'
     }, {
       name: 'href',
       type: 'String',
       default: '',
-      desc: '相当于 a 标签的 href属性，设置之后会渲染成 a 标签，默认是使用button标签'
+      desc: 'bottomNavItem.props.href'
     }]
   }
 }

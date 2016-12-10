@@ -27,16 +27,16 @@ export default {
   }],
   slots: [{
     name: 'default',
-    desc: '用于放置弹出内容'
+    desc: 'slots.default'
   }],
   events: [{
     name: 'close',
-    desc: '当点击遮盖层或者按 esc建触发，会触发close的动作作为参数传入，(reason) => {if(reason == \'overlay\') {// 执行关闭动作}} '
+    desc: 'events.close'
   }, {
     name: 'show',
-    desc: '当 bottomSheet 弹出时(动画完成后)触发事件'
+    desc: 'events.show'
   }, {
     name: 'hide',
-    desc: '当 bottomSheet 隐藏时(动画完成后)触发事件'
+    desc: 'events.hide'
   }]
 }

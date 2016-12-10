@@ -1,16 +1,16 @@
 <template>
 <div class="content-wrapper">
-  <markdown-element :text="text"/>
+  <markdown-element :text="$t('installDoc')"/>
 </div>
 </template>
 
 <script>
-import installText from './install.md'
+import zh from './zh'
+import en from './en'
 export default {
-  data () {
-    return {
-      text: installText
-    }
+  locales: {
+    zh,
+    en
   }
 }
 </script>

@@ -1,21 +1,20 @@
 <template>
 <div class="content-wrapper">
-  <markdown-element :text="description"/>
-  <code-example :code="exampleSimpleCode" title="简单的使用" description="每个 `dialog` 的显示和关闭都在外部使用 `v-if` 控制，当点击遮盖层或者敲下 `esc` 键，都会触发 `close` 事件">
+  <markdown-element :text="$t('description')"/>
+  <code-example :code="exampleSimpleCode" :title="$t('simpleExample')" :description="$t('simpleExampleDesc')">
     <ex-simple/>
   </code-example>
-  <code-example :code="exampleAlertCode" title="Alert" description="可以不监听 `close` 事件，使其只能通过点击确定按钮关闭">
+  <code-example :code="exampleAlertCode" :title="$t('alertExample')" :description="$t('alertExampleDesc')">
     <ex-alert/>
   </code-example>
-  <code-example :code="exampleScrollCode" title="可滚动的对话框">
+  <code-example :code="exampleScrollCode" :title="$t('scrollExample')">
     <ex-scroll/>
   </code-example>
-  <api-view :api="apiData"/>
+  <api-view :api="apiData" :i18n="$t.bind(this)"/>
 </div>
 </template>
 
 <script>
-import description from './README.md'
 import exampleSimple from './exampleSimple'
 import exampleSimpleCode from '!raw!./exampleSimple'
 import exampleAlert from './exampleAlert'
@@ -23,10 +22,11 @@ import exampleAlertCode from '!raw!./exampleAlert'
 import exampleScroll from './exampleScroll'
 import exampleScrollCode from '!raw!./exampleScroll'
 import apiData from './api'
+import zh from './zh'
+import en from './en'
 export default {
   data () {
     return {
-      description,
       exampleSimpleCode,
       exampleAlertCode,
       exampleScrollCode,
@@ -37,6 +37,10 @@ export default {
     'ex-simple': exampleSimple,
     'ex-alert': exampleAlert,
     'ex-scroll': exampleScroll
+  },
+  locales: {
+    zh,
+    en
   }
 }
 </script>

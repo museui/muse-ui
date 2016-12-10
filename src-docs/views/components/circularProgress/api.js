@@ -3,36 +3,36 @@ export default {
     name: 'mode',
     type: 'String',
     default: 'indeterminate',
-    desc: '进度指示器的模式， indeterminate 不确定进度模式，这时 value、min、max 无效, determinate 需要通过改变value值来改变进度显示'
+    desc: 'props.mode'
   }, {
     name: 'value',
     type: 'Number',
     default: '',
-    desc: '进度指示器的 `value` 值'
+    desc: 'props.value'
   }, {
     name: 'max',
     type: 'Number',
     default: '100',
-    desc: '最大值'
+    desc: 'props.max'
   }, {
     name: 'min',
     type: 'Number',
     default: '0',
-    desc: '最小值'
+    desc: 'props.min'
   }, {
     name: 'size',
     type: 'Number',
     default: '',
-    desc: '圆形的大小'
+    desc: 'props.size'
   }, {
     name: 'strokeWidth',
     type: 'Number',
     default: '3',
-    desc: '圆形线的宽度'
+    desc: 'props.strokeWidth'
   }, {
     name: 'color',
     type: 'String',
     default: '',
-    desc: '圆形线的颜色'
+    desc: 'props.color'
   }]
 }

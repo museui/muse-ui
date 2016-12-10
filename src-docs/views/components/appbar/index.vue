@@ -1,22 +1,21 @@
 <template>
 <div class="content-wrapper">
-  <markdown-element :text="text"/>
-  <code-example title="简单的使用" :code="exampleIconCode">
+  <markdown-element :text="$t('description')"/>
+  <code-example :title="$t('simpleExample')" :code="exampleIconCode">
     <ex-icon/>
   </code-example>
-  <code-example title="配合 IconMenu 加入菜单" :code="exampleIconMenuCode">
+  <code-example :title="$t('iconMenu')" :code="exampleIconMenuCode">
     <ex-icon-menu/>
   </code-example>
-  <code-example title="加入搜索框和按钮" :code="exampleFieldCode">
+  <code-example :title="$t('addSearch')" :code="exampleFieldCode">
     <ex-field/>
   </code-example>
 
-  <api-view :api="apiData"/>
+  <api-view :api="apiData" :i18n="$t.bind(this)"/>
 </div>
 </template>
 
 <script>
-import description from './README.md'
 import exampleIcon from './exampleIcon'
 import exampleIconCode from '!raw!./exampleIcon'
 import exampleIconMenu from './exampleIconMenu'
@@ -24,10 +23,11 @@ import exampleIconMenuCode from '!raw!./exampleIconMenu'
 import exampleField from './exampleField'
 import exampleFieldCode from '!raw!./exampleField'
 import apiData from './api'
+import zh from './zh'
+import en from './en'
 export default {
   data () {
     return {
-      text: description,
       exampleIconCode: exampleIconCode,
       exampleIconMenuCode,
       exampleFieldCode,
@@ -38,6 +38,10 @@ export default {
     'ex-icon': exampleIcon,
     'ex-icon-menu': exampleIconMenu,
     'ex-field': exampleField
+  },
+  locales: {
+    zh,
+    en
   }
 }
 </script>

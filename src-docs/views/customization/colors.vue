@@ -1,20 +1,7 @@
 <template>
 <div class="content-wrapper">
   <h2 class="demo-head-title">UI Color Palette</h2>
-  <p>
-      <a  target="_blank" href="https://material.google.com/style/color.html#color-ui-color-palette">
-      UI Color Palette
-      </a> 中的每一个颜色，在javasrcript 和 less 中都有对应的颜色变量，组件中关于颜色属性(overlayColor，rippleColor 除外)可以直接使用变量名.
-      颜色变量文件在
-      <a target="_blank" href="https://github.com/museui/muse-ui/blob/master/src/utils/colors.js">
-      src/utils/colors.js
-      </a>
-      或者
-      <a target="_blank" href="https://github.com/museui/muse-ui/blob/master/src/styles/colors.less">
-        src/styles/colors.less
-      </a>
-      。
-  </p>
+  <p v-html="$t('color')"></p>
   <div class="demo-colors-wrapper">
     <mu-row>
       <mu-col v-for="color in mainColors" width="50" desktop="25" tablet="33" class="demo-color-group">
@@ -45,6 +32,8 @@ const mainColors = [
 ]
 const palettes = ['50', '100', '200', '300', '400', '500', '600', '700', '800', '900', 'A100', 'A200', 'A400', 'A700']
 import * as colors from 'muse-ui/utils/colors'
+import zh from './zh'
+import en from './en'
 import {getContrastRatio} from './colorManipulator'
 export default {
   data () {
@@ -76,6 +65,10 @@ export default {
         }
       }
     }
+  },
+  locales: {
+    zh,
+    en
   }
 }
 </script>

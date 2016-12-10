@@ -23,7 +23,7 @@
           <markdown-element :text="item.default"/>
         </mu-td>
         <mu-td class="api-desc-td api-td">
-          <markdown-element :text="item.desc"/>
+          <markdown-element :text="translate(item.desc)"/>
         </mu-td>
       </mu-tr>
     </mu-tbody>
@@ -39,7 +39,7 @@
       <mu-tr v-for="item in api.slots">
         <mu-td class="api-td">{{item.name}}</mu-td>
         <mu-td class="api-desc-td api-td">
-          <markdown-element :text="item.desc"/>
+          <markdown-element :text="translate(item.desc)"/>
         </mu-td>
       </mu-tr>
     </mu-tbody>
@@ -55,7 +55,7 @@
       <mu-tr v-for="item in api.events">
         <mu-td class="api-td">{{item.name}}</mu-td>
         <mu-td class="api-desc-td api-td">
-          <markdown-element :text="item.desc"/>
+          <markdown-element :text="translate(item.desc)"/>
         </mu-td>
       </mu-tr>
     </mu-tbody>
@@ -75,6 +75,9 @@ export default {
     api: {
       type: Object,
       required: true
+    },
+    i18n: {
+      type: Function
     }
   },
   computed: {
@@ -90,6 +93,9 @@ export default {
   methods: {
     handleChange (value) {
       this.value = value
+    },
+    translate (desc) {
+      return this.i18n ? this.i18n(desc) : desc
     }
   },
   locales: {

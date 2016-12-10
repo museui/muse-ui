@@ -1,6 +1,6 @@
 <template>
 <div class="content-wrapper">
-  <markdown-element :text="titleText"/>
+  <markdown-element :text="$t('title')"/>
   <mu-paper :class="['theme-' + theme, 'demo-theme-paper']">
     <mu-tabs :value="theme" @change="changeTheme">
       <mu-tab title="LIGHT (DEFAULT)" value="light"/>
@@ -77,9 +77,9 @@
       </mu-col>
     </mu-row>
     <mu-dialog :open="dialog" title="Dialog" @close="closeDialog">
-      这是一个简单的弹出框
-      <mu-flat-button slot="actions" @click="closeDialog" primary label="取消"/>
-      <mu-flat-button slot="actions" primary @click="closeDialog" label="确定"/>
+      {{$t('dialogDesc')}}
+      <mu-flat-button slot="actions" @click="closeDialog" primary :label="$t('cancel')"/>
+      <mu-flat-button slot="actions" primary @click="closeDialog" :label="$t('ok')"/>
     </mu-dialog>
     <mu-drawer :open="drawer" :docked="false" @close="toggleDrawer()">
       <mu-menu @itemClick="toggleDrawer()">
@@ -88,9 +88,9 @@
         <mu-menu-item title="Menu Item 3"/>
       </mu-menu>
     </mu-drawer>
-    <mu-snackbar v-if="snackbar" message="一段简单的文本" action="关闭" @actionClick="hideSnackbar" @close="hideSnackbar"/>
+    <mu-snackbar v-if="snackbar" :message="$t('snackbarDesc')" :action="$t('close')" @actionClick="hideSnackbar" @close="hideSnackbar"/>
   </mu-paper>
-  <markdown-element :text="themeText"/>
+  <markdown-element :text="$t('themeDoc')"/>
 </div>
 </template>
 
@@ -99,16 +99,8 @@ import light from '!raw!!less!../../assets/themes/theme-default.less'
 import dark from '!raw!!less!../../assets/themes/theme-dark.less'
 import carbon from '!raw!!less!../../assets/themes/theme-carbon.less'
 import teal from '!raw!!less!../../assets/themes/theme-teal.less'
-import themeText from './theme.md'
-
-const titleText = `
-## 主题
-
-### 示例
-
-下面的示例，你可以通过选择不同的tab来改变主题
-
-`
+import zh from './zh'
+import en from './en'
 
 const themes = {
   light,
@@ -120,13 +112,11 @@ let theme = 'light'
 export default {
   data () {
     return {
-      titleText,
       dialog: false,
       drawer: false,
       snackbar: false,
       dropDown: 3,
-      theme: theme,
-      themeText
+      theme: theme
     }
   },
   methods: {
@@ -165,6 +155,10 @@ export default {
       document.body.appendChild(styleEl)
       return styleEl
     }
+  },
+  locales: {
+    zh,
+    en
   }
 }
 </script>

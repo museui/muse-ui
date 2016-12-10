@@ -1,28 +1,28 @@
 <template>
 <div class="content-wrapper">
-  <markdown-element :text="description"/>
-  <code-example :code="exampleSimpleCode" title="简单的使用">
+  <markdown-element :text="$t('description')"/>
+  <code-example :code="exampleSimpleCode" :title="$t('simpleExample')">
     <ex-simple />
   </code-example>
-  <code-example :code="exampleShiftCode" title="Shift 模式">
+  <code-example :code="exampleShiftCode" :title="$t('shiftExample')">
     <ex-shift />
   </code-example>
-  <api-view :api="apiData.bottomNav" title="BottomNav API"/>
-  <api-view :api="apiData.bottomNavItem" title="bottomNavItem API"/>
+  <api-view :api="apiData.bottomNav" title="BottomNav API" :i18n="$t.bind(this)"/>
+  <api-view :api="apiData.bottomNavItem" title="bottomNavItem API" :i18n="$t.bind(this)"/>
 </div>
 </template>
 
 <script>
-import description from './README.md'
 import exampleSimple from './exampleSimple'
 import exampleSimpleCode from '!raw!./exampleSimple'
 import exampleShift from './exampleShift'
 import exampleShiftCode from '!raw!./exampleShift'
 import apiData from './api'
+import zh from './zh'
+import en from './en'
 export default {
   data () {
     return {
-      description,
       exampleSimpleCode,
       exampleShiftCode,
       apiData
@@ -31,6 +31,10 @@ export default {
   components: {
     'ex-simple': exampleSimple,
     'ex-shift': exampleShift
+  },
+  locales: {
+    zh,
+    en
   }
 }
 </script>
