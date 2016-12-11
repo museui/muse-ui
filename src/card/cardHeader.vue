@@ -9,7 +9,7 @@
       {{subTitle}}
     </div>
   </div>
-  <slot><slot>
+  <slot></slot>
 </div>
 </template>
 
