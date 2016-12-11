@@ -4,21 +4,21 @@ export default {
       name: 'cellHeight',
       type: 'Number',
       default: '180',
-      desc: '每一个网格的高度'
+      desc: 'gridList.props.cellHeight'
     }, {
       name: 'cols',
       type: 'Number',
       default: '2',
-      desc: '每一行的列数'
+      desc: 'gridList.props.cols'
     }, {
       name: 'padding',
       type: 'Number',
       default: '4',
-      desc: '每一个网的 `padding` 值'
+      desc: 'gridList.props.padding'
     }],
     slots: [{
       name: 'default',
-      desc: '用于放置子组件 `gridTile` 或者 `subHeader` '
+      desc: 'gridList.slots.default'
     }]
   },
   gridTile: {
@@ -26,50 +26,50 @@ export default {
       name: 'cols',
       type: 'Number',
       default: '1',
-      desc: '占的列数, 会根据此参数计算宽度'
+      desc: 'gridTile.props.cols'
     }, {
       name: 'rows',
       type: 'Number',
       default: '1',
-      desc: '占的行数, 会根据此参数计算高度'
+      desc: 'gridTile.props.rows'
     }, {
       name: 'title',
       type: 'String',
       default: '',
-      desc: '标题文字，也可以通过 name 为 title 的 `slot`来设置'
+      desc: 'gridTile.props.title'
     }, {
       name: 'subTitle',
       type: 'String',
       default: '',
-      desc: '子标题文字，也可以通过 name 为 subTitle 的 `slot`来设置'
+      desc: 'gridTile.props.subTitle'
     }, {
       name: 'titlePosition',
       type: 'String',
       default: 'bottom',
-      desc: '标题栏的位置，`top` 在上方, `bottom` 在下方'
+      desc: 'gridTile.props.titlePosition'
     }, {
       name: 'titleBarClass',
       type: 'String,Array,Object',
       default: '',
-      desc: '标题栏的样式'
+      desc: 'gridTile.props.titleBarClass'
     }, {
       name: 'actionPosition',
       type: 'String',
       default: 'right',
-      desc: '动作按钮的位置， right 在右边， left 在左边'
+      desc: 'gridTile.props.actionPosition'
     }],
     slots: [{
       name: 'title',
-      desc: '放置标题文字'
+      desc: 'gridTile.slots.title'
     }, {
       name: 'subTitle',
-      desc: '放置子标题文字'
+      desc: 'gridTile.slots.subTitle'
     }, {
       name: 'action',
-      desc: '放置动作按钮，`iconButton` 组件等'
+      desc: 'gridTile.slots.action'
     }, {
       name: 'default',
-      desc: '用于放置图片等元素'
+      desc: 'gridTile.slots.default'
     }]
   }
 }

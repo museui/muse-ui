@@ -1,27 +1,27 @@
 <template>
 <div class="content-wrapper">
-  <markdown-element :text="description" />
-  <code-example :code="exampleSimpleCode" title="简单的使用" description="使用 `open` 参数控制显示, `docked` 默认为 true,这个时候不会显示遮盖层，点击菜单也不会关闭">
+  <markdown-element :text="$t('description')" />
+  <code-example :code="exampleSimpleCode" :title="$t('simpleExample')" :description="$t('simpleExampleDesc')">
     <ex-simple/>
   </code-example>
-  <code-example :code="exampleRightCode" title="打开右边的 Drawer">
+  <code-example :code="exampleRightCode" :title="$t('rightExample')">
     <ex-right/>
   </code-example>
-  <api-view :api="apiData"/>
+  <api-view :api="apiData" :i18n="$t.bind(this)"/>
 </div>
 </template>
 
 <script>
-import description from './README.md'
 import exampleSimple from './exampleSimple'
 import exampleSimpleCode from '!raw!./exampleSimple'
 import exampleRight from './exampleRight'
 import exampleRightCode from '!raw!./exampleRight'
 import apiData from './api'
+import zh from './zh'
+import en from './en'
 export default {
   data () {
     return {
-      description,
       exampleSimpleCode,
       exampleRightCode,
       apiData
@@ -30,6 +30,10 @@ export default {
   components: {
     'ex-simple': exampleSimple,
     'ex-right': exampleRight
+  },
+  locales: {
+    zh,
+    en
   }
 }
 </script>

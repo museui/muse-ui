@@ -1,21 +1,20 @@
 <template>
 <div class="content-wrapper">
-  <markdown-element :text="description"/>
-  <code-example :code="exampleIndeterminateCode" title="Indeterminate Progress" description="默认的进度指示器">
+  <markdown-element :text="$t('description')"/>
+  <code-example :code="exampleIndeterminateCode" title="Indeterminate Progress" :description="$t('indeterminateDesc')">
     <ex-indeterminate />
   </code-example>
-  <code-example :code="exampleDeterminateCode" title="Determinate Progress" description="不过设置不同 `value` 来改变进度条的进度">
+  <code-example :code="exampleDeterminateCode" title="Determinate Progress" :description="$t('determinateDesc')">
     <ex-determinate/>
   </code-example>
-  <code-example :code="exampleCustomCode" title="定制大小和颜色">
+  <code-example :code="exampleCustomCode" :title="$t('customExample')">
     <ex-custom/>
   </code-example>
-  <api-view :api="apiData" />
+  <api-view :api="apiData" :i18n="$t.bind(this)"/>
 </div>
 </template>
 
 <script>
-import description from './README.md'
 import exampleIndeterminate from './exampleIndeterminate'
 import exampleIndeterminateCode from '!raw!./exampleIndeterminate'
 import exampleDeterminate from './exampleDeterminate'
@@ -23,10 +22,11 @@ import exampleDeterminateCode from '!raw!./exampleDeterminate'
 import exampleCustom from './exampleCustom'
 import exampleCustomCode from '!raw!./exampleCustom'
 import apiData from './api'
+import zh from './zh'
+import en from './en'
 export default {
   data () {
     return {
-      description,
       exampleIndeterminateCode,
       exampleDeterminateCode,
       exampleCustomCode,
@@ -37,6 +37,10 @@ export default {
     'ex-indeterminate': exampleIndeterminate,
     'ex-determinate': exampleDeterminate,
     'ex-custom': exampleCustom
+  },
+  locales: {
+    zh,
+    en
   }
 }
 </script>

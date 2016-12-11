@@ -1,27 +1,26 @@
 <template>
 <div class="content-wrapper">
-  <markdown-element :text="description" />
-  <code-example :code="exampleSimpleCode" title="简单的使用" description="关于 `textField` 一些简单的使用例子， 还是可以通过 `v-model` 控制value">
+  <markdown-element :text="$t('description')" />
+  <code-example :code="exampleSimpleCode" :title="$t('simpleExample')" :description="$t('simpleExampleDesc')">
     <ex-simple/>
   </code-example>
-  <code-example :code="exampleErrorCode" title="错误状态样式" description="使用 `errorText` 在输入出错时给提示，并且输入框变为错误状态， 可根据 `errorColor` 调整颜色">
+  <code-example :code="exampleErrorCode" :title="$t('errorExample')" :description="$t('errorExampleDesc')">
     <ex-error/>
   </code-example>
-  <code-example :code="exampleIconCode" title="使用图标的示例">
+  <code-example :code="exampleIconCode" :title="$t('iconExample')">
     <ex-icon/>
   </code-example>
-  <code-example :code="exampleDisabledCode" title="输入框被禁用">
+  <code-example :code="exampleDisabledCode" :title="$t('disabledExample')">
     <ex-disabled/>
   </code-example>
-  <code-example :code="exampleInputLengthCode" title="输入字符数记录" description="设置 `maxLength` 属性，启动输入字符数记录，再输入时会触发 `textOverflow` 事件，当一个参数为 `true` 是则说明输入的长度已超过最大长度">
+  <code-example :code="exampleInputLengthCode" :title="$t('inputLenExample')" :description="$t('inputLenExampleDesc')">
     <ex-input-length/>
   </code-example>
-  <api-view :api="apiData"/>
+  <api-view :api="apiData" :i18n="$t.bind(this)"/>
 </div>
 </template>
 
 <script>
-import description from './README.md'
 import exampleSimple from './exampleSimple'
 import exampleSimpleCode from '!raw!./exampleSimple'
 import exampleError from './exampleError'
@@ -33,10 +32,11 @@ import exampleDisabledCode from '!raw!./exampleDisabled'
 import exampleInputLength from './exampleInputLength'
 import exampleInputLengthCode from '!raw!./exampleInputLength'
 import apiData from './api'
+import zh from './zh'
+import en from './en'
 export default {
   data () {
     return {
-      description,
       exampleSimpleCode,
       exampleErrorCode,
       exampleIconCode,
@@ -51,6 +51,10 @@ export default {
     'ex-icon': exampleIcon,
     'ex-disabled': exampleDisabled,
     'ex-input-length': exampleInputLength
+  },
+  locales: {
+    zh,
+    en
   }
 }
 </script>

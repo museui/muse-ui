@@ -3,33 +3,33 @@ export default {
     name: 'max',
     type: 'Number',
     default: '100',
-    desc: '最大值'
+    desc: 'props.max'
   }, {
     name: 'min',
     type: 'Number',
     default: '100',
-    desc: '最小值'
+    desc: 'props.min'
   }, {
     name: 'step',
     type: 'Number',
     default: '0.1',
-    desc: '步长'
+    desc: 'props.step'
   }, {
     name: 'disabled',
     type: 'Boolean',
     default: 'false',
-    desc: '是否禁用滑块'
+    desc: 'props.disabled'
   }, {
     name: 'value',
     type: 'Number',
     default: '0',
-    desc: '滑块的值'
+    desc: 'props.value'
   }],
   events: [{
     name: 'input',
-    desc: 'value 发生改变触发的事件，传入新的value, (value)'
+    desc: 'events.input'
   }, {
     name: 'change',
-    desc: '用于用户行为(点击，拖拽)导致value发生改变时, 触发事件，传入 value 属性值'
+    desc: 'events.change'
   }]
 }

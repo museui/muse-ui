@@ -3,98 +3,98 @@ export default {
     name: 'icon',
     type: 'String',
     default: '',
-    desc: '按钮上的图标'
+    desc: 'props.icon'
   }, {
     name: 'iconClass',
     type: 'String,Object,Array',
     default: '',
-    desc: '图标的样式, 同 `class` 绑定方式一致'
+    desc: 'props.iconClass'
   }, {
     name: 'label',
     type: 'String',
     default: '',
-    desc: '按钮上的文字'
+    desc: 'props.label'
   }, {
     name: 'labelPosition',
     type: 'String',
     default: '',
-    desc: '文字的位置, before 在图标之前，after 在图标之后'
+    desc: 'props.labelPosition'
   }, {
     name: 'labelClass',
     type: 'String,Object,Array',
     default: '',
-    desc: 'label的样式, 同 `class` 绑定方式一致'
+    desc: 'props.labelClass'
   }, {
     name: 'primary',
     type: 'Boolean',
     default: 'false',
-    desc: '颜色是否为主色'
+    desc: 'props.primary'
   }, {
     name: 'secondary',
     type: 'Boolean',
     default: 'false',
-    desc: '颜色是否为强调色'
+    desc: 'props.secondary'
   }, {
     name: 'disabled',
     type: 'Boolean',
     default: 'false',
-    desc: '按钮是否不可用'
+    desc: 'props.disabled'
   }, {
     name: 'type',
     type: 'String',
     default: '',
-    desc: '相当于button元素的type属性'
+    desc: 'props.type'
   }, {
     name: 'href',
     type: 'String',
     default: '',
-    desc: '相当于 a 标签的 href属性，设置之后会渲染成 a 标签，默认是使用button标签'
+    desc: 'props.href'
   }, {
     name: 'target',
     type: 'String',
     default: '',
-    desc: '相当于 a 标签的target属性'
+    desc: 'props.target'
   }, {
     name: 'backgroundColor',
     type: 'String',
     default: '',
-    desc: '按钮背景色'
+    desc: 'props.backgroundColor'
   }, {
     name: 'color',
     type: 'String',
     default: '',
-    desc: '按钮颜色'
+    desc: 'props.color'
   }, {
     name: 'hoverColor',
     type: 'String',
     default: '',
-    desc: '鼠标移上去的背景色'
+    desc: 'props.hoverColor'
   }, {
     name: 'rippleColor',
     type: 'String',
     default: '',
-    desc: '波纹效果的颜色'
+    desc: 'props.rippleColor'
   }, {
     name: 'rippleOpacity',
     type: 'Number',
     default: '',
-    desc: '波纹效果的透明度'
+    desc: 'props.rippleOpacity'
   }],
   slots: [{
     name: 'default',
-    desc: '用来放置 input[type=file] 等特殊的按钮，或者自定义icon、文字'
+    desc: 'slots.default'
   }],
   events: [{
     name: 'click',
-    desc: '按钮点击事件'
+    desc: 'events.click'
   }, {
     name: 'hover',
-    desc: '鼠标移到按钮上的事件'
+    desc: 'events.hover'
   }, {
     name: 'hoverExit',
-    desc: '鼠标移出按钮上的事件'
+    desc: 'events.hoverExit'
   }, {
     name: 'keyboardFocus',
-    desc: '键盘使按钮获取焦点的事件，第一个参数为true 时表示获取焦点，为 false 失去焦点, (isFocus)'
+    desc: 'events.keyboardFocus'
   }]
 }

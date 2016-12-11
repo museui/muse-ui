@@ -4,92 +4,92 @@ export default {
       name: 'fixedHeader',
       type: 'Boolean',
       default: 'false',
-      desc: '是否固定表头'
+      desc: 'table.props.fixedHeader'
     }, {
       name: 'fixedFooter',
       type: 'Boolean',
       default: 'false',
-      desc: '是否固定表尾'
+      desc: 'table.props.fixedFooter'
     }, {
       name: 'height',
       type: 'String',
       default: 'auto',
-      desc: '表格的高度'
+      desc: 'table.props.height'
     }, {
       name: 'enableSelectAll',
       type: 'Boolean',
       default: 'false',
-      desc: '是否允许选择全部'
+      desc: 'table.props.enableSelectAll'
     }, {
       name: 'allRowsSelected',
       type: 'Boolean',
       default: 'false',
-      desc: '是否默认选择全部，设置为true 会选择所有行'
+      desc: 'table.props.allRowsSelected'
     }, {
       name: 'multiSelectable',
       type: 'Boolean',
       default: 'false',
-      desc: '是否可以多选'
+      desc: 'table.props.multiSelectable'
     }, {
       name: 'selectable',
       type: 'Boolean',
       default: 'true',
-      desc: '是否可以选择'
+      desc: 'table.props.selectable'
     }, {
       name: 'showCheckbox',
       type: 'Boolean',
       default: 'true',
-      desc: '是否显示复选框'
+      desc: 'table.props.showCheckbox'
     }],
     slots: [{
       name: 'header',
-      desc: '用于放置 `thead` 组件'
+      desc: 'table.slots.header'
     }, {
       name: 'footer',
-      desc: '用于放置 `tfoot` 组件'
+      desc: 'table.slots.footer'
     }, {
       name: 'default',
-      desc: '用于放置 `tbody` 组件'
+      desc: 'table.slots.default'
     }],
     events: [{
       name: 'rowClick',
-      desc: '某一行被点击时触发, 参数 (index, tr): \n * index 这一行的下标 \n * tr `tr` 组件实体'
+      desc: 'table.events.rowClick'
     }, {
       name: 'rowHover',
-      desc: '鼠标在某一行上时触发， 参数同 `rowClick` 一致'
+      desc: 'table.events.rowHover'
     }, {
       name: 'rowHoverExit',
-      desc: '鼠标在从一行移出时触发， 参数同 `rowClick` 一致'
+      desc: 'table.events.rowHoverExit'
     }, {
       name: 'rowSelection',
-      desc: '当某一行被选择时触发，参数 (selectedRowsIndex) \n selectedRowsIndex 是一个被选择行下标，如果 `multiSelectable` 为 `true` , selectedRowsIndex 是一个数组'
+      desc: 'table.events.rowSelection'
     }, {
       name: 'cellClick',
-      desc: 'td被点击时触发, 参数 (rowIndex, columnName, td, tr) \n * rowIndex 所在行的下标 \n * columnName td组件的name属性 \n * td 组件实体 \n * tr tr组件实体'
+      desc: 'table.events.cellClick'
     }, {
       name: 'cellHover',
-      desc: '鼠标在这个 td 上时触发, 参数同 `cellClick` 一致'
+      desc: 'table.events.cellHover'
     }, {
       name: 'cellHoverExit',
-      desc: '鼠标从这个 td 移出时触发, 参数同 `cellClick` 一致'
+      desc: 'table.events.cellHoverExit'
     }]
   },
   tbody: {
     slots: [{
       name: 'default',
-      desc: '用于放置 `tr` 组件'
+      desc: 'tbody.slots.default'
     }]
   },
   thead: {
     slots: [{
       name: 'default',
-      desc: '用于放置 `tr` 组件'
+      desc: 'thead.slots.default'
     }]
   },
   tfoot: {
     slots: [{
       name: 'default',
-      desc: '用于放置 `tr` 组件'
+      desc: 'tfoot.slots.default'
     }]
   },
   tr: {
@@ -97,16 +97,16 @@ export default {
       name: 'selectable',
       type: 'Boolean',
       default: 'false',
-      desc: '是否可以被选择'
+      desc: 'tr.props.selectable'
     }, {
       name: 'selected',
       type: 'Boolean',
       default: 'false',
-      desc: '是否已选择'
+      desc: 'tr.props.selected'
     }],
     slots: [{
       name: 'default',
-      desc: '用于放置 `td` 或 `th` 组件'
+      desc: 'tr.slots.default'
     }]
   },
   th: {
@@ -114,21 +114,21 @@ export default {
       name: 'tooltip',
       type: 'String',
       default: '',
-      desc: '提示文字'
+      desc: 'th.props.tooltip'
     }, {
       name: 'tooltipPosition',
       type: 'String',
       default: 'bottom-right',
-      desc: '提示文字文字, [垂直位置]-[水平位置]，垂直位置: top，middle, bottom; 水平位置: left, center, right'
+      desc: 'th.props.tooltipPosition'
     }, {
       name: 'touch',
       type: 'Boolean',
       default: 'false',
-      desc: '是否为 touch 的样式，一般用在移动端，提示框会大一些'
+      desc: 'th.props.touch'
     }],
     slots: [{
       name: 'default',
-      desc: '内容部分'
+      desc: 'th.slots.default'
     }]
   },
   td: {
@@ -136,11 +136,11 @@ export default {
       name: 'name',
       type: 'String',
       default: '',
-      desc: 'td 的名称，这是一个标识，在表格的 `cellClick` `cellHover` `cellHoverExit` 事件发生时会作为参数(columnName)传入,用来区分是哪一个 td 发生事件'
+      desc: 'td.props.name'
     }],
     slots: [{
       name: 'default',
-      desc: '内容部分'
+      desc: 'td.slots.default'
     }]
   }
 }

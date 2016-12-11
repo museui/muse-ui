@@ -1,34 +1,34 @@
 <template>
 <div class="content-wrapper">
-  <markdown-element :text="description"/>
-  <code-example :code="exampleSimpleCode" title="简单的使用示例" description="同 `table` 标签一样使用，只不过都需要 `mu-` 前缀">
+  <markdown-element :text="$t('description')"/>
+  <code-example :code="exampleSimpleCode" :title="$t('simpleExample')" :description="$t('simpleExampleDesc')">
     <ex-simple/>
   </code-example>
-  <code-example :code="exampleComplexCode" title="稍复杂的使用" description="设置不同的参数，完成不同的功能">
+  <code-example :code="exampleComplexCode" :title="$t('complexExample')" :description="$t('complexExampleDesc')">
     <ex-complex/>
   </code-example>
 
-  <api-view :api="apiData.table" title="Table API"/>
-  <api-view :api="apiData.thead" title="Thead Slots"/>
-  <api-view :api="apiData.tbody" title="Tbody Slots"/>
-  <api-view :api="apiData.tfoot" title="Tfoot Slots"/>
-  <api-view :api="apiData.tr" title="Tr API"/>
-  <api-view :api="apiData.th" title="Th API"/>
-  <api-view :api="apiData.td" title="Td API"/>
+  <api-view :api="apiData.table" title="Table API" :i18n="$t.bind(this)"/>
+  <api-view :api="apiData.thead" title="Thead Slots" :i18n="$t.bind(this)"/>
+  <api-view :api="apiData.tbody" title="Tbody Slots" :i18n="$t.bind(this)"/>
+  <api-view :api="apiData.tfoot" title="Tfoot Slots" :i18n="$t.bind(this)"/>
+  <api-view :api="apiData.tr" title="Tr API" :i18n="$t.bind(this)"/>
+  <api-view :api="apiData.th" title="Th API" :i18n="$t.bind(this)"/>
+  <api-view :api="apiData.td" title="Td API" :i18n="$t.bind(this)"/>
 </div>
 </template>
 
 <script>
-import description from './README.md'
 import exampleSimple from './exampleSimple'
 import exampleSimpleCode from '!raw!./exampleSimple'
 import exampleComplex from './exampleComplex'
 import exampleComplexCode from '!raw!./exampleComplex'
 import apiData from './api'
+import zh from './zh'
+import en from './en'
 export default {
   data () {
     return {
-      description,
       exampleSimpleCode,
       exampleComplexCode,
       apiData
@@ -37,6 +37,10 @@ export default {
   components: {
     'ex-simple': exampleSimple,
     'ex-complex': exampleComplex
+  },
+  locales: {
+    zh,
+    en
   }
 }
 </script>

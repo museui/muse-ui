@@ -3,138 +3,138 @@ export default {
     name: 'type',
     type: 'String',
     default: '',
-    desc: '输入框的类型，在单行输入时有效 text, password, email, url, number'
+    desc: 'props.type'
   }, {
     name: 'icon',
     type: 'String',
     default: '',
-    desc: '输入框图标'
+    desc: 'props.icon'
   }, {
     name: 'iconClass',
     type: 'String,Object,Array',
     default: '',
-    desc: '图标的样式, 同 `class` 绑定方式一致'
+    desc: 'props.iconClass'
   }, {
     name: 'label',
     type: 'String',
     default: '',
-    desc: '输入框的标签'
+    desc: 'props.label'
   }, {
     name: 'labelFloat',
     type: 'Boolean',
     default: 'false',
-    desc: '标签是否浮动'
+    desc: 'props.labelFloat'
   }, {
     name: 'labelClass',
     type: 'String,Object,Array',
     default: '',
-    desc: '标签的样式, 同 `class` 绑定方式一致'
+    desc: 'props.labelClass'
   }, {
     name: 'labelFocusClass',
     type: 'String,Object,Array',
     default: '',
-    desc: '输入框获取焦点时标签的样式, 同 `class` 绑定方式一致'
+    desc: 'props.labelFocusClass'
   }, {
     name: 'disabled',
     type: 'Boolean',
     default: 'false',
-    desc: '输入框是否不可用'
+    desc: 'props.disabled'
   }, {
     name: 'hintText',
     type: 'String',
     default: '',
-    desc: '提示文字'
+    desc: 'props.hintText'
   }, {
     name: 'hintTextClass',
     type: 'String,Object,Array',
     default: '',
-    desc: '提示文字样式, 同 `class` 绑定方式一致'
+    desc: 'props.hintTextClass'
   }, {
     name: 'helpText',
     type: 'String',
     default: '',
-    desc: '帮助文字'
+    desc: 'props.helpText'
   }, {
     name: 'helpTextClass',
     type: 'String,Object,Array',
     default: '',
-    desc: '帮助文字样式, 同 `class` 绑定方式一致'
+    desc: 'props.helpTextClass'
   }, {
     name: 'errorText',
     type: 'String',
     default: '',
-    desc: '错误提醒文字，如果此参数有值，那么输入框会转为错误的状态, 显示效果将会更改'
+    desc: 'props.errorText'
   }, {
     name: 'errorColor',
     type: 'String',
     default: '',
-    desc: '错误状态的时的颜色，默认为红色'
+    desc: 'props.errorColor'
   }, {
     name: 'fullWidth',
     type: 'Boolean',
     default: 'false',
-    desc: '是否将宽度设置为 100%, 默认 256px'
+    desc: 'props.fullWidth'
   }, {
     name: 'underlineShow',
     type: 'Boolean',
     default: 'true',
-    desc: '是否显示底部的横线'
+    desc: 'props.underlineShow'
   }, {
     name: 'underlineClass',
     type: 'String,Object,Array',
     default: '',
-    desc: '底部横线样式, 同 `class` 绑定方式一致'
+    desc: 'props.underlineClass'
   }, {
     name: 'underlineFocusClass',
     type: 'String,Object,Array',
     default: '',
-    desc: '输入框获取焦点时底部横线样式, 同 `class` 绑定方式一致'
+    desc: 'props.underlineFocusClass'
   }, {
     name: 'inputClass',
     type: 'String,Object,Array',
     default: '',
-    desc: '输入框样式, 同 `class` 绑定方式一致'
+    desc: 'props.inputClass'
   }, {
     name: 'multiLine',
     type: 'Boolean',
     default: 'false',
-    desc: '是否为多行输入'
+    desc: 'props.multiLine'
   }, {
     name: 'rows',
     type: 'Number',
     default: '1',
-    desc: '行数'
+    desc: 'props.rows'
   }, {
     name: 'rowsMax',
     type: 'Number',
     default: '',
-    desc: '最大行数'
+    desc: 'props.rowsMax'
   }, {
     name: 'maxLength',
     type: 'Number',
     default: '0',
-    desc: '可输入的最大长度'
+    desc: 'props.maxLength'
   }, {
     name: 'value',
     type: 'String',
     default: '',
-    desc: '输入框的值，可不设置此参数，使用 v-model 指令代替'
+    desc: 'props.value'
   }],
   events: [{
     name: 'focus',
-    desc: '输入框获取焦点时触发'
+    desc: 'events.focus'
   }, {
     name: 'blur',
-    desc: '输入框失去焦点时触发'
+    desc: 'events.blur'
   }, {
     name: 'input',
-    desc: 'value 发生改变触发的事件，传入新的value, (value)'
+    desc: 'events.input'
   }, {
     name: 'change',
-    desc: '用户输入时触发事件，传入输入框的 value'
+    desc: 'events.change'
   }],
   slots: [{
     name: 'default',
-    desc: '用于和其它组件配合使用，可以保留输入框的样式，但内部表单组件可以放置其它的组件，现在的 `selectField` `datePicer` `timePicker` 都是这种方式'
+    desc: 'slots.default'
   }]
 }

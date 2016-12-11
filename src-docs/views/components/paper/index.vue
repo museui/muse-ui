@@ -1,27 +1,27 @@
 <template>
 <div class="content-wrapper">
-  <markdown-element :text="description"/>
-  <code-example :code="exampleSimpleCode" title="简单的使用" description="通过 `zDepth` 控制纸片的阴影程度">
+  <markdown-element :text="$t('description')"/>
+  <code-example :code="exampleSimpleCode" :title="$t('simpleExample')" :description="$t('simpleExampleDesc')">
     <ex-simple/>
   </code-example>
-  <code-example :code="exampleCircleCode" title="圆形的纸片">
+  <code-example :code="exampleCircleCode" :title="$t('circleExample')">
     <ex-circle/>
   </code-example>
-  <api-view :api="apiData"/>
+  <api-view :api="apiData" :i18n="$t.bind(this)"/>
 </div>
 </template>
 
 <script>
-import description from './README.md'
 import exampleSimple from './exampleSimple'
 import exampleSimpleCode from '!raw!./exampleSimple'
 import exampleCircle from './exampleCircle'
 import exampleCircleCode from '!raw!./exampleCircle'
 import apiData from './api'
+import zh from './zh'
+import en from './en'
 export default {
   data () {
     return {
-      description,
       exampleSimpleCode,
       exampleCircleCode,
       apiData
@@ -30,6 +30,10 @@ export default {
   components: {
     'ex-simple': exampleSimple,
     'ex-circle': exampleCircle
+  },
+  locales: {
+    zh,
+    en
   }
 }
 </script>

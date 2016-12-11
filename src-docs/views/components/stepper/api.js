@@ -4,21 +4,21 @@ export default {
       name: 'activeStep',
       type: 'Number',
       default: '0',
-      desc: '当前步骤'
+      desc: 'stepper.props.activeStep'
     }, {
       name: 'linear',
       type: 'Boolean',
       default: 'true',
-      desc: '是否为线性步骤导航，设置为 false，将不再控制 `step` 组件的 completed 和 disabled 属性'
+      desc: 'stepper.props.linear'
     }, {
       name: 'orientation',
       type: 'String',
       default: 'horizontal',
-      desc: 'horizontal: 水平步骤导航, vertical: 垂直的步骤导航'
+      desc: 'stepper.props.orientation'
     }],
     slots: [{
       name: 'default',
-      desc: '用于放置 `step` 组件'
+      desc: 'stepper.slots.default'
     }]
   },
   step: {
@@ -26,31 +26,31 @@ export default {
       name: 'active',
       type: 'Boolean',
       default: 'false',
-      desc: '是否为当前步骤'
+      desc: 'step.props.active'
     }, {
       name: 'completed',
       type: 'Boolean',
       default: 'false',
-      desc: '是否已完成'
+      desc: 'step.props.completed'
     }, {
       name: 'disabled',
       type: 'Boolean',
       default: 'false',
-      desc: '是否被禁用'
+      desc: 'step.props.disabled'
     }, {
       name: 'index',
       type: 'Number',
       default: '0',
-      desc: '当前步骤下标'
+      desc: 'step.props.index'
     }, {
       name: 'last',
       type: 'Boolean',
       default: 'false',
-      desc: '是否是最后一步'
+      desc: 'step.props.last'
     }],
     slots: [{
       name: 'default',
-      desc: '用于放置 `stepLabel` 、 `stepButton` 、 `stepContent` 等组件'
+      desc: 'step.slots.default'
     }]
   },
   stepLabel: {
@@ -58,29 +58,29 @@ export default {
       name: 'active',
       type: 'Boolean',
       default: 'false',
-      desc: '是否是当前步骤'
+      desc: 'stepLabel.props.active'
     }, {
       name: 'completed',
       type: 'Boolean',
       default: 'false',
-      desc: '是否已完成'
+      desc: 'stepLabel.props.completed'
     }, {
       name: 'disabled',
       type: 'Boolean',
       default: 'false',
-      desc: '是否被禁用'
+      desc: 'stepLabel.props.disabled'
     }, {
       name: 'num',
       type: 'Number',
       default: '',
-      desc: '步骤序号'
+      desc: 'stepLabel.props.num'
     }],
     slots: [{
       name: 'icon',
-      desc: '用于自定义左边的icon'
+      desc: 'stepLabel.slots.icon'
     }, {
       name: 'default',
-      desc: '放置步骤标题文字'
+      desc: 'stepLabel.slots.default'
     }]
   },
   stepButton: {
@@ -88,43 +88,43 @@ export default {
       name: 'active',
       type: 'Boolean',
       default: 'false',
-      desc: '是否是当前步骤'
+      desc: 'stepButton.props.active'
     }, {
       name: 'completed',
       type: 'Boolean',
       default: 'false',
-      desc: '是否已完成'
+      desc: 'stepButton.props.completed'
     }, {
       name: 'disabled',
       type: 'Boolean',
       default: 'false',
-      desc: '是否被禁用'
+      desc: 'stepButton.props.disabled'
     }, {
       name: 'num',
       type: 'Number',
       default: '',
-      desc: '步骤序号'
+      desc: 'stepButton.props.num'
     }, {
       name: 'last',
       type: 'Boolean',
       default: 'false',
-      desc: '是否是最后一步'
+      desc: 'stepButton.props.last'
     }, {
       name: 'childrenInLabel',
       type: 'Boolean',
       default: 'true',
-      desc: '子节点是否都在 `stepLabel` 组件内'
+      desc: 'stepButton.props.childrenInLabel'
     }],
     slots: [{
       name: 'icon',
-      desc: '用于自定义左边的icon'
+      desc: 'stepButton.slots.icon'
     }, {
       name: 'default',
-      desc: '放置步骤标题文字'
+      desc: 'stepButton.slots.default'
     }],
     events: [{
       name: 'click',
-      desc: '点击事件'
+      desc: 'stepButton.events.click'
     }]
   },
   stepContent: {
@@ -132,16 +132,16 @@ export default {
       name: 'active',
       type: 'Boolean',
       default: 'false',
-      desc: '是否是当前步骤'
+      desc: 'stepContent.props.active'
     }, {
       name: 'last',
       type: 'Boolean',
       default: 'false',
-      desc: '是否是最后一步'
+      desc: 'stepContent.props.last'
     }],
     slots: [{
       name: 'default',
-      desc: '放置步骤的具体内容，此组件只能在垂直导航模式下使用'
+      desc: 'stepContent.slots.default'
     }]
   }
 }

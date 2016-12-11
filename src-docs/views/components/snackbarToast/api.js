@@ -4,17 +4,17 @@ export default {
       name: 'message',
       type: 'String',
       default: '',
-      desc: '提示的信息'
+      desc: 'snackbar.props.message'
     }, {
       name: 'action',
       type: 'String',
       default: '',
-      desc: '动作按钮上的文字'
+      desc: 'snackbar.props.action'
     }, {
       name: 'actionColor',
       type: 'String',
       default: '',
-      desc: '动作按钮颜色'
+      desc: 'snackbar.props.actionColor'
     }],
     events: [{
       name: 'close',
@@ -29,11 +29,11 @@ export default {
       name: 'message',
       type: 'String',
       default: '',
-      desc: '提示的信息'
+      desc: 'toast.props.message'
     }],
     events: [{
       name: 'close',
-      desc: 'snackbar 需要被关闭时触发事件'
+      desc: 'toast.events.close'
     }]
   }
 }

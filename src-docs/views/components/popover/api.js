@@ -3,65 +3,65 @@ export default {
     name: 'trigger',
     type: 'Element',
     default: '',
-    desc: '触发popover 的元素，需要根据此元素的位置计算弹出的位置'
+    desc: 'props.trigger'
   }, {
     name: 'open',
     type: 'Boolean',
     default: 'false',
-    desc: '是否打开'
+    desc: 'props.open'
   }, {
     name: 'popoverClass',
     type: 'String,Object,Array',
     default: '',
-    desc: 'popover 样式, 同 `class` 绑定方式一致'
+    desc: 'props.popoverClass'
   }, {
     name: 'scroller',
     type: 'Element',
     default: 'window',
-    desc: '滚动的元素，会监听它的 `scroll` 事件, 在滚动时会不断更新弹出框的位置'
+    desc: 'props.scroller'
   }, {
     name: 'autoPosition',
     type: 'Boolean',
     default: 'true',
-    desc: '是否自动计算位置'
+    desc: 'props.autoPosition'
   }, {
     name: 'anchorOrigin',
     type: 'Object',
     default: '{vertical: \'bottom\',horizontal: \'left\'}',
-    desc: '锚点的位置，会根据此点的位置计算弹出的位置'
+    desc: 'props.anchorOrigin'
   }, {
     name: 'targetOrigin',
     type: 'Object',
     default: '{vertical: \'top\',horizontal: \'left\'}',
-    desc: '锚点相对于弹出内容的位置，根据位置计算弹出的位置'
+    desc: 'props.targetOrigin'
   }, {
     name: 'overlay',
     type: 'Boolean',
     default: 'false',
-    desc: '是否显示遮盖层'
+    desc: 'props.overlay'
   }, {
     name: 'overlayOpacity',
     type: 'Number',
     default: '0.01',
-    desc: '遮盖层透明度'
+    desc: 'props.overlayOpacity'
   }, {
     name: 'overlayColor',
     type: 'String',
     default: '#000',
-    desc: '遮盖层的位置'
+    desc: 'props.overlayColor'
   }],
   slots: [{
     name: 'default',
-    desc: '内容部分'
+    desc: 'slots.default'
   }],
   events: [{
     name: 'close',
-    desc: '当需要关闭时触发此事件，会传入一个 `reason` （关闭的原因） 作为参数， \n * overlay: 点击了遮盖层; \n * overflow: 滚动出窗口范围; \n * clickOutSide: 点击了其它地方; \n * esc: 按下 `ESC` 键.'
+    desc: 'events.close'
   }, {
     name: 'show',
-    desc: '当 popover 显示时(动画完成后)触发事件'
+    desc: 'events.show'
   }, {
     name: 'hide',
-    desc: '当 popover 隐藏时(动画完成后)触发事件'
+    desc: 'events.hide'
   }]
 }

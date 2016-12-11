@@ -4,31 +4,31 @@ export default {
       name: 'gutter',
       type: 'Number',
       default: '8',
-      desc: '各 `flexboxItem` 间的间隔'
+      desc: 'flexbox.props.gutter'
     }, {
       name: 'orient',
       type: 'String',
       default: 'horizontal',
-      desc: '`flexboxItem`排列方向 \n * horizontal: 水平方向排列; \n * vertical: 垂直方向排列 '
+      desc: 'flexbox.props.orient'
     }, {
       name: 'justify',
       type: 'String',
       default: '',
-      desc: '主轴的对齐方式 flex-start, flex-end, center, space-between, space-around'
+      desc: 'flexbox.props.justify'
     }, {
       name: 'align',
       type: 'String',
       default: '',
-      desc: '交叉轴对齐方式 flex-start, flex-end, center, baseline, stretch'
+      desc: 'flexbox.props.align'
     }, {
       name: 'wrap',
       type: 'String',
       default: '',
-      desc: '是否可以换行， warp 允许换行， nowrap 不允许换行'
+      desc: 'flexbox.props.wrap'
     }],
     slots: [{
       name: 'default',
-      desc: '用于放置 `flexboxItem` 组件'
+      desc: 'flexbox.slots.default'
     }]
   },
   flexboxItem: {
@@ -36,26 +36,26 @@ export default {
       name: 'grow',
       type: 'String, Number',
       default: '1',
-      desc: '相当于flexbox布局的 `flex-grow` 属性'
+      desc: 'flexboxItem.props.grow'
     }, {
       name: 'shrink',
       type: 'String, Number',
       default: '1',
-      desc: '相当于flexbox布局的 `flex-shrink` 属性'
+      desc: 'flexboxItem.props.shrink'
     }, {
       name: 'basis',
       type: 'String, Number',
       default: 'auto',
-      desc: '相当于flexbox布局的 `flex-basis` 属性'
+      desc: 'flexboxItem.props.basis'
     }, {
       name: 'order',
       type: 'String, Number',
       default: '0',
-      desc: '相当于flexbox布局的 `order` 属性，用于排序'
+      desc: 'flexboxItem.props.order'
     }],
     slots: [{
       name: 'default',
-      desc: '用于放置具体内容'
+      desc: 'flexboxItem.slots.default'
     }]
   }
 }

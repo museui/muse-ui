@@ -4,20 +4,20 @@ export default {
       name: 'lineClass',
       type: 'String,Object,Array',
       default: '',
-      desc: '高亮线的样式，同 `class` 绑定方式一致'
+      desc: 'tabs.props.lineClass'
     }, {
       name: 'value',
       type: '',
       default: '',
-      desc: '必需，需要和子组件 tab 配合'
+      desc: 'tabs.props.value'
     }],
     slots: [{
       name: 'default',
-      desc: '用于放置 tab 组件'
+      desc: 'tabs.slots.default'
     }],
     events: [{
       name: 'change',
-      desc: '当 value 改变的时触发，参数(value) value 新的value'
+      desc: 'tabs.events.change'
     }]
   },
   tab: {
@@ -25,48 +25,48 @@ export default {
       name: 'icon',
       type: 'String',
       default: '',
-      desc: 'tab 上的图标'
+      desc: 'tab.props.icon'
     }, {
       name: 'iconClass',
       type: 'String,Object,Array',
       default: '',
-      desc: '图标的样式，同 `class` 绑定方式一致'
+      desc: 'tab.props.iconClass'
     }, {
       name: 'title',
       type: 'String',
       default: '',
-      desc: 'tab 上的文字'
+      desc: 'tab.props.title'
     }, {
       name: 'titleClass',
       type: 'String,Object,Array',
       default: '',
-      desc: '标题的样式，同 `class` 绑定方式一致'
+      desc: 'tab.props.titleClass'
     }, {
       name: 'value',
       type: '',
       default: '',
-      desc: '必需，当value 与父组件的 value值相等时，会变成选中状态'
+      desc: 'tab.props.value'
     }, {
       name: 'href',
       type: 'String',
       default: '',
-      desc: '相当于 a 标签的 href属性，设置之后会渲染成 a 标签，默认是使用button标签'
+      desc: 'tab.props.href'
     }, {
       name: 'disabled',
       type: 'Boolean',
       default: 'false',
-      desc: '是否禁用'
+      desc: 'tab.props.disabled'
     }],
     events: [{
       name: 'active',
-      desc: '当 tab 被选择时触发'
+      desc: 'tab.events.active'
     }, {
       name: 'click',
-      desc: '当 tab 被点击时触发'
+      desc: 'tab.events.click'
     }],
     slots: [{
       name: 'default',
-      desc: '用于自定义icon'
+      desc: 'tab.slots.default'
     }]
   }
 }

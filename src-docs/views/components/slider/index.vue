@@ -1,21 +1,20 @@
 <template>
 <div class="content-wrapper">
-  <markdown-element :text="description"/>
-  <code-example :code="exampleSimpleCode" title="简单的使用" description="可以使用 `v-model` 控制value">
+  <markdown-element :text="$t('description')"/>
+  <code-example :code="exampleSimpleCode" :title="$t('simpleExample')" :description="$t('simpleExampleDesc')">
     <ex-simple/>
   </code-example>
-  <code-example :code="exampleDisabledCode" title="禁用示例">
+  <code-example :code="exampleDisabledCode" :title="$t('disabledExample')">
     <ex-disabled/>
   </code-example>
-  <code-example :code="exampleStepCode" title="步长定义">
+  <code-example :code="exampleStepCode" :title="$t('stepExample')">
     <ex-step/>
   </code-example>
-  <api-view :api="apiData"/>
+  <api-view :api="apiData" :i18n="$t.bind(this)"/>
 </div>
 </template>
 
 <script>
-import description from './README.md'
 import exampleSimple from './exampleSimple'
 import exampleSimpleCode from '!raw!./exampleSimple'
 import exampleDisabled from './exampleDisabled'
@@ -23,10 +22,11 @@ import exampleDisabledCode from '!raw!./exampleDisabled'
 import exampleStep from './exampleStep'
 import exampleStepCode from '!raw!./exampleStep'
 import apiData from './api'
+import zh from './zh'
+import en from './en'
 export default {
   data () {
     return {
-      description,
       exampleSimpleCode,
       exampleDisabledCode,
       exampleStepCode,
@@ -37,6 +37,10 @@ export default {
     'ex-simple': exampleSimple,
     'ex-disabled': exampleDisabled,
     'ex-step': exampleStep
+  },
+  locales: {
+    zh,
+    en
   }
 }
 </script>

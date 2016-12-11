@@ -3,43 +3,43 @@ export default {
     name: 'label',
     type: 'String',
     default: '',
-    desc: '显示的标签文字'
+    desc: 'props.label'
   }, {
     name: 'labelLeft',
     type: 'Boolean',
     default: 'false',
-    desc: '标签文字是否在左边，默认在右边'
+    desc: 'props.labelLeft'
   }, {
     name: 'labelClass',
     type: 'String,Object,Array',
     default: '',
-    desc: 'label 样式，同 `class` 绑定方式一致'
+    desc: 'props.labelClass'
   }, {
     name: 'trackClass',
     type: 'String,Object,Array',
     default: '',
-    desc: 'track 样式，同 `class` 绑定方式一致'
+    desc: 'props.trackClass'
   }, {
     name: 'thumbClass',
     type: 'String,Object,Array',
     default: '',
-    desc: 'thumb 样式，同 `class` 绑定方式一致'
+    desc: 'props.thumbClass'
   }, {
     name: 'disabled',
     type: 'Boolean',
     default: 'false',
-    desc: '设置为 `true`, 将不可用'
+    desc: 'props.disabled'
   }, {
     name: 'value',
     type: 'Boolean',
     default: 'false',
-    desc: '组件的值，true/false'
+    desc: 'props.value'
   }],
   events: [{
     name: 'input',
-    desc: '当 value 属性发生改变时触发事件，传入新的value, (value)'
+    desc: 'events.input'
   }, {
     name: 'change',
-    desc: '同 `input[type=checkbox]` 元素的change事件一致，传入 value 属性值'
+    desc: 'events.change'
   }]
 }

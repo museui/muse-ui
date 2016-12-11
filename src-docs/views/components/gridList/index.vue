@@ -1,22 +1,21 @@
 <template>
 <div class="content-wrapper">
-  <markdown-element :text="description"/>
-  <code-example :code="exampleSimpleCode" title="简单的使用">
+  <markdown-element :text="$t('description')"/>
+  <code-example :code="exampleSimpleCode" :title="$t('simpleExample')">
     <ex-simple/>
   </code-example>
-  <code-example :code="exampleComplexCode" title="稍复杂的使用" description="通过定义 `rows` 和 `cols` 来定义每个 `gridTile` 的空间， 通过 `titlePosition` 改变 title的位置，`actionPosition` 改变 `action` 位置。">
+  <code-example :code="exampleComplexCode" :title="$t('complexExample')" :description="$t('complexExampleDesc')">
     <ex-complex/>
   </code-example>
-  <code-example :code="exampleInlineCode" title="在一行的示例" description="通过外部 `class` 调整成一行的网格列表">
+  <code-example :code="exampleInlineCode" :title="$t('inlineExample')" :description="$t('inlineExampleDesc')">
     <ex-inline/>
   </code-example>
-  <api-view :api="apiData.gridList" title="GridList API"/>
-  <api-view :api="apiData.gridTile" title="GridTile API"/>
+  <api-view :api="apiData.gridList" title="GridList API" :i18n="$t.bind(this)"/>
+  <api-view :api="apiData.gridTile" title="GridTile API" :i18n="$t.bind(this)"/>
 </div>
 </template>
 
 <script>
-import description from './README.md'
 import exampleSimple from './exampleSimple'
 import exampleSimpleCode from '!raw!./exampleSimple'
 import exampleComplex from './exampleComplex'
@@ -24,10 +23,11 @@ import exampleComplexCode from '!raw!./exampleComplex'
 import exampleInline from './exampleInline'
 import exampleInlineCode from '!raw!./exampleInline'
 import apiData from './api'
+import zh from './zh'
+import en from './en'
 export default {
   data () {
     return {
-      description,
       exampleSimpleCode,
       exampleComplexCode,
       exampleInlineCode,
@@ -38,6 +38,10 @@ export default {
     'ex-simple': exampleSimple,
     'ex-complex': exampleComplex,
     'ex-inline': exampleInline
+  },
+  locales: {
+    zh,
+    en
   }
 }
 </script>

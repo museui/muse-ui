@@ -3,10 +3,10 @@ export default {
     name: 'inset',
     type: 'Boolean',
     default: 'false',
-    desc: '是否向内缩进，设置为true 会调整padding-left 为 72px'
+    desc: 'props.inset'
   }],
   slots: [{
     name: 'default',
-    desc: '放置副标题内容'
+    desc: 'slots.default'
   }]
 }

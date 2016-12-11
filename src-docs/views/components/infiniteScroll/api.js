@@ -3,20 +3,20 @@ export default {
     name: 'scroller',
     type: 'Element',
     default: 'window',
-    desc: '滚动的元素，会监听它的 `scroll` 事件'
+    desc: 'props.scroller'
   }, {
     name: 'loading',
     type: 'Boolean',
     default: 'false',
-    desc: '是否正在加载数据'
+    desc: 'props.loading'
   }, {
     name: 'loadingText',
     type: 'String',
     default: '正在加载...',
-    desc: '加载数据时显示的文字'
+    desc: 'props.loadingText'
   }],
   events: [{
     name: 'load',
-    desc: '当滚动到底部时触发事件'
+    desc: 'events.load'
   }]
 }

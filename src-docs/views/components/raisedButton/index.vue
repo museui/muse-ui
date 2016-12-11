@@ -1,27 +1,27 @@
 <template>
 <div class="content-wrapper">
-  <markdown-element :text="description"/>
-  <code-example :code="exampleSimpleCode" title="简单的使用" description="`Raised Button` 默认、主色、强调色, 不可用、全宽五种不同状态的按钮示例">
+  <markdown-element :text="$t('description')"/>
+  <code-example :code="exampleSimpleCode" :title="$t('simpleExample')" :description="$t('simpleExampleDesc')">
     <ex-simple/>
   </code-example>
-  <code-example :code="exampleComplexCode" title="稍复杂的使用" description="配合图标、文件按钮、调整文字位置，自定义样式等">
+  <code-example :code="exampleComplexCode" :title="$t('complexExample')" :description="$t('complexExampleDesc')">
     <ex-complex/>
   </code-example>
-  <api-view :api="apiData"/>
+  <api-view :api="apiData" :i18n="$t.bind(this)"/>
 </div>
 </template>
 
 <script>
-import description from './README.md'
 import exampleSimple from './exampleSimple'
 import exampleSimpleCode from '!raw!./exampleSimple'
 import exampleComplex from './exampleComplex'
 import exampleComplexCode from '!raw!./exampleComplex'
 import apiData from './api'
+import zh from './zh'
+import en from './en'
 export default {
   data () {
     return {
-      description,
       exampleSimpleCode,
       exampleComplexCode,
       apiData
@@ -30,6 +30,10 @@ export default {
   components: {
     'ex-simple': exampleSimple,
     'ex-complex': exampleComplex
+  },
+  locales: {
+    zh,
+    en
   }
 }
 </script>

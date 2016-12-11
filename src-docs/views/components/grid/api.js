@@ -4,11 +4,11 @@ export default {
       name: 'gutter',
       type: 'Boolean',
       default: 'false',
-      desc: '`col` 之间是否存在间隔'
+      desc: 'row.props.gutter'
     }],
     slots: [{
       name: 'default',
-      desc: '放置 `col` 组件'
+      desc: 'row.slots.default'
     }]
   },
   col: {
@@ -16,21 +16,21 @@ export default {
       name: 'width',
       type: 'String',
       default: '',
-      desc: '手机上的宽度, 5, 10, 15, 20, 25, 30, 33, 35, 40, 45, 50, 55, 60, 65, 66, 70, 75, 80, 85, 90, 95, 100 都是百分比设置'
+      desc: 'col.props.width'
     }, {
       name: 'tablet',
       type: 'String',
       default: '',
-      desc: '平板上的宽度, 5, 10, 15, 20, 25, 30, 33, 35, 40, 45, 50, 55, 60, 65, 66, 70, 75, 80, 85, 90, 95, 100 都是百分比设置'
+      desc: 'col.props.tablet'
     }, {
       name: 'desktop',
       type: 'String',
       default: '',
-      desc: '桌面端的宽度, 5, 10, 15, 20, 25, 30, 33, 35, 40, 45, 50, 55, 60, 65, 66, 70, 75, 80, 85, 90, 95, 100 都是百分比设置'
+      desc: 'col.props.desktop'
     }],
     slots: [{
       name: 'default',
-      desc: '内容部分'
+      desc: 'col.slots.default'
     }]
   }
 }

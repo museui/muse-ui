@@ -1,28 +1,27 @@
 <template>
 <div class="content-wrapper">
-  <markdown-element :text="description" />
-  <code-example :code="exampleSimpleCode" title="简单的用法" description="两个简单的例子，可以根据内容自动调整宽度">
+  <markdown-element :text="$t('description')" />
+  <code-example :code="exampleSimpleCode" :title="$t('simpleExample')" :description="$t('simpleExampleDesc')">
     <ex-simple />
   </code-example>
-  <code-example :code="exampleDisabledCode" title="不可用的菜单" description="改变`desktop`将菜单的样式改为桌面版， 设置`disabled`菜单项将不可以用">
+  <code-example :code="exampleDisabledCode" :title="$t('disabledExample')" :description="$t('disabledExampleDesc')">
     <ex-disabled />
   </code-example>
-  <code-example :code="exampleIconCode" title="图标使用" description="`menuItem` 组件使用 `leftIcon` 和 `rightIcon` 来配合 `icon` 组件">
+  <code-example :code="exampleIconCode" :title="$t('iconExample')" :description="$t('iconExampleDesc')">
     <ex-icon />
   </code-example>
-  <code-example :code="exampleAfterCode" title="菜单快捷显示" description="`afterText` 属性定义标题右边的文字">
+  <code-example :code="exampleAfterCode" :title="$t('afterExample')" :description="$t('afterExampleDesc')">
     <ex-after />
   </code-example>
-  <code-example :code="exampleNestedCode" title="嵌套菜单" description="通过 `slot` 指定嵌套菜单，会在点击时出现 ">
+  <code-example :code="exampleNestedCode" :title="$t('nestedExample')" :description="$t('nestedExampleDesc')">
     <ex-nested />
   </code-example>
-  <api-view :api="apiData.menu" title="Menu API"/>
-  <api-view :api="apiData.menuItem" title="MenuItem API"/>
+  <api-view :api="apiData.menu" title="Menu API" :i18n="$t.bind(this)"/>
+  <api-view :api="apiData.menuItem" title="MenuItem API" :i18n="$t.bind(this)"/>
 </div>
 </template>
 
 <script>
-import description from './README.md'
 import exampleSimple from './exampleSimple'
 import exampleSimpleCode from '!raw!./exampleSimple'
 import exampleDisabled from './exampleDisabled'
@@ -34,10 +33,11 @@ import exampleAfterCode from '!raw!./exampleAfter'
 import exampleNested from './exampleNested'
 import exampleNestedCode from '!raw!./exampleNested'
 import apiData from './api'
+import zh from './zh'
+import en from './en'
 export default {
   data () {
     return {
-      description,
       exampleSimpleCode,
       exampleDisabledCode,
       exampleIconCode,
@@ -52,6 +52,10 @@ export default {
     'ex-icon': exampleIcon,
     'ex-after': exampleAfter,
     'ex-nested': exampleNested
+  },
+  locales: {
+    zh,
+    en
   }
 }
 </script>

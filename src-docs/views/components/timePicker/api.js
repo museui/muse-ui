@@ -3,133 +3,133 @@ export default {
     name: 'autoOk',
     type: 'Boolean',
     default: 'false',
-    desc: '是否在选择分钟后自动确定, 设为true则不显示确定按钮'
+    desc: 'props.autoOk'
   }, {
     name: 'okLabel',
     type: 'String',
     default: '确定',
-    desc: '确定按钮的文字'
+    desc: 'props.okLabel'
   }, {
     name: 'cancelLabel',
     type: 'String',
     default: '确定',
-    desc: '取消按钮的文字'
+    desc: 'props.cancelLabel'
   }, {
     name: 'container',
     type: 'String',
     default: 'dialog',
-    desc: 'dialog/inline, 弹出时间选择的方式， dialog 弹出框， inline 内联弹出显示'
+    desc: 'props.container'
   }, {
     name: 'mode',
     type: 'String',
     default: 'portrait',
-    desc: '`portrait` 竖屏显示， `landscape` 横屏显示'
+    desc: 'props.mode'
   }, {
     name: 'format',
     type: 'String',
     default: 'ampm',
-    desc: 'ampm: 12小时制; 24hr: 24小时制'
+    desc: 'props.format'
   }, {
     name: 'label',
     type: 'String',
     default: '',
-    desc: '时间选择框的标签'
+    desc: 'props.label'
   }, {
     name: 'labelFloat',
     type: 'Boolean',
     default: 'false',
-    desc: '标签是否浮动'
+    desc: 'props.labelFloat'
   }, {
     name: 'labelClass',
     type: 'String,Object,Array',
     default: '',
-    desc: '标签的样式, 同 `class` 绑定方式一致'
+    desc: 'props.labelClass'
   }, {
     name: 'labelFocusClass',
     type: 'String,Object,Array',
     default: '',
-    desc: '输入框获取焦点时标签的样式, 同 `class` 绑定方式一致'
+    desc: 'props.labelFocusClass'
   }, {
     name: 'disabled',
     type: 'Boolean',
     default: 'false',
-    desc: '时间选择框是否不可用'
+    desc: 'props.disabled'
   }, {
     name: 'hintText',
     type: 'String',
     default: '',
-    desc: '提示文字'
+    desc: 'props.hintText'
   }, {
     name: 'hintTextClass',
     type: 'String,Object,Array',
     default: '',
-    desc: '提示文字样式, 同 `class` 绑定方式一致'
+    desc: 'props.hintTextClass'
   }, {
     name: 'helpText',
     type: 'String',
     default: '',
-    desc: '帮助文字'
+    desc: 'props.helpText'
   }, {
     name: 'helpTextClass',
     type: 'String,Object,Array',
     default: '',
-    desc: '帮助文字样式, 同 `class` 绑定方式一致'
+    desc: 'props.helpTextClass'
   }, {
     name: 'errorText',
     type: 'String',
     default: '',
-    desc: '错误提醒文字，如果此参数有值，那么时间选择框会转为错误的状态, 显示效果将会更改'
+    desc: 'props.errorText'
   }, {
     name: 'errorColor',
     type: 'String',
     default: '',
-    desc: '错误状态的时的颜色，默认为红色'
+    desc: 'props.errorColor'
   }, {
     name: 'icon',
     type: 'String',
     default: '',
-    desc: '显示图标'
+    desc: 'props.icon'
   }, {
     name: 'iconClass',
     type: 'String,Object,Array',
     default: '',
-    desc: '图标的样式, 同 `class` 绑定方式一致'
+    desc: 'props.iconClass'
   }, {
     name: 'fullWidth',
     type: 'Boolean',
     default: 'false',
-    desc: '是否将宽度设置为 100%, 默认 256px'
+    desc: 'props.fullWidth'
   }, {
     name: 'underlineShow',
     type: 'Boolean',
     default: 'true',
-    desc: '是否显示底部的横线'
+    desc: 'props.underlineShow'
   }, {
     name: 'underlineClass',
     type: 'String,Object,Array',
     default: '',
-    desc: '底部横线样式, 同 `class` 绑定方式一致'
+    desc: 'props.underlineClass'
   }, {
     name: 'underlineFocusClass',
     type: 'String,Object,Array',
     default: '',
-    desc: '输入框获取焦点时底部横线样式, 同 `class` 绑定方式一致'
+    desc: 'props.underlineFocusClass'
   }, {
     name: 'inputClass',
     type: 'String,Object,Array',
     default: '',
-    desc: '输入框样式, 同 `class` 绑定方式一致'
+    desc: 'props.inputClass'
   }, {
     name: 'value',
     type: 'String',
     default: '',
-    desc: '时间选择框的值，可不设置此参数，使用 v-model 指令代替'
+    desc: 'props.value'
   }],
   events: [{
     name: 'input',
-    desc: 'value 发生改变触发的事件，传入新的value, (value)'
+    desc: 'events.input'
   }, {
     name: 'change',
-    desc: '由于用户行为(点击确定按钮)导致 value 值改变时触发事件, 传入 value 属性值'
+    desc: 'events.change'
   }]
 }
