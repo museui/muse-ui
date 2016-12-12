@@ -1,3 +1,22 @@
+## 2.0.0-beta.1
+
+### Features
+
+  * 每个组件新增多个自定义样式参数；
+  * 增加对非material Design icons 的支持，使用时加前缀 `:`；
+  * 增加单元测试和文档国际化的支持;
+
+### Bugs
+
+  * 修复 textField hintText 点击获取焦点多次的问题
+  * 修复 autoComplete 无法初始化设置值的问题
+  * 修复 dialog 中 button的样式问题
+  * 修复 tabs getActiveIndex方法中this.$children可能获取不完整
+  * 修复 selectField 在有些情况无法显示选择项
+  * 修复 ssr 环境中全局使用window报错
+  * 修复 pagination 的 total 和 pageSiz 改变的时候因为 current 没有改变导致不去更新相关联的参数的问题
+  * 修复 textField 多行禁用的时候还可以输入的问题
+
 ## 2.0.0-alpha.11
 
 ### Features
