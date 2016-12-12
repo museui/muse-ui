@@ -262,6 +262,7 @@ export default {
   font-family: inherit;
   color: @textColor;
   font-family: inherit;
+  position: relative;
 }
 
 .mu-text-field-help {
