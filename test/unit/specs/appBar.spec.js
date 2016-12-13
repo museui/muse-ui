@@ -1,5 +1,5 @@
 import { createTest, destroyVM } from '../util'
-import appbar from 'muse-ui/appbar'
+import appbar from 'muse-ui/appBar'
 
 describe('AppBar', () => {
   let vm
