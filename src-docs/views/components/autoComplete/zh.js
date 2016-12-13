@@ -18,7 +18,7 @@ export default {
     disableFocusRipple: '将 focus 时波纹效果设置为不可用',
     filter: '过滤器配置，用于过滤 dataSource 里的数据，只显示于输入相关的数据。',
     maxSearchResults: '最多显示数据的条数',
-    openOnFocus: '是否在 focus 是显示补全信息列表',
+    openOnFocus: '是否在 focus 时显示补全信息列表',
     menuCloseDelay: '补全列表关闭的延迟时间，单位：ms',
     label: '输入框的标签',
     labelFloat: '标签是否浮动',
