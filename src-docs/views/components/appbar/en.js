@@ -2,16 +2,16 @@ import description from './README_EN.md'
 export default {
   description,
   simpleExample: 'Simple Example',
-  iconMenu: '配合 IconMenu 加入菜单',
-  addSearch: '加入搜索框和按钮',
+  iconMenu: 'Combine with the IconMenu component',
+  addSearch: 'Combine with the search box and button',
   props: {
-    title: '标题, 显示在中间',
-    titleClass: '标题样式，同 `class` 绑定方式一致',
-    zDepth: '阴影等级,设置为 0就没有阴影效果'
+    title: 'title, centered',
+    titleClass: 'title style, the binding way is same with `class`',
+    zDepth: 'shadow level, if you set it to 0, shadow is not effective'
   },
   slots: {
-    left: '用于分发 appbar 左边的内容',
-    right: '用于分发 appbar 右边的内容',
-    default: '用于分发 appbar 中间的内容，设置此 slot，title参数将没有作用'
+    left: 'used to distribute the left content of appbar',
+    right: 'used to distribute the right content of appbar',
+    default: 'used to distribute the middle content of appbar，when you set this slot, the title parameter is not effective'
   }
 }
