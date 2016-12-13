@@ -43,7 +43,7 @@
     <mu-list-item title="Myron Liu">
       <mu-avatar :src="avatar7" slot="leftAvatar"/>
       <span slot="describe">
-        <span style="color: rgba(0, 0, 0, .87)">哇去</span><br/> 实在遍布下去，这就是个demo
+        <span style="color: rgba(0, 0, 0, .87)">哇去</span><br/> 实在编不下去，这就是个demo
       </span>
       <mu-icon-menu slot="right" icon="more_vert" tooltip="操作">
         <mu-menu-item title="回复" />
