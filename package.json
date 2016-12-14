@@ -1,6 +1,6 @@
 {
   "name": "muse-ui",
-  "version": "2.0.0-beta.1",
+  "version": "2.0.0-beta.2",
   "description": "material design ui for vue2",
   "main": "dist/muse-ui.js",
   "keywords": [
@@ -74,7 +74,7 @@
     "sinon": "^1.17.6",
     "sinon-chai": "^2.8.0",
     "url-loader": "^0.5.7",
-    "vue": "^2.0.5",
+    "vue": "^2.1.5",
     "vue-hot-reload-api": "^2.0.6",
     "vue-html-loader": "^1.2.3",
     "vue-i18n": "^4.7.4",
