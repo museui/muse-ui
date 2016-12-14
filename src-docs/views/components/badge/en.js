@@ -3,20 +3,20 @@ import description from './README_EN.md'
 export default {
   description,
   simpleExample: 'Simple Example',
-  simpleExampleDesc: '配合 `menu` 和 `listItem` 组件使用，定义不同的内容和颜色',
-  iconAndButton: '配合图标和按钮',
-  iconAndButtonDesc: '配合 `icon` 和 `iconButton` 组件使用, 这个时候一般使用圆形的徽章',
-  custom: '定义不同的内容',
+  simpleExampleDesc: 'always used to combined with `menu` and `listItem` components, to define different text and color',
+  iconAndButton: 'integrate with icon and button',
+  iconAndButtonDesc: 'combined with `icon` and `iconButton` components, always we use the circle badge in this case',
+  custom: 'define different content',
   props: {
-    content: '内容文本',
-    color: '颜色',
-    primary: '颜色是否为主色',
-    secondary: '颜色是否为强调色',
-    circle: '是否为圆形',
-    badgeClass: 'badge 样式, 同 `class` 绑定方式一致'
+    content: 'body text',
+    color: 'color',
+    primary: 'whether the color is the primary color or not',
+    secondary: 'whether the color is accent colour or not',
+    circle: 'whether the component is circle or not',
+    badgeClass: 'the style of badge, the binding way is same with `class`'
   },
   slots: {
-    content: '用于分发内容，这个 slot 会覆盖掉 content 属性',
-    default: '分发需要加入徽章的元素或者组件'
+    content: 'used to distribute content, this slot will override the content attribute',
+    default: 'used to distribute the component or element which need to add badge'
   }
 }

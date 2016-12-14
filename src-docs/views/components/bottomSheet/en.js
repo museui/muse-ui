@@ -4,18 +4,18 @@ export default {
   description,
   simpleExample: 'Simple Example',
   props: {
-    open: '是否打开',
-    sheetClass: 'bottomSheet 样式, 同 `class` 绑定方式一致',
-    overlay: '是否显示遮盖层',
-    overlayColor: '遮盖层的颜色',
-    overlayOpacity: '遮盖层的透明度'
+    open: 'whether it is open or not',
+    sheetClass: 'style of bottomSheet, the binding way is same with `class`',
+    overlay: 'whether it will display overlay or not',
+    overlayColor: 'color of overlay',
+    overlayOpacity: 'opacity of overlay'
   },
   slots: {
-    default: '用于放置弹出内容'
+    default: 'used to place the content of popup'
   },
   events: {
-    close: '当点击遮盖层或者按 esc建触发，会触发close的动作作为参数传入，(reason) => {if(reason == \'overlay\') {// 执行关闭动作}} ',
-    show: '当 bottomSheet 弹出时(动画完成后)触发事件',
-    hide: '当 bottomSheet 隐藏时(动画完成后)触发事件'
+    close: 'it will trigger this event when you click the overlay or click the `ESC` key, and the trigger reason will pass to event as a parameter, e.g: (reason) => {if(reason == \'overlay\') {// execute the close action}} ',
+    show: 'when the bottomSheet was popuped(after the animation has finished), it will emit this event',
+    hide: 'when the bottomSheet was hidden(after the animation has finished), it will emit this event'
   }
 }
