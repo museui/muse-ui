@@ -3,27 +3,27 @@ export default {
     name: 'open',
     type: 'Boolean',
     default: 'false',
-    desc: '是否打开'
+    desc: 'props.open'
   }, {
     name: 'sheetClass',
     type: 'String,Object,Array',
     default: '',
-    desc: 'bottomSheet 样式, 同 `class` 绑定方式一致'
+    desc: 'props.sheetClass'
   }, {
     name: 'overlay',
     type: 'Boolean',
     default: 'true',
-    desc: '是否显示遮盖层'
+    desc: 'props.overlay'
   }, {
     name: 'overlayColor',
     type: 'String',
     default: '#000',
-    desc: '遮盖层的颜色'
+    desc: 'props.overlayColor'
   }, {
     name: 'overlayOpacity',
     type: 'Number',
     default: '0.4',
-    desc: '遮盖层的透明度'
+    desc: 'props.overlayOpacity'
   }],
   slots: [{
     name: 'default',

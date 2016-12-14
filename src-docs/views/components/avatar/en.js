@@ -3,18 +3,18 @@ import description from './README_EN.md'
 export default {
   description,
   simpleExample: 'Simple Example',
-  simpleExampleDesc: '设置不同的图片、图标、文件以及大小',
+  simpleExampleDesc: 'Different picture, icon, file and size setting',
   props: {
-    backgroundColor: '背景色',
-    color: '图标和文字的颜色',
-    src: '相当于 img 标签的 src 属性',
-    imgClass: '图片的样式, 同 `class` 绑定方式一致',
-    icon: '显示的图标',
-    iconClass: '图标的样式, 同 `class` 绑定方式一致',
-    iconSize: '图标的大小',
-    size: 'avatar 的大小, 默认 40px'
+    backgroundColor: 'background color',
+    color: 'the color of icon and text',
+    src: 'is same with the src attribute of img tag',
+    imgClass: 'style of picture, the binding way is same with `class`',
+    icon: 'the icon what you want to show',
+    iconClass: 'style of icon, the binding way is same with `class`',
+    iconSize: 'size of icon',
+    size: 'the size of avatar, default to 40px'
   },
   slots: {
-    default: '用于放置 avatar 的文字'
+    default: 'somewhere to place the avatar`s text'
   }
 }
