@@ -1,5 +1,5 @@
 ## Avatar
 
-avatar 组件，用来显示用户头像或者简短的文字和图标。
+avatar component, to show the user avatar or some brief text and icon.
 
 ### Examples

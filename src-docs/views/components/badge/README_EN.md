@@ -1,5 +1,5 @@
 ## Badge
 
-徽章组件，可以配合图标、按钮、列表等组件使用，用于标记一些数字和文字。
+Badge component, can use to combined with the icon, button,list components, always for marking some number or text.
 
 ### Examples

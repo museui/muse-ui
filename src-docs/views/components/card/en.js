@@ -3,51 +3,51 @@ import description from './README_EN.md'
 export default {
   description,
   simpleExample: 'Simple Example',
-  simpleExampleDesc: '`card` 需要一系列组件配合使用才能完成效果, `mu-card`、`mu-card-header`、`mu-card-media`、`mu-card-title`、`mu-card-text`、`mu-card-actions`',
+  simpleExampleDesc: '`card` needs to combined with following components `mu-card`、`mu-card-header`、`mu-card-media`、`mu-card-title`、`mu-card-text`、`mu-card-actions`.',
   card: {
     slots: {
-      default: '用于放置子组件'
+      default: 'place the children components'
     }
   },
   cardHeader: {
     props: {
-      title: '标题文字',
-      titleClass: '标题样式,同 `class` 绑定方式一致',
-      subTitle: '子标题文字',
-      subTitleClass: '子标题样式,同 `class` 绑定方式一致'
+      title: 'title',
+      titleClass: 'style of title, the binding way is same with `class`',
+      subTitle: 'sub-title',
+      subTitleClass: 'style of sub-title, the binding way is same with `class`'
     },
     slots: {
-      avatar: '用于放置 avatar 组件',
-      default: '用于放置一些其它内容'
+      avatar: 'used to place the `avatar` component',
+      default: 'used to place other contents'
     }
   },
   cardMedia: {
     props: {
-      title: '标题文字',
-      titleClass: '标题样式,同 `class` 绑定方式一致',
-      subTitle: '子标题文字',
-      subTitleClass: '子标题样式,同 `class` 绑定方式一致'
+      title: 'title',
+      titleClass: 'style of title, the binding way is same with `class`',
+      subTitle: 'sub-title',
+      subTitleClass: 'style of sub-title, the binding way is same with `class`'
     },
     slots: {
-      default: '放置图片等媒体元素'
+      default: 'used to place some media elements e.g: image'
     }
   },
   cardTitle: {
     props: {
-      title: '标题文字',
-      titleClass: '标题样式,同 `class` 绑定方式一致',
-      subTitle: '子标题文字',
-      subTitleClass: '子标题样式,同 `class` 绑定方式一致'
+      title: 'title',
+      titleClass: 'style of title, the binding way is same with `class`',
+      subTitle: 'sub-title',
+      subTitleClass: 'style of sub-title, the binding way is same with `class`'
     }
   },
   cardText: {
     slots: {
-      default: '用于放置大段介绍性的文字'
+      default: 'used to place the larger introduction text'
     }
   },
   cardActions: {
     slots: {
-      default: '用于放置动作按钮'
+      default: 'used to place action button'
     }
   }
 }

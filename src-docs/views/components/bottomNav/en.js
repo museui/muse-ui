@@ -6,24 +6,24 @@ export default {
   shiftExample: 'Shift Mode',
   bottomNav: {
     props: {
-      shift: '是否使用 shift 模式',
-      value: '必需，需要和子组件 bottomNavItem 配合'
+      shift: 'whether the component need to use the `shift` model',
+      value: 'required, need to combined with the children component `bottomNavItem`'
     },
     slots: {
-      default: '用于放置 bottomNavItem 组件'
+      default: 'used to place the `bottomNavItem` component'
     },
     events: {
-      change: '当 value 改变的时触发，参数(value) value 新的value'
+      change: 'when the value has changed, this event will emit with the new value as the return parameter'
     }
   },
   bottomNavItem: {
     props: {
-      icon: '图标',
-      iconClass: '图标的样式, 同 `class` 绑定方式一致',
-      title: '显示的标题',
-      titleClass: '标题的样式, 同 `class` 绑定方式一致',
-      value: '必需，当value 与父组件的 value值相等时，会变成选中状态',
-      href: '相当于 a 标签的 href属性，设置之后会渲染成 a 标签，默认是使用button标签'
+      icon: 'icon',
+      iconClass: 'style of icon, the binding way is same with `class`',
+      title: 'title',
+      titleClass: 'style of title, the binding way is same with `class`',
+      value: 'required, when this parameter is same with the value of parent component, it will turn to checked status',
+      href: 'is same with the `href` attribute of `a` tag, if it is set, this component will render as a `a` tag, default to `button` tag.'
     }
   }
 }

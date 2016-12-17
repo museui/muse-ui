@@ -1,8 +1,8 @@
 ## Usage
 
-Muse-UI 和其它 vue 的插件一样可以使用 `Vue.use()` 方法全部加载， 也可以通过 `webpack` 配置来单组件加载。
+Muse-UI can be loading all with the `Vue.use()` method as same as the other vue plugin, also we can use the `webpack` to loading the single component.
 
-### 全部加载
+### Loading All
 
 ```javascript
 import Vue from 'vue'
@@ -12,7 +12,7 @@ Vue.use(MuseUI)
 ```
 
 
-### 单个组件加载
+### Loading Single Component
 
 **webpack.conf.js**
 
@@ -41,7 +41,7 @@ Vue.use(MuseUI)
 
 ```javascript
 import Vue from 'vue'
-import 'muse-components/styles/base.less' // 加载基础的样式
+import 'muse-components/styles/base.less' // loading the basic of style
 import appbar from 'muse-components/appbar'
 import avatar from 'muse-components/avatar'
 // ..

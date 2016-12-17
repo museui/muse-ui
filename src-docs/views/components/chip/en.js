@@ -4,17 +4,17 @@ export default {
   description,
   simpleExample: 'Simple Example',
   props: {
-    showDelete: '是否显示删除图标',
-    deleteIconClass: '删除图标的样式',
-    disabled: '设为true则不可点击',
-    backgroundColor: '背景色',
-    color: '文字的颜色'
+    showDelete: 'whether it is display the deletion icon or not',
+    deleteIconClass: 'style of the deletion icon',
+    disabled: 'disable the component',
+    backgroundColor: 'background color',
+    color: 'color of text'
   },
   slots: {
-    default: '用于放置 avatar 和简短的文字'
+    default: 'used to place the avatar  and brief text'
   },
   events: {
-    delete: '点击删除图标后触发',
-    click: '点击时候触发'
+    delete: 'it will trigger when the deletion icon was clicked',
+    click: 'it will trigger when it was clicked'
   }
 }
