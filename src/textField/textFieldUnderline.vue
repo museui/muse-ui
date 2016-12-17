@@ -41,11 +41,8 @@ export default {
       let classNames = []
       classNames.concat(convertClass(normalClass))
       if (error) classNames.push('error')
-      if (focus) {
-        classNames.push('focus')
-        classNames = classNames.concat(convertClass(focusClass))
-      }
-      return classNames
+      if (focus) classNames.push('focus')
+      return classNames.concat(convertClass(focusClass))
     },
     errorStyle () {
       return {

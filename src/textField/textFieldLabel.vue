@@ -29,7 +29,7 @@ export default {
       let classNames = []
       if (float) classNames.push('float')
       classNames = classNames.concat(convertClass(normalClass))
-      if (focus) classNames.concat(convertClass(focusClass))
+      if (focus) classNames = classNames.concat(convertClass(focusClass))
       return classNames
     }
   }

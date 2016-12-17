@@ -76,7 +76,7 @@ export function convertClass (classes) {
       if (classes[name]) newClasses.push(name)
     }
   } else {
-    newClasses = newClasses.join(' ') + ' ' + classes
+    newClasses = newClasses.concat(classes.split(' '))
   }
   return newClasses
 }

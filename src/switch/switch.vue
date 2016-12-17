@@ -8,8 +8,7 @@
     <div class="mu-switch-container">
       <div class="mu-switch-track" :class="trackClass"></div>
       <div class="mu-switch-thumb" :class="thumbClass" v-if="disabled"></div>
-      <touch-ripple v-if="!disabled"  rippleWrapperClass="mu-switch-ripple-wrapper" class="mu-switch-thumb">
-      </touchRipple>
+      <touch-ripple v-if="!disabled"  rippleWrapperClass="mu-switch-ripple-wrapper" class="mu-switch-thumb"/>
     </div>
     <div class="mu-switch-label" :class="labelClass" v-if="label && !labelLeft">{{label}}</div>
   </div>
