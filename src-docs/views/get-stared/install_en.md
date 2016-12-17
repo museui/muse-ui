@@ -1,17 +1,17 @@
 ## Installation
 
-Muse-UI 已经发布在 [npm](https://www.npmjs.com/package/muse-ui), 可以使用 `npm` 和 `yarn` 安装，或者使用 `<script>` 直接在网页中引入。
+Muse-UI has published in [npm](https://www.npmjs.com/package/muse-ui), you can use the `npm` or `yarn` to install it，also you can refer it by the `<script>` tag in the html.
 
-### 引入图标和字体
+### Importing the icon and font
 
-Muse-UI 使用了 material design 的字体和图标，需要在网页中引入。
+Muse-UI use the material design font and icon，so you need to import following fonts and icons in the html.
 
 ```html
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 ```
 
-### npm / yarn 安装
+### npm / yarn Installation
 
 ```bash
 npm install --save muse-ui
@@ -25,7 +25,7 @@ yarn add muse-ui
 
 ```
 
-### 使用 script 标签
+### use `script` tag
 
 
 ```html
@@ -33,4 +33,4 @@ yarn add muse-ui
 <script src="path/to/muse-ui.js"></script>
 ```
 
-> 这里的 **path/to** 需要替换成实际路径
+> you should replace the  **path/to** with the actual path.
