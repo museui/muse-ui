@@ -25,8 +25,11 @@ export default {
     onScroll () {
       if (this.loading) return
       const scroller = this.scroller
-      let h = scroller.scrollHeight - scroller.scrollTop - 5
-      let sh = scroller.offsetHeight
+      const isWindow = scroller === window
+      const scrollTop = isWindow ? scroller.scrollY : scroller.scrollTop
+      const scrollHeight = isWindow ? document.documentElement.scrollHeight : scroller.scrollHeight
+      let h = scrollHeight - scrollTop - 5
+      let sh = isWindow ? window.innerHeight : scroller.offsetHeight
       if (h <= sh) {
         this.$emit('load')
       }

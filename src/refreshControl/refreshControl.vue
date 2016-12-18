@@ -22,7 +22,7 @@ export default {
       default: false
     },
     trigger: {
-      type: window.Element
+      type: Element
     }
   },
   data () {

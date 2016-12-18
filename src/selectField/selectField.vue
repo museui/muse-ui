@@ -91,7 +91,7 @@ export default {
       default: false
     },
     scroller: {
-      type: [window.HTMLDocument, window.Element, window.Window]
+      type: [HTMLDocument, Element, Window]
     }
   },
   data () {
