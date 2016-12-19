@@ -3,9 +3,9 @@ import description from './README.md'
 export default {
   description,
   simpleExample: '简单的使用',
-  simpleExampleDesc: '这些事最简单的使用示例，通过 `uncheckIcon` 和 `checkedIcon` 自定义图标，`disabled` 使组件不可用, `labelPosition` 改变文字的位置',
+  simpleExampleDesc: '这些是最简单的使用示例，通过 `uncheckIcon` 和 `checkedIcon` 自定义图标，`disabled` 使组件不可用, `labelPosition` 改变文字的位置',
   controlExample: '复选框控制',
-  controlExampleDesc: '`v-model` 控制复选框的 value , `v-model` 只能控制 value属性，所以 checkbox 元素的的value只能使用 `nativeValue` 来定义',
+  controlExampleDesc: '`v-model` 控制复选框的 value , `v-model` 只能控制 value属性，所以 checkbox 元素的value只能使用 `nativeValue` 来定义',
   props: {
     name: '相当于 `input[type=checkbox]` 元素的 name 属性',
     nativeValue: '相当于 `input[type=checkbox]` 元素的 value 属性',

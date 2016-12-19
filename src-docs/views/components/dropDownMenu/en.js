@@ -3,27 +3,27 @@ import description from './README_EN.md'
 export default {
   description,
   simpleExample: 'Simple Example',
-  simpleExampleDesc: '这里的 `value` 和 `change` 事件都是必须的',
+  simpleExampleDesc: '`value` and `change` event is all need',
   props: {
-    autoWidth: '是否自动计算菜单宽度',
-    maxHeight: '菜单最大高度',
-    multiple: '是否可以多选',
-    disabled: '设置为 `true`， 将不可使用',
-    openImmediately: '是否在初始化的时候打开菜单',
-    anchorOrigin: '锚点的位置',
-    scroller: '滚动的元素，会监听它的 `scroll` 事件, 在滚动时会不断更新弹出框的位置',
-    labelClass: '文字样式，同 `class` 绑定方式一致',
-    iconClass: '图标样式，同 `class` 绑定方式一致',
-    menuClass: '菜单样式，同 `class` 绑定方式一致',
-    menuListClass: '菜单列表部分样式，同 `class` 绑定方式一致',
-    underlineClass: '底部横线样式，同 `class` 绑定方式一致'
+    autoWidth: 'whether it can calculate the width of menu automatically or not',
+    maxHeight: 'the maximum height of munu',
+    multiple: 'multiple or not',
+    disabled: 'disabled or not',
+    openImmediately: 'whether open the menu automatically when initialization',
+    anchorOrigin: 'anchor position',
+    scroller: 'scroll element, it will listen the scroll `event` and update the popup box position continually',
+    labelClass: 'style of text, the binding way is same with `class`',
+    iconClass: 'style of icon, the binding way is same with `class`',
+    menuClass: 'style of menu, the binding way is same with `class`',
+    menuListClass: 'style of menu list, the binding way is same with `class`',
+    underlineClass: 'style of the underline, the binding way is same with `class`'
   },
   slots: {
-    default: '用来放置`menuItem` 、 `subHeader` 、 `divider` 等组件'
+    default: 'is used to place the `menuItem` 、 `subHeader` 、 `divider` components'
   },
   events: {
-    change: '当value改变时触发事件，会传入新的 `value`',
-    open: '菜单打开时事件',
-    close: '菜单关闭时事件'
+    change: 'this event will triggered when the value is changed',
+    open: 'this event will be triggered when the menu is openning',
+    close: 'this event will be triggered when the menu is closing'
   }
 }

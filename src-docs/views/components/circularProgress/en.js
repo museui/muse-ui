@@ -3,12 +3,12 @@ import description from './README_EN.md'
 export default {
   description,
   props: {
-    mode: '进度指示器的模式， indeterminate 不确定进度模式，这时 value、min、max 无效, determinate 需要通过改变value值来改变进度显示',
-    value: '进度指示器的 `value` 值',
-    max: '最大值',
-    min: '最小值',
-    size: '圆形的大小',
-    strokeWidth: '圆形线的宽度',
-    color: '圆形线的颜色'
+    mode: 'progress indicator mode, if you set it as `indeterminate`, the value, min, max are all invalid, on the contrary, the `daterminate` mode should use the value to control the progress show',
+    value: '`value` of the progress indicator',
+    max: 'Max value',
+    min: 'Min value',
+    size: 'the size of circle',
+    strokeWidth: 'the stroke width of circle',
+    color: 'the color of circle'
   }
 }

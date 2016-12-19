@@ -3,21 +3,21 @@ import description from './README_EN.md'
 export default {
   description,
   simpleExample: 'Simple Example',
-  simpleExampleDesc: '使用 `open` 参数控制显示, `docked` 默认为 true,这个时候不会显示遮盖层，点击菜单也不会关闭',
-  rightExample: '打开右边的 Drawer',
+  simpleExampleDesc: 'using the `open` paramter to control its appearance,  `docked` is default to true, and thus not only the overlay is hidden, but also the menu is not close even though you click it.',
+  rightExample: 'open the right Drawer',
   props: {
-    width: 'drawer 的宽度',
-    zDepth: '阴影的深度',
-    open: '是否打开',
-    docked: '是否固定 drawer， 设为 `true`， 将不会显示遮盖层，也不会触发 `close` 事件',
-    right: '是否从右边弹出'
+    width: 'width of drawer',
+    zDepth: 'the depth of shadow',
+    open: 'open it or not',
+    docked: 'whether it is a fixed drawer，default to`true`，thus the overlay is hidden and will not emit the `close` event',
+    right: 'whether popup from the right side'
   },
   events: {
-    close: '当点击遮盖层或者按下`esc`键时触发该事件，会传入一个 `reason` 作为参数，```javascript\n (reason) => console.log(reason)  \n```',
-    show: '当 drawer 弹出时(动画完成后)触发事件',
-    hide: '当 drawer 隐藏时(动画完成后)触发事件'
+    close: 'when you click the overlay or knock the `ESC` key, this event will be emitted with a paramter `reason`, ```javascript\n (reason) => console.log(reason)  \n```',
+    show: 'when the drawer popup(after the animation finishing), this event will be emitted',
+    hide: 'when the drawer hide(after the animation finishing), this event will be emitted'
   },
   slots: {
-    default: 'drawer 的内容放置'
+    default: 'is used to place the content of drawer'
   }
 }
