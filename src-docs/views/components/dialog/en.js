@@ -3,27 +3,27 @@ import description from './README_EN.md'
 export default {
   description,
   simpleExample: 'Simple Example',
-  simpleExampleDesc: '每个 `dialog` 的显示和关闭都在外部使用 `v-if` 控制，当点击遮盖层或者敲下 `esc` 键，都会触发 `close` 事件',
+  simpleExampleDesc: 'Each `dialog` use the `v-if` directive to control the apperance or not,  when you click the overlay or knock the `ESC` key, all will trigger the close event',
   alertExample: 'Alert',
-  alertExampleDesc: '可以不监听 `close` 事件，使其只能通过点击确定按钮关闭',
-  scrollExample: '可滚动的对话框',
+  alertExampleDesc: 'we also can make it close by click the `ok` button instead of listening the  `close` event',
+  scrollExample: 'scrolled dialog',
   props: {
-    open: '是否打开',
-    dialogClass: 'dialog 样式, 同 `class` 绑定方式一致',
-    title: '对话框的标题',
-    titleClass: '标题栏样式, 同 `class` 绑定方式一致',
-    bodyClass: '内容区样式, 同 `class` 绑定方式一致',
-    actionsContainerClass: '操作按钮容器样式, 同 `class` 绑定方式一致',
-    scrollable: '内容是否可以滚动'
+    open: 'open or not',
+    dialogClass: 'style of dialog, the binding way is same with `class`',
+    title: 'title of dialog',
+    titleClass: 'style of title, the binding way is same with `class`',
+    bodyClass: 'style of body, the binding way is same with `class`',
+    actionsContainerClass: 'style of action button container, the binding way is same with `class`',
+    scrollable: 'scroll or not in the body of content'
   },
   slots: {
-    title: '用于自定义标题栏',
-    actions: '用于放置底部操作按钮',
-    default: '对话框的内容部分'
+    title: 'is used to customize the title',
+    actions: 'is used to place the action button of bottom',
+    default: 'the content part of dialog component'
   },
   events: {
-    close: '当点击遮盖层或者按下`esc`键时触发该事件，会传入一个 `reason` 作为参数，```javascript\n (reason) => console.log(reason)  \n```',
-    show: '当 dialog 显示时(动画完成后)触发事件',
-    hide: '当 dialog 隐藏时(动画完成后)触发事件'
+    close: 'when you click the overlay or knock the `ESC` key, this event will be emitted with a paramter `reason`, ```javascript\n (reason) => console.log(reason)  \n```',
+    show: 'when the dialog appear(after the animation finishing), this event will be emitted',
+    hide: 'when the dialog disappear(after the animation finishing), this event will be emitted'
   }
 }

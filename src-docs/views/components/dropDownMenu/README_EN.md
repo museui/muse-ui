@@ -1,5 +1,5 @@
 ## Drop Down Menu
 
-下拉菜单
+Drop down menu component
 
 ### Examples

@@ -2,11 +2,11 @@ import description from './README_EN.md'
 
 export default {
   description,
-  formExample: '配合表单元素使用',
-  listExample: '配合List组件使用',
-  menuExample: '配合Menu组件使用',
+  formExample: 'coordinate with the form element',
+  listExample: 'coordinate with the List component',
+  menuExample: 'coordinate with the Menu component',
   props: {
-    inset: '设置为true，将 `margin-left` 设为 `72px`',
-    shallowInset: '设置为true，将 `margin-left` 设为 `16px`'
+    inset: 'if it is true, `margin-left` will be `72px`',
+    shallowInset: 'if it is true, `margin-left` will be `16px`'
   }
 }
