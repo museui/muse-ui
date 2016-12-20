@@ -1,3 +1,16 @@
+## 2.0.0-beta.3
+
+### Features
+
+  * 增加一些组件英文文档
+
+### Bugs
+
+  * 修复 infiniteScroll 在window下无法触发load事件的问题
+  * 修复 selectField 部分属性无法添加样式的问题
+  * 修复 listItem 只有一个的时候会出现滚动条的bug
+  * 修复 ssr 下部分属性使用 `window.` 导致无法运行
+
 ## 2.0.0-beta.1
 
 ### Features
