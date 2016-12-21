@@ -51,12 +51,12 @@ export default {
     desc: 'props.format'
   }, {
     name: 'maxDate',
-    type: 'String',
+    type: 'Date',
     default: '',
     desc: 'props.maxDate'
   }, {
     name: 'minDate',
-    type: 'String',
+    type: 'Date',
     default: '',
     desc: 'props.minDate'
   }, {
