@@ -4,34 +4,34 @@ export default {
   description,
   simpleExample: 'Simple Example',
   complexExample: 'Complex Example',
-  complexExampleDesc: '通过定义 `rows` 和 `cols` 来定义每个 `gridTile` 的空间， 通过 `titlePosition` 改变 title的位置，`actionPosition` 改变 `action` 位置。',
-  inlineExample: '在一行的示例',
-  inlineExampleDesc: '通过外部 `class` 调整成一行的网格列表',
+  complexExampleDesc: 'define the space of each `gridTile` by `rows` and `cols`, to change the positon of title by `titlePosition`, to change the positon of `action` by `actionPosition`',
+  inlineExample: 'inline example',
+  inlineExampleDesc: 'making the grid list to showing in one line by external `class`',
   gridList: {
     props: {
-      cellHeight: '每一个网格的高度',
-      cols: '每一行的列数',
-      padding: '每一个网的 `padding` 值'
+      cellHeight: 'the width of each grid',
+      cols: 'the number of columns each row',
+      padding: 'the `padding` of each grid'
     },
     slots: {
-      default: '用于放置子组件 `gridTile` 或者 `subHeader` '
+      default: 'is used to place the children componens `gridTile` or `subHeader` '
     }
   },
   gridTile: {
     props: {
-      cols: '占的列数, 会根据此参数计算宽度',
-      rows: '占的行数, 会根据此参数计算高度',
-      title: '标题文字，也可以通过 name 为 title 的 `slot`来设置',
-      subTitle: '子标题文字，也可以通过 name 为 subTitle 的 `slot`来设置',
-      titlePosition: '标题栏的位置，`top` 在上方, `bottom` 在下方',
-      titleBarClass: '标题栏的样式',
-      actionPosition: '动作按钮的位置， right 在右边， left 在左边'
+      cols: 'columns count, we use this parameter to calculate the width',
+      rows: 'columns count, we use this parameter to calculate the height',
+      title: 'title, also you can set the title text by setting the `slot` which named title',
+      subTitle: 'sub title, also you can set the title text by setting the `slot` which named subTitle',
+      titlePosition: 'positon of title, can be `top` or `bottom`',
+      titleBarClass: 'style of title',
+      actionPosition: 'positon of action button, can be right or left'
     },
     slots: {
-      title: '放置标题文字',
-      subTitle: '放置子标题文字',
-      action: '放置动作按钮，`iconButton` 组件等',
-      default: '用于放置图片等元素'
+      title: 'is used to place the title',
+      subTitle: 'is used to place the subTitle',
+      action: 'is used to place the action button, such as `iconButton`',
+      default: 'is used to place image element and so on'
     }
   }
 }

@@ -1,5 +1,5 @@
 ## Infinite Scroll
 
-无限滚动组件，监听滚动事件当滚动到底部会触发一个 `load` 事件
+infinite scroll component, it will emit a `load` event when you scroll to the bottom.
 
 ### Examples

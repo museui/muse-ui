@@ -5,25 +5,25 @@ export default {
   simpleExample: 'Simple Example',
   flexbox: {
     props: {
-      gutter: '各 `flexboxItem` 间的间隔',
-      orient: '`flexboxItem`排列方向 \n * horizontal: 水平方向排列; \n * vertical: 垂直方向排列 ',
-      justify: '主轴的对齐方式 flex-start, flex-end, center, space-between, space-around',
-      align: '交叉轴对齐方式 flex-start, flex-end, center, baseline, stretch',
-      wrap: '是否可以换行， warp 允许换行， nowrap 不允许换行'
+      gutter: 'distance between each `flexboxItem`',
+      orient: 'direction of `flexboxItem` \n * horizontal: arrange by horizontal; \n * vertical: arrange by vertical',
+      justify: 'align method of main axis: flex-start, flex-end, center, space-between, space-around',
+      align: 'align method of cross axis: flex-start, flex-end, center, baseline, stretch',
+      wrap: 'wrap or not, warp: allow， nowrap: disallow'
     },
     slots: {
-      default: '用于放置 `flexboxItem` 组件'
+      default: 'is used to place the `flexboxItem` components'
     }
   },
   flexboxItem: {
     props: {
-      grow: '相当于flexbox布局的 `flex-grow` 属性',
-      shrink: '相当于flexbox布局的 `flex-shrink` 属性',
-      basis: '相当于flexbox布局的 `flex-basis` 属性',
-      order: '相当于flexbox布局的 `order` 属性，用于排序'
+      grow: 'is same with the `flex-grow` attribute of flex layout',
+      shrink: 'is same with the `flex-shrink` attribute of flex layout',
+      basis: 'is same with the `flex-basis` attribute of flex layout',
+      order: 'is same with the `order` attribute of flex layout'
     },
     slots: {
-      default: '用于放置具体内容'
+      default: 'is used to place the specific content'
     }
   }
 }

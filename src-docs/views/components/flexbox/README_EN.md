@@ -1,5 +1,5 @@
 ## FlexBox
 
-基于 [flexbox](http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html) 的布局， 引入 [Vux](https://vux.li/#!/) 的 `flexbox` , 用于快速布局。
+Based on the [flexbox](http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html) layout， importing the `flexbox` of [Vux](https://vux.li/#!/) , is used to fast placement.
 
 ### Examples

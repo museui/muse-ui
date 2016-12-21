@@ -2,15 +2,15 @@ import description from './README_EN.md'
 
 export default {
   description,
-  indeterminateDesc: '默认的进度指示器',
-  determinateDesc: '不过设置不同 `value` 来改变进度条的进度',
-  customExample: '定制大小和颜色',
+  indeterminateDesc: 'the default progress indicator',
+  determinateDesc: 'to change the progress by `value`',
+  customExample: 'customize the color and size',
   props: {
-    mode: '进度指示器的模式， indeterminate 不确定进度模式，这时 value、min、max 无效, determinate 需要通过改变value值来改变进度显示',
-    value: '进度条的 `value` 值',
-    max: '最大值',
-    min: '最小值',
-    size: '进度条的大小(高度)',
-    color: '进度条的颜色'
+    mode: 'progress indicator mode, if you set it as `indeterminate`, the value, min, max are all invalid, on the contrary, the `daterminate` mode should use the value to control the progress show',
+    value: '`value` of the progress indicator',
+    max: 'Max value',
+    min: 'Min value',
+    size: 'the size of progress(height)',
+    color: 'the color of circle'
   }
 }
