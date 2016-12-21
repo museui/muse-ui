@@ -29,7 +29,7 @@ export default {
   },
   events: {
     click: 'button clicking event',
-    hover: 'hover eevent',
+    hover: 'hover event',
     hoverExit: 'hover existing event',
     keyboardFocus: 'when the button is focusing or blurring by the keyboard, this event will emit with a parameter which indicate the button is focusing or not. (isFocus)'
   }
