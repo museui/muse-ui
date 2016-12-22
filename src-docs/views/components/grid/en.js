@@ -3,23 +3,23 @@ import description from './README_EN.md'
 export default {
   description,
   simpleExample: 'Simple Example',
-  simpleExampleDesc: '`width` 在手机上的宽度, `tablet` 平板上的宽度, `desktop` pc端上的宽度',
+  simpleExampleDesc: '`width` is means the width of mobile, `tablet` is means the width of tablet, `desktop` is means the width of PC',
   row: {
     props: {
-      gutter: '`col` 之间是否存在间隔'
+      gutter: 'whether the `col`s have the distance between them'
     },
     slots: {
-      default: '放置 `col` 组件'
+      default: 'is used to place the `col` component'
     }
   },
   col: {
     props: {
-      width: '手机上的宽度, 5, 10, 15, 20, 25, 30, 33, 35, 40, 45, 50, 55, 60, 65, 66, 70, 75, 80, 85, 90, 95, 100 都是百分比设置',
-      tablet: '平板上的宽度, 5, 10, 15, 20, 25, 30, 33, 35, 40, 45, 50, 55, 60, 65, 66, 70, 75, 80, 85, 90, 95, 100 都是百分比设置',
-      desktop: '桌面端的宽度, 5, 10, 15, 20, 25, 30, 33, 35, 40, 45, 50, 55, 60, 65, 66, 70, 75, 80, 85, 90, 95, 100 都是百分比设置'
+      width: 'width of mobile, 5, 10, 15, 20, 25, 30, 33, 35, 40, 45, 50, 55, 60, 65, 66, 70, 75, 80, 85, 90, 95, 100, all of them are percentage',
+      tablet: 'width of tablet, 5, 10, 15, 20, 25, 30, 33, 35, 40, 45, 50, 55, 60, 65, 66, 70, 75, 80, 85, 90, 95, 100, all of them are percentage',
+      desktop: 'width of PC, 5, 10, 15, 20, 25, 30, 33, 35, 40, 45, 50, 55, 60, 65, 66, 70, 75, 80, 85, 90, 95, 100, all of them are percentage'
     },
     slots: {
-      default: '内容部分'
+      default: 'content part'
     }
   }
 }

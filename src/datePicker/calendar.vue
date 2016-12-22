@@ -125,6 +125,34 @@ export default {
       this.$emit('dismiss')
     },
     handleOk () {
+      const selectedYear = this.selectedDate.getFullYear()
+      const selectdMonth = this.selectedDate.getMonth()
+      const selectedDay = this.selectedDate.getDate()
+      const maxYear = this.maxDate.getFullYear()
+      const maxMonth = this.maxDate.getMonth()
+      const maxDay = this.maxDate.getDate()
+      const minYear = this.minDate.getFullYear()
+      const minMonth = this.minDate.getMonth()
+      const minDay = this.minDate.getDate()
+
+      if (selectedYear > maxYear) {
+        this.selectedDate.setFullYear(maxYear)
+      } else if (selectedYear < minYear) {
+        this.selectedDate.setFullYear(minYear)
+      }
+
+      if (selectdMonth > maxMonth) {
+        this.selectedDate.setMonth(maxMonth + 1)
+      } else if (selectdMonth < minMonth) {
+        this.selectedDate.setMonth(minMonth + 1)
+      }
+
+      if (selectedDay > maxDay) {
+        this.selectedDate.setDate(maxDay)
+      } else if (selectedDay < minDay) {
+        this.selectedDate.setDate(minDay)
+      }
+
       this.$emit('accept', this.selectedDate)
     },
     setSelected (date) {

@@ -2,36 +2,36 @@ import description from './README_EN.md'
 
 export default {
   description,
-  simpleExample: '不同的菜单位置',
-  simpleExampleDesc: '通过 `anchorOrigin` 和 `targetOrigin` 定义不同的菜单弹出的位置',
-  controlExample: '控制菜单的选择和显示',
-  controlExampleDesc: '通过 `open` 参数控制菜单显示， `value` 控制选择',
-  scrollableExample: '可滚动的菜单',
+  simpleExample: 'different position of menu',
+  simpleExampleDesc: 'define the various position of popup menu by `anchorOrigin` and `targetOrigin`',
+  controlExample: 'control the menu selection and display',
+  controlExampleDesc: 'control the menu display or hidden by `open`',
+  scrollableExample: 'scrollable menu',
   props: {
-    icon: '显示的按钮的图标',
-    iconClass: '图标样式，同 `class` 绑定方式一致',
-    menuClass: '菜单样式，同 `class` 绑定方式一致',
-    menuListClass: '菜单列表部分样式，同 `class` 绑定方式一致',
-    multiple: '是否可以多选',
-    desktop: '设置为 `true`, 菜单将被调整为桌面版的样式，缩小高度和调整padding',
-    maxHeight: '最大高度，超出则显示滚动条',
-    open: '是否显示菜单',
-    itemClickClose: '是否在点击菜单项之后关闭',
-    anchorOrigin: '锚点的位置',
-    targetOrigin: '目标的的位置',
-    scroller: '滚动的元素，会监听它的 `scroll` 事件, 在滚动时会不断更新弹出框的位置',
-    tooltip: '工具提示文本',
-    tooltipPosition: '提示文字文字, [垂直位置]-[水平位置]，垂直位置: top，middle, bottom; 水平位置: left, center, right',
-    value: '设置以后菜单将为可选择的菜单，当菜单项的value 和 当前 value相等，则菜单项为被选中状态'
+    icon: 'icon on the button',
+    iconClass: 'style of icon, the binding way is same with `class`',
+    menuClass: 'style of menu, the binding way is same with `class`',
+    menuListClass: 'style of menu list, the binding way is same with `class`',
+    multiple: 'multiple or not',
+    desktop: 'the menu will be become to the style of desktop which will shrink the width and adjust the padding when this value is `true`',
+    maxHeight: 'the maximum height, scroll bar will be showed when the menu length is larger than this value',
+    open: 'open the menu or not',
+    itemClickClose: 'whether it is closing after clicking the menu item',
+    anchorOrigin: 'the positon of anchor',
+    targetOrigin: 'the position of target',
+    scroller: 'scrollable element, it wil listen to its `scroll` event, and update the position of popup box continually when scrolling.',
+    tooltip: 'tooltip',
+    tooltipPosition: 'the positon of hint text, [horizon]-[vertical]，vertical: top，middle, bottom; horizon: left, center, right',
+    value: 'the menu will be selectable after this parameter is set, the menu item will selected when the current value is equal to the value of menu item'
   },
   slots: {
-    icon: '用来放置图标',
-    default: '用来放置`menuItem` 、 `subHeader` 、 `divider` 等组件'
+    icon: 'is used to place the icon',
+    default: 'is used to place the `menuItem`, `subHeader` , `divider` components'
   },
   events: {
-    itemClick: '当菜单项点击时触发事件,会传入 `menuItem` 组件对象',
-    change: '当value改变时触发事件，会传入新的 `value`',
-    open: '菜单打开时事件',
-    close: '菜单关闭时事件'
+    itemClick: 'it will be triggered when the menu item is clicked, and pass with the `menuItem` component object',
+    change: 'this event will triggered when the value is changed',
+    open: 'this event will be triggered when the menu is openning',
+    close: 'this event will be triggered when the menu is closing'
   }
 }

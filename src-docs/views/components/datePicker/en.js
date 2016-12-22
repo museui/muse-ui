@@ -46,7 +46,7 @@ export default {
     value: 'the value of date piacker, you cab replace it with the `v-model` directive'
   },
   events: {
-    input: 'value 发生改变触发的事件，传入新的value, (value)',
-    change: '由于用户行为(点击确定按钮)导致 value 值改变时触发事件, 传入 value 属性值'
+    input: 'this event will be emitted when the value has changed, pass with the new value, (value)',
+    change: 'as the user action(such as clicking the ok button) lead to the value has changed, this event will be emitted with the value attribute'
   }
 }

@@ -14,7 +14,7 @@ export default {
     href: '相当于 a 标签的 href属性，设置之后会渲染成 a 标签，默认是使用button标签',
     target: '相当于 a 标签的target属性',
     tooltip: '当鼠标移上去提示的文字',
-    tooltipPosition: '提示文字文字, [垂直位置]-[水平位置]，垂直位置: top，middle, bottom; 水平位置: left, center, right',
+    tooltipPosition: '提示文字的位置, [垂直位置]-[水平位置]，垂直位置: top，middle, bottom; 水平位置: left, center, right',
     touch: '是否为 touch 的样式，一般用在移动端，提示框会大一些'
   },
   slots: {
