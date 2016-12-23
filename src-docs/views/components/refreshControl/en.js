@@ -3,12 +3,12 @@ import description from './README_EN.md'
 export default {
   description,
   simpleExample: 'Simple Example',
-  simpleExampleDesc: '按住下拉，然后松开会刷新数据。`RefreshControl` 的 Container 元素必须是已定位的元素(也就是 `position` 为 relative、absolute 或 fixed)',
+  simpleExampleDesc: 'Hold the screen and then drop down, the data will be refreshed when you loosen. The container element of `RefreshControl` component should be a position element(i.e: `position` should be relative、absolute or fixed)',
   props: {
-    trigger: '触发下拉刷新的元素, 会给它绑定上事件',
-    refreshing: '是否正在刷新数据'
+    trigger: 'the element which will trigger the  pull-to-refresh, we will bind the event to this element',
+    refreshing: 'whether it is refreshing data or not'
   },
   events: {
-    refresh: '需要刷新数据时触发'
+    refresh: 'it will be triggered when the data is refreshing'
   }
 }

@@ -10,7 +10,7 @@ export default {
     name: 'is equal to the name attribute of `input[type=checkbox]` element',
     nativeValue: 'is equal to the name attribute of `input[type=checkbox]` element',
     label: 'lable text',
-    labelLeft: 'whether the lable text is on the right or not, default to left side.',
+    labelLeft: 'whether the lable text is on the right or not, default to right side.',
     labelClass: 'style of label, the binding way is same with `class`',
     disabled: 'disabled the checkbox',
     uncheckIcon: 'the icon when you are not selecting, it should be selected from the material design icon library',

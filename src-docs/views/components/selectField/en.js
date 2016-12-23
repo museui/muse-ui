@@ -3,39 +3,39 @@ import description from './README_EN.md'
 export default {
   description,
   simpleExample: 'Simple Example',
-  simpleExampleDesc: '下拉框的value 通过 `v-model` 控制，通过 `menuItem` 配置可选项； `multiple` 可将下拉框改为多选，这个时候 `v-model` 需要绑定数组',
+  simpleExampleDesc: '`v-model` control the value of drop down, you can config the options by `menuItem`, and you can mutiple select by  `multiple` attribute, and in this case, `v-model` should be bind to array',
   complexExample: 'Complex Example',
-  complexExampleDesc: '`maxHeight` 控制弹窗框的高度，`errorText` 当表单验证出错时可以给出提示信息',
+  complexExampleDesc: '`maxHeight` control the height of popup box, `errorText` can be reminder the message when form verification failure',
   props: {
-    autoWidth: '是否自动计算菜单宽度',
-    maxHeight: '菜单最大高度',
-    multiple: '是否可以多选',
-    label: '下拉框的标签',
-    labelFloat: '标签是否浮动',
-    labelClass: '标签的样式, 同 `class` 绑定方式一致',
-    labelFocusClass: '输入框获取焦点时标签的样式, 同 `class` 绑定方式一致',
-    disabled: '下拉框是否不可用',
-    hintText: '提示文字',
-    hintTextClass: '提示文字样式, 同 `class` 绑定方式一致',
-    helpText: '帮助文字',
-    helpTextClass: '帮助文字样式, 同 `class` 绑定方式一致',
-    errorText: '错误提醒文字，如果此参数有值，那么下拉框会转为错误的状态, 显示效果将会更改',
-    errorColor: '错误状态的时的颜色，默认为红色',
-    icon: '显示图标',
-    iconClass: '图标的样式, 同 `class` 绑定方式一致',
-    fullWidth: '是否将宽度设置为 100%, 默认 256px',
-    underlineShow: '是否显示底部的横线',
-    underlineClass: '底部横线样式, 同 `class` 绑定方式一致',
-    underlineFocusClass: '输入框获取焦点时底部横线样式, 同 `class` 绑定方式一致',
-    dropDownIconClass: '下拉图标样式, 同 `class` 绑定方式一致',
-    value: '下拉框的值，可不设置此参数，使用 `v-model` 指令代替',
-    scroller: '滚动的元素，会监听它的 `scroll` 事件, 在滚动时会不断更新弹出框的位置'
+    autoWidth: 'adjust width automatically when it is true',
+    maxHeight: 'the maximum height of menu',
+    multiple: 'multiple or not',
+    label: 'label',
+    labelFloat: 'whether the label can be floated or not',
+    labelClass: 'style of label, the binding way is same with the `class`',
+    labelFocusClass: 'style of label when the input is focusing, the binding way is same with the `class`',
+    disabled: 'whether ths input is disabled or not',
+    hintText: 'hint text',
+    hintTextClass: 'style of prompt text, the binding way is same with the `class`',
+    helpText: 'help text',
+    helpTextClass: 'style of help text, the binding way is same with the `class`',
+    errorText: 'error text, the input box will become to error status when this parameters is not empty, thus the effect of style will be updated.',
+    errorColor: 'color of error status, default to red',
+    icon: 'display icon',
+    iconClass: 'style of icon, the binding way is same with the `class`',
+    fullWidth: 'whether the width is 100% or not, default to 256px',
+    underlineShow: 'whether it will display bottom line or not',
+    underlineClass: 'style of bottom line, the binding way is same with the `class`',
+    underlineFocusClass: 'style of bottom line when the input box is focusing, the binding way is same with the `class`',
+    dropDownIconClass: 'style of icon, the binding way is same with `class`',
+    value: 'value of drop down box, you can use `v-model` instead of setting this parameter',
+    scroller: 'scroll element, will listen to its `scroll` event, it will update the position of drop-down continually when you scroll.'
   },
   slots: {
-    default: '用来放置`menuItem` 、 `subHeader` 、 `divider` 等组件'
+    default: 'is used to place `menuItem`, `subHeader`, `divider` components'
   },
   events: {
-    input: 'value 发生改变触发的事件，传入新的value, (value)',
-    change: '由于用户选择是value改变时触发事件，传入 value 属性值'
+    input: 'when the value is changed, the component will emit this event with the new value',
+    change: 'when the user change the value , the component will emit this event with the new value'
   }
 }

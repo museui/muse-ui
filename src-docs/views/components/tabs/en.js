@@ -7,32 +7,32 @@ export default {
   iconTextExample: 'Icon & Text Example',
   tabs: {
     props: {
-      lineClass: '高亮线的样式，同 `class` 绑定方式一致',
-      value: '必需，需要和子组件 tab 配合'
+      lineClass: 'style of highlight line, the binding way is same with `class`',
+      value: 'required, should be coordinate with the child component tab'
     },
     slots: {
-      default: '用于放置 tab 组件'
+      default: 'is used to place the tab component'
     },
     events: {
-      change: '当 value 改变的时触发，参数(value) value 新的value'
+      change: 'when the value has changed, this event will be triggered'
     }
   },
   tab: {
     props: {
-      icon: 'tab 上的图标',
-      iconClass: '图标的样式，同 `class` 绑定方式一致',
-      title: 'tab 上的文字',
-      titleClass: '标题的样式，同 `class` 绑定方式一致',
-      value: '必需，当value 与父组件的 value值相等时，会变成选中状态',
-      href: '相当于 a 标签的 href属性，设置之后会渲染成 a 标签，默认是使用button标签',
-      disabled: '是否禁用'
+      icon: 'icon of tab',
+      iconClass: 'style of icon, the binding way is same with the `class`',
+      title: 'text of tab',
+      titleClass: 'style of title, the binding way is same with `class`',
+      value: 'required, when this value is equal to the value of parent component,  it will become to selected state',
+      href: 'is same with the `href` attribute of `a` tag, if it is set, this component will render as a `a` tag, default to `button` tag.',
+      disabled: 'disabled or not'
     },
     events: {
-      active: '当 tab 被选择时触发',
-      click: '当 tab 被点击时触发'
+      active: 'will be triggered when the tab is active',
+      click: 'will be triggered when the tab is clicking'
     },
     slots: {
-      default: '用于自定义icon'
+      default: 'is used to customize the icon'
     }
   }
 }

@@ -20,7 +20,7 @@ export default {
       message: '提示的信息'
     },
     events: {
-      close: 'snackbar 需要被关闭时触发事件'
+      close: 'toast 需要被关闭时触发事件'
     }
   }
 }

@@ -1,7 +1,7 @@
 ## Pagination
 
-[pagination](http://www.materialscss.com/pagination) 使用分页控件来分割过长的内容，使其更加容易读阅。
+[pagination](http://www.materialscss.com/pagination) component is used to split the longer content, make it read easiear.
 
-[linxiaowu66](https://github.com/linxiaowu66) 贡献
+[linxiaowu66](https://github.com/linxiaowu66) contribute to this component
 
 ### Examples

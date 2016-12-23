@@ -1,5 +1,5 @@
 ## Refresh Control
 
-下拉刷新组件
+Pull to refresh component
 
 ### Examples

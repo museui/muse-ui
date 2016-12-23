@@ -5,19 +5,19 @@ export default {
   simpleExample: 'Simple Example',
   simpleExampleDesc: '`radio` 组件的属性和checkbox一致，并且都可以通过 `v-model` 控制value',
   props: {
-    name: '相当于 `input[type=radio]` 元素的 name 属性',
-    nativeValue: '相当于 `input[type=radio]` 元素的 value 属性',
-    label: '显示的标签文字',
-    labelLeft: '标签文字是否在左边，默认在右边',
-    labelClass: '标签的样式, 同 `class` 绑定方式一致',
-    disabled: '设置为 true 后 radio 将不可用',
-    uncheckIcon: '未选中时显示的icon, 必须在 material design icon 库中选择',
-    checkedIcon: '已选中时显示的icon, 必须在 material design icon 库中选择',
-    iconClass: '图标的样式, 同 `class` 绑定方式一致',
-    value: '用来使用v-model控制'
+    name: 'is equal to the name attribute of `input[type=radio]` element',
+    nativeValue: 'is equal to the name attribute of `input[type=radio]` element',
+    label: 'lable text',
+    labelLeft: 'whether the lable text is on the right or not, default to left side.',
+    labelClass: 'style of label, the binding way is same with `class`',
+    disabled: 'disabled the checkbox',
+    uncheckIcon: 'the icon when you are not selecting, it should be selected from the material design icon library',
+    checkedIcon: 'the icon when you are selecting, it should be selected from the material design icon library',
+    iconClass: 'style of icon, the binding way is same with `class`',
+    value: 'value'
   },
   events: {
-    input: '当 value 属性发生改变时触发事件，传入新的value, (value)',
-    change: '同 `input[type=radio]` 元素的change事件一致, 传入 value 属性值'
+    input: 'when the value attribute has changed, this event will be emitted with the new value',
+    change: 'is the same with the change event of `input[type=radio]` element, pass with the value attribute'
   }
 }

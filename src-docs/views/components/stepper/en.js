@@ -2,73 +2,73 @@ import description from './README_EN.md'
 
 export default {
   description,
-  simpleExample: '水平的步骤导航',
-  simpleExampleDesc: '一个活动发起的示例, 默认的步骤导航，是一步完成之后才能进行下一步的， 通过改变 `activeStep` 的值来控制当前步骤，使用的时候可根据 `activeStep` 展示相应的页面',
-  verticalExample: '垂直的步骤导航',
-  verticalExampleDesc: '垂直的步骤导航，步骤内容需要放置在 `stepContent` 组件中，当 `activeStep` 改变时会显示不同的内容, `stepContent` 只可以被用在垂直的步骤导航中',
-  nolinearExample: '非线性步骤导航',
-  nolinearExampleDesc: '`linear` 设置为 false 时，不用完成上一步骤也可以查看下步骤的内容，`stepLabel` 需要被替换为 `stepButton` 并监听点击事件显示改步骤内容',
-  controlExample: '非线性控制完成示例',
-  controlExampleDesc: '`linear` 这是为 false 时, `stepper` 组件不再给 `step` 传递 `completed` 属性，因此需要手动给每一个`step` 绑定 `completed`',
-  customExample: '自定义图标',
+  simpleExample: 'step navigation on the horizontal direction',
+  simpleExampleDesc: 'a example which launching a activity, the default step navigation is the next step should be after the previous step. But you can change the  `activeStep` to control the current step, and to show the related page by `activeStep`',
+  verticalExample: 'step navigation on the horizontal vertical',
+  verticalExampleDesc: 'the step content should be place in the `stepContent` component, when `activeStep` has changed it will show different content, `stepContent` only should be used in the vertical step navigation',
+  nolinearExample: 'no-linear step navigation',
+  nolinearExampleDesc: 'when `linear` is false, you can check the next step content without completing the previous step.`stepLabel` should be replaced with `stepButton` and listen the click event to change the step content.',
+  controlExample: 'no-linear control example',
+  controlExampleDesc: 'when the `linear` is false, `stepper` component is no longer pass `completed` attribute to `step`,  so you need to bind each `step` to `completed` manually',
+  customExample: 'customize icons',
   stepper: {
     props: {
-      activeStep: '当前步骤',
-      linear: '是否为线性步骤导航，设置为 false，将不再控制 `step` 组件的 completed 和 disabled 属性',
-      orientation: 'horizontal: 水平步骤导航, vertical: 垂直的步骤导航'
+      activeStep: 'current step',
+      linear: 'whther it is linear step navigation, when it is false, you can not control the completed and disabled attribute of `step` component ',
+      orientation: 'horizontal or vertical'
     },
     slots: {
-      default: '用于放置 `step` 组件'
+      default: 'is used to place the `step` component'
     }
   },
   step: {
     props: {
-      active: '是否为当前步骤',
-      completed: '是否已完成',
-      disabled: '是否被禁用',
-      index: '当前步骤下标',
-      last: '是否是最后一步'
+      active: 'whether it is the current step or not',
+      completed: 'whether it is completed',
+      disabled: 'disabled or not',
+      index: 'index of step',
+      last: 'last step or not'
     },
     slots: {
-      default: '用于放置 `stepLabel` 、 `stepButton` 、 `stepContent` 等组件'
+      default: 'is used to place the `stepLabel` 、 `stepButton` 、 `stepContent` components'
     }
   },
   stepLabel: {
     props: {
-      active: '是否是当前步骤',
-      completed: '是否已完成',
-      disabled: '是否被禁用',
-      num: '步骤序号'
+      active: 'whether it is the current step or not',
+      completed: 'whether it is completed',
+      disabled: 'disabled or not',
+      num: 'num'
     },
     slots: {
-      icon: '用于自定义左边的icon',
-      default: '放置步骤标题文字'
+      icon: 'is used to customize the left icon',
+      default: 'is place the step title'
     }
   },
   stepButton: {
     props: {
-      active: '是否是当前步骤',
-      completed: '是否已完成',
-      disabled: '是否被禁用',
-      num: '步骤序号',
-      last: '是否是最后一步',
-      childrenInLabel: '子节点是否都在 `stepLabel` 组件内'
+      active: 'whether it is the current step or not',
+      completed: 'whether it is completed',
+      disabled: 'disabled or not',
+      num: 'num',
+      last: 'last step or not',
+      childrenInLabel: 'whether the child node are all in the `stepLabel` component'
     },
     slots: {
-      icon: '用于自定义左边的icon',
-      default: '放置步骤标题文字'
+      icon: 'is used to customize the right icon',
+      default: 'is place the step title'
     },
     events: {
-      click: '点击事件'
+      click: 'click event'
     }
   },
   stepContent: {
     props: {
-      active: '是否是当前步骤',
-      last: '是否是最后一步'
+      active: 'whether it is the current step or not',
+      last: 'last step or not'
     },
     slots: {
-      default: '放置步骤的具体内容，此组件只能在垂直导航模式下使用'
+      default: 'place the content of step, this component is only used in the vertical step navigation mode'
     }
   }
 }

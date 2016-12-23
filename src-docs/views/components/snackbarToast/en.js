@@ -3,24 +3,24 @@ import description from './README_EN.md'
 export default {
   description,
   simpleExample: 'Simple Example',
-  simpleExampleDesc: '不同的设备上`snackbar` 与 `toast` 弹出的位置是不同的，使用时需要注意，同时只能存在一个 `snackbar` 或 `toast` 。',
+  simpleExampleDesc: 'the postion of `snackbar` and `toast` is different on the different device, Note: a page should only `snackbar` 或 `toast` 。',
   snackbar: {
     props: {
-      message: '提示的信息',
-      action: '动作按钮上的文字',
-      actionColor: '动作按钮颜色'
+      message: 'message',
+      action: 'text of the action button',
+      actionColor: 'color of the action button'
     },
     events: {
-      close: 'snackbar 需要被关闭时触发事件',
-      actionClick: '动作按钮点击事件'
+      close: 'this event will be triggered when snackbar has been closing',
+      actionClick: 'this event will be triggered when the action button has been clicking'
     }
   },
   toast: {
     props: {
-      message: '提示的信息'
+      message: 'message'
     },
     events: {
-      close: 'snackbar 需要被关闭时触发事件'
+      close: 'this event will be triggered when toast has been closing'
     }
   }
 }

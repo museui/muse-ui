@@ -4,20 +4,20 @@ export default {
   description,
   simpleExample: 'Simple Example',
   props: {
-    open: '是否打开',
-    popupClass: 'popup 样式, 同 `class` 绑定方式一致',
-    popupTransition: '弹出层的过度动画效果, 默认使用内置的 popup-slide',
-    position: '弹出位置 left, right, top, bottom',
-    overlay: '是否有遮盖层',
-    overlayColor: '遮盖层颜色',
-    overlayOpacity: '遮盖层透明度'
+    open: 'open or not',
+    popupClass: 'style of popup, the binding way is same with `class`',
+    popupTransition: 'animation effects of popup layer, default to use the internal method `popup-slide`',
+    position: 'positon of popup, can be left, right, top, bottom',
+    overlay: 'whether it will display overlay or not',
+    overlayOpacity: 'opacity of overlay',
+    overlayColor: 'color of overlay'
   },
   slots: {
-    default: '弹出层内容'
+    default: 'content of popup'
   },
   events: {
-    close: '当点击遮盖层或者按下`esc`键时触发该事件，会传入一个 `reason` 作为参数，```javascript\n (reason) => console.log(reason)  \n```',
-    show: '当 popup 显示时(动画完成后)触发事件',
-    hide: '当 popup 隐藏时(动画完成后)触发事件'
+    close: 'when you click the overlay or knock the `ESC` key, this event will be emitted with a paramter `reason`, ```javascript\n (reason) => console.log(reason)  \n```',
+    show: 'when the popup appear(after the animation finishing), this event will be emitted',
+    hide: 'when the popup disappear(after the animation finishing), this event will be emitted'
   }
 }
