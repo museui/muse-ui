@@ -3,7 +3,7 @@ import VueI18n from 'vue-i18n'
 
 Vue.use(VueI18n)
 
-Vue.config.lang = window.localStorage.getItem('lang') || 'zh'
+Vue.config.lang = getUrlParam('lang') || window.localStorage.getItem('lang') || 'zh'
 
 Vue.locale('zh', {
   install: '快速开始-安装',
@@ -116,3 +116,11 @@ Vue.locale('en', {
   popup: 'Popup',
   refreshControl: 'Refresh Control'
 })
+
+function getUrlParam (param) {
+  var reg = new RegExp('[&,?,&amp;]' + param + '=([^\\&]*)', 'i')
+  var hrefStr = window.location.search
+  hrefStr = decodeURIComponent(decodeURIComponent(hrefStr))
+  var value = reg.exec(hrefStr)
+  return value ? value[1] : ''
+}

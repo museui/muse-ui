@@ -9,7 +9,7 @@
           Muse-UI
         </h1>
         <h2 class="mu-banner-sub-title">
-          基于 Vue 2.0 和 Material Desigin 的 UI 组件库
+          {{$t('subTitle')}}
         </h2>
         <div class="mu-banner-actions">
           <mu-raised-button label="Get Started" href="#/install" class="mu-banner-button"/>
@@ -19,26 +19,24 @@
     </div>
     <div class="mu-desc-wrapper">
       <div class="mu-desc">
-        <h2 class="mu-desc-title">特性</h2>
+        <h2 class="mu-desc-title">{{$t('features')}}</h2>
         <mu-row gutter>
           <mu-col tablet="33" desktop="33" class="mu-desc-item">
-            <h3 class="mu-desc-sub-title">组件丰富</h3>
+            <h3 class="mu-desc-sub-title">{{$t('component')}}</h3>
             <div class="mu-desc-text">
-              Muse UI 基本实现了 Material Design 设计规范类的所有组件，
-              另外还开发许多的功能性的组件
+              {{$t('componentDesc')}}
             </div>
           </mu-col>
           <mu-col tablet="33" desktop="33" class="mu-desc-item">
-            <h3 class="mu-desc-sub-title">可定制</h3>
+            <h3 class="mu-desc-sub-title">{{$t('custom')}}</h3>
             <div class="mu-desc-text">
-              Muse UI 使用less文件，所有的颜色都有一个变量维护，通过编写 less 文件完成自定义主题，
-              另外组件内部也提供一些修改效果的参数
+              {{$t('customDesc')}}
             </div>
           </mu-col>
           <mu-col tablet="33" desktop="33" class="mu-desc-item">
-            <h3 class="mu-desc-sub-title">基于 Vue 2.0</h3>
+            <h3 class="mu-desc-sub-title">{{$t('base')}}</h3>
             <div class="mu-desc-text">
-              Muse UI 基于 Vue2.0 开发，Vue2.0是当下最快的前端框架之一，小巧，api友好，可用于开发的复杂单页应用
+              {{$t('baseDesc')}}
             </div>
           </mu-col>
         </mu-row>
@@ -47,16 +45,9 @@
     <mu-divider/>
     <div  class="mu-desc-wrapper">
       <div class="mu-desc">
-        <h2 class="mu-desc-title">致谢</h2>
+        <h2 class="mu-desc-title">{{$t('thanks')}}</h2>
         <div class="mu-desc-item">
-          <div class="mu-desc-text">
-            Muse UI 基于一个非常优秀的前端框架
-            <a href="https://vuejs.org" target="_blank">Vue</a>
-            开发， 并且参考了
-            <a href="http://www.material-ui.com/" target="_blank">material-ui</a> 、
-            <a href="http://element.eleme.io/" target="_blank">element</a>
-            等众多优秀的UI框架的API和代码，
-            为了鼓励开发人员使用Muse UI，我们在MIT开源协议基础上开放Muse UI的源代码。
+          <div class="mu-desc-text" v-html="$t('thanksDesc')">
           </div>
         </div>
       </div>
@@ -69,7 +60,13 @@
 </template>
 
 <script>
+import zh from './zh'
+import en from './en'
 export default {
+  locales: {
+    zh,
+    en
+  }
 }
 </script>
 
