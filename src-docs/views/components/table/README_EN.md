@@ -1,5 +1,5 @@
 ## Table
 
-[table](https://material.google.com/components/data-tables.html) 被用来展示原始数据集，并且通常出现于桌面企业产品中。
+[table](https://material.google.com/components/data-tables.html) is used to show the raw data set and always apply in the enterprise product.
 
 ### Examples

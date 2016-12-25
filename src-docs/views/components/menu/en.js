@@ -3,67 +3,67 @@ import description from './README_EN.md'
 export default {
   description,
   simpleExample: 'Simple Example',
-  simpleExampleDesc: '两个简单的例子，可以根据内容自动调整宽度',
-  disabledExample: '不可用的菜单',
-  disabledExampleDesc: '改变`desktop`将菜单的样式改为桌面版， 设置`disabled`菜单项将不可以用',
-  iconExample: '图标使用',
-  iconExampleDesc: '`menuItem` 组件使用 `leftIcon` 和 `rightIcon` 来配合 `icon` 组件',
-  afterExample: '菜单快捷显示',
-  afterExampleDesc: '`afterText` 属性定义标题右边的文字',
-  nestedExample: '嵌套菜单',
-  nestedExampleDesc: '通过 `slot` 指定嵌套菜单，会在点击时出现',
+  simpleExampleDesc: 'two simple examples which show the width can adjust automatically by the content',
+  disabledExample: 'disabled menu',
+  disabledExampleDesc: 'use the desktop style according `desktop` attribute, and disable the munu by `disabled` attribute',
+  iconExample: 'icon usage',
+  iconExampleDesc: 'coordinate with `leftIcon` and `rightIcon`',
+  afterExample: 'shortcut menu showing',
+  afterExampleDesc: '`afterText` define the text on the right side of title',
+  nestedExample: 'nested menu',
+  nestedExampleDesc: 'use the `slot` to assign the nested menu, it will appear when you click',
   menu: {
     props: {
-      desktop: '设置为 `true`, 菜单将被调整为桌面版的样式，缩小高度和调整padding',
-      multiple: '是否可以多选',
-      autoWidth: '设置为 `true` 会根据菜单内容自动设置宽度',
-      width: '菜单宽度',
-      maxHeight: '菜单的最大高度',
-      disableAutoFocus: '是否关闭菜单项的自动获取焦点',
-      initiallyKeyboardFocused: '初始化时是否获取焦点',
-      listClass: '菜单列表部分样式',
-      value: '设置以后菜单将为可选择的菜单，当菜单项的value 和 当前 value相等，则菜单项为被选中状态'
+      desktop: 'the menu will be become to the style of desktop which will shrink the width and adjust the padding when this value is `true`',
+      multiple: 'multiple or not',
+      autoWidth: 'adjust width automatically when it is true',
+      width: 'width',
+      maxHeight: 'the maximum height of menu',
+      disableAutoFocus: 'disable auto focusing when it is true',
+      initiallyKeyboardFocused: 'focusing when initialization',
+      listClass: 'style of menu',
+      value: 'menu will become selectable when this attibute is setting, when the value of menu item is equal to current value, the item will be chosen.'
     },
     slots: {
-      default: '用来放置`menuItem` 、 `subHeader` 、 `divider` 等组件'
+      default: 'is used to place the `menuItem` 、 `subHeader` 、 `divider` components'
     },
     events: {
-      itemClick: '当菜单项点击时触发事件,会传入 `menuItem` 组件对象',
-      change: '当value改变时触发事件，会传入新的 `value`'
+      itemClick: 'it will be triggered when the menu item is clicked, and pass with the `menuItem` component object',
+      change: 'this event will triggered when the `value` is changed'
     }
   },
   menuItem: {
     props: {
-      href: '相当于 a 标签的 href属性，设置之后会渲染成 a 标签，默认是使用div标签',
-      target: '相当于 a 标签的target属性',
-      title: '菜单项的标题文字',
-      titleClass: '标题文字样式，同 `class` 绑定方式一致',
-      afterText: '标题行最右边的文字',
-      afterTextClass: '标题行最右边的文字样式，同 `class` 绑定方式一致',
-      inset: '是否向内缩进, 会调整paddingLeft 为 72px',
-      disableFocusRipple: '是否关闭 `focusRipple` 效果',
-      disabled: '菜单是否可用',
-      leftIcon: '菜单左边图标的颜色',
-      leftIconColor: '左边图标的颜色',
-      leftIconClass: '左边图标样式，同 `class` 绑定方式一致',
-      rightIcon: '菜单右边图标的颜色',
-      rightIconColor: '右边图标的颜色',
-      rightIconClass: '右边图标样式，同 `class` 绑定方式一致',
-      nestedMenuClass: '嵌套菜单样式，同 `class` 绑定方式一致',
-      nestedMenuListClass: '嵌套菜单列表部分样式，同 `class` 绑定方式一致',
-      value: '菜单项的 value, 当于菜单组件的value一致是，菜单项会变为选择状态',
-      nestedMenuValue: '嵌套菜单的 value 值'
+      href: 'is same with the `href` attribute of `a` tag, if it is set, this component will render as a `a` tag, default to `div` tag.',
+      target: 'is same with the `target` attribute of `a` element',
+      title: 'listItem title',
+      titleClass: 'style of title, the binding way is same with `class`',
+      afterText: 'the rightmost text of title line',
+      afterTextClass: 'style of the rightmost text of title line, the binding way is same with `class`',
+      inset: 'if it is true, `margin-left` will be `72px`',
+      disableFocusRipple: 'disable the ripple effect when focus',
+      disabled: 'disable menu or not',
+      leftIcon: 'left icon of menu',
+      leftIconColor: 'color of the left icon',
+      leftIconClass: 'style of the left icon, binding way is same with `class`',
+      rightIcon: 'right icon of menu',
+      rightIconColor: 'color of the right icon',
+      rightIconClass: 'style of the right icon, binding way is same with `class`',
+      nestedMenuClass: 'style of the nested menu, the binding way is same with `class`',
+      nestedMenuListClass: 'style of the nested menu list, the binding way is same with `class`',
+      value: 'value',
+      nestedMenuValue: 'value of nested menu'
     },
     slots: {
-      title: '标题内容，相当于 title 属性',
-      after: '标题行右边的内容，可以放置一些文字，badge等内容',
-      default: '用于放置嵌套的菜单项，会在点击时出现'
+      title: 'title',
+      after: 'content which at the right of title line, can be place some text or badge',
+      default: 'is used to nested menu, it will appear when you click'
     },
     events: {
-      click: '点击事件',
-      hover: '鼠标移到菜单项上的事件',
-      hoverExit: '鼠标移出菜单项上的事件',
-      keyboardFocus: '键盘使菜单项获取焦点的事件，第一个参数为true 时表示获取焦点，为 false 失去焦点, (isFocus)'
+      click: 'it will trigger when menu item was clicked',
+      hover: 'hover event',
+      hoverExit: 'hover existing event',
+      keyboardFocus: 'when the button is focusing or blurring by the keyboard, this event will emit with a parameter which indicate the button is focusing or not. (isFocus)'
     }
   }
 }

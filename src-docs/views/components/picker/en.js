@@ -3,13 +3,13 @@ import description from './README_EN.md'
 export default {
   description,
   simpleExample: 'Simple Example',
-  simpleExampleDesc: '一个简单的选择省市的例子，利用 picker 可以轻松实现',
+  simpleExampleDesc: 'use this component can easily to implement a demo for selecting the provinces',
   props: {
-    visibleItemCount: '可见备选值的个数',
-    values: '已选择的值',
-    slots: 'slot 对象数组分发供选择的数据，slot属性如下: \n * **divider** 是否为分隔符 \n * **content** 分隔符显示文本 \n * **values** 备选值数组 \n * **width** 宽度 \n * **textAlign** 对齐方式 '
+    visibleItemCount: 'the count of visible items',
+    values: 'values',
+    slots: 'slot array object distribute the chosen data, the property as following: \n * **divider** is a divide operator or not \n * **content** text of divide operator \n * **values** value \n * **width** width \n * **textAlign** align '
   },
   events: {
-    change: '当选择某一项是触发事件，参数 (value, index) : \n * **value** 被选择的值 \n * **index** 被选择项在 `slots` 中的下标'
+    change: 'when you selected one item, this event will emitted with parameter (value, index) : \n * **value** the selected value \n * **index** index of the selected value in `slots`'
   }
 }

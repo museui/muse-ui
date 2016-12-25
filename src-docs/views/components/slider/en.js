@@ -3,18 +3,18 @@ import description from './README_EN.md'
 export default {
   description,
   simpleExample: 'Simple Example',
-  simpleExampleDesc: '可以使用 `v-model` 控制value',
-  disabledExample: '禁用示例',
-  stepExample: '步长定义',
+  simpleExampleDesc: 'can be related to `v-model`',
+  disabledExample: 'disabled example',
+  stepExample: 'step definition',
   props: {
-    max: '最大值',
-    min: '最小值',
-    step: '步长',
-    disabled: '是否禁用滑块',
-    value: '滑块的值'
+    max: 'maximum',
+    min: 'minimum',
+    step: 'step',
+    disabled: 'disabled sliding block or not',
+    value: 'value of  sliding block'
   },
   events: {
-    input: 'value 发生改变触发的事件，传入新的value, (value)',
-    change: '用于用户行为(点击，拖拽)导致value发生改变时, 触发事件，传入 value 属性值'
+    input: 'when the value is changed, the component will emit this event with the new value',
+    change: 'when the value has changed by clicking or dragging action, the component will emit this event with the new value'
   }
 }

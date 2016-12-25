@@ -3,13 +3,13 @@ import description from './README_EN.md'
 export default {
   description,
   simpleExample: 'Simple Example',
-  simpleExampleDesc: '鼠标移动至图标是显示提示信息，设置不同的属性调整提示信息的位置和样式。`Tooltip` 的 Container 元素必须是已定位的元素(也就是 `position` 为 relative、absolute 或 fixed)',
+  simpleExampleDesc: 'tooltip will appear when you hover on the icon, you can change the position and style by different attributes. The container element of `Tooltip` component should be a position element(i.e: `position` should be relative、absolute or fixed)',
   props: {
-    trigger: '触发 tooltip 的元素，需要根据此元素计算tooltip出现的位置',
-    label: '提示的文字',
-    verticalPosition: '垂直方向位置，top 在上面， bottom 在下面',
-    horizontalPosition: '水平方向位置，left, center, right',
-    show: '是否显示',
-    touch: '是否为 touch 的样式，一般用在移动端，提示框会大一些'
+    trigger: 'the element which will trigger the  tooltip, we will bind the event to this element',
+    label: 'hint text',
+    verticalPosition: 'vertical position, top or bottom',
+    horizontalPosition: 'vertical position, left, center, right',
+    show: 'display or not',
+    touch: 'whether it is a touch style, often we use this attibute on the mobile, and the tooltip box is more larger'
   }
 }

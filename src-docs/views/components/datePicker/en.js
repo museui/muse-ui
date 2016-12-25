@@ -13,11 +13,11 @@ export default {
   localeExample: 'language locale configuration ',
   localeExampleDesc: 'we use the customize `dateTimeFormat` to format different language',
   props: {
-    dateTimeFormat: 'time format object, it should need following attribue:\r\n1. **formatDisplay** is used to format the header of date picker;\r\n2. **formatMonth** is used to format the month of date piacker',
+    dateTimeFormat: 'time format object, it should need following attribue:\r\n1. **formatDisplay** is used to format the header of date picker;\r\n2. **formatMonth** is used to format the month of date picker',
     autoOk: 'whther it is completed automatically or not after you choose the date, if it is true, the `ok` button is disappear.',
     okLabel: 'the text of `ok` button',
     cancelLabel: 'the text of `cancel` button',
-    container: 'dialog/inline, the way of popup date piacker',
+    container: 'dialog/inline, the way of popup date picker',
     disableYearSelection: 'if it is `ture`, not allow to choose the year',
     firstDayOfWeek: 'to determin which day is the first day of a week, default to Monday, sometimes it maybe the Sunday(0)',
     mode: '`portrait`-showing with the vertical direction, `landscape`-showing with the horizontal direction',
@@ -43,7 +43,7 @@ export default {
     underlineClass: 'the style of underline, the binding way is same with `class`',
     underlineFocusClass: 'the style of underline when the input box is focuding, the binding way is same with `class`',
     inputClass: 'the style of input box, the binding way is same with `class`',
-    value: 'the value of date piacker, you cab replace it with the `v-model` directive'
+    value: 'the value of date picker, you cab replace it with the `v-model` directive'
   },
   events: {
     input: 'this event will be emitted when the value has changed, pass with the new value, (value)',

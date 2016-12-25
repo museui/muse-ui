@@ -3,14 +3,14 @@ import description from './README_EN.md'
 export default {
   description,
   simpleExample: 'Simple Example',
-  simpleExampleDesc: '通过 `zDepth` 控制纸片的阴影程度',
-  circleExample: '圆形的纸片',
+  simpleExampleDesc: 'control the shadow depth by `zDepth` parameter',
+  circleExample: 'circle paper example',
   props: {
-    circle: '是否为圆形的纸片',
-    rounded: '是否为圆角的纸片',
-    zDepth: '1-6, 纸片的阴影程度'
+    circle: 'circle or not',
+    rounded: 'rounded or not',
+    zDepth: '1-6, depth of shadow'
   },
   slots: {
-    default: '内容部分'
+    default: 'content'
   }
 }

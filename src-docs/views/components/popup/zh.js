@@ -6,7 +6,7 @@ export default {
   props: {
     open: '是否打开',
     popupClass: 'popup 样式, 同 `class` 绑定方式一致',
-    popupTransition: '弹出层的过度动画效果, 默认使用内置的 popup-slide',
+    popupTransition: '弹出层的过渡动画效果, 默认使用内置的 popup-slide',
     position: '弹出位置 left, right, top, bottom',
     overlay: '是否有遮盖层',
     overlayColor: '遮盖层颜色',

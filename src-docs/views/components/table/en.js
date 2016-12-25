@@ -3,75 +3,75 @@ import description from './README_EN.md'
 export default {
   description,
   simpleExample: 'Simple Example',
-  simpleExampleDesc: '同 `table` 标签一样使用，只不过都需要 `mu-` 前缀',
+  simpleExampleDesc: 'you can use it as the `table` tag, only difference is you are not need to add the `mu-` prefix',
   complexExample: 'Complex Example',
-  complexExampleDesc: '设置不同的参数，完成不同的功能',
+  complexExampleDesc: 'you can finish different function by different paramters',
   table: {
     props: {
-      fixedHeader: '是否固定表头',
-      fixedFooter: '是否固定表尾',
-      height: '表格的高度',
-      enableSelectAll: '是否允许选择全部',
-      allRowsSelected: '是否默认选择全部，设置为true 会选择所有行',
-      multiSelectable: '是否可以多选',
-      selectable: '是否可以选择',
-      showCheckbox: '是否显示复选框'
+      fixedHeader: 'fix header or not',
+      fixedFooter: 'fix footer or not',
+      height: 'height of table',
+      enableSelectAll: 'whether it can be select all or not',
+      allRowsSelected: 'whether it is default to select all or not',
+      multiSelectable: 'multiple select or not',
+      selectable: 'selectable or not',
+      showCheckbox: 'show checkbox or not'
     },
     slots: {
-      header: '用于放置 `thead` 组件',
-      footer: '用于放置 `tfoot` 组件',
-      default: '用于放置 `tbody` 组件'
+      header: 'is used to place `thead` component',
+      footer: 'is used to place `tfoot` component',
+      default: 'is used to place `tbody` component'
     },
     events: {
-      rowClick: '某一行被点击时触发, 参数 (index, tr): \n * index 这一行的下标 \n * tr `tr` 组件实体',
-      rowHover: '鼠标在某一行上时触发， 参数同 `rowClick` 一致',
-      rowHoverExit: '鼠标在从一行移出时触发， 参数同 `rowClick` 一致',
-      rowSelection: '当某一行被选择时触发，参数 (selectedRowsIndex) \n selectedRowsIndex 是一个被选择行下标，如果 `multiSelectable` 为 `true` , selectedRowsIndex 是一个数组',
-      cellClick: 'td被点击时触发, 参数 (rowIndex, columnName, td, tr) \n * rowIndex 所在行的下标 \n * columnName td组件的name属性 \n * td 组件实体 \n * tr tr组件实体',
-      cellHover: '鼠标在这个 td 上时触发, 参数同 `cellClick` 一致',
-      cellHoverExit: '鼠标从这个 td 移出时触发, 参数同 `cellClick` 一致'
+      rowClick: 'row clicking event, paramters (index, tr): \n * index index of row \n * tr `tr` component entity',
+      rowHover: 'row hovering event, paramters is same with `rowClick`',
+      rowHoverExit: 'row hover existing event, paramters is same with `rowClick`',
+      rowSelection: 'row selection event, paramters (selectedRowsIndex) \n selectedRowsIndex index of row, if `multiSelectable` is `true`, selectedRowsIndex will be an array',
+      cellClick: 'td clicking event, paramters (rowIndex, columnName, td, tr) \n * rowIndex index of row \n * columnName name attibute of td component \n * td component entity \n * tr tr component entity',
+      cellHover: 'row hovering event, paramters is same with `cellClick`',
+      cellHoverExit: 'row hover existing event, paramters is same with `cellClick`'
     }
   },
   tbody: {
     slots: {
-      default: '用于放置 `tr` 组件'
+      default: 'is used to place `tr` component'
     }
   },
   thead: {
     slots: {
-      default: '用于放置 `tr` 组件'
+      default: 'is used to place `tr` component'
     }
   },
   tfoot: {
     slots: {
-      default: '用于放置 `tr` 组件'
+      default: 'is used to place `tr` component'
     }
   },
   tr: {
     props: {
-      selectable: '是否可以被选择',
-      selected: '是否已选择'
+      selectable: 'selectable',
+      selected: 'selected'
     },
     slots: {
-      default: '用于放置 `td` 或 `th` 组件'
+      default: 'is used to place `td` or `th` component'
     }
   },
   th: {
     props: {
-      tooltip: '提示文字',
-      tooltipPosition: '提示文字文字, [垂直位置]-[水平位置]，垂直位置: top，middle, bottom; 水平位置: left, center, right',
-      touch: '是否为 touch 的样式，一般用在移动端，提示框会大一些'
+      tooltip: 'tooltip text',
+      tooltipPosition: 'position of hint, [vertical]-[horizontal]vertical: top，middle, bottom; horizontal: left, center, right',
+      touch: 'whether it is a touch style, often we use this attibute on the mobile, and the tooltip box is more larger'
     },
     slots: {
-      default: '内容部分'
+      default: 'content'
     }
   },
   td: {
     props: {
-      name: 'td 的名称，这是一个标识，在表格的 `cellClick` `cellHover` `cellHoverExit` 事件发生时会作为参数(columnName)传入,用来区分是哪一个 td 发生事件'
+      name: 'name of td,  this is a identification, when the `cellClick` `cellHover` `cellHoverExit` event has triggered, it will pass as a paramter(columnName), used to distinguish which td triggered this event'
     },
     slots: {
-      default: '内容部分'
+      default: 'content'
     }
   }
 }

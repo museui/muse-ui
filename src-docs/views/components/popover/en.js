@@ -5,23 +5,23 @@ export default {
   simpleExample: 'Simple Example',
   customExample: 'Custom Example',
   props: {
-    trigger: '触发popover 的元素，需要根据此元素的位置计算弹出的位置',
-    open: '是否打开',
-    popoverClass: 'popover 样式, 同 `class` 绑定方式一致',
-    scroller: '滚动的元素，会监听它的 `scroll` 事件, 在滚动时会不断更新弹出框的位置',
-    autoPosition: '是否自动计算位置',
-    anchorOrigin: '锚点的位置，会根据此点的位置计算弹出的位置',
-    targetOrigin: '锚点相对于弹出内容的位置，根据位置计算弹出的位置',
-    overlay: '是否显示遮盖层',
-    overlayOpacity: '遮盖层透明度',
-    overlayColor: '遮盖层的位置'
+    trigger: 'trigger the `popover` element, we will calculate the positon of popup  box by this element',
+    open: 'open or not',
+    popoverClass: 'popover 样式, the binding way is same with `class`',
+    scroller: 'scroll element, will listen to its `scroll` event, it will update the position of drop-down continually when you scroll.',
+    autoPosition: 'whether it is calculate the position automatically or not',
+    anchorOrigin: 'anchor position definition, the pop-up box position is based on this point',
+    targetOrigin: 'target position definition',
+    overlay: 'whether it will display overlay or not',
+    overlayOpacity: 'opacity of overlay',
+    overlayColor: 'color of overlay'
   },
   slots: {
-    default: '内容部分'
+    default: 'content'
   },
   events: {
-    close: '当需要关闭时触发此事件，会传入一个 `reason` （关闭的原因） 作为参数， \n * overlay: 点击了遮盖层; \n * overflow: 滚动出窗口范围; \n * clickOutSide: 点击了其它地方; \n * esc: 按下 `ESC` 键.',
-    show: '当 popover 显示时(动画完成后)触发事件',
-    hide: '当 popover 隐藏时(动画完成后)触发事件'
+    close: 'when you want to close it, this event will be emitted with a paramter `reason`, \n * overlay: click the overlay; \n * overflow: Rolling out of the window; \n * clickOutSide: click other postion \n * esc: knock the `ESC` key',
+    show: 'when the popover appear(after the animation finishing), this event will be emitted',
+    hide: 'when the popover disappear(after the animation finishing), this event will be emitted'
   }
 }

@@ -3,21 +3,21 @@ import description from './README_EN.md'
 export default {
   description,
   simpleExample: 'Simple Example',
-  moreExample: '更多的分页',
-  pageSizeExample: '改变每页显示条目数',
+  moreExample: 'more pagination example',
+  pageSizeExample: 'change the size of page example',
   props: {
-    current: '当前页数',
-    total: '数据总数',
-    pageSize: '每页条数, 当同时配置pageSizeOptions的时候，优先使用pageSizeOptions',
-    defaultPageSize: '默认的每页条数',
-    showSizeChanger: '是否显示 pageSize 选择框',
-    pageSizeOptions: '指定每页可以显示多少条'
+    current: 'current page',
+    total: 'total data',
+    pageSize: 'page size, perfer to use the pageSizeOptions when the pageSizeOptions is also configured',
+    defaultPageSize: 'default size of page',
+    showSizeChanger: 'whether it should be show the `pageSize` selection box',
+    pageSizeOptions: 'specified the page size(list style)'
   },
   slots: {
-    default: '用于放置 pagination 组件'
+    default: 'is used to place pagination component'
   },
   events: {
-    pageChange: '当页码改变的时候触发',
-    pageSizeChange: '当pageSize改变的时候触发'
+    pageChange: 'when the page is changed , this event will emitted with the new current page',
+    pageSizeChange: 'when the page size is changed , this event will emitted with the new  page size'
   }
 }

@@ -1,16 +1,16 @@
 ### Themes Usage
 
-muse-ui 预设 4 种主题 `light`, `dark`, `carbon`, `teal` 至于要在组件后面引入即可
+muse-ui presuppose four themes `light`, `dark`, `carbon`, `teal` 至于要在组件后面引入即可
 
 ```js
 import Vue from 'vue'
 import MuseUI from 'muse-ui'
 import 'muse-ui/dist/muse-ui.css'
-import 'muse-ui/dist/theme-carbon.css' // 使用 carbon 主题
+import 'muse-ui/dist/theme-carbon.css' // use carbon theme
 Vue.use(MuseUI)
 ```
 
-动态的切换主题,需要依赖 `webpack` 的 `raw-loader` 加载器
+switch the theme dynamically is depend on `raw-loader` of the `webpack`
 
 ```html
 <template>
@@ -56,14 +56,14 @@ export default {
 </script>
 ```
 
-### 自定义主题
+### customize theme
 
-目前只支持 `less`, 黑色的主题配置 `dark.less`
+only support the `less` now, the black theme is `dark.less`
 
 ```less
-@import "muse-ui/less/vars.less"; // 默认基础的变量
+@import "muse-ui/less/vars.less"; // defalut basic variable
 
-// 修改基础变量
+// change defalut basic variable
 
 @primaryColor: @lightBlue700;
 @darkerPrimaryColor: @lightBlue700;
@@ -88,9 +88,9 @@ export default {
 @activeIconColor: fade(@fullWhite, 100%);
 @inActiveIconColor: fade(@fullWhite, 50%);
 
-@import "muse-ui/less/theme-vars.less";  // 默认组件变量
+@import "muse-ui/less/theme-vars.less";  // defalut component variable
 
-// 修改组件变量
+// change the component variable
 @avatarBackgroundColor: lighten(@alternateTextColor, 26%);
 @datePickerHeaderColor: fade(@fullWhite, 12%);
 @timePickerHeaderColor: fade(@fullWhite, 12%);
@@ -102,26 +102,26 @@ export default {
 @tableRowHoverBackgroundColor: fade(@textColor, 10%);
 @tableRowSelectedBackgroundColor: fade(@textColor, 5%);
 
-@import "muse-ui/less/theme.less"; // 主题相关的样式
+@import "muse-ui/less/theme.less"; // style related to theme
 
 ```
 
-### 关于主题变量
+### About the theme variable
 
-主题的颜色变量，来源于 [material design colors](https://material.google.com/style/color.html#color-text-background-colors)
+the color variable of theme，refer to [material design colors](https://material.google.com/style/color.html#color-text-background-colors)
 
 ```less
-@fontFamily: Roboto, Lato, sans-serif;  // 字体
+@fontFamily: Roboto, Lato, sans-serif;  // font
 
-// 主色和强调色
-@primaryColor: @lightBlue;           // 主色
-@darkerPrimaryColor: @lightBlue700;  // 更深的主色
-@lighterPrimaryColor: @grey400;      // 浅一点的主色
-@accentColor: @pinkA200;             // 强调色
-@darkerAccentColor: @grey100;        // 更深的强调色
-@lighterAccentColor: @grey500;       // 浅一点的强调色
+// primary color and accent color
+@primaryColor: @lightBlue;           // primary color
+@darkerPrimaryColor: @lightBlue700;  // darker primary color
+@lighterPrimaryColor: @grey400;      // lighter primary color
+@accentColor: @pinkA200;             // accent color
+@darkerAccentColor: @grey100;        // darker accent color
+@lighterAccentColor: @grey500;       // lighter accent color
 
-// 文本颜色
+// text color
 @textColor: @darkBlack;
 @secondaryTextColor: fade(@fullBlack, 54%);
 @alternateTextColor: @white;
@@ -129,10 +129,10 @@ export default {
 @disabledColor: fade(@fullBlack, 38%);
 
 // background
-@backgroundColor: @white;           // 背景色
-@statusBarBackgroundColor: @grey300; // web项目没有状态栏，所以也没有使用
-@appbarBackgroundColor: @grey100; // 并未在appbar组件中应用
-@dialogBackgroundColor: @white; // dialogs、 cards、 paper 组件背景
+@backgroundColor: @white;           // background color
+@statusBarBackgroundColor: @grey300; // useless
+@appbarBackgroundColor: @grey100; // useless in the appbar component
+@dialogBackgroundColor: @white; // dialogs、 cards、 paper background
 
 // icon color
 @activeIconColor: fade(@fullBlack, 54%);
