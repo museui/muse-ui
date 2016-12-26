@@ -42,9 +42,9 @@ Vue.use(MuseUI)
 ```javascript
 import Vue from 'vue'
 import 'muse-components/styles/base.less' // loading the basic of style
-import appbar from 'muse-components/appbar'
+import appBar from 'muse-components/appBar'
 import avatar from 'muse-components/avatar'
 // ..
-Vue.component(appbar.name, appbar)
+Vue.component(appBar.name, appBar)
 Vue.component(avatar.name, avatar)
 ```
