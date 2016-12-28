@@ -27,7 +27,7 @@ export default {
       const scroller = this.scroller
       const isWindow = scroller === window
       const scrollTop = isWindow ? scroller.scrollY : scroller.scrollTop
-      const scrollHeight = isWindow ? document.documentElement.scrollHeight : scroller.scrollHeight
+      const scrollHeight = isWindow ? document.documentElement.scrollHeight || document.body.scrollHeight : scroller.scrollHeight
       let h = scrollHeight - scrollTop - 5
       let sh = isWindow ? window.innerHeight : scroller.offsetHeight
       if (h <= sh) {

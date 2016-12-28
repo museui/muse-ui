@@ -10,6 +10,7 @@
 
 * [Home Page](https://museui.github.io/)
 * [中文文档](https://museui.github.io/#/install)
+* [English Docs](https://museui.github.io/?lang=en)
 
 ## Install
 

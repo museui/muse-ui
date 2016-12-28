@@ -1,15 +1,19 @@
 <template>
 <div class="content-wrapper">
-  <markdown-element :text="text"/>
+  <markdown-element :text="$t('text')"/>
 </div>
 </template>
 
 <script>
 import contributing from './CONTRIBUTING.md'
+import contributingEn from './CONTRIBUTING_en.md'
 export default {
-  data () {
-    return {
+  locales: {
+    zh: {
       text: contributing
+    },
+    en: {
+      text: contributingEn
     }
   }
 }

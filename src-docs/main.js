@@ -8,6 +8,7 @@ import apiView from './components/apiView'
 import router from './router'
 import FastClick from 'fastclick'
 import './i18n'
+
 Vue.use(MuseUI)
 Vue.component('markdown-element', markdownElement)
 Vue.component('code-example', codeExample)
