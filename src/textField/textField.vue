@@ -234,8 +234,8 @@ export default {
     color: @disabledColor;
     cursor: not-allowed;
   }
-  padding-bottom: 8px;
-  padding-top: 8px;
+  padding-bottom: 12px;
+  padding-top: 4px;
   .mu-text-field.has-label &{
     padding-top: 28px;
     padding-bottom: 12px;
