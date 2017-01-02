@@ -164,17 +164,16 @@ export default {
 
 .mu-dialog-scale-enter-active,
 .mu-dialog-scale-leave-active{
-  transition: all .45s @easeOutFunction;
+  backface-visibility: hidden;
+  transition: all .3s @easeOutFunction;
 }
 .mu-dialog-scale-enter,
 .mu-dialog-scale-leave-active {
     opacity: 0;
 }
 
-.mu-dialog-scale-enter {
-  transform: translate3d(-50%, -50%, 0) scale(1.1) ;
-}
+.mu-dialog-scale-enter,
 .mu-dialog-scale-leave-active {
-  transform: translate3d(-50%, -50%, 0) scale(0.8) ;
+  transform: translate3d(-50%, -50%, 0) scale(0.8);
 }
 </style>
