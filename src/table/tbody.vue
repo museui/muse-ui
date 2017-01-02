@@ -81,6 +81,7 @@ export default {
       if (!this.selectable || !this.multiSelectable || this._unSelectAll) return
       this.selectedRows = []
       this.$parent.changeSelectAll(false)
+      if (this.$parent.handleRowSelect) this.$parent.handleRowSelect([])
     },
     handleCellClick (event, columnName, td, rowId, tr) {
       if (this.$parent.handleCellClick) this.$parent.handleCellClick(this.getRowIndex(tr), columnName, td, rowId, tr)
