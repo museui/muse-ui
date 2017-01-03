@@ -167,6 +167,7 @@ export default{
       }
       this.pageSizeAndTotalChange(val)
       this.$emit('pageChange', val)
+      this.$emit('page-change', val)
     },
     actualPageSize: function (val, oldVal) {
       // 如果页面条数改变的时候,对应的当前页也是需要重新计算的,
@@ -180,6 +181,7 @@ export default{
         this.pageSizeAndTotalChange(oldCurrent)
       }
       this.$emit('pageSizeChange', val)
+      this.$emit('page-size-change', val)
     },
     total: function (val) {
       // 如果条目总数改变的时候当前页也需要重新计算

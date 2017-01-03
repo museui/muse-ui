@@ -202,6 +202,7 @@ export default {
       this.dragging = true
       this.active = true
       this.$emit('dragStart', e)
+      this.$emit('drag-start', e)
     },
     onDragUpdate (e) {
       if (this.dragRunning) return
@@ -215,6 +216,7 @@ export default {
       this.dragging = false
       this.active = false
       this.$emit('dragStop', e)
+      this.$emit('drag-stop', e)
     },
     handleDragMouseMove (e) {
       this.onDragUpdate(e)

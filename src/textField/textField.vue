@@ -173,10 +173,12 @@ export default {
       if (val > this.maxLength && !this.isTextOverflow) {
         this.isTextOverflow = true
         this.$emit('textOverflow', true)
+        this.$emit('text-overflow', true)
       }
       if (this.isTextOverflow && val <= this.maxLength) {
         this.isTextOverflow = false
         this.$emit('textOverflow', false)
+        this.$emit('text-overflow', false)
       }
     }
   },

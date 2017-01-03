@@ -15,6 +15,7 @@ export default {
         this.$emit('change', value)
       }
       this.$emit('itemClick', item)
+      this.$emit('item-click', item)
     },
     setChildrenInstance () {
       var children = this.$slots.default

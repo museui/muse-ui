@@ -112,6 +112,7 @@ export default {
     },
     handleClick (item) {
       this.$emit('itemClick', item)
+      this.$emit('item-click', item)
     },
     handleKeydown (event) {
       const key = keycode(event)

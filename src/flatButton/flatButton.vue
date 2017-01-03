@@ -88,12 +88,14 @@ export default {
     },
     handleKeyboardFocus (isFocus) {
       this.$emit('keyboardFocus', isFocus)
+      this.$emit('keyboard-focus', isFocus)  // 兼容 html 里的用法
     },
     handleHover (event) {
       this.$emit('hover', event)
     },
     handleHoverExit (event) {
       this.$emit('hoverExit', event)
+      this.$emit('hover-exit', event)  // 兼容 html 里的用法
     }
   },
   computed: {

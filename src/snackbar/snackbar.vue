@@ -37,6 +37,7 @@ export default {
     },
     handleActionClick () {
       this.$emit('actionClick')
+      this.$emit('action-click')
     }
   },
   components: {

@@ -42,6 +42,7 @@ export default{
     },
     handleHoverExit (event) {
       this.$emit('hoverExit', event)
+      this.$emit('hover-exit', event)
     },
     handleClick () {
       if (this.index) {

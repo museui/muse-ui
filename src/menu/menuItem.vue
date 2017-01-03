@@ -133,12 +133,14 @@ export default {
     },
     handleKeyboardFocus (isFocus) {
       this.$emit('keyboardFocus', isFocus)
+      this.$emit('keyboard-focus', isFocus)
     },
     handleHover (event) {
       this.$emit('hover', event)
     },
     handleHoverExit (event) {
       this.$emit('hoverExit', event)
+      this.$emit('hover-exit', event)
     },
     applyFocusState () {
       const button = this.$refs.button

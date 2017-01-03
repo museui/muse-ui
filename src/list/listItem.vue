@@ -177,6 +177,7 @@ export default {
     handleToggleNested () {
       this.nestedOpen = !this.nestedOpen
       this.$emit('toggleNested', this.nestedOpen)
+      this.$emit('toggle-nested', this.nestedOpen) // 兼容 html 里的用法
     },
     handleClick (e) {
       this.$emit('click', e)
@@ -186,12 +187,14 @@ export default {
     },
     handleKeyboardFocus (isFocus) {
       this.$emit('keyboardFocus', isFocus)
+      this.$emit('keyboard-focus', isFocus)
     },
     handleHover (event) {
       this.$emit('hover', event)
     },
     handleHoverExit (event) {
       this.$emit('hoverExit', event)
+      this.$emit('hover-exit', event)  // 兼容 html 里的用法
     },
     handleNestedChange (value) {
       this.$parent.handleChange(value)

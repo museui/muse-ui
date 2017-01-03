@@ -19,6 +19,7 @@ export default {
     },
     handleItemClick (listItem) {
       this.$emit('itemClick', listItem)
+      this.$emit('item-click', listItem)
     }
   }
 }

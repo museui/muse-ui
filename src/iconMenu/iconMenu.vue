@@ -105,6 +105,7 @@ export default {
         this.handleClose()
       }
       this.$emit('itemClick', item)
+      this.$emit('item-click', item)
     }
   },
   mounted () {

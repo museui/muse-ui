@@ -115,12 +115,14 @@ export default {
     handleKeyboardFocus (isFocus) {
       this.focus = isFocus
       this.$emit('keyboardFocus', isFocus)
+      this.$emit('keyboard-focus', isFocus)
     },
     handleHover (e) {
       this.$emit('hover', e)
     },
     handleHoverExit (e) {
       this.$emit('hoverExit', e)
+      this.$emit('hover-exit', e)
     }
   },
   components: {

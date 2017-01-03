@@ -19,6 +19,7 @@ export default {
     },
     handleMouseLeave (event) {
       this.$emit('hoverExit', event)
+      this.$emit('hover-exit', event)
       if (this.$parent.handleCellHoverExit) this.$parent.handleCellHoverExit(event, this.name, this)
     },
     handleClick (event) {
