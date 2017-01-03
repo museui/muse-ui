@@ -1,3 +1,17 @@
+## 2.0.0-rc.1
+
+### Features
+
+  * 增加html中直接使用 vue 和 muse-ui 时的支持
+  * 改善dialog组件的动画效果
+  * 完成英文文档翻译
+
+### Bugs
+
+  * 修复 datepicker 组件不能正常选择日期的问题
+  * 修复 table 组件取消全选是不触发rowSelection 的问题
+  * 修复 textField 使用时对不齐的问题
+
 ## 2.0.0-beta.3
 
 ### Features

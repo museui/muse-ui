@@ -2,7 +2,7 @@
 <mu-drawer @hide="handleHide" @close="handleClose" :open="open" :docked="docked" class="app-drawer" :zDepth="1">
   <mu-appbar class="exmaples-nav-appbar" :zDepth="0">
     <a class="exmaples-appbar-title" @click="handleMenuChange('#/index')" href="#/index" style="display:inline-block;">Muse-UI</a>
-    <mu-badge content="beta" class="exmaples-version" secondary/>
+    <mu-badge content="rc" class="exmaples-version" secondary/>
   </mu-appbar>
   <mu-divider/>
   <div class="mu-version-box">
