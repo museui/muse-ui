@@ -1,6 +1,6 @@
 ### Themes Usage
 
-muse-ui presuppose four themes `light`, `dark`, `carbon`, `teal` 至于要在组件后面引入即可
+muse-ui presuppose four themes `light`, `dark`, `carbon`, `teal`, just import them after the component
 
 ```js
 import Vue from 'vue'
@@ -61,7 +61,7 @@ export default {
 only support the `less` now, the black theme is `dark.less`
 
 ```less
-@import "muse-ui/less/vars.less"; // defalut basic variable
+@import "muse-ui/less/vars.less"; // default basic variable
 
 // change defalut basic variable
 
@@ -88,7 +88,7 @@ only support the `less` now, the black theme is `dark.less`
 @activeIconColor: fade(@fullWhite, 100%);
 @inActiveIconColor: fade(@fullWhite, 50%);
 
-@import "muse-ui/less/theme-vars.less";  // defalut component variable
+@import "muse-ui/less/theme-vars.less";  // default component variable
 
 // change the component variable
 @avatarBackgroundColor: lighten(@alternateTextColor, 26%);

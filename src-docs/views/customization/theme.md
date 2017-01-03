@@ -1,6 +1,6 @@
 ### 主题的使用
 
-muse-ui 预设 4 种主题 `light`, `dark`, `carbon`, `teal` 至于要在组件后面引入即可
+muse-ui 预设 4 种主题 `light`, `dark`, `carbon`, `teal` 只需要在组件后面引入即可
 
 ```js
 import Vue from 'vue'
