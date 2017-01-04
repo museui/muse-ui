@@ -88,11 +88,6 @@ export default{
     this.totalPageCount = Math.ceil(this.total / this.actualPageSize)
     this.pageList = this.calcPageList(this.actualCurrent)
   },
-  computed: {
-    totalPageCount: function () {
-      return Math.ceil(this.total / this.actualPageSize)
-    }
-  },
   methods: {
     handleClick (res) {
       if (typeof res === 'number') {
@@ -180,6 +175,7 @@ export default{
       if (oldCurrent === this.actualCurrent) {
         this.pageSizeAndTotalChange(oldCurrent)
       }
+      this.totalPageCount = Math.ceil(this.total / this.actualPageSize)
       this.$emit('pageSizeChange', val)
       this.$emit('page-size-change', val)
     },
@@ -193,6 +189,7 @@ export default{
       if (oldCurrent === this.actualCurrent) {
         this.pageSizeAndTotalChange(oldCurrent)
       }
+      this.totalPageCount = Math.ceil(this.total / this.actualPageSize)
     },
     current (val) {
       this.actualCurrent = val
