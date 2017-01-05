@@ -11,6 +11,7 @@ import PopupManager from '../internal/popup/manager'
 import {getZIndex} from '../internal/popup/utils'
 import {getWidth} from '../utils'
 const transitionEvents = ['msTransitionEnd', 'mozTransitionEnd', 'oTransitionEnd', 'webkitTransitionEnd', 'transitionend']
+
 export default {
   name: 'mu-drawer',
   props: {
@@ -78,7 +79,6 @@ export default {
   watch: {
     open (val) {
       if (val && !this.docked) {
-        this.resetZIndex()
         PopupManager.open(this)
       } else {
         PopupManager.close(this)

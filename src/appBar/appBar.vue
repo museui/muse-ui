@@ -1,5 +1,5 @@
 <template>
-<div class="mu-appbar" :class="{'mu-paper-1': zDepth}">
+<div class="mu-appbar" :class="['mu-paper-' + zDepth ]">
   <div class="left">
     <slot name="left"></slot>
   </div>
