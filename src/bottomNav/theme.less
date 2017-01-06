@@ -14,8 +14,16 @@
 }
 
 .mu-bottom-item-active{
-  color: @bottomNavSelectedColor;
-  .mu-bottom-nav-shift & {
-    color: @bottomNavShiftSelectedColor;
+  .mu-bottom-item-text {
+    color: @bottomNavSelectedColor;
+    .mu-bottom-nav-shift & {
+      color: @bottomNavShiftSelectedColor;
+    }
+  }
+  .mu-bottom-item-icon {
+    color: @bottomNavSelectedColor;
+    .mu-bottom-nav-shift & {
+      color: @bottomNavShiftSelectedColor;
+    }
   }
 }

@@ -49,9 +49,17 @@ a {
 }
 
 .mu-bottom-item-active{
-  color: @bottomNavSelectedColor;
-  .mu-bottom-nav-shift & {
-    color: @bottomNavShiftSelectedColor;
+  .mu-bottom-item-text {
+    color: @bottomNavSelectedColor;
+    .mu-bottom-nav-shift & {
+      color: @bottomNavShiftSelectedColor;
+    }
+  }
+  .mu-bottom-item-icon {
+    color: @bottomNavSelectedColor;
+    .mu-bottom-nav-shift & {
+      color: @bottomNavShiftSelectedColor;
+    }
   }
 }
 
@@ -96,6 +104,22 @@ a {
   color: @cardTextColor;
 }
 
+.mu-chip {
+  background-color: @chipColor;
+  color: @chipTextColor;
+  &.hover{
+    .mu-chip-delete-icon{
+      color: @chipHoverDeleteColor;
+    }
+    background-color: @chipHoverColor;
+    cursor: pointer;
+  }
+}
+
+.mu-chip-delete-icon{
+  color: @chipDeleteColor;
+}
+
 .mu-checkbox {
   input[type="checkbox"] {
     &:checked {
@@ -131,22 +155,6 @@ a {
   .mu-checkbox.disabled & {
     color: @checkboxDisabledColor;
   }
-}
-
-.mu-chip {
-  background-color: @chipColor;
-  color: @chipTextColor;
-  &.hover{
-    .mu-chip-delete-icon{
-      color: @chipHoverDeleteColor;
-    }
-    background-color: @chipHoverColor;
-    cursor: pointer;
-  }
-}
-
-.mu-chip-delete-icon{
-  color: @chipDeleteColor;
 }
 
 .mu-circular-progress-determinate-path{

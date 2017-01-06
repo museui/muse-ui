@@ -7,8 +7,7 @@ export default {
       type: String
     },
     size: {
-      type: Number,
-      default: 24
+      type: Number
     },
     color: {
       type: String,

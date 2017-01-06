@@ -38,10 +38,16 @@ a {
 .mu-bottom-nav-shift .mu-buttom-item {
   color: rgba(255, 255, 255, 0.7);
 }
-.mu-bottom-item-active {
+.mu-bottom-item-active .mu-bottom-item-text {
   color: #474a4f;
 }
-.mu-bottom-nav-shift .mu-bottom-item-active {
+.mu-bottom-nav-shift .mu-bottom-item-active .mu-bottom-item-text {
+  color: #ffffff;
+}
+.mu-bottom-item-active .mu-bottom-item-icon {
+  color: #474a4f;
+}
+.mu-bottom-nav-shift .mu-bottom-item-active .mu-bottom-item-icon {
   color: #ffffff;
 }
 .mu-bottom-sheet {
@@ -74,6 +80,20 @@ a {
 .mu-card-text {
   color: #474a4f;
 }
+.mu-chip {
+  background-color: #e0e0e0;
+  color: rgba(71, 74, 79, 0.87);
+}
+.mu-chip.hover {
+  background-color: #cecece;
+  cursor: pointer;
+}
+.mu-chip.hover .mu-chip-delete-icon {
+  color: rgba(71, 74, 79, 0.4);
+}
+.mu-chip-delete-icon {
+  color: rgba(71, 74, 79, 0.26);
+}
 .mu-checkbox input[type="checkbox"]:checked + .mu-checkbox-wrapper .mu-checkbox-icon-uncheck {
   color: #ff5252;
 }
@@ -97,20 +117,6 @@ a {
 }
 .mu-checkbox.disabled .mu-checkbox-icon-checked {
   color: #d3d6db;
-}
-.mu-chip {
-  background-color: #e0e0e0;
-  color: rgba(71, 74, 79, 0.87);
-}
-.mu-chip.hover {
-  background-color: #cecece;
-  cursor: pointer;
-}
-.mu-chip.hover .mu-chip-delete-icon {
-  color: rgba(71, 74, 79, 0.4);
-}
-.mu-chip-delete-icon {
-  color: rgba(71, 74, 79, 0.26);
 }
 .mu-circular-progress-determinate-path {
   stroke: #474a4f;

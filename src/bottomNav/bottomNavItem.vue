@@ -137,6 +137,7 @@ export default {
 .mu-bottom-item-icon {
   transition: all .45s @easeOutFunction;
   backface-visibility: hidden;
+  width: 24px;
   .mu-bottom-item-active &{
     color: @primaryColor;
   }
