@@ -1,3 +1,13 @@
+## 2.0.0-rc.2
+
+### Bugs
+
+  * 修复 appBar zDepth属性无效
+  * 修复 drawer出现闪屏的问题
+  * 修复 bottomNav 更换主题是样式没有随之改变
+  * 修复 icon size无法通过iconClass修改的问题
+  * 修复 pagination 计算属性覆写导致报错
+
 ## 2.0.0-rc.1
 
 ### Features
