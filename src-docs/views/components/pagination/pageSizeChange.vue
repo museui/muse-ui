@@ -10,12 +10,12 @@ export default{
       total: 500,
       current: 1,
       showSizeChanger: true,
-      pageSizeOption: ['15', '20', '25', '30']
+      pageSizeOption: [15, 20, 25, 30]
     }
   },
   methods: {
     handleClick (newIndex) {
-
+      console.log('page size change event', newIndex)
     }
   }
 }
