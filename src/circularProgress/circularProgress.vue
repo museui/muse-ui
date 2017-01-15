@@ -90,6 +90,7 @@ export default {
 .mu-circular-progress {
   display: inline-block;
   position: relative;
+  overflow: hidden;
 }
 
 .mu-circular-progress-determinate{
