@@ -226,7 +226,9 @@ export default {
       type: this.type
     }
     if (!this.disabled) domProps.tabIndex = this.tabIndex
-    return h(this.href ? 'a' : this.containerElement ? this.containerElement : 'button', {
+    const isFirefox = navigator.userAgent.toLowerCase().indexOf('firefox') !== -1
+    const defaultTag = isFirefox ? 'span' : 'button'
+    return h(this.href ? 'a' : this.containerElement ? this.containerElement : defaultTag, {
       class: this.buttonClass,
       domProps: domProps,
       style: {
