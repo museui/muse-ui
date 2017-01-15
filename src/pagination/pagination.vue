@@ -55,7 +55,7 @@ export default{
     },
     pageSizeOption: {
       type: Array,
-      default: () => ['10', '20', '30', '40']
+      default: () => [10, 20, 30, 40]
     }
     // showQuickJumper: {
     //   type: Boolean,
