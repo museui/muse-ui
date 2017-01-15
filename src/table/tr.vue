@@ -129,9 +129,9 @@ export default {
     selected (val, oldVal) {
       if (val === oldVal) return
       if (val) {
-        this.$parent.selectRow(this.rowId)
+        this.$parent.selectRow(this.rowId, false)
       } else {
-        this.$parent.unSelectRow(this.rowId)
+        this.$parent.unSelectRow(this.rowId, false)
       }
     }
   },

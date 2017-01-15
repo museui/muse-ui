@@ -37,7 +37,7 @@ export default {
     handleRowClick (e, tr) {
       this.$parent.handleRowClick(this.getRowIndex(tr), tr.rowId, tr)
     },
-    selectRow (rowId) {
+    selectRow (rowId, isClick = true) {
       if (!this.selectable) return
       const index = this.selectedRows.indexOf(rowId)
       if (index === -1) {
@@ -47,7 +47,7 @@ export default {
           this.selectAll(true)
           return
         }
-        if (this.$parent.handleRowSelect) this.$parent.handleRowSelect(this.convertSelectedRows(this.selectedRows))
+        if (this.$parent.handleRowSelect && isClick) this.$parent.handleRowSelect(this.convertSelectedRows(this.selectedRows))
       }
     },
     isSelectAllRow () {
@@ -57,13 +57,13 @@ export default {
       })
       return count === this.selectedRows.length
     },
-    unSelectRow (rowId) {
+    unSelectRow (rowId, isClick = true) {
       if (!this.selectable) return
       const index = this.selectedRows.indexOf(rowId)
       if (index !== -1) this.selectedRows.splice(index, 1)
       this._unSelectAll = true
       this.$parent.changeSelectAll(false)
-      if (this.$parent.handleRowSelect) this.$parent.handleRowSelect(this.convertSelectedRows(this.selectedRows))
+      if (this.$parent.handleRowSelect && isClick) this.$parent.handleRowSelect(this.convertSelectedRows(this.selectedRows))
     },
     selectAll (isSelectAll) {
       if (!this.selectable || !this.multiSelectable) return

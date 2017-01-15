@@ -102,5 +102,4 @@ export default {
   stroke-linecap: round;
   transition: all 0.3s linear;
 }
-
 </style>
