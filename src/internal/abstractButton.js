@@ -2,6 +2,7 @@ import touchRipple from './touchRipple'
 import focusRipple from './focusRipple'
 import keycode from 'keycode'
 import {isPc} from '../utils'
+import config from '../config'
 let tabPressed = false
 let listening = false
 
@@ -187,12 +188,13 @@ export default {
       } = this
       let children = []
       children = children.concat(this.$slots.default)
-      const FocusRipple = isKeyboardFocused && !disabled && !disableFocusRipple && !disableKeyboardFocus ? h(focusRipple, {
-        color: rippleColor,
-        opacity: rippleOpacity
-      }) : undefined
+      const FocusRipple = isKeyboardFocused && !config.disableFocusRipple && !disabled &&
+                          !disableFocusRipple && !disableKeyboardFocus ? h(focusRipple, {
+                            color: rippleColor,
+                            opacity: rippleOpacity
+                          }) : undefined
 
-      if (!disabled && !disableTouchRipple) {
+      if (!disabled && !disableTouchRipple && !config.disableTouchRipple) {
         children = [h(touchRipple, {
           class: this.wrapperClass,
           style: this.wrapperStyle,
@@ -201,6 +203,11 @@ export default {
             centerRipple: this.centerRipple,
             opacity: this.rippleOpacity
           }
+        }, this.$slots.default)]
+      } else {
+        children = [h('div', {
+          class: this.wrapperClass,
+          style: this.wrapperStyle
         }, this.$slots.default)]
       }
       children.unshift(FocusRipple)

@@ -53,6 +53,7 @@ import pagination from './pagination'
 import * as grid from './grid'
 
 import * as flexbox from './flexbox'
+import config from './config'
 const components = {
   icon,
   badge,
@@ -102,7 +103,8 @@ const components = {
   autoComplete,
   ...grid,
   ...flexbox,
-  pagination
+  pagination,
+  config
 }
 
 const install = function () {
