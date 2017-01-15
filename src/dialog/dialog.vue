@@ -1,17 +1,19 @@
 <template>
   <span>
-    <transition name="mu-dialog-scale" @after-enter="show()" @after-leave="hide()">
-      <div class="mu-dialog" :class="dialogClass" ref="popup" v-show="open" :style="{'z-index': zIndex}">
-        <h3 class="mu-dialog-title" v-if="showTitle" ref="title" :class="headerClass">
-          <slot name="title">
-            {{title}}
-          </slot>
-        </h3>
-        <div class="mu-dialog-body " :style="bodyStyle" :class="bodyClass">
-          <slot></slot>
-        </div>
-        <div class="mu-dialog-actions" v-if="showFooter" ref="footer" :class="footerClass">
-          <slot name="actions"></slot>
+    <transition name="mu-dialog-slide" @after-enter="show()" @after-leave="hide()">
+      <div class="mu-dialog-wrapper" v-show="open" ref="popup" :style="{'z-index': zIndex}">
+        <div class="mu-dialog" :class="dialogClass">
+          <h3 class="mu-dialog-title" v-if="showTitle" ref="title" :class="headerClass">
+            <slot name="title">
+              {{title}}
+            </slot>
+          </h3>
+          <div class="mu-dialog-body " :style="bodyStyle" :class="bodyClass">
+            <slot></slot>
+          </div>
+          <div class="mu-dialog-actions" v-if="showFooter" ref="footer" :class="footerClass">
+            <slot name="actions"></slot>
+          </div>
         </div>
       </div>
     </transition>
@@ -111,14 +113,16 @@ export default {
 
 <style lang="less">
 @import "../styles/import.less";
-.mu-dialog {
+.mu-dialog-wrapper {
   position: fixed;
   left: 50%;
   top: 50%;
   transform: translate3d(-50%, -50%, 0);
   width: 75%;
   max-width: 768px;
-  margin: 0 auto;
+}
+.mu-dialog {
+  width: 100%;
   padding: 0;
   background-color: @dialogBackgroundColor;
   border-radius: 2px;
@@ -162,18 +166,23 @@ export default {
   }
 }
 
-.mu-dialog-scale-enter-active,
-.mu-dialog-scale-leave-active{
-  backface-visibility: hidden;
-  transition: all .3s @easeOutFunction;
+.mu-dialog-slide-enter-active,
+.mu-dialog-slide-leave-active{
+  transition: opacity .45s @easeOutFunction;
+  .mu-dialog {
+    backface-visibility: hidden;
+    transition: transform .45s @easeOutFunction;
+  }
 }
-.mu-dialog-scale-enter,
-.mu-dialog-scale-leave-active {
+.mu-dialog-slide-enter,
+.mu-dialog-slide-leave-active {
     opacity: 0;
 }
 
-.mu-dialog-scale-enter,
-.mu-dialog-scale-leave-active {
-  transform: translate3d(-50%, -50%, 0) scale(0.8);
+.mu-dialog-slide-enter .mu-dialog{
+  transform: translate3d(0, -64px, 0);
+}
+.mu-dialog-slide-leave-active .mu-dialog{
+  transform: translate3d(0, 64px, 0);
 }
 </style>
