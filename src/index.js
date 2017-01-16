@@ -103,8 +103,7 @@ const components = {
   autoComplete,
   ...grid,
   ...flexbox,
-  pagination,
-  config
+  pagination
 }
 
 const install = function () {
@@ -118,5 +117,6 @@ if (typeof window !== 'undefined' && window.Vue) install(window.Vue)
 
 module.exports = {
   ...components,
+  config,
   install
 }
