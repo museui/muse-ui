@@ -1,6 +1,6 @@
 {
   "name": "muse-ui",
-  "version": "2.0.0-rc.2",
+  "version": "2.0.0-rc.3",
   "description": "material design ui for vue2",
   "main": "dist/muse-ui.js",
   "keywords": [

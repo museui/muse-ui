@@ -1,3 +1,15 @@
+## 2.0.0-rc.3
+
+### Features
+  * dialog 动画方案修改为滑动效果
+  * 增加全局配置关闭波纹效果 [#234](https://github.com/museui/muse-ui/issues/234)
+
+### Bugs
+  * 修复 table 选择无法控制的问题 [#240](https://github.com/museui/muse-ui/issues/240)
+  * 修复 firefox 下按钮波纹效果无效 [#233](https://github.com/museui/muse-ui/issues/233)
+  * 修复 circularProgress 影响样式的问题 [#238](https://github.com/museui/muse-ui/issues/238)
+  * 修复 Pagination 的 pageSizeChange 触发时机问题[#223](https://github.com/museui/muse-ui/issues/223)
+
 ## 2.0.0-rc.2
 
 ### Bugs
