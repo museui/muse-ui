@@ -116,7 +116,6 @@ export default{
 
     calcPageList (current) {
       let pageList = []
-
       if (this.totalPageCount > 5) {
         let left = Math.max(2, current - 2)
         let right = Math.min(current + 2, this.totalPageCount - 1)
@@ -172,10 +171,10 @@ export default{
       let oldCurrent = this.actualCurrent
       this.actualCurrent = Math.floor(itemIndex / val) + 1
       // 页码条数改变的时候当前页不一定改变,但是我们必须重新计算一些依赖的参数
+      this.totalPageCount = Math.ceil(this.total / this.actualPageSize)
       if (oldCurrent === this.actualCurrent) {
         this.pageSizeAndTotalChange(oldCurrent)
       }
-      this.totalPageCount = Math.ceil(this.total / this.actualPageSize)
       this.$emit('pageSizeChange', val)
       this.$emit('page-size-change', val)
     },
@@ -186,10 +185,10 @@ export default{
       // 总条数改变的时候当前页不一定改变,但是我们必须重新计算一些依赖的参数,
       // 比如total从10变为11(pageSize=10),那么current没变,不过右前进的按钮应该由
       // disable变为enable的
+      this.totalPageCount = Math.ceil(this.total / this.actualPageSize)
       if (oldCurrent === this.actualCurrent) {
         this.pageSizeAndTotalChange(oldCurrent)
       }
-      this.totalPageCount = Math.ceil(this.total / this.actualPageSize)
     },
     current (val) {
       this.actualCurrent = val

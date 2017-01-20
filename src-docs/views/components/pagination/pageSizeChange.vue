@@ -7,10 +7,10 @@
 export default{
   data () {
     return {
-      total: 500,
+      total: 130,
       current: 1,
       showSizeChanger: true,
-      pageSizeOption: [15, 20, 25, 30]
+      pageSizeOption: [10, 20, 30, 40]
     }
   },
   methods: {
