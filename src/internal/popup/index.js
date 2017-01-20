@@ -76,7 +76,7 @@ export default {
     if (this.overlay && this.open) PopupManager.open(this)
     if (this.open) this.bindClickOutSide()
     if (!this.$refs.popup) {
-      console.warn('必须有一个 ref=‘poup’ 的元素')
+      console.warn('必须有一个 ref=‘popup’ 的元素')
       return
     }
     document.body.appendChild(this.$refs.popup)
