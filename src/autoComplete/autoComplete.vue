@@ -220,7 +220,7 @@ export default {
       event.preventDefault()
     },
     handleItemClick (child) {
-      const {list, dataSource, setSearchText, close, $emit} = this
+      const {list, dataSource, setSearchText, close} = this
       const childIndex = this.$refs.menu.$children.indexOf(child)
       const index = list[childIndex].index
       const chosenRequest = dataSource[index]
@@ -229,8 +229,8 @@ export default {
         this.timerTouchTapCloseId = null
         setSearchText(searchText)
         close()
-        $emit('select', chosenRequest, index)
-        $emit('change', searchText)
+        this.$emit('select', chosenRequest, index)
+        this.$emit('change', searchText)
       }, this.menuCloseDelay)
     },
     chosenRequestText (chosenRequest) {
