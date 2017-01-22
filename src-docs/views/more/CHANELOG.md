@@ -1,3 +1,10 @@
+## 2.0.0-rc.5
+
+### Bugs
+  * 修复 datepicker, timePicker 弹出位置不居中的问题；
+  * 修复 Pagination 组件的部分问题 #252
+  * 修复 autoComplete 在选择时报错的问题 #250
+
 ## 2.0.0-rc.3
 
 ### Features
