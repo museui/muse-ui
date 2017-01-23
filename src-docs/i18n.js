@@ -118,7 +118,7 @@ Vue.locale('en', {
 })
 
 function getUrlParam (param) {
-  var reg = new RegExp('[&,?,&amp;]' + param + '=([^\\&]*)', 'i')
+  var reg = new RegExp('[&?]' + param + '=([^\\&]*)', 'i')
   var hrefStr = window.location.search
   hrefStr = decodeURIComponent(decodeURIComponent(hrefStr))
   var value = reg.exec(hrefStr)
