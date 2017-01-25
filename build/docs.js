@@ -2,19 +2,21 @@
 require('shelljs/global')
 env.NODE_ENV = 'production'
 
+var fs = require('fs')
 var path = require('path')
 var ora = require('ora')
 var webpack = require('webpack')
 var config = require('../config')
 var webpackConfig =  require('./webpack.docs.js')
-var version = require('../package.json').version
-
+var version = process.env.VERSION || require('../package.json').version
+var versions = require('../src-docs/version.json')
 var spinner = ora('building for production...')
 spinner.start()
 
-var assetsPath = config.assetsRoot
-// mkdir('-p', assetsPath)
+if (versions.indexOf(version) === -1) versions.unshift(version);
+fs.writeFileSync('src-docs/version.json', JSON.stringify(versions), 'utf8'); // 写入到json文件中
 
+var assetsPath = config.assetsRoot
 const resFiles = ['src-docs/version.json', 'src-docs/favicon.ico'] //资源文件
 const versionPath = assetsPath + '/' + version
 const versionFiles = ['img/', 'js/', 'index.html', '*.css', 'favicon.ico'].map((path) => {
