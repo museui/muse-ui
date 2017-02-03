@@ -45,12 +45,7 @@ var webpackConfig = merge(baseWebpackConfig, {
     loaders: utils.cssLoaders({
       sourceMap: config.productionSourceMap,
       extract: true
-    }),
-    postcss: [
-      require('autoprefixer')({
-        browsers: ['ie > 9', 'last 10 versions', 'chrome > 24']
-      })
-    ]
+    })
   },
   plugins: [
     // http://vuejs.github.io/vue-loader/workflow/production.html
