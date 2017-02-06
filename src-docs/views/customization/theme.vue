@@ -95,10 +95,10 @@
 </template>
 
 <script>
-import light from '!raw!!less!../../assets/themes/theme-default.less'
-import dark from '!raw!!less!../../assets/themes/theme-dark.less'
-import carbon from '!raw!!less!../../assets/themes/theme-carbon.less'
-import teal from '!raw!!less!../../assets/themes/theme-teal.less'
+import light from 'raw!less!../../assets/themes/theme-default.less'
+import dark from 'raw!less!../../assets/themes/theme-dark.less'
+import carbon from 'raw!less!../../assets/themes/theme-carbon.less'
+import teal from 'raw!less!../../assets/themes/theme-teal.less'
 import zh from './zh'
 import en from './en'
 
