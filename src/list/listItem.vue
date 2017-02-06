@@ -32,10 +32,10 @@
         <div class="mu-item-right" v-if="showRight">
           <icon-button @click.stop="handleToggleNested"  v-if="toggleNested">
             <svg v-if="nestedOpen" class="mu-item-svg-icon" :class="toggleIconClass" viewBox="0 0 24 24">
-              <path d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z"/>
+              <path d="M6 15L12 9L18 15"/>
             </svg>
             <svg v-if="!nestedOpen" class="mu-item-svg-icon" :class="toggleIconClass" viewBox="0 0 24 24">
-              <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"/>
+              <path d="M6 9L12 15L18 9"/>
             </svg>
           </icon-button>
           <slot name="right"></slot>
@@ -342,7 +342,9 @@ export default {
   display: inline-block;
   width: 24px;
   height: 24px;
-  fill: currentColor;
+  stroke-width: 2;
+  fill: none;
+  stroke: currentColor;
   user-select: none;
 }
 
