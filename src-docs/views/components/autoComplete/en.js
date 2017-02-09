@@ -3,7 +3,7 @@ import description from './README_EN.md'
 export default {
   description,
   simpleExample: 'Simple Example',
-  simpleExampleDesc: 'Auto complete component should be have a `dataSource` attribute，as it will determin the prompt content of completion',
+  simpleExampleDesc: 'Auto complete component should be have a `dataSource` attribute，as it will determine the prompt content of completion',
   configExample: 'Different parameters combinations usage',
   configExampleDesc: '`dataSource` can display the Icon by configing `leftIcon` or `rightIcon`, and display the prompt content of completion by configing `openOnFocus` when it was focusing',
   filterExample: 'Filter Usage',
