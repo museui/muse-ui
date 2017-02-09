@@ -14,7 +14,7 @@ export default {
   stepper: {
     props: {
       activeStep: 'current step',
-      linear: 'whther it is linear step navigation, when it is false, you can not control the completed and disabled attribute of `step` component ',
+      linear: 'whether it is linear step navigation, when it is false, you can not control the completed and disabled attribute of `step` component ',
       orientation: 'horizontal or vertical'
     },
     slots: {

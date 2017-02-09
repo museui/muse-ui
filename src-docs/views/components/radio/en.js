@@ -7,8 +7,8 @@ export default {
   props: {
     name: 'is equal to the name attribute of `input[type=radio]` element',
     nativeValue: 'is equal to the name attribute of `input[type=radio]` element',
-    label: 'lable text',
-    labelLeft: 'whether the lable text is on the right or not, default to left side.',
+    label: 'label text',
+    labelLeft: 'whether the label text is on the right or not, default to left side.',
     labelClass: 'style of label, the binding way is same with `class`',
     disabled: 'disabled the checkbox',
     uncheckIcon: 'the icon when you are not selecting, it should be selected from the material design icon library',
