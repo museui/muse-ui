@@ -1,5 +1,5 @@
 <template>
-  <hr class="mu-divider" :class="{'inset': inset, 'shallowInset': shallowInset}"/>
+  <hr class="mu-divider" :class="{'inset': inset, 'shallow-inset': shallowInset}"/>
 </template>
 
 <script>
