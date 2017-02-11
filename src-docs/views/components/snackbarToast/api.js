@@ -18,10 +18,10 @@ export default {
     }],
     events: [{
       name: 'close',
-      desc: 'snackbar 需要被关闭时触发事件'
+      desc: 'snackbar.events.close'
     }, {
       name: 'actionClick',
-      desc: '动作按钮点击事件'
+      desc: 'snackbar.events.actionClick'
     }]
   },
   toast: {

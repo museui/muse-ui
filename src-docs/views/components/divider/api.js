@@ -3,11 +3,11 @@ export default {
     name: 'inset',
     type: 'Boolean',
     default: 'false',
-    desc: '设置为true，将 `margin-left` 设为 `72px`'
+    desc: 'props.inset'
   }, {
     name: 'shallowInset',
     type: 'Boolean',
     default: 'false',
-    desc: '设置为true，将 `margin-left` 设为 `16px`'
+    desc: 'props.shallowInset'
   }]
 }
