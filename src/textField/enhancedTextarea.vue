@@ -2,7 +2,7 @@
   <div class="mu-text-field-multiline">
     <textarea ref="textareaHidden" class="mu-text-field-textarea-hide mu-text-field-input" :value="value"></textarea>
     <textarea ref="textarea" class="mu-text-field-input mu-text-field-textarea"
-      :class="normalClass" :value="value"
+      :class="normalClass" :value="value" @change="handleChange"
       @input="handleInput" @focus="handleFocus" @blur="handleBlur"
       :placeholder="placeholder" :disabled="disabled"></textarea>
   </div>
@@ -49,7 +49,10 @@ export default {
       element.style.height = (height < minHeight ? minHeight : height > maxHeight && maxHeight > 0 ? maxHeight : height) + 'px'
     },
     handleInput (e) {
-      this.$emit('change', e.target.value)
+      this.$emit('input', e.target.value)
+    },
+    handleChange (e) {
+      this.$emit('change', e)
     },
     handleFocus (e) {
       this.$emit('focus', e)

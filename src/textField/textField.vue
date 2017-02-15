@@ -6,9 +6,9 @@
       <text-field-hint v-if="hintText" :text="hintText" :show="showHint" :class="hintTextClass"></text-field-hint>
       <slot>
         <input v-if="!multiLine" ref="input" :type="type" :value="inputValue"
-          :disabled="disabled" @focus="handleFocus" @input="handleChange" @blur="handleBlur"
+          :disabled="disabled" @change="handleChange" @focus="handleFocus" @input="handleInput" @blur="handleBlur"
           class="mu-text-field-input" :class="inputClass">
-        <enhanced-textarea v-if="multiLine" ref="textarea" :normalClass="inputClass" :value="inputValue" :disabled="disabled" :rows="rows" :rowsMax="rowsMax" @change="handleChange" @focus="handleFocus" @blur="handleBlur"></enhanced-textarea>
+        <enhanced-textarea v-if="multiLine" ref="textarea" :normalClass="inputClass" :value="inputValue" :disabled="disabled" :rows="rows" :rowsMax="rowsMax" @change="handleChange" @input="handleInput" @focus="handleFocus" @blur="handleBlur"></enhanced-textarea>
       </slot>
       <underline v-if="underlineShow" :error="!!errorText" :disabled="disabled"
       :errorColor="errorColor" :focus="focus" :normalClass="underlineClass" :focusClass="underlineFocusClass"/>
@@ -153,9 +153,11 @@ export default {
       this.focus = false
       this.$emit('blur', event)
     },
-    handleChange (val) {
+    handleInput (val) {
       this.inputValue = val.target ? val.target.value : val
-      this.$emit('change', this.inputValue)
+    },
+    handleChange (e) {
+      this.$emit('change', e, e.target.value)
     },
     handleLabelClick () {
       this.$emit('labelClick')
