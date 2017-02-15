@@ -172,6 +172,7 @@ export default {
     handleClick (event) {
       if (!this.disabled) {
         tabPressed = false
+        this.$el.blur() // 点击之后失去焦点
         this.removeKeyboardFocus(event)
         this.$emit('click', event)
       }
