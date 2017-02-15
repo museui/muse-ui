@@ -17,6 +17,7 @@
 <script>
 import textField from '../textField'
 import dropDownMenu from '../dropDownMenu'
+import {isNull} from '../utils'
 export default {
   name: 'mu-select-field',
   props: {
@@ -96,7 +97,7 @@ export default {
   },
   data () {
     let defaultVal = this.value
-    if (!defaultVal) defaultVal = ''
+    if (isNull(defaultVal)) defaultVal = ''
     if (this.multiple && !(defaultVal instanceof Array)) {
       defaultVal = []
     }

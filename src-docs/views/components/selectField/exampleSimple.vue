@@ -1,7 +1,7 @@
 <template>
 <div>
   <mu-select-field v-model="game1" :labelFocusClass="['label-foucs']" label="选择你喜欢的游戏">
-    <mu-menu-item v-for="text,index in list" ccc="dddd" ttt="ddd" :value="String(index)" :title="text" />
+    <mu-menu-item v-for="text,index in list" ccc="dddd" ttt="ddd" :value="index" :title="text" />
   </mu-select-field>
   <br/>
   <mu-select-field v-model="game2" multiple label="选择多个">
@@ -27,16 +27,11 @@
 export default {
   data () {
     return {
-      game1: '-1',
+      game1: 0,
       game2: ['1'],
       game3: '3',
-      list: []
+      list: ['阴阳师', '影之刃', '天下HD', '穿越火线', '英雄联盟', '王者荣耀']
     }
-  },
-  mounted () {
-    setTimeout(() => {
-      this.list = ['阴阳师', '影之刃', '天下HD', '穿越火线', '英雄联盟', '王者荣耀']
-    }, 20)
   }
 }
 </script>
