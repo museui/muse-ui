@@ -38,8 +38,10 @@ export default {
     afterEnter (el) {
       el.style.display = ''
       // uc浏览器上设置height会闪屏
-      // el.style.height = 'auto'
+      el.style.height = ''
       el.style.overflow = el.dataset.oldOverflow
+      el.style.paddingTop = el.dataset.oldPaddingTop
+      el.style.paddingBottom = el.dataset.oldPaddingBottom
     },
     beforeLeave (el) {
       el.dataset.oldPaddingTop = el.style.paddingTop
