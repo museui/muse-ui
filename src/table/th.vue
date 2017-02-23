@@ -66,8 +66,6 @@ export default {
   padding-right: 24px;
   height: 56px;
   text-align: left;
-  white-space: nowrap;
-  text-overflow: ellipsis;
   color: @secondaryTextColor;
   position: relative;
 }
@@ -76,5 +74,8 @@ export default {
   position: relative;
   padding-top: 12px;
   padding-bottom: 12px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 </style>
