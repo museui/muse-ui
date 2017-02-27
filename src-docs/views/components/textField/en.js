@@ -34,7 +34,9 @@ export default {
     rows: 'rows',
     rowsMax: 'maximum rows',
     maxLength: 'maximum length',
-    value: 'value'
+    value: 'value',
+    max: 'when the `type = number`, `max` attribute',
+    min: 'when the `type = number`, `min` attribute'
   },
   events: {
     focus: 'when the input box is focusing, component will emit this event',

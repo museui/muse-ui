@@ -119,6 +119,16 @@ export default {
     type: 'String',
     default: '',
     desc: 'props.value'
+  }, {
+    name: 'max',
+    type: 'String,Number',
+    default: '',
+    desc: 'props.max'
+  }, {
+    name: 'min',
+    type: 'String,Number',
+    default: '',
+    desc: 'props.min'
   }],
   events: [{
     name: 'focus',

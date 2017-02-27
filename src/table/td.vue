@@ -39,7 +39,6 @@ export default {
   text-align: left;
   font-size: 13px;
   white-space: nowrap;
-  overflow: hidden;
   text-overflow: ellipsis;
 }
 </style>

@@ -7,8 +7,8 @@
       <slot>
         <input v-if="!multiLine" ref="input" :type="type" :value="inputValue"
           :disabled="disabled" @change="handleChange" @focus="handleFocus" @input="handleInput" @blur="handleBlur"
-          class="mu-text-field-input" :class="inputClass">
-        <enhanced-textarea v-if="multiLine" ref="textarea" :normalClass="inputClass" :value="inputValue" :disabled="disabled" :rows="rows" :rowsMax="rowsMax" @change="handleChange" @input="handleInput" @focus="handleFocus" @blur="handleBlur"></enhanced-textarea>
+          :max="max" :min="min" class="mu-text-field-input" :class="inputClass">
+        <enhanced-textarea v-if="multiLine" ref="textarea" :normalClass="inputClass":value="inputValue" :disabled="disabled" :rows="rows" :rowsMax="rowsMax" @change="handleChange" @input="handleInput" @focus="handleFocus" @blur="handleBlur"></enhanced-textarea>
       </slot>
       <underline v-if="underlineShow" :error="!!errorText" :disabled="disabled"
       :errorColor="errorColor" :focus="focus" :normalClass="underlineClass" :focusClass="underlineFocusClass"/>
@@ -110,6 +110,12 @@ export default {
     },
     underlineFocusClass: {
       type: [String, Array, Object]
+    },
+    max: {
+      type: [Number, String]
+    },
+    min: {
+      type: [Number, String]
     }
   },
   data () {
