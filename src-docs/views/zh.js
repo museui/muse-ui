@@ -1,5 +1,5 @@
 export default {
-  subTitle: '基于 Vue 2.0 和 Material Desigin 的 UI 组件库',
+  subTitle: '基于 Vue 2.0 和 Material Design 的 UI 组件库',
   features: '特性',
   component: '组件丰富',
   componentDesc: 'Muse UI 基本实现了 Material Design 设计规范类的所有组件，另外还开发许多的功能性的组件',
