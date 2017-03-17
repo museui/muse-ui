@@ -8,10 +8,10 @@
   </div>
   <div class="mu-dropDown-menu-line" :class="underlineClass"></div>
   <popover v-if="!disabled && $slots && $slots.default && $slots.default.length > 0" :scroller="scroller" :open="openMenu" :trigger="trigger" :anchorOrigin="anchorOrigin"  @close="handleClose">
-    <mu-menu v-if="openMenu" :style="{width: menuWidth + 'px'}" @change="change"
+    <mu-menu :style="{width: menuWidth + 'px'}" @change="change"
       :class="menuClass" :listClass="menuListClass" :value="value" :multiple="multiple"
       :autoWidth="autoWidth" @itemClick="itemClick"
-      popover desktop :maxHeight="maxHeight">
+      :popover="openMenu" desktop :maxHeight="maxHeight">
       <slot></slot>
     </mu-menu>
   </popover>

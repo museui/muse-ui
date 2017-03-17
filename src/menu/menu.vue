@@ -75,7 +75,6 @@ export default {
     this.setScollPosition()
     this.focusIndex = this.disableAutoFocus ? -1 : selectedIndex >= 0 ? selectedIndex : this.initiallyKeyboardFocused ? 0 : -1
     this.isKeyboardFocused = this.initiallyKeyboardFocused
-    if (this.popover) this.$el.focus()
   },
   beforeUpdate () {
     const selectedIndex = this.getSelectedIndex()
@@ -205,6 +204,18 @@ export default {
         child.focusState = focusState
         menuItemIndex++
       })
+    },
+    popover (val) {
+      if (val) {
+        setTimeout(() => {
+          const selectedIndex = this.getSelectedIndex()
+          if (this.disableAutoFocus) {
+            this.$el.focus()
+          } else {
+            this.setFocusIndex(selectedIndex, false)
+          }
+        }, 300)
+      }
     }
   },
   directives: {

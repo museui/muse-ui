@@ -3,9 +3,9 @@
     <icon-button :tooltip="tooltip" :tooltipPosition="tooltipPosition" :icon="icon" :iconClass="iconClass" @click="handleOpen">
       <slot name="icon"></slot>
     </icon-button>
-    <popover :open="openMenu" :trigger="trigger" :scroller="scroller" :anchorOrigin="anchorOrigin"
+    <popover v-if="$slots && $slots.default && $slots.default.length > 0" :open="openMenu" :trigger="trigger" :scroller="scroller" :anchorOrigin="anchorOrigin"
       :targetOrigin="targetOrigin" @close="handleClose">
-      <mu-menu v-if="openMenu" @change="change" popover :value="value" :class="menuClass" :listClass="menuListClass"
+      <mu-menu @change="change" :popover="openMenu" :value="value" :class="menuClass" :listClass="menuListClass"
         @itemClick="itemClick" :multiple="multiple" :desktop="desktop" :maxHeight="maxHeight">
         <slot></slot>
       </mu-menu>
