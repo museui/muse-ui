@@ -35,7 +35,7 @@ export default {
   },
   methods: {
     handleRowClick (e, tr) {
-      this.$parent.handleRowClick(this.getRowIndex(tr), tr.rowId, tr)
+      this.$parent.handleRowClick(this.getRowIndex(tr), tr)
     },
     selectRow (rowId, isClick = true) {
       if (!this.selectable) return
@@ -84,19 +84,19 @@ export default {
       if (this.$parent.handleRowSelect) this.$parent.handleRowSelect([])
     },
     handleCellClick (event, columnName, td, rowId, tr) {
-      if (this.$parent.handleCellClick) this.$parent.handleCellClick(this.getRowIndex(tr), columnName, td, rowId, tr)
+      if (this.$parent.handleCellClick) this.$parent.handleCellClick(this.getRowIndex(tr), columnName, td, tr)
     },
     handleCellHover (event, columnName, td, rowId, tr) {
-      if (this.$parent.handleCellHover) this.$parent.handleCellHover(this.getRowIndex(tr), columnName, td, rowId, tr)
+      if (this.$parent.handleCellHover) this.$parent.handleCellHover(this.getRowIndex(tr), columnName, td, tr)
     },
     handleCellHoverExit (event, columnName, td, rowId, tr) {
-      if (this.$parent.handleCellHoverExit) this.$parent.handleCellHoverExit(this.getRowIndex(tr), columnName, td, rowId, tr)
+      if (this.$parent.handleCellHoverExit) this.$parent.handleCellHoverExit(this.getRowIndex(tr), columnName, td, tr)
     },
     handleRowHover (event, rowId, tr) {
-      if (this.$parent.handleRowHover) this.$parent.handleRowHover(this.getRowIndex(tr), rowId, tr)
+      if (this.$parent.handleRowHover) this.$parent.handleRowHover(this.getRowIndex(tr), tr)
     },
     handleRowHoverExit (event, rowId, tr) {
-      if (this.$parent.handleRowHoverExit) this.$parent.handleRowHoverExit(this.getRowIndex(tr), rowId, tr)
+      if (this.$parent.handleRowHoverExit) this.$parent.handleRowHoverExit(this.getRowIndex(tr), tr)
     },
     getRowIndex (tr) {
       return this.$children.indexOf(tr)
