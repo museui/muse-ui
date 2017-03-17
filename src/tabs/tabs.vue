@@ -1,7 +1,7 @@
 <template>
   <div class="mu-tabs">
     <slot></slot>
-    <span class="mu-tab-link-highlight" :class="lineClass" :style="tabLightStyle"></span>
+    <span class="mu-tab-link-highlight" ref="highlight" :class="lineClass"></span>
   </div>
 </template>
 
@@ -22,6 +22,9 @@ export default {
       }
     }
   },
+  updated () {
+    this.setTabLightStyle()
+  },
   methods: {
     handleTabClick (value, tab) {
       if (this.value !== value) {
@@ -40,24 +43,15 @@ export default {
       return activeIndex
     },
     setTabLightStyle () {
-      let x = this.getActiveIndex() * 100
-      let len = this.$children.length
-      this.tabLightStyle = {
-        width: len > 0 ? (100 / len).toFixed(4) + '%' : '100%',
-        transform: 'translate3d(' + x + '%, 0, 0)'
-      }
+      const x = this.getActiveIndex() * 100
+      const len = this.$children.length
+      const el = this.$refs.highlight
+      el.style.width = len > 0 ? (100 / len).toFixed(4) + '%' : '100%'
+      el.style.transform = 'translate3d(' + x + '%, 0, 0)'
     }
   },
   mounted () {
     this.setTabLightStyle()
-  },
-  watch: {
-    value (val, oldVal) {
-      if (val === oldVal) return
-      this.$nextTick(function () {
-        this.setTabLightStyle()
-      })
-    }
   }
 }
 </script>
