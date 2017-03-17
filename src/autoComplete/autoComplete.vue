@@ -49,7 +49,6 @@ export default {
     },
     dataSource: {
       type: Array,
-      required: true,
       default () {
         return []
       }
@@ -220,7 +219,7 @@ export default {
       event.preventDefault()
     },
     handleItemClick (child) {
-      const {list, dataSource, setSearchText, close} = this
+      const {list, dataSource, setSearchText} = this
       const childIndex = this.$refs.menu.$children.indexOf(child)
       const index = list[childIndex].index
       const chosenRequest = dataSource[index]
@@ -228,7 +227,7 @@ export default {
       this.timerTouchTapCloseId = setTimeout(() => {
         this.timerTouchTapCloseId = null
         setSearchText(searchText)
-        close()
+        this.close()
         this.$emit('select', chosenRequest, index)
         this.$emit('change', searchText)
       }, this.menuCloseDelay)
@@ -261,11 +260,10 @@ export default {
 
       switch (keycode(event)) {
         case 'enter':
-          this.close()
+          if (!this.open) return
           const searchText = this.searchText
-          if (searchText !== '') {
-            this.$emit('select', searchText, -1)
-          }
+          this.$emit('select', searchText, -1)
+          this.close()
           break
         case 'esc':
           this.close()

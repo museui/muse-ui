@@ -30,7 +30,7 @@
           <slot></slot>
         </div>
         <div class="mu-item-right" v-if="showRight">
-          <icon-button @click.stop="handleToggleNested"  v-if="toggleNested">
+          <icon-button @click.stop="handleToggleNested" @mousedown.native="stop" @touchstart.native="stop"  v-if="toggleNested">
             <svg v-if="nestedOpen" class="mu-item-svg-icon" :class="toggleIconClass" viewBox="0 0 24 24">
               <path d="M6 15L12 9L18 15"/>
             </svg>
@@ -198,6 +198,9 @@ export default {
     },
     handleNestedChange (value) {
       this.$parent.handleChange(value)
+    },
+    stop (e) {
+      e.stopPropagation()
     }
   },
   watch: {
