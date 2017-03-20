@@ -1,5 +1,28 @@
-var _ = require('lodash')
-var mdName = process.env.NODE_ENV !== 'test' ? process.argv[2] || ( process.env.NODE_ENV === 'production' ? 'prod' : 'docs') : 'docs'
-var md = require('./' + mdName)
+// see http://vuejs-templates.github.io/webpack for documentation.
+var path = require('path')
 
-module.exports = _.assign({}, md.global, process.env.NODE_ENV === 'production' ? md.build : md.dev)
+module.exports = {
+  entry: {
+    app: path.resolve(__dirname, '../src-docs/main.js')
+  },
+  template: path.resolve(__dirname, '../src-docs/index.html'),
+  build: {
+    env: require('./prod.env'),
+    assetsRoot: path.resolve(__dirname, '../docs'),
+    assetsSubDirectory: '',
+    assetsPublicPath: '',
+    productionSourceMap: false,
+    productionGzip: false,
+    productionGzipExtensions: ['js', 'css'],
+    // bundleAnalyzerReport: process.env.npm_config_report
+  },
+  dev: {
+    env: require('./dev.env'),
+    port: 8080,
+    autoOpenBrowser: true,
+    assetsSubDirectory: 'static',
+    assetsPublicPath: '/',
+    proxyTable: {},
+    cssSourceMap: false
+  }
+}

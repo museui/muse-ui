@@ -17,7 +17,7 @@
       <mu-radio name="horizontalPosition" v-model="horizontalPosition" label="right" nativeValue="right"/>
     </p>
     <p>
-      touch: <mu-switch v-model="touch">
+      touch: <mu-switch v-model="touch"/>
     </p>
   </div>
 </div>

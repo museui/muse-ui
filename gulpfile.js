@@ -2,7 +2,7 @@ const gulp = require('gulp')
 const less = require('gulp-less')
 const rename = require('gulp-rename')
 const concat = require('gulp-concat')
-const minify = require('gulp-minify-css')
+const minify = require('gulp-clean-css')
 gulp.task('theme:style', function () {
   return gulp.src(['./src/*/theme.less'])
       .pipe(concat('theme.less'))

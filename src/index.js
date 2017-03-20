@@ -114,9 +114,11 @@ const install = function () {
 }
 
 if (typeof window !== 'undefined' && window.Vue) install(window.Vue)
-
-module.exports = {
-  ...components,
+export default {
+  config,
+  install
+}
+export {
   config,
   install
 }

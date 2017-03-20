@@ -6,7 +6,7 @@
     <div class="demo-checkbox">
       你选择的是：{{list}}
     </div>
-    <mu-checkbox :label="single ? 'true' : 'false'" v-model="single">
+    <mu-checkbox :label="single ? 'true' : 'false'" v-model="single"/>
 </div>
 </template>
 

@@ -1,22 +1,25 @@
-// https://github.com/shelljs/shelljs
+require('./check-versions')()
 require('shelljs/global')
-env.NODE_ENV = 'production'
 
+process.env.NODE_ENV = 'production'
 var fs = require('fs')
-var path = require('path')
 var ora = require('ora')
+var path = require('path')
+var chalk = require('chalk')
 var webpack = require('webpack')
 var config = require('../config')
-var webpackConfig =  require('./webpack.docs.js')
 var version = process.env.VERSION || require('../package.json').version
 var versions = require('../src-docs/version.json')
+
+var webpackConfig = require('./webpack.docs.conf')
+
 var spinner = ora('building for production...')
 spinner.start()
 
 if (versions.indexOf(version) === -1) versions.unshift(version);
 fs.writeFileSync('src-docs/version.json', JSON.stringify(versions), 'utf8'); // 写入到json文件中
 
-var assetsPath = config.assetsRoot
+var assetsPath = config.build.assetsRoot
 const resFiles = ['src-docs/version.json', 'src-docs/favicon.ico'] //资源文件
 const versionPath = assetsPath + '/' + version
 const versionFiles = ['img/', 'js/', 'index.html', '*.css', 'favicon.ico'].map((path) => {
@@ -24,6 +27,7 @@ const versionFiles = ['img/', 'js/', 'index.html', '*.css', 'favicon.ico'].map((
 })
 rm('-rf', versionFiles)
 cp('-R', resFiles, assetsPath)
+
 webpack(webpackConfig, function (err, stats) {
   spinner.stop()
   if (err) throw err
@@ -33,7 +37,11 @@ webpack(webpackConfig, function (err, stats) {
     children: false,
     chunks: false,
     chunkModules: false
-  }) + '\n')
-  mkdir('-p', versionPath)
-  cp('-R', versionFiles, versionPath)
+  }) + '\n\n')
+
+  console.log(chalk.cyan('  Build complete.\n'))
+  console.log(chalk.yellow(
+    '  Tip: built files are meant to be served over an HTTP server.\n' +
+    '  Opening index.html over file:// won\'t work.\n'
+  ))
 })
