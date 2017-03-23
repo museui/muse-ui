@@ -53,6 +53,8 @@ import pagination from './pagination'
 import * as grid from './grid'
 
 import * as flexbox from './flexbox'
+import tabContainer from './tab-container'
+import tabContainerItem from './tab-container-item'
 import config from './config'
 const components = {
   icon,
@@ -103,7 +105,9 @@ const components = {
   autoComplete,
   ...grid,
   ...flexbox,
-  pagination
+  pagination,
+  tabContainer,
+  tabContainerItem
 }
 
 const install = function () {
