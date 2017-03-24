@@ -100,7 +100,9 @@
   },
   "browserslist": [
     "> 1%",
-    "last 2 versions",
+    "last 5 versions",
+    "ios >= 7",
+    "android > 4.4",
     "not ie <= 8"
   ]
 }

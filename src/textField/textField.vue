@@ -241,7 +241,6 @@ export default {
 
 .mu-text-field-content{
   display: block;
-  cursor: pointer;
   height: 100%;
   .mu-text-field.disabled &{
     color: @disabledColor;
