@@ -47,7 +47,7 @@ export default {
 }
 
 .mu-ripple-enter-active, .mu-ripple-leave-active{
-  transition: opacity 2s @easeOutFunction, transform 1s @easeOutFunction;
+  transition: opacity 2s @easeOutFunction, transform .45s @easeOutFunction;
 }
 
 .mu-ripple-enter {
