@@ -178,9 +178,6 @@ export default {
     close (reason) {
       this.$emit('close', reason)
     },
-    overlayClick () {
-      this.close('overlay')
-    },
     clickOutSide (e) {
       this.close('clickOutSide')
     },
@@ -189,9 +186,6 @@ export default {
     },
     onResize () {
       this.setStyle()
-    },
-    escPress () {
-      this.close('esc')
     },
     show () {
       this.$emit('show')

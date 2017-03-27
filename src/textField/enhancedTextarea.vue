@@ -1,6 +1,6 @@
 <template>
   <div class="mu-text-field-multiline">
-    <textarea ref="textareaHidden" class="mu-text-field-textarea-hide mu-text-field-input" :value="value"></textarea>
+    <textarea ref="textareaHidden" rows="1" class="mu-text-field-textarea-hide mu-text-field-input" :value="value"></textarea>
     <textarea ref="textarea" class="mu-text-field-input mu-text-field-textarea"
       :class="normalClass" :value="value" @change="handleChange"
       @input="handleInput" @focus="handleFocus" @blur="handleBlur"

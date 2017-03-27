@@ -19,12 +19,6 @@ export default {
     }
   },
   methods: {
-    overlayClick () {
-      this.$emit('close', 'overlay')
-    },
-    escPress () {
-      this.$emit('close', 'esc')
-    },
     show () {
       this.$emit('show')
     },
@@ -47,7 +41,7 @@ export default {
 
 .mu-bottom-sheet-enter-active,
 .mu-bottom-sheet-leave-active{
-  transition: transform .45s @easeOutFunction;
+  transition: transform .3s @easeOutFunction;
   backface-visibility: hidden;
 }
 

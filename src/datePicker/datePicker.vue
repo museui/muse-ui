@@ -59,10 +59,10 @@ export default {
       default: 'YYYY-MM-DD'
     },
     maxDate: {
-      type: String
+      type: [String, Date]
     },
     minDate: {
-      type: String
+      type: [String, Date]
     },
     label: {
       type: String
@@ -128,10 +128,10 @@ export default {
   },
   computed: {
     maxLimitDate () {
-      return this.maxDate ? dateUtils.strFormatToDate(this.maxDate, this.format) : undefined
+      return this.maxDate ? typeof this.maxDate === 'string' ? dateUtils.strFormatToDate(this.maxDate, this.format) : this.maxDate : undefined
     },
     minLimitDate () {
-      return this.minDate ? dateUtils.strFormatToDate(this.minDate, this.format) : undefined
+      return this.minDate ? typeof this.minDate === 'string' ? dateUtils.strFormatToDate(this.minDate, this.format) : this.minDate : undefined
     }
   },
   data () {

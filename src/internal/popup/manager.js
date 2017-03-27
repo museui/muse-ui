@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import keycode from 'keycode'
 import overlayOpt from './overlay'
 const Overlay = Vue.extend(overlayOpt)
 
@@ -8,7 +9,7 @@ const PopupManager = {
 
   open (instance) {
     if (!instance || this.instances.indexOf(instance) !== -1) return
-    if (this.instances.length === 0) {
+    if (!this.overlay && instance.overlay) {
       this.showOverlay(instance)
     }
     this.instances.push(instance)
@@ -92,5 +93,12 @@ const PopupManager = {
     }
   }
 }
+window.addEventListener('keydown', (e) => {
+  if (PopupManager.instances.length === 0 || keycode(e) !== 'esc') return
+  const instance = PopupManager.instances[PopupManager.instances.length - 1]
+  if (instance.escPress) {
+    instance.escPress()
+  }
+})
 
 export default PopupManager

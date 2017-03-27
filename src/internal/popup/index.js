@@ -1,6 +1,5 @@
 import PopupManager from './manager'
 import {getZIndex} from './utils'
-import keycode from 'keycode'
 export default {
   props: {
     open: {
@@ -18,6 +17,14 @@ export default {
     overlayColor: {
       type: String,
       default: '#000'
+    },
+    escPressClose: { // 按退出键是否触发关闭事件
+      type: Boolean,
+      default: true
+    },
+    appendBody: { // 是否添加到 body 元素后, 内部使用
+      type: Boolean,
+      default: true
     }
   },
   data () {
@@ -28,10 +35,10 @@ export default {
   },
   methods: {
     overlayClick (e) {
-      this.$emit('overlayClick', e)
+      this.$emit('close', 'overlay')
     },
     escPress (e) {
-      this.$emit('escPress', e)
+      if (this.escPressClose) this.$emit('close', 'esc')
     },
     clickOutSide (e) {
       this.$emit('clickOutSide', e)
@@ -44,7 +51,7 @@ export default {
     bindClickOutSide () {
       if (!this._handleClickOutSide) {
         this._handleClickOutSide = (e) => {
-          if (this.$refs.popup.contains(e.target)) return
+          if (this.popupEl.contains(e.target)) return
           this.clickOutSide(e)
         }
       }
@@ -55,31 +62,22 @@ export default {
     unBindClickOutSide () {
       document.removeEventListener('click', this._handleClickOutSide)
     },
-    bindEscPress () {
-      if (!this._handleEscPress) {
-        this._handleEscPress = (e) => {
-          if (keycode(e) === 'esc') this.escPress(e)
-        }
-        window.addEventListener('keydown', this._handleEscPress)
-      }
-    },
-    unBindEscPress () {
-      window.removeEventListener('keydown', this._handleEscPress)
-    },
     resetZIndex () {
       this.overlayZIndex = getZIndex()
       this.zIndex = getZIndex()
     }
   },
   mounted () {
-    this.bindEscPress()
-    if (this.overlay && this.open) PopupManager.open(this)
-    if (this.open) this.bindClickOutSide()
-    if (!this.$refs.popup) {
+    this.popupEl = this.appendBody ? this.$refs.popup : this.$el
+    if (this.open) {
+      PopupManager.open(this)
+      this.bindClickOutSide()
+    }
+    if (!this.popupEl && this.appendBody) {
       console.warn('必须有一个 ref=‘popup’ 的元素')
       return
     }
-    document.body.appendChild(this.$refs.popup)
+    if (this.appendBody) document.body.appendChild(this.popupEl)
   },
   updated () {
     if (!this.overlay) {
@@ -88,9 +86,8 @@ export default {
   },
   beforeDestroy () {
     PopupManager.close(this)
-    this.unBindEscPress()
     this.unBindClickOutSide()
-    document.body.removeChild(this.$refs.popup)
+    if (this.appendBody && this.popupEl) document.body.removeChild(this.popupEl)
   },
   watch: {
     open (val, oldVal) {
@@ -98,7 +95,7 @@ export default {
       if (val) {
         this.bindClickOutSide()
         this.resetZIndex()
-        if (this.overlay) PopupManager.open(this)
+        PopupManager.open(this)
       } else {
         this.unBindClickOutSide()
         PopupManager.close(this)
