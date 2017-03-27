@@ -262,7 +262,7 @@ export default {
         case 'enter':
           if (!this.open) return
           const searchText = this.searchText
-          this.$emit('select', searchText, -1)
+          this.$emit('change', searchText, -1)
           this.close()
           break
         case 'esc':
