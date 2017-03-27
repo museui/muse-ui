@@ -1,6 +1,5 @@
 <template>
 <div>
-  <mu-text-field multiLine :rows="1" :rowsMax="5" /><br/>
   <mu-text-field hintText="提示文字"/><br/>
   <mu-text-field v-model="value"/><br/>
   <mu-text-field label="标签文字" hintText="提示文字"/><br/>

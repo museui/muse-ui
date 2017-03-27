@@ -1,7 +1,7 @@
 <template>
 <div>
   <mu-select-field label="很长很长的选择" :maxHeight="300">
-    <mu-menu-item v-for="item, index in list" :title="item" :value="index"/>
+    <mu-menu-item v-for="item, index in list" :key="index" :title="item" :value="index"/>
   </mu-select-field>
   <br/>
   <mu-select-field v-model="game" label="错误的样式" :errorText="errorText">

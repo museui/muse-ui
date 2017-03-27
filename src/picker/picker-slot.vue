@@ -2,7 +2,7 @@
   <div class="mu-picker-slot" :class="{'mu-picker-slot-divider': divider}" :style="{'width': width}">
     <div v-if="!divider" class="mu-picker-slot-wrapper" :class="{'animate': animate}" :style="{'height': contentHeight + 'px'}" ref="wrapper">
       <div class="mu-picker-item" :style="{'text-align': textAlign}" :class="{'selected': item === value}"
-      v-for="item in values">{{item.text || item}}</div>
+      v-for="item, index in values" :key="index">{{item.text || item}}</div>
     </div>
     <div v-if="divider">{{ content }}</div>
   </div>

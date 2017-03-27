@@ -4,7 +4,7 @@
   <p v-html="$t('color')"></p>
   <div class="demo-colors-wrapper">
     <mu-row>
-      <mu-col v-for="color in mainColors" width="50" desktop="25" tablet="33" class="demo-color-group">
+      <mu-col v-for="color in mainColors" :key="color" width="50" desktop="25" tablet="33" class="demo-color-group">
         <div class="demo-color" :style="getColorInfo(color, '500').style">
           <span class="demo-color-title">{{color}}</span>
           <div class="demo-color-container">
@@ -12,7 +12,7 @@
             <span>{{getColorInfo(color, '500').value}}</span>
           </div>
         </div>
-        <div class="demo-color" v-for="palette in palettes" v-if="hasColor(color, palette)"  :style="getColorInfo(color, palette).style">
+        <div class="demo-color" v-for="palette, index in palettes" :key="index" v-if="hasColor(color, palette)"  :style="getColorInfo(color, palette).style">
           <div class="demo-color-container">
             <span>{{getColorInfo(color, palette).key}}</span>
             <span>{{getColorInfo(color, palette).value}}</span>

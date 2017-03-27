@@ -3678,7 +3678,7 @@ loader-utils@^0.2.15, loader-utils@^0.2.16, loader-utils@^0.2.3, loader-utils@^0
     json5 "^0.5.0"
     object-assign "^4.0.1"
 
-loader-utils@^1.0.2:
+loader-utils@^1.0.2, loader-utils@^1.1.0:
   version "1.1.0"
   resolved "http://registry.npm.taobao.org/loader-utils/download/loader-utils-1.1.0.tgz#c98aef488bcceda2ffb5e2de646d6a754429f5cd"
   dependencies:
@@ -4783,7 +4783,7 @@ postcss-zindex@^2.0.1:
     postcss "^5.0.4"
     uniqs "^2.0.0"
 
-postcss@^5.0.10, postcss@^5.0.11, postcss@^5.0.12, postcss@^5.0.13, postcss@^5.0.14, postcss@^5.0.16, postcss@^5.0.2, postcss@^5.0.4, postcss@^5.0.5, postcss@^5.0.6, postcss@^5.0.8, postcss@^5.2.16:
+postcss@^5.0.10, postcss@^5.0.11, postcss@^5.0.12, postcss@^5.0.13, postcss@^5.0.14, postcss@^5.0.16, postcss@^5.0.2, postcss@^5.0.21, postcss@^5.0.4, postcss@^5.0.5, postcss@^5.0.6, postcss@^5.0.8, postcss@^5.2.16:
   version "5.2.16"
   resolved "http://registry.npm.taobao.org/postcss/download/postcss-5.2.16.tgz#732b3100000f9ff8379a48a53839ed097376ad57"
   dependencies:
@@ -6001,20 +6001,20 @@ vue-hot-reload-api@^2.0.11:
   version "2.0.11"
   resolved "http://registry.npm.taobao.org/vue-hot-reload-api/download/vue-hot-reload-api-2.0.11.tgz#bf26374fb73366ce03f799e65ef5dfd0e28a1568"
 
-vue-i18n@4.7.4:
-  version "4.7.4"
-  resolved "http://registry.npm.taobao.org/vue-i18n/download/vue-i18n-4.7.4.tgz#b954ee99d4b6b9e4ac51c1d905530de159dd03fa"
+vue-i18n@5.0.3:
+  version "5.0.3"
+  resolved "http://registry.npm.taobao.org/vue-i18n/download/vue-i18n-5.0.3.tgz#b6d96cc832604237e6139de471e0d4c820aedbed"
 
-vue-loader@^11.1.4:
-  version "11.1.4"
-  resolved "http://registry.npm.taobao.org/vue-loader/download/vue-loader-11.1.4.tgz#d399b0ee10b34f2e41183b1e52255c4ab9f1f845"
+vue-loader@^11.3.3:
+  version "11.3.3"
+  resolved "http://registry.npm.taobao.org/vue-loader/download/vue-loader-11.3.3.tgz#045d27afacf70c58889d46debe4adf6d67ec8cf3"
   dependencies:
     consolidate "^0.14.0"
     hash-sum "^1.0.2"
     js-beautify "^1.6.3"
-    loader-utils "^1.0.2"
+    loader-utils "^1.1.0"
     lru-cache "^4.0.1"
-    postcss "^5.0.10"
+    postcss "^5.0.21"
     postcss-load-config "^1.1.0"
     postcss-selector-parser "^2.0.0"
     source-map "^0.5.6"
@@ -6033,9 +6033,9 @@ vue-style-loader@^2.0.0:
     hash-sum "^1.0.2"
     loader-utils "^1.0.2"
 
-vue-template-compiler@2.1.8:
-  version "2.1.8"
-  resolved "http://registry.npm.taobao.org/vue-template-compiler/download/vue-template-compiler-2.1.8.tgz#12dd1cc63793f59be580c694a61610cb9369d629"
+vue-template-compiler@^2.2.6:
+  version "2.2.6"
+  resolved "http://registry.npm.taobao.org/vue-template-compiler/download/vue-template-compiler-2.2.6.tgz#2e2928daf0cd0feca9dfc35a9729adeae173ec68"
   dependencies:
     de-indent "^1.0.2"
     he "^1.1.0"
@@ -6044,9 +6044,9 @@ vue-template-es2015-compiler@^1.2.2:
   version "1.5.1"
   resolved "http://registry.npm.taobao.org/vue-template-es2015-compiler/download/vue-template-es2015-compiler-1.5.1.tgz#0c36cc57aa3a9ec13e846342cb14a72fcac8bd93"
 
-vue@2.1.8:
-  version "2.1.8"
-  resolved "http://registry.npm.taobao.org/vue/download/vue-2.1.8.tgz#ae30aa86024fccf5535292ce414e7b4c221a1756"
+vue@^2.2.6:
+  version "2.2.6"
+  resolved "http://registry.npm.taobao.org/vue/download/vue-2.2.6.tgz#451714b394dd6d4eae7b773c40c2034a59621aed"
 
 watchpack@^1.2.0:
   version "1.3.1"

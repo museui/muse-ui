@@ -11,7 +11,7 @@
       </mu-tr>
     </mu-thead>
     <mu-tbody>
-      <mu-tr v-for="item,index in tableData" :selected="item.selected">
+      <mu-tr v-for="item,index in tableData"  :key="index" :selected="item.selected">
         <mu-td>{{index + 1}}</mu-td>
         <mu-td>{{item.name}}</mu-td>
         <mu-td>{{item.status}}</mu-td>

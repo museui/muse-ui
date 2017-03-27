@@ -81,6 +81,7 @@ export default {
   line-height: 1.5;
   position: relative;
   height: 100%;
+  resize: none;
 }
 .mu-text-field-multiline{
   width: 100%;

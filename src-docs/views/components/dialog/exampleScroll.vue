@@ -3,7 +3,7 @@
   <mu-raised-button label="scrollable dialog" @click="open"/>
   <mu-dialog :open="dialog" title="Scrollable Dialog" scrollable>
     <mu-menu>
-      <mu-menu-item :title="'menu item ' + menu" v-for="menu in menus"/>
+      <mu-menu-item :title="'menu item ' + menu" v-for="menu, index in menus" :key="index"/>
     </mu-menu>
     <mu-flat-button primary label="关闭" @click="close" slot="actions"/>
   </mu-dialog>

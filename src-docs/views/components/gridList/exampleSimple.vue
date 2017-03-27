@@ -2,7 +2,7 @@
 <div class="gridlist-demo-container">
   <mu-grid-list class="gridlist-demo">
     <mu-sub-header>图片展示</mu-sub-header>
-    <mu-grid-tile v-for="tile in list">
+    <mu-grid-tile v-for="tile, index in list" :key="index">
       <img :src="tile.image"/>
       <span slot="title">{{tile.title}}</span>
       <span slot="subTitle">by <b>{{tile.author}}</b></span>
@@ -13,47 +13,39 @@
 </template>
 
 <script>
-import breakfast from '../../../assets/images/breakfast.jpg'
-import burger from '../../../assets/images/burger.jpg'
-import camera from '../../../assets/images/camera.jpg'
-import hats from '../../../assets/images/hats.jpg'
-import honey from '../../../assets/images/honey.jpg'
-import morning from '../../../assets/images/morning.jpg'
-import vegetables from '../../../assets/images/vegetables.jpg'
-import water from '../../../assets/images/water-plant.jpg'
 export default {
   data () {
     return {
       list: [{
-        image: breakfast,
+        image: '/images/breakfast.jpg',
         title: 'Breakfast',
         author: 'Myron'
       }, {
-        image: burger,
+        image: '/images/burger.jpg',
         title: 'Burger',
         author: 'Linyu'
       }, {
-        image: camera,
+        image: '/images/camera.jpg',
         title: 'Camera',
         author: 'ruolin'
       }, {
-        image: hats,
+        image: '/images/hats.jpg',
         title: 'Hats',
         author: 'kakali'
       }, {
-        image: honey,
+        image: '/images/honey.jpg',
         title: 'Honey',
         author: 'yuyang'
       }, {
-        image: morning,
+        image: '/images/morning.jpg',
         title: 'Morning',
         author: 'mokayi'
       }, {
-        image: vegetables,
+        image: '/images/vegetables.jpg',
         title: 'Vegetables',
         author: 'NUyyyyyyy'
       }, {
-        image: water,
+        image: '/images/water-plant.jpg',
         title: 'water',
         author: 'TDDyyyyyyy'
       }]

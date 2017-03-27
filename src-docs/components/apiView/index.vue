@@ -16,7 +16,7 @@
       </mu-tr>
     </mu-thead>
     <mu-tbody>
-      <mu-tr v-for="item in api.props">
+      <mu-tr v-for="item, index in api.props" :key="item.name + index">
         <mu-td class="api-td">{{item.name}}</mu-td>
         <mu-td class="api-td api-type-td">{{item.type}}</mu-td>
         <mu-td class="api-td api-default-td">
@@ -36,7 +36,7 @@
       </mu-tr>
     </mu-thead>
     <mu-tbody>
-      <mu-tr v-for="item in api.slots">
+      <mu-tr v-for="item, index in api.slots" :key="'slot_' + index">
         <mu-td class="api-td">{{item.name}}</mu-td>
         <mu-td class="api-desc-td api-td">
           <markdown-element :text="translate(item.desc)"/>
@@ -52,7 +52,7 @@
       </mu-tr>
     </mu-thead>
     <mu-tbody>
-      <mu-tr v-for="item in api.events">
+      <mu-tr v-for="item, index in api.events" :key="'event_' + index">
         <mu-td class="api-td">{{item.name}}</mu-td>
         <mu-td class="api-desc-td api-td">
           <markdown-element :text="translate(item.desc)"/>

@@ -9,7 +9,7 @@
     <div class="mu-version-box">
       <span class="mu-version-text">Version: </span>
       <mu-dropDown-menu :value="version" @change="handleVersionChange" v-if="versions.length > 0">
-        <mu-menu-item v-for="vtext in versions" :value="vtext" :title="vtext"/>
+        <mu-menu-item v-for="vtext in versions" :key="'version-' + vtext" :value="vtext" :title="vtext"/>
       </mu-dropDown-menu>
     </div>
     <div class="mu-lang-box">

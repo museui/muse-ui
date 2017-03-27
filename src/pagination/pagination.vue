@@ -9,7 +9,7 @@
   <page-item v-if="totalPageCount > 5 && actualCurrent - 1 >= 4" identifier="backs" @click="handleClick" title="前5页">
     <span>...</span>
   </page-item>
-  <page-item v-for="item in pageList" :index="item" @click="handleClick" :isActive="actualCurrent === item"/>
+  <page-item v-for="item in pageList" :key="item" :index="item" @click="handleClick" :isActive="actualCurrent === item"/>
   <page-item v-if="totalPageCount > 5 && totalPageCount - actualCurrent >= 4" identifier="forwards" @click="handleClick" title="后5页">
     <span>...</span>
   </page-item>
@@ -20,7 +20,7 @@
     </svg>
   </page-item>
   <select-field  v-if="showSizeChanger" v-model="actualPageSize" :style="{width: '100px'}">
-    <menu-item v-for="item in pageSizeOption" :value="item" :title="item + ' / 页'" :style="{width: '100px'}"/>
+    <menu-item v-for="item in pageSizeOption" :key="'mt_' + item" :value="item" :title="item + ' / 页'" :style="{width: '100px'}"/>
   </select-field>
   <!-- <text-field v-if="showQuickJumper" type="number" hintText="快速跳转" :style="{width: '70px'}" v-model="quickJumpPage" @keyup.native.enter="quickJump"/> -->
 </div>

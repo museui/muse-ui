@@ -1,7 +1,7 @@
 <template>
   <div class="gridlist-demo-container">
     <mu-grid-list class="gridlist-inline-demo">
-      <mu-grid-tile v-for="tile in list">
+      <mu-grid-tile v-for="tile, index in list" :key="index">
         <img :src="tile.image"/>
         <span slot="title">{{tile.title}}</span>
         <span slot="subTitle">by <b>{{tile.author}}</b></span>

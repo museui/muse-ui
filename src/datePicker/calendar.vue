@@ -5,10 +5,10 @@
     <div class="mu-calendar-monthday-container" v-if="displayMonthDay">
       <calendar-toolbar :slideType="slideType" :nextMonth="nextMonth" :prevMonth="prevMonth" @monthChange="handleMonthChange" :displayDates="displayDates" :dateTimeFormat="dateTimeFormat" />
       <div class="mu-calendar-week">
-        <span class="mu-calendar-week-day" v-for="weekText in weekTexts">{{weekText}}</span>
+        <span class="mu-calendar-week-day" v-for="weekText, index in weekTexts" :key="index">{{weekText}}</span>
       </div>
       <div class="mu-calendar-monthday">
-        <transition :name="'mu-calendar-slide-' + slideType" v-for="displayDate in displayDates">
+        <transition :name="'mu-calendar-slide-' + slideType" v-for="displayDate, index in displayDates" :key="index">
           <div class="mu-calendar-monthday-slide" :key="displayDate.getTime()" >
             <calendar-month @selected="handleSelected" :shouldDisableDate="shouldDisableDate" :displayDate="displayDate" :firstDayOfWeek="firstDayOfWeek" :maxDate="maxDate" :minDate="minDate" :selectedDate="selectedDate" />
           </div>

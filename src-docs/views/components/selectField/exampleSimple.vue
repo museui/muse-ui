@@ -1,7 +1,7 @@
 <template>
 <div>
   <mu-select-field v-model="game1" :labelFocusClass="['label-foucs']" label="选择你喜欢的游戏">
-    <mu-menu-item v-for="text,index in list" ccc="dddd" ttt="ddd" :value="index" :title="text" />
+    <mu-menu-item v-for="text,index in list" :key="index" :value="index" :title="text" />
   </mu-select-field>
   <br/>
   <mu-select-field v-model="game2" multiple label="选择多个">
