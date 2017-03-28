@@ -1,9 +1,9 @@
 {
   "name": "muse-ui",
-  "version": "2.0.0-rc.6",
+  "version": "2.0.0",
   "description": "material design ui for vue2",
   "author": "myronliu347 <myronliu347@gmail.com>",
-  "private": true,
+  "main": "dist/muse-ui.js",
   "scripts": {
     "dev": "node build/dev-server.js",
     "build": "node build/build.js && gulp theme",
