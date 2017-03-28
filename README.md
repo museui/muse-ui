@@ -8,9 +8,9 @@
 
 ## Links
 
-* [Home Page](https://museui.github.io/)
-* [中文文档](https://museui.github.io/#/install)
-* [English Docs](https://museui.github.io/?lang=en)
+* [Home Page](https://www.muse-ui.org/)
+* [中文文档](https://www.muse-ui.org/#/install)
+* [English Docs](https://www.muse-ui.org/?lang=en)
 
 ## Install
 
@@ -29,8 +29,7 @@ Vue.use(MuseUI)
 
 or
 
-
-**webpack.conf.js**
+**webpack.conf.js** webpack1
 
 ```javascript
 {
@@ -41,6 +40,29 @@ or
       {
         test: /muse-ui.src.*?js$/,
         loader: 'babel'
+      }
+    ]
+  },
+  resolve: {
+    // ...
+    alias: {
+      'muse-components': 'muse-ui/src'
+    }
+  }
+}
+```
+
+webpack2
+
+```javascript
+{
+  // ...
+  rules: {
+    loaders: [
+      // ...
+      {
+        test: /muse-ui.src.*?js$/,
+        loader: 'babel-loader'
       }
     ]
   },
