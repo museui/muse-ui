@@ -174,6 +174,7 @@ export default {
       if (xhr.readyState === 4) {
         if (xhr.status === 200) {
           this.versions = JSON.parse(xhr.responseText)
+          console.log(this.versions, this.version)
         } else {
           console.error(xhr.statusText)
         }
