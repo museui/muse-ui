@@ -14,7 +14,7 @@ Vue.use(MuseUI)
 
 ### 单个组件加载
 
-**webpack.conf.js**
+**webpack.conf.js** webpack1
 
 ```javascript
 {
@@ -25,6 +25,29 @@ Vue.use(MuseUI)
       {
         test: /muse-ui.src.*?js$/,
         loader: 'babel'
+      }
+    ]
+  },
+  resolve: {
+    // ...
+    alias: {
+      'muse-components': 'muse-ui/src'
+    }
+  }
+}
+```
+
+webpack2
+
+```javascript
+{
+  // ...
+  rules: {
+    loaders: [
+      // ...
+      {
+        test: /muse-ui.src.*?js$/,
+        loader: 'babel-loader'
       }
     ]
   },

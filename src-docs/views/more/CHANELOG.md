@@ -1,3 +1,43 @@
+## 2.0.0
+
+### Features
+  * 官网更新，logo更改（我们终于有自己的logo了）
+  * 默认主题变为紫色，原默认主题变为`theme-light`
+    ```javascript
+    import 'muse-ui/dist/theme-light.css' // 使用原来的默认主题
+    ```
+  * 增加波纹效果的配置，可以通过配置全局关闭波纹效果;
+    ```javascript
+    import MuseUI from 'muse-ui';
+    MuseUI.config({
+      disableTouchRipple: true,
+      disableFocusRipple: true
+    })
+    ```
+  * 项目升级到 webpack2.2, 并支持Vue2.0
+  * 增加yarn的支持
+  * 提供引用自定义字体图标解决方案，所有设置icon的地方可以 `':' + 样式名称`
+  ```html
+  <mu-icon value=":fa fa-user"/>
+  <mu-raised-button icon=":fa fa-user"/>
+  ```
+
+### Bugs
+  * 修复 IconButton 点两次才生效的问题, fixed [#298](https://github.com/museui/muse-ui/issues/298)
+  * 修复 textField change事件不是延迟触发的问题, fixed [#283](https://github.com/museui/muse-ui/issues/283)
+  * 修复 selectField 不能选择值为 0 的项, fixed [#299](https://github.com/museui/muse-ui/issues/299)
+  * 修复 dropdown, selectField 有时不能选择的问题, fixed [#350](https://github.com/museui/muse-ui/issues/350)
+  * 修复 dialog 阴影闪烁, 内容模糊的问题, fixed [#336](https://github.com/museui/muse-ui/issues/336) [#305](https://github.com/museui/muse-ui/issues/305)
+  * 修复 listItem 嵌套时Toggle效果失效, fixed [#296](https://github.com/museui/muse-ui/issues/296)
+  * 修复 InfiniteScroll 导致滚动条抖动的问题 [#284](https://github.com/museui/muse-ui/pull/284)
+  * 修复 popup 弹框 `esc` 键盘事件监听问题，fixed [#378](https://github.com/museui/muse-ui/issues/378)
+  * 修复 autoComplete 事件触发不正确的问题, fixed [#372](https://github.com/museui/muse-ui/issues/372)
+  * 修复 autoComplete 控件在未弹出提示框的时候一直按回车会触发Select事件, fixed [#348](https://github.com/museui/muse-ui/issues/348)
+  * 修复 textField 多行文本框无法为1行的问题, fixed [#331](https://github.com/museui/muse-ui/issues/331)
+  * 修复 textField 鼠标手势错误的问题, fixed [#364](https://github.com/museui/muse-ui/issues/364)
+  * 修复 Tabs 组件 tabLightStyle 计算错误, fixed [#309](https://github.com/museui/muse-ui/issues/309)
+  * 修复 popover 关闭时没有动画的问题, fixed [#340](https://github.com/museui/muse-ui/issues/340)
+
 ## 2.0.0-rc.5
 
 ### Bugs
@@ -60,7 +100,7 @@
 
   * 每个组件新增多个自定义样式参数；
   * 增加对非material Design icons 的支持，使用时加前缀 `:`；
-  * 增加单元测试和文档国际化的支持;
+  * 增加单元测试和文档国际化的支持
 
 ### Bugs
 
