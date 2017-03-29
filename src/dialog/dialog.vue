@@ -1,8 +1,8 @@
 <template>
   <span>
     <transition name="mu-dialog-slide" @after-enter="show()" @after-leave="hide()">
-      <div class="mu-dialog-wrapper" v-show="open" ref="popup" :style="{'z-index': zIndex}">
-        <div class="mu-dialog"  :class="dialogClass">
+      <div class="mu-dialog-wrapper" @click="handleWrapperClick" v-show="open" ref="popup" :style="{'z-index': zIndex}">
+        <div class="mu-dialog" :class="dialogClass">
           <h3 class="mu-dialog-title" v-if="showTitle" ref="title" :class="headerClass">
             <slot name="title">
               {{title}}
@@ -89,6 +89,10 @@ export default {
     }, 0)
   },
   methods: {
+    handleWrapperClick (e) {
+      const wrapperEl = this.$refs.popup
+      if (wrapperEl === e.target) this.$emit('close', 'overlay')
+    },
     setMaxDialogContentHeight () {
       let maxDialogContentHeight = window.innerHeight - 2 * 64
       if (this.$refs.footer) maxDialogContentHeight -= this.$refs.footer.offsetHeight
