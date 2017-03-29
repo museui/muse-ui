@@ -90,9 +90,11 @@ export default {
     }
   },
   data () {
+    const displayDate = dateUtils.cloneDate(this.initialDate)
+    displayDate.setDate(1)
     return {
       weekTexts: this.dateTimeFormat.getWeekDayArray(this.firstDayOfWeek),
-      displayDates: [this.initialDate],
+      displayDates: [displayDate],
       selectedDate: this.initialDate,
       slideType: 'next',
       displayMonthDay: true
