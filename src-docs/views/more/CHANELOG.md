@@ -1,3 +1,14 @@
+## 2.0.1
+
+### Bugs
+
+  * 修复在app-bar中为flat-button增加href属性后按钮会发生错位 [#397](https://github.com/museui/muse-ui/issues/397)
+  * 修复Dialog组件里面使用SelectField后的bug [#390](https://github.com/museui/muse-ui/issues/390)
+  * 修复Dialog 组件无法点击Overlay层关闭 [#386](https://github.com/museui/muse-ui/issues/386)
+  * 修复日期控件当前月份无法返回到上个月 [#385](https://github.com/museui/muse-ui/issues/385)
+  * 修复Safari浏览器中，Bottom Navigation组件显示异常 [#384](https://github.com/museui/muse-ui/issues/384)
+  * 修复 drawer 的show， hide事件触发依赖docked属性 [#381](#https://github.com/museui/muse-ui/issues/381)
+
 ## 2.0.0
 
 ### Features

@@ -58,7 +58,7 @@ export default {
     bindTransition () {
       this.handleTransition = (e) => {
         if (e.propertyName !== 'transform') return
-        if (!this.docked) this.$emit(this.open ? 'show' : 'hide')
+        this.$emit(this.open ? 'show' : 'hide')
       }
       transitionEvents.forEach((eventName) => {
         this.$el.addEventListener(eventName, this.handleTransition)
