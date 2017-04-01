@@ -35,7 +35,7 @@ export default {
   },
   methods: {
     overlayClick (e) {
-      this.$emit('close', 'overlay')
+      if (this.overlay) this.$emit('close', 'overlay')
     },
     escPress (e) {
       if (this.escPressClose) this.$emit('close', 'esc')
