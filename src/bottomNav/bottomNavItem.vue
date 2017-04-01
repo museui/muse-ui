@@ -86,25 +86,21 @@ export default {
   outline: none;
   transition: all .4s @easeInOutFunction;
   user-select: none;
+  padding: 6px;
   .mu-bottom-nav-shift & {
     color: fade(@alternateTextColor, 70%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     padding: 8px 12px 10px;
     min-width: 56px;
     max-width: 168px;
   }
 }
 .mu-buttom-item-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  display: block;
   height: 100%;
 }
 .mu-bottom-item-active {
+  padding-top: 6px;
+  padding-bottom: 5px;
   .mu-bottom-item-text{
     font-size: 14px;
   }
@@ -112,10 +108,14 @@ export default {
     flex: 1.7;
     min-width: 96px;
     max-width: 168px;
+    padding-top: 6px;
+    padding-bottom: 5px;
   }
 }
 
 .mu-bottom-item-text{
+  display: block;
+  text-align: center;
   font-size: 12px;
   transition: all .4s @easeOutFunction, color 0.3s, font-size 0.3s;
   backface-visibility: hidden;
@@ -135,6 +135,8 @@ export default {
   }
 }
 .mu-bottom-item-icon {
+  display: block;
+  margin: auto;
   transition: all .45s @easeOutFunction;
   backface-visibility: hidden;
   width: 24px;
@@ -145,7 +147,6 @@ export default {
     color: @alternateTextColor;
   }
   .mu-bottom-nav-shift & {
-    margin: auto;
     transform: translate3d(0, 8px, 0);
   }
   .mu-bottom-nav-shift .mu-bottom-item-active & {

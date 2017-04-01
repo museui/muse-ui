@@ -22,6 +22,7 @@
 
 <script>
 import Popup from '../internal/popup'
+import PopupManager from '../internal/popup/manager'
 import {convertClass} from '../utils'
 export default {
   mixins: [Popup],
@@ -91,7 +92,7 @@ export default {
   methods: {
     handleWrapperClick (e) {
       const wrapperEl = this.$refs.popup
-      if (wrapperEl === e.target) this.$emit('close', 'overlay')
+      if (wrapperEl === e.target) PopupManager.handleOverlayClick()
     },
     setMaxDialogContentHeight () {
       let maxDialogContentHeight = window.innerHeight - 2 * 64

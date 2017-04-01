@@ -78,8 +78,8 @@ const PopupManager = {
   },
 
   changeOverlayStyle () {
-    if (!this.overlay || !this.instance.overlay || this.instances.length === 0) return
     const instance = this.instances[this.instances.length - 1]
+    if (!this.overlay || this.instances.length === 0 || !instance.overlay) return
     this.overlay.color = instance.overlayColor
     this.overlay.opacity = instance.overlayOpacity
     this.overlay.zIndex = instance.overlayZIndex
