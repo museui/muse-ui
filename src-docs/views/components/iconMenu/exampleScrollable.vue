@@ -1,7 +1,7 @@
 <template>
 <div>
   <mu-icon-menu icon="more_vert" :maxHeight="300">
-    <mu-menu-item v-for="item in list" :title="item"/>
+    <mu-menu-item v-for="item, index in list" :title="item" :key="index"/>
   </mu-icon-menu>
 </div>
 </template>

@@ -1,10 +1,10 @@
 <template>
 <mu-card>
   <mu-card-header title="Myron Avatar" subTitle="sub title">
-    <mu-avatar :src="myron" slot="avatar"/>
+    <mu-avatar src="/images/uicon.jpg" slot="avatar"/>
   </mu-card-header>
   <mu-card-media title="Image Title" subTitle="Image Sub Title">
-    <img :src="img" />
+    <img src="/images/sun.jpg" />
   </mu-card-media>
   <mu-card-title title="Content Title" subTitle="Content Title"/>
   <mu-card-text>
@@ -19,19 +19,3 @@
   </mu-card-actions>
 </mu-card>
 </template>
-
-<script>
-import img from '../../../assets/images/sun.jpg'
-import myron from '../../../assets/images/uicon.jpg'
-export default {
-  data () {
-    return {
-      img,
-      myron
-    }
-  }
-}
-</script>
-
-<style lang="css">
-</style>

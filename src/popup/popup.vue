@@ -46,12 +46,6 @@ export default {
     }
   },
   methods: {
-    overlayClick () {
-      this.$emit('close', 'overlay')
-    },
-    escPress () {
-      this.$emit('close', 'esc')
-    },
     show () {
       this.$emit('show')
     },

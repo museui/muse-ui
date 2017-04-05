@@ -1,6 +1,6 @@
 <template>
 <div class="mu-picker">
-  <picker-slot :divider="slot.divider" :content="slot.content"  :text-align="slot.textAlign" :width="slot.width" v-for="(slot, $index) in slots" @change="change($index, arguments)" :value="values[$index]" :values="slot.values" :visible-item-count="visibleItemCount"></picker-slot>
+  <picker-slot :divider="slot.divider" :content="slot.content"  :text-align="slot.textAlign" :width="slot.width" v-for="(slot, $index) in slots" :key="$index" @change="change($index, arguments)" :value="values[$index]" :values="slot.values" :visible-item-count="visibleItemCount"></picker-slot>
   <div class="mu-picker-center-highlight"></div>
 </div>
 </template>

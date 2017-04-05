@@ -6,7 +6,7 @@
     </svg>
   </icon-button>
   <div class="mu-calendar-toolbar-title-wrapper">
-    <transition :name="'mu-calendar-slide-' + slideType"  v-for="displayDate in displayDates">
+    <transition :name="'mu-calendar-slide-' + slideType"  v-for="displayDate, index in displayDates" :key="index">
       <div class="mu-calendar-toolbar-title" :key="displayDate.getTime()">
         {{dateTimeFormat.formatMonth(displayDate)}}
       </div>

@@ -7,10 +7,10 @@
     delete chip
   </mu-chip>
   <mu-chip class="demo-chip">
-    <mu-avatar :size="32" :src="myron"/> avatar chip
+    <mu-avatar :size="32" src="/images/uicon.jpg"/> avatar chip
   </mu-chip>
   <mu-chip class="demo-chip" @delete="handleClose" showDelete>
-    <mu-avatar :size="32" :src="myron"/> avatar delete chip
+    <mu-avatar :size="32" src="/images/uicon.jpg"/> avatar delete chip
   </mu-chip>
   <mu-chip class="demo-chip" @delete="handleClose" showDelete>
     <mu-avatar :size="32" icon="face"/> icon avatar chip
@@ -23,13 +23,7 @@
 </template>
 
 <script>
-import myron from '../../../assets/images/uicon.jpg'
 export default {
-  data () {
-    return {
-      myron
-    }
-  },
   methods: {
     handleClose () {
       window.alert('你点击了删除按钮')

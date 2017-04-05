@@ -3,7 +3,8 @@
   <markdown-element :text="$t('title')"/>
   <mu-paper :class="['theme-' + theme, 'demo-theme-paper']">
     <mu-tabs :value="theme" @change="changeTheme">
-      <mu-tab title="LIGHT (DEFAULT)" value="light"/>
+      <mu-tab title="DEFAULT" value="default"/>
+      <mu-tab title="LIGHT" value="light"/>
       <mu-tab title="DARK" value="dark"/>
       <mu-tab title="CARBON" value="carbon"/>
       <mu-tab title="TEAL" value="teal"/>
@@ -95,7 +96,8 @@
 </template>
 
 <script>
-import light from 'raw!less!../../assets/themes/theme-default.less'
+import _default from 'raw!less!../../assets/themes/theme-default.less'
+import light from 'raw!less!../../assets/themes/theme-light.less'
 import dark from 'raw!less!../../assets/themes/theme-dark.less'
 import carbon from 'raw!less!../../assets/themes/theme-carbon.less'
 import teal from 'raw!less!../../assets/themes/theme-teal.less'
@@ -106,9 +108,10 @@ const themes = {
   light,
   dark,
   carbon,
-  teal
+  teal,
+  default: _default
 }
-let theme = 'light'
+let theme = 'default'
 export default {
   data () {
     return {

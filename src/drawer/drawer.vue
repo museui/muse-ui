@@ -5,7 +5,6 @@
 </template>
 
 <script>
-import keycode from 'keycode'
 import paper from '../paper'
 import PopupManager from '../internal/popup/manager'
 import {getZIndex} from '../internal/popup/utils'
@@ -47,19 +46,19 @@ export default {
         width: getWidth(this.width),
         'z-index': this.docked ? '' : this.zIndex
       }
+    },
+    overlay () {
+      return !this.docked
     }
   },
   methods: {
     overlayClick () {
       this.$emit('close', 'overlay')
     },
-    escPress () {
-      this.$emit('close', 'keyboard')
-    },
     bindTransition () {
       this.handleTransition = (e) => {
         if (e.propertyName !== 'transform') return
-        if (!this.docked) this.$emit(this.open ? 'show' : 'hide')
+        this.$emit(this.open ? 'show' : 'hide')
       }
       transitionEvents.forEach((eventName) => {
         this.$el.addEventListener(eventName, this.handleTransition)
@@ -92,9 +91,6 @@ export default {
   },
   mounted () {
     if (this.open && !this.docked) PopupManager.open(this)
-    window.addEventListener('keydown', (event) => {
-      if (keycode(event) === 'esc' && !this.docked) this.escPress()
-    })
     this.bindTransition()
   },
   beforeDestroy () {

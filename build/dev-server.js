@@ -62,7 +62,7 @@ app.use(hotMiddleware)
 
 app.use('/favicon.ico', express.static('./src-docs/favicon.ico'))
 app.use('/version.json', express.static('./src-docs/version.json'))
-
+app.use('/', express.static('./src-docs/assets'))
 var uri = 'http://localhost:' + port
 
 devMiddleware.waitUntilValid(function () {

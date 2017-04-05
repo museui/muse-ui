@@ -22,11 +22,13 @@ fs.writeFileSync('src-docs/version.json', JSON.stringify(versions), 'utf8'); // 
 var assetsPath = config.build.assetsRoot
 const resFiles = ['src-docs/version.json', 'src-docs/favicon.ico'] //资源文件
 const versionPath = assetsPath + '/' + version
-const versionFiles = ['img/', 'js/', 'index.html', '*.css', 'favicon.ico'].map((path) => {
+const versionFiles = ['js/', 'css/', 'index.html'].map((path) => {
   return assetsPath + '/' + path
 })
 rm('-rf', versionFiles)
 cp('-R', resFiles, assetsPath)
+
+cp('-R', 'src-docs/assets/images', assetsPath + '/images')
 
 webpack(webpackConfig, function (err, stats) {
   spinner.stop()
@@ -38,7 +40,8 @@ webpack(webpackConfig, function (err, stats) {
     chunks: false,
     chunkModules: false
   }) + '\n\n')
-
+  mkdir('-p', versionPath)
+  cp('-R', versionFiles, versionPath)
   console.log(chalk.cyan('  Build complete.\n'))
   console.log(chalk.yellow(
     '  Tip: built files are meant to be served over an HTTP server.\n' +

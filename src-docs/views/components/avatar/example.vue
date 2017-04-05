@@ -1,10 +1,10 @@
 <template>
 <mu-list>
   <mu-list-item title="图片" disabled>
-    <mu-avatar slot="left" :src="myron"/>
+    <mu-avatar slot="left" src="/images/uicon.jpg"/>
   </mu-list-item>
   <mu-list-item title="图片,自定义大小" disabled>
-    <mu-avatar  slot="left" :src="myron" :size="30"/>
+    <mu-avatar  slot="left" src="/images/uicon.jpg" :size="30"/>
   </mu-list-item>
   <mu-list-item title="图标" disabled>
     <mu-avatar slot="left" icon="folder"/>
@@ -17,14 +17,3 @@
   </mu-list-item>
 </mu-list>
 </template>
-
-<script>
-import myron from '../../../assets/images/uicon.jpg'
-export default {
-  data () {
-    return {
-      myron
-    }
-  }
-}
-</script>
