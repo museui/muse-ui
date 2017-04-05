@@ -91,4 +91,4 @@ Please make sure to read the [Contributing Guide](https://museui.github.io/#/con
 
 muse-ui is open source and released under the MIT Licence.
 
-Copyright (c) 2016 myron
+Copyright (c) 2016 myron hzy
