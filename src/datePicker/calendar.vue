@@ -142,7 +142,9 @@ export default {
       const oldDate = this.displayDates[0]
       if (date.getFullYear() === oldDate.getFullYear() && date.getMonth() === oldDate.getMonth()) return
       this.slideType = date.getTime() > oldDate.getTime() ? 'next' : 'prev'
-      this.displayDates.push(date)
+      const displayDate = dateUtils.cloneDate(date)
+      displayDate.setDate(1)
+      this.displayDates.push(displayDate)
       this.displayDates.splice(0, 1)
     },
     selectYear () {
