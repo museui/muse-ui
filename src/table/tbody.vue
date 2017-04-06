@@ -51,6 +51,7 @@ export default {
       }
     },
     isSelectAllRow () {
+      if (!this.enableSelectAll || !this.multiSelectable) return false
       let count = 0
       this.$children.forEach((child) => {
         if (child.selectable) count++
