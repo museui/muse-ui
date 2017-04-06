@@ -130,5 +130,11 @@ export default {
   }, {
     name: 'change',
     desc: 'events.change'
+  }, {
+    name: 'open',
+    desc: 'events.open'
+  }, {
+    name: 'close',
+    desc: 'events.close'
   }]
 }

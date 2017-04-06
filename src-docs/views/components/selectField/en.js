@@ -37,6 +37,8 @@ export default {
   },
   events: {
     input: 'when the value is changed, the component will emit this event with the new value',
-    change: 'when the user change the value , the component will emit this event with the new value'
+    change: 'when the user change the value , the component will emit this event with the new value',
+    open: 'dropDown menu open event',
+    close: 'dropDown menu open event'
   }
 }

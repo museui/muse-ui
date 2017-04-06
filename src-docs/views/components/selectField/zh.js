@@ -37,6 +37,8 @@ export default {
   },
   events: {
     input: 'value 发生改变触发的事件，传入新的value, (value)',
-    change: '由于用户选择是value改变时触发事件，传入 value 属性值'
+    change: '由于用户选择是value改变时触发事件，传入 value 属性值',
+    open: '下拉菜单打开时事件',
+    close: '下拉菜单关闭时事件'
   }
 }

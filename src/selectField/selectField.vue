@@ -130,9 +130,11 @@ export default {
     },
     handleOpen () {
       this.$refs.textField.handleFocus()
+      this.$emit('open')
     },
     handleClose () {
       this.$refs.textField.handleBlur()
+      this.$emit('close')
     }
   },
   watch: {
