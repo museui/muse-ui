@@ -5,6 +5,7 @@
   :helpText="helpText" :helpTextClass="helpTextClass" :icon="icon" :iconClass="iconClass"
   :value="inputValue instanceof Array ? inputValue.join('') : inputValue"
   :disabled="disabled" :errorText="errorText" :errorColor="errorColor">
+  <input type="hidden" :name="name" :value="inputValue instanceof Array ? inputValue.join('') : inputValue">
   <dropDown-menu :anchorEl="anchorEl" :scroller="scroller" @open="handleOpen"
     @close="handleClose"  @change="handlehange" :value="inputValue" :disabled="disabled"
     :maxHeight="maxHeight" :autoWidth="autoWidth" :iconClass="dropDownIconClass"
@@ -21,6 +22,9 @@ import {isNull} from '../utils'
 export default {
   name: 'mu-select-field',
   props: {
+    name: {
+      type: String
+    },
     label: {
       type: String
     },

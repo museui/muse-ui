@@ -13,6 +13,7 @@ export default {
     container: 'dialog/inline, the way of popup time picker',
     mode: '`portrait`-showing with the vertical direction, `landscape`-showing with the horizontal direction',
     format: 'ampm: 12 hours; 24hr: 24 hours',
+    name: 'The name attribute of the form elements',
     label: 'the label of time picker',
     labelFloat: 'whether the label can be float',
     labelClass: 'style of label, the binding way is same with `class`',

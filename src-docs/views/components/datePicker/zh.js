@@ -25,6 +25,7 @@ export default {
     format: '时间格式化方式',
     maxDate: '可选择的最大日期, 需要符合 `format` 参数的格式',
     minDate: '可选择的最小日期, 需要符合 `format` 参数的格式',
+    name: 'input 的 name 属性',
     label: '日期选择框的标签',
     labelFloat: '标签是否浮动',
     labelClass: '标签的样式, 同 `class` 绑定方式一致',

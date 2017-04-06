@@ -30,6 +30,11 @@ export default {
     default: 'ampm',
     desc: 'props.format'
   }, {
+    name: 'name',
+    type: 'String',
+    default: '',
+    desc: 'props.name'
+  }, {
     name: 'label',
     type: 'String',
     default: '',

@@ -2,7 +2,7 @@
 <label @mousedown="handleMouseDown" @mouseleave="handleMouseLeave" @mouseup="handleMouseUp"
   @touchstart="handleTouchStart" @touchend="handleTouchEnd" @touchcancel="handleTouchEnd" @click.stop="handleClick"
   class="mu-switch" :class="{'label-left': labelLeft, 'disabled': disabled, 'no-label': !label}">
-  <input type="checkbox" :disabled="disabled" @change="handleChange"  v-model="inputValue">
+  <input type="checkbox" :disabled="disabled" :name="name" @change="handleChange"  v-model="inputValue">
   <div class="mu-switch-wrapper">
     <div class="mu-switch-label" :class="labelClass" v-if="label && labelLeft">{{label}}</div>
     <div class="mu-switch-container">

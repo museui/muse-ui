@@ -64,6 +64,9 @@ export default {
     minDate: {
       type: [String, Date]
     },
+    name: {
+      type: String
+    },
     label: {
       type: String
     },

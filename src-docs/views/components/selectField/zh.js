@@ -10,6 +10,7 @@ export default {
     autoWidth: '是否自动计算菜单宽度',
     maxHeight: '菜单最大高度',
     multiple: '是否可以多选',
+    name: 'input 的 name 属性',
     label: '下拉框的标签',
     labelFloat: '标签是否浮动',
     labelClass: '标签的样式, 同 `class` 绑定方式一致',

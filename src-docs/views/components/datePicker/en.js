@@ -25,6 +25,7 @@ export default {
     format: 'the way of date format',
     maxDate: 'the maximum date, it should meet with the format of `format` paramter',
     minDate: 'the minimum date, it should meet with the format of `format` paramter',
+    name: '`input` element name attribute',
     label: 'the label of date picker',
     labelFloat: 'whether the label can be float',
     labelClass: 'style of label, the binding way is same with `class`',

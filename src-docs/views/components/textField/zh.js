@@ -11,6 +11,7 @@ export default {
   inputLenExample: '输入字符数记录',
   inputLenExampleDesc: '设置 `maxLength` 属性，启动输入字符数记录，再输入时会触发 `textOverflow` 事件，当一个参数为 `true` 是则说明输入的长度已超过最大长度',
   props: {
+    name: 'input/textarea 的name属性',
     type: '输入框的类型，在单行输入时有效 text, password, email, url, number',
     icon: '输入框图标',
     iconClass: '图标的样式, 同 `class` 绑定方式一致',

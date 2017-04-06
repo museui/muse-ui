@@ -1,6 +1,6 @@
 <template>
 <div class="mu-time-picker" :class="{'fullWidth': fullWidth}">
-  <text-field @focus="handleFocus" @labelClick="handleClick" :value="inputValue" :fullWidth="fullWidth"
+  <text-field @focus="handleFocus" :name="name" @labelClick="handleClick" :value="inputValue" :fullWidth="fullWidth"
     :inputClass="inputClass" :label="label" :labelFloat="labelFloat" :labelClass="labelClass" :labelFocusClass="labelFocusClass"
     :hintText="hintText" :hintTextClass="hintTextClass" :helpText="helpText" :helpTextClass="helpTextClass"
     :disabled="disabled" :errorText="errorText" :errorColor="errorColor" :icon="icon" :iconClass="iconClass"
@@ -46,6 +46,9 @@ export default {
       validator (val) {
         return ['ampm', '24hr'].indexOf(val) !== -1
       }
+    },
+    name: {
+      type: String
     },
     label: {
       type: String

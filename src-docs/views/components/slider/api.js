@@ -1,5 +1,10 @@
 export default {
   props: [{
+    name: 'name',
+    type: 'String',
+    default: '',
+    desc: 'props.name'
+  }, {
     name: 'max',
     type: 'Number',
     default: '100',

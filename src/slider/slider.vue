@@ -4,6 +4,7 @@
   @touchstart="handleTouchStart" @touchend="handleTouchEnd"
   @touchcancel="handleTouchEnd"  @mousedown="handleMouseDown"
   @mouseup="handleMouseUp" @mouseenter="handleMouseEnter" @mouseleave="handleMouseLeave">
+  <input type="hidden" :name="name" :value="inputValue">
   <div class="mu-slider-track"></div>
   <div class="mu-slider-fill" :style="fillStyle"></div>
   <div class="mu-slider-thumb" :style="thumbStyle">

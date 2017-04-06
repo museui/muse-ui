@@ -7,6 +7,7 @@ export default {
   disabledExample: 'disabled example',
   stepExample: 'step definition',
   props: {
+    name: 'The name attribute of the form elements',
     max: 'maximum',
     min: 'minimum',
     step: 'step',

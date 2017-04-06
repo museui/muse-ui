@@ -11,6 +11,7 @@ export default {
   inputLenExample: 'record the count of string',
   inputLenExampleDesc: 'after you set `maxLength`, the component will record the count of input string, when the count exceed the length, it will trigger `textOverflow` event with parameter as true',
   props: {
+    name: '`input` / `textarea` name attribute',
     type: 'type of input box, only active in the single line input, can be text, password, email, url, number',
     icon: 'display icon',
     iconClass: 'style of icon, the binding way is same with the `class`',

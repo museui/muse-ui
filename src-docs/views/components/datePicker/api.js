@@ -60,6 +60,11 @@ export default {
     default: '',
     desc: 'props.minDate'
   }, {
+    name: 'name',
+    type: 'String',
+    default: '',
+    desc: 'props.name'
+  }, {
     name: 'label',
     type: 'String',
     default: '',

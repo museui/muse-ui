@@ -13,6 +13,7 @@ export default {
     container: 'dialog/inline, 弹出时间选择的方式， dialog 弹出框， inline 内联弹出显示',
     mode: '`portrait` 竖屏显示， `landscape` 横屏显示',
     format: 'ampm: 12小时制; 24hr: 24小时制',
+    name: '表单元素的 name 属性',
     label: '时间选择框的标签',
     labelFloat: '标签是否浮动',
     labelClass: '标签的样式, 同 `class` 绑定方式一致',

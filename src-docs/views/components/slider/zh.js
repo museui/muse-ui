@@ -7,6 +7,7 @@ export default {
   disabledExample: '禁用示例',
   stepExample: '步长定义',
   props: {
+    name: '表单元素的 name 属性',
     max: '最大值',
     min: '最小值',
     step: '步长',

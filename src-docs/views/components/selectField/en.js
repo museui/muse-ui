@@ -10,6 +10,7 @@ export default {
     autoWidth: 'adjust width automatically when it is true',
     maxHeight: 'the maximum height of menu',
     multiple: 'multiple or not',
+    name: '`input` element name attribute',
     label: 'label',
     labelFloat: 'whether the label can be floated or not',
     labelClass: 'style of label, the binding way is same with the `class`',

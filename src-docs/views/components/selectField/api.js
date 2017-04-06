@@ -15,6 +15,11 @@ export default {
     default: 'false',
     desc: 'props.multiple'
   }, {
+    name: 'name',
+    type: 'String',
+    default: '',
+    desc: 'props.name'
+  }, {
     name: 'label',
     type: 'String',
     default: '',
