@@ -73,8 +73,8 @@ export default {
     handleDelete () {
       this.$emit('delete')
     },
-    handleClick () {
-      if (!this.disabled) this.$emit('click')
+    handleClick (e) {
+      if (!this.disabled) this.$emit('click', e)
     }
   }
 }
