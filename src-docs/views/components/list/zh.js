@@ -33,6 +33,7 @@ export default {
   listItem: {
     props: {
       href: '相当于 a 标签的 href属性，设置之后会渲染成 a 标签，默认是使用div标签',
+      router: '相当于 router-link 标签的 to 属性，设置之后会渲染成 router-link 标签',
       target: '相当于 a 标签的target属性',
       title: 'listItem 的标题文字',
       titleClass: '标题文字样式，同 `class` 绑定方式一致',
