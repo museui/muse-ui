@@ -1,7 +1,7 @@
 <template>
 <abstract-button @click="handleClick"
   @hover="handleHover" @hoverExit="handleHoverExit" @keyboardFocus="handleKeyboardFocus"
-  :type="type" :href="href" :target="target" :disabled="disabled" :keyboardFocused="keyboardFocused" class="mu-icon-button">
+  :type="type" :href="href" :router="router" :target="target" :disabled="disabled" :keyboardFocused="keyboardFocused" class="mu-icon-button">
   <slot>
     <icon :value="icon" :class="iconClass"></icon>
   </slot>
@@ -29,6 +29,9 @@ export default {
     href: {
       type: String,
       default: ''
+    },
+    router: {
+      type: [String, Object]
     },
     target: {
       type: String

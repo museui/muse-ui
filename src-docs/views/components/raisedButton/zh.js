@@ -18,6 +18,7 @@ export default {
     fullWidth: '是否将宽度设置为 100%',
     type: '相当于button元素的type属性',
     href: '相当于 a 标签的 href属性，设置之后会渲染成 a 标签，默认是使用button标签',
+    router: '相当于 router-link 标签的 to 属性，设置之后会渲染成 router-link 标签',
     target: '相当于 a 标签的target属性',
     backgroundColor: '按钮背景色',
     color: '按钮颜色',

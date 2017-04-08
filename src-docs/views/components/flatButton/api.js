@@ -50,6 +50,11 @@ export default {
     default: '',
     desc: 'props.href'
   }, {
+    name: 'router',
+    type: 'String,Object',
+    default: '',
+    desc: 'props.router'
+  }, {
     name: 'target',
     type: 'String',
     default: '',
