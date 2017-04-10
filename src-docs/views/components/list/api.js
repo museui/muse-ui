@@ -25,6 +25,11 @@ export default {
       default: '',
       desc: 'listItem.props.href'
     }, {
+      name: 'router',
+      type: 'String,Object',
+      default: '',
+      desc: 'listItem.props.router'
+    }, {
       name: 'target',
       type: 'String',
       default: '',
