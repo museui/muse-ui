@@ -33,6 +33,7 @@ export default {
   listItem: {
     props: {
       href: 'is same with the `href` attribute of `a` tag, if it is set, this component will render as a `a` tag, default to `div` tag.',
+      router: 'is same with the `to` attribute of `router-link` element, if you had set this parameter, it will render to `router-link` tag',
       target: 'is same with the `target` attribute of `a` element',
       title: 'listItem title',
       titleClass: 'style of title, the binding way is same with `class`',

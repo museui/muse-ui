@@ -1,5 +1,5 @@
 <template>
-<abstract-button :type="type" :href="href" @click="handleClick" :target="target"
+<abstract-button :type="type" :href="href" :router="router" @click="handleClick" :target="target"
   @keyboardFocus="handleKeyboardFocus" @hover="handleHover" @hoverExit="handleHoverExit"
   :style="buttonStyle" :disabled="disabled" class="mu-float-button" :class="[buttonClass]">
   <div class="mu-float-button-wrapper">
@@ -30,6 +30,9 @@ export default {
     href: {
       type: String,
       default: ''
+    },
+    router: {
+      type: [String, Object]
     },
     target: {
       type: String

@@ -12,6 +12,7 @@ export default {
     disabled: 'disabled or not',
     type: 'is same with the `type` attribute of `button` element',
     href: 'is same with the `href` attribute of `a` element, if you had set this parameter, it will render to `a` tag, default to use the `button` tag',
+    router: 'is same with the `to` attribute of `router-link` element, if you had set this parameter, it will render to `router-link` tag',
     target: 'is same with the `target` attribute of `a` element',
     tooltip: 'the hint text when your mouse hover on it',
     tooltipPosition: 'the positon of hint text, [horizon]-[vertical]，vertical: top，middle, bottom; horizon: left, center, right',

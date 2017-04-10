@@ -21,6 +21,9 @@ export default {
       type: String,
       default: ''
     },
+    router: {
+      type: [String, Object]
+    },
     disabled: {
       type: Boolean,
       default: false
@@ -223,13 +226,17 @@ export default {
   render (h) {
     var domProps = {
       disabled: this.disabled,
-      href: this.disabled ? 'javascript:;' : this.href,
       type: this.type
+    }
+    if (this.router) {
+      domProps.to = this.router
+    } else if (this.href) {
+      domProps.href = this.disabled ? 'javascript:;' : this.href
     }
     if (!this.disabled) domProps.tabIndex = this.tabIndex
     const isFirefox = navigator.userAgent.toLowerCase().indexOf('firefox') !== -1
     const defaultTag = isFirefox ? 'span' : 'button'
-    return h(this.href ? 'a' : this.containerElement ? this.containerElement : defaultTag, {
+    return h(this.router ? 'router-link' : this.href ? 'a' : this.containerElement ? this.containerElement : defaultTag, {
       class: this.buttonClass,
       domProps: domProps,
       style: {

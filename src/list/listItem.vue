@@ -1,7 +1,7 @@
 <template>
   <div>
     <abstract-button @click="handleClick"  containerElement="div"
-      :href="href" :disabled="disabled" :disableFocusRipple="disableRipple"  :disableTouchRipple="disableRipple" :target="target"
+      :href="href" :router="router" :disabled="disabled" :disableFocusRipple="disableRipple"  :disableTouchRipple="disableRipple" :target="target"
       @keyboardFocus="handleKeyboardFocus" @hover="handleHover" @hoverExit="handleHoverExit"
       class="mu-item-wrapper" :wrapperStyle="itemStyle" :style="disabled ? itemStyle : {}" :centerRipple="false">
       <div :class="itemClass">
@@ -62,6 +62,9 @@ export default {
   props: {
     href: {
       type: String
+    },
+    router: {
+      type: [String, Object]
     },
     target: {
       type: String
