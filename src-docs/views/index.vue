@@ -12,7 +12,7 @@
         {{$t('subTitle')}}
       </h2>
       <div class="mu-banner-actions">
-        <mu-raised-button label="Get Started" href="#/install" class="mu-banner-button"/>
+        <mu-raised-button label="Get Started" to="/install" class="mu-banner-button"/>
         <mu-raised-button label="GITHUB" href="https://github.com/museui/muse-ui" class="mu-banner-button" icon=":mudocs-icon-custom-github"/>
       </div>
     </div>

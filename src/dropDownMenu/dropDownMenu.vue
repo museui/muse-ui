@@ -109,7 +109,7 @@ export default {
     },
     setMenuWidth () {
       if (!this.$el) return
-      this.menuWidth = this.$el.offsetWidth
+      this.menuWidth = this.autoWidth ? '' : this.$el.offsetWidth
     },
     onResize () {
       this.setMenuWidth()
