@@ -1,7 +1,8 @@
 <template>
   <abstract-button @KeyboardFocus="handleKeyboardFocus"
     @hover="handleHover" @hoverExit="handleHoverExit" @click="handleClick"
-    :type="type" :href="href" :router="router" :target="target" :style="buttonStyle"
+    :type="type" :href="href" :target="target" :style="buttonStyle"
+    :to="to" :tag="tag" :activeClass="activeClass" :event="event" :exact="exact" :append="append" :replace="replace"
     class="mu-raised-button" :rippleColor="rippleColor":rippleOpacity="rippleOpacity"
     :disabled="disabled" :keyboardFocused="keyboardFocused"
     :class="buttonClass" wrapperClass="mu-raised-button-wrapper" :centerRipple="false">
@@ -14,10 +15,12 @@
 
 <script>
 import abstractButton from '../internal/abstractButton'
+import routerMixin from '../internal/routerMixin'
 import {getColor} from '../utils'
 import icon from '../icon'
 export default {
   name: 'mu-raised-button',
+  mixins: [routerMixin],
   props: {
     icon: {
       type: String
@@ -62,9 +65,6 @@ export default {
     href: {
       type: String,
       default: ''
-    },
-    router: {
-      type: [String, Object]
     },
     target: {
       type: String

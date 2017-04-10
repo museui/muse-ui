@@ -1,3 +1,4 @@
+import router from '../internal/router'
 export default {
   menu: {
     props: [{
@@ -64,7 +65,7 @@ export default {
       type: 'String',
       default: '',
       desc: 'menuItem.props.href'
-    }, {
+    }, ...router, {
       name: 'target',
       type: 'String',
       default: '',

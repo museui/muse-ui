@@ -1,3 +1,4 @@
+import router from '../internal/router'
 export default {
   list: {
     props: [{
@@ -24,12 +25,7 @@ export default {
       type: 'String',
       default: '',
       desc: 'listItem.props.href'
-    }, {
-      name: 'router',
-      type: 'String,Object',
-      default: '',
-      desc: 'listItem.props.router'
-    }, {
+    }, ...router, {
       name: 'target',
       type: 'String',
       default: '',

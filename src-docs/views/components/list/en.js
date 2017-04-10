@@ -1,3 +1,4 @@
+import router from '../internal/router/en'
 import description from './README_EN.md'
 
 export default {
@@ -33,7 +34,6 @@ export default {
   listItem: {
     props: {
       href: 'is same with the `href` attribute of `a` tag, if it is set, this component will render as a `a` tag, default to `div` tag.',
-      router: 'is same with the `to` attribute of `router-link` element, if you had set this parameter, it will render to `router-link` tag',
       target: 'is same with the `target` attribute of `a` element',
       title: 'listItem title',
       titleClass: 'style of title, the binding way is same with `class`',
@@ -69,5 +69,6 @@ export default {
       keyboardFocus: 'when the button is focusing or blurring by the keyboard, this event will emit with a parameter which indicate the button is focusing or not. (isFocus)',
       toggleNested: 'this event will be triggered when the nested list  is toggled, it will pass a `open` parameter which `true` is means that showing the nested list'
     }
-  }
+  },
+  router
 }

@@ -136,6 +136,9 @@ export default {
 .mu-banner-actions{
   text-align: center;
   font-size: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   .mu-raised-button {
     font-size: 15px;
     margin-left: 12px;

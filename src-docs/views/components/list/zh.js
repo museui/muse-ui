@@ -1,3 +1,4 @@
+import router from '../internal/router/zh'
 import description from './README.md'
 
 export default {
@@ -33,7 +34,6 @@ export default {
   listItem: {
     props: {
       href: '相当于 a 标签的 href属性，设置之后会渲染成 a 标签，默认是使用div标签',
-      router: '相当于 router-link 标签的 to 属性，设置之后会渲染成 router-link 标签',
       target: '相当于 a 标签的target属性',
       title: 'listItem 的标题文字',
       titleClass: '标题文字样式，同 `class` 绑定方式一致',
@@ -69,5 +69,6 @@ export default {
       keyboardFocus: '键盘使列表项获取焦点的事件，第一个参数为true 时表示获取焦点，为 false 失去焦点, (isFocus)',
       toggleNested: '当嵌套列表切换显示时触发事件，会传入一个 `open` 参数， 为 `true` 是嵌套列表显示'
     }
-  }
+  },
+  router
 }

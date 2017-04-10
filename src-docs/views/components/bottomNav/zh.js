@@ -1,3 +1,4 @@
+import router from '../internal/router/zh'
 import description from './README.md'
 
 export default {
@@ -25,5 +26,6 @@ export default {
       value: '必需，当value 与父组件的 value值相等时，会变成选中状态',
       href: '相当于 a 标签的 href属性，设置之后会渲染成 a 标签，默认是使用button标签'
     }
-  }
+  },
+  router
 }

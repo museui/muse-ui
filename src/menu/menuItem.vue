@@ -2,6 +2,7 @@
 <div>
    <abstract-button  class="mu-menu-item-wrapper" :class="{'active': active}"
       :href="href" :target="target" ref="button" :centerRipple="false"
+      :to="to" :tag="tag" :activeClass="activeClass" :event="event" :exact="exact" :append="append" :replace="replace"
       :disableFocusRipple="disableFocusRipple" :disabled="disabled" containerElement="div"
       @click="handleClick" @keyboardFocus="handleKeyboardFocus" @hover="handleHover" @hoverExit="handleHoverExit">
      <div class="mu-menu-item" :class="{'have-left-icon': leftIcon || inset}">
@@ -31,12 +32,14 @@
 
 <script>
 import abstractButton from '../internal/abstractButton'
+import routerMixin from '../internal/routerMixin'
 import icon from '../icon'
 import {getColor, isNotNull} from '../utils'
 import popover from '../popover'
 import menu from './menu'
 export default {
   name: 'mu-menu-item',
+  mixins: [routerMixin],
   props: {
     href: {
       type: String

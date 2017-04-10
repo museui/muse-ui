@@ -1,3 +1,5 @@
+import router from '../internal/router'
+
 export default {
   props: [{
     name: 'icon',
@@ -54,12 +56,7 @@ export default {
     type: 'String',
     default: '',
     desc: 'props.href'
-  }, {
-    name: 'router',
-    type: 'String,Object',
-    default: '',
-    desc: 'props.router'
-  }, {
+  }, ...router, {
     name: 'target',
     type: 'String',
     default: '',

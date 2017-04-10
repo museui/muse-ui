@@ -1,7 +1,8 @@
 <template>
 <abstract-button @click="handleClick"
   @hover="handleHover" @hoverExit="handleHoverExit" @keyboardFocus="handleKeyboardFocus"
-  :type="type" :href="href" :router="router" :target="target" :disabled="disabled" :keyboardFocused="keyboardFocused" class="mu-icon-button">
+  :to="to" :tag="tag" :activeClass="activeClass" :event="event" :exact="exact" :append="append" :replace="replace"
+  :type="type" :href="href" :target="target" :disabled="disabled" :keyboardFocused="keyboardFocused" class="mu-icon-button">
   <slot>
     <icon :value="icon" :class="iconClass"></icon>
   </slot>
@@ -11,10 +12,12 @@
 
 <script>
 import abstractButton from '../internal/abstractButton'
+import routerMixin from '../internal/routerMixin'
 import icon from '../icon'
 import tooltip from '../tooltip'
 export default {
   name: 'mu-icon-button',
+  mixins: [routerMixin],
   props: {
     icon: {
       type: String
@@ -29,9 +32,6 @@ export default {
     href: {
       type: String,
       default: ''
-    },
-    router: {
-      type: [String, Object]
     },
     target: {
       type: String

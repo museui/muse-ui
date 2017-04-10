@@ -1,3 +1,4 @@
+import router from '../internal/router/zh'
 import description from './README.md'
 
 export default {
@@ -33,5 +34,6 @@ export default {
     hover: '鼠标移到按钮上的事件',
     hoverExit: '鼠标移出按钮上的事件',
     keyboardFocus: '键盘使按钮获取焦点的事件，第一个参数为true 时表示获取焦点，为 false 失去焦点, (isFocus)'
-  }
+  },
+  router
 }

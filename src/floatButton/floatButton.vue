@@ -1,5 +1,6 @@
 <template>
-<abstract-button :type="type" :href="href" :router="router" @click="handleClick" :target="target"
+<abstract-button :type="type" :href="href" @click="handleClick" :target="target"
+  :to="to" :tag="tag" :activeClass="activeClass" :event="event" :exact="exact" :append="append" :replace="replace"
   @keyboardFocus="handleKeyboardFocus" @hover="handleHover" @hoverExit="handleHoverExit"
   :style="buttonStyle" :disabled="disabled" class="mu-float-button" :class="[buttonClass]">
   <div class="mu-float-button-wrapper">
@@ -12,10 +13,12 @@
 
 <script>
 import abstractButton from '../internal/abstractButton'
+import routerMixin from '../internal/routerMixin'
 import icon from '../icon'
 import {getColor} from '../utils'
 export default {
   name: 'mu-float-button',
+  mixins: [routerMixin],
   props: {
     icon: {
       type: String
@@ -30,9 +33,6 @@ export default {
     href: {
       type: String,
       default: ''
-    },
-    router: {
-      type: [String, Object]
     },
     target: {
       type: String

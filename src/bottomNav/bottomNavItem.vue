@@ -1,5 +1,8 @@
 <template>
-  <abstract-button :href="href" :disableTouchRipple="shift" class="mu-buttom-item" :class="{'mu-bottom-item-active': active}" :center-ripple="false" wrapperClass="mu-buttom-item-wrapper" @click.native="handleClick">
+  <abstract-button :href="href" :to="to" :tag="tag" :activeClass="activeClass"
+    :event="event" :exact="exact" :append="append" :replace="replace"
+    :disableTouchRipple="shift" class="mu-buttom-item" :class="{'mu-bottom-item-active': active}"
+    :center-ripple="false" wrapperClass="mu-buttom-item-wrapper" @click.native="handleClick">
     <icon v-if="icon" class="mu-bottom-item-icon" :class="iconClass" :value="icon"></icon>
     <slot></slot>
     <span v-if="title" class="mu-bottom-item-text" :class="titleClass">{{title}}</span>
@@ -8,10 +11,12 @@
 
 <script>
 import abstractButton from '../internal/abstractButton'
+import routerMixin from '../internal/routerMixin'
 import icon from '../icon'
 import {isNotNull} from '../utils'
 export default {
   name: 'mu-bottom-nav-item',
+  mixins: [routerMixin],
   props: {
     icon: {
       type: String,

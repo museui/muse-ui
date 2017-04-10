@@ -1,7 +1,8 @@
 <template>
   <div>
     <abstract-button @click="handleClick"  containerElement="div"
-      :href="href" :router="router" :disabled="disabled" :disableFocusRipple="disableRipple"  :disableTouchRipple="disableRipple" :target="target"
+      :href="href" :disabled="disabled" :disableFocusRipple="disableRipple"  :disableTouchRipple="disableRipple" :target="target"
+      :to="to" :tag="tag" :activeClass="activeClass" :event="event" :exact="exact" :append="append" :replace="replace"
       @keyboardFocus="handleKeyboardFocus" @hover="handleHover" @hoverExit="handleHoverExit"
       class="mu-item-wrapper" :wrapperStyle="itemStyle" :style="disabled ? itemStyle : {}" :centerRipple="false">
       <div :class="itemClass">
@@ -53,18 +54,17 @@
 
 <script>
 import abstractButton from '../internal/abstractButton'
+import routerMixin from '../internal/routerMixin'
 import iconButton from '../iconButton'
 import list from './list'
 import expandTransition from '../internal/expandTransition'
 import {isNotNull} from '../utils'
 export default {
   name: 'mu-list-item',
+  mixins: [routerMixin],
   props: {
     href: {
       type: String
-    },
-    router: {
-      type: [String, Object]
     },
     target: {
       type: String

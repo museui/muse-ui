@@ -1,3 +1,4 @@
+import router from '../internal/router'
 export default {
   bottomNav: {
     props: [{
@@ -51,6 +52,6 @@ export default {
       type: 'String',
       default: '',
       desc: 'bottomNavItem.props.href'
-    }]
+    }, ...router]
   }
 }

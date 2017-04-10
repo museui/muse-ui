@@ -1,3 +1,4 @@
+import router from '../internal/router/en'
 import description from './README_EN.md'
 
 export default {
@@ -25,5 +26,6 @@ export default {
       value: 'required, when this parameter is same with the value of parent component, it will turn to checked status',
       href: 'is same with the `href` attribute of `a` tag, if it is set, this component will render as a `a` tag, default to `button` tag.'
     }
-  }
+  },
+  router
 }

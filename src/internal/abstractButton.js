@@ -3,6 +3,7 @@ import focusRipple from './focusRipple'
 import keycode from 'keycode'
 import {isPc} from '../utils'
 import config from '../config'
+import routerMixin from './routerMixin'
 let tabPressed = false
 let listening = false
 
@@ -16,13 +17,11 @@ function listenForTabPresses () {
 }
 
 export default {
+  mixins: [routerMixin],
   props: {
     href: {
       type: String,
       default: ''
-    },
-    router: {
-      type: [String, Object]
     },
     disabled: {
       type: Boolean,
@@ -135,7 +134,6 @@ export default {
         this.$emit('KeyboardFocus', true)
       }
     },
-
     cancelFocusTimeout () {
       if (this.focusTimeout) {
         clearTimeout(this.focusTimeout)
@@ -178,6 +176,20 @@ export default {
         this.$el.blur() // 点击之后失去焦点
         this.removeKeyboardFocus(event)
         this.$emit('click', event)
+      }
+    },
+    getTagName () {
+      const isFirefox = navigator.userAgent.toLowerCase().indexOf('firefox') !== -1
+      const defaultTag = isFirefox ? 'span' : 'button'
+      switch (true) {
+        case !!this.to:
+          return 'router-link'
+        case !!this.href:
+          return 'a'
+        case !!this.containerElement:
+          return this.containerElement
+        default:
+          return defaultTag
       }
     },
     createButtonChildren (h) {
@@ -224,21 +236,29 @@ export default {
     }
   },
   render (h) {
-    var domProps = {
+    const domProps = {
       disabled: this.disabled,
       type: this.type
     }
-    if (this.router) {
-      domProps.to = this.router
-    } else if (this.href) {
+    const props = this.to ? {
+      to: this.to,
+      tag: this.tag,
+      activeClass: this.activeClass,
+      event: this.event,
+      exact: this.exact,
+      append: this.append,
+      replace: this.replace
+    } : {}
+
+    if (this.href) {
       domProps.href = this.disabled ? 'javascript:;' : this.href
     }
+
     if (!this.disabled) domProps.tabIndex = this.tabIndex
-    const isFirefox = navigator.userAgent.toLowerCase().indexOf('firefox') !== -1
-    const defaultTag = isFirefox ? 'span' : 'button'
-    return h(this.router ? 'router-link' : this.href ? 'a' : this.containerElement ? this.containerElement : defaultTag, {
+    return h(this.getTagName(), {
       class: this.buttonClass,
-      domProps: domProps,
+      domProps,
+      props,
       style: {
         'user-select': this.disabled ? '' : 'none',
         '-webkit-user-select': this.disabled ? '' : 'none',
