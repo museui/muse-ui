@@ -1,4 +1,4 @@
-# Muse UI
+# Muse UI 123 456
 ![](https://api.travis-ci.org/museui/muse-ui.svg?branch=master)
 [![npm package](https://img.shields.io/npm/v/muse-ui.svg)](https://www.npmjs.org/package/muse-ui)
 [![NPM downloads](http://img.shields.io/npm/dm/muse-ui.svg)](https://npmjs.org/package/muse-ui)
@@ -113,4 +113,4 @@ Please make sure to read the [Contributing Guide](https://museui.github.io/#/con
 
 muse-ui is open source and released under the MIT Licence.
 
-Copyright (c) 2016 myron
+Copyright (c) 2016 myron hzy

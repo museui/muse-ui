@@ -13,6 +13,9 @@
     "test": "NODE_ENV=test karma start test/unit/karma.conf.js --single-run",
     "test:watch": "NODE_ENV=test karma start test/unit/karma.conf.js"
   },
+  "dependencies": {
+    "array-find-index": "^1.0.2"
+  },
   "peerDependencies": {
     "keycode": "^2.1.7",
     "vue": "^2.1.5"
