@@ -1,3 +1,18 @@
+## 2.0.2
+
+### Features
+
+  * 增加表单组件 `name` 属性支持 [#402](https://github.com/museui/muse-ui/issues/402)
+  * selectField 增加 open，close 的事件支持 [#399](https://github.com/museui/muse-ui/issues/399)
+  * 增加可点击组件router-link的支持 [#39](https://github.com/museui/muse-ui/issues/39)
+
+### Bugs
+
+  * 修复 datePicker 无法返回2月份的bug [#401](https://github.com/museui/muse-ui/issues/401)
+  * 修复 table 组件在 tr 只剩下1个时，无法触发rowSelection事件 [#415](https://github.com/museui/muse-ui/issues/415)
+  * 修复 chip 组件click事件没有事件对象传入问题 [#408](https://github.com/museui/muse-ui/issues/408)
+  * 修复 selectField autoWidth设置无效的问题 [#414](https://github.com/museui/muse-ui/issues/414)
+
 ## 2.0.1
 
 ### Bugs
