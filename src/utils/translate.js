@@ -1,22 +1,24 @@
-var docStyle = document && document.documentElement.style
+var docStyle = typeof document !== 'undefined' ? document.documentElement.style : {}
 var engine
 var translate3d = false
 
-if (window !== undefined && window.opera && Object.prototype.toString.call(window.opera) === '[object Opera]') {
+if (typeof window !== 'undefined' && window.opera && Object.prototype.toString.call(window.opera) === '[object Opera]') {
   engine = 'presto'
 } else if ('MozAppearance' in docStyle) {
   engine = 'gecko'
 } else if ('WebkitAppearance' in docStyle) {
   engine = 'webkit'
-} else if (typeof navigator.cpuClass === 'string') {
+} else if (typeof navigator !== 'undefined' && typeof navigator.cpuClass === 'string') {
   engine = 'trident'
+} else {
+  engine = 'node'
 }
 
 var cssPrefix = {trident: '-ms-', gecko: '-moz-', webkit: '-webkit-', presto: '-o-'}[engine]
 
 var vendorPrefix = {trident: 'ms', gecko: 'Moz', webkit: 'Webkit', presto: 'O'}[engine]
 
-var helperElem = document.createElement('div')
+var helperElem = typeof document !== 'undefined' ? document.createElement('div') : {}
 var perspectiveProperty = vendorPrefix + 'Perspective'
 var transformProperty = vendorPrefix + 'Transform'
 var transformStyleName = cssPrefix + 'transform'
@@ -24,7 +26,7 @@ var transitionProperty = vendorPrefix + 'Transition'
 var transitionStyleName = cssPrefix + 'transition'
 var transitionEndProperty = vendorPrefix.toLowerCase() + 'TransitionEnd'
 
-if (helperElem.style[perspectiveProperty] !== undefined) {
+if (helperElem.style && helperElem.style[perspectiveProperty] !== undefined) {
   translate3d = true
 }
 
