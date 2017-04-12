@@ -21,9 +21,7 @@ export default {
       type: Boolean,
       default: false
     },
-    trigger: {
-      type: Element
-    }
+    trigger: {}
   },
   data () {
     return {

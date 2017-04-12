@@ -13,9 +13,7 @@ export default {
     label: {
       type: String
     },
-    trigger: {
-      type: Element
-    },
+    trigger: {},
     verticalPosition: {
       type: String, // top bottom
       default: 'bottom'

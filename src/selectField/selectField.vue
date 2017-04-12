@@ -95,9 +95,7 @@ export default {
       type: Boolean,
       default: false
     },
-    scroller: {
-      type: [HTMLDocument, Element, Window]
-    }
+    scroller: {}
   },
   data () {
     let defaultVal = this.value

@@ -1,9 +1,9 @@
 export default {
   props: {
     scroller: {
-      type: [HTMLDocument, Element, Window],
+      type: [Object, HTMLDocument, Element, Window],
       default () {
-        return window
+        return typeof window !== 'undefined' ? window : Object
       }
     }
   },
