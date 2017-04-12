@@ -1,3 +1,4 @@
+import toLower from 'lodash.tolower'
 var docStyle = typeof document !== 'undefined' ? document.documentElement.style : {}
 var engine
 var translate3d = false
@@ -24,7 +25,7 @@ var transformProperty = vendorPrefix + 'Transform'
 var transformStyleName = cssPrefix + 'transform'
 var transitionProperty = vendorPrefix + 'Transition'
 var transitionStyleName = cssPrefix + 'transition'
-var transitionEndProperty = vendorPrefix.toLowerCase() + 'TransitionEnd'
+var transitionEndProperty = toLower(vendorPrefix) + 'TransitionEnd'
 
 if (helperElem.style && helperElem.style[perspectiveProperty] !== undefined) {
   translate3d = true

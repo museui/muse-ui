@@ -179,7 +179,7 @@ export default {
       }
     },
     getTagName () {
-      const isFirefox = navigator.userAgent.toLowerCase().indexOf('firefox') !== -1
+      const isFirefox = typeof navigator !== 'undefined' && navigator.userAgent.toLowerCase().indexOf('firefox') !== -1
       const defaultTag = isFirefox ? 'span' : 'button'
       switch (true) {
         case !!this.to:
