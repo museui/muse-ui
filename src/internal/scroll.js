@@ -1,11 +1,6 @@
 export default {
   props: {
-    scroller: {
-      type: [Object, HTMLDocument, Element, Window],
-      default () {
-        return typeof window !== 'undefined' ? window : Object
-      }
-    }
+    scroller: {}
   },
   mounted () {
     this.$bindScroll()

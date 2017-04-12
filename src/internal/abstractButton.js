@@ -9,7 +9,7 @@ let listening = false
 
 function listenForTabPresses () {
   if (!listening) {
-    window.addEventListener('keydown', (event) => {
+    typeof window !== 'undefined' && window.addEventListener('keydown', (event) => {
       tabPressed = keycode(event) === 'tab'
     })
     listening = true
