@@ -44,9 +44,7 @@ export default {
         }
       }
     },
-    scroller: {
-      type: [HTMLDocument, Element, Window]
-    },
+    scroller: {},
     dataSource: {
       type: Array,
       default () {

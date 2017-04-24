@@ -72,11 +72,9 @@ export default {
       }
     },
     anchorEl: {
-      type: Element
+      type: Object
     },
-    scroller: {
-      type: [HTMLDocument, Element, Window]
-    }
+    scroller: {}
   },
   data () {
     return {

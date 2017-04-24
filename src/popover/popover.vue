@@ -22,9 +22,7 @@ export default {
     overlayOpacity: {
       default: 0.01
     },
-    trigger: {
-      type: Element
-    },
+    trigger: {},
     autoPosition: {
       type: Boolean,
       default: true

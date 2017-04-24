@@ -1,3 +1,4 @@
+import toLower from 'lodash.tolower'
 export const levenshteinDistance = (searchText, key) => {
   const current = []
   let prev
@@ -25,7 +26,7 @@ export const caseSensitiveFilter = (searchText, key) => {
 }
 
 export const caseInsensitiveFilter = (searchText, key) => {
-  return key.toLowerCase().indexOf(searchText.toLowerCase()) !== -1
+  return toLower(key).indexOf(searchText.toLowerCase()) !== -1
 }
 
 export const levenshteinDistanceFilter = (distanceLessThan) => {
@@ -41,8 +42,8 @@ export const levenshteinDistanceFilter = (distanceLessThan) => {
 }
 
 export const fuzzyFilter = (searchText, key) => {
-  const compareString = key.toLowerCase()
-  searchText = searchText.toLowerCase()
+  const compareString = toLower(key)
+  searchText = toLower(searchText)
 
   let searchTextIndex = 0
   for (let index = 0; index < key.length; index++) {

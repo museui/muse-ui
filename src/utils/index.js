@@ -36,7 +36,7 @@ export function getWidth (w) {
 }
 
 export function isPc () {
-  var uaInfo = navigator.userAgent
+  var uaInfo = typeof navigator !== 'undefined' ? navigator.userAgent : ''
   var agents = ['Android', 'iPhone', 'Windows Phone', 'iPad', 'iPod']
   var flag = true
   for (var i = 0; i < agents.length; i++) {

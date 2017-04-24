@@ -4,3 +4,4 @@ lib/
 docs/
 npm-debug.log
 coverage
+.idea/

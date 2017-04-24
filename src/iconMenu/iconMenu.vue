@@ -67,9 +67,7 @@ export default {
         }
       }
     },
-    scroller: {
-      type: [HTMLDocument, Element, Window]
-    },
+    scroller: {},
     itemClickClose: {
       type: Boolean,
       default: true
