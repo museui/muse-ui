@@ -23,7 +23,7 @@ export default {
     default: 'false',
     desc: 'props.showSizeChanger'
   }, {
-    name: 'pageSizeOptions',
+    name: 'pageSizeOption',
     type: 'Array',
     default: '[10, 20, 30, 40]',
     desc: 'props.pageSizeOptions'

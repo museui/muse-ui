@@ -11,7 +11,7 @@ export default {
     pageSize: 'page size, perfer to use the pageSizeOptions when the pageSizeOptions is also configured',
     defaultPageSize: 'default size of page',
     showSizeChanger: 'whether it should be show the `pageSize` selection box',
-    pageSizeOptions: 'specified the page size(list style)'
+    pageSizeOption: 'specified the page size(list style)'
   },
   slots: {
     default: 'is used to place pagination component'
