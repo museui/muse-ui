@@ -1,6 +1,6 @@
 <template>
   <div class="mu-text-field-multiline">
-    <textarea ref="textareaHidden" rows="1" class="mu-text-field-textarea-hide mu-text-field-input" :value="value"></textarea>
+    <textarea ref="textareaHidden" @focus="handleHiddenFocus" rows="1" class="mu-text-field-textarea-hide mu-text-field-input" :value="value"></textarea>
     <textarea ref="textarea" :name="name" class="mu-text-field-input mu-text-field-textarea"
       :class="normalClass" :value="value" @change="handleChange"
       @input="handleInput" @focus="handleFocus" @blur="handleBlur"
@@ -62,6 +62,9 @@ export default {
     },
     handleBlur (e) {
       this.$emit('blur', e)
+    },
+    handleHiddenFocus (e) {
+      this.$refs.textarea.focus()
     }
   },
   mounted () {
@@ -97,6 +100,6 @@ export default {
   position: absolute;
   padding: 0;
   overflow: auto;
-  visibility: hidden;
+  opacity: 0;
 }
 </style>

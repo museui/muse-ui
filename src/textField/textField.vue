@@ -1,5 +1,5 @@
 <template>
-  <div class="mu-text-field" :class="textFieldClass" :style="focus ? errorStyle : {}">
+  <label class="mu-text-field" :class="textFieldClass" :style="focus ? errorStyle : {}">
     <icon  v-if="icon" class="mu-text-field-icon" :class="iconClass" :value="icon"></icon>
     <div @click="handleLabelClick" ref="content" class="mu-text-field-content">
       <text-field-label v-if="label" :float="float" :focus="focus" :normalClass="labelClass" :focusClass="labelFocusClass">{{label}}</text-field-label>
@@ -21,7 +21,7 @@
           </div>
       </div>
     </div>
-  </div>
+  </label>
 </template>
 
 <script>
