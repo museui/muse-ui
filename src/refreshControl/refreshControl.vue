@@ -88,25 +88,39 @@ export default {
       this.draging = false
       this.y = 0
     },
+    getScrollEventTarget (element) {
+      let currentNode = element
+      while (currentNode && currentNode.tagName !== 'HTML' &&
+        currentNode.tagName !== 'BODY' && currentNode.nodeType === 1) {
+        let overflowY = document.defaultView.getComputedStyle(currentNode).overflowY
+        if (overflowY === 'scroll' || overflowY === 'auto') {
+          return currentNode
+        }
+        currentNode = currentNode.parentNode
+      }
+      return window
+    },
+    getScrollTop (element) {
+      if (element === window) {
+        return Math.max(window.pageYOffset || 0, document.documentElement.scrollTop)
+      } else {
+        return element.scrollTop
+      }
+    },
     bindDrag () {
       if (!this.trigger) return
       const drager = this.drager = new Drag(this.trigger)
-      const initTop = domUtil.getOffset(this.$el).top + INITY  // 初始化位置
       this.state = 'ready'
       drager.start(() => {
         if (this.refreshing) return
         this.state = 'dragStart'
-        let top = domUtil.getOffset(this.$el).top
-        if (top === initTop) this.draging = true
+        const scrollTop = this.getScrollTop(this.getScrollEventTarget(this.$el))
+        if (scrollTop === 0) this.draging = true
       }).drag((pos, event) => {
-        if (pos.y < 5) return // 消除误差
-        let top = domUtil.getOffset(this.$el).top
-        if (this.refreshing || !initTop || top < initTop) {
-          this.draging = false
-          return
-        }
+        const scrollTop = this.getScrollTop(this.getScrollEventTarget(this.$el))
+        if (pos.y < 5 || this.refreshing || scrollTop !== 0) return // 消除误差
 
-        if (top === initTop && !this.draging) {
+        if (scrollTop === 0 && !this.draging) {
           this.draging = true
           drager.reset(event)
         }
@@ -116,7 +130,7 @@ export default {
           event.stopPropagation()
         }
 
-        this.y = pos.y
+        this.y = pos.y / 2
         if (this.y < 0) this.y = 1
         if (this.y > LENGTH) this.y = LENGTH
       }).end((pos, event) => {

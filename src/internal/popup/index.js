@@ -56,11 +56,11 @@ export default {
         }
       }
       setTimeout(() => {
-        document.addEventListener('click', this._handleClickOutSide)
+        window.addEventListener('click', this._handleClickOutSide)
       }, 0)
     },
     unBindClickOutSide () {
-      document.removeEventListener('click', this._handleClickOutSide)
+      window.removeEventListener('click', this._handleClickOutSide)
     },
     resetZIndex () {
       this.overlayZIndex = getZIndex()
