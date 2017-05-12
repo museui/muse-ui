@@ -103,7 +103,7 @@ export default {
       return this.$children.indexOf(tr)
     },
     convertSelectedRows () {
-      const selectedIndexs = this.selectedRows.map(rowId => this.convertRowIdToIndex(rowId))
+      const selectedIndexs = this.selectedRows.map(rowId => this.convertRowIdToIndex(rowId)).filter(index => index !== -1)
       return this.multiSelectable ? selectedIndexs : selectedIndexs[0]
     },
     convertRowIdToIndex (rowId) {
