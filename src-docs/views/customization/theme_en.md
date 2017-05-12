@@ -38,19 +38,21 @@ export default {
       }
     }
   },
-  changeTheme (theme) {
-    this.theme = theme
-    const styleEl = this.getThemeStyle()
-    styleEl.innerHTML = this.themes[theme] || ''
-  },
-  getThemeStyle () {
-    const themeId = 'muse-theme'
-    let styleEl = document.getElementById(themeId)
-    if (styleEl) return styleEl
-    styleEl = document.createElement('style')
-    styleEl.id = themeId
-    document.body.appendChild(styleEl)
-    return styleEl
+  methods: {
+    changeTheme (theme) {
+      this.theme = theme
+      const styleEl = this.getThemeStyle()
+      styleEl.innerHTML = this.themes[theme] || ''
+    },
+    getThemeStyle () {
+      const themeId = 'muse-theme'
+      let styleEl = document.getElementById(themeId)
+      if (styleEl) return styleEl
+      styleEl = document.createElement('style')
+      styleEl.id = themeId
+      document.body.appendChild(styleEl)
+      return styleEl
+    }
   }
 }
 </script>
