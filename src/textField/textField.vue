@@ -170,6 +170,12 @@ export default {
     },
     handleLabelClick () {
       this.$emit('labelClick')
+    },
+    doFocus () {
+      const { input } = this.$refs
+      if (input) {
+        input.focus()
+      }
     }
   },
   watch: {
