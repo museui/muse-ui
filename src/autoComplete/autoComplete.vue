@@ -248,7 +248,7 @@ export default {
       this.$refs.textField.$el.blur()
     },
     focus () {
-      this.$refs.textField.doFocus()
+      this.$refs.textField.focus()
     },
     close () {
       this.open = false
