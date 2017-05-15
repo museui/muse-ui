@@ -210,7 +210,7 @@ export default {
     this.handleWindowKeyDown = (event) => {
       this.handleKeyDown(event)
     }
-    window.addEventListener('keydown', this.handleWindowKeyDown)
+    typeof window !== 'undefined' && window.addEventListener('keydown', this.handleWindowKeyDown)
   },
   beforeDestory () {
     window.removeEventListener('keydown', this.handleWindowKeyDown)

@@ -93,7 +93,7 @@ const PopupManager = {
     }
   }
 }
-window.addEventListener('keydown', (e) => {
+typeof window !== 'undefined' && window.addEventListener('keydown', (e) => {
   if (PopupManager.instances.length === 0 || keycode(e) !== 'esc') return
   const instance = PopupManager.instances[PopupManager.instances.length - 1]
   if (instance.escPress) {

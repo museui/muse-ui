@@ -44,9 +44,7 @@ export default {
         }
       }
     },
-    scroller: {
-      type: [HTMLDocument, Element, Window]
-    },
+    scroller: {},
     dataSource: {
       type: Array,
       default () {
@@ -250,7 +248,7 @@ export default {
       this.$refs.textField.$el.blur()
     },
     focus () {
-      this.$refs.textField.$el.focus()
+      this.$refs.textField.focus()
     },
     close () {
       this.open = false

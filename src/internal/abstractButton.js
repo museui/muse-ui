@@ -9,7 +9,7 @@ let listening = false
 
 function listenForTabPresses () {
   if (!listening) {
-    window.addEventListener('keydown', (event) => {
+    typeof window !== 'undefined' && window.addEventListener('keydown', (event) => {
       tabPressed = keycode(event) === 'tab'
     })
     listening = true
@@ -179,7 +179,7 @@ export default {
       }
     },
     getTagName () {
-      const isFirefox = navigator.userAgent.toLowerCase().indexOf('firefox') !== -1
+      const isFirefox = typeof navigator !== 'undefined' && navigator.userAgent.toLowerCase().indexOf('firefox') !== -1
       const defaultTag = isFirefox ? 'span' : 'button'
       switch (true) {
         case !!this.to:

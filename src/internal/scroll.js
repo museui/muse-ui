@@ -1,11 +1,6 @@
 export default {
   props: {
-    scroller: {
-      type: [HTMLDocument, Element, Window],
-      default () {
-        return window
-      }
-    }
+    scroller: {}
   },
   mounted () {
     this.$bindScroll()

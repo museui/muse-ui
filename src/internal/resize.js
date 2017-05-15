@@ -7,7 +7,7 @@ export default {
       this._handleResize = (e) => {
         if (this.onResize) this.onResize()
       }
-      window.addEventListener('resize', this._handleResize)
+      typeof window !== 'undefined' && window.addEventListener('resize', this._handleResize)
     },
     $unBindResize () {
       if (this._handleResize) window.removeEventListener('resize', this._handleResize)

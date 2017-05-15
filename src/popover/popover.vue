@@ -1,7 +1,7 @@
 <template>
 <span>
   <transition name="mu-popover" @after-enter="show()" @after-leave="hide()">
-    <div class="mu-popover" :class="popoverClass" ref="popup" v-show="open" :style="{'z-index': zIndex}">
+    <div class="mu-popover" :class="popoverClass" ref="popup" v-if="open" :style="{'z-index': zIndex}">
       <slot></slot>
     </div>
   </transition>
@@ -22,9 +22,7 @@ export default {
     overlayOpacity: {
       default: 0.01
     },
-    trigger: {
-      type: Element
-    },
+    trigger: {},
     autoPosition: {
       type: Boolean,
       default: true

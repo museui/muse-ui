@@ -1,8 +1,8 @@
 <template>
-  <div class="mu-text-field" :class="textFieldClass" :style="focus ? errorStyle : {}">
+  <div class="mu-text-field" :class="textFieldClass" :style="isFocused ? errorStyle : {}">
     <icon  v-if="icon" class="mu-text-field-icon" :class="iconClass" :value="icon"></icon>
     <div @click="handleLabelClick" ref="content" class="mu-text-field-content">
-      <text-field-label v-if="label" :float="float" :focus="focus" :normalClass="labelClass" :focusClass="labelFocusClass">{{label}}</text-field-label>
+      <text-field-label v-if="label" :float="float" :focus="isFocused" :normalClass="labelClass" :focusClass="labelFocusClass">{{label}}</text-field-label>
       <text-field-hint v-if="hintText" :text="hintText" :show="showHint" :class="hintTextClass"></text-field-hint>
       <slot>
         <input v-if="!multiLine" ref="input" :name="name" :type="type" :value="inputValue"
@@ -11,7 +11,7 @@
         <enhanced-textarea :name="name" v-if="multiLine" ref="textarea" :normalClass="inputClass":value="inputValue" :disabled="disabled" :rows="rows" :rowsMax="rowsMax" @change="handleChange" @input="handleInput" @focus="handleFocus" @blur="handleBlur"></enhanced-textarea>
       </slot>
       <underline v-if="underlineShow" :error="!!errorText" :disabled="disabled"
-      :errorColor="errorColor" :focus="focus" :normalClass="underlineClass" :focusClass="underlineFocusClass"/>
+      :errorColor="errorColor" :focus="isFocused" :normalClass="underlineClass" :focusClass="underlineFocusClass"/>
       <div class="mu-text-field-help" :class="helpTextClass" :style="errorStyle" v-if="errorText || helpText || maxLength > 0">
           <div>
               {{errorText || helpText}}
@@ -123,7 +123,7 @@ export default {
   },
   data () {
     return {
-      focus: false,
+      isFocused: false,
       inputValue: this.value,
       charLength: 0
     }
@@ -131,7 +131,7 @@ export default {
   computed: {
     textFieldClass () {
       return {
-        'focus-state': this.focus,
+        'focus-state': this.isFocused,
         'has-label': this.label,
         'no-empty-state': this.inputValue,
         'has-icon': this.icon,
@@ -142,7 +142,7 @@ export default {
       }
     },
     float () {
-      return this.labelFloat && !this.focus && !this.inputValue && this.inputValue !== 0
+      return this.labelFloat && !this.isFocused && !this.inputValue && this.inputValue !== 0
     },
     errorStyle () {
       return {
@@ -155,11 +155,11 @@ export default {
   },
   methods: {
     handleFocus (event) {
-      this.focus = true
+      this.isFocused = true
       this.$emit('focus', event)
     },
     handleBlur (event) {
-      this.focus = false
+      this.isFocused = false
       this.$emit('blur', event)
     },
     handleInput (val) {
@@ -170,6 +170,14 @@ export default {
     },
     handleLabelClick () {
       this.$emit('labelClick')
+    },
+    focus () {
+      const { input, textarea } = this.$refs
+      if (input) {
+        input.focus()
+      } else if (textarea) {
+        textarea.focus()
+      }
     }
   },
   watch: {
