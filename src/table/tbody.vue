@@ -79,7 +79,7 @@ export default {
       if (this.$parent.handleRowSelect) this.$parent.handleRowSelect(this.convertSelectedRows(this.selectedRows))
     },
     unSelectAll () {
-      if (!this.selectable || !this.multiSelectable || this._unSelectAll) return
+      if (!this.selectable || !this.multiSelectable) return
       this.selectedRows = []
       this.$parent.changeSelectAll(false)
       if (this.$parent.handleRowSelect) this.$parent.handleRowSelect([])

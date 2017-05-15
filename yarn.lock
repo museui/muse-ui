@@ -3578,9 +3578,9 @@ kew@~0.7.0:
   version "0.7.0"
   resolved "http://registry.npm.taobao.org/kew/download/kew-0.7.0.tgz#79d93d2d33363d6fdd2970b335d9141ad591d79b"
 
-keycode@^2.1.8:
-  version "2.1.8"
-  resolved "http://registry.npm.taobao.org/keycode/download/keycode-2.1.8.tgz#94d2b7098215eff0e8f9a8931d5a59076c4532fb"
+keycode@^2.1.9:
+  version "2.1.9"
+  resolved "http://registry.npm.taobao.org/keycode/download/keycode-2.1.9.tgz#964a23c54e4889405b4861a5c9f0480d45141dfa"
 
 kind-of@^2.0.1:
   version "2.0.1"
