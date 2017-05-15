@@ -62,6 +62,12 @@ export default {
     },
     handleBlur (e) {
       this.$emit('blur', e)
+    },
+    focus () {
+      const { textarea } = this.$refs
+      if (textarea) {
+        textarea.focus()
+      }
     }
   },
   mounted () {
