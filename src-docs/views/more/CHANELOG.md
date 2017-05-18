@@ -1,3 +1,22 @@
+## 2.0.3
+
+### Features
+  * 支持SSR
+  * Removes components that use the popup mixin from the DOM when open property is false [#496](https://github.com/museui/muse-ui/issues/496)
+
+### Bugs
+
+  * fix the pagination option spelling mistake [#459](https://github.com/museui/muse-ui/pull/459)
+  * 修复 popover 在移动端点外面空白处不能正确关闭 [#471](https://github.com/museui/muse-ui/issues/471)
+  * 修复 Circular Progress 的 size 小于36部分不显示 [#440](https://github.com/museui/muse-ui/issues/440)
+  * 修复 table 组件被选中的行被删除时，残留在 selectedRowsIndex 中 [#463](https://github.com/museui/muse-ui/issues/463)
+  * Fix autocomplete focus issue [#495](https://github.com/museui/muse-ui/issues/495)
+  * 修复 mu-table unSelectAll() 无效 [#455](https://github.com/museui/muse-ui/issues/455)
+  * 修复 v-if + tooltip vue warn [#457](https://github.com/museui/muse-ui/issues/457)
+  * 修复最新版谷歌浏览器中，日期插件出现无法显示bug [#461](https://github.com/museui/muse-ui/issues/461)
+  * 修复 mu-dialog throws error: Cannot read property 'offsetHeight' of undefined [#447](https://github.com/museui/muse-ui/issues/447)
+  * 修复 toggled list 在展开时会有一个明显的下沉抖动 [#426](https://github.com/museui/muse-ui/issues/426)
+
 ## 2.0.2
 
 ### Features
