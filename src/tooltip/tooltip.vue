@@ -63,6 +63,7 @@ export default {
     setRippleSize () {
       const ripple = this.$refs.ripple
       const tooltip = this.$el
+      if (!tooltip || !ripple) return
       const tooltipWidth = parseInt(tooltip.offsetWidth, 10) / (this.horizontalPosition === 'center' ? 2 : 1)
       const tooltipHeight = parseInt(tooltip.offsetHeight, 10)
       const rippleDiameter = Math.ceil((Math.sqrt(Math.pow(tooltipHeight, 2) + Math.pow(tooltipWidth, 2)) * 2))
