@@ -8,7 +8,7 @@
               {{title}}
             </slot>
           </h3>
-          <div class="mu-dialog-body " :style="bodyStyle" :class="bodyClass">
+          <div class="mu-dialog-body " :style="bodyStyle" :class="bodyClass" ref="elBody">
             <slot></slot>
           </div>
           <div class="mu-dialog-actions" v-if="showFooter" ref="footer" :class="footerClass">
@@ -79,9 +79,9 @@ export default {
     this.setMaxDialogContentHeight()
   },
   updated () {
-    setTimeout(() => {
+    this.$nextTick(() => {
       this.setMaxDialogContentHeight()
-    }, 0)
+    })
   },
   methods: {
     handleWrapperClick (e) {
@@ -97,11 +97,14 @@ export default {
       }
 
       let maxDialogContentHeight = window.innerHeight - 2 * 64
-      if (this.$refs.footer) {
-        maxDialogContentHeight -= this.$refs.footer.offsetHeight
-      }
-      if (this.$refs.title) {
-        maxDialogContentHeight -= this.$refs.title.offsetHeight
+      const { footer, title, elBody } = this.$refs
+      if (footer) maxDialogContentHeight -= footer.offsetHeight
+      if (title) maxDialogContentHeight -= title.offsetHeight
+      if (elBody) {
+        let maxBodyHeight = maxDialogContentHeight
+        if (footer) maxBodyHeight -= footer.offsetHeight
+        if (title) maxBodyHeight -= title.offsetHeight
+        elBody.style.maxHeight = maxBodyHeight + 'px'
       }
       dialogEl.style.maxHeight = maxDialogContentHeight + 'px'
     },
@@ -110,6 +113,14 @@ export default {
     },
     hide () {
       this.$emit('hide')
+    }
+  },
+  watch: {
+    open (newValue) {
+      if (!newValue) return
+      this.$nextTick(() => {
+        this.setMaxDialogContentHeight()
+      })
     }
   }
 }
