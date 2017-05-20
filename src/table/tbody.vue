@@ -79,7 +79,7 @@ export default {
       if (this.$parent.handleRowSelect) this.$parent.handleRowSelect(this.convertSelectedRows(this.selectedRows))
     },
     unSelectAll () {
-      if (!this.selectable || !this.multiSelectable || this._unSelectAll) return
+      if (!this.selectable || !this.multiSelectable) return
       this.selectedRows = []
       this.$parent.changeSelectAll(false)
       if (this.$parent.handleRowSelect) this.$parent.handleRowSelect([])
@@ -103,7 +103,7 @@ export default {
       return this.$children.indexOf(tr)
     },
     convertSelectedRows () {
-      const selectedIndexs = this.selectedRows.map(rowId => this.convertRowIdToIndex(rowId))
+      const selectedIndexs = this.selectedRows.map(rowId => this.convertRowIdToIndex(rowId)).filter(index => index !== -1)
       return this.multiSelectable ? selectedIndexs : selectedIndexs[0]
     },
     convertRowIdToIndex (rowId) {

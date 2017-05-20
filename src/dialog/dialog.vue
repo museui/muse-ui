@@ -1,8 +1,8 @@
 <template>
   <span>
     <transition name="mu-dialog-slide" @after-enter="show()" @after-leave="hide()">
-      <div class="mu-dialog-wrapper" @click="handleWrapperClick" v-show="open" ref="popup" :style="{'z-index': zIndex}">
-        <div class="mu-dialog" :class="dialogClass">
+      <div class="mu-dialog-wrapper" @click="handleWrapperClick" v-if="open" ref="popup" :style="{'z-index': zIndex}">
+        <div class="mu-dialog" ref="dialog" :class="dialogClass">
           <h3 class="mu-dialog-title" v-if="showTitle" ref="title" :class="headerClass">
             <slot name="title">
               {{title}}
@@ -53,8 +53,7 @@ export default {
       return {
         'overflow-x': 'hidden',
         'overflow-y': this.scrollable ? 'auto' : 'hidden',
-        '-webkit-overflow-scrolling': 'touch',
-        'max-height': this.scrollable ? this.maxDialogContentHeight + 'px' : 'none'
+        '-webkit-overflow-scrolling': 'touch'
       }
     },
     showTitle () {
@@ -76,11 +75,6 @@ export default {
       return classNames.concat(convertClass(this.actionsContainerClass))
     }
   },
-  data () {
-    return {
-      maxDialogContentHeight: null
-    }
-  },
   mounted () {
     this.setMaxDialogContentHeight()
   },
@@ -95,10 +89,21 @@ export default {
       if (wrapperEl === e.target) PopupManager.handleOverlayClick()
     },
     setMaxDialogContentHeight () {
+      const dialogEl = this.$refs.dialog
+      if (!dialogEl) return
+      if (!this.scrollable) {
+        dialogEl.style.maxHeight = ''
+        return
+      }
+
       let maxDialogContentHeight = window.innerHeight - 2 * 64
-      if (this.$refs.footer) maxDialogContentHeight -= this.$refs.footer.offsetHeight
-      if (this.title) maxDialogContentHeight -= this.$refs.title.offsetHeight
-      this.maxDialogContentHeight = maxDialogContentHeight
+      if (this.$refs.footer) {
+        maxDialogContentHeight -= this.$refs.footer.offsetHeight
+      }
+      if (this.$refs.title) {
+        maxDialogContentHeight -= this.$refs.title.offsetHeight
+      }
+      dialogEl.style.maxHeight = maxDialogContentHeight + 'px'
     },
     show () {
       this.$emit('show')

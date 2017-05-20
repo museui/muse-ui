@@ -280,11 +280,8 @@ export default {
 }
 
 .mu-calendar-monthday-slide{
-  position: absolute;
   height: 100%;
   width: 100%;
-  top: 0px;
-  left: 0px;
 }
 
 .mu-calendar-actions{
@@ -305,6 +302,10 @@ export default {
 .mu-calendar-slide-prev-leave-active {
   transition: transform 450ms @easeOutFunction, opacity 450ms @easeOutFunction;
   backface-visibility: hidden;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
 }
 
 .mu-calendar-slide-next-enter {

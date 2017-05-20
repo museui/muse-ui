@@ -1,6 +1,6 @@
 {
   "name": "muse-ui",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "material design ui for vue2",
   "author": "myronliu347 <myronliu347@gmail.com>",
   "main": "dist/muse-ui.js",
@@ -14,7 +14,6 @@
     "test:watch": "NODE_ENV=test karma start test/unit/karma.conf.js"
   },
   "peerDependencies": {
-    "keycode": "^2.1.7",
     "vue": "^2.1.5"
   },
   "devDependencies": {
@@ -64,11 +63,9 @@
     "karma-sourcemap-loader": "^0.3.7",
     "karma-spec-reporter": "0.0.26",
     "karma-webpack": "^2.0.2",
-    "keycode": "^2.1.8",
     "less": "^2.7.2",
     "less-loader": "^3.0.0",
     "lodash": "^4.17.4",
-    "lodash.tolower": "^4.1.2",
     "lolex": "^1.5.2",
     "marked": "^0.3.6",
     "mocha": "^3.2.0",
@@ -105,5 +102,9 @@
     "ios >= 7",
     "android > 4.4",
     "not ie <= 8"
-  ]
+  ],
+  "dependencies": {
+    "keycode": "^2.1.9",
+    "lodash.tolower": "^4.1.2"
+  }
 }

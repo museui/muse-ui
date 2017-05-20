@@ -1,5 +1,6 @@
 <template>
-<abstract-button class="mu-tab-link" :href="href" :disabled="disabled"
+<abstract-button class="mu-tab-link" :href="href" :to="to" :tag="tag" :activeClass="activeClass"
+  :event="event" :exact="exact" :append="append" :replace="replace" :disabled="disabled"
   :center-ripple="false" :class="{'mu-tab-active': active}" @click="tabClick">
   <slot>
     <icon :value="icon" :class="iconClass"/>
@@ -10,10 +11,12 @@
 
 <script>
 import abstractButton from '../internal/abstractButton'
+import routerMixin from '../internal/routerMixin'
 import icon from '../icon'
 import {isNotNull, convertClass} from '../utils'
 export default {
   name: 'mu-tab',
+  mixins: [routerMixin],
   props: {
     icon: {
       type: String,
