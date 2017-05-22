@@ -43,12 +43,18 @@ exports.cssLoaders = function (options) {
       return ['vue-style-loader'].concat(loaders)
     }
   }
+  const defaultTheme  =  `../src/styles/themes/variables/default.less`
+  const themePath = path.resolve(__dirname, defaultTheme)
 
   // http://vuejs.github.io/vue-loader/en/configurations/extract-css.html
   return {
     css: generateLoaders(),
     postcss: generateLoaders(),
-    less: generateLoaders('less'),
+    less: generateLoaders('less', {
+      globalVars: {
+        theme: `'${themePath}'`
+      }
+    }),
     sass: generateLoaders('sass', { indentedSyntax: true }),
     scss: generateLoaders('sass'),
     stylus: generateLoaders('stylus'),
