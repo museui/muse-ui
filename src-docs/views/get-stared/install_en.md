@@ -1,6 +1,6 @@
 ## Installation
 
-Muse-UI has published in [npm](https://www.npmjs.com/package/muse-ui), you can use the `npm` or `yarn` to install it，also you can refer it by the `<script>` tag in the html.
+Muse-UI has been published in [npm](https://www.npmjs.com/package/muse-ui), you can use the `npm` or `yarn` to install it，also you can refer it by the `<script>` tag in the html.
 
 ### Importing the icon and font
 
