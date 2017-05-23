@@ -37,7 +37,8 @@ export default {
     maxLength: '可输入的最大长度',
     value: '输入框的值，可不设置此参数，使用 v-model 指令代替',
     max: '当type = number 时，max属性生效',
-    min: '当type = number 时，min属性生效'
+    min: '当type = number 时，min属性生效',
+    required: 'whether the input is required or not'
   },
   events: {
     focus: '输入框获取焦点时触发',
