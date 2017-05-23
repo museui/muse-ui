@@ -266,7 +266,7 @@ export default {
         'cursor': this.disabled ? '' : 'pointer',
         'appearance': 'none'
       },
-      on: {
+      nativeOn: {
         mouseenter: this.handleHover,
         mouseleave: this.handleOut,
         touchend: this.handleOut,
