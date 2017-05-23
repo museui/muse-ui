@@ -1,17 +1,13 @@
 export default {
   props: {
-    scroller: {
-      default () {
-        return window
-      }
-    }
+    scroller: {}
   },
   mounted () {
     this.$bindScroll()
   },
   methods: {
     $bindScroll () {
-      if (!this.scroller) return
+      if (!this.scroller) this.scroller = window
       this._handleScroll = (e) => {
         if (this.onScroll) this.onScroll()
       }
