@@ -4,7 +4,7 @@
     <textarea ref="textarea" :name="name" class="mu-text-field-input mu-text-field-textarea"
       :class="normalClass" :value="value" @change="handleChange"
       @input="handleInput" @focus="handleFocus" @blur="handleBlur"
-      :placeholder="placeholder" :disabled="disabled"></textarea>
+      :placeholder="placeholder" :disabled="disabled" :required="required"></textarea>
   </div>
 </template>
 
@@ -33,6 +33,10 @@ export default {
     },
     normalClass: {
       type: [String, Array, Object]
+    },
+    required: {
+      type: Boolean,
+      default: false
     }
   },
   methods: {

@@ -134,6 +134,11 @@ export default {
     type: 'String,Number',
     default: '',
     desc: 'props.min'
+  }, {
+    name: 'required',
+    type: 'Boolean',
+    default: 'false',
+    desc: 'props.required'
   }],
   events: [{
     name: 'focus',
