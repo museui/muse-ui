@@ -1,11 +1,9 @@
 <template>
-<span>
   <transition :name="transition" @after-enter="show()" @after-leave="hide()">
     <div class="mu-popup" ref="popup" v-if="open" :class="popupCss" :style="{'z-index': zIndex}">
       <slot></slot>
     </div>
   </transition>
-</span>
 </template>
 
 <script>
