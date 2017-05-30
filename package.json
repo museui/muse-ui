@@ -64,7 +64,7 @@
     "karma-spec-reporter": "0.0.26",
     "karma-webpack": "^2.0.2",
     "less": "^2.7.2",
-    "less-loader": "^3.0.0",
+    "less-loader": "^4.0.4",
     "lodash": "^4.17.4",
     "lolex": "^1.5.2",
     "marked": "^0.3.6",
