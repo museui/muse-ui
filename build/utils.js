@@ -52,7 +52,7 @@ exports.cssLoaders = function (options) {
     postcss: generateLoaders(),
     less: generateLoaders('less', {
       globalVars: {
-        theme: `'${themePath}'`
+        museUiTheme: `'${themePath}'`
       }
     }),
     sass: generateLoaders('sass', { indentedSyntax: true }),
