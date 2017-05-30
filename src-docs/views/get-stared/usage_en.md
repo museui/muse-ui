@@ -17,7 +17,15 @@ Vue.use(MuseUI)
 **webpack.conf.js**
 
 ```javascript
-{
+const path = require('path')
+const museUiThemePath = path.join(
+  __dirname,
+  'node_modules',
+  'muse-ui',
+  'src/styles/themes/variables/default.less'
+)
+
+module.exports = {
   // ...
   module: {
     loaders: [
@@ -25,6 +33,26 @@ Vue.use(MuseUI)
       {
         test: /muse-ui.src.*?js$/,
         loader: 'babel'
+      },
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader',
+        options: {
+          loaders: {
+            less: [
+              'vue-style-loader',
+              'css-loader',
+              {
+                loader: 'less-loader',
+                options: {
+                  globalVars: {
+                    museUiTheme: `'${museUiThemePath}'`,
+                  }
+                }
+              }
+            ]
+          }
+        }
       }
     ]
   },
