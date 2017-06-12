@@ -2,13 +2,13 @@
   <span>
     <transition name="mu-dialog-slide" @after-enter="show()" @after-leave="hide()">
       <div class="mu-dialog-wrapper" @click="handleWrapperClick" v-if="open" ref="popup" :style="{'z-index': zIndex}">
-        <div class="mu-dialog" ref="dialog" :class="dialogClass">
+        <div class="mu-dialog" :style="bodyStyle" ref="dialog" :class="dialogClass">
           <h3 class="mu-dialog-title" v-if="showTitle" ref="title" :class="headerClass">
             <slot name="title">
               {{title}}
             </slot>
           </h3>
-          <div class="mu-dialog-body " :style="bodyStyle" :class="bodyClass" ref="elBody">
+          <div class="mu-dialog-body " :class="bodyClass" ref="elBody">
             <slot></slot>
           </div>
           <div class="mu-dialog-actions" v-if="showFooter" ref="footer" :class="footerClass">
