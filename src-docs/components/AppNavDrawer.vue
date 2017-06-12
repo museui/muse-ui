@@ -35,6 +35,7 @@
         <mu-list-item slot="nested" value="#/appbar" title="App Bar"/>
         <mu-list-item slot="nested" value="#/autoComplete" title="Auto Complete"/>
         <mu-list-item slot="nested" value="#/avatar" title="Avatar"/>
+        <mu-list-item slot="nested" value="#/backTop" title="BackTop"/>
         <mu-list-item slot="nested" value="#/badge" title="Badge"/>
         <mu-list-item slot="nested" value="#/bottomNav" title="Bottom Navigation"/>
         <mu-list-item slot="nested" value="#/bottomSheet" title="Bottom Sheet"/>
