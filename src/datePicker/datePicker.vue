@@ -162,22 +162,22 @@ export default {
     },
     handleAccept (val) {
       const newValue = dateUtils.dateToStr(val, this.format)
-      if (this.inputValue === newValue){
+      if (this.inputValue === newValue) {
         this.$emit('change', newValue)
         return
       }
       this.inputValue = newValue
       this.$emit('change', newValue)
     },
-    dismiss(){
-        this.$emit('dismiss')
+    dismiss () {
+      this.$emit('dismiss')
     },
-    handleMonthChange(date){
-        this.$emit('monthChange', date)
+    handleMonthChange (date) {
+      this.$emit('monthChange', date)
     },
-    handleYearChange(date){
-        this.$emit('yearChange', date)
-    },
+    handleYearChange (date) {
+      this.$emit('yearChange', date)
+    }
   },
   watch: {
     value (val) {
