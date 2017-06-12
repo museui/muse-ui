@@ -255,7 +255,8 @@ export default {
     }
 
     if (!this.disabled) domProps.tabIndex = this.tabIndex
-    return h(this.getTagName(), {
+    const tagName = this.getTagName()
+    return h(tagName, {
       class: this.buttonClass,
       domProps,
       props,
@@ -266,7 +267,7 @@ export default {
         'cursor': this.disabled ? '' : 'pointer',
         'appearance': 'none'
       },
-      nativeOn: {
+      [tagName === 'router-link' ? 'nativeOn' : 'on']: {
         mouseenter: this.handleHover,
         mouseleave: this.handleOut,
         touchend: this.handleOut,

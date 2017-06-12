@@ -7,14 +7,14 @@ export default {
   },
   methods: {
     $bindScroll () {
-      if (!this.scroller) this.scroller = window
+      const scroller = this.scroller || window
       this._handleScroll = (e) => {
         if (this.onScroll) this.onScroll()
       }
-      this.scroller.addEventListener('scroll', this._handleScroll)
+      scroller.addEventListener('scroll', this._handleScroll)
     },
     $unbindScroll (scroller) {
-      scroller = scroller || this.scroller
+      scroller = scroller || this.scroller || window
       if (this._handleScroll) scroller.removeEventListener('scroll', this._handleScroll)
     }
   },
