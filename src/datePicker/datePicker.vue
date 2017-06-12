@@ -5,7 +5,7 @@
     :hintText="hintText" :hintTextClass="hintTextClass" :helpText="helpText" :helpTextClass="helpTextClass"
     :errorText="errorText" :errorColor="errorColor" :icon="icon" :iconClass="iconClass" :inputClass="inputClass"
     :underlineShow="underlineShow" :underlineClass="underlineClass" :underlineFocusClass="underlineFocusClass"/>
-  <date-picker-dialog v-if="!disabled" @accept="handleAccept" :initialDate="dialogDate" ref="dialog" :mode="mode" :maxDate="maxLimitDate" :minDate="minLimitDate" :shouldDisableDate="shouldDisableDate" :firstDayOfWeek="firstDayOfWeek" :container="container" :disableYearSelection="disableYearSelection" :dateTimeFormat="dateTimeFormat" :autoOk="autoOk" :okLabel="okLabel" :cancelLabel="cancelLabel"/>
+  <date-picker-dialog v-if="!disabled" @monthChange="handleMonthChange" @yearChange="handleYearChange" @accept="handleAccept" @dismiss="dismiss" :initialDate="dialogDate" ref="dialog" :mode="mode" :maxDate="maxLimitDate" :minDate="minLimitDate" :shouldDisableDate="shouldDisableDate" :firstDayOfWeek="firstDayOfWeek" :container="container" :disableYearSelection="disableYearSelection" :dateTimeFormat="dateTimeFormat" :autoOk="autoOk" :okLabel="okLabel" :cancelLabel="cancelLabel"/>
 </div>
 </template>
 <script>
@@ -162,10 +162,22 @@ export default {
     },
     handleAccept (val) {
       const newValue = dateUtils.dateToStr(val, this.format)
-      if (this.inputValue === newValue) return
+      if (this.inputValue === newValue){
+        this.$emit('change', newValue)
+        return
+      }
       this.inputValue = newValue
       this.$emit('change', newValue)
-    }
+    },
+    dismiss(){
+        this.$emit('dismiss')
+    },
+    handleMonthChange(date){
+        this.$emit('monthChange', date)
+    },
+    handleYearChange(date){
+        this.$emit('yearChange', date)
+    },
   },
   watch: {
     value (val) {

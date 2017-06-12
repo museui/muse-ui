@@ -112,12 +112,14 @@ export default {
     handleMonthChange (val) {
       const displayDate = dateUtils.addMonths(this.displayDates[0], val)
       this.changeDislayDate(displayDate)
+      this.$emit('monthChange', displayDate)
     },
     handleYearChange (year) {
       if (this.selectedDate.getFullYear() === year) return
       let date = dateUtils.cloneAsDate(this.selectedDate)
       date.setFullYear(year)
       this.setSelected(date)
+      this.$emit('yearChange', date)
     },
     handleSelected (date) {
       this.setSelected(date)
