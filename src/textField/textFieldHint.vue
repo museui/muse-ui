@@ -28,6 +28,9 @@ export default {
   line-height: 34px;
   user-select: none;
   cursor: text;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
   &.show{
     opacity: 1;
   }

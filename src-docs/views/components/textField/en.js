@@ -37,7 +37,8 @@ export default {
     maxLength: 'maximum length',
     value: 'value',
     max: 'when the `type = number`, `max` attribute',
-    min: 'when the `type = number`, `min` attribute'
+    min: 'when the `type = number`, `min` attribute',
+    required: 'whether the input is required or not'
   },
   events: {
     focus: 'when the input box is focusing, component will emit this event',
