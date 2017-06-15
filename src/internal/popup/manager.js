@@ -18,8 +18,8 @@ const PopupManager = {
   close (instance) {
     let index = this.instances.indexOf(instance)
     if (index === -1) return
+    this.instances.splice(index, 1)
     Vue.nextTick(() => {
-      this.instances.splice(index, 1)
       if (this.instances.length === 0) {
         this.closeOverlay()
       }
