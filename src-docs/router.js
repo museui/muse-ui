@@ -11,6 +11,7 @@ import AppBar from './views/components/appbar'
 import AutoComplete from './views/components/autoComplete'
 import Avatar from './views/components/avatar'
 import BackTop from './views/components/backTop'
+import Breadcrumb from './views/components/breadcrumb'
 import Badge from './views/components/badge'
 import BottomNav from './views/components/bottomNav'
 import BottomSheet from './views/components/bottomSheet'
@@ -74,6 +75,7 @@ const router = new Router({
     { path: '/badge', component: Badge },
     { path: '/bottomNav', component: BottomNav },
     { path: '/bottomSheet', component: BottomSheet },
+    { path: '/breadcrumb', component: Breadcrumb },
     { path: '/flatButton', component: FlatButton },
     { path: '/raisedButton', component: RaisedButton },
     { path: '/iconButton', component: IconButton },

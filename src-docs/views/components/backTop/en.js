@@ -14,5 +14,8 @@ export default {
   },
   events: {
     callBack: 'Emit when back top'
+  },
+  slots: {
+    default: 'customized content'
   }
 }

@@ -23,5 +23,9 @@ export default {
   events: [{
     name: 'callBack',
     desc: 'events.callBack'
+  }],
+  slots: [{
+    name: 'default',
+    desc: 'slots.default'
   }]
 }

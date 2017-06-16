@@ -39,6 +39,7 @@
         <mu-list-item slot="nested" value="#/badge" title="Badge"/>
         <mu-list-item slot="nested" value="#/bottomNav" title="Bottom Navigation"/>
         <mu-list-item slot="nested" value="#/bottomSheet" title="Bottom Sheet"/>
+        <mu-list-item slot="nested" value="#/breadcrumb" title="Breadcrumb"/>
         <mu-list-item slot="nested" title="Buttons" toggleNested>
           <mu-list-item slot="nested" value="#/flatButton" title="Flat Button"></mu-list-item>
           <mu-list-item slot="nested" value="#/raisedButton" title="Raised Button"></mu-list-item>

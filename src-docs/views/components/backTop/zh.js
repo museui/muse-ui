@@ -14,5 +14,8 @@ export default {
   },
   events: {
     callBack: '回到顶部时触发'
+  },
+  slots: {
+    default: '自定义内容'
   }
 }

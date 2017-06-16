@@ -4,6 +4,7 @@ import {retina} from './utils'
 import icon from './icon'
 import backTop from './backTop'
 import badge from './badge'
+import * as breadCrumb from './breadCrumb'
 import appBar from './appBar'
 import iconButton from './iconButton'
 import flatButton from './flatButton'
@@ -59,6 +60,7 @@ const components = {
   icon,
   backTop,
   badge,
+  ...breadCrumb,
   appBar,
   iconButton,
   flatButton,
