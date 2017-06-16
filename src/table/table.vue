@@ -139,7 +139,6 @@ export default {
 .mu-table {
   background-color: @alternateTextColor;
   padding: 0 24px;
-  width: 100%;
   border-collapse: collapse;
   border-spacing: 0;
   table-layout: fixed;
