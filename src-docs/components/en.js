@@ -9,5 +9,6 @@ export default {
   more: 'Discover More',
   changeLog: 'Change Log',
   contributing: 'Contributing',
-  resource: 'Resources'
+  resource: 'Resources',
+  faq: 'FAQ'
 }
