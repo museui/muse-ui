@@ -119,6 +119,7 @@ export default {
       let date = dateUtils.cloneAsDate(this.selectedDate)
       date.setFullYear(year)
       this.setSelected(date)
+      this.selectMonth()
       this.$emit('yearChange', date)
     },
     handleSelected (date) {

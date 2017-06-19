@@ -138,6 +138,7 @@ export default {
 @import "../styles/import.less";
 .mu-table {
   background-color: @alternateTextColor;
+  width: 100%;
   padding: 0 24px;
   border-collapse: collapse;
   border-spacing: 0;
