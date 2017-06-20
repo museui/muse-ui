@@ -9,5 +9,6 @@ export default {
   more: '更多信息',
   changeLog: '更新日志',
   contributing: '贡献指南',
-  resource: '资源'
+  resource: '资源',
+  faq: '常见问题解答'
 }

@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Index from './views'
 import Install from './views/get-stared/install'
 import Usage from './views/get-stared/usage'
+import Faq from './views/get-stared/faq'
 import ChangeLog from './views/more/changeLog'
 import Contributing from './views/more/contributing'
 import Colors from './views/customization/colors'
@@ -76,6 +77,7 @@ const router = new Router({
     { path: '/bottomNav', component: BottomNav },
     { path: '/bottomSheet', component: BottomSheet },
     { path: '/breadcrumb', component: Breadcrumb },
+    { path: '/faq', component: Faq },
     { path: '/flatButton', component: FlatButton },
     { path: '/raisedButton', component: RaisedButton },
     { path: '/iconButton', component: IconButton },

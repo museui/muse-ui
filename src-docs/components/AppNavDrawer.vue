@@ -24,6 +24,7 @@
       <mu-list-item :title="$t('getStarted')" toggleNested>
         <mu-list-item value="#/install" slot="nested" :title="$t('installation')"/>
         <mu-list-item value="#/usage" slot="nested" :title="$t('usage')"/>
+        <mu-list-item value="#/faq" slot="nested" :title="$t('faq')"/>
       </mu-list-item>
       <mu-list-item :title="$t('customization')" toggleNested>
         <mu-list-item slot="nested" value="#/theme" :title="$t('theme')"/>
