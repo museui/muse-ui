@@ -57,6 +57,7 @@ import Picker from './views/components/picker'
 import Popup from './views/components/popup'
 import RefreshControl from './views/components/refreshControl'
 import Pagination from './views/components/pagination'
+import Layout from './views/components/layout'
 Vue.use(Router)
 
 const router = new Router({
@@ -119,6 +120,7 @@ const router = new Router({
     { path: '/picker', component: Picker },
     { path: '/popup', component: Popup },
     { path: '/refreshControl', component: RefreshControl },
+    { path: '/layout', component: Layout },
     { path: '*', redirect: '/index' }
   ]
 })
