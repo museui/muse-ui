@@ -33,6 +33,7 @@
 
       <mu-list-item :title="$t('component')" toggleNested>
         <mu-sub-header slot="nested" class="exmaples-nav-sub-header">Material Design</mu-sub-header>
+        <mu-list-item slot="nested" value="#/layout" title="Layout"/>
         <mu-list-item slot="nested" value="#/appbar" title="App Bar"/>
         <mu-list-item slot="nested" value="#/autoComplete" title="Auto Complete"/>
         <mu-list-item slot="nested" value="#/avatar" title="Avatar"/>
