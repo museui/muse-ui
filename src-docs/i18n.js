@@ -8,6 +8,7 @@ Vue.config.lang = getUrlParam('lang') || window.localStorage.getItem('lang') || 
 Vue.locale('zh', {
   install: '快速开始-安装',
   usage: '快速开始-使用',
+  faq: '常见问题解答',
   changeLog: '更新日志',
   contributing: '贡献指南',
   colors: '颜色',
@@ -64,6 +65,7 @@ Vue.locale('zh', {
 Vue.locale('en', {
   install: 'Installation',
   usage: 'Usage',
+  faq: 'FAQ',
   changeLog: 'ChangeLog',
   contributing: 'Contributing',
   colors: 'Colors',

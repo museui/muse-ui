@@ -36,11 +36,9 @@
         <mu-list-item slot="nested" value="#/appbar" title="App Bar"/>
         <mu-list-item slot="nested" value="#/autoComplete" title="Auto Complete"/>
         <mu-list-item slot="nested" value="#/avatar" title="Avatar"/>
-        <mu-list-item slot="nested" value="#/backTop" title="BackTop"/>
         <mu-list-item slot="nested" value="#/badge" title="Badge"/>
         <mu-list-item slot="nested" value="#/bottomNav" title="Bottom Navigation"/>
         <mu-list-item slot="nested" value="#/bottomSheet" title="Bottom Sheet"/>
-        <mu-list-item slot="nested" value="#/breadcrumb" title="Breadcrumb"/>
         <mu-list-item slot="nested" title="Buttons" toggleNested>
           <mu-list-item slot="nested" value="#/flatButton" title="Flat Button"></mu-list-item>
           <mu-list-item slot="nested" value="#/raisedButton" title="Raised Button"></mu-list-item>
@@ -83,6 +81,8 @@
         <mu-list-item slot="nested" value="#/timePicker" title="Time Picker"/>
         <mu-list-item slot="nested" value="#/tooltip" title="Tooltip"/>
         <mu-sub-header slot="nested" class="exmaples-nav-sub-header">Others</mu-sub-header>
+        <mu-list-item slot="nested" value="#/backTop" title="BackTop"/>
+        <mu-list-item slot="nested" value="#/breadcrumb" title="Breadcrumb"/>
         <mu-list-item slot="nested" value="#/contentBlock" title="Content Block"/>
         <mu-list-item slot="nested" value="#/flexbox" title="Flex Box"/>
         <mu-list-item slot="nested" value="#/grid" title="Grid"/>
