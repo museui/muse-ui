@@ -96,7 +96,7 @@ export default {
     },
     initEvents () {
       let el = this.$refs.wrapper
-      let drag = new Drag(el)
+      let drag = new Drag(this.$el)
       let startTop = 0
       let velocityTranslate, prevTranslate
       drag.start(() => {
