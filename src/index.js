@@ -51,6 +51,7 @@ import timePicker from './timePicker'
 import * as stepper from './stepper'
 import autoComplete from './autoComplete'
 import pagination from './pagination'
+import * as timeLine from './timeLine'
 
 import * as grid from './grid'
 
@@ -97,6 +98,7 @@ const components = {
   radio,
   _switch,
   slider,
+  ...timeLine,
   linearProgress,
   circularProgress,
   ...gridList,
