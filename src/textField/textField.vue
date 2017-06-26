@@ -164,6 +164,9 @@ export default {
     },
     handleBlur (event) {
       this.isFocused = false
+      if (!this.inputValue) {
+        this.$refs.input.value = ''
+      }
       this.$emit('blur', event)
     },
     handleInput (val) {
