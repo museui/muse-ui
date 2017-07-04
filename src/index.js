@@ -1,5 +1,4 @@
 import './styles/base.less'
-import Vue from 'vue'
 import {retina} from './utils'
 import icon from './icon'
 import backTop from './backTop'
@@ -112,7 +111,7 @@ const components = {
   pagination
 }
 
-const install = function () {
+const install = function (Vue) {
   Object.keys(components).forEach((key) => {
     Vue.component(components[key].name, components[key])
   })
