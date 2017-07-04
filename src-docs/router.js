@@ -47,6 +47,7 @@ import SubHeader from './views/components/subHeader'
 import Table from './views/components/table'
 import Tabs from './views/components/tabs'
 import TextField from './views/components/textField'
+import Timeline from './views/components/timeline'
 import TimePicker from './views/components/timePicker'
 import Tooltip from './views/components/tooltip'
 import ContentBlock from './views/components/contentBlock'
@@ -111,6 +112,7 @@ const router = new Router({
     { path: '/tabs', component: Tabs },
     { path: '/textField', component: TextField },
     { path: '/timePicker', component: TimePicker },
+    { path: '/timeline', component: Timeline },
     { path: '/tooltip', component: Tooltip },
     { path: '/contentBlock', component: ContentBlock },
     { path: '/flexbox', component: Flexbox },

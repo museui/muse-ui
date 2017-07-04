@@ -1,5 +1,4 @@
 import './styles/base.less'
-import Vue from 'vue'
 import {retina} from './utils'
 import icon from './icon'
 import backTop from './backTop'
@@ -51,6 +50,7 @@ import timePicker from './timePicker'
 import * as stepper from './stepper'
 import autoComplete from './autoComplete'
 import pagination from './pagination'
+import * as timeLine from './timeLine'
 
 import * as grid from './grid'
 
@@ -97,6 +97,7 @@ const components = {
   radio,
   _switch,
   slider,
+  ...timeLine,
   linearProgress,
   circularProgress,
   ...gridList,
@@ -110,7 +111,7 @@ const components = {
   pagination
 }
 
-const install = function () {
+const install = function (Vue) {
   Object.keys(components).forEach((key) => {
     Vue.component(components[key].name, components[key])
   })
