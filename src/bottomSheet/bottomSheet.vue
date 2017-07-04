@@ -1,7 +1,7 @@
 <template>
   <span>
     <transition name="mu-bottom-sheet" @after-enter="show()" @after-leave="hide()">
-      <div class="mu-bottom-sheet" :class="sheetClass" ref="popup" v-show="open" :style="{'z-index': zIndex}">
+      <div class="mu-bottom-sheet" :class="sheetClass" ref="popup" v-if="open" :style="{'z-index': zIndex}">
         <slot></slot>
       </div>
     </transition>
