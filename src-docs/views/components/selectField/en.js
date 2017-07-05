@@ -30,7 +30,8 @@ export default {
     underlineFocusClass: 'style of bottom line when the input box is focusing, the binding way is same with the `class`',
     dropDownIconClass: 'style of icon, the binding way is same with `class`',
     value: 'value of drop down box, you can use `v-model` instead of setting this parameter',
-    scroller: 'scroll element, will listen to its `scroll` event, it will update the position of drop-down continually when you scroll.'
+    scroller: 'scroll element, will listen to its `scroll` event, it will update the position of drop-down continually when you scroll.',
+    separator: 'separator'
   },
   slots: {
     default: 'is used to place `menuItem`, `subHeader`, `divider` components'
