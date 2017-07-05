@@ -74,7 +74,11 @@ export default {
     anchorEl: {
       type: Object
     },
-    scroller: {}
+    scroller: {},
+    separator: {
+      type: String,
+      default: ','
+    }
   },
   data () {
     return {
@@ -123,7 +127,7 @@ export default {
           return false
         }
       })
-      return text.join(',')
+      return text.join(this.separator)
     }
   },
   updated () {

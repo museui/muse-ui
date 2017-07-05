@@ -119,6 +119,12 @@ export default {
     type: 'Element',
     default: 'window',
     desc: 'props.scroller'
+  },
+  {
+    name: 'separator',
+    type: 'String',
+    default: ',',
+    desc: 'props.separator'
   }],
   slots: [{
     name: 'default',
