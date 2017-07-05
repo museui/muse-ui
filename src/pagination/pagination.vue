@@ -20,7 +20,7 @@
     </svg>
   </page-item>
   <select-field  v-if="showSizeChanger" v-model="actualPageSize" :style="{width: '100px'}">
-    <menu-item v-for="item in pageSizeOption" :key="'mt_' + item" :value="item" :title="item + pageChangerText" :style="{width: '100px'}"/>
+    <menu-item v-for="item in pageSizeOption" :key="'mt_' + item" :value="item" :title="item + pageSizeChangerText" :style="{width: '100px'}"/>
   </select-field>
   <!-- <text-field v-if="showQuickJumper" type="number" hintText="快速跳转" :style="{width: '70px'}" v-model="quickJumpPage" @keyup.native.enter="quickJump"/> -->
 </div>
@@ -57,7 +57,7 @@ export default{
       type: Array,
       default: () => [10, 20, 30, 40]
     },
-    pageChangerText: {
+    pageSizeChangerText: {
       type: String,
       default: () => ' / 页'
     }
