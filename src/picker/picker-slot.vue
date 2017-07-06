@@ -150,7 +150,6 @@ export default {
 <style lang="less">
 @import "../styles/import.less";
 .mu-picker-slot{
-  .flex-shrink(1);
   font-size: 18px;
   overflow: hidden;
   position: relative;
