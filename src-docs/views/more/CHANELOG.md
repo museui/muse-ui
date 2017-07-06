@@ -1,7 +1,16 @@
+## 2.1.0
+
+### Features
+
+  * add [BackTop](http://www.muse-ui.org/#/backTop)
+  * add [Breadcrumb](http://www.muse-ui.org/#/breadcrumb)
+  * add [timeline](http://www.muse-ui.org/#/timeline)
+
 ## 2.0.3
 
 ### Features
-  * 支持SSR
+
+  * Support SSR
   * Removes components that use the popup mixin from the DOM when open property is false [#496](https://github.com/museui/muse-ui/issues/496)
 
 ### Bugs
