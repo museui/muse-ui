@@ -8,9 +8,9 @@ export default {
   props: {
     current: '当前页数',
     total: '数据总数',
-    pageSize: '每页条数, 当同时配置pageSizeOptions的时候，优先使用pageSizeOptions',
-    defaultPageSize: '默认的每页条数',
-    showSizeChanger: '是否显示 pageSize 选择框',
+    pageSize: '每页条数, 当同时配置pageSizeOptions的时候并且showSizeChanger为true的时候，优先使用pageSizeOptions，否则将会使用该参数',
+    defaultPageSize: '默认的每页条数，只有当showSizeChanger为false并且pageSize没有配置的时候才会生效',
+    showSizeChanger: '是否显示 pageSize 选择框以及决定pageSizeOptions是否生效',
     pageSizeOptions: '指定每页可以显示多少条'
   },
   slots: {
