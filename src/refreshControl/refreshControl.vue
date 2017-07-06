@@ -136,7 +136,7 @@ export default {
           this.clearState()
           return // 消除误差
         }
-        let canRefresh = pos.y + INITY > 0 && this.draging
+        let canRefresh = this.y + INITY > 0 && this.draging
         this.state = 'dragAnimate'
         if (canRefresh) {
           this.draging = false
