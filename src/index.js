@@ -1,6 +1,7 @@
 import './styles/base.less'
 import {retina} from './utils'
 import icon from './icon'
+import alert from './alert'
 import backTop from './backTop'
 import badge from './badge'
 import * as breadCrumb from './breadCrumb'
@@ -58,6 +59,7 @@ import * as flexbox from './flexbox'
 import config from './config'
 const components = {
   icon,
+  alert,
   backTop,
   badge,
   ...breadCrumb,
