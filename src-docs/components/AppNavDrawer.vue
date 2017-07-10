@@ -82,6 +82,7 @@
         <mu-list-item slot="nested" value="#/timePicker" title="Time Picker"/>
         <mu-list-item slot="nested" value="#/tooltip" title="Tooltip"/>
         <mu-sub-header slot="nested" class="exmaples-nav-sub-header">Others</mu-sub-header>
+        <mu-list-item slot="nested" value="#/alert" title="Alert"/>
         <mu-list-item slot="nested" value="#/backTop" title="BackTop"/>
         <mu-list-item slot="nested" value="#/breadcrumb" title="Breadcrumb"/>
         <mu-list-item slot="nested" value="#/contentBlock" title="Content Block"/>
