@@ -8,9 +8,9 @@
 
 ## Links
 
-* [Home Page](https://www.muse-ui.org/)
-* [中文文档](https://www.muse-ui.org/#/install)
-* [English Docs](https://www.muse-ui.org/?lang=en)
+* [Home Page](http://www.muse-ui.org/)
+* [中文文档](http://www.muse-ui.org/#/install)
+* [English Docs](http://www.muse-ui.org/?lang=en)
 
 ## Install
 
