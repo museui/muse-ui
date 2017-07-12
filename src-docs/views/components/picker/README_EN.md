@@ -1,5 +1,5 @@
 ## Picker
 
-选择器， 主要用于移动设备上。
+The picker is mainly used on mobile devices.
 
 ### Examples

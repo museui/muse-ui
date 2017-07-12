@@ -1,5 +1,5 @@
 ## Popup
 
-Popup component, can be customize the text and position.
+The popup component, customizable content and pop-up location.
 
 ### Examples

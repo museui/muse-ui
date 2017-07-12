@@ -1,5 +1,5 @@
 ## Table
 
-[table](https://material.google.com/components/data-tables.html) is used to show the raw data set and always apply in the enterprise product.
+The [table](https://material.google.com/components/data-tables.html) component is used to show raw data set and is often used in enterprise product.
 
 ### Examples
