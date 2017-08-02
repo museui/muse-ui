@@ -14,7 +14,7 @@ export default {
     targetOrigin: '锚点相对于弹出内容的位置，根据位置计算弹出的位置',
     overlay: '是否显示遮盖层',
     overlayOpacity: '遮盖层透明度',
-    overlayColor: '遮盖层的位置'
+    overlayColor: '遮盖层的色彩'
   },
   slots: {
     default: '内容部分'
