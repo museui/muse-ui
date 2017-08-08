@@ -129,7 +129,8 @@ export default {
     return {
       isFocused: false,
       inputValue: this.value,
-      charLength: 0
+      charLength: 0,
+      errorMsg: ''
     }
   },
   computed: {
@@ -139,7 +140,7 @@ export default {
         'has-label': this.label,
         'no-empty-state': this.inputValue,
         'has-icon': this.icon,
-        'error': this.errorText,
+        'error': this.errorMsg || this.errorText,
         'multi-line': this.multiLine,
         'disabled': this.disabled,
         'full-width': this.fullWidth
