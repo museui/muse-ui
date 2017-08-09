@@ -15,6 +15,11 @@ export default {
     default: 'false',
     desc: 'props.multiple'
   }, {
+    name: 'required',
+    type: 'Boolean',
+    default: 'false',
+    desc: 'props.required'
+  }, {
     name: 'name',
     type: 'String',
     default: '',
