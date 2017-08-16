@@ -53,6 +53,47 @@ a {
 .mu-bottom-sheet {
   background-color: #ffffff;
 }
+.mu-chip {
+  background-color: #e0e0e0;
+  color: rgba(0, 0, 0, 0.87);
+}
+.mu-chip.hover {
+  background-color: #cecece;
+  cursor: pointer;
+}
+.mu-chip.hover .mu-chip-delete-icon {
+  color: rgba(0, 0, 0, 0.4);
+}
+.mu-chip-delete-icon {
+  color: rgba(0, 0, 0, 0.26);
+}
+.mu-checkbox input[type="checkbox"]:checked + .mu-checkbox-wrapper .mu-checkbox-icon-uncheck {
+  color: #009688;
+}
+.mu-checkbox input[type="checkbox"]:checked + .mu-checkbox-wrapper .mu-checkbox-ripple-wrapper {
+  color: #009688;
+}
+.mu-checkbox-label {
+  color: rgba(0, 0, 0, 0.87);
+}
+.mu-checkbox.disabled .mu-checkbox-label {
+  color: rgba(0, 0, 0, 0.38);
+}
+.mu-checkbox-icon-uncheck {
+  color: rgba(0, 0, 0, 0.87);
+}
+.mu-checkbox.disabled .mu-checkbox-icon-uncheck {
+  color: rgba(0, 0, 0, 0.38);
+}
+.mu-checkbox-icon-checked {
+  color: #009688;
+}
+.mu-checkbox.disabled .mu-checkbox-icon-checked {
+  color: rgba(0, 0, 0, 0.38);
+}
+.mu-circular-progress-determinate-path {
+  stroke: #009688;
+}
 .mu-card {
   background-color: #ffffff;
 }
@@ -80,46 +121,39 @@ a {
 .mu-card-text {
   color: rgba(0, 0, 0, 0.87);
 }
-.mu-checkbox input[type="checkbox"]:checked + .mu-checkbox-wrapper .mu-checkbox-icon-uncheck {
-  color: #009688;
-}
-.mu-checkbox input[type="checkbox"]:checked + .mu-checkbox-wrapper .mu-checkbox-ripple-wrapper {
-  color: #009688;
-}
-.mu-checkbox-label {
+.mu-calendar {
   color: rgba(0, 0, 0, 0.87);
 }
-.mu-checkbox.disabled .mu-checkbox-label {
-  color: rgba(0, 0, 0, 0.38);
+.mu-calendar-year {
+  background-color: #ffffff;
 }
-.mu-checkbox-icon-uncheck {
+.mu-date-display {
+  background-color: #009688;
+  color: #ffffff;
+}
+.mu-day-button-bg {
+  background-color: #009688;
+}
+.mu-day-button-text {
+  font-weight: 400;
+  position: relative;
   color: rgba(0, 0, 0, 0.87);
 }
-.mu-checkbox.disabled .mu-checkbox-icon-uncheck {
-  color: rgba(0, 0, 0, 0.38);
-}
-.mu-checkbox-icon-checked {
+.mu-day-button.now .mu-day-button-text {
   color: #009688;
 }
-.mu-checkbox.disabled .mu-checkbox-icon-checked {
-  color: rgba(0, 0, 0, 0.38);
+.mu-day-button.hover .mu-day-button-text,
+.mu-day-button.selected .mu-day-button-text {
+  color: #ffffff;
 }
-.mu-chip {
-  background-color: #e0e0e0;
+.mu-year-button-text {
   color: rgba(0, 0, 0, 0.87);
 }
-.mu-chip.hover {
-  background-color: #cecece;
-  cursor: pointer;
+.mu-year-button.selected .mu-year-button-text {
+  color: #009688;
 }
-.mu-chip.hover .mu-chip-delete-icon {
-  color: rgba(0, 0, 0, 0.4);
-}
-.mu-chip-delete-icon {
-  color: rgba(0, 0, 0, 0.26);
-}
-.mu-circular-progress-determinate-path {
-  stroke: #009688;
+.mu-year-button.hover .mu-year-button-text {
+  color: #009688;
 }
 .mu-calendar {
   color: rgba(0, 0, 0, 0.87);
