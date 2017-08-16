@@ -1,5 +1,5 @@
 <template>
-<text-field ref="textField" class="mu-select-field" :label="label" :labelFloat="labelFloat" :underlineShow="underlineShow"
+<text-field ref="textField" class="mu-select-field xxxxxxvaliedatexxxxx" :label="label" :labelFloat="labelFloat" :underlineShow="underlineShow"
   :labelClass="labelClass" :labelFocusClass="labelFocusClass" :underlineClass="underlineClass" :underlineFocusClass="underlineFocusClass" :required="required"
   :fullWidth="fullWidth" :hintText="hintText" :hintTextClass="hintTextClass"
   :helpText="helpText" :helpTextClass="helpTextClass" :icon="icon" :iconClass="iconClass"
