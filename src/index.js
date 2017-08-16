@@ -46,6 +46,7 @@ import circularProgress from './circularProgress'
 import * as gridList from './gridList'
 import * as table from './table'
 import datePicker from './datePicker'
+import datetimePicker from './datetimePicker'
 import timePicker from './timePicker'
 import * as stepper from './stepper'
 import autoComplete from './autoComplete'
@@ -103,6 +104,7 @@ const components = {
   ...gridList,
   ...table,
   datePicker,
+  datetimePicker,
   timePicker,
   ...stepper,
   autoComplete,

@@ -1,0 +1,53 @@
+import description from './README_EN.md'
+
+export default {
+  description,
+  simpleExample: 'Simple Example',
+  simpleExampleDesc: 'the default popup box direction is the  vertical. you can swith the direction between the  vertical mode and horizontal mode by configing the `mode` attribute.',
+  inlineExample: 'inline popup mode',
+  inlineExampleDesc: 'By setting the `container=inline` will make the data picker popup with the inline mode',
+  controlExample: 'selection control',
+  controlExampleDesc: 'same with other components, datePicker also can be controlled by the `v-model`, we can use `maxDate` and `minDate` to control the range of selection date,  `autoOk` attribute is used to control the completion automatically, and `disableYearSelection` is used to disable the year selection',
+  disabledExample: 'we also can assign the function to determine what the range date should not be selected',
+  disabledExampleDesc: '`shouldDisableDate` parameter is used to determine what is the range date should not be selectd by the specific function',
+  localeExample: 'language locale configuration ',
+  localeExampleDesc: 'we use the customize `dateTimeFormat` to format different language',
+  props: {
+    dateTimeFormat: 'time format object, it should need following attribute:\r\n1. **formatDisplay** is used to format the header of date picker;\r\n2. **formatMonth** is used to format the month of date picker',
+    autoOk: 'whether it is completed automatically or not after you choose the date, if it is true, the `ok` button will be disappeared.',
+    okLabel: 'the text of `ok` button',
+    cancelLabel: 'the text of `cancel` button',
+    container: 'dialog/inline, the way of popup date picker',
+    disableYearSelection: 'if it is `ture`, not allow to choose the year',
+    firstDayOfWeek: 'to determine which day is the first day of a week, default to Monday, sometimes it maybe the Sunday(0)',
+    mode: '`portrait`-showing with the vertical direction, `landscape`-showing with the horizontal direction',
+    shouldDisableDate: 'to determine the disable date with function',
+    format: 'the way of date format',
+    maxDate: 'the maximum date, it should meet with the format of `format` paramter',
+    minDate: 'the minimum date, it should meet with the format of `format` paramter',
+    name: '`input` element name attribute',
+    label: 'the label of date picker',
+    labelFloat: 'whether the label can be float',
+    labelClass: 'style of label, the binding way is same with `class`',
+    labelFocusClass: 'the style of label when the input box is focusing, the binding way is same with `class`',
+    disabled: 'whether the date picker is disabled or not',
+    hintText: 'hint text',
+    hintTextClass: 'the style of hint text, the binding way is same with `class`',
+    helpText: 'help text',
+    helpTextClass: 'the style of help text, the binding way is same with `class`',
+    errorText: 'error text, if this paramter is not null, the date picker will transfer to error status, and the style will be changed',
+    errorColor: 'the color of error status, default to red',
+    icon: 'icon',
+    iconClass: 'the style of icon, the binding way is same with `class`',
+    fullWidth: 'whether the width is 100%, default to 256px',
+    underlineShow: 'whether it is display the underline',
+    underlineClass: 'the style of underline, the binding way is same with `class`',
+    underlineFocusClass: 'the style of underline when the input box is focuding, the binding way is same with `class`',
+    inputClass: 'the style of input box, the binding way is same with `class`',
+    value: 'the value of date picker, you cab replace it with the `v-model` directive'
+  },
+  events: {
+    input: 'this event will be emitted when the value has changed, pass with the new value, (value)',
+    change: 'as the user action(such as clicking the ok button) lead to the value has changed, this event will be emitted with the value attribute'
+  }
+}

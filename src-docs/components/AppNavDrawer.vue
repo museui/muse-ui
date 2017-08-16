@@ -49,6 +49,7 @@
         <mu-list-item slot="nested" value="#/card" title="Card"/>
         <mu-list-item slot="nested" value="#/chip" title="Chip"/>
         <mu-list-item slot="nested" value="#/datePicker" title="Date Picker"/>
+        <mu-list-item slot="nested" value="#/datetimePicker" title="Datetime Picker"/>
         <mu-list-item slot="nested" value="#/dialog" title="Dialog"/>
         <mu-list-item slot="nested" value="#/divider" title="Divider"/>
         <mu-list-item slot="nested" value="#/drawer" title="Drawer"/>
