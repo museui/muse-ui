@@ -24,7 +24,8 @@ export default {
   name: 'mu-select-field',
   props: {
     required: {
-      type: Boolean
+      type: Boolean,
+      default: false
     },
     name: {
       type: String
