@@ -54,6 +54,10 @@ export default {
     showCheckbox: {
       type: Boolean,
       default: true
+    },
+    sortable: {
+      type: Boolean,
+      defaults: false
     }
   },
   data () {
@@ -119,6 +123,9 @@ export default {
         const childItem = this.$children[i]
         if (childItem.isTbody) return childItem
       }
+    },
+    handleSort (n, dir) {
+      console.log(n + dir)
     }
   },
   watch: {
