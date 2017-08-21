@@ -53,47 +53,6 @@ a {
 .mu-bottom-sheet {
   background-color: #424242;
 }
-.mu-chip {
-  background-color: #4f4f4f;
-  color: rgba(255, 255, 255, 0.87);
-}
-.mu-chip.hover {
-  background-color: #cecece;
-  cursor: pointer;
-}
-.mu-chip.hover .mu-chip-delete-icon {
-  color: rgba(255, 255, 255, 0.4);
-}
-.mu-chip-delete-icon {
-  color: rgba(255, 255, 255, 0.26);
-}
-.mu-checkbox input[type="checkbox"]:checked + .mu-checkbox-wrapper .mu-checkbox-icon-uncheck {
-  color: #1976d2;
-}
-.mu-checkbox input[type="checkbox"]:checked + .mu-checkbox-wrapper .mu-checkbox-ripple-wrapper {
-  color: #1976d2;
-}
-.mu-checkbox-label {
-  color: #ffffff;
-}
-.mu-checkbox.disabled .mu-checkbox-label {
-  color: rgba(255, 255, 255, 0.3);
-}
-.mu-checkbox-icon-uncheck {
-  color: #ffffff;
-}
-.mu-checkbox.disabled .mu-checkbox-icon-uncheck {
-  color: rgba(255, 255, 255, 0.3);
-}
-.mu-checkbox-icon-checked {
-  color: #1976d2;
-}
-.mu-checkbox.disabled .mu-checkbox-icon-checked {
-  color: rgba(255, 255, 255, 0.3);
-}
-.mu-circular-progress-determinate-path {
-  stroke: #1976d2;
-}
 .mu-card {
   background-color: #303030;
 }
@@ -120,6 +79,47 @@ a {
 }
 .mu-card-text {
   color: #ffffff;
+}
+.mu-checkbox input[type="checkbox"]:checked + .mu-checkbox-wrapper .mu-checkbox-icon-uncheck {
+  color: #1976d2;
+}
+.mu-checkbox input[type="checkbox"]:checked + .mu-checkbox-wrapper .mu-checkbox-ripple-wrapper {
+  color: #1976d2;
+}
+.mu-checkbox-label {
+  color: #ffffff;
+}
+.mu-checkbox.disabled .mu-checkbox-label {
+  color: rgba(255, 255, 255, 0.3);
+}
+.mu-checkbox-icon-uncheck {
+  color: #ffffff;
+}
+.mu-checkbox.disabled .mu-checkbox-icon-uncheck {
+  color: rgba(255, 255, 255, 0.3);
+}
+.mu-checkbox-icon-checked {
+  color: #1976d2;
+}
+.mu-checkbox.disabled .mu-checkbox-icon-checked {
+  color: rgba(255, 255, 255, 0.3);
+}
+.mu-chip {
+  background-color: #4f4f4f;
+  color: rgba(255, 255, 255, 0.87);
+}
+.mu-chip.hover {
+  background-color: #cecece;
+  cursor: pointer;
+}
+.mu-chip.hover .mu-chip-delete-icon {
+  color: rgba(255, 255, 255, 0.4);
+}
+.mu-chip-delete-icon {
+  color: rgba(255, 255, 255, 0.26);
+}
+.mu-circular-progress-determinate-path {
+  stroke: #1976d2;
 }
 .mu-calendar {
   color: #ffffff;

@@ -53,47 +53,6 @@ a {
 .mu-bottom-sheet {
   background-color: #ffffff;
 }
-.mu-chip {
-  background-color: #e0e0e0;
-  color: rgba(71, 74, 79, 0.87);
-}
-.mu-chip.hover {
-  background-color: #cecece;
-  cursor: pointer;
-}
-.mu-chip.hover .mu-chip-delete-icon {
-  color: rgba(71, 74, 79, 0.4);
-}
-.mu-chip-delete-icon {
-  color: rgba(71, 74, 79, 0.26);
-}
-.mu-checkbox input[type="checkbox"]:checked + .mu-checkbox-wrapper .mu-checkbox-icon-uncheck {
-  color: #ff5252;
-}
-.mu-checkbox input[type="checkbox"]:checked + .mu-checkbox-wrapper .mu-checkbox-ripple-wrapper {
-  color: #ff5252;
-}
-.mu-checkbox-label {
-  color: #474a4f;
-}
-.mu-checkbox.disabled .mu-checkbox-label {
-  color: #d3d6db;
-}
-.mu-checkbox-icon-uncheck {
-  color: #7e848c;
-}
-.mu-checkbox.disabled .mu-checkbox-icon-uncheck {
-  color: #d3d6db;
-}
-.mu-checkbox-icon-checked {
-  color: #ff5252;
-}
-.mu-checkbox.disabled .mu-checkbox-icon-checked {
-  color: #d3d6db;
-}
-.mu-circular-progress-determinate-path {
-  stroke: #474a4f;
-}
 .mu-card {
   background-color: #ffffff;
 }
@@ -120,6 +79,47 @@ a {
 }
 .mu-card-text {
   color: #474a4f;
+}
+.mu-checkbox input[type="checkbox"]:checked + .mu-checkbox-wrapper .mu-checkbox-icon-uncheck {
+  color: #ff5252;
+}
+.mu-checkbox input[type="checkbox"]:checked + .mu-checkbox-wrapper .mu-checkbox-ripple-wrapper {
+  color: #ff5252;
+}
+.mu-checkbox-label {
+  color: #474a4f;
+}
+.mu-checkbox.disabled .mu-checkbox-label {
+  color: #d3d6db;
+}
+.mu-checkbox-icon-uncheck {
+  color: #7e848c;
+}
+.mu-checkbox.disabled .mu-checkbox-icon-uncheck {
+  color: #d3d6db;
+}
+.mu-checkbox-icon-checked {
+  color: #ff5252;
+}
+.mu-checkbox.disabled .mu-checkbox-icon-checked {
+  color: #d3d6db;
+}
+.mu-chip {
+  background-color: #e0e0e0;
+  color: rgba(71, 74, 79, 0.87);
+}
+.mu-chip.hover {
+  background-color: #cecece;
+  cursor: pointer;
+}
+.mu-chip.hover .mu-chip-delete-icon {
+  color: rgba(71, 74, 79, 0.4);
+}
+.mu-chip-delete-icon {
+  color: rgba(71, 74, 79, 0.26);
+}
+.mu-circular-progress-determinate-path {
+  stroke: #474a4f;
 }
 .mu-calendar {
   color: #474a4f;

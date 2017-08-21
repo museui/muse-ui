@@ -67,20 +67,41 @@ a {
   background-color: @bottomSheetColor;
 }
 
-.mu-chip {
-  background-color: @chipColor;
-  color: @chipTextColor;
-  &.hover{
-    .mu-chip-delete-icon{
-      color: @chipHoverDeleteColor;
-    }
-    background-color: @chipHoverColor;
-    cursor: pointer;
+.mu-card {
+  background-color: @cardBackgroudColor;
+}
+
+.mu-card-header-title{
+  .mu-card-title{
+    color: @cardTitleColor;
+  }
+  .mu-card-sub-title{
+    color: @cardSubtitleColor;
   }
 }
 
-.mu-chip-delete-icon{
-  color: @chipDeleteColor;
+
+.mu-card-media-title {
+  background-color: @cardMediaOverlayContentBackground;
+  .mu-card-title {
+    color: @cardMediaTitleColor;
+  }
+  .mu-card-sub-title {
+    color: @cardMediaSubtitleColor;
+  }
+}
+
+.mu-card-title-container{
+  .mu-card-title{
+    color: @cardTitleColor;
+  }
+  .mu-card-sub-title{
+    color: @cardSubtitleColor;
+  }
+}
+
+.mu-card-text{
+  color: @cardTextColor;
 }
 
 .mu-checkbox {
@@ -120,45 +141,24 @@ a {
   }
 }
 
+.mu-chip {
+  background-color: @chipColor;
+  color: @chipTextColor;
+  &.hover{
+    .mu-chip-delete-icon{
+      color: @chipHoverDeleteColor;
+    }
+    background-color: @chipHoverColor;
+    cursor: pointer;
+  }
+}
+
+.mu-chip-delete-icon{
+  color: @chipDeleteColor;
+}
+
 .mu-circular-progress-determinate-path{
   stroke: @circularProgressColor;
-}
-
-.mu-card {
-  background-color: @cardBackgroudColor;
-}
-
-.mu-card-header-title{
-  .mu-card-title{
-    color: @cardTitleColor;
-  }
-  .mu-card-sub-title{
-    color: @cardSubtitleColor;
-  }
-}
-
-
-.mu-card-media-title {
-  background-color: @cardMediaOverlayContentBackground;
-  .mu-card-title {
-    color: @cardMediaTitleColor;
-  }
-  .mu-card-sub-title {
-    color: @cardMediaSubtitleColor;
-  }
-}
-
-.mu-card-title-container{
-  .mu-card-title{
-    color: @cardTitleColor;
-  }
-  .mu-card-sub-title{
-    color: @cardSubtitleColor;
-  }
-}
-
-.mu-card-text{
-  color: @cardTextColor;
 }
 
 .mu-calendar {
