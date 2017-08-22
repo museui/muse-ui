@@ -1,5 +1,5 @@
 <template>
-  <th class="mu-th" @mouseenter="showTooltip" @mouseleave="hideTooltip" @click="sort()">
+  <th class="mu-th" @mouseenter="showTooltip" @mouseleave="hideTooltip" @click="sort()" :id="thId">
     <div class="mu-th-wrapper" ref="wrapper">
       <slot></slot>
       <span v-if="!sortable" class="caret-wrapper">
@@ -39,7 +39,7 @@ export default {
       tooltipTrigger: null,
       isSorted: false,
       sortDir: null,
-      thId: uuid++
+      thId: `mu-th-${uuid++}`
     }
   },
   mounted () {
@@ -105,9 +105,7 @@ export default {
         this.isSorted = false
         this.sortDir = null
       }
-      // this.$parent.handleSort('x', 'x')
-
-      // TODO kill sorting on all sibling th's
+      this.$parent.handleSort(document.getElementById(this.thId).cellIndex, this.sortDir)
     }
   },
   components: {

@@ -6,7 +6,7 @@
       </table>
     </div>
     <div :style="bodyStyle">
-      <table class="mu-table">
+      <table class="mu-table" :id="tableId">
         <slot v-if="!fixedHeader" name="header"></slot>
         <slot></slot>
         <slot v-if="!fixedFooter" name="footer"></slot>
@@ -21,6 +21,7 @@
 </template>
 
 <script>
+let uuid = 0
 export default {
   name: 'mu-table',
   props: {
@@ -62,7 +63,8 @@ export default {
   },
   data () {
     return {
-      isSelectAll: false
+      isSelectAll: false,
+      tableId: `mu-table-${uuid++}`
     }
   },
   computed: {
@@ -124,8 +126,42 @@ export default {
         if (childItem.isTbody) return childItem
       }
     },
-    handleSort (n, dir) {
-      console.log(n + dir)
+    handleSort (colIndex, dir) {
+      console.log(dir)
+      const body = document.getElementById(this.tableId).getElementsByTagName('tbody')[0]
+      const rows = body.getElementsByTagName('tr')
+      var isSorting = true
+      var shouldSort = false
+      var sortCount = 0
+
+      while (isSorting) {
+        isSorting = false
+        for (var i = 0; i < rows.length - 1; i++) {
+          const a = rows[i].cells[colIndex].innerHTML.toLowerCase()
+          const b = rows[i + 1].cells[colIndex].innerHTML.toLowerCase()
+          if (dir === 'asc') {
+            if (a > b) {
+              shouldSort = true
+              break
+            }
+          } else if (dir === 'dsc') {
+            if (b > a) {
+              shouldSort = true
+              break
+            }
+          }
+        }
+        if (shouldSort) {
+          rows[i].parentNode.insertBefore(rows[i + 1], rows[i])
+          isSorting = true
+          sortCount++
+        } else {
+          if (sortCount === 0 && dir === 'asc') {
+            dir = 'dsc'
+            isSorting = true
+          }
+        }
+      }
     }
   },
   watch: {
