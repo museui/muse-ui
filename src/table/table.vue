@@ -152,9 +152,11 @@ export default {
           }
         }
         if (shouldSort) {
-          rows[i].parentNode.insertBefore(rows[i + 1], rows[i])
-          isSorting = true
-          sortCount++
+          if (rows[i + 1]) {
+            rows[i].parentNode.insertBefore(rows[i + 1], rows[i])
+            isSorting = true
+            sortCount++
+          }
         } else {
           if (sortCount === 0 && dir === 'asc') {
             dir = 'dsc'
