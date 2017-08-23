@@ -64,7 +64,8 @@ export default {
   data () {
     return {
       isSelectAll: false,
-      tableId: `mu-table-${uuid++}`
+      tableId: `mu-table-${uuid++}`,
+      unSortedRows: null
     }
   },
   computed: {
@@ -126,13 +127,30 @@ export default {
         if (childItem.isTbody) return childItem
       }
     },
+    getUnsortedRows () {
+      const body = document.getElementById(this.tableId).getElementsByTagName('tbody')[0]
+      this.unSortedRows = body.getElementsByTagName('tr')
+    },
     handleSort (colIndex, dir) {
-      console.log(dir)
+      console.log(`${this.unSortedRows} dir: ${dir}`)
+      // TODO clone the unsorted rows first before storing!!!!!
+      if (this.unSortedRows === null) {
+        this.getUnsortedRows()
+      }
       const body = document.getElementById(this.tableId).getElementsByTagName('tbody')[0]
       const rows = body.getElementsByTagName('tr')
       var isSorting = true
       var shouldSort = false
       var sortCount = 0
+
+      if (dir === null) {
+        for (var r = 0; r < rows.length; r++) {
+          if (dir === null) {
+            rows[r].parentNode.replaceChild(this.unSortedRows[r], rows[r])
+            console.log(this.unSortedRows[r])
+          }
+        }
+      }
 
       while (isSorting) {
         isSorting = false
