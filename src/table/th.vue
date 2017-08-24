@@ -2,9 +2,9 @@
   <th class="mu-th" @mouseenter="showTooltip" @mouseleave="hideTooltip" @click="sort()" :id="thId">
     <div class="mu-th-wrapper" ref="wrapper">
       <slot></slot>
-      <span v-if="!sortable" class="caret-wrapper">
-         <i class="arrow-down" :style="arrowDownStyle"></i>
-         <i class="arrow-up" :style="arrowUpStyle"></i>
+      <span v-if="sortable" class="mu-caret-wrapper">
+         <i class="mu-arrow-down" :style="arrowDownStyle"></i>
+         <i class="mu-arrow-up" :style="arrowUpStyle"></i>
       </span>
       <tooltip v-if="tooltip" :trigger="tooltipTrigger" :verticalPosition="verticalPosition" :horizontalPosition="horizontalPosition" :show="tooltipShown" :label="tooltip" :touch="touch"></tooltip>
     </div>
@@ -95,17 +95,19 @@ export default {
       this.tooltipShown = false
     },
     sort () {
-      if (this.sortDir === null) {
-        this.isSorted = true
-        this.sortDir = 'asc'
-      } else if (this.sortDir === 'asc') {
-        this.isSorted = true
-        this.sortDir = 'dsc'
-      } else {
-        this.isSorted = false
-        this.sortDir = null
+      if (this.sortable) {
+        if (this.sortDir === null) {
+          this.isSorted = true
+          this.sortDir = 'asc'
+        } else if (this.sortDir === 'asc') {
+          this.isSorted = true
+          this.sortDir = 'dsc'
+        } else {
+          this.isSorted = false
+          this.sortDir = null
+        }
+        this.$parent.handleSort(document.getElementById(this.thId).cellIndex, this.sortDir)
       }
-      this.$parent.handleSort(document.getElementById(this.thId).cellIndex, this.sortDir)
     }
   },
   components: {
@@ -136,7 +138,7 @@ export default {
   overflow: hidden;
 }
 
-.caret-wrapper {
+.mu-caret-wrapper {
   cursor: pointer;
   margin-left: 5px;
   margin-top: -2px;
@@ -146,7 +148,7 @@ export default {
   overflow: initial;
 }
 
-.arrow-up{
+.mu-arrow-up{
   position: absolute;
   margin-left: 3px;
   width: 0; 
@@ -155,7 +157,7 @@ export default {
   border-right: 5px solid transparent;
 }
 
-.arrow-down{
+.mu-arrow-down{
   position: absolute;
   margin-left: 3px;
   width: 0; 

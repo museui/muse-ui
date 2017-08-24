@@ -55,10 +55,6 @@ export default {
     showCheckbox: {
       type: Boolean,
       default: true
-    },
-    sortable: {
-      type: Boolean,
-      defaults: false
     }
   },
   data () {
