@@ -129,11 +129,13 @@ export default {
     },
     getUnsortedRows () {
       const body = document.getElementById(this.tableId).getElementsByTagName('tbody')[0]
-      this.unSortedRows = body.getElementsByTagName('tr')
+      const rows = body.getElementsByTagName('tr')
+      this.unSortedRows = []
+      for (var i = 0; i < rows.length; i++) {
+        this.unSortedRows.push(rows[i])
+      }
     },
     handleSort (colIndex, dir) {
-      console.log(`${this.unSortedRows} dir: ${dir}`)
-      // TODO clone the unsorted rows first before storing!!!!!
       if (this.unSortedRows === null) {
         this.getUnsortedRows()
       }
@@ -144,11 +146,16 @@ export default {
       var sortCount = 0
 
       if (dir === null) {
-        for (var r = 0; r < rows.length; r++) {
-          if (dir === null) {
-            rows[r].parentNode.replaceChild(this.unSortedRows[r], rows[r])
-            console.log(this.unSortedRows[r])
-          }
+        var l = rows.length
+        var oldRows = []
+        for (var r = 0; r < l; r++) {
+          oldRows.push(body.childNodes[r])
+        }
+        for (var n = 0; n < l; n++) {
+          body.removeChild(oldRows[n])
+        }
+        for (var t = 0; t < l; t++) {
+          body.appendChild(this.unSortedRows[t])
         }
       }
 
