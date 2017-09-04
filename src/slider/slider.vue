@@ -1,13 +1,13 @@
 <template>
-<div class="mu-slider" :class="sliderClass" tabindex="0"
+<div :class="[sliderClass, sliderClassObj.muSlider]" tabindex="0"
   @focus="handleFocus" @blur="handleBlur" @keydown="handleKeydown"
   @touchstart="handleTouchStart" @touchend="handleTouchEnd"
   @touchcancel="handleTouchEnd"  @mousedown="handleMouseDown"
   @mouseup="handleMouseUp" @mouseenter="handleMouseEnter" @mouseleave="handleMouseLeave">
   <input type="hidden" :name="name" :value="inputValue">
-  <div class="mu-slider-track"></div>
-  <div class="mu-slider-fill" :style="fillStyle"></div>
-  <div class="mu-slider-thumb" :style="thumbStyle">
+  <div :class="sliderClassObj.muSliderTrack"></div>
+  <div :class="sliderClassObj.muSliderFill" :style="fillStyle"></div>
+  <div :class="sliderClassObj.muSliderThumb" :style="thumbStyle">
     <focus-ripple v-if="(focused || hover) && !active"></focus-ripple>
   </div>
 </div>
@@ -41,6 +41,10 @@ export default {
     disabled: {
       type: Boolean,
       default: false
+    },
+    vertical: {
+      tyle: Boolean,
+      default: false
     }
   },
   data () {
@@ -58,13 +62,25 @@ export default {
       return percentNum > 100 ? 100 : percentNum < 0 ? 0 : percentNum
     },
     fillStyle () {
-      return {
-        width: this.percent + '%'
+      if (this.vertical) {
+        return {
+          height: this.percent + '%'
+        }
+      } else {
+        return {
+          width: this.percent + '%'
+        }
       }
     },
     thumbStyle () {
-      return {
-        left: this.percent + '%'
+      if (this.vertical) {
+        return {
+          bottom: this.percent + '%'
+        }
+      } else {
+        return {
+          left: this.percent + '%'
+        }
       }
     },
     sliderClass () {
@@ -72,6 +88,23 @@ export default {
         zero: this.inputValue <= this.min,
         active: this.active,
         disabled: this.disabled
+      }
+    },
+    sliderClassObj () {
+      if (this.vertical) {
+        return {
+          muSlider: 'mu-slider-vertical',
+          muSliderTrack: 'mu-slider-track-vertical',
+          muSliderFill: 'mu-slider-fill-vertical',
+          muSliderThumb: 'mu-slider-thumb-vertical'
+        }
+      } else {
+        return {
+          muSlider: 'mu-slider',
+          muSliderTrack: 'mu-slider-track',
+          muSliderFill: 'mu-slider-fill',
+          muSliderThumb: 'mu-slider-thumb'
+        }
       }
     }
   },
@@ -186,7 +219,12 @@ export default {
     // 从点击位置更新 value
     setValue (e) {
       const { $el, max, min, step } = this
-      let value = (e.clientX - $el.getBoundingClientRect().left) / $el.offsetWidth * (max - min)
+      let value
+      if (this.vertical) {
+        value = ($el.getBoundingClientRect().bottom - e.clientY) / $el.offsetHeight * (max - min)
+      } else {
+        value = (e.clientX - $el.getBoundingClientRect().left) / $el.offsetWidth * (max - min)
+      }
       value = Math.round(value / step) * step + min
       value = parseFloat(value.toFixed(5))
 
@@ -259,6 +297,18 @@ export default {
   outline: none;
 }
 
+.mu-slider-vertical {
+    position: relative;
+    height: 100%;
+    width: 24px;
+    margin-left: 16px;
+    display: flex;
+    align-items: center;
+    cursor: default;
+    user-select: none;
+    outline: none;
+}
+
 .mu-slider-track{
   position: absolute;
   height: 2px;
@@ -266,6 +316,16 @@ export default {
   right: 0;
   top: 50%;
   margin-top: -1px;
+  background-color: @lighterPrimaryColor;
+}
+
+.mu-slider-track-vertical{
+  position: absolute;
+  width: 2px;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -1px;
   background-color: @lighterPrimaryColor;
 }
 
@@ -278,6 +338,19 @@ export default {
   top: 50%;
   margin-top: -1px;
   .mu-slider.disabled & {
+    background-color: @lighterPrimaryColor;
+  }
+}
+
+.mu-slider-fill-vertical{
+  position: absolute;
+  width: 2px;
+  height: 100%;
+  background-color: @primaryColor;
+  bottom: 0;
+  left: 50%;
+  margin-left: -1px;
+  .mu-slider-vertical.disabled & {
     background-color: @lighterPrimaryColor;
   }
 }
@@ -309,6 +382,44 @@ export default {
   }
 
   .mu-slider.disabled & {
+    cursor: default;
+  }
+
+  .mu-focus-ripple-wrapper {
+    width: 36px;
+    height: 36px;
+    top: -12px;
+    left: -12px;
+  }
+}
+
+.mu-slider-thumb-vertical{
+  position: absolute;
+  left: 50%;
+  width: 12px;
+  height: 12px;
+  background-color: @primaryColor;
+  color: @primaryColor;
+  border-radius: 50%;
+  transform: translate(-50%, 50%);
+  transition: background 450ms @easeOutFunction, border-color 450ms @easeOutFunction, width 450ms @easeOutFunction, height 450ms @easeOutFunction;
+  cursor: pointer;
+  .mu-slider-vertical.active &{
+    width: 20px;
+    height: 20px;
+  }
+  .mu-slider-vertical.zero &,
+  .mu-slider-vertical.disabled &{
+    border: 2px solid @lighterPrimaryColor;
+    color: @lighterPrimaryColor;
+    background-color: @alternateTextColor;
+    .mu-focus-ripple-wrapper {
+      top: -14px;
+      left: -14px;
+    }
+  }
+
+  .mu-slider-vertical.disabled & {
     cursor: default;
   }
 
