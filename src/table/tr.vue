@@ -123,6 +123,9 @@ export default {
     },
     handleCellClick (event, name, td) {
       if (this.$parent.handleCellClick) this.$parent.handleCellClick(event, name, td, this.rowId, this)
+    },
+    handleSort (n, dir) {
+      this.$parent.handleSort(n, dir)
     }
   },
   watch: {

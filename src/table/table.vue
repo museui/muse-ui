@@ -6,7 +6,7 @@
       </table>
     </div>
     <div :style="bodyStyle">
-      <table class="mu-table">
+      <table class="mu-table" :id="tableId">
         <slot v-if="!fixedHeader" name="header"></slot>
         <slot></slot>
         <slot v-if="!fixedFooter" name="footer"></slot>
@@ -21,6 +21,7 @@
 </template>
 
 <script>
+let uuid = 0
 export default {
   name: 'mu-table',
   props: {
@@ -58,7 +59,9 @@ export default {
   },
   data () {
     return {
-      isSelectAll: false
+      isSelectAll: false,
+      tableId: `mu-table-${uuid++}`,
+      unSortedRows: null
     }
   },
   computed: {
@@ -118,6 +121,69 @@ export default {
       for (let i = 0; i < this.$children.length; i++) {
         const childItem = this.$children[i]
         if (childItem.isTbody) return childItem
+      }
+    },
+    getUnsortedRows () {
+      const body = document.getElementById(this.tableId).getElementsByTagName('tbody')[0]
+      const rows = body.getElementsByTagName('tr')
+      this.unSortedRows = []
+      for (var i = 0; i < rows.length; i++) {
+        this.unSortedRows.push(rows[i])
+      }
+    },
+    handleSort (colIndex, dir) {
+      if (this.unSortedRows === null) {
+        this.getUnsortedRows()
+      }
+      const body = document.getElementById(this.tableId).getElementsByTagName('tbody')[0]
+      const rows = body.getElementsByTagName('tr')
+      var isSorting = true
+      var shouldSort = false
+      var sortCount = 0
+
+      if (dir === null) {
+        var l = rows.length
+        var oldRows = []
+        for (var r = 0; r < l; r++) {
+          oldRows.push(body.childNodes[r])
+        }
+        for (var n = 0; n < l; n++) {
+          body.removeChild(oldRows[n])
+        }
+        for (var t = 0; t < l; t++) {
+          body.appendChild(this.unSortedRows[t])
+        }
+      }
+
+      while (isSorting) {
+        isSorting = false
+        for (var i = 0; i < rows.length - 1; i++) {
+          const a = rows[i].cells[colIndex].innerHTML.toLowerCase()
+          const b = rows[i + 1].cells[colIndex].innerHTML.toLowerCase()
+          if (dir === 'asc') {
+            if (a > b) {
+              shouldSort = true
+              break
+            }
+          } else if (dir === 'dsc') {
+            if (b > a) {
+              shouldSort = true
+              break
+            }
+          }
+        }
+        if (shouldSort) {
+          if (rows[i + 1]) {
+            rows[i].parentNode.insertBefore(rows[i + 1], rows[i])
+            isSorting = true
+            sortCount++
+          }
+        } else {
+          if (sortCount === 0 && dir === 'asc') {
+            dir = 'dsc'
+            isSorting = true
+          }
+        }
       }
     }
   },
