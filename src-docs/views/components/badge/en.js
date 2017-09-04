@@ -3,9 +3,9 @@ import description from './README_EN.md'
 export default {
   description,
   simpleExample: 'Simple Example',
-  simpleExampleDesc: 'always used to combined with `menu` and `listItem` components, to define different text and color',
+  simpleExampleDesc: 'always used together with `menu` and `listItem` components, to define different text and color',
   iconAndButton: 'integrate with icon and button',
-  iconAndButtonDesc: 'combined with `icon` and `iconButton` components, always we use the circle badge in this case',
+  iconAndButtonDesc: 'the circle badge is always used when `icon` and `iconButton` components are combined',
   custom: 'define different content',
   props: {
     content: 'body text',

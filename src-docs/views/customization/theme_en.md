@@ -1,6 +1,6 @@
 ### Themes Usage
 
-muse-ui presuppose four themes `light`, `dark`, `carbon`, `teal`, just import them after the component
+muse-ui comes bundeled with four themes `light`, `dark`, `carbon`, `teal`, just import them after the component
 
 ```js
 import Vue from 'vue'
@@ -10,7 +10,7 @@ import 'muse-ui/dist/theme-carbon.css' // use carbon theme
 Vue.use(MuseUI)
 ```
 
-switch the theme dynamically is depend on `raw-loader` of the `webpack`
+Themes can be switched dynamically. To enable dynamic switching conffigure `raw-loader` in `webpack` configuration.
 
 ```html
 <template>
@@ -60,13 +60,12 @@ export default {
 
 ### customize theme
 
-only support the `less` now, the black theme is `dark.less`
+For now only `less` is supported, the black theme is `dark.less`
 
 ```less
 @import "muse-ui/less/vars.less"; // default basic variable
 
 // change defalut basic variable
-
 @primaryColor: @lightBlue700;
 @darkerPrimaryColor: @lightBlue700;
 @lighterPrimaryColor: @grey600;
@@ -108,9 +107,9 @@ only support the `less` now, the black theme is `dark.less`
 
 ```
 
-### About the theme variable
+### Theme variables
 
-the color variable of theme，refer to [material design colors](https://material.google.com/style/color.html#color-text-background-colors)
+Color variables of the themes，refer to [material design colors](https://material.google.com/style/color.html#color-text-background-colors)
 
 ```less
 @fontFamily: Roboto, Lato, sans-serif;  // font

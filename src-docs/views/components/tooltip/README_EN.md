@@ -1,5 +1,5 @@
 ## Tooltip
 
-[tooltip](https://material.google.com/components/tooltips.html) is a hint text, will appear when user hover on the element.
+The [tooltip](https://material.google.com/components/tooltips.html) is a hint text, It will appear when a user hovers on an element.
 
 ### Examples

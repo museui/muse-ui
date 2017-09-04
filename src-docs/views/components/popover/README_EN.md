@@ -1,5 +1,5 @@
 ## Popover
 
-Popover component always coordinate with `menu` component
+The popover component always coordinate with the `menu` component
 
 ### Examples

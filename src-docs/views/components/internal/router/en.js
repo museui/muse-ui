@@ -1,6 +1,6 @@
 export default {
-  to: 'Denotes the target route of the link. After setting the component will be rendered into. When clicked, the value of the to prop will be passed to `router.push()` internally, so the value can be either a string or a location descriptor object.',
-  tag: 'Sometimes we want `<router-link>` to render as another tag, e.g `<li>`. Then we can use tag prop to specify which tag to render to, and it will still listen to click events for navigation.',
+  to: 'The link that will ill be rendered in the target route. When clicked, the value of the to prop will be passed to `router.push()` internally, so the value can be either a string or a location descriptor object.',
+  tag: 'Sometimes we want `<router-link>` to render as another tag, e.g `<li>`. Then we can use the tag prop to specify which tag to render, and it will still listen to click events for navigation.',
   activeClass: 'Configure the active CSS class applied when the link is active. Note the default value can also be configured globally via the `linkActiveClass` router constructor option.',
   event: 'Specify the event(s) that can trigger the link navigation.',
   exact: 'The default active class matching behavior is inclusive match. For example, `<router-link to="/a">` will get this class applied as long as the current path starts with `/a/` or is `/a`.',

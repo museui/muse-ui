@@ -1,5 +1,5 @@
 ## Flat Button
 
-[Flat Button](https://material.google.com/components/buttons.html#buttons-flat-raised-buttons) is used to common usage and decrease the hierarchy of screen, make it more readable.
+The [Flat Button](https://material.google.com/components/buttons.html#buttons-flat-raised-buttons) is used for common usage and decreases the amount of layers on the screen, thus making it more readable.
 
 ### Examples

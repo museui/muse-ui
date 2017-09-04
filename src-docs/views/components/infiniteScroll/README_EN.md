@@ -1,5 +1,5 @@
 ## Infinite Scroll
 
-infinite scroll component, it will emit a `load` event when you scroll to the bottom.
+The infinite scroll component will emit a `load` event when you scroll to the bottom of the view port.
 
 ### Examples

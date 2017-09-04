@@ -1,5 +1,5 @@
 ## Bottom Navigation
 
-[bottom navigation](https://material.google.com/components/bottom-navigation.html#bottom-navigation-behavior) A navigation component where placed in bottom of window.
+The [bottom navigation](https://material.google.com/components/bottom-navigation.html#bottom-navigation-behavior) component is placed at the bottom of the view port.
 
 ### Examples

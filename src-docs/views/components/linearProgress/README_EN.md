@@ -1,5 +1,5 @@
 ## Linear Progress
 
-[Linear Progress](https://material.google.com/components/progress-activity.html#progress-activity-types-of-indicators) is should be show with the range from  0％ to 100％, must not be opposite. If you have more operations in progress in one queue, use a progress indicator to show the waiting time totally, thus when the indicator is reach to 100&, it will not return to 0% and starting again.
+The [linear progress](https://material.google.com/components/progress-activity.html#progress-activity-types-of-indicators) indicator should always be displayed from 0% to 100%, never from high to low. If there is a number of ongoing operations in a queue, use a progress indicator to indicate the time required for the whole. This way, when the indicator reaches 100%, it will not return to 0% and then start again.
 
 ### Examples

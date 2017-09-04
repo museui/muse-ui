@@ -1,9 +1,9 @@
 ## Snackbar & Toast
 
-[Snackbar & Toast](https://material.google.com/components/snackbars-toasts.html) Snackbar is a feedback mechanism which is lightweight, always to represent with a small pop up box, and appear in the bottom of mobile screen or desktop. They can have the largest z-index.
+[Snackbar & Toast](https://material.google.com/components/snackbars-toasts.html) are a feedback mechanism which is lightweight, always displaying a small pop up box, and appear in the bottom of mobile screen or desktop. They have the biggest z-index.
 
-They will disappear automatically when they are time out or user click other position of screen. When they are appearing, it should not influence the user`s operation, and also not support the input. One page should be only one snack bar.
+They will disappear automatically when they time out or a user click on other screen positions. When they are appearing, it should not influence the user's operation, and also not hide inputs. One page should have only one snack bar.
 
-Toast is similar with  Snackbar, but Toast don`t include any operations.
+The toast component is similar to the Snackbar one, but the toast component dones not include any action.
 
 ### Examples

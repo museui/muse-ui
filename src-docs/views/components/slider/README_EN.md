@@ -1,5 +1,5 @@
 ## Slider
 
-[slider](https://material.google.com/components/sliders.html), 滑块控件(Sliders，简称滑块)可以让我们通过在连续或间断的区间内滑动锚点来选择一个合适的数值。区间最小值放在左边，对应的，最大值放在右边。滑块(Sliders)可以在滑动条的左右两端设定图标来反映数值的强度。这种交互特性使得它在设置诸如音量、亮度、色彩饱和度等需要反映强度等级的选项时成为一种极好的选择。
+The [slider](https://material.google.com/components/sliders.html) controls allow us to select an appropriate value by sliding the anchor point in a continuous or discontinuous interval. The minimum is placed on the left, accordingly the maximum value is on the right. Sliders can set icons at the left and right ends of the slider to reflect the strength of the values. This interactive feature makes it an excellent choice when setting options such as volume, brightness, color saturation, etc. that need to reflect the intensity level.
 
 ### Examples

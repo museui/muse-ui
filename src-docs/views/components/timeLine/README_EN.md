@@ -1,6 +1,6 @@
 ## Timeline
 
-Timeline displays information in chronological order
+The timeline displays information in chronological order
 
 `mu-timeline-item` and `mu-timeline` must be used together!
 
