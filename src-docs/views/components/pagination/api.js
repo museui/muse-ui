@@ -6,7 +6,7 @@ export default {
   }, {
     name: 'total',
     type: 'Number',
-    default: '0',
+    default: '1',
     desc: 'props.total'
   }, {
     name: 'pageSize',

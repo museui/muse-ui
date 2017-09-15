@@ -36,7 +36,8 @@ export default{
   props: {
     total: {
       type: Number,
-      default: 1
+      default: 1,
+      validator: value => value >= 1
     },
     current: {
       type: Number,

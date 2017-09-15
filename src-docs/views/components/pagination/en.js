@@ -7,7 +7,7 @@ export default {
   pageSizeExample: 'change the size of page example',
   props: {
     current: 'current page',
-    total: 'total data',
+    total: 'total data, this value should not be 0',
     pageSize: 'page size, perfer to use the pageSizeOption when the pageSizeOption is also configured and the showSizeChanger is true',
     defaultPageSize: 'default size of page, only active when pageSize is undefine and the showSizeChanger is false',
     showSizeChanger: 'whether it should be show the `pageSize` selection box',
