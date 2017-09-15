@@ -24,6 +24,7 @@
       <mu-list-item :title="$t('getStarted')" toggleNested>
         <mu-list-item value="#/install" slot="nested" :title="$t('installation')"/>
         <mu-list-item value="#/usage" slot="nested" :title="$t('usage')"/>
+        <mu-list-item value="#/faq" slot="nested" :title="$t('faq')"/>
       </mu-list-item>
       <mu-list-item :title="$t('customization')" toggleNested>
         <mu-list-item slot="nested" value="#/theme" :title="$t('theme')"/>
@@ -31,6 +32,7 @@
       </mu-list-item>
 
       <mu-list-item :title="$t('component')" toggleNested>
+        <mu-list-item slot="nested" value="#/layout" title="Layout"/>
         <mu-sub-header slot="nested" class="exmaples-nav-sub-header">Material Design</mu-sub-header>
         <mu-list-item slot="nested" value="#/appbar" title="App Bar"/>
         <mu-list-item slot="nested" value="#/autoComplete" title="Auto Complete"/>
@@ -78,8 +80,11 @@
         <mu-list-item slot="nested" value="#/tabs" title="Tabs"/>
         <mu-list-item slot="nested" value="#/textField" title="Text Field"/>
         <mu-list-item slot="nested" value="#/timePicker" title="Time Picker"/>
+        <mu-list-item slot="nested" value="#/timeline" title="Timeline"/>
         <mu-list-item slot="nested" value="#/tooltip" title="Tooltip"/>
         <mu-sub-header slot="nested" class="exmaples-nav-sub-header">Others</mu-sub-header>
+        <mu-list-item slot="nested" value="#/backTop" title="BackTop"/>
+        <mu-list-item slot="nested" value="#/breadcrumb" title="Breadcrumb"/>
         <mu-list-item slot="nested" value="#/contentBlock" title="Content Block"/>
         <mu-list-item slot="nested" value="#/flexbox" title="Flex Box"/>
         <mu-list-item slot="nested" value="#/grid" title="Grid"/>

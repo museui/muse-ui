@@ -8,6 +8,7 @@ Vue.config.lang = getUrlParam('lang') || window.localStorage.getItem('lang') || 
 Vue.locale('zh', {
   install: '快速开始-安装',
   usage: '快速开始-使用',
+  faq: '常见问题解答',
   changeLog: '更新日志',
   contributing: '贡献指南',
   colors: '颜色',
@@ -16,6 +17,8 @@ Vue.locale('zh', {
   autoComplete: '组件-AutoComplete',
   avatar: '组件-Avatar',
   badge: '组件-Badge',
+  backTop: '组件-BackTop',
+  breadcrumb: '组件-Breadcrumb',
   bottomNav: '组件-BottomNavigation',
   bottomSheet: '组件-BottomSheet',
   flatButton: '组件-FlatButton',
@@ -49,6 +52,7 @@ Vue.locale('zh', {
   table: '组件-Table',
   tabs: '组件-Tabs',
   textField: '组件-TextField',
+  timeline: '组件-Timeline',
   timePicker: '组件-TimePicker',
   tooltip: '组件-Tooltip',
   contentBlock: '组件-ContentBlock',
@@ -64,6 +68,7 @@ Vue.locale('zh', {
 Vue.locale('en', {
   install: 'Installation',
   usage: 'Usage',
+  faq: 'FAQ',
   changeLog: 'ChangeLog',
   contributing: 'Contributing',
   colors: 'Colors',

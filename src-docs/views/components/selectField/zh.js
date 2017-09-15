@@ -30,7 +30,8 @@ export default {
     underlineFocusClass: '输入框获取焦点时底部横线样式, 同 `class` 绑定方式一致',
     dropDownIconClass: '下拉图标样式, 同 `class` 绑定方式一致',
     value: '下拉框的值，可不设置此参数，使用 `v-model` 指令代替',
-    scroller: '滚动的元素，会监听它的 `scroll` 事件, 在滚动时会不断更新弹出框的位置'
+    scroller: '滚动的元素，会监听它的 `scroll` 事件, 在滚动时会不断更新弹出框的位置',
+    separator: '分隔符'
   },
   slots: {
     default: '用来放置`menuItem` 、 `subHeader` 、 `divider` 等组件'

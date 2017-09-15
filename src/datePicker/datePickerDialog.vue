@@ -79,6 +79,12 @@ export default {
       this.open = false
       this.$emit('dismiss')
     },
+    handleMonthChange (date) {
+      this.$emit('monthChange', date)
+    },
+    handleYearChange (date) {
+      this.$emit('yearChange', date)
+    },
     hideCanlendar () {
       this.showCalendar = false
     }
@@ -105,7 +111,9 @@ export default {
       },
       on: {
         accept: this.handleAccept,
-        dismiss: this.handleDismiss
+        dismiss: this.handleDismiss,
+        monthChange: this.handleMonthChange,
+        yearChange: this.handleYearChange
       }
     }) : ''
     return h('div', {

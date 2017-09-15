@@ -112,12 +112,15 @@ export default {
     handleMonthChange (val) {
       const displayDate = dateUtils.addMonths(this.displayDates[0], val)
       this.changeDislayDate(displayDate)
+      this.$emit('monthChange', displayDate)
     },
     handleYearChange (year) {
       if (this.selectedDate.getFullYear() === year) return
       let date = dateUtils.cloneAsDate(this.selectedDate)
       date.setFullYear(year)
       this.setSelected(date)
+      this.selectMonth()
+      this.$emit('yearChange', date)
     },
     handleSelected (date) {
       this.setSelected(date)
@@ -280,11 +283,8 @@ export default {
 }
 
 .mu-calendar-monthday-slide{
-  position: absolute;
   height: 100%;
   width: 100%;
-  top: 0px;
-  left: 0px;
 }
 
 .mu-calendar-actions{
@@ -305,6 +305,10 @@ export default {
 .mu-calendar-slide-prev-leave-active {
   transition: transform 450ms @easeOutFunction, opacity 450ms @easeOutFunction;
   backface-visibility: hidden;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
 }
 
 .mu-calendar-slide-next-enter {

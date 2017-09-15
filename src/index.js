@@ -1,8 +1,9 @@
 import './styles/base.less'
-import Vue from 'vue'
 import {retina} from './utils'
 import icon from './icon'
+import backTop from './backTop'
 import badge from './badge'
+import * as breadCrumb from './breadCrumb'
 import appBar from './appBar'
 import iconButton from './iconButton'
 import flatButton from './flatButton'
@@ -49,6 +50,7 @@ import timePicker from './timePicker'
 import * as stepper from './stepper'
 import autoComplete from './autoComplete'
 import pagination from './pagination'
+import * as timeLine from './timeLine'
 
 import * as grid from './grid'
 
@@ -56,7 +58,9 @@ import * as flexbox from './flexbox'
 import config from './config'
 const components = {
   icon,
+  backTop,
   badge,
+  ...breadCrumb,
   appBar,
   iconButton,
   flatButton,
@@ -93,6 +97,7 @@ const components = {
   radio,
   _switch,
   slider,
+  ...timeLine,
   linearProgress,
   circularProgress,
   ...gridList,
@@ -106,7 +111,7 @@ const components = {
   pagination
 }
 
-const install = function () {
+const install = function (Vue) {
   Object.keys(components).forEach((key) => {
     Vue.component(components[key].name, components[key])
   })

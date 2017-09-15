@@ -51,33 +51,42 @@ export default {
     bindClickOutSide () {
       if (!this._handleClickOutSide) {
         this._handleClickOutSide = (e) => {
-          if (this.popupEl.contains(e.target)) return
-          this.clickOutSide(e)
+          const popupEl = this.popupEl()
+          if (!popupEl || !popupEl.contains(e.target)) this.clickOutSide(e)
         }
       }
       setTimeout(() => {
-        document.addEventListener('click', this._handleClickOutSide)
+        window.addEventListener('click', this._handleClickOutSide)
       }, 0)
     },
     unBindClickOutSide () {
-      document.removeEventListener('click', this._handleClickOutSide)
+      window.removeEventListener('click', this._handleClickOutSide)
     },
     resetZIndex () {
       this.overlayZIndex = getZIndex()
       this.zIndex = getZIndex()
+    },
+    popupEl () {
+      return this.appendBody ? this.$refs.popup : this.$el
+    },
+    appendPopupElToBody () {
+      if (!this.appendBody) return
+      this.$nextTick(() => {
+        const popupEl = this.popupEl()
+        if (!popupEl) {
+          console.warn('必须有一个 ref=‘popup’ 的元素')
+          return
+        }
+        document.body.appendChild(popupEl)
+      })
     }
   },
   mounted () {
-    this.popupEl = this.appendBody ? this.$refs.popup : this.$el
     if (this.open) {
       PopupManager.open(this)
       this.bindClickOutSide()
+      this.appendPopupElToBody()
     }
-    if (!this.popupEl && this.appendBody) {
-      console.warn('必须有一个 ref=‘popup’ 的元素')
-      return
-    }
-    if (this.appendBody) document.body.appendChild(this.popupEl)
   },
   updated () {
     if (!this.overlay) {
@@ -87,7 +96,11 @@ export default {
   beforeDestroy () {
     PopupManager.close(this)
     this.unBindClickOutSide()
-    if (this.appendBody && this.popupEl) document.body.removeChild(this.popupEl)
+    if (this.appendBody) {
+      const popupEl = this.popupEl()
+      if (!popupEl) return
+      document.body.removeChild(popupEl)
+    }
   },
   watch: {
     open (val, oldVal) {
@@ -96,6 +109,7 @@ export default {
         this.bindClickOutSide()
         this.resetZIndex()
         PopupManager.open(this)
+        this.appendPopupElToBody()
       } else {
         this.unBindClickOutSide()
         PopupManager.close(this)

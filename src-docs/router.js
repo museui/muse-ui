@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Index from './views'
 import Install from './views/get-stared/install'
 import Usage from './views/get-stared/usage'
+import Faq from './views/get-stared/faq'
 import ChangeLog from './views/more/changeLog'
 import Contributing from './views/more/contributing'
 import Colors from './views/customization/colors'
@@ -10,6 +11,8 @@ import Theme from './views/customization/theme'
 import AppBar from './views/components/appbar'
 import AutoComplete from './views/components/autoComplete'
 import Avatar from './views/components/avatar'
+import BackTop from './views/components/backTop'
+import Breadcrumb from './views/components/breadcrumb'
 import Badge from './views/components/badge'
 import BottomNav from './views/components/bottomNav'
 import BottomSheet from './views/components/bottomSheet'
@@ -44,6 +47,7 @@ import SubHeader from './views/components/subHeader'
 import Table from './views/components/table'
 import Tabs from './views/components/tabs'
 import TextField from './views/components/textField'
+import Timeline from './views/components/timeline'
 import TimePicker from './views/components/timePicker'
 import Tooltip from './views/components/tooltip'
 import ContentBlock from './views/components/contentBlock'
@@ -54,6 +58,7 @@ import Picker from './views/components/picker'
 import Popup from './views/components/popup'
 import RefreshControl from './views/components/refreshControl'
 import Pagination from './views/components/pagination'
+import Layout from './views/components/layout'
 Vue.use(Router)
 
 const router = new Router({
@@ -69,9 +74,12 @@ const router = new Router({
     { path: '/appbar', component: AppBar },
     { path: '/autoComplete', component: AutoComplete },
     { path: '/avatar', component: Avatar },
+    { path: '/backTop', component: BackTop },
     { path: '/badge', component: Badge },
     { path: '/bottomNav', component: BottomNav },
     { path: '/bottomSheet', component: BottomSheet },
+    { path: '/breadcrumb', component: Breadcrumb },
+    { path: '/faq', component: Faq },
     { path: '/flatButton', component: FlatButton },
     { path: '/raisedButton', component: RaisedButton },
     { path: '/iconButton', component: IconButton },
@@ -104,6 +112,7 @@ const router = new Router({
     { path: '/tabs', component: Tabs },
     { path: '/textField', component: TextField },
     { path: '/timePicker', component: TimePicker },
+    { path: '/timeline', component: Timeline },
     { path: '/tooltip', component: Tooltip },
     { path: '/contentBlock', component: ContentBlock },
     { path: '/flexbox', component: Flexbox },
@@ -113,6 +122,7 @@ const router = new Router({
     { path: '/picker', component: Picker },
     { path: '/popup', component: Popup },
     { path: '/refreshControl', component: RefreshControl },
+    { path: '/layout', component: Layout },
     { path: '*', redirect: '/index' }
   ]
 })

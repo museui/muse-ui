@@ -9,7 +9,8 @@
   <dropDown-menu :anchorEl="anchorEl" :scroller="scroller" @open="handleOpen"
     @close="handleClose"  @change="handlehange" :value="inputValue" :disabled="disabled"
     :maxHeight="maxHeight" :autoWidth="autoWidth" :iconClass="dropDownIconClass"
-    :multiple="multiple" :anchorOrigin="{vertical: 'bottom', horizontal: 'left'}">
+    :multiple="multiple" :anchorOrigin="{vertical: 'bottom', horizontal: 'left'}"
+    :separator="separator">
     <slot></slot>
   </dropDown-menu>
 </text-field>
@@ -95,7 +96,11 @@ export default {
       type: Boolean,
       default: false
     },
-    scroller: {}
+    scroller: {},
+    separator: {
+      type: String,
+      default: ','
+    }
   },
   data () {
     let defaultVal = this.value

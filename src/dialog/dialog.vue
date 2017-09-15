@@ -1,14 +1,14 @@
 <template>
   <span>
     <transition name="mu-dialog-slide" @after-enter="show()" @after-leave="hide()">
-      <div class="mu-dialog-wrapper" @click="handleWrapperClick" v-show="open" ref="popup" :style="{'z-index': zIndex}">
-        <div class="mu-dialog" :class="dialogClass">
+      <div class="mu-dialog-wrapper" @click="handleWrapperClick" v-if="open" ref="popup" :style="{'z-index': zIndex}">
+        <div class="mu-dialog" ref="dialog" :class="dialogClass">
           <h3 class="mu-dialog-title" v-if="showTitle" ref="title" :class="headerClass">
             <slot name="title">
               {{title}}
             </slot>
           </h3>
-          <div class="mu-dialog-body " :style="bodyStyle" :class="bodyClass">
+          <div class="mu-dialog-body " :style="bodyStyle" :class="bodyClass" ref="elBody">
             <slot></slot>
           </div>
           <div class="mu-dialog-actions" v-if="showFooter" ref="footer" :class="footerClass">
@@ -53,8 +53,7 @@ export default {
       return {
         'overflow-x': 'hidden',
         'overflow-y': this.scrollable ? 'auto' : 'hidden',
-        '-webkit-overflow-scrolling': 'touch',
-        'max-height': this.scrollable ? this.maxDialogContentHeight + 'px' : 'none'
+        '-webkit-overflow-scrolling': 'touch'
       }
     },
     showTitle () {
@@ -76,18 +75,13 @@ export default {
       return classNames.concat(convertClass(this.actionsContainerClass))
     }
   },
-  data () {
-    return {
-      maxDialogContentHeight: null
-    }
-  },
   mounted () {
     this.setMaxDialogContentHeight()
   },
   updated () {
-    setTimeout(() => {
+    this.$nextTick(() => {
       this.setMaxDialogContentHeight()
-    }, 0)
+    })
   },
   methods: {
     handleWrapperClick (e) {
@@ -95,16 +89,38 @@ export default {
       if (wrapperEl === e.target) PopupManager.handleOverlayClick()
     },
     setMaxDialogContentHeight () {
+      const dialogEl = this.$refs.dialog
+      if (!dialogEl) return
+      if (!this.scrollable) {
+        dialogEl.style.maxHeight = ''
+        return
+      }
+
       let maxDialogContentHeight = window.innerHeight - 2 * 64
-      if (this.$refs.footer) maxDialogContentHeight -= this.$refs.footer.offsetHeight
-      if (this.title) maxDialogContentHeight -= this.$refs.title.offsetHeight
-      this.maxDialogContentHeight = maxDialogContentHeight
+      const { footer, title, elBody } = this.$refs
+      if (footer) maxDialogContentHeight -= footer.offsetHeight
+      if (title) maxDialogContentHeight -= title.offsetHeight
+      if (elBody) {
+        let maxBodyHeight = maxDialogContentHeight
+        if (footer) maxBodyHeight -= footer.offsetHeight
+        if (title) maxBodyHeight -= title.offsetHeight
+        elBody.style.maxHeight = maxBodyHeight + 'px'
+      }
+      dialogEl.style.maxHeight = maxDialogContentHeight + 'px'
     },
     show () {
       this.$emit('show')
     },
     hide () {
       this.$emit('hide')
+    }
+  },
+  watch: {
+    open (newValue) {
+      if (!newValue) return
+      this.$nextTick(() => {
+        this.setMaxDialogContentHeight()
+      })
     }
   }
 }
