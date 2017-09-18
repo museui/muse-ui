@@ -1,5 +1,5 @@
 <template>
-<button class="mu-year-button" @click="handleClick" @mouseenter="handleHover" @mouseleave="handleHoverExit" :class="{'selected': selected, 'hover': hover}">
+<button class="mu-year-button" @click.stop="handleClick" @mouseenter="handleHover" @mouseleave="handleHoverExit" :class="{'selected': selected, 'hover': hover}">
   <span class="mu-year-button-text">{{year}}</span>
 </button>
 </template>
