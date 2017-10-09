@@ -41,7 +41,8 @@ export default{
     },
     current: {
       type: Number,
-      default: 1
+      default: 1,
+      validator: value => value >= 1
     },
     defaultPageSize: {
       type: Number,
@@ -75,8 +76,6 @@ export default{
     }
   },
   mounted () {
-    this.iconIsDisabled(this.actualCurrent)
-
     // 优先使用pageSizeOption,如果props配置了默认值，那么该props无论在父组件
     // 中是否配置该值都不会为undefined,所以需要使用showSizeChanger来做这个判断
     // 才对
@@ -88,6 +87,8 @@ export default{
 
     this.totalPageCount = Math.ceil(this.total / this.actualPageSize)
     this.pageList = this.calcPageList(this.actualCurrent)
+
+    this.iconIsDisabled(this.actualCurrent)
   },
   methods: {
     handleClick (res) {
