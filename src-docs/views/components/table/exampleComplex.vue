@@ -5,9 +5,9 @@
     :selectable="selectable" :showCheckbox="showCheckbox">
     <mu-thead slot="header">
       <mu-tr>
-        <mu-th tooltip="ID">ID</mu-th>
-        <mu-th tooltip="名称">Name</mu-th>
-        <mu-th tooltip="状态">Status</mu-th>
+        <mu-th tooltip="ID" :sortable="sort">ID</mu-th>
+        <mu-th tooltip="名称" :sortable="sort">Name</mu-th>
+        <mu-th tooltip="状态" :sortable="sort">Status</mu-th>
       </mu-tr>
     </mu-thead>
     <mu-tbody>
@@ -34,6 +34,7 @@
     <mu-switch labelLeft label="可以多选" v-model="multiSelectable"/><br/>
     <mu-switch labelLeft label="可以选择全部" v-model="enableSelectAll"/><br/>
     <mu-switch labelLeft label="显示复选框" v-model="showCheckbox"/><br/>
+    <mu-switch labelLeft label="排序 / Sortable" v-model="sort"/><br/>
   </div>
 </div>
 </template>
@@ -80,7 +81,8 @@ export default {
       multiSelectable: true,
       enableSelectAll: false,
       showCheckbox: true,
-      height: '300px'
+      height: '300px',
+      sort: false
     }
   }
 }

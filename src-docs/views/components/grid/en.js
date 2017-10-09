@@ -3,10 +3,10 @@ import description from './README_EN.md'
 export default {
   description,
   simpleExample: 'Simple Example',
-  simpleExampleDesc: '`width` is means the width of mobile, `tablet` is means the width of tablet, `desktop` is means the width of PC',
+  simpleExampleDesc: '`width` means the width of mobile, `tablet` means the width of tablet, `desktop` means the width of PC',
   row: {
     props: {
-      gutter: 'whether the `col`s have the distance between them'
+      gutter: 'whether the `col`s have space between them'
     },
     slots: {
       default: 'is used to place the `col` component'

@@ -30,6 +30,9 @@ export default {
     },
     unSelectAll () {
       this.$parent.unSelectAll()
+    },
+    handleSort (colIndex, dir) {
+      this.$parent.handleSort(colIndex, dir)
     }
   }
 }

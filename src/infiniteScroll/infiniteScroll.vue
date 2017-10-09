@@ -19,11 +19,15 @@ export default {
     loadingText: {
       type: String,
       default: '正在加载。。。'
+    },
+    isLoaded: {
+      type: Boolean,
+      default: false
     }
   },
   methods: {
     onScroll () {
-      if (this.loading) return
+      if (this.loading || this.isLoaded) return
       const scroller = this.scroller
       const isWindow = scroller === window
       const scrollTop = isWindow ? scroller.scrollY : scroller.scrollTop

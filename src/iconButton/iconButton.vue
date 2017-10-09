@@ -56,6 +56,11 @@ export default {
       default: false
     }
   },
+  watch: {
+    disabled () {
+      this.tooltipShown && (this.tooltipShown = false)
+    }
+  },
   computed: {
     verticalPosition () {
       const tooltipPosition = this.tooltipPosition.split('-')

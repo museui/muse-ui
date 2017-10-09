@@ -125,6 +125,11 @@ export default {
       type: 'Boolean',
       default: 'false',
       desc: 'th.props.touch'
+    }, {
+      name: 'sortable',
+      type: 'Boolean',
+      default: 'false',
+      desc: 'if the column should be sortable or not'
     }],
     slots: [{
       name: 'default',

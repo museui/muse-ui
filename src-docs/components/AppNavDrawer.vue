@@ -80,7 +80,6 @@
         <mu-list-item slot="nested" value="#/tabs" title="Tabs"/>
         <mu-list-item slot="nested" value="#/textField" title="Text Field"/>
         <mu-list-item slot="nested" value="#/timePicker" title="Time Picker"/>
-        <mu-list-item slot="nested" value="#/timeline" title="Timeline"/>
         <mu-list-item slot="nested" value="#/tooltip" title="Tooltip"/>
         <mu-sub-header slot="nested" class="exmaples-nav-sub-header">Others</mu-sub-header>
         <mu-list-item slot="nested" value="#/backTop" title="BackTop"/>
@@ -93,6 +92,7 @@
         <mu-list-item slot="nested" value="#/picker" title="Picker"/>
         <mu-list-item slot="nested" value="#/popup" title="Popup"/>
         <mu-list-item slot="nested" value="#/refreshControl" title="Refresh Control"/>
+        <mu-list-item slot="nested" value="#/timeline" title="Timeline"/>
       </mu-list-item>
       <mu-list-item :title="$t('more')" toggleNested>
         <mu-list-item slot="nested" :title="$t('changeLog')" value="#/changeLog"/>
