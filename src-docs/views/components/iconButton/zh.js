@@ -10,6 +10,8 @@ export default {
   props: {
     icon: '按钮上的图标',
     iconClass: '图标的样式',
+    primary: '颜色是否为主色',
+    secondary: '颜色是否为强调色',
     disabled: '按钮是否不可用',
     type: '相当于button元素的type属性',
     href: '相当于 a 标签的 href属性，设置之后会渲染成 a 标签，默认是使用button标签',

@@ -12,6 +12,16 @@ export default {
     default: '',
     desc: 'props.iconClass'
   }, {
+    name: 'primary',
+    type: 'Boolean',
+    default: 'false',
+    desc: 'props.primary'
+  }, {
+    name: 'secondary',
+    type: 'Boolean',
+    default: 'false',
+    desc: 'props.secondary'
+  }, {
     name: 'disabled',
     type: 'Boolean',
     default: 'false',

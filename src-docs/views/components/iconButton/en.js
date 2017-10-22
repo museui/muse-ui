@@ -4,12 +4,14 @@ import description from './README_EN.md'
 export default {
   description,
   simpleExample: 'Simple Example',
-  simpleExampleDesc: 'assign the icon by `icon` or `slot` parameter',
+  simpleExampleDesc: 'Assign the icon by `icon` or `slot` parameter. Showing the four `Icon Button`s - default, primary, secondary and disabled',
   tooltipExample: 'hint about the button',
   tooltipExampleDesc: 'hint text on the different position and type, just do it with you mouse',
   props: {
     icon: 'icon above on the button',
     iconClass: 'style of icon, the binding way is same with `class`',
+    primary: 'primary color',
+    secondary: 'secondary color',
     disabled: 'disabled or not',
     type: 'is same with the `type` attribute of `button` element',
     href: 'is same with the `href` attribute of `a` element, if you had set this parameter, it will render to `a` tag, default to use the `button` tag',
