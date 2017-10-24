@@ -21,7 +21,7 @@ export default {
     targetOrigin: 'the position of target',
     scroller: 'scrollable element, it wil listen to its `scroll` event, and update the position of popup box continually when scrolling.',
     tooltip: 'tooltip',
-    tooltipPosition: 'the positon of hint text, [horizon]-[vertical]，vertical: top，middle, bottom; horizon: left, center, right',
+    tooltipPosition: 'the positon of hint text, [horizon]-[vertical], vertical: top, middle, bottom; horizon: left, center, right',
     value: 'the menu will be selectable after this parameter is set, the menu item will selected when the current value is equal to the value of menu item'
   },
   slots: {

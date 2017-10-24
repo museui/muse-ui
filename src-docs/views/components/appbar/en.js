@@ -12,6 +12,6 @@ export default {
   slots: {
     left: 'used to distribute the left content of appbar',
     right: 'used to distribute the right content of appbar',
-    default: 'used to distribute the middle content of appbar，when you set this slot, the title parameter is not effective'
+    default: 'used to distribute the middle content of appbar, when you set this slot, the title parameter is not effective'
   }
 }

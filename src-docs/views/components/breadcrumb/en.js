@@ -5,7 +5,7 @@ export default {
   simpleExample: 'Simple example',
   simpleExampleDesc: 'Default',
   defineExample: 'integrate with icon',
-  defineExampleDesc: 'integrate with icon，you also use customized content!',
+  defineExampleDesc: 'integrate with icon, you also use customized content!',
   breadcrumb: {
     props: {
       separator: ' Customized separator'

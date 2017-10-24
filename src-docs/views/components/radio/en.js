@@ -3,7 +3,7 @@ import description from './README_EN.md'
 export default {
   description,
   simpleExample: 'Simple Example',
-  simpleExampleDesc: '`radio` 组件的属性和checkbox一致，并且都可以通过 `v-model` 控制value',
+  simpleExampleDesc: '`radio` 组件的属性和checkbox一致, 并且都可以通过 `v-model` 控制value',
   props: {
     name: 'is equal to the name attribute of `input[type=radio]` element',
     nativeValue: 'is equal to the name attribute of `input[type=radio]` element',

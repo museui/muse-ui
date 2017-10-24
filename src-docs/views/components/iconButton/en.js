@@ -15,7 +15,7 @@ export default {
     href: 'is same with the `href` attribute of `a` element, if you had set this parameter, it will render to `a` tag, default to use the `button` tag',
     target: 'is same with the `target` attribute of `a` element',
     tooltip: 'the hint text when your mouse hover on it',
-    tooltipPosition: 'the positon of hint text, [horizon]-[vertical]，vertical: top，middle, bottom; horizon: left, center, right',
+    tooltipPosition: 'the positon of hint text, [horizon]-[vertical], vertical: top, middle, bottom; horizon: left, center, right',
     touch: 'whether it is a touch style, often we use this attibute on the mobile, and the tooltip box is more larger'
   },
   slots: {

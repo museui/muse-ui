@@ -9,7 +9,7 @@ export default {
     width: 'width of drawer',
     zDepth: 'the depth of shadow',
     open: 'open it or not',
-    docked: 'whether it is a fixed drawer，default to`true`，thus the overlay is hidden and will not emit the `close` event',
+    docked: 'whether it is a fixed drawer, default to`true`, thus the overlay is hidden and will not emit the `close` event',
     right: 'whether popup from the right side'
   },
   events: {

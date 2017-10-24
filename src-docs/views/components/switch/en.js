@@ -3,7 +3,7 @@ import description from './README_EN.md'
 export default {
   description,
   simpleExample: 'Simple Example',
-  simpleExampleDesc: '此组件亦可以使用 `v-model` 控制，`labelPosition` 控制文字的位置',
+  simpleExampleDesc: '此组件亦可以使用 `v-model` 控制, `labelPosition` 控制文字的位置',
   props: {
     label: 'label',
     labelLeft: 'whether the lable text is on the right or not, default to right side.',

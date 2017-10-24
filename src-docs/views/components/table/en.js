@@ -59,7 +59,7 @@ export default {
   th: {
     props: {
       tooltip: 'tooltip text',
-      tooltipPosition: 'position of hint, [vertical]-[horizontal]vertical: top，middle, bottom; horizontal: left, center, right',
+      tooltipPosition: 'position of hint, [vertical]-[horizontal]vertical: top, middle, bottom; horizontal: left, center, right',
       touch: 'whether it is a touch style, often we use this attibute on the mobile, and the tooltip box is more larger'
     },
     slots: {

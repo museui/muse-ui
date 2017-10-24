@@ -1,6 +1,6 @@
 ## Usage
 
-Muse-UI can be loading all with the `Vue.use()` method as same as the other vue plugin, also we can use the `webpack` to loading the single component.
+Muse-UI can be fully loaded with the `Vue.use()` method in the same way as other Vue plugins, or we can use `webpack` to load individual components.
 
 ### Loading All
 

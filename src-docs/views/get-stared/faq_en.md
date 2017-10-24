@@ -52,7 +52,7 @@ webpack2
 }
 ```
 
-#### Step 2:  Import it in `main.js` 
+#### Step 2:  Import it in `main.js`
 
 ```javascript
 import Vue from 'vue'
@@ -81,21 +81,21 @@ Vue.component(avatar.name, avatar)
 <br/><br/>
 ### Font and Icon
 
-Muse UI use [Roboto Font](https://fonts.google.com/specimen/Roboto) 和 [Materials Icon](https://github.com/google/material-design-icons)
+Muse UI uses the [Roboto Font](https://fonts.google.com/specimen/Roboto) with [Material Icons](https://github.com/google/material-design-icons).
 
-This is a example that the official website show
+This is the example shown on the official website:
 ```html
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 ```
-But your network may not be very good, you can download it to use!
+However, your network might not be very good, so you can also download it to use it!
 
 * https://fonts.google.com/specimen/Roboto
 * https://github.com/google/material-design-icons
 
 <br/><br/>
 ### Use other fonts or icons
-Muse UI recommend using `Material Icon`, if you want to use others，you can do this, ':' + `className`, as follows:
+Muse UI recommend using `Material Icons`, but if you want to use others, you can do this, ':' + `className`, as follows:
 
 ```html
 <mu-icon value=":fa fa-user"/>
@@ -103,16 +103,16 @@ Muse UI recommend using `Material Icon`, if you want to use others，you can do 
 ```
 
 <br/><br/>
-### IE  can't display Material Icons [issue#512](https://github.com/museui/muse-ui/issues/512)
+### IE can't display Material Icons [issue#512](https://github.com/museui/muse-ui/issues/512)
 #### Reason:
 
-**The result from css styles!**
+**This is caused by CSS styles.**
 
 If you do this:
 ```html
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 ```
-In fact, the css that is returned lacks of supporting IE!
+IE doesn't support the CSS returned.
 ```css
 /* fallback */
 @font-face {
@@ -141,7 +141,7 @@ In fact, the css that is returned lacks of supporting IE!
 
 #### Solution
 
-Download it to local!
+Download it locally!
 
 Refering to [Material Icons Guide](http://google.github.io/material-design-icons/#setup-method-2-self-hosting)
 
@@ -151,7 +151,7 @@ The address of Material Icons: [Material Icons 3.0.1](https://github.com/google/
 
 2. Unzip
 
-copy them to your `static`:
+Copy them to your `static`:
  - material-icons.css
  - MaterialIcons-Regular.eot
  - MaterialIcons-Regular.ijmap
@@ -207,4 +207,4 @@ material-icons.css:
 <link rel="stylesheet" href="static/fonts/material-icons/material-icons.css">
 ```
 
-The icon shows!
+The icons should now show!
