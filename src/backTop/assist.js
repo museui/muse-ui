@@ -1,6 +1,12 @@
 export const backTop = (durations, callback = undefined) => {
-  const dom = document.getElementsByTagName('body')[0]
+  let dom
+  if (document.documentElement.scrollTop) {
+    dom = document.documentElement
+  } else {
+    dom = document.body
+  }
   const scrollTop = dom.scrollTop
+
   for (var i = 60; i >= 0; i--) {
     setTimeout((i => {
       return () => {
