@@ -88,6 +88,7 @@ export default {
   left: auto;
   transform: translate3d(0, -50%, 0);
 }
+
 .mu-popup-bottom {
   top: auto;
   right: auto;
