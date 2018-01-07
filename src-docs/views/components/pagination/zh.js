@@ -7,7 +7,7 @@ export default {
   pageSizeExample: '改变每页显示条目数',
   props: {
     current: '当前页数',
-    total: '数据总数',
+    total: '数据总数,该值必须大于等于1',
     pageSize: '每页条数, 当同时配置pageSizeOptions的时候并且showSizeChanger为true的时候，优先使用pageSizeOptions，否则将会使用该参数',
     defaultPageSize: '默认的每页条数，只有当showSizeChanger为false并且pageSize没有配置的时候才会生效',
     showSizeChanger: '是否显示 pageSize 选择框以及决定pageSizeOptions是否生效',
