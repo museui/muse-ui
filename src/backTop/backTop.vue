@@ -10,6 +10,7 @@
 <script>
 import {backTop} from './assist.js'
 import icon from '../icon'
+import throttle from 'lodash/throttle'
 
 export default {
   name: 'mu-back-top',
@@ -57,16 +58,18 @@ export default {
       backTop(this.durations, this.callBack)
     },
     scrollListener () {
-      this.backShow = document.getElementsByTagName('body')[0].scrollTop >= this.height
+      var top = document.documentElement.scrollTop || document.body.scrollTop
+      this.backShow = top >= this.height
     }
   },
   mounted () {
-    window.addEventListener('scroll', this.scrollListener, false)
-    window.addEventListener('resize', this.scrollListener, false)
+    this._scrollListener = throttle(this.scrollListener, 100)
+    window.addEventListener('scroll', this._scrollListener, false)
+    window.addEventListener('resize', this._scrollListener, false)
   },
   beforeDestroy () {
-    window.removeEventListener('scroll', this.handleScroll, false)
-    window.removeEventListener('resize', this.handleScroll, false)
+    window.removeEventListener('scroll', this._scrollListener, false)
+    window.removeEventListener('resize', this._scrollListener, false)
   }
 }
 </script>
