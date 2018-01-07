@@ -14,7 +14,7 @@ export default {
 The example, you can choose a different **tab** to change the theme`,
   color: `<a  target="_blank" href="https://material.google.com/style/color.html#color-ui-color-palette">
   UI Color Palette
-  </a> , each color in it are all can be found the corresponding color variable in the javasrcript and less, you can use the variable name directly in the component(except overlayColor，rippleColor).
+  </a> , each color in it are all can be found the corresponding color variable in the javasrcript and less, you can use the variable name directly in the component(except overlayColor, rippleColor).
   color variable configuration file:
   <a target="_blank" href="https://github.com/museui/muse-ui/blob/master/src/utils/colors.js">
   src/utils/colors.js

@@ -9,7 +9,7 @@ export default {
       orient: 'direction of `flexboxItem` \n * horizontal: arrange by horizontal; \n * vertical: arrange by vertical',
       justify: 'align method of main axis: flex-start, flex-end, center, space-between, space-around',
       align: 'align method of cross axis: flex-start, flex-end, center, baseline, stretch',
-      wrap: 'wrap or not, warp: allow， nowrap: disallow'
+      wrap: 'wrap or not, warp: allow, nowrap: disallow'
     },
     slots: {
       default: 'is used to place the `flexboxItem` components'

@@ -1,10 +1,10 @@
 ## Installation
 
-Muse-UI has been published in [npm](https://www.npmjs.com/package/muse-ui), you can use the `npm` or `yarn` to install it，also you can refer it by the `<script>` tag in the html.
+Muse-UI has been published in [npm](https://www.npmjs.com/package/muse-ui). You can use `npm` or `yarn` to install it, or you can include it with a `<script>` tag in the HTML.
 
 ### Importing the icon and font
 
-Muse-UI use the material design font and icon，so you need to import following fonts and icons in the html.
+Muse-UI use the Material Design font and icons, so you need to import following fonts and icons in the HTML.
 
 ```html
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
@@ -33,4 +33,4 @@ yarn add muse-ui
 <script src="path/to/muse-ui.js"></script>
 ```
 
-> you should replace the  **path/to** with the actual path.
+> You should replace the  **path/to** with the actual path.

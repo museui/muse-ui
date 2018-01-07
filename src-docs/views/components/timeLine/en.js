@@ -8,21 +8,21 @@ export default {
   defineExampleDesc: 'Customize styles for a single time point',
   timeline: {
     props: {
-      lineType: 'the type of timeline，the same value as border-style，such as solid, dotted and so on.',
+      lineType: 'the type of timeline, the same value as border-style, such as solid, dotted and so on.',
       lineColor: 'the color of timeline',
       lineWidth: 'the width of timeline',
       iconWidth: 'the width of icon',
       iconColor: 'the color of icon',
-      iconType: 'the line type of icon，the same value as border-style，such as solid, dotted and so on.',
+      iconType: 'the line type of icon, the same value as border-style, such as solid, dotted and so on.',
       iconLine: 'the line width of icon'
     }
   },
   timelineItem: {
     props: {
-      lineType: 'the type of timeline，the same value as border-style，such as solid, dotted and so on.',
+      lineType: 'the type of timeline, the same value as border-style, such as solid, dotted and so on.',
       lineColor: 'the color of timeline',
       iconColor: 'the color of icon',
-      iconType: 'the line type of icon，the same value as border-style，such as solid, dotted and so on.',
+      iconType: 'the line type of icon, the same value as border-style, such as solid, dotted and so on.',
       iconLine: 'the line width of icon'
     },
     slots: {
