@@ -88,6 +88,8 @@ export default {
     },
     getRippleStyle (event) {
       const el = this.$refs.holder
+      if (!el) return
+
       const elHeight = el.offsetHeight
       const elWidth = el.offsetWidth
       const offset = domUtil.getOffset(el)
