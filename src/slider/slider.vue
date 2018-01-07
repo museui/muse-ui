@@ -4,6 +4,7 @@
   @touchstart="handleTouchStart" @touchend="handleTouchEnd"
   @touchcancel="handleTouchEnd"  @mousedown="handleMouseDown"
   @mouseup="handleMouseUp" @mouseenter="handleMouseEnter" @mouseleave="handleMouseLeave">
+  <div class="mu-slider-display-value" v-if="displayValue" :style="displayValueStyle">{{parseInt(value)}}</div>
   <input type="hidden" :name="name" :value="inputValue">
   <div class="mu-slider-track"></div>
   <div class="mu-slider-fill" :style="fillStyle"></div>
@@ -41,6 +42,10 @@ export default {
     disabled: {
       type: Boolean,
       default: false
+    },
+    displayValue: {
+      type: Boolean,
+      default: true
     }
   },
   data () {
@@ -65,6 +70,11 @@ export default {
     thumbStyle () {
       return {
         left: this.percent + '%'
+      }
+    },
+    displayValueStyle () {
+      return {
+        left: 'calc(' + this.percent + '%' + ' - 13px)'
       }
     },
     sliderClass () {
@@ -258,7 +268,30 @@ export default {
   user-select:none;
   outline: none;
 }
-
+.mu-slider-display-value {
+  position: absolute;
+  top: -35px;
+  display: none;
+  width: 26px;
+  height: 26px;
+  text-align: center;
+  line-height: 26px;
+  color: #fff;
+  background: @primaryColor;
+  .mu-slider.active &{
+    display: block;
+  }
+  &::after {
+    content: '';
+	  width: 0;
+	  border-top: 10px solid #ccc;
+	  border-left: 10px solid transparent;
+	  border-right: 10px solid transparent;
+	  position: absolute;
+	  left: 3px;
+	  bottom: -10px;
+  }
+}
 .mu-slider-track{
   position: absolute;
   height: 2px;
