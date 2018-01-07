@@ -167,6 +167,7 @@ export default {
   backface-visibility: hidden;
 }
 .mu-picker-item{
+  height: 36px;
   line-height: 36px;
   padding: 0 10px;
   font-size: 20px;
