@@ -12,7 +12,8 @@ export default {
     min: '最小值',
     step: '步长',
     disabled: '是否禁用滑块',
-    value: '滑块的值'
+    value: '滑块的值',
+    displayValue: '是否显示滑块的值'
   },
   events: {
     input: 'value 发生改变触发的事件，传入新的value, (value)',

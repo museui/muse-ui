@@ -29,6 +29,11 @@ export default {
     type: 'Number',
     default: '0',
     desc: 'props.value'
+  }, {
+    name: 'display-value',
+    type: 'Boolean',
+    default: 'true',
+    desc: 'props.displayValue'
   }],
   events: [{
     name: 'input',

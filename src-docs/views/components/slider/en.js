@@ -12,7 +12,8 @@ export default {
     min: 'minimum',
     step: 'step',
     disabled: 'disabled sliding block or not',
-    value: 'value of  sliding block'
+    value: 'value of  sliding block',
+    displayValue: 'display value of sliding block'
   },
   events: {
     input: 'when the value is changed, the component will emit this event with the new value',
