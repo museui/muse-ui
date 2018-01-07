@@ -2,7 +2,7 @@
 <abstract-button @click="handleClick"
   @hover="handleHover" @hoverExit="handleHoverExit" @keyboardFocus="handleKeyboardFocus"
   :to="to" :tag="tag" :activeClass="activeClass" :event="event" :exact="exact" :append="append" :replace="replace"
-  :type="type" :href="href" :target="target" :disabled="disabled" :keyboardFocused="keyboardFocused" class="mu-icon-button">
+  :type="type" :href="href" :target="target" :disabled="disabled" :keyboardFocused="keyboardFocused" class="mu-icon-button" :class="buttonClass">
   <slot>
     <icon :value="icon" :class="iconClass"></icon>
   </slot>
@@ -35,6 +35,14 @@ export default {
     },
     target: {
       type: String
+    },
+    primary: {
+      type: Boolean,
+      default: false
+    },
+    secondary: {
+      type: Boolean,
+      default: false
     },
     disabled: {
       type: Boolean,
@@ -69,6 +77,12 @@ export default {
     horizontalPosition () {
       const tooltipPosition = this.tooltipPosition.split('-')
       return tooltipPosition[1]
+    },
+    buttonClass () {
+      return {
+        'mu-icon-button-primary': this.primary,
+        'mu-icon-button-secondary': this.secondary
+      }
     }
   },
   data () {
@@ -137,5 +151,13 @@ export default {
     color: @disabledColor;
     cursor: not-allowed;
   }
+}
+
+.mu-icon-button-primary{
+  color: @primaryColor;
+}
+
+.mu-icon-button-secondary{
+  color: @accentColor;
 }
 </style>
