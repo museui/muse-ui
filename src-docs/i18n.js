@@ -11,6 +11,8 @@ Vue.locale('zh', {
   faq: '常见问题解答',
   changeLog: '更新日志',
   contributing: '贡献指南',
+  layout: '布局',
+  alert: '组件-Alert',
   colors: '颜色',
   theme: '主题',
   appbar: '组件-AppBar',
