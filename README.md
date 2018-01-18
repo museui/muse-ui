@@ -79,7 +79,7 @@ webpack2
 
 ```javascript
 import Vue from 'vue'
-import 'muse-components/styles/base.less' // 加载基础的样式
+import 'muse-components/styles/base.less' // Load the base styles
 import appBar from 'muse-components/appBar'
 import avatar from 'muse-components/avatar'
 // ..
