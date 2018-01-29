@@ -245,7 +245,7 @@ export default {
       }
     },
     blur () {
-      this.$refs.textField.$el.blur()
+      this.$refs.textField.blur()
     },
     focus () {
       this.$refs.textField.focus()

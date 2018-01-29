@@ -178,6 +178,9 @@ export default {
     handleLabelClick () {
       this.$emit('labelClick')
     },
+    blur () {
+      this.$refs.input.blur()
+    },
     focus () {
       const { input, textarea } = this.$refs
       if (input) {
