@@ -5,4 +5,3 @@ docs/
 npm-debug.log
 coverage
 .idea/
-src/autoComplete/test.js
