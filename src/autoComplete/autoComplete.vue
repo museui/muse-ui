@@ -10,11 +10,12 @@
   <popover :overlay="false" :autoPosition="false" :scroller="scroller" :open="open && list.length > 0"  @close="handleClose" :trigger="anchorEl" :anchorOrigin="anchorOrigin" :targetOrigin="targetOrigin">
     <mu-menu v-if="open" :maxHeight="maxHeight" :style="{'width': (menuWidth && menuWidth > inputWidth ? menuWidth : inputWidth) + 'px'}" :disableAutoFocus="focusTextField"
       @mousedown.native="handleMouseDown" initiallyKeyboardFocused :autoWidth="false" ref="menu" @itemClick="handleItemClick" class="mu-auto-complete-menu">
-      <menu-item class="mu-auto-complete-menu-item" v-for="item, index in list" :key="'auto_' + index"  @mousedown.native="handleMouseDown" :disableFocusRipple="disableFocusRipple" afterText
+      <menu-item class="mu-auto-complete-menu-item" v-for="(item, index) in list" :key="'auto_' + index"  @mousedown.native="handleMouseDown" :disableFocusRipple="disableFocusRipple" afterText
       :leftIcon="item.leftIcon" :leftIconColor="item.leftIconColor" :rightIconColor="item.rightIconColor" :rightIcon="item.rightIcon" :value="item.value" :title="item.text"/>
     </mu-menu>
   </popover>
 </div>
+
 </template>
 
 <script>
@@ -145,6 +146,16 @@ export default {
     },
     value: {
       type: String
+    },
+    // 是否开启匹配字高亮模式
+    matchHighlight: {
+      type: Boolean,
+      default: false
+    },
+    // 自定义高亮颜色, 默认为红色
+    matchHighlightColor: {
+      type: String,
+      default: 'red'
     }
   },
   data () {
@@ -158,7 +169,8 @@ export default {
   },
   computed: {
     list () {
-      const filter = typeof this.filter === 'string' ? filters[this.filter] : this.filter
+      // 判断是否开启高亮模式，来选择不同的过滤器
+      const filter = typeof this.filter === 'string' ? (this.matchHighlight ? filters[this.filter + 'Highlight'] : filters[this.filter]) : this.filter
       const {dataSourceConfig, maxSearchResults, searchText} = this
       if (!filter) {
         console.warn('not found filter:' + this.filter)
@@ -168,12 +180,52 @@ export default {
       this.dataSource.every((item, index) => {
         switch (typeof item) {
           case 'string':
-            if (filter(searchText || '', item, item)) {
-              list.push({
-                text: item,
-                value: item,
-                index: index
-              })
+            if (this.matchHighlight) {
+              // 目前高亮只支持三种模式，大小写敏感，大小写不敏感，和模糊匹配
+              if (this.filter === 'caseSensitiveFilter' || this.filter === 'caseInsensitiveFilter') {
+                let pos = filter(searchText || '', item)
+                if (pos !== -1) {
+                  let pre = item.substr(0, pos)
+                  let mid = item.substr(pos, searchText.length)
+                  let post = item.substring(pos + searchText.length)
+                  list.push({
+                    text: pre + `<span style="color:${this.matchHighlightColor}">${mid}</span>` + post,
+                    value: item,
+                    index: index
+                  })
+                }
+              } else if (this.filter === 'fuzzyFilter') {
+                const matchIndexList = filter(searchText, item)
+                if (matchIndexList.length === searchText.length) {
+                  let pos = 0
+                  let ret = ''
+                  matchIndexList.forEach((value) => {
+                    ret += item.substring(pos, value)
+                    ret += `<span style="color:${this.matchHighlightColor}">${item[value]}</span>`
+                    pos = value + 1
+                  })
+                  ret += item.substring(pos)
+                  list.push({
+                    text: ret,
+                    value: ret,
+                    index: index
+                  })
+                }
+              } else {
+                list.push({
+                  text: item,
+                  value: item,
+                  index: index
+                })
+              }
+            } else {
+              if (filter(searchText || '', item)) {
+                list.push({
+                  text: item,
+                  value: item,
+                  index: index
+                })
+              }
             }
             break
           case 'object':
@@ -255,7 +307,6 @@ export default {
     },
     handleKeyDown (event) {
       this.$emit('keydown', event)
-
       switch (keycode(event)) {
         case 'enter':
           if (!this.open) return
@@ -317,7 +368,6 @@ export default {
     width: 100%;
   }
 }
-
 .mu-auto-complete-menu-item{
   width: 100%;
   overflow: hidden;

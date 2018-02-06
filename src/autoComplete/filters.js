@@ -21,6 +21,7 @@ export const levenshteinDistance = (searchText, key) => {
 
 export const noFilter = () => true
 
+// 为了得到输入在目标字符串的位置， 直接返回下标而不是之前的boolean类型
 export const caseSensitiveFilter = (searchText, key) => {
   return searchText !== '' && key.indexOf(searchText) !== -1
 }
@@ -53,4 +54,35 @@ export const fuzzyFilter = (searchText, key) => {
   }
 
   return searchTextIndex === searchText.length
+}
+
+// 以下是对于开启高亮模式以后的默认filter改造
+
+export const caseSensitiveFilterHighlight = (searchText, key) => {
+  if (searchText !== '') {
+    return key.indexOf(searchText)
+  }
+  return -1
+}
+
+export const caseInsensitiveFilterHighlight = (searchText, key) => {
+  return toLower(key).indexOf(searchText.toLowerCase())
+}
+
+export const fuzzyFilterHighlight = (searchText, key) => {
+  const compareString = toLower(key)
+  searchText = toLower(searchText)
+  const matchIndexList = []
+  let searchTextIndex = 0
+  for (let index = 0; index < key.length; index++) {
+    if (compareString[index] === searchText[searchTextIndex]) {
+      searchTextIndex += 1
+      matchIndexList.push(index)
+    }
+  }
+
+  if (matchIndexList.length === searchText.length) {
+    return matchIndexList
+  }
+  return []
 }

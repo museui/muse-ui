@@ -1,10 +1,12 @@
 <template>
-<div>
-  <mu-auto-complete label="不过滤 dataSource" :maxSearchResults="5" labelFloat :dataSource="colors" filter="noFilter"/><br/>
-  <mu-auto-complete label="区分大小写的文字匹配过滤" :maxSearchResults="5" labelFloat :dataSource="fruits" filter="caseSensitiveFilter"/><br/>
-  <mu-auto-complete label="不区分大小写的文字匹配过滤" :maxSearchResults="5" labelFloat :dataSource="fruits" filter="caseInsensitiveFilter"/><br/>
-  <mu-auto-complete label="只显示有 ‘m’ 和 ‘y’ 的数据" :maxSearchResults="5" labelFloat :dataSource="fruits" :filter="myfilter"/>
-</div>
+  <div>
+    <mu-auto-complete label="不过滤 dataSource" :maxSearchResults="5" labelFloat :dataSource="colors" filter="noFilter" /><br/>
+    <mu-auto-complete label="区分大小写的文字匹配过滤" :maxSearchResults="5" labelFloat :dataSource="fruits" filter="caseSensitiveFilter" /><br/>
+    <mu-auto-complete label="不区分大小写的文字匹配过滤" :maxSearchResults="5" labelFloat :dataSource="fruits" filter="caseInsensitiveFilter" /><br/>
+    <mu-auto-complete label="只显示有 ‘m’ 和 ‘y’ 的数据" :maxSearchResults="5" labelFloat :dataSource="fruits" filter="myfilter" />
+    <mu-auto-complete label="fuzzyFilter" :maxSearchResults="5" labelFloat :dataSource="fruits" filter="fuzzyFilter" />
+
+  </div>
 </template>
 
 <script>
@@ -46,11 +48,11 @@ const fruits = [
   'Watermelon'
 ]
 export default {
-  data () {
+  data() {
     return {
       colors,
       fruits,
-      myfilter (searchText, key) {
+      myfilter(searchText, key) {
         return key && key.toLowerCase().indexOf('m') !== -1 && key.toLowerCase().indexOf('y') !== -1
       }
     }
