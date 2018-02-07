@@ -37,6 +37,9 @@ export default {
     },
     initialTime: {
       type: Date
+    },
+    minuteInterval: {
+      type: Number
     }
   },
   data () {
@@ -81,7 +84,8 @@ export default {
         okLabel: this.okLabel,
         landscape: this.mode === 'landscape',
         initialTime: this.initialTime,
-        format: this.format
+        format: this.format,
+        minuteInterval: this.minuteInterval
       },
       on: {
         accept: this.handleAccept,

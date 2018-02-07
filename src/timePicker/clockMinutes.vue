@@ -1,7 +1,7 @@
 <template>
 <div class="mu-clock-minutes">
   <clock-pointer hasSelected :value="minutes.selected" :hasSelected="minutes.hasSelected" type="minute" />
-  <clock-number v-for="minute in minutes.numbers" :selected="minute.isSelected" :key="minute.minute" type="minute" :value="minute.minute" />
+  <clock-number v-for="minute in minutes.numbers" :selected="minute.isSelected" :key="minute.minute" type="minute" :value="minute.minute" :minuteInterval="minuteInterval"/>
   <div ref="mask" @mouseup="handleUp" @mousemove="handleMove" @touchmove="handleTouch" @touchend="handleTouch" class="mu-clock-minutes-mask"></div>
 </div>
 </template>
@@ -17,6 +17,9 @@ export default {
       default () {
         return new Date().getMinutes()
       }
+    },
+    minuteInterval: {
+      type: Number
     }
   },
   mounted () {
@@ -109,7 +112,14 @@ export default {
       deg = Math.round(deg / step) * step
       deg %= 360
 
-      const value = Math.floor(deg / step) || 0
+      let value = Math.floor(deg / step) || 0
+
+      if (this.minuteInterval) {
+        value = Math.round(value / this.minuteInterval) * this.minuteInterval
+        if (value === 60) {
+          value = 0
+        }
+      }
 
       return value
     }
@@ -122,6 +132,9 @@ export default {
   components: {
     'clock-number': clockNumber,
     'clock-pointer': clockPointer
+  },
+  minuteInterval: {
+    type: Number
   }
 }
 </script>

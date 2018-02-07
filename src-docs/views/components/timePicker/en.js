@@ -32,7 +32,8 @@ export default {
     underlineClass: 'the style of underline, the binding way is same with `class`',
     underlineFocusClass: 'the style of underline when the input box is focuding, the binding way is same with `class`',
     inputClass: 'the style of input box, the binding way is same with `class`',
-    value: 'the value of time cker, you cab replace it with the `v-model` directive'
+    value: 'the value of time cker, you cab replace it with the `v-model` directive',
+    minuteInterval: 'the time interval for the minute picker, i.e. `5` will give a 5 minute interval.'
   },
   events: {
     input: 'this event will be emitted when the value has changed, pass with the new value, (value)',
