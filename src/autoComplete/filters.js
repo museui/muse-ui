@@ -27,7 +27,7 @@ export const caseSensitiveFilter = (searchText, key) => {
 }
 
 export const caseInsensitiveFilter = (searchText, key) => {
-  return toLower(key).indexOf(searchText.toLowerCase()) !== -1
+  return searchText !== '' && toLower(key).indexOf(searchText.toLowerCase()) !== -1
 }
 
 export const levenshteinDistanceFilter = (distanceLessThan) => {
@@ -66,7 +66,10 @@ export const caseSensitiveFilterHighlight = (searchText, key) => {
 }
 
 export const caseInsensitiveFilterHighlight = (searchText, key) => {
-  return toLower(key).indexOf(searchText.toLowerCase())
+  if (searchText !== '') {
+    return toLower(key).indexOf(searchText.toLowerCase())
+  }
+  return -1
 }
 
 export const fuzzyFilterHighlight = (searchText, key) => {
@@ -85,4 +88,9 @@ export const fuzzyFilterHighlight = (searchText, key) => {
     return matchIndexList
   }
   return []
+}
+
+export const ableToHighlight = (filterName) => {
+  return filterName === 'caseSensitiveFilter' || filterName === 'caseInsensitiveFilter' ||
+  filterName === 'fuzzyFilter'
 }
