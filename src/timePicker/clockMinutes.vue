@@ -113,14 +113,17 @@ export default {
       deg %= 360
 
       let value = Math.floor(deg / step) || 0
+      value = this.roundMinutes(value)
 
+      return value
+    },
+    roundMinutes (value) {
       if (this.minuteInterval) {
         value = Math.round(value / this.minuteInterval) * this.minuteInterval
         if (value === 60) {
           value = 0
         }
       }
-
       return value
     }
   },
