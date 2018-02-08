@@ -186,6 +186,7 @@ export default {
 
 .mu-dialog-slide-enter-active,
 .mu-dialog-slide-leave-active{
+  transform: translate3d(0px, 0px, 0px);
   transition: opacity .45s @easeOutFunction;
   .mu-dialog {
     backface-visibility: hidden;
