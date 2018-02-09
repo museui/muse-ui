@@ -17,7 +17,7 @@
 <script>
 import {getColor} from '../utils'
 export default {
-  name: 'circle',
+  name: 'circular',
   props: {
     size: {
       type: Number,
