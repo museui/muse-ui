@@ -173,6 +173,7 @@ export default {
       this.inputValue = val.target ? val.target.value : val
     },
     handleChange (e) {
+      this.inputValue = e.target ? e.target.value : e
       this.$emit('change', e, e.target.value)
     },
     handleLabelClick () {
