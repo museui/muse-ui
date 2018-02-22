@@ -1,12 +1,12 @@
 <template>
   <div class="mu-timeline-item">
-    <div v-if="!last" class="mu-timeline-item-line" :style="lineStyle"></div>
+    <div class="mu-timeline-item-line" :style="lineStyle"></div>
     <div class="mu-timeline-item-icon">
       <slot name="icon" :style="customedStyle" class="mu-timeline-item-customed">
         <div :style="iconStyle"></div>
       </slot>
     </div>
-    
+
     <div class="mu-timeline-item-content" :style="contentStyle">
       <slot>
         <div class="mu-timeline-item-time">
@@ -18,8 +18,8 @@
       </slot>
     </div>
   </div>
-  
 </template>
+
 <script>
 import {oneOf} from './assist.js'
 export default {
@@ -57,8 +57,7 @@ export default {
   data () {
     return {
       line: {},
-      icon: {},
-      last: false
+      icon: {}
     }
   },
   computed: {
@@ -106,6 +105,7 @@ export default {
   }
 }
 </script>
+
 <style lang="less" scoped>
 .mu-timeline-item{
   position: relative;
@@ -138,5 +138,8 @@ export default {
   &-des{
     font-size: 16px;
   }
+}
+.mu-timeline-item:last-child .mu-timeline-item-line {
+  display: none;
 }
 </style>
