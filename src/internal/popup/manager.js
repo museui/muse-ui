@@ -72,7 +72,7 @@ const PopupManager = {
     overlay.show = false
     this.overlay = null
     setTimeout(() => {
-      overlay.$el.remove()
+      overlay.$el.parentNode.removeChild(overlay.$el);
       overlay.$destroy()
     }, 450)
   },
