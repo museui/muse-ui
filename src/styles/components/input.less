@@ -1,0 +1,131 @@
+@import "../import.less";
+.mu-input {
+  font-size: 16px;
+  width: 256px;
+  min-height: 48px;
+  display: inline-block;
+  position: relative;
+  color: @secondaryTextColor;
+  margin-bottom: 8px;
+  &.full-width {
+    width: 100%;
+  }
+  &.has-icon {
+    padding-left: 56px;
+  }
+  &.focus-state {
+    color: @primaryColor;
+  }
+  &.error{
+    color: @errorColor;
+  }
+  &.has-label{
+    min-height: 72px;
+  }
+}
+
+.mu-input-icon {
+  position: absolute;
+  left: 16px;
+  top: 8px;
+  .mu-input.has-label & {
+    top: 32px;
+  }
+}
+
+.mu-input-content{
+  display: block;
+  height: 100%;
+  .mu-input.disabled &{
+    color: @disabledColor;
+    cursor: not-allowed;
+  }
+  padding-bottom: 12px;
+  padding-top: 4px;
+  .mu-input.has-label &{
+    padding-top: 28px;
+    padding-bottom: 12px;
+  }
+}
+
+.mu-input-help {
+  position: absolute;
+  margin-top: 6px;
+  font-size: 12px;
+  line-height: 12px;
+  color: @secondaryTextColor;
+  display: flex;
+  justify-content: space-between;
+  left: 0;
+  right: 0;
+  .mu-input.has-icon & {
+    left: 56px;
+  }
+  .mu-input.error &{
+    color: @errorColor;
+  }
+  .mu-input.disabled &{
+    color: inherit;
+  }
+}
+
+.mu-input-label {
+  line-height: 20px;
+  transition: all .45s @easeOutFunction;
+  z-index: 1;
+  cursor: text;
+  transform: translate3d(0, 0, 0) scale(0.75);
+  transform-origin: left top;
+  user-select: none;
+  pointer-events: none;
+  backface-visibility: hidden;
+  .mu-input.has-label & {
+    top: 8px;
+    position: absolute;
+  }
+  .mu-input.has-label &.float {
+    transform: translate3d(0, 28px, 0) scale(1);
+    color: @disabledColor;
+  }
+}
+
+.mu-input-line {
+  margin: 0;
+  height: 1px;
+  border: none;
+  background-color: @borderColor;
+  left: 0;
+  right: 0;
+  position: absolute;
+  .mu-input.has-icon & {
+    left: 56px;
+  }
+  &.disabled{
+    height: auto;
+    background-color: transparent;
+    border-bottom: 2px dotted @disabledColor;
+  }
+}
+
+.mu-input-focus-line{
+  margin: 0;
+  height: 2px;
+  border: none;
+  background-color: @primaryColor;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-top: -1px;
+  transform: scaleX(0);
+  transition: transform .45s @easeOutFunction;
+  .mu-input.has-icon & {
+    left: 56px;
+  }
+  &.focus {
+    transform: scaleX(1);
+  }
+  &.error {
+    transform: scaleX(1);
+    background-color: @errorColor;
+  }
+}

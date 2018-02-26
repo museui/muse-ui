@@ -1,0 +1,152 @@
+@import "../import.less";
+.mu-stepper{
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mu-stepper-vertical{
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.mu-step{
+  flex: 0 0 auto;
+  margin-left: -6px;
+  .mu-stepper-vertical & {
+    margin-top: -14px;
+    margin-left: 0;
+  }
+  &:first-child {
+    margin-left: 0;
+  }
+}
+
+.mu-step-button {
+  border: 10px;
+  display: inline-block;
+  cursor: pointer;
+  text-decoration: none;
+  margin: 0px;
+  padding: 0px;
+  outline: none;
+  font-size: inherit;
+  font-weight: inherit;
+  transform: translate(0px, 0px);
+  background-color: transparent;
+  transition: all 450ms @easeOutFunction 0ms;
+  .mu-stepper-vertical & {
+    width: 100%;
+  }
+  &.hover {
+    background-color: fade(@black, 6%);
+  }
+}
+
+.mu-step-connector{
+  flex: 1 1 auto;
+  .mu-stepper-vertical &{
+    margin-left: 25px;
+  }
+}
+
+.mu-step-connector-line{
+  display: block;
+  border-color: @grey400;
+  margin-left: -6px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  .mu-stepper-vertical & {
+    border-top: none;
+    border-left-style: solid;
+    border-left-width: 1px;
+    min-height: 28px;
+    margin-left: 0;
+  }
+}
+
+.mu-step-content{
+  margin-top: -14px;
+  margin-left: 25px;
+  padding-left: 21px;
+  padding-right: 16px;
+  overflow: hidden;
+  .mu-stepper-vertical & {
+    border-left: 1px solid @grey400;
+  }
+  &.last {
+    border-left: none;
+  }
+}
+
+.mu-step-content-inner {
+  position: relative;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  overflow: hidden;
+}
+
+.mu-step-label{
+  height: 72px;
+  color: @textColor;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  padding-left: 14px;
+  padding-right: 14px;
+  .mu-stepper-vertical & {
+    height: 64px;
+  }
+  &.disabled {
+    color: @disabledColor;
+    cursor: not-allowed;
+  }
+  &.active {
+    font-weight: 500;
+  }
+}
+
+.mu-step-label-icon-container{
+  display: flex;
+  align-items: center;
+  margin-right: 8px;
+  width: 24px;
+}
+
+.mu-step-label-icon {
+  display: block;
+  font-size: 24px;
+  width: 24px;
+  height: 24px;
+  color: @grey500;
+  fill: currentColor;
+  .mu-step-label.disabled &{
+    color: @grey500;
+  }
+  .mu-step-label.completed &,
+  .mu-step-label.active & {
+    color: @primaryColor;
+  }
+}
+
+.mu-step-label-circle{
+  width: 20px;
+  height: 20px;
+  font-size: 12px;
+  line-height: 20px;
+  text-align: center;
+  overflow: hidden;
+  border-radius: 100%;
+  background-color: @grey500;
+  color: @alternateTextColor;
+  .mu-step-label.disabled &{
+    background-color: @grey500;
+  }
+  .mu-step-label.completed &,
+  .mu-step-label.active & {
+    background-color: @primaryColor;
+  }
+}

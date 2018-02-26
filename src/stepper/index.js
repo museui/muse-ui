@@ -1,5 +1,19 @@
-export {default as step} from './step'
-export {default as stepButton} from './stepButton'
-export {default as stepContent} from './stepContent'
-export {default as stepLabel} from './stepLabel'
-export {default as stepper} from './stepper'
+import '../styles/components/stepper.less';
+import Stepper from './Stepper';
+import Step from './Step';
+import StepLabel from './StepLabel';
+import StepButton from './StepButton';
+import StepConnector from './StepConnector';
+import StepContent from './StepContent';
+
+Stepper.install = function (Vue) {
+  Vue.component(Stepper.name, Stepper);
+  Vue.component(Step.name, Step);
+  Vue.component(StepLabel.name, StepLabel);
+  Vue.component(StepButton.name, StepButton);
+  Vue.component(StepConnector.name, StepConnector);
+  Vue.component(StepContent.name, StepContent);
+};
+
+export { Stepper, Step, StepLabel, StepButton, StepConnector, StepContent };
+export default Stepper;

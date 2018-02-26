@@ -1,0 +1,39 @@
+@import '../import.less';
+.mu-chip {
+  border-radius: 16px;
+  line-height: 32px;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  background-color: darken(@alternateTextColor, 12%);
+  color: fade(@textColor, 87%);
+  font-size: 13px;
+  padding: 0 12px;
+  outline: none;
+  cursor: default;
+  .mu-avatar:first-child{
+    margin-left: -12px;
+    margin-right: 4px;
+  }
+  &:active,
+  &:focus {
+    box-shadow: 0 1px 6px fade(@fullBlack, 12%), 0 1px 4px fade(@fullBlack, 12%);
+  }
+  &:hover{
+    .mu-chip-delete-icon{
+      color: fade(fade(@textColor, 26%), 40%);
+    }
+    cursor: pointer;
+  }
+}
+.mu-chip-delete-icon{
+  display: inline-block;
+  margin-right: -8px;
+  margin-left: 4px;
+  color: fade(@textColor, 26%);
+  fill: currentColor;
+  height: 24px;
+  width: 24px;
+  user-select: none;
+  transition: all 450ms @easeOutFunction;
+}

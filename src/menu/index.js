@@ -1,2 +1,7 @@
-export {default as menu} from './menu'
-export {default as menuItem} from './menuItem'
+import Menu from './Menu';
+
+Menu.install = function (Vue) {
+  Vue.component(Menu.name, Menu);
+};
+
+export default Menu;

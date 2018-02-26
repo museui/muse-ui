@@ -1,158 +1,111 @@
-import touchRipple from './touchRipple'
-import focusRipple from './focusRipple'
-import keycode from 'keycode'
-import {isPc} from '../utils'
-import config from '../config'
-import routerMixin from './routerMixin'
-let tabPressed = false
-let listening = false
+import TouchRipple from './TouchRipple';
+import FocusRipple from './FocusRipple';
+import route from './mixins/route';
+import ripple from './mixins/ripple';
+import keycode from 'keycode';
+import { isPc } from '../utils';
+
+let tabPressed = false;
+let listening = false;
 
 function listenForTabPresses () {
   if (!listening) {
     typeof window !== 'undefined' && window.addEventListener('keydown', (event) => {
-      tabPressed = keycode(event) === 'tab'
-    })
-    listening = true
+      tabPressed = keycode(event) === 'tab';
+    });
+    listening = true;
   }
 }
 
 export default {
-  mixins: [routerMixin],
+  mixins: [route, ripple],
   props: {
-    href: {
-      type: String,
-      default: ''
-    },
-    disabled: {
-      type: Boolean,
-      default: false
-    },
-    disableFocusRipple: {
-      type: Boolean,
-      default: false
-    },
-    disableKeyboardFocus: {
-      type: Boolean,
-      default: false
-    },
-    disableTouchRipple: {
-      type: Boolean,
-      default: false
-    },
-    rippleColor: {
-      type: String,
-      default: ''
-    },
-    rippleOpacity: {
-      type: Number
-    },
-    centerRipple: {
-      type: Boolean,
-      default: true
-    },
-    wrapperClass: {
-      type: String,
-      default: ''
-    },
-    wrapperStyle: {
-      type: [String, Object]
-    },
-    containerElement: {
-      type: String
-    },
-    tabIndex: {
-      type: Number,
-      default: 0
-    },
+    disabled: Boolean,
+    centerRipple: Boolean,
+    containerElement: String,
+    disableKeyboardFocus: Boolean,
+    wrapperClass: String,
+    wrapperStyle: [String, Object],
     type: {
       type: String,
       default: 'button'
     },
-    keyboardFocused: {
-      type: Boolean,
-      default: false
-    }
+    keyboardFocused: Boolean
   },
   data () {
     return {
       hover: false,
       isKeyboardFocused: false
-    }
+    };
   },
   computed: {
     buttonClass () {
-      let classNames = []
-      if (this.disabled) classNames.push('disabled')
-      if (!this.disabled && (this.hover || this.isKeyboardFocused)) classNames.push('hover')
-      return classNames.join(' ')
+      const classNames = [];
+      if (this.disabled) classNames.push('disabled');
+      if (!this.disabled && (this.hover || this.isKeyboardFocused)) classNames.push('hover');
+      return classNames.join(' ');
     }
   },
   beforeMount () {
-    const {disabled, disableKeyboardFocus, keyboardFocused} = this
+    const { disabled, disableKeyboardFocus, keyboardFocused } = this;
     if (!disabled && keyboardFocused && !disableKeyboardFocus) {
-      this.isKeyboardFocused = true
+      this.isKeyboardFocused = true;
     }
   },
   mounted () {
-    listenForTabPresses()
+    listenForTabPresses();
     if (this.isKeyboardFocused) {
-      this.$el.focus()
-      this.$emit('keyboardFocus', true)
+      this.$el.focus();
+      this.$emit('keyboardFocus', true);
     }
   },
   beforeUpdate () {
     if ((this.disabled || this.disableKeyboardFocus) && this.isKeyboardFocused) {
-      this.isKeyboardFocused = false
-      this.$emit('keyboardFocus', false)
+      this.isKeyboardFocused = false;
+      this.$emit('keyboardFocus', false);
     }
   },
   beforeDestory () {
-    this.cancelFocusTimeout()
+    this.cancelFocusTimeout();
   },
   methods: {
     handleHover (event) {
       if (!this.disabled && isPc()) {
-        this.hover = true
-        this.$emit('hover', event)
+        this.hover = true;
+        this.$emit('hover', event);
       }
     },
     handleOut (event) {
       if (!this.disabled && isPc()) {
-        this.hover = false
-        this.$emit('hoverExit', event)
+        this.hover = false;
+        this.$emit('hoverExit', event);
       }
     },
     removeKeyboardFocus (event) {
       if (this.isKeyboardFocused) {
-        this.isKeyboardFocused = false
-        this.$emit('KeyboardFocus', false)
+        this.isKeyboardFocused = false;
+        this.$emit('KeyboardFocus', false);
       }
     },
     setKeyboardFocus (event) {
       if (!this.isKeyboardFocused) {
-        this.isKeyboardFocused = true
-        this.$emit('KeyboardFocus', true)
+        this.isKeyboardFocused = true;
+        this.$emit('KeyboardFocus', true);
       }
     },
     cancelFocusTimeout () {
       if (this.focusTimeout) {
-        clearTimeout(this.focusTimeout)
-        this.focusTimeout = null
+        clearTimeout(this.focusTimeout);
+        this.focusTimeout = null;
       }
     },
     handleKeydown (event) {
       if (!this.disabled && !this.disableKeyboardFocus) {
         if (keycode(event) === 'enter' && this.isKeyboardFocused) {
-          this.$el.click()
+          this.$el.click();
         }
         if (keycode(event) === 'esc' && this.isKeyboardFocused) {
-          this.removeKeyboardFocus(event)
-        }
-      }
-    },
-    handleKeyup (event) {
-      if (!this.disabled && !this.disableKeyboardFocus) {
-        if (keycode(event) === 'space' && this.isKeyboardFocused) {
+          this.removeKeyboardFocus(event);
         }
       }
     },
@@ -160,58 +113,56 @@ export default {
       if (!this.disabled && !this.disableKeyboardFocus) {
         this.focusTimeout = setTimeout(() => {
           if (tabPressed) {
-            this.setKeyboardFocus(event)
-            tabPressed = false
+            this.setKeyboardFocus(event);
+            tabPressed = false;
           }
-        }, 150)
+        }, 150);
       }
     },
     handleBlur (event) {
-      this.cancelFocusTimeout()
-      this.removeKeyboardFocus(event)
+      this.cancelFocusTimeout();
+      this.removeKeyboardFocus(event);
     },
     handleClick (event) {
       if (!this.disabled) {
-        tabPressed = false
-        this.$el.blur() // 点击之后失去焦点
-        this.removeKeyboardFocus(event)
-        this.$emit('click', event)
+        tabPressed = false;
+        // this.$el.blur(); // 点击之后失去焦点
+        this.removeKeyboardFocus(event);
+        this.$emit('click', event);
       }
     },
     getTagName () {
-      // const isFirefox = typeof navigator !== 'undefined' && navigator.userAgent.toLowerCase().indexOf('firefox') !== -1
-      const defaultTag = 'button'
+      const defaultTag = 'button';
       switch (true) {
         case !!this.to:
-          return 'router-link'
+          return 'router-link';
         case !!this.href:
-          return 'a'
+          return 'a';
         case !!this.containerElement:
-          return this.containerElement
+          return this.containerElement;
         default:
-          return defaultTag
+          return defaultTag;
       }
     },
     createButtonChildren (h) {
       const {
         isKeyboardFocused,
         disabled,
-        disableFocusRipple,
+        ripple,
         disableKeyboardFocus,
         rippleColor,
-        rippleOpacity,
-        disableTouchRipple
-      } = this
-      let children = []
-      children = children.concat(this.$slots.default)
-      const FocusRipple = isKeyboardFocused && !config.disableFocusRipple && !disabled &&
-                          !disableFocusRipple && !disableKeyboardFocus ? h(focusRipple, {
-                            color: rippleColor,
-                            opacity: rippleOpacity
-                          }) : undefined
+        rippleOpacity
+      } = this;
+      let children = [];
+      children = children.concat(this.$slots.default);
+      const FocusRippleEL = isKeyboardFocused && !disableKeyboardFocus && !disabled && ripple
+        ? h(FocusRipple, {
+          color: rippleColor,
+          opacity: rippleOpacity
+        }) : undefined;
 
-      if (!disabled && !disableTouchRipple && !config.disableTouchRipple) {
-        children = [h(touchRipple, {
+      if (!disabled && ripple) {
+        children = [h(TouchRipple, {
           class: this.wrapperClass,
           style: this.wrapperStyle,
           props: {
@@ -219,27 +170,38 @@ export default {
             centerRipple: this.centerRipple,
             opacity: this.rippleOpacity
           }
-        }, this.$slots.default)]
+        }, this.$slots.default)];
       } else {
         children = [h('div', {
           class: this.wrapperClass,
           style: this.wrapperStyle
-        }, this.$slots.default)]
+        }, this.$slots.default)];
       }
-      children.unshift(FocusRipple)
-      return children
+      children.unshift(FocusRippleEL);
+      return children;
     }
   },
   watch: {
     disabled (val) {
-      if (!val) this.hover = false
+      if (!val) this.hover = false;
     }
   },
   render (h) {
-    const domProps = {
-      disabled: this.disabled,
-      type: this.type
+    const tagName = this.getTagName();
+    const attrs = {
+      tagret: this.target,
+      tabindex: !this.disabled ? (this.$attrs.tabindex || 0)  : -1
+    };
+
+    if (tagName === 'button') {
+      attrs.disabled = this.disabled;
+      attrs.type = this.type;
     }
+
+    if (this.href && !this.disabled) {
+      attrs.href = this.href;
+    }
+
     const props = this.to ? {
       to: this.to,
       tag: this.tag,
@@ -247,26 +209,20 @@ export default {
       event: this.event,
       exact: this.exact,
       append: this.append,
-      replace: this.replace
-    } : {}
+      replace: this.replace,
+      exactActiveClass: this.exactActiveClass
+    } : {};
 
-    if (this.href) {
-      domProps.href = this.disabled ? 'javascript:;' : this.href
-    }
-
-    if (!this.disabled) domProps.tabIndex = this.tabIndex
-    const tagName = this.getTagName()
     return h(tagName, {
       class: this.buttonClass,
-      domProps,
+      attrs,
       props,
-      style: {
+      style: tagName === 'button' ? {
         'user-select': this.disabled ? '' : 'none',
         '-webkit-user-select': this.disabled ? '' : 'none',
         'outline': 'none',
-        'cursor': this.disabled ? '' : 'pointer',
         'appearance': 'none'
-      },
+      } : {},
       [tagName === 'router-link' ? 'nativeOn' : 'on']: {
         mouseenter: this.handleHover,
         mouseleave: this.handleOut,
@@ -275,9 +231,8 @@ export default {
         click: this.handleClick,
         focus: this.handleFocus,
         blur: this.handleBlur,
-        keydown: this.handleKeydown,
-        keyup: this.handleKeyup
+        keydown: this.handleKeydown
       }
-    }, this.createButtonChildren(h))
+    }, this.createButtonChildren(h));
   }
-}
+};

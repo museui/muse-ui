@@ -1,131 +1,52 @@
-import './styles/base.less'
-import {retina} from './utils'
-import icon from './icon'
-import alert from './alert'
-import backTop from './backTop'
-import badge from './badge'
-import * as breadCrumb from './breadCrumb'
-import appBar from './appBar'
-import iconButton from './iconButton'
-import flatButton from './flatButton'
-import raisedButton from './raisedButton'
-import floatButton from './floatButton'
-import contentBlock from './contentBlock'
-import * as list from './list'
-import subHeader from './subHeader'
-import divider from './divider'
-import refreshControl from './refreshControl'
-import infiniteScroll from './infiniteScroll'
-import avatar from './avatar'
-import * as tabs from './tabs'
-import paper from './paper'
-import * as bottomNav from './bottomNav'
-import * as card from './card'
-import chip from './chip'
-import overlay from './internal/popup/overlay'
-import dialog from './dialog'
-import toast from './toast'
-import snackbar from './snackbar'
-import popup from './popup'
-import * as menu from './menu'
-import bottomSheet from './bottomSheet'
-import popover from './popover'
-import iconMenu from './iconMenu'
-import dropDownMenu from './dropDownMenu'
-import drawer from './drawer'
-import picker from './picker'
-import tooltip from './tooltip'
+import './styles/base.less';
+import Alert from './Alert';
+import AppBar from './AppBar';
+import Avatar from './Avatar';
+import Badge from './Badge';
+import BottomNav from './BottomNav';
+import BottomSheet from './BottomSheet';
+import Breadcrumbs from './Breadcrumbs';
+import Button from './Button';
+import Card from './Card';
+import Checkbox from './Checkbox';
+import Chip from './Chip';
+import Dialog from './Dialog';
+import Divider from './Divider';
+import Drawer from './Drawer';
+import GridList from './GridList';
+import Icon from './Icon';
+import List from './List';
+import Menu from './Menu';
+import Paper from './Paper';
+import Popover from './Popover';
+import Progress from './Progress';
+import Radio from './Radio';
+import Select from './Select';
+import Slider from './Slider';
+import Snackbar from './Snackbar';
+import Stepper from './Stepper';
+import SubHeader from './SubHeader';
+import Switch from './Switch';
+import Tabs from './Tabs';
+import TextField from './TextField';
+import Tooltip from './Tooltip';
+import './styles/theme.less';
+import theme from './theme';
 
-import textField from './textField'
-import selectField from './selectField'
-import checkbox from './checkbox'
-import radio from './radio'
-import _switch from './switch'
-import slider from './slider'
-import linearProgress from './linearProgress'
-import circularProgress from './circularProgress'
-import * as gridList from './gridList'
-import * as table from './table'
-import datePicker from './datePicker'
-import timePicker from './timePicker'
-import * as stepper from './stepper'
-import autoComplete from './autoComplete'
-import pagination from './pagination'
-import * as timeLine from './timeLine'
-
-import * as grid from './grid'
-
-import * as flexbox from './flexbox'
-import config from './config'
-const components = {
-  icon,
-  alert,
-  backTop,
-  badge,
-  ...breadCrumb,
-  appBar,
-  iconButton,
-  flatButton,
-  raisedButton,
-  floatButton,
-  contentBlock,
-  ...list,
-  subHeader,
-  divider,
-  refreshControl,
-  infiniteScroll,
-  avatar,
-  ...tabs,
-  paper,
-  ...bottomNav,
-  ...card,
-  chip,
-  overlay,
-  dialog,
-  toast,
-  snackbar,
-  popup,
-  ...menu,
-  bottomSheet,
-  popover,
-  iconMenu,
-  dropDownMenu,
-  drawer,
-  picker,
-  tooltip,
-  textField,
-  selectField,
-  checkbox,
-  radio,
-  _switch,
-  slider,
-  ...timeLine,
-  linearProgress,
-  circularProgress,
-  ...gridList,
-  ...table,
-  datePicker,
-  timePicker,
-  ...stepper,
-  autoComplete,
-  ...grid,
-  ...flexbox,
-  pagination
+function MuseUI (Vue) {
+  [
+    Alert, AppBar, Avatar,
+    Badge, BottomNav, BottomSheet, Breadcrumbs, Button,
+    Card, Checkbox, Chip,
+    Dialog, Divider, Drawer,
+    GridList, Icon, List, Menu,
+    Paper, Popover, Progress, Radio,
+    Select, Slider, Snackbar, Stepper, SubHeader, Switch,
+    Tabs, TextField, Tooltip
+  ].forEach((component) => {
+    Vue.use(component);
+  });
 }
 
-const install = function (Vue) {
-  Object.keys(components).forEach((key) => {
-    Vue.component(components[key].name, components[key])
-  })
-  retina()
-}
-
-if (typeof window !== 'undefined' && window.Vue) install(window.Vue)
-export default {
-  config,
-  install
-}
-export {
-  config,
-  install
-}
+MuseUI.theme = theme;
+export default MuseUI;

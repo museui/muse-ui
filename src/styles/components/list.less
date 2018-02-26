@@ -1,0 +1,125 @@
+@import '../import.less';
+
+.mu-list {
+  padding: 8px 0;
+  width: 100%;
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: visible;
+  margin: 0;
+  > li {
+    display: block;
+  }
+  .mu-sub-header:first-child{
+    margin-top: -8px;
+  }
+  .mu-list {
+    padding: 0;
+  }
+}
+
+.mu-item-wrapper {
+  display: block;
+  color: inherit;
+  position: relative;
+  outline: none;
+  cursor: pointer;
+  &.hover {
+    background-color: fade(@textColor, 10%);
+  }
+  &.disabled{
+    cursor: default;
+  }
+}
+.mu-list-dense {
+  .mu-item {
+    height: 36px;
+  }
+  .mu-icon {
+    font-size: 22px;
+  }
+  .mu-item-title {
+    font-size: 14px;
+  }
+}
+.mu-item {
+  height: 48px;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  color: @textColor;
+  position: relative;
+  &.has-avatar {
+    height: 56px;
+  }
+  .mu-list-two-line & {
+    height: 72px;
+  }
+  .mu-list-three-line & {
+    height: 88px;
+  }
+  &.is-selected {
+    color: @primaryColor;
+  }
+}
+.mu-item-action {
+  width: 56px;
+  display: flex;
+  height: 100%;
+  align-items: center;
+  &.is-avatar {
+    max-height: 72px;
+  }
+  &.is-more {
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+}
+
+.mu-item-content {
+  flex: 1 1 auto;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  + .mu-item-action {
+    justify-content: flex-end;
+  }
+}
+
+.mu-item-title {
+  font-size: 16px;
+  font-weight: 500;
+  height: 24px;
+  line-height: 24px;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+}
+
+.mu-item-sub-title {
+  font-size: 14px;
+  line-height: 1.5;
+  color: @secondaryTextColor;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  .mu-item.three-line & {
+    white-space: normal;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+  }
+}
+
+.mu-item-after-text {
+  color: @secondaryTextColor;
+  font-size: 12px;
+}
