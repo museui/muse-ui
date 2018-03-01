@@ -10,11 +10,13 @@ export default {
     },
     value: {
       required: true
-    }
+    },
+    disabled: Boolean
   },
   data () {
     return {
-      focusState: 'none' // 'none', 'focused', 'keyboard-focused'
+      visible: true,
+      focused: false
     };
   },
   computed: {
@@ -25,37 +27,8 @@ export default {
   created () {
     this.addOption(this);
   },
-  mounted () {
-    this.applyFocusState();
-  },
-  methods: {
-    applyFocusState () {
-      const button = this.$refs.listItem.$refs.button;
-      if (button) {
-        const buttonEl = button.$el;
-
-        switch (this.focusState) {
-          case 'none':
-            buttonEl.blur();
-            break;
-          case 'focused':
-            buttonEl.focus();
-            break;
-          case 'keyboard-focused':
-            button.setKeyboardFocus();
-            buttonEl.focus();
-            break;
-        }
-      }
-    }
-  },
   destroyed () {
     this.removeOption(this);
-  },
-  watch: {
-    focusState () {
-      this.applyFocusState();
-    }
   },
   render (h) {
     const defaultItem = [
@@ -64,6 +37,7 @@ export default {
           props: {
             inputValue: this.selected,
             color: 'secondary',
+            disabled: this.disabled,
             tabIndex: -1
           }
         })
@@ -76,13 +50,19 @@ export default {
       staticClass: 'mu-option',
       ref: 'listItem',
       class: {
-        'is-selected': this.selected
+        'is-selected': this.selected,
+        'is-disabled': this.disabled,
+        'is-focused': this.focused
       },
       props: {
-        button: true,
+        button: !this.disabled,
         nested: false,
         tabIndex: -1
       },
+      directives: [{
+        name: 'show',
+        value: this.visible
+      }],
       on: {
         click: (e) => this.optionClick(this, e)
       }

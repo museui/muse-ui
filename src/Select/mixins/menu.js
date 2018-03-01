@@ -13,6 +13,10 @@ export default {
   },
   props: {
     multiple: Boolean,
+    noDataText: {
+      type: String,
+      default: '暂无数据显示'
+    },
     maxHeight: {
       type: [String, Number],
       default: 300
@@ -26,10 +30,11 @@ export default {
   },
   computed: {
     selects () {
-      return this.options.filter((option) => option.selected).map((option) => {
+      return this.options.filter((option) => option.selected).map((option, index) => {
         return {
           value: option.value,
-          label: option.label
+          label: option.label,
+          index
         };
       });
     }
@@ -37,19 +42,17 @@ export default {
   methods: {
     activateInput () {
       this.isFocused = true;
-      // this.isActive = true;
     },
     deactivateInput () {
       this.isFocused = false;
-      // this.isActive = false;
-      // this.selectedIndex = -1;
     },
     openMenu () {
-      this.activateInput();
       this.open = true;
+      this.setFocusIndex(this.getSelectedIndex());
     },
     closeMenu () {
       this.open = false;
+      this.resetFocusIndex();
     },
     toggleMenu () {
       if (this.open) return this.closeMenu();
@@ -88,10 +91,12 @@ export default {
       }
       this.inputValue = selectedValue;
       if (!this.multiple) this.closeMenu();
+      this.$nextTick(() => this.focusInput());
     },
     createContent (h) {
       return h('div', {
         staticClass: 'mu-option-list',
+        ref: 'list',
         style: {
           'maxHeight': this.maxHeight + 'px'
         }
@@ -100,7 +105,10 @@ export default {
           props: {
             dense: true
           }
-        }, this.$slots.default)
+        }, [
+          this.enableOptions.length === 0 ? h('div', { staticClass: 'mu-select-no-data' }, this.noDataText) : null,
+          this.$slots.default
+        ])
       ]);
     },
     createMenu (h) {

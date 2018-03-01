@@ -56,6 +56,7 @@ export default {
         }) : h('input', {
           staticClass: 'mu-text-field-input',
           attrs: {
+            tabindex: 0,
             ...this.$attrs,
             maxlength: this.maxLength,
             disabled: this.disabled,

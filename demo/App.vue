@@ -1,10 +1,36 @@
 <template>
   <div style="padding: 32px;">
-    <mu-select placeholder="圆圆圆圆" chips label="选择框" multiple>
+    <mu-select placeholder="圆圆圆圆" chips filterable label="选择框" multiple>
+      <mu-chip slot="selection" slot-scope="scope" color="teal">
+        <mu-avatar size="32" style="font-size: 16px">{{scope.label.substring(0, 1).toUpperCase()}}</mu-avatar>
+        {{scope.label}}
+      </mu-chip>
       <mu-option value="1" label="嘻嘻嘻1" />
       <mu-option value="2" label="嘻嘻嘻2" />
       <mu-option value="3" label="嘻嘻嘻3" />
       <mu-option value="4" label="嘻嘻嘻4" />
+      <mu-option value="3" label="嘻嘻嘻1" />
+      <mu-option value="4" label="嘻嘻嘻2" />
+      <mu-option value="5" label="嘻嘻嘻3" />
+      <mu-option value="6" label="嘻嘻嘻4" />
+      <mu-option value="7" label="嘻嘻嘻1" />
+      <mu-option value="8" label="嘻嘻嘻2" />
+      <mu-option value="9" label="嘻嘻嘻3" />
+      <mu-option value="10" label="嘻嘻嘻4" />
+      <mu-option value="11" label="嘻嘻嘻11" />
+      <mu-option value="12" label="嘻嘻嘻21" />
+      <mu-option value="13" label="嘻嘻嘻31" />
+      <mu-option value="14" label="嘻嘻嘻41" />
+      <mu-option value="13" label="嘻嘻嘻11" />
+      <mu-option value="14" label="嘻嘻嘻21" />
+      <mu-option value="15" label="嘻嘻嘻31" />
+      <mu-option value="16" label="嘻嘻嘻41" />
+      <mu-option value="17" label="嘻嘻嘻11" />
+      <mu-option value="18" label="嘻嘻嘻21" />
+      <mu-option value="19" label="嘻嘻嘻31" />
+      <mu-option value="110" label="嘻嘻嘻41" />
+
+
     </mu-select>
     <mu-text-field placeholder="h啊哈哈哈" full-width name="teal-phone" v-model="alertMsg" multi-line :rows="3" :rows-max="6" max-length="300" helpText="错误啦啦啦啦" label="Test Input" />
     <mu-text-field placeholder="h啊哈哈哈" disabled icon="phone" max-length="8" helpText="错误啦啦啦啦" label="Test Input" type="text" action-icon="arrow_drop_down" :action-click="closeAlert" />

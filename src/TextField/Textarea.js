@@ -56,6 +56,7 @@ export default {
         staticClass: 'mu-text-field-input mu-text-field-textarea',
         ref: 'textarea',
         attrs: {
+          tabindex: 0,
           ...this.$attrs,
           disabled: this.disabled
         },

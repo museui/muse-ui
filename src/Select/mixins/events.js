@@ -6,19 +6,16 @@ export default {
       this.$emit('blur');
     },
     focus () {
+      this.activateInput();
       this.openMenu();
       this.$emit('focus');
     },
     focusInput () {
-      if (this.$refs.input) {
-        this.$refs.input.focus();
+      this.$refs.input.focus();
 
-        this.$nextTick(() => {
-          this.$refs.input.select();
-        });
-      } else {
-        !this.isFocused && this.$refs.select.focus();
-      }
+      this.$nextTick(() => {
+        this.$refs.input.select();
+      });
     },
     createListeners () {
       const listeners = Object.assign({}, this.$listeners);
@@ -26,10 +23,13 @@ export default {
 
       return {
         ...listeners,
-        click: () => {
-          if (this.disabled || this.readonly) return;
-          if (this.isFocused && !this.open) return this.openMenu();
-
+        click: (e) => {
+          if (this.disabled || this.readonly || !this.filterable) return;
+          e.stopPropagation();
+          if (this.isFocused && !this.open) {
+            this.openMenu();
+            return;
+          }
           this.focus();
         },
         focus: (e) => {
@@ -39,8 +39,8 @@ export default {
 
           this.activateInput();
           this.$nextTick(this.focusInput);
-        }
-        // keydown: this.onKeyDown // Located in mixins/keyboard.js
+        },
+        keydown: this.onKeydown //  mixins/keyboard.js
       };
     }
   }

@@ -21,6 +21,7 @@
     margin: 4px 4px 4px 0;
   }
 }
+
 .mu-select-input {
   appearance: none;
   outline: none;
@@ -43,6 +44,10 @@
   font-family: inherit;
   position: relative;
   flex: 1;
+  cursor: inherit;
+  &.is-enable {
+    cursor: text;
+  }
 }
 
 .mu-select-action {
@@ -64,6 +69,13 @@
   }
 }
 
+.mu-select-no-data {
+  height: 36px;
+  padding: 0 16px;
+  line-height: 36px;
+  color: @disabledColor;
+}
+
 .mu-option-list {
   .scrollable();
   outline: none;
@@ -73,6 +85,14 @@
   &.is-selected {
     .mu-item {
       color: @secondaryColor;
+    }
+  }
+  &.is-focused {
+    background-color: fade(@textColor, 10%);
+  }
+  &.is-disabled {
+    .mu-item {
+      color: @disabledColor;
     }
   }
 }
