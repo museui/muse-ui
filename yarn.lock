@@ -3641,8 +3641,8 @@ prepend-http@^1.0.0:
   resolved "http://registry.npm.taobao.org/prepend-http/download/prepend-http-1.0.4.tgz#d4f4562b0ce3696e41ac52d0e002e57a635dc6dc"
 
 prettier@^1.7.0:
-  version "1.10.2"
-  resolved "http://registry.npm.taobao.org/prettier/download/prettier-1.10.2.tgz#1af8356d1842276a99a5b5529c82dd9e9ad3cc93"
+  version "1.11.0"
+  resolved "http://registry.npm.taobao.org/prettier/download/prettier-1.11.0.tgz#c024f70cab158c993f50fc0c25ffe738cb8b0f85"
 
 private@^0.1.6, private@^0.1.7:
   version "0.1.8"
@@ -4636,7 +4636,7 @@ vue-style-loader@^3.0.0:
     hash-sum "^1.0.2"
     loader-utils "^1.0.2"
 
-vue-template-compiler@^2.0.0-alpha.8:
+vue-template-compiler@^2.0.0-alpha.8, vue-template-compiler@^2.5.13:
   version "2.5.13"
   resolved "http://registry.npm.taobao.org/vue-template-compiler/download/vue-template-compiler-2.5.13.tgz#12a2aa0ecd6158ac5e5f14d294b0993f399c3d38"
   dependencies:

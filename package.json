@@ -27,7 +27,8 @@
     "parcel-bundler": "^1.6.2",
     "parcel-plugin-vue": "^1.5.0",
     "postcss-modules": "^1.1.0",
-    "vue": "^2.5.13"
+    "vue": "^2.5.13",
+    "vue-template-compiler": "^2.5.13"
   },
   "browserslist": [
     "> 1%",
