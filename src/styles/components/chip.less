@@ -5,8 +5,8 @@
   white-space: nowrap;
   display: inline-flex;
   align-items: center;
-  background-color: darken(@alternateTextColor, 12%);
-  color: fade(@textColor, 87%);
+  background-color: @chipBackgroundColor;
+  color: @textColor;
   font-size: 13px;
   padding: 0 12px;
   outline: none;
@@ -16,15 +16,37 @@
     margin-right: 4px;
   }
   &:active,
-  &:focus {
+  &:focus,
+  &.is-deletable {
+    background-color: darken(@chipBackgroundColor, 8%);
     box-shadow: 0 1px 6px fade(@fullBlack, 12%), 0 1px 4px fade(@fullBlack, 12%);
   }
   &:hover{
     .mu-chip-delete-icon{
       color: fade(fade(@textColor, 26%), 40%);
     }
+    background-color: darken(@chipBackgroundColor, 8%);
     cursor: pointer;
   }
+  &.mu-primary-color {
+    background-color: @primaryColor;
+  }
+  &.mu-secondary-color {
+    background-color: @secondaryColor;
+  }
+  &.mu-success-color {
+    background-color: @successColor;
+  }
+  &.mu-warning-color {
+    background-color: @warningColor;
+  }
+  &.mu-info-color {
+    background-color: @infoColor;
+  }
+  &.mu-error-color {
+    background-color: @errorColor;
+  }
+
 }
 .mu-chip-delete-icon{
   display: inline-block;

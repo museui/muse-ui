@@ -1,17 +1,49 @@
 import Chip from '../../Chip';
-
+import clickOutSide from '../../internal/directives/click-outside';
 export default {
   props: {
     chips: Boolean,
     placeholder: String,
     filterable: Boolean // enable search option
   },
+  directives: {
+    'click-outside': clickOutSide
+  },
   data () {
     return {
-      searchValue: ''
+      searchValue: '',
+      selectedIndex: -1
     };
   },
+  created () {
+    this.setSeachValue();
+  },
   methods: {
+    setSeachValue () {
+      if (!this.multiple) this.searchValue = this.selects.map(item => item.label).join(',');
+    },
+    changeSelectedIndex (keycode) {
+      const maxIndex = this.selects.length - 1;
+      if (keycode === 'left') {
+        this.selectedIndex = this.selectedIndex === -1 ? maxIndex : this.selectedIndex - 1;
+      } else if (keycode === 'right') {
+        this.selectedIndex = this.selectedIndex >= maxIndex ? -1 : this.selectedIndex + 1
+      } else if (this.selectedIndex === -1) {
+        this.selectedIndex = maxIndex;
+        return;
+      }
+
+      if (['backspace', 'delete'].indexOf(keycode) !== -1) {
+        const newIndex = this.selectedIndex === maxIndex
+          ? this.selectedIndex - 1
+          : this.selects[this.selectedIndex + 1] ? this.selectedIndex : -1;
+        if (this.selectedIndex !== -1) this.removeSelection(this.selectedIndex);
+        this.selectedIndex = newIndex;
+      }
+    },
+    removeSelection (index) {
+      return this.inputValue.splice(index, 1);
+    },
     createSlotSelection (item) {
       return this.$scopedSlots.selection({
         ...item,
@@ -20,44 +52,60 @@ export default {
     },
     createSelectedItems (h) {
       if (!this.chips) return this.selects.map(item => item.label).join(',');
-      return this.selects.map(item => {
-        return this.$scopedSlots.selection ? this.createSlotSelection(item) : h(Chip, {
+      return this.selects.map((item, index) => {
+        const selected = this.selectedIndex === index;
+        return this.$scopedSlots.selection ? this.createSlotSelection({
+          ...item,
+          disabled: this.disabled || this.readonly,
+          selected
+        }) : h(Chip, {
+          attrs: {
+            tabindex: -1
+          },
           props: {
-            delete: true
+            delete: true,
+            selected
           },
           on: {
             delete: () => {
-              this.inputValue.splice(this.inputValue.indexOf(item.value), 1);
+              if (this.disabled || this.readonly) return;
+              this.removeSelection(index);
             }
           }
         }, item.label);
       });
     },
     createInputElement (h) {
-      return h('input', {
-        staticClass: 'mu-select-input',
-        ref: 'input',
-        class: {
-          'is-enable': this.filterable
-        },
-        attrs: {
-          tabindex: 0,
-          readOnly: !this.filterable,
-          placeholder: !this.inputValue && this.inputValue !== 0 ? this.placeholder : ''
-        },
-        domProps: {
-          value: this.searchValue
-        },
-        on: {
-          ...this.createListeners(),
-          input: (e) => { this.searchValue = e.target.value; }
-        }
-      });
+      const enable = this.filterable && !this.readonly;
+      return [
+        h('input', {
+          staticClass: 'mu-select-input',
+          ref: 'input',
+          class: {
+            'is-enable': enable
+          },
+          attrs: {
+            tabindex: 0,
+            readonly: !enable,
+            placeholder: !this.inputValue && this.inputValue !== 0 ? this.placeholder : ''
+          },
+          domProps: {
+            value: this.searchValue
+          },
+          on: {
+            ...this.createListeners(),
+            input: (e) => { this.searchValue = e.target.value; }
+          }
+        })
+      ];
     },
     createSelection (h) {
       const content = h('div', {
         staticClass: 'mu-select-content'
-      }, [...this.createSelectedItems(h), this.createInputElement(h)]);
+      }, this.multiple ? [
+        ...this.createSelectedItems(h),
+        ...this.createInputElement(h)
+      ] : this.createInputElement(h));
       const action = h('div', {
         staticClass: 'mu-select-action'
       }, [
@@ -78,7 +126,8 @@ export default {
         staticClass: 'mu-select',
         class: {
           'is-open': this.open,
-          'is-multi': this.multiple
+          'is-multi': this.multiple,
+          'is-readonly': this.readonly
         },
         on: {
           click: () => {
@@ -86,6 +135,13 @@ export default {
             this.toggleMenu();
           }
         },
+        directives: [{
+          name: 'click-outside',
+          value: (e) => {
+            if (this.$refs.popover.$el.contains(e.target)) return;
+            this.blur();
+          }
+        }],
         ref: 'select'
       }, [
         content,
@@ -96,9 +152,12 @@ export default {
   watch: {
     searchValue (val) {
       this.options.forEach(option => {
-        option.visible = !val || option.label.indexOf(val) !== -1;
+        option.visible = !this.filterable || !val || option.label.indexOf(val) !== -1;
       });
       this.resetFocusIndex();
+    },
+    selects () {
+      this.setSeachValue();
     }
   }
 };

@@ -12,7 +12,6 @@ export default {
     };
   },
   props: {
-    multiple: Boolean,
     noDataText: {
       type: String,
       default: '暂无数据显示'
@@ -42,9 +41,11 @@ export default {
   methods: {
     activateInput () {
       this.isFocused = true;
+      this.setSeachValue();
     },
     deactivateInput () {
       this.isFocused = false;
+      this.selectedIndex = -1;
     },
     openMenu () {
       this.open = true;
@@ -118,6 +119,7 @@ export default {
         style: {
           'min-width': trigger ? trigger.offsetWidth + 'px' : ''
         },
+        ref: 'popover',
         props: {
           trigger: trigger,
           open: this.open,

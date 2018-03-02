@@ -6,6 +6,7 @@ export default {
   mixins: [color],
   props: {
     delete: Boolean,
+    selected: Boolean,
     textColor: String
   },
   methods: {
@@ -33,6 +34,9 @@ export default {
 
     return h('span', {
       staticClass: `mu-chip ${this.getColorClass()} ${this.getTextColorClass()}`,
+      class: {
+        'is-deletable': this.selected
+      },
       attrs: {
         tabindex: 0
       },

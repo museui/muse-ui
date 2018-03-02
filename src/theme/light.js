@@ -17,6 +17,7 @@ export default {
   divider: Colors.faintBlack,
   background: {
     paper: Colors.white,
+    chip: Colors.grey300,
     default: Colors.grey50
   }
 };

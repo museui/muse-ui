@@ -17,6 +17,7 @@ export default {
   divider: 'rgba(255, 255, 255, 0.3)',
   background: {
     paper: Colors.grey800,
+    chip: Colors.grey700,
     default: '#303030'
   }
 };

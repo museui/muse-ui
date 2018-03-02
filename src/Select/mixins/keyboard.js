@@ -28,15 +28,23 @@ export default {
           break;
         case 'up':
           event.preventDefault();
+          this.selectedIndex = -1;
           this.decrementFocusIndex();
           break;
         case 'down':
           event.preventDefault();
+          this.selectedIndex = -1;
           this.incrementFocusIndex();
           break;
         case 'tab':
           this.blur();
-          this.searchValue = '';
+          if (this.multiple) this.searchValue = '';
+          break;
+        case 'left':
+        case 'right':
+        case 'delete':
+        case 'backspace':
+          if (!this.searchValue && this.filterable && this.multiple) this.changeSelectedIndex(code);
           break;
       }
     },
