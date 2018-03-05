@@ -1,8 +1,7 @@
 <template>
   <div style="padding: 32px;">
-    <mu-select placeholder="圆圆圆圆" chips filterable label="选择框">
+<mu-select placeholder="圆圆圆圆" multiple  label="选择框">
       <mu-chip slot="selection" slot-scope="scope" color="teal" :selected="scope.selected">
-        <!-- <mu-avatar size="32" style="font-size: 16px">{{scope.label.substring(0, 1).toUpperCase()}}</mu-avatar> -->
         {{scope.label}}
       </mu-chip>
       <mu-option value="1" label="嘻嘻嘻1" />

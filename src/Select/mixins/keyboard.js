@@ -16,7 +16,7 @@ export default {
   methods: {
     onKeydown (e) {
       const code = keycode(e);
-      if (!this.open && ['enter', 'space', 'up', 'down'].indexOf(code)) {
+      if (!this.open && ['enter', 'space', 'up', 'down'].indexOf(code) !== -1) {
         e.preventDefault();
         return this.openMenu();
       }

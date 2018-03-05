@@ -41,11 +41,11 @@ export default {
   methods: {
     activateInput () {
       this.isFocused = true;
-      this.setSeachValue();
     },
     deactivateInput () {
       this.isFocused = false;
       this.selectedIndex = -1;
+      this.setSeachValue();
     },
     openMenu () {
       this.open = true;
@@ -91,8 +91,10 @@ export default {
           break;
       }
       this.inputValue = selectedValue;
-      if (!this.multiple) this.closeMenu();
-      this.$nextTick(() => this.focusInput());
+      this.$nextTick(() => {
+        this.focusInput();
+        if (!this.multiple) this.closeMenu();
+      });
     },
     createContent (h) {
       return h('div', {

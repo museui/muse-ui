@@ -50,29 +50,43 @@ export default {
         disabled: this.disabled || this.readonly
       });
     },
+    createChipSelection (h, { selected, index, label }) {
+      return h(Chip, {
+        attrs: {
+          tabindex: -1
+        },
+        props: {
+          delete: true,
+          selected
+        },
+        on: {
+          delete: () => {
+            if (this.disabled || this.readonly) return;
+            this.removeSelection(index);
+          }
+        }
+      }, label);
+    },
+    createTextSelection (h, { selected, label }, isLast) {
+      return h('span', {
+        staticClass: 'mu-selection-text',
+        class: {
+          'is-active': selected
+        }
+      }, isLast ? label : label + ',');
+    },
     createSelectedItems (h) {
-      if (!this.chips) return this.selects.map(item => item.label).join(',');
       return this.selects.map((item, index) => {
         const selected = this.selectedIndex === index;
-        return this.$scopedSlots.selection ? this.createSlotSelection({
-          ...item,
-          disabled: this.disabled || this.readonly,
-          selected
-        }) : h(Chip, {
-          attrs: {
-            tabindex: -1
-          },
-          props: {
-            delete: true,
-            selected
-          },
-          on: {
-            delete: () => {
-              if (this.disabled || this.readonly) return;
-              this.removeSelection(index);
-            }
-          }
-        }, item.label);
+
+        switch (true) {
+          case !!this.$scopedSlots.selection:
+            return this.createSlotSelection({ ...item, selected });
+          case this.chips:
+            return this.createChipSelection(h, { ...item, selected });
+          default:
+            return this.createTextSelection(h, { ...item, selected }, index === this.selects.length - 1);
+        }
       });
     },
     createInputElement (h) {
@@ -155,6 +169,7 @@ export default {
         option.visible = !this.filterable || !val || option.label.indexOf(val) !== -1;
       });
       this.resetFocusIndex();
+      if (this.isFocused && !this.open) this.open = true;
     },
     selects () {
       this.setSeachValue();
