@@ -18,6 +18,7 @@ import PaperTheme from '../Paper/theme';
 import PopoverTheme from '../Popover/theme';
 import ProgressTheme from '../Progress/theme';
 import RadioTheme from '../Radio/theme';
+import SelectTheme from '../Select/theme';
 import SliderTheme from '../Slider/theme';
 import SnackbarTheme from '../Snackbar/theme';
 import StepperTheme from '../Stepper/theme';
@@ -34,7 +35,7 @@ const themes = [
   BottomSheetTheme, BreadcrumbsTheme, ButtonTheme, CardTheme, CheckboxTheme,
   ChipTheme, DialogTheme, DividerTheme, DrawerTheme, GradListTheme, SliderTheme,
   ListTheme, PaperTheme, PopoverTheme, ProgressTheme, RadioTheme, SnackbarTheme,
-  StepperTheme, SubHeaderTheme, SwitchTheme, Tabs, TextField, ColorTheme
+  SelectTheme, StepperTheme, SubHeaderTheme, SwitchTheme, Tabs, TextField, ColorTheme
 ];
 
 const vars = {
