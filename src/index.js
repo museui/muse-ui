@@ -10,6 +10,7 @@ import Button from './Button';
 import Card from './Card';
 import Checkbox from './Checkbox';
 import Chip from './Chip';
+import DatePicker from './DatePicker';
 import Dialog from './Dialog';
 import Divider from './Divider';
 import Drawer from './Drawer';
@@ -38,7 +39,7 @@ function MuseUI (Vue) {
     Alert, AppBar, Avatar,
     Badge, BottomNav, BottomSheet, Breadcrumbs, Button,
     Card, Checkbox, Chip,
-    Dialog, Divider, Drawer,
+    DatePicker, Dialog, Divider, Drawer,
     GridList, Icon, List, Menu,
     Paper, Popover, Progress, Radio,
     Select, Slider, Snackbar, Stepper, SubHeader, Switch,

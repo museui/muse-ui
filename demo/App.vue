@@ -1,5 +1,9 @@
 <template>
   <div style="padding: 32px;">
+  <mu-paper style="display: inline-block;" :zDepth="2">
+    <mu-date-picker :maxDate="new Date()"/>
+  </mu-paper>
+
 <mu-select placeholder="圆圆圆圆" multiple  label="选择框">
       <mu-chip slot="selection" slot-scope="scope" color="teal" :selected="scope.selected">
         {{scope.label}}
