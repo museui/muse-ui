@@ -17,7 +17,7 @@ export default {
   }, {
     name: 'cancelLabel',
     type: 'String',
-    default: '确定',
+    default: '取消',
     desc: 'props.cancelLabel'
   }, {
     name: 'container',
