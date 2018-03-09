@@ -30,6 +30,7 @@ import SubHeader from './SubHeader';
 import Switch from './Switch';
 import Tabs from './Tabs';
 import TextField from './TextField';
+import TimePicker from './TimePicker';
 import Tooltip from './Tooltip';
 import './styles/theme.less';
 import theme from './theme';
@@ -43,7 +44,7 @@ function MuseUI (Vue) {
     GridList, Icon, List, Menu,
     Paper, Popover, Progress, Radio,
     Select, Slider, Snackbar, Stepper, SubHeader, Switch,
-    Tabs, TextField, Tooltip
+    Tabs, TextField, TimePicker, Tooltip
   ].forEach((component) => {
     Vue.use(component);
   });
