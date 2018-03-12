@@ -1,15 +1,10 @@
 import TimeDisplay from './TimeDisplay';
 import ClockHours from './Hours';
 import ClockMinutes from './Minutes';
-import Button from '../Button';
 
 export default {
   name: 'mu-time-picker',
   props: {
-    autoOk: {
-      type: Boolean,
-      default: false
-    },
     format: {
       type: String,
       default: 'ampm',
@@ -17,7 +12,7 @@ export default {
         return ['ampm', '24hr'].indexOf(val) !== -1;
       }
     },
-    initialTime: {
+    time: {
       type: Date,
       default () {
         return new Date();
@@ -38,7 +33,7 @@ export default {
   },
   data () {
     return {
-      selectedTime: this.initialTime,
+      selectedTime: this.time,
       mode: 'hour'
     };
   },
@@ -99,29 +94,6 @@ export default {
     }
   },
   render (h) {
-    const actions = h('div', {
-      staticClass: 'mu-timepicker-actions'
-    }, [
-      h(Button, {
-        props: {
-          color: 'primary',
-          flat: true
-        },
-        on: {
-          click: this.dismiss
-        }
-      }, this.cancelLabel),
-      h(Button, {
-        props: {
-          color: 'primary',
-          flat: true
-        },
-        on: {
-          click: this.accept
-        }
-      }, this.okLabel)
-    ]);
-
     return h('div', {
       staticClass: 'mu-timepicker',
       class: {
@@ -161,14 +133,16 @@ export default {
           on: {
             change: this.handleChangeMinutes
           }
-        }) : undefined,
-        actions
+        }) : undefined
       ])
     ]);
   },
   watch: {
-    initialTime (val) {
+    time (val) {
       this.selectedTime = val;
+    },
+    selectedTime (val) {
+      this.$emit('update:time', val);
     }
   }
 };
