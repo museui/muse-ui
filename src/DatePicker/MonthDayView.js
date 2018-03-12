@@ -11,11 +11,12 @@ export default {
     },
     maxDate: Date,
     minDate: Date,
+    displayDate: Date,
     selectedDate: Date,
     shouldDisableDate: Function
   },
   data () {
-    const displayDate = dateUtils.cloneDate(this.selectedDate);
+    const displayDate = dateUtils.cloneDate(this.displayDate);
     displayDate.setDate(1);
     return {
       weekTexts: this.dateTimeFormat.getWeekDayArray(this.firstDayOfWeek),
@@ -45,7 +46,7 @@ export default {
     handleClick (date) {
       if (date) this.$emit('select', date);
     },
-    handleMonthChange (val) {
+    handleChange (val) {
       const displayDate = dateUtils.addMonths(this.displayDates[0], val);
       this.changeDisplayDate(displayDate);
     },
@@ -122,7 +123,8 @@ export default {
           dateTimeFormat: this.dateTimeFormat
         },
         on: {
-          monthChange: this.handleMonthChange
+          click: () => this.$emit('changeView', 'month'),
+          change: this.handleChange
         }
       }),
       this.createWeek(h),
@@ -130,7 +132,7 @@ export default {
     ]);
   },
   watch: {
-    selectedDate (val) {
+    displayDate (val) {
       this.changeDisplayDate(val);
     }
   }

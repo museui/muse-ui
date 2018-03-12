@@ -1,7 +1,7 @@
 import DateDisplay from './DateDisplay';
-import Button from '../Button';
 import MonthDayView from './MonthDayView';
 import YearView from './YearView';
+import MonthView from './MonthView';
 import * as dateUtils from './dateUtils';
 
 export default {
@@ -13,20 +13,11 @@ export default {
         return dateUtils.dateTimeFormat;
       }
     },
-    autoOk: Boolean,
-    okLabel: {
-      type: String,
-      default: '确定'
-    },
-    cancelLabel: {
-      type: String,
-      default: '取消'
-    },
     firstDayOfWeek: {
       type: Number,
       default: 1
     },
-    initialDate: {
+    date: {
       type: Date,
       default () {
         return new Date();
@@ -48,7 +39,7 @@ export default {
       type: String,
       default: 'portrait',
       validator (val) {
-        return val && ['portrait', 'landscape'].indexOf(val) !== -1
+        return val && ['portrait', 'landscape'].indexOf(val) !== -1;
       }
     },
     shouldDisableDate: {
@@ -57,33 +48,29 @@ export default {
   },
   data () {
     return {
-      selectedDate: this.initialDate,
-      view: 'monthDay'
+      displayDate: this.date,
+      view: 'month'
     };
   },
   methods: {
     handleYearChange (year) {
-      if (this.selectedDate.getFullYear() === year) return;
-      const date = dateUtils.cloneAsDate(this.selectedDate);
+      const date = dateUtils.cloneAsDate(this.displayDate);
       date.setFullYear(year);
-      this.setSelected(date);
+      this.changeDisplayDate(date);
+      this.changeView('monthDay');
+    },
+    handleMonthChange (date) {
+      this.changeDisplayDate(date);
       this.changeView('monthDay');
     },
     handleSelect (date) {
-      this.setSelected(date);
-      if (this.autoOk) this.handleOk();
+      if (date.getTime() > this.maxDate.getTime()) date = new Date(this.maxDate.getTime());
+      if (date.getTime() < this.minDate.getTime()) date = new Date(this.minDate.getTime());
+      this.changeDisplayDate(date);
+      this.$emit('update:date', date);
     },
-    handleCancel () {
-      this.$emit('dismiss');
-    },
-    handleOk () {
-      const { selectedDate, maxDate, minDate } = this;
-      if (selectedDate.getTime() > maxDate.getTime()) this.selectedDate = new Date(maxDate.getTime());
-      if (selectedDate.getTime() < minDate.getTime()) this.selectedDate = new Date(minDate.getTime());
-      this.$emit('accept', this.selectedDate);
-    },
-    setSelected (date) {
-      this.selectedDate = date;
+    changeDisplayDate (date) {
+      this.displayDate = date;
     },
     changeView (view) {
       this.view = view;
@@ -96,16 +83,18 @@ export default {
         firstDayOfWeek: this.firstDayOfWeek,
         maxDate: this.maxDate,
         minDate: this.minDate,
-        selectedDate: this.selectedDate,
+        displayDate: this.displayDate,
+        selectedDate: this.date,
         shouldDisableDate: this.shouldDisableDate
       },
       on: {
+        changeView: this.changeView,
         select: this.handleSelect
       }
     });
     const yearView = h(YearView, {
       props: {
-        selectedDate: this.selectedDate,
+        displayDate: this.displayDate,
         maxDate: this.maxDate,
         minDate: this.minDate
       },
@@ -113,55 +102,55 @@ export default {
         change: this.handleYearChange
       }
     });
-    const actions = !this.autoOk ? h('div', {
-      staticClass: 'mu-datepicker-actions'
-    }, [
-      h(Button, {
-        props: {
-          flat: true,
-          color: 'primary'
-        },
-        on: {
-          click: this.handleCancel
-        }
-      }, this.cancelLabel),
-      h(Button, {
-        props: {
-          flat: true,
-          color: 'primary'
-        },
-        on: {
-          click: this.handleOk
-        }
-      }, this.okLabel)
-    ]) : undefined;
-    return h('div', {
-      staticClass: 'mu-datepicker',
-      class: {
-        'mu-datepicker-landspace': this.mode === 'landspace'
+    const monthView = h(MonthView, {
+      props: {
+        dateTimeFormat: this.dateTimeFormat,
+        maxDate: this.maxDate,
+        minDate: this.minDate,
+        displayDate: this.displayDate
+      },
+      on: {
+        changeView: this.changeView,
+        change: this.handleMonthChange
       }
-    }, [
-      h(DateDisplay, {
-        props: {
-          monthDaySelected: this.view !== 'year',
-          selectedDate: this.selectedDate,
-          dateTimeFormat: this.dateTimeFormat
-        },
-        on: {
-          changeView: this.changeView
+    });
+    return h(
+      'div',
+      {
+        staticClass: 'mu-datepicker',
+        class: {
+          'mu-datepicker-landspace': this.mode === 'landspace'
         }
-      }),
-      h('div', {
-        staticClass: 'mu-datepicker-container'
-      }, [
-        this.view === 'monthDay' ? monthdayView : yearView,
-        actions
-      ])
-    ]);
+      },
+      [
+        h(DateDisplay, {
+          props: {
+            monthDaySelected: this.view !== 'year',
+            displayDate: this.displayDate,
+            dateTimeFormat: this.dateTimeFormat
+          },
+          on: {
+            changeView: this.changeView
+          }
+        }),
+        h(
+          'div',
+          {
+            staticClass: 'mu-datepicker-container'
+          },
+          [
+            this.view === 'monthDay'
+              ? monthdayView
+              : this.view === 'month'
+                ? monthView : yearView
+          ]
+        )
+      ]
+    );
   },
   watch: {
-    initialDate (val) {
-      this.selectedDate = val;
+    date (val) {
+      this.displayDate = val;
     }
   }
 };

@@ -29,6 +29,9 @@ export const dateTimeFormat = {
       }
     }
     return beforeArray.concat(afterArray);
+  },
+  getMonthList () {
+    return localConfig.monthLongList;
   }
 };
 
@@ -43,6 +46,21 @@ export function getDaysInMonth (d) {
 
 export function getFirstDayOfMonth (d) {
   return new Date(d.getFullYear(), d.getMonth(), 1);
+}
+
+export function getMonthArray (d) {
+  const length = 3;
+  const months = [];
+  let month = [];
+  for (let i = 0; i < 12; i++) {
+    month.push(new Date(d.getFullYear(), i, 1));
+    if (month.length === length) {
+      months.push(month);
+      month = [];
+    }
+  }
+
+  return months;
 }
 
 export function getWeekArray (d, firstDayOfWeek) {

@@ -3,6 +3,10 @@ export default {
   props: {
     dateTimeFormat: Object,
     displayDates: Array,
+    type: {
+      type: String,
+      default: 'month'
+    }, // month, year
     nextMonth: {
       type: Boolean,
       default: true
@@ -16,7 +20,7 @@ export default {
   methods: {
     createTitleSlide (h) {
       return this.displayDates.map((displayDate, index) => {
-        const title = this.dateTimeFormat.formatMonth(displayDate);
+        const title = this.type === 'month' ? this.dateTimeFormat.formatMonth(displayDate) : displayDate.getFullYear();
         return h('transition', {
           props: {
             name: `mu-datepicker-slide-${this.slideType}`
@@ -25,7 +29,13 @@ export default {
         }, [
           h('div', {
             staticClass: 'mu-datepicker-toolbar-title',
-            key: title
+            class: {
+              'clickable': true
+            },
+            key: title,
+            on: {
+              click: (e) => this.$emit('click', e)
+            }
           }, title)
         ]);
       });
@@ -69,7 +79,7 @@ export default {
           disabled: !this.prevMonth
         },
         on: {
-          click: () => this.$emit('monthChange', -1)
+          click: () => this.$emit('change', -1)
         }
       }, [this.createPrevIcon(h)]),
       h('div', {
@@ -84,7 +94,7 @@ export default {
           disabled: !this.nextMonth
         },
         on: {
-          click: () => this.$emit('monthChange', 1)
+          click: () => this.$emit('change', 1)
         }
       }, [this.createNextIcon(h)])
     ]);

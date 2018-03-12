@@ -1,7 +1,7 @@
 <template>
   <div style="padding: 32px;">
   <mu-paper style="display: inline-block;" :zDepth="2">
-    <mu-date-picker :maxDate="new Date()"/>
+    <mu-date-picker :maxDate="new Date()" :date.sync="date"/>
   </mu-paper>
   <br/>
   <mu-paper style="display: inline-block;" :zDepth="2">
@@ -274,6 +274,7 @@ export default {
       checkbox2: true,
       switch1: true,
       radio1: '',
+      date: new Date(),
       alertMsg: 'every thing is disabled'
     }
   },

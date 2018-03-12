@@ -4,7 +4,7 @@ export default {
   props: {
     maxDate: Date,
     minDate: Date,
-    selectedDate: Date
+    displayDate: Date
   },
   computed: {
     years () {
@@ -30,7 +30,7 @@ export default {
         return h(YearButton, {
           props: {
             year,
-            selected: year === this.selectedDate.getFullYear()
+            selected: year === this.displayDate.getFullYear()
           },
           on: {
             click: (e) => {

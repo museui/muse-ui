@@ -100,7 +100,6 @@
   flex-direction: column;
   justify-content: flex-start;
   font-weight: 400;
-  height: 228px;
   line-height: 2;
   position: relative;
   text-align: center;
@@ -111,6 +110,40 @@
   flex-direction: row;
   justify-content: space-around;
   height: 34px;
+  margin-bottom: 2px;
+}
+
+.mu-datepick-month-container {
+  display: flex;
+  align-content: space-between;
+  justify-content: space-between;
+  flex-direction: column;
+  font-size: 12px;
+  font-weight: 400;
+  padding: 0px 8px;
+  transition: all .45s @easeOutFunction;
+}
+
+.mu-datepicker-month {
+  position: relative;
+  overflow: hidden;
+  height: 234px;
+}
+
+.mu-datepicker-month-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  font-weight: 400;
+  line-height: 2;
+  position: relative;
+  text-align: center;
+}
+
+.mu-datepicker-month-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
   margin-bottom: 2px;
 }
 
@@ -137,6 +170,12 @@
   top: 0px;
   left: 0px;
   line-height: 48px;
+  &.clickable {
+    cursor: pointer;
+    &:hover {
+      color: @primaryColor;
+    }
+  }
 }
 
 .mu-datepicker-svg-icon {
@@ -337,8 +376,59 @@
   .mu-day-button.now & {
     color: @primaryColor;
   }
-  .mu-day-button.hover &,
+  .mu-day-button:hover &,
   .mu-day-button.selected & {
+    color: @alternateTextColor;
+  }
+}
+
+.mu-month-button {
+  display: inline-block;
+  background: none;
+  user-select: none;
+  outline: none;
+  text-decoration: none;
+  cursor: pointer;
+  margin: 0px;
+  font-size: inherit;
+  font-weight: 400;
+  position: relative;
+  border: 10px;
+  width: 84px;
+  height: 56px;
+  padding: 10px 0;
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
+.mu-month-button-bg {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 10px;
+  bottom: 10px;
+  background-color: @primaryColor;
+  border-radius: 2px;
+  opacity: 0;
+
+  .mu-month-button:hover & {
+    opacity: 0.6;
+  }
+  .mu-month-button.selected & {
+    opacity: 1;
+  }
+  .mu-month-button:disabled & {
+    opacity: 0;
+  }
+}
+.mu-month-button-text {
+  color: @textColor;
+  position: relative;
+  .mu-month-button:disabled & {
+    color: @disabledColor;
+  }
+  .mu-month-button:hover &,
+  .mu-month-button.selected & {
     color: @alternateTextColor;
   }
 }

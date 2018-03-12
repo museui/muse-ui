@@ -5,11 +5,11 @@ export default {
       type: Boolean,
       default: true
     },
-    selectedDate: Date
+    displayDate: Date
   },
   data () {
     return {
-      displayDates: [this.selectedDate],
+      displayDates: [this.displayDate],
       slideType: 'next'
     };
   },
@@ -79,7 +79,7 @@ export default {
     }, [displayYear, displayMonthDay]);
   },
   watch: {
-    selectedDate (val) {
+    displayDate (val) {
       this.replaceSelected(val);
     }
   }
