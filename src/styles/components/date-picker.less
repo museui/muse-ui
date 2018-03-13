@@ -424,12 +424,12 @@
 .mu-month-button-text {
   color: @textColor;
   position: relative;
-  .mu-month-button:disabled & {
-    color: @disabledColor;
-  }
   .mu-month-button:hover &,
   .mu-month-button.selected & {
     color: @alternateTextColor;
+  }
+  .mu-month-button:disabled & {
+    color: @disabledColor;
   }
 }
 

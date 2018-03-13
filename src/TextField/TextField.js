@@ -60,6 +60,7 @@ export default {
             ...this.$attrs,
             maxlength: this.maxLength,
             disabled: this.disabled,
+            value: this.inputValue,
             placeholder
           },
           on: listeners

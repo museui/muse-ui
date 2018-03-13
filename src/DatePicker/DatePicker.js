@@ -23,6 +23,10 @@ export default {
         return new Date();
       }
     },
+    type: {
+      type: String,
+      default: 'date' // date, year, month
+    },
     maxDate: {
       type: Date,
       default () {
@@ -35,38 +39,38 @@ export default {
         return dateUtils.addYears(new Date(), -100);
       }
     },
-    mode: {
-      type: String,
-      default: 'portrait',
-      validator (val) {
-        return val && ['portrait', 'landscape'].indexOf(val) !== -1;
-      }
-    },
-    shouldDisableDate: {
-      type: Function
-    }
+    landscape: Boolean,
+    noDisplay: Boolean,
+    shouldDisableDate: Function
   },
   data () {
     return {
       displayDate: this.date,
-      view: 'month'
+      view: this.type === 'date' ? 'monthDay' : this.type === 'year' ? 'year' : 'month'
     };
   },
   methods: {
     handleYearChange (year) {
       const date = dateUtils.cloneAsDate(this.displayDate);
+      date.setDate(1);
       date.setFullYear(year);
       this.changeDisplayDate(date);
-      this.changeView('monthDay');
+      if (this.type === 'year') return this.changeDate(date);
+      this.changeView(this.type === 'month' ? 'month' : 'monthDay');
     },
     handleMonthChange (date) {
       this.changeDisplayDate(date);
+      if (this.type === 'month') return this.changeDate(date);
       this.changeView('monthDay');
     },
     handleSelect (date) {
       if (date.getTime() > this.maxDate.getTime()) date = new Date(this.maxDate.getTime());
       if (date.getTime() < this.minDate.getTime()) date = new Date(this.minDate.getTime());
       this.changeDisplayDate(date);
+      this.changeDate(date);
+    },
+    changeDate (date) {
+      this.$emit('change', date);
       this.$emit('update:date', date);
     },
     changeDisplayDate (date) {
@@ -119,11 +123,11 @@ export default {
       {
         staticClass: 'mu-datepicker',
         class: {
-          'mu-datepicker-landspace': this.mode === 'landspace'
+          'mu-datepicker-landspace': this.landscape
         }
       },
       [
-        h(DateDisplay, {
+        !this.noDisplay ? h(DateDisplay, {
           props: {
             monthDaySelected: this.view !== 'year',
             displayDate: this.displayDate,
@@ -132,7 +136,7 @@ export default {
           on: {
             changeView: this.changeView
           }
-        }),
+        }) : undefined,
         h(
           'div',
           {
@@ -141,8 +145,8 @@ export default {
           [
             this.view === 'monthDay'
               ? monthdayView
-              : this.view === 'month'
-                ? monthView : yearView
+              : this.view === 'month' ? monthView : yearView,
+            this.$slots.default
           ]
         )
       ]

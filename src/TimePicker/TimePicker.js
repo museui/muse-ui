@@ -18,29 +18,18 @@ export default {
         return new Date();
       }
     },
-    okLabel: {
-      type: String,
-      default: '确定'
-    },
-    cancelLabel: {
-      type: String,
-      default: '取消'
-    },
-    landscape: {
-      type: Boolean,
-      default: false
-    }
+    noDisplay: Boolean,
+    landscape: Boolean
   },
   data () {
     return {
-      selectedTime: this.time,
       mode: 'hour'
     };
   },
   methods: {
     getAffix () {
       if (this.format !== 'ampm') return '';
-      const hours = this.selectedTime.getHours();
+      const hours = this.time.getHours();
       if (hours < 12) {
         return 'am';
       }
@@ -48,7 +37,7 @@ export default {
     },
     handleSelectAffix (affix) {
       if (affix === this.getAffix()) return;
-      const hours = this.selectedTime.getHours();
+      const hours = this.time.getHours();
       if (affix === 'am') {
         this.handleChangeHours(hours - 12, affix);
         return;
@@ -56,7 +45,7 @@ export default {
       this.handleChangeHours(hours + 12, affix);
     },
     handleChangeHours (hours, finished) {
-      const time = new Date(this.selectedTime);
+      const time = new Date(this.time);
       let affix;
       if (typeof finished === 'string') {
         affix = finished;
@@ -69,28 +58,17 @@ export default {
         hours += 12;
       }
       time.setHours(hours);
-      this.selectedTime = time;
-      if (finished) {
-        setTimeout(() => {
-          this.mode = 'minute';
-          this.$emit('changeHours', time);
-        }, 100);
-      }
+      this.changeTime(time, 'hour', finished);
+      if (finished) this.mode = 'minute';
     },
-    handleChangeMinutes (minutes) {
-      const time = new Date(this.selectedTime);
+    handleChangeMinutes (minutes, finished) {
+      const time = new Date(this.time);
       time.setMinutes(minutes);
-      this.selectedTime = time;
-      setTimeout(() => {
-        this.$emit('changeMinutes', time);
-        if (this.autoOk) this.accept();
-      }, 0);
+      this.changeTime(time, 'minute', finished);
     },
-    accept () {
-      this.$emit('accept', this.selectedTime);
-    },
-    dismiss () {
-      this.$emit('dismiss');
+    changeTime (time, mode, finished) {
+      this.$emit('change', time, mode, finished);
+      this.$emit('update:time', time);
     }
   },
   render (h) {
@@ -100,9 +78,9 @@ export default {
         'mu-timepicker-landspace': this.landscape
       }
     }, [
-      h(TimeDisplay, {
+      !this.noDisplay ? h(TimeDisplay, {
         props: {
-          selectedTime: this.selectedTime,
+          selectedTime: this.time,
           format: this.format,
           mode: this.mode,
           affix: this.getAffix()
@@ -112,7 +90,7 @@ export default {
           selectHour: () => { this.mode = 'hour'; },
           selectAffix: this.handleSelectAffix
         }
-      }),
+      }) : undefined,
       h('div', {
         staticClass: 'mu-timepicker-container'
       }, [
@@ -120,7 +98,7 @@ export default {
         this.mode === 'hour' ? h(ClockHours, {
           props: {
             format: this.format,
-            initialHours: this.selectedTime.getHours()
+            initialHours: this.time.getHours()
           },
           on: {
             change: this.handleChangeHours
@@ -128,21 +106,14 @@ export default {
         }) : undefined,
         this.mode === 'minute' ? h(ClockMinutes, {
           props: {
-            initialMinutes: this.selectedTime.getMinutes()
+            initialMinutes: this.time.getMinutes()
           },
           on: {
             change: this.handleChangeMinutes
           }
         }) : undefined
-      ])
+      ]),
+      this.$slots.default
     ]);
-  },
-  watch: {
-    time (val) {
-      this.selectedTime = val;
-    },
-    selectedTime (val) {
-      this.$emit('update:time', val);
-    }
   }
 };

@@ -99,7 +99,8 @@ export default {
           this.createLabel(h),
           ...children,
           this.createUnderline(h),
-          this.createHelpText(h)
+          this.createHelpText(h),
+          this.$slots.default
         ])
       ]);
     }

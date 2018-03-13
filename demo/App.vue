@@ -1,11 +1,12 @@
 <template>
   <div style="padding: 32px;">
+  <mu-date-input v-model="value" actions type="time" landscape/>
   <mu-paper style="display: inline-block;" :zDepth="2">
-    <mu-date-picker :maxDate="new Date()" :date.sync="date"/>
+    <mu-date-picker :maxDate="new Date()" :date.sync="date" />
   </mu-paper>
   <br/>
   <mu-paper style="display: inline-block;" :zDepth="2">
-    <mu-time-picker format="24hr"/>
+    <mu-time-picker format="24hr" :time.sync="time"/>
   </mu-paper>
 
 <mu-select placeholder="圆圆圆圆" multiple  label="选择框">
@@ -275,6 +276,8 @@ export default {
       switch1: true,
       radio1: '',
       date: new Date(),
+      time: new Date(),
+      value: undefined,
       alertMsg: 'every thing is disabled'
     }
   },

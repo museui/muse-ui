@@ -18,6 +18,7 @@
   position: relative;
   .mu-timepicker-landspace & {
     width: 300px;
+    padding-bottom: 62px;
   }
 }
 
@@ -28,6 +29,8 @@
   height: 260px;
   border-radius: 100%;
   background-color: fade(@darkBlack, 7%);
+  left: 50%;
+  margin-left: -130px;
   .mu-timepicker-landspace & {
     left: 50%;
     margin-left: -130px;
@@ -39,10 +42,12 @@
   flex-direction: row;
   justify-content: flex-end;
   padding: 8px;
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  right: 0;
+  .mu-timepicker-landspace & {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
 }
 
 .mu-time-display {
