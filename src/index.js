@@ -15,6 +15,7 @@ import DatePicker from './DatePicker';
 import Dialog from './Dialog';
 import Divider from './Divider';
 import Drawer from './Drawer';
+import Grid from './Grid';
 import GridList from './GridList';
 import Icon from './Icon';
 import List from './List';
@@ -42,7 +43,7 @@ function MuseUI (Vue) {
     Badge, BottomNav, BottomSheet, Breadcrumbs, Button,
     Card, Checkbox, Chip,
     DateInput, DatePicker, Dialog, Divider, Drawer,
-    GridList, Icon, List, Menu,
+    Grid, GridList, Icon, List, Menu,
     Paper, Popover, Progress, Radio,
     Select, Slider, Snackbar, Stepper, SubHeader, Switch,
     Tabs, TextField, TimePicker, Tooltip
