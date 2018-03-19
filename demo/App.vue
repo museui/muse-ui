@@ -1,5 +1,8 @@
 <template>
   <div style="padding: 32px;">
+    <div style="margin-bottom: 15px;">
+      <mu-data-table :columns="columns" height="350" checkbox hover stripe border :data="list"/>
+    </div>
   <mu-date-input v-model="value" actions type="time" landscape/>
   <mu-paper style="display: inline-block;" :zDepth="2">
     <mu-date-picker :maxDate="new Date()" :date.sync="date" />
@@ -278,7 +281,84 @@ export default {
       date: new Date(),
       time: new Date(),
       value: undefined,
-      alertMsg: 'every thing is disabled'
+      alertMsg: 'every thing is disabled',
+      columns: [{
+        name: 'xxx1',
+        title: '嘻嘻嘻1'
+      }, {
+        name: 'xxx2',
+        title: '嘻嘻嘻2',
+        align: 'center'
+      }, {
+        name: 'xxx3',
+        title: '嘻嘻嘻3'
+      }, {
+        name: 'xxx4',
+        title: '嘻嘻嘻4'
+      }, {
+        name: 'xxx5',
+        title: '嘻嘻嘻5'
+      }, {
+        name: 'xxx6',
+        title: '嘻嘻嘻6'
+      }],
+      list: [{
+        xxx1: '啊哈哈哈哈哈哈',
+        xxx2: 10,
+        xxx3: 11,
+        xxx4: 12,
+        xxx5: 24,
+        xxx6: 26
+      }, {
+        xxx1: '啊哈哈哈哈哈哈',
+        xxx2: 10,
+        xxx3: 11,
+        xxx4: 12,
+        xxx5: 24,
+        xxx6: 26
+      }, {
+        xxx1: '啊哈哈哈哈哈哈',
+        xxx2: 10,
+        xxx3: 11,
+        xxx4: 12,
+        xxx5: 24,
+        xxx6: 26
+      }, {
+        xxx1: '啊哈哈哈哈哈哈',
+        xxx2: 10,
+        xxx3: 11,
+        xxx4: 12,
+        xxx5: 24,
+        xxx6: 26
+      }, {
+        xxx1: '啊哈哈哈哈哈哈',
+        xxx2: 10,
+        xxx3: 11,
+        xxx4: 12,
+        xxx5: 24,
+        xxx6: 26
+      }, {
+        xxx1: '啊哈哈哈哈哈哈',
+        xxx2: 10,
+        xxx3: 11,
+        xxx4: 12,
+        xxx5: 24,
+        xxx6: 26
+      }, {
+        xxx1: '啊哈哈哈哈哈哈',
+        xxx2: 10,
+        xxx3: 11,
+        xxx4: 12,
+        xxx5: 24,
+        xxx6: 26
+      }, {
+        xxx1: '啊哈哈哈哈哈哈',
+        xxx2: 10,
+        xxx3: 11,
+        xxx4: 12,
+        xxx5: 24,
+        xxx6: 26
+      }]
     }
   },
   methods: {

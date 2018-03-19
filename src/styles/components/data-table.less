@@ -1,0 +1,83 @@
+@import "../import.less";
+.mu-table {
+  background-color: @alternateTextColor;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    table-layout: fixed;
+    width: 100%;
+  }
+  tr {
+    border-bottom: 1px solid @borderColor;
+    color: @textColor;
+    height: 48px;
+    &.is-stripe {
+      background-color:  @grey50;
+    }
+    &.is-hover {
+      background-color: @grey200;
+    }
+    &.is-selected {
+      background-color: @grey100;
+    }
+  }
+  thead {
+    border-bottom: 1px solid @borderColor;
+  }
+  td {
+    padding-left: 24px;
+    padding-right: 24px;
+    height: 48px;
+    text-align: left;
+    font-size: 13px;
+    text-overflow: ellipsis;
+  }
+  th {
+    font-weight: normal;
+    font-size: 12px;
+    padding-left: 24px;
+    padding-right: 24px;
+    height: 56px;
+    text-align: left;
+    color: @secondaryTextColor;
+    position: relative;
+    &.is-left {
+      text-align: left;
+    }
+    &.is-center {
+      text-align: center;
+    }
+    &.is-right {
+      text-align: right;
+    }
+  }
+}
+.mu-table-border {
+  border: 1px solid @borderColor;
+  th, td {
+    border-right: 1px solid @borderColor;
+    &:last-child {
+      border-right: none;
+    }
+  }
+}
+.mu-table-header-wrapper,
+.mu-table-footer-wrapper {
+  overflow: hidden;
+}
+
+.mu-table-body-wrapper {
+  flex: 1;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.mu-checkbox-col {
+  width: 72px;
+  .mu-checkbox {
+    vertical-align: middle;
+  }
+}

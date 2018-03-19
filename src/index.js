@@ -12,6 +12,7 @@ import Checkbox from './Checkbox';
 import Chip from './Chip';
 import DateInput from './DateInput';
 import DatePicker from './DatePicker';
+import DataTable from './DataTable';
 import Dialog from './Dialog';
 import Divider from './Divider';
 import Drawer from './Drawer';
@@ -42,7 +43,7 @@ function MuseUI (Vue) {
     Alert, AppBar, Avatar,
     Badge, BottomNav, BottomSheet, Breadcrumbs, Button,
     Card, Checkbox, Chip,
-    DateInput, DatePicker, Dialog, Divider, Drawer,
+    DataTable, DateInput, DatePicker, Dialog, Divider, Drawer,
     Grid, GridList, Icon, List, Menu,
     Paper, Popover, Progress, Radio,
     Select, Slider, Snackbar, Stepper, SubHeader, Switch,
