@@ -8,7 +8,6 @@
     border-collapse: collapse;
     border-spacing: 0;
     table-layout: fixed;
-    width: 100%;
   }
   tr {
     border-bottom: 1px solid @borderColor;
@@ -53,6 +52,27 @@
     &.is-right {
       text-align: right;
     }
+    &.is-sortable {
+      cursor: pointer;
+      &:hover {
+        color: @textColor;
+        .mu-table-sort-icon {
+          opacity: .6;
+        }
+      }
+    }
+    &.is-sorting {
+      color: @textColor;
+      .mu-table-sort-icon,
+      &:hover .mu-table-sort-icon {
+        opacity: 1;
+      }
+    }
+    &.sort-asc {
+      .mu-table-sort-icon {
+        transform: rotate(180deg);
+      }
+    }
   }
 }
 .mu-table-border {
@@ -75,8 +95,17 @@
   -webkit-overflow-scrolling: touch;
 }
 
+.mu-table-sort-icon {
+  display: inline-block;
+  vertical-align: sub;
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+  opacity: 0;
+  transition: .3s @easeOutFunction;
+}
+
 .mu-checkbox-col {
-  width: 72px;
   .mu-checkbox {
     vertical-align: middle;
   }

@@ -1,7 +1,7 @@
 <template>
   <div style="padding: 32px;">
     <div style="margin-bottom: 15px;">
-      <mu-data-table :columns="columns" height="350" checkbox hover stripe selectable select-all :selects.sync="selects" :data="list"/>
+      <mu-data-table :columns="columns" :sort.sync="sort" :data="list"/>
     </div>
   <mu-date-input v-model="value" actions type="time" landscape/>
   <mu-paper style="display: inline-block;" :zDepth="2">
@@ -284,23 +284,29 @@ export default {
       alertMsg: 'every thing is disabled',
       columns: [{
         name: 'xxx1',
-        title: '嘻嘻嘻1'
+        title: '嘻嘻嘻1',
+        sortable: true
       }, {
         name: 'xxx2',
         title: '嘻嘻嘻2',
-        align: 'center'
+        align: 'center',
+        sortable: true
       }, {
         name: 'xxx3',
-        title: '嘻嘻嘻3'
+        title: '嘻嘻嘻3',
+        sortable: true
       }, {
         name: 'xxx4',
-        title: '嘻嘻嘻4'
+        title: '嘻嘻嘻4',
+        sortable: true
       }, {
         name: 'xxx5',
-        title: '嘻嘻嘻5'
+        title: '嘻嘻嘻5',
+        sortable: true
       }, {
         name: 'xxx6',
-        title: '嘻嘻嘻6'
+        title: '嘻嘻嘻6',
+        sortable: true
       }],
       list: [{
         xxx1: '啊哈哈哈哈哈哈',
@@ -359,7 +365,11 @@ export default {
         xxx5: 24,
         xxx6: 26
       }],
-      selects: []
+      selects: [],
+      sort: {
+        name: 'xxx1',
+        order: 'asc'
+      }
     };
   },
   methods: {

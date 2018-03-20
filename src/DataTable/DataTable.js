@@ -1,10 +1,11 @@
 import header from './mixins/header';
 import body from './mixins/body';
+import colgroup from './mixins/colgroup';
 import { getWidth } from '../utils';
 
 export default {
   name: 'mu-data-table',
-  mixins: [header, body],
+  mixins: [header, body, colgroup],
   props: {
     data: Array,
     columns: Array,
@@ -20,10 +21,20 @@ export default {
       type: Array,
       default: () => []
     },
+    sort: {
+      type: Object
+    },
     checkbox: Boolean,
     stripe: Boolean,
     border: Boolean,
-    hover: Boolean
+    fit: {
+      type: Boolean,
+      default: true
+    },
+    hover: {
+      type: Boolean,
+      default: true
+    }
   },
   render (h) {
     return h('div', {

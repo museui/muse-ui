@@ -76,8 +76,12 @@ export default {
         staticClass: 'mu-table-body-wrapper'
       }, [
         h('table', {
-          staticClass: 'mu-table-body'
+          staticClass: 'mu-table-body',
+          style: {
+            width: this.tableWidth
+          }
         }, [
+          this.createColGroup(h),
           h('tbody', {}, this.data && this.data.length > 0
             ? this.createContent(h) : this.createEmpty(h))
         ])
