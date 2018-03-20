@@ -14,9 +14,12 @@ export default {
     },
     height: [String, Number],
     maxHeight: [String, Number],
-    enableSelectAll: Boolean,
-    multiSelectable: Boolean,
+    selectAll: Boolean,
     selectable: Boolean,
+    selects: {
+      type: Array,
+      default: () => []
+    },
     checkbox: Boolean,
     stripe: Boolean,
     border: Boolean,

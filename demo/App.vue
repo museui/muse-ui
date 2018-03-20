@@ -1,7 +1,7 @@
 <template>
   <div style="padding: 32px;">
     <div style="margin-bottom: 15px;">
-      <mu-data-table :columns="columns" height="350" checkbox hover stripe border :data="list"/>
+      <mu-data-table :columns="columns" height="350" checkbox hover stripe selectable select-all :selects.sync="selects" :data="list"/>
     </div>
   <mu-date-input v-model="value" actions type="time" landscape/>
   <mu-paper style="display: inline-block;" :zDepth="2">
@@ -358,8 +358,9 @@ export default {
         xxx4: 12,
         xxx5: 24,
         xxx6: 26
-      }]
-    }
+      }],
+      selects: []
+    };
   },
   methods: {
     closeAlert () {
