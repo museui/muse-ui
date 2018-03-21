@@ -124,3 +124,17 @@
     vertical-align: middle;
   }
 }
+
+.mu-table-expand-row {
+  tr& {
+    height: 0;
+  }
+  td {
+    padding: 0;
+    height: 0;
+    border: none;
+    &.is-expand {
+      border-bottom: 1px solid @borderColor;
+    }
+  }
+}

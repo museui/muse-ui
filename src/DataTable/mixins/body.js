@@ -1,9 +1,11 @@
 import Checkbox from '../../Checkbox';
+import { ExpandTransition } from '../../internal/transitions';
 
 export default {
   data () {
     return {
       hoverIndex: -1,
+      expandIndex: -1,
       isSelectAll: false
     };
   },
@@ -12,6 +14,7 @@ export default {
       return this.selects.indexOf(index) !== -1;
     },
     toggleSelect (index) {
+      if (!this.selectable) return;
       const selects = [...this.selects];
       const selectIndex = selects.indexOf(index);
       if (selectIndex !== -1) {
@@ -22,6 +25,9 @@ export default {
       selects.sort((a, b) => a - b);
       this.$emit('update:selects', selects);
       this.isSelectAll = selects.length >= this.data.length;
+    },
+    toggleExpand (index) {
+      this.expandIndex = this.expandIndex === index ? -1 : index;
     },
     createEmpty (h) {
       return [
@@ -49,27 +55,57 @@ export default {
       ]);
     },
     createContent (h) {
-      return this.data.map((row, index) => {
+      const contents = [];
+      for (let index = 0; index < this.data.length; index++) {
+        const row = this.data[index];
         const arr = this.$scopedSlots.default
           ? this.createSlotContent(row, index)
           : this.columns.map((column) => {
             return h('td', {}, row[column.name]);
           }) || [];
-
         if (this.checkbox) arr.unshift(this.createCheckboxTd(h, index));
-        return h('tr', {
-          class: {
-            'is-hover': this.hover && this.hoverIndex === index,
-            'is-stripe': this.stripe && index % 2 !== 0,
-            'is-selected': this.isSelected(index)
-          },
-          on: {
-            mouseenter: () => (this.hoverIndex = index),
-            mouseleave: () => (this.hoverIndex = -1),
-            click: () => this.toggleSelect(index)
-          }
-        }, arr);
-      });
+        contents.push(
+          h('tr', {
+            class: {
+              'is-hover': this.hover && this.hoverIndex === index,
+              'is-stripe': this.stripe && index % 2 !== 0,
+              'is-selected': this.isSelected(index)
+            },
+            on: {
+              mouseenter: () => (this.hoverIndex = index),
+              mouseleave: () => (this.hoverIndex = -1),
+              click: () => {
+                this.toggleSelect(index);
+                this.toggleExpand(index);
+                this.$emit('row-click', index, row);
+              }
+            }
+          }, arr)
+        );
+
+        if (this.$scopedSlots.expand) {
+          contents.push(
+            h('tr', {
+              staticClass: 'mu-table-expand-row'
+            }, [
+              h('td', {
+                attrs: {
+                  colspan: this.columns.length + (this.checkbox ? 1 : 0)
+                },
+                class: {
+                  'is-expand': this.expandIndex === index
+                }
+              }, this.expandIndex === index ? [
+                h(ExpandTransition, {}, this.$scopedSlots.expand({
+                  row,
+                  $index: index
+                }))
+              ] : undefined)
+            ])
+          );
+        }
+      }
+      return contents;
     },
     createBody (h) {
       return this.data && this.data.length > 0 ? h('div', {

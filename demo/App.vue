@@ -1,7 +1,11 @@
 <template>
   <div style="padding: 32px;">
     <div style="margin-bottom: 15px;">
-      <mu-data-table :columns="columns" :sort.sync="sort" :data="[]" :loading="loading"/>
+      <mu-data-table :columns="columns" :sort.sync="sort" :data="list" :loading="loading">
+        <template slot="expand" slot-scope="prop">
+          <div style="padding: 24px;" >嘻嘻嘻嘻嘻嘻嘻</div>
+        </template>
+      </mu-data-table>
     </div>
   <mu-date-input v-model="value" actions type="time" landscape/>
   <mu-paper style="display: inline-block;" :zDepth="2">
