@@ -1,11 +1,13 @@
 import header from './mixins/header';
 import body from './mixins/body';
+import footer from './mixins/footer';
 import colgroup from './mixins/colgroup';
+import progress from './mixins/progress';
 import { getWidth } from '../utils';
 
 export default {
   name: 'mu-data-table',
-  mixins: [header, body, colgroup],
+  mixins: [header, body, footer, colgroup, progress],
   props: {
     data: Array,
     columns: Array,
@@ -27,6 +29,7 @@ export default {
     checkbox: Boolean,
     stripe: Boolean,
     border: Boolean,
+    loading: Boolean,
     fit: {
       type: Boolean,
       default: true
@@ -48,6 +51,7 @@ export default {
       }
     }, [
       this.createHeader(h),
+      this.createProgress(h),
       this.createBody(h)
     ]);
   }

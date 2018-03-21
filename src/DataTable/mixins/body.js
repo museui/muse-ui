@@ -72,7 +72,7 @@ export default {
       });
     },
     createBody (h) {
-      return h('div', {
+      return this.data && this.data.length > 0 ? h('div', {
         staticClass: 'mu-table-body-wrapper'
       }, [
         h('table', {
@@ -82,10 +82,9 @@ export default {
           }
         }, [
           this.createColGroup(h),
-          h('tbody', {}, this.data && this.data.length > 0
-            ? this.createContent(h) : this.createEmpty(h))
+          h('tbody', {}, this.createContent(h))
         ])
-      ]);
+      ]) : this.createEmpty(h);
     }
   }
 };

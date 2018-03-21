@@ -1,7 +1,7 @@
 <template>
   <div style="padding: 32px;">
     <div style="margin-bottom: 15px;">
-      <mu-data-table :columns="columns" :sort.sync="sort" :data="list"/>
+      <mu-data-table :columns="columns" :sort.sync="sort" :data="[]" :loading="loading"/>
     </div>
   <mu-date-input v-model="value" actions type="time" landscape/>
   <mu-paper style="display: inline-block;" :zDepth="2">
@@ -369,8 +369,12 @@ export default {
       sort: {
         name: 'xxx1',
         order: 'asc'
-      }
+      },
+      loading: true
     };
+  },
+  created () {
+    setTimeout(() => (this.loading = false), 2000);
   },
   methods: {
     closeAlert () {

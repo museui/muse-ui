@@ -30,7 +30,7 @@ export default {
     },
     createSlotHeader () {
       return this.$scopedSlots.header({
-        columns: this.column
+        columns: this.columns
       });
     },
     createSlotTh (column) {
@@ -95,7 +95,8 @@ export default {
     },
     createHeader (h) {
       return h('div', {
-        staticClass: 'mu-table-header-wrapper'
+        staticClass: 'mu-table-header-wrapper',
+        ref: 'header'
       }, [
         h('table', {
           staticClass: 'mu-table-header',

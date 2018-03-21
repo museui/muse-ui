@@ -10,7 +10,6 @@
     table-layout: fixed;
   }
   tr {
-    border-bottom: 1px solid @borderColor;
     color: @textColor;
     height: 48px;
     &.is-stripe {
@@ -23,9 +22,6 @@
       background-color: @grey100;
     }
   }
-  thead {
-    border-bottom: 1px solid @borderColor;
-  }
   td {
     padding-left: 24px;
     padding-right: 24px;
@@ -33,6 +29,7 @@
     text-align: left;
     font-size: 13px;
     text-overflow: ellipsis;
+    border-bottom: 1px solid @borderColor;
   }
   th {
     font-weight: normal;
@@ -43,6 +40,7 @@
     text-align: left;
     color: @secondaryTextColor;
     position: relative;
+    border-bottom: 1px solid @borderColor;
     &.is-left {
       text-align: left;
     }
@@ -87,6 +85,22 @@
 .mu-table-header-wrapper,
 .mu-table-footer-wrapper {
   overflow: hidden;
+}
+
+.mu-table-empty {
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(0, 0, 0, .54);
+  font-size: 14px;
+}
+
+.mu-table-progress.mu-linear-progress {
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 10;
 }
 
 .mu-table-body-wrapper {
