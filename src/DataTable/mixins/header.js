@@ -1,4 +1,5 @@
 import Checkbox from '../../Checkbox';
+import Tooltip from '../../Tooltip';
 
 export default {
   methods: {
@@ -26,7 +27,7 @@ export default {
       }
 
       this.$emit('update:sort', sort);
-      this.change('sort-change', sort);
+      this.$emit('sort-change', sort);
     },
     createSlotHeader () {
       return this.$scopedSlots.header({
@@ -76,7 +77,7 @@ export default {
     },
     createTHeader (h) {
       const arr = this.columns.map((column) => {
-        return h('th', {
+        const th = h('th', {
           class: [
             column.align ? `is-${column.align}` : '',
             column.class || '',
@@ -88,6 +89,12 @@ export default {
             click: () => this.handleSortChange(column)
           }
         }, this.createTh(h, column));
+
+        return column.tooltip ? h(Tooltip, {
+          props: {
+            content: column.tooltip
+          }
+        }, [th]) : th;
       });
 
       if (this.checkbox) arr.unshift(this.createCheckboxTh(h));
