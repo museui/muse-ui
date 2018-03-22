@@ -9,6 +9,7 @@ import ButtonTheme from '../Button/theme';
 import CardTheme from '../Card/theme';
 import CheckboxTheme from '../Checkbox/theme';
 import ChipTheme from '../Chip/theme';
+import DataTableTheme from '../DataTable/theme';
 import DatePickerTheme from '../DatePicker/theme';
 import DialogTheme from '../Dialog/theme';
 import DividerTheme from '../Divider/theme';
@@ -35,7 +36,8 @@ import dark from './dark';
 const themes = [
   BaseTheme, AppBarTheme, AvatarTheme, BadgeTheme, BottomNavTheme,
   BottomSheetTheme, BreadcrumbsTheme, ButtonTheme, CardTheme, CheckboxTheme,
-  ChipTheme, DatePickerTheme, DialogTheme, DividerTheme, DrawerTheme, GradListTheme, SliderTheme,
+  ChipTheme, DataTableTheme, DatePickerTheme, DialogTheme, DividerTheme,
+  DrawerTheme, GradListTheme, SliderTheme,
   ListTheme, PaperTheme, PopoverTheme, ProgressTheme, RadioTheme, SnackbarTheme,
   SelectTheme, StepperTheme, SubHeaderTheme, SwitchTheme, Tabs, TextField, TimePickerTheme, ColorTheme
 ];
