@@ -44,8 +44,6 @@
       <mu-option value="20" label="嘻嘻嘻21" />
       <mu-option value="21" label="嘻嘻嘻31" />
       <mu-option value="22" label="嘻嘻嘻41" />
-
-
     </mu-select>
     <mu-text-field placeholder="h啊哈哈哈" full-width name="teal-phone" v-model="alertMsg" multi-line :rows="3" :rows-max="6" max-length="300" helpText="错误啦啦啦啦" label="Test Input" />
     <mu-text-field placeholder="h啊哈哈哈" disabled icon="phone" max-length="8" helpText="错误啦啦啦啦" label="Test Input" type="text" action-icon="arrow_drop_down" :action-click="closeAlert" />
@@ -157,7 +155,11 @@
       </mu-list>
     </mu-menu>
     <br />
-    <mu-snackbar position="top-start" action="CLOSE" action-color="primary" @action-click="open=false" message="I`m myron, I Love wd">
+    <mu-snackbar :open="true" position="top-start" message="I`m myron, I Love wd">
+      <mu-button slot="action" flat color="primary">CLOSE</mu-button>
+      <mu-button icon slot="action">
+        <mu-icon value="close"/>
+      </mu-button>
     </mu-snackbar>
     <br/>
     <mu-stepper :activeStep="1">

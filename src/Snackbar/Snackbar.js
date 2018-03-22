@@ -30,20 +30,10 @@ export default {
     const message = h('div', {
       staticClass: 'mu-snackbar-message'
     }, this.$slots.default && this.$slots.default.length > 0 ? this.$slots.default : this.message);
-    const action = this.action ? h(Button, {
-      staticClass: 'mu-snackbar-action',
-      props: {
-        rippleColor: '#fff',
-        rippleOpacity: 0.3,
-        flat: true,
-        color: this.actionColor || 'secondary'
-      },
-      on: {
-        click: (e) => {
-          this.$emit('action-click', e);
-        }
-      }
-    }, this.action) : undefined;
+    const action = this.$slots.action ? h('div', {
+      staticClass: 'mu-snackbar-action'
+    }, this.$slots.action) : undefined;
+
     return h(this.position.indexOf('top') !== -1 ? SlideTopTransition : SlideBottomTransition, [
       this.open ? h('div', {
         staticClass: `mu-snackbar ${this.getColorClass()} ${this.getTextColorClass()}`,

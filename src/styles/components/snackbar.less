@@ -15,15 +15,23 @@
   position: fixed;
   flex-wrap: wrap;
   .depth(1);
-  .mu-icon {
+  > .mu-icon {
     margin-right: 16px;
     font-size: 20px;
   }
 }
 
 .mu-snackbar-action {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-shrink: 0;
   margin-right: -16px;
   margin-left: auto;
+  .mu-circle-ripple {
+    background-color: #fff;
+    opacity: .3;
+  }
 }
 
 .mu-snackbar-message {
