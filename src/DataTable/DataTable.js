@@ -30,6 +30,10 @@ export default {
     stripe: Boolean,
     border: Boolean,
     loading: Boolean,
+    rowKey: {
+      type: String,
+      default: 'id'
+    },
     fit: {
       type: Boolean,
       default: true

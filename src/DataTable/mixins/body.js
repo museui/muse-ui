@@ -79,7 +79,8 @@ export default {
                 this.toggleExpand(index);
                 this.$emit('row-click', index, row);
               }
-            }
+            },
+            key: row[this.rowKey]
           }, arr)
         );
 
