@@ -10,6 +10,13 @@ export default {
     };
   },
   methods: {
+    handleScroll (e) {
+      const scrollLeft = e.target.scrollLeft;
+      const theader = this.$refs.header;
+      const tfooter = this.$refs.tfooter;
+      if (theader) theader.scrollLeft = scrollLeft;
+      if (tfooter) tfooter.scrollLeft = scrollLeft;
+    },
     isSelected (index) {
       return this.selects.indexOf(index) !== -1;
     },
@@ -110,7 +117,11 @@ export default {
     },
     createBody (h) {
       return this.data && this.data.length > 0 ? h('div', {
-        staticClass: 'mu-table-body-wrapper'
+        staticClass: 'mu-table-body-wrapper',
+        on: {
+          scroll: this.handleScroll
+        },
+        ref: 'body'
       }, [
         h('table', {
           staticClass: 'mu-table-body',

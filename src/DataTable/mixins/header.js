@@ -103,7 +103,11 @@ export default {
     createHeader (h) {
       return h('div', {
         staticClass: 'mu-table-header-wrapper',
-        ref: 'header'
+        ref: 'header',
+        directives: [{
+          name: 'mousewheel',
+          value: this.handleHeaderFooterMousewheel
+        }]
       }, [
         h('table', {
           staticClass: 'mu-table-header',

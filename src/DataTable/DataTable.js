@@ -3,6 +3,7 @@ import body from './mixins/body';
 import footer from './mixins/footer';
 import colgroup from './mixins/colgroup';
 import progress from './mixins/progress';
+import mousewheel from '../internal/directives/mousewheel';
 import { getWidth } from '../utils';
 
 export default {
@@ -30,6 +31,7 @@ export default {
     stripe: Boolean,
     border: Boolean,
     loading: Boolean,
+    hideHeader: Boolean,
     rowKey: {
       type: String,
       default: 'id'
@@ -43,6 +45,15 @@ export default {
       default: true
     }
   },
+  methods: {
+    handleHeaderFooterMousewheel (event, data) {
+      const { pixelX, pixelY } = data;
+      if (Math.abs(pixelX) >= Math.abs(pixelY)) {
+        event.preventDefault();
+        this.$refs.body.scrollLeft += data.pixelX / 5;
+      }
+    }
+  },
   render (h) {
     return h('div', {
       staticClass: 'mu-table',
@@ -54,9 +65,13 @@ export default {
         'height': getWidth(this.height)
       }
     }, [
-      this.createHeader(h),
+      !this.hideHeader ? this.createHeader(h) : undefined,
       this.createProgress(h),
-      this.createBody(h)
+      this.createBody(h),
+      this.createFooter(h)
     ]);
+  },
+  directives: {
+    mousewheel
   }
 };

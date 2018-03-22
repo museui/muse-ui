@@ -289,27 +289,33 @@ export default {
       columns: [{
         name: 'xxx1',
         title: '嘻嘻嘻1',
+        width: 300,
         sortable: true
       }, {
         name: 'xxx2',
         title: '嘻嘻嘻2',
         align: 'center',
+        width: 300,
         sortable: true
       }, {
         name: 'xxx3',
         title: '嘻嘻嘻3',
+        width: 300,
         sortable: true
       }, {
         name: 'xxx4',
         title: '嘻嘻嘻4',
+        width: 300,
         sortable: true
       }, {
         name: 'xxx5',
         title: '嘻嘻嘻5',
+        width: 300,
         sortable: true
       }, {
         name: 'xxx6',
         title: '嘻嘻嘻6',
+        width: 300,
         sortable: true
       }],
       list: [{

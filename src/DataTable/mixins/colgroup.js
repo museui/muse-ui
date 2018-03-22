@@ -22,14 +22,9 @@ export default {
         return column.width ? column.width : this.fit ? otherWidth : minWidth;
       });
       if (this.checkbox) this.cols.unshift(checkboxColWidth);
-
-      if (!this.fit) {
-        let tableWidth = 0;
-        this.cols.forEach((width) => (tableWidth += Number(width)));
-        this.tableWidth = tableWidth + 'px';
-      } else {
-        this.tableWidth = '';
-      }
+      let tableWidth = 0;
+      this.cols.forEach((width) => (tableWidth += Number(width)));
+      this.tableWidth = tableWidth + 'px';
     },
     createColGroup (h) {
       return h('colgroup', {
