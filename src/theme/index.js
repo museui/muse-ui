@@ -16,6 +16,7 @@ import DividerTheme from '../Divider/theme';
 import DrawerTheme from '../Drawer/theme';
 import GradListTheme from '../GridList/theme';
 import ListTheme from '../List/theme';
+import PaginationTheme from '../Pagination/theme';
 import PaperTheme from '../Paper/theme';
 import PopoverTheme from '../Popover/theme';
 import ProgressTheme from '../Progress/theme';
@@ -38,7 +39,7 @@ const themes = [
   BottomSheetTheme, BreadcrumbsTheme, ButtonTheme, CardTheme, CheckboxTheme,
   ChipTheme, DataTableTheme, DatePickerTheme, DialogTheme, DividerTheme,
   DrawerTheme, GradListTheme, SliderTheme,
-  ListTheme, PaperTheme, PopoverTheme, ProgressTheme, RadioTheme, SnackbarTheme,
+  ListTheme, PaginationTheme, PaperTheme, PopoverTheme, ProgressTheme, RadioTheme, SnackbarTheme,
   SelectTheme, StepperTheme, SubHeaderTheme, SwitchTheme, Tabs, TextField, TimePickerTheme, ColorTheme
 ];
 

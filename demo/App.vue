@@ -1,5 +1,6 @@
 <template>
   <div style="padding: 32px;">
+    <mu-pagination :total="1000" :current.sync="page"/>
     <div style="margin-bottom: 15px;">
       <mu-data-table :columns="columns" :sort.sync="sort" :data="list" :loading="loading">
         <template slot="expand" slot-scope="prop">
@@ -155,7 +156,7 @@
       </mu-list>
     </mu-menu>
     <br />
-    <mu-snackbar :open="true" position="top-start" message="I`m myron, I Love wd">
+    <mu-snackbar position="top-start" message="I`m myron, I Love wd">
       <mu-button slot="action" flat color="primary">CLOSE</mu-button>
       <mu-button icon slot="action">
         <mu-icon value="close"/>
@@ -277,6 +278,7 @@
 export default {
   data () {
     return {
+      page: 3,
       open: false,
       alert: true,
       checkbox1: [],

@@ -21,6 +21,7 @@ import GridList from './GridList';
 import Icon from './Icon';
 import List from './List';
 import Menu from './Menu';
+import Pagination from './Pagination';
 import Paper from './Paper';
 import Popover from './Popover';
 import Progress from './Progress';
@@ -45,7 +46,7 @@ function MuseUI (Vue) {
     Card, Checkbox, Chip,
     DataTable, DateInput, DatePicker, Dialog, Divider, Drawer,
     Grid, GridList, Icon, List, Menu,
-    Paper, Popover, Progress, Radio,
+    Pagination, Paper, Popover, Progress, Radio,
     Select, Slider, Snackbar, Stepper, SubHeader, Switch,
     Tabs, TextField, TimePicker, Tooltip
   ].forEach((component) => {
