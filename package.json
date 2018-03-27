@@ -3,15 +3,17 @@
   "version": "3.0.0-beta.1",
   "description": "material design ui for vue2",
   "author": "myronliu347 <myronliu347@gmail.com>",
-  "main": "dist/muse-ui.js",
+  "main": "libs/index.js",
   "scripts": {
-    "dev": "parcel demo/index.html"
+    "dev": "parcel demo/index.html",
+    "build": "rm -rf libs && babel src -d libs && mkdir libs/styles && cp -rf src/styles/* libs/styles"
   },
   "peerDependencies": {
     "vue": "^2.5.0"
   },
   "devDependencies": {
     "autoprefixer": "^8.0.0",
+    "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.2.2",
     "babel-plugin-syntax-jsx": "^6.18.0",
