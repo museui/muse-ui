@@ -1,6 +1,6 @@
 <template>
 <div class="mu-clock-minutes">
-  <clock-pointer hasSelected :value="minutes.selected" :hasSelected="minutes.hasSelected" type="minute" />
+  <clock-pointer :value="minutes.selected" :hasSelected="minutes.hasSelected" type="minute" />
   <clock-number v-for="minute in minutes.numbers" :selected="minute.isSelected" :key="minute.minute" type="minute" :value="minute.minute" />
   <div ref="mask" @mouseup="handleUp" @mousemove="handleMove" @touchmove="handleTouch" @touchend="handleTouch" class="mu-clock-minutes-mask"></div>
 </div>
