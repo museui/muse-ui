@@ -6,7 +6,8 @@
   "main": "libs/index.js",
   "scripts": {
     "dev": "parcel demo/index.html",
-    "build": "rm -rf libs && babel src -d libs && mkdir libs/styles && cp -rf src/styles/* libs/styles"
+    "build": "rm -rf dist && rollup --config rollup.config.js && npm run package",
+    "package": "rm -rf libs && babel src -d libs && mkdir libs/styles && cp -rf src/styles/* libs/styles"
   },
   "peerDependencies": {
     "vue": "^2.5.0"
@@ -22,6 +23,7 @@
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-stage-2": "^6.24.1",
+    "cssnano": "^3.10.0",
     "eslint": "^4.18.1",
     "eslint-config-vue": "^2.0.2",
     "eslint-plugin-vue": "^4.3.0",
@@ -29,6 +31,12 @@
     "parcel-bundler": "^1.6.2",
     "parcel-plugin-vue": "^1.5.0",
     "postcss-modules": "^1.1.0",
+    "rollup": "^0.57.1",
+    "rollup-plugin-babel": "^3.0.3",
+    "rollup-plugin-commonjs": "^9.1.0",
+    "rollup-plugin-node-resolve": "^3.3.0",
+    "rollup-plugin-postcss": "^1.4.0",
+    "rollup-plugin-uglify": "^3.0.0",
     "vue": "^2.5.13",
     "vue-template-compiler": "^2.5.13"
   },
