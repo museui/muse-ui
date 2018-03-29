@@ -7,6 +7,8 @@
   "scripts": {
     "dev": "parcel demo/index.html",
     "build": "rm -rf dist && rollup --config rollup.config.js && npm run package",
+    "test": "NODE_ENV=test jest -i",
+    "test:coverage": "NODE_ENV=test jest -i --coverage",
     "package": "rm -rf lib && babel src -d lib && mkdir lib/styles && cp -rf src/styles/* lib/styles"
   },
   "peerDependencies": {
@@ -14,9 +16,11 @@
   },
   "devDependencies": {
     "autoprefixer": "^8.0.0",
+    "avoriaz": "^6.3.0",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.2.2",
+    "babel-jest": "^22.4.3",
     "babel-plugin-syntax-jsx": "^6.18.0",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-plugin-transform-vue-jsx": "^3.5.1",
@@ -27,6 +31,10 @@
     "eslint": "^4.18.1",
     "eslint-config-vue": "^2.0.2",
     "eslint-plugin-vue": "^4.3.0",
+    "jest": "^22.4.3",
+    "jest-cli": "^22.4.3",
+    "jest-css-modules": "^1.1.0",
+    "jest-serializer-html": "^5.0.0",
     "less": "^3.0.1",
     "parcel-bundler": "^1.6.2",
     "parcel-plugin-vue": "^1.5.0",
@@ -38,6 +46,7 @@
     "rollup-plugin-postcss": "^1.4.0",
     "rollup-plugin-uglify": "^3.0.0",
     "vue": "^2.5.13",
+    "vue-jest": "^2.3.0",
     "vue-template-compiler": "^2.5.13"
   },
   "browserslist": [
@@ -50,5 +59,30 @@
   "dependencies": {
     "keycode": "^2.1.9",
     "normalize-wheel": "^1.0.1"
+  },
+  "jest": {
+    "verbose": false,
+    "roots": [
+      "<rootDir>/src"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "vue"
+    ],
+    "moduleDirectories": [
+      "node_modules"
+    ],
+    "transform": {
+      ".*\\.(vue)$": "<rootDir>/node_modules/vue-jest",
+      "\\.(less)$": "<rootDir>/node_modules/jest-css-modules",
+      "\\.(css)$": "<rootDir>/node_modules/jest-css-modules",
+      ".*\\.(vue|js)$": "<rootDir>/node_modules/babel-jest"
+    },
+    "transformIgnorePatterns": [
+      "node_modules/(?!vue-router)"
+    ],
+    "snapshotSerializers": [
+      "jest-serializer-html"
+    ]
   }
 }
