@@ -2,7 +2,6 @@ import popup from '../internal/mixins/popup';
 import { getColor } from '../utils';
 import { SlideTopTransition, SlideBottomTransition } from '../internal/transitions';
 import color from '../internal/mixins/color';
-import Button from '../Button';
 
 export default {
   name: 'mu-snackbar',
