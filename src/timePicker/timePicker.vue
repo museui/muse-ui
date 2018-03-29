@@ -5,7 +5,7 @@
     :hintText="hintText" :hintTextClass="hintTextClass" :helpText="helpText" :helpTextClass="helpTextClass"
     :disabled="disabled" :errorText="errorText" :errorColor="errorColor" :icon="icon" :iconClass="iconClass"
     :underlineShow="underlineShow" :underlineClass="underlineClass" :underlineFocusClass="underlineFocusClass"/>
-  <time-picker-dialog v-if="!disabled" @accept="handleAccept" ref="dialog" :initialTime="dialogTime" :format="format" :mode="mode" :container="container" :autoOk="autoOk" :okLabel="okLabel" :cancelLabel="cancelLabel"/>
+  <time-picker-dialog v-if="!disabled" @accept="handleAccept" ref="dialog" :initialTime="dialogTime" :format="format" :mode="mode" :container="container" :autoOk="autoOk" :okLabel="okLabel" :cancelLabel="cancelLabel" :minuteInterval="minuteInterval"/>
 </div>
 </template>
 
@@ -110,6 +110,12 @@ export default {
     },
     value: {
       type: String
+    },
+    minuteInterval: {
+      type: Number,
+      validator (val) {
+        return val >= 1 && val <= 60
+      }
     }
   },
   data () {
@@ -132,7 +138,7 @@ export default {
     },
     openDialog () {
       if (this.disabled) return
-      this.dialogTime = this.inputValue ? timeUtils.strToTime(this.inputValue, this.format) : new Date()
+      this.dialogTime = this.inputValue ? timeUtils.strToTime(this.inputValue, this.format) : this.roundDateMinutes(new Date())
       this.$refs.dialog.open = true
     },
     handleAccept (val) {
@@ -140,6 +146,19 @@ export default {
       if (this.inputValue === newValue) return
       this.inputValue = newValue
       this.$emit('change', newValue)
+    },
+    roundDateMinutes (date) {
+      if (this.minuteInterval) {
+        let minutes = date.getMinutes()
+        if (this.minuteInterval) {
+          minutes = Math.round(minutes / this.minuteInterval) * this.minuteInterval
+          if (minutes === 60) {
+            minutes = 0
+          }
+        }
+        date.setMinutes(minutes)
+      }
+      return date
     }
   },
   watch: {

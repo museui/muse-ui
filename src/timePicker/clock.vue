@@ -6,7 +6,7 @@
   <div class="mu-clock-container">
     <div class="mu-clock-circle"></div>
     <clock-hours v-if="mode === 'hour'" :format="format" :initialHours="selectedTime.getHours()" @change="handleChangeHours" />
-    <clock-minutes v-if="mode === 'minute'" @change="handleChangeMinutes" :initialMinutes="selectedTime.getMinutes()"/>
+        <clock-minutes v-if="mode === 'minute'" @change="handleChangeMinutes" :initialMinutes="selectedTime.getMinutes()" :minuteInterval="minuteInterval"/>
     <div class="mu-clock-actions">
       <flat-button :label="cancelLabel" @click="dismiss" primary/>
       <flat-button :label="okLabel" @click="accept" primary/>
@@ -50,6 +50,9 @@ export default {
     landscape: {
       type: Boolean,
       default: false
+    },
+    minuteInterval: {
+      type: Number
     }
   },
   data () {
