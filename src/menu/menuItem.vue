@@ -9,7 +9,8 @@
        <icon :value="leftIcon" :style="{'color': filterColor(leftIconColor)}" class="mu-menu-item-left-icon" :class="leftIconClass"/>
        <div class="mu-menu-item-title" :class="titleClass">
          <slot name="title">
-           {{title}}
+           <!--  使用v-html 得到高亮menu-item，取代之前的mustache-->
+           <span v-html="title"></span>
          </slot>
        </div>
        <div v-if="!rightIcon">

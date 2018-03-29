@@ -10,11 +10,12 @@
   <popover :overlay="false" :autoPosition="false" :scroller="scroller" :open="open && list.length > 0"  @close="handleClose" :trigger="anchorEl" :anchorOrigin="anchorOrigin" :targetOrigin="targetOrigin">
     <mu-menu v-if="open" :maxHeight="maxHeight" :style="{'width': (menuWidth && menuWidth > inputWidth ? menuWidth : inputWidth) + 'px'}" :disableAutoFocus="focusTextField"
       @mousedown.native="handleMouseDown" initiallyKeyboardFocused :autoWidth="false" ref="menu" @itemClick="handleItemClick" class="mu-auto-complete-menu">
-      <menu-item class="mu-auto-complete-menu-item" v-for="item, index in list" :key="'auto_' + index"  @mousedown.native="handleMouseDown" :disableFocusRipple="disableFocusRipple" afterText
+      <menu-item class="mu-auto-complete-menu-item" v-for="(item, index) in list" :key="'auto_' + index"  @mousedown.native="handleMouseDown" :disableFocusRipple="disableFocusRipple" afterText
       :leftIcon="item.leftIcon" :leftIconColor="item.leftIconColor" :rightIconColor="item.rightIconColor" :rightIcon="item.rightIcon" :value="item.value" :title="item.text"/>
     </mu-menu>
   </popover>
 </div>
+
 </template>
 
 <script>
@@ -145,6 +146,16 @@ export default {
     },
     value: {
       type: String
+    },
+    // 是否开启匹配字高亮模式
+    matchHighlight: {
+      type: Boolean,
+      default: true
+    },
+    // 自定义高亮颜色, 默认为红色
+    matchHighlightColor: {
+      type: String,
+      default: 'red'
     }
   },
   data () {
@@ -158,7 +169,11 @@ export default {
   },
   computed: {
     list () {
-      const filter = typeof this.filter === 'string' ? filters[this.filter] : this.filter
+      // 判断是否开启高亮模式，来选择不同的过滤器
+      const filter = typeof this.filter === 'string'
+      ? (this.matchHighlight && filters['ableToHighlight'](this.filter) ? filters[this.filter + 'Highlight'] : filters[this.filter])
+      : this.filter
+      console.log(filter)
       const {dataSourceConfig, maxSearchResults, searchText} = this
       if (!filter) {
         console.warn('not found filter:' + this.filter)
@@ -168,25 +183,15 @@ export default {
       this.dataSource.every((item, index) => {
         switch (typeof item) {
           case 'string':
-            if (filter(searchText || '', item, item)) {
-              list.push({
-                text: item,
-                value: item,
-                index: index
-              })
-            }
+            this.classifyHighlight(searchText, filter, list, item, 0, index, item, item)
             break
           case 'object':
             if (item && typeof item[dataSourceConfig.text] === 'string') {
               const itemText = item[dataSourceConfig.text]
               if (!filter(searchText || '', itemText, item)) break
               const itemValue = item[dataSourceConfig.value]
-              list.push({
-                ...item,
-                text: itemText,
-                value: itemValue,
-                index: index
-              })
+              // 0 代表种类为 string， 1 代表种类为 object
+              this.classifyHighlight(searchText, filter, list, item, 1, index, itemText, itemValue)
             }
         }
         return !(maxSearchResults && maxSearchResults > 0 && list.length === maxSearchResults)
@@ -255,7 +260,6 @@ export default {
     },
     handleKeyDown (event) {
       this.$emit('keydown', event)
-
       switch (keycode(event)) {
         case 'enter':
           if (!this.open) return
@@ -282,6 +286,61 @@ export default {
     setInputWidth () {
       if (!this.$el) return
       this.inputWidth = this.$el.offsetWidth
+    },
+    /**
+     * @param type种类 {0代表种类， 1代表object}
+     */
+    addItemToList (list, item, type, index, itemText, itemValue) {
+      if (type === 0) {
+        list.push({
+          text: itemText,
+          value: itemValue,
+          index: index
+        })
+      } else {
+        list.push({
+          ...item,
+          text: itemText,
+          value: itemValue,
+          index: index
+        })
+      }
+    },
+    classifyHighlight (searchText, filter, list, item, type, index, itemText, itemValue) {
+      if (this.matchHighlight) {
+        // 目前高亮只支持三种模式，大小写敏感，大小写不敏感，和模糊匹配
+        if (this.filter === 'caseSensitiveFilter' || this.filter === 'caseInsensitiveFilter') {
+          let pos = filter(searchText || '', itemText)
+          if (pos !== -1) {
+            let pre = itemText.substr(0, pos)
+            let mid = itemText.substr(pos, searchText.length)
+            let post = itemText.substring(pos + searchText.length)
+            let retText = pre + `<span style="color:${this.matchHighlightColor}">${mid}</span>` + post
+            this.addItemToList(list, item, type, index, retText, itemValue)
+          }
+        } else if (this.filter === 'fuzzyFilter') {
+          const matchIndexList = filter(searchText, itemText)
+          if (matchIndexList.length === searchText.length) {
+            let pos = 0
+            let retText = ''
+            matchIndexList.forEach((value) => {
+              retText += itemText.substring(pos, value)
+              retText += `<span style="color:${this.matchHighlightColor}">${itemText[value]}</span>`
+              pos = value + 1
+            })
+            retText += itemText.substring(pos)
+            this.addItemToList(list, item, type, index, retText, itemValue)
+          }
+        } else {
+          if (filter(searchText || '', itemText)) {
+            this.addItemToList(list, item, type, index, itemText, itemValue)
+          }
+        }
+      } else {
+        if (filter(searchText || '', item)) {
+          this.addItemToList(list, item, type, index, itemText, itemValue)
+        }
+      }
     }
   },
   mounted () {
@@ -317,7 +376,6 @@ export default {
     width: 100%;
   }
 }
-
 .mu-auto-complete-menu-item{
   width: 100%;
   overflow: hidden;
