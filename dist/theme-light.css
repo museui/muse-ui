@@ -155,6 +155,40 @@ a {
 .mu-year-button.hover .mu-year-button-text {
   color: #2196f3;
 }
+.mu-calendar {
+  color: rgba(0, 0, 0, 0.87);
+}
+.mu-calendar-year {
+  background-color: #ffffff;
+}
+.mu-date-display {
+  background-color: #2196f3;
+  color: #ffffff;
+}
+.mu-day-button-bg {
+  background-color: #2196f3;
+}
+.mu-day-button-text {
+  font-weight: 400;
+  position: relative;
+  color: rgba(0, 0, 0, 0.87);
+}
+.mu-day-button.now .mu-day-button-text {
+  color: #2196f3;
+}
+.mu-day-button.hover .mu-day-button-text,
+.mu-day-button.selected .mu-day-button-text {
+  color: #ffffff;
+}
+.mu-year-button-text {
+  color: rgba(0, 0, 0, 0.87);
+}
+.mu-year-button.selected .mu-year-button-text {
+  color: #2196f3;
+}
+.mu-year-button.hover .mu-year-button-text {
+  color: #2196f3;
+}
 .mu-dialog {
   background-color: #ffffff;
 }

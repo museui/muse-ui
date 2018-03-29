@@ -3,6 +3,7 @@
     <slot></slot>
   </div>
 </template>
+
 <script>
 import {oneOf} from './assist.js'
 export default {
@@ -68,9 +69,6 @@ export default {
           color: lineColor,
           width: lineWidth,
           type: lineType
-        }
-        if (i === length - 1) {
-          item.last = true
         }
       }
     }

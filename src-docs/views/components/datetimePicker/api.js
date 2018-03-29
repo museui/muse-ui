@@ -1,24 +1,64 @@
 export default {
   props: [{
-    name: 'autoWidth',
+    name: 'dateTimeFormat',
+    type: 'Object',
+    default: '内置 dateTimeFormat',
+    desc: 'props.dateTimeFormat'
+  }, {
+    name: 'autoOk',
     type: 'Boolean',
     default: 'false',
-    desc: 'props.autoWidth'
+    desc: 'props.autoOk'
   }, {
-    name: 'maxHeight',
+    name: 'okLabel',
+    type: 'String',
+    default: '确定',
+    desc: 'props.okLabel'
+  }, {
+    name: 'cancelLabel',
+    type: 'String',
+    default: '确定',
+    desc: 'props.cancelLabel'
+  }, {
+    name: 'container',
+    type: 'String',
+    default: 'dialog',
+    desc: 'props.container'
+  }, {
+    name: 'disableYearSelection',
+    type: 'Boolean',
+    default: 'false',
+    desc: 'props.disableYearSelection'
+  }, {
+    name: 'firstDayOfWeek',
     type: 'Number',
+    default: '1',
+    desc: 'props.firstDayOfWeek'
+  }, {
+    name: 'mode',
+    type: 'String',
+    default: 'portrait',
+    desc: 'props.mode'
+  }, {
+    name: 'shouldDisableDate',
+    type: 'Function',
     default: '',
-    desc: 'props.maxHeight'
+    desc: 'props.shouldDisableDate'
   }, {
-    name: 'multiple',
-    type: 'Boolean',
-    default: 'false',
-    desc: 'props.multiple'
+    name: 'format',
+    type: 'String',
+    default: 'YYYY-MM-DD',
+    desc: 'props.format'
   }, {
-    name: 'required',
-    type: 'Boolean',
-    default: 'false',
-    desc: 'props.required'
+    name: 'maxDate',
+    type: 'Date, String',
+    default: '',
+    desc: 'props.maxDate'
+  }, {
+    name: 'minDate',
+    type: 'Date, String',
+    default: '',
+    desc: 'props.minDate'
   }, {
     name: 'name',
     type: 'String',
@@ -110,30 +150,20 @@ export default {
     default: '',
     desc: 'props.underlineFocusClass'
   }, {
-    name: 'dropDownIconClass',
+    name: 'inputClass',
     type: 'String,Object,Array',
     default: '',
-    desc: 'props.dropDownIconClass'
+    desc: 'props.inputClass'
   }, {
     name: 'value',
     type: 'String',
     default: '',
     desc: 'props.value'
   }, {
-    name: 'scroller',
-    type: 'Element',
-    default: 'window',
-    desc: 'props.scroller'
-  },
-  {
-    name: 'separator',
-    type: 'String',
-    default: ',',
-    desc: 'props.separator'
-  }],
-  slots: [{
-    name: 'default',
-    desc: 'slots.default'
+    name: 'required',
+    type: 'Boolean',
+    default: 'false',
+    desc: 'props.required'
   }],
   events: [{
     name: 'input',
@@ -141,11 +171,5 @@ export default {
   }, {
     name: 'change',
     desc: 'events.change'
-  }, {
-    name: 'open',
-    desc: 'events.open'
-  }, {
-    name: 'close',
-    desc: 'events.close'
   }]
 }

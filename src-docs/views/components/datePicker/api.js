@@ -17,7 +17,7 @@ export default {
   }, {
     name: 'cancelLabel',
     type: 'String',
-    default: '确定',
+    default: '取消',
     desc: 'props.cancelLabel'
   }, {
     name: 'container',
@@ -159,6 +159,11 @@ export default {
     type: 'String',
     default: '',
     desc: 'props.value'
+  }, {
+    name: 'required',
+    type: 'Boolean',
+    default: 'false',
+    desc: 'props.required'
   }],
   events: [{
     name: 'input',

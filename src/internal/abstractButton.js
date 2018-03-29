@@ -179,8 +179,8 @@ export default {
       }
     },
     getTagName () {
-      const isFirefox = typeof navigator !== 'undefined' && navigator.userAgent.toLowerCase().indexOf('firefox') !== -1
-      const defaultTag = isFirefox ? 'span' : 'button'
+      // const isFirefox = typeof navigator !== 'undefined' && navigator.userAgent.toLowerCase().indexOf('firefox') !== -1
+      const defaultTag = 'button'
       switch (true) {
         case !!this.to:
           return 'router-link'
