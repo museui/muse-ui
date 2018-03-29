@@ -16,7 +16,21 @@ export default {
     postcss({ extensions: ['.less'], extract: 'dist/muse-ui.css' }),
     resolve({ jsnext: true, main: true, browser: true }),
     commonjs(),
-    babel({ include: 'src/**', runtimeHelpers: true }),
+    babel({ 
+      babelrc: false,
+      include: 'src/**',
+      runtimeHelpers: true,
+      presets: [
+        [
+          'env',
+          {
+            'modules': false
+          }
+        ],
+        'stage-2'
+      ],
+      plugins: ['transform-runtime', 'transform-vue-jsx']
+    }),
     uglify()
   ],
   external: ['vue']

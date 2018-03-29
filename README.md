@@ -18,6 +18,12 @@
 npm install muse-ui -save
 ```
 
+or
+
+```
+yarn add muse-ui
+```
+
 ## Get Started
 
 ```javascript
@@ -27,72 +33,13 @@ import 'muse-ui/dist/muse-ui.css'
 Vue.use(MuseUI)
 ```
 
-or
-
-**webpack.conf.js** webpack1
-
-```javascript
-{
-  // ...
-  module: {
-    loaders: [
-      // ...
-      {
-        test: /muse-ui.src.*?js$/,
-        loader: 'babel'
-      }
-    ]
-  },
-  resolve: {
-    // ...
-    alias: {
-      'muse-components': 'muse-ui/src'
-    }
-  }
-}
-```
-
-webpack2
-
-```javascript
-{
-  // ...
-  rules: {
-    loaders: [
-      // ...
-      {
-        test: /muse-ui.src.*?js$/,
-        loader: 'babel-loader'
-      }
-    ]
-  },
-  resolve: {
-    // ...
-    alias: {
-      'muse-components': 'muse-ui/src'
-    }
-  }
-}
-```
-
-**main.js**
-
-```javascript
-import Vue from 'vue'
-import 'muse-components/styles/base.less' // Load the base styles
-import appBar from 'muse-components/appBar'
-import avatar from 'muse-components/avatar'
-// ..
-Vue.component(appBar.name, appBar)
-Vue.component(avatar.name, avatar)
-```
-
-
 ## Browser Support
 
 * IE 10+
 * Andorid 4.4+
 * IOS 7+
+* Chrome
+* Firefox
 
 ## Changelog
 
@@ -105,7 +52,6 @@ Please make sure to read the [Contributing Guide](https://museui.github.io/#/con
 ## Dependencies
 
 * [vuejs 2.0](https://vuejs.org/)
-* [keycode](https://github.com/timoxley/keycode)
 * [material icons](https://fonts.googleapis.com/icon?family=Material+Icons)
 * [material design](https://material.google.com)
 

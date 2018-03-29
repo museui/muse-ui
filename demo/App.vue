@@ -1,13 +1,13 @@
 <template>
-  <div style="padding: 32px;">
-    <mu-pagination :total="1000" :current.sync="page"/>
-    <div style="margin-bottom: 15px;">
-      <mu-data-table :columns="columns" :sort.sync="sort" :data="list" :loading="loading">
-        <template slot="expand" slot-scope="prop">
-          <div style="padding: 24px;" >嘻嘻嘻嘻嘻嘻嘻</div>
-        </template>
-      </mu-data-table>
-    </div>
+<div style="padding: 32px;">
+  <mu-pagination :total="1000" :current.sync="page"/>
+  <div style="margin-bottom: 15px;">
+    <mu-data-table :columns="columns" :sort.sync="sort" :data="list" :loading="loading">
+      <template slot="expand" slot-scope="prop">
+        <div style="padding: 24px;" >嘻嘻嘻嘻嘻嘻嘻</div>
+      </template>
+    </mu-data-table>
+  </div>
   <mu-date-input v-model="value" actions type="time" landscape/>
   <mu-paper style="display: inline-block;" :zDepth="2">
     <mu-date-picker :maxDate="new Date()" :date.sync="date" />
@@ -17,48 +17,48 @@
     <mu-time-picker format="24hr" :time.sync="time"/>
   </mu-paper>
 
-<mu-select placeholder="圆圆圆圆" multiple  label="选择框">
-      <mu-chip slot="selection" slot-scope="scope" color="teal" :selected="scope.selected">
-        {{scope.label}}
-      </mu-chip>
-      <mu-option value="1" label="嘻嘻嘻1" />
-      <mu-option value="2" label="嘻嘻嘻2" />
-      <mu-option value="3" label="嘻嘻嘻3" />
-      <mu-option value="4" label="嘻嘻嘻4" />
-      <mu-option value="33" label="嘻嘻嘻1" />
-      <mu-option value="42" label="嘻嘻嘻2" />
-      <mu-option value="5" label="嘻嘻嘻3" />
-      <mu-option value="6" label="嘻嘻嘻4" />
-      <mu-option value="7" label="嘻嘻嘻1" />
-      <mu-option value="8" label="嘻嘻嘻2" />
-      <mu-option value="9" label="嘻嘻嘻3" />
-      <mu-option value="10" label="嘻嘻嘻4" />
-      <mu-option value="11" label="嘻嘻嘻11" />
-      <mu-option value="12" label="嘻嘻嘻21" />
-      <mu-option value="13" label="嘻嘻嘻31" />
-      <mu-option value="14" label="嘻嘻嘻41" />
-      <mu-option value="15" label="嘻嘻嘻11" />
-      <mu-option value="16" label="嘻嘻嘻21" />
-      <mu-option value="17" label="嘻嘻嘻31" />
-      <mu-option value="18" label="嘻嘻嘻41" />
-      <mu-option value="19" label="嘻嘻嘻11" />
-      <mu-option value="20" label="嘻嘻嘻21" />
-      <mu-option value="21" label="嘻嘻嘻31" />
-      <mu-option value="22" label="嘻嘻嘻41" />
-    </mu-select>
-    <mu-text-field placeholder="h啊哈哈哈" full-width name="teal-phone" v-model="alertMsg" multi-line :rows="3" :rows-max="6" max-length="300" helpText="错误啦啦啦啦" label="Test Input" />
-    <mu-text-field placeholder="h啊哈哈哈" disabled icon="phone" max-length="8" helpText="错误啦啦啦啦" label="Test Input" type="text" action-icon="arrow_drop_down" :action-click="closeAlert" />
-    <br/>
-    <br/>
-    <br/> {{checkbox1}}
-    <br/>
-    <br/>
-    <br/>
-    <mu-checkbox label="嘻嘻嘻1" name="xixi" value="vava" v-model="checkbox1" />
-    <mu-checkbox label="嘻嘻嘻2" disabled name="xixi" value="baba" v-model="checkbox1" />
-    <mu-checkbox label="嘻嘻嘻3" name="xixi" value="caca" v-model="checkbox1" />
-    <mu-checkbox label="嘻嘻嘻4" name="xixi" value="dada" v-model="checkbox1" />
-    <mu-checkbox :label="String(checkbox2)" v-model="checkbox2" />
+  <mu-select placeholder="圆圆圆圆" multiple  label="选择框">
+    <mu-chip slot="selection" slot-scope="scope" color="teal" :selected="scope.selected">
+      {{scope.label}}
+    </mu-chip>
+    <mu-option value="1" label="嘻嘻嘻1" />
+    <mu-option value="2" label="嘻嘻嘻2" />
+    <mu-option value="3" label="嘻嘻嘻3" />
+    <mu-option value="4" label="嘻嘻嘻4" />
+    <mu-option value="33" label="嘻嘻嘻1" />
+    <mu-option value="42" label="嘻嘻嘻2" />
+    <mu-option value="5" label="嘻嘻嘻3" />
+    <mu-option value="6" label="嘻嘻嘻4" />
+    <mu-option value="7" label="嘻嘻嘻1" />
+    <mu-option value="8" label="嘻嘻嘻2" />
+    <mu-option value="9" label="嘻嘻嘻3" />
+    <mu-option value="10" label="嘻嘻嘻4" />
+    <mu-option value="11" label="嘻嘻嘻11" />
+    <mu-option value="12" label="嘻嘻嘻21" />
+    <mu-option value="13" label="嘻嘻嘻31" />
+    <mu-option value="14" label="嘻嘻嘻41" />
+    <mu-option value="15" label="嘻嘻嘻11" />
+    <mu-option value="16" label="嘻嘻嘻21" />
+    <mu-option value="17" label="嘻嘻嘻31" />
+    <mu-option value="18" label="嘻嘻嘻41" />
+    <mu-option value="19" label="嘻嘻嘻11" />
+    <mu-option value="20" label="嘻嘻嘻21" />
+    <mu-option value="21" label="嘻嘻嘻31" />
+    <mu-option value="22" label="嘻嘻嘻41" />
+  </mu-select>
+  <mu-text-field placeholder="h啊哈哈哈" full-width name="teal-phone" v-model="alertMsg" multi-line :rows="3" :rows-max="6" max-length="300" helpText="错误啦啦啦啦" label="Test Input" />
+  <mu-text-field placeholder="h啊哈哈哈" disabled icon="phone" max-length="8" helpText="错误啦啦啦啦" label="Test Input" type="text" action-icon="arrow_drop_down" :action-click="closeAlert" />
+  <br/>
+  <br/>
+  <br/> {{checkbox1}}
+  <br/>
+  <br/>
+  <br/>
+  <mu-checkbox label="嘻嘻嘻1" name="xixi" value="vava" v-model="checkbox1" />
+  <mu-checkbox label="嘻嘻嘻2" disabled name="xixi" value="baba" v-model="checkbox1" />
+  <mu-checkbox label="嘻嘻嘻3" name="xixi" value="caca" v-model="checkbox1" />
+  <mu-checkbox label="嘻嘻嘻4" name="xixi" value="dada" v-model="checkbox1" />
+  <mu-checkbox :label="String(checkbox2)" v-model="checkbox2" />
     <br/>
     <br/>
     <br/>
@@ -272,11 +272,11 @@
         </mu-list-item>
       </mu-list>
     </mu-drawer>
-  </div>
+</div>
 </template>
 <script>
 export default {
-  data () {
+  data() {
     return {
       page: 3,
       open: false,
@@ -290,95 +290,111 @@ export default {
       time: new Date(),
       value: undefined,
       alertMsg: 'every thing is disabled',
-      columns: [{
-        name: 'xxx1',
-        title: '嘻嘻嘻1',
-        width: 300,
-        sortable: true
-      }, {
-        name: 'xxx2',
-        title: '嘻嘻嘻2',
-        align: 'center',
-        width: 300,
-        sortable: true
-      }, {
-        name: 'xxx3',
-        title: '嘻嘻嘻3',
-        width: 300,
-        sortable: true
-      }, {
-        name: 'xxx4',
-        title: '嘻嘻嘻4',
-        width: 300,
-        sortable: true
-      }, {
-        name: 'xxx5',
-        title: '嘻嘻嘻5',
-        width: 300,
-        sortable: true
-      }, {
-        name: 'xxx6',
-        title: '嘻嘻嘻6',
-        width: 300,
-        sortable: true
-      }],
-      list: [{
-        xxx1: '啊哈哈哈哈哈哈',
-        xxx2: 10,
-        xxx3: 11,
-        xxx4: 12,
-        xxx5: 24,
-        xxx6: 26
-      }, {
-        xxx1: '啊哈哈哈哈哈哈',
-        xxx2: 10,
-        xxx3: 11,
-        xxx4: 12,
-        xxx5: 24,
-        xxx6: 26
-      }, {
-        xxx1: '啊哈哈哈哈哈哈',
-        xxx2: 10,
-        xxx3: 11,
-        xxx4: 12,
-        xxx5: 24,
-        xxx6: 26
-      }, {
-        xxx1: '啊哈哈哈哈哈哈',
-        xxx2: 10,
-        xxx3: 11,
-        xxx4: 12,
-        xxx5: 24,
-        xxx6: 26
-      }, {
-        xxx1: '啊哈哈哈哈哈哈',
-        xxx2: 10,
-        xxx3: 11,
-        xxx4: 12,
-        xxx5: 24,
-        xxx6: 26
-      }, {
-        xxx1: '啊哈哈哈哈哈哈',
-        xxx2: 10,
-        xxx3: 11,
-        xxx4: 12,
-        xxx5: 24,
-        xxx6: 26
-      }, {
-        xxx1: '啊哈哈哈哈哈哈',
-        xxx2: 10,
-        xxx3: 11,
-        xxx4: 12,
-        xxx5: 24,
-        xxx6: 26
-      }, {
-        xxx1: '啊哈哈哈哈哈哈',
-        xxx2: 10,
-        xxx3: 11,
-        xxx4: 12,
-        xxx5: 24,
-        xxx6: 26
-      }],
+      columns: [
+        {
+          name: 'xxx1',
+          title: '嘻嘻嘻1',
+          width: 300,
+          sortable: true
+        },
+        {
+          name: 'xxx2',
+          title: '嘻嘻嘻2',
+          align: 'center',
+          width: 300,
+          sortable: true
+        },
+        {
+          name: 'xxx3',
+          title: '嘻嘻嘻3',
+          width: 300,
+          sortable: true
+        },
+        {
+          name: 'xxx4',
+          title: '嘻嘻嘻4',
+          width: 300,
+          sortable: true
+        },
+        {
+          name: 'xxx5',
+          title: '嘻嘻嘻5',
+          width: 300,
+          sortable: true
+        },
+        {
+          name: 'xxx6',
+          title: '嘻嘻嘻6',
+          width: 300,
+          sortable: true
+        }
+      ],
+      list: [
+        {
+          xxx1: '啊哈哈哈哈哈哈',
+          xxx2: 10,
+          xxx3: 11,
+          xxx4: 12,
+          xxx5: 24,
+          xxx6: 26
+        },
+        {
+          xxx1: '啊哈哈哈哈哈哈',
+          xxx2: 10,
+          xxx3: 11,
+          xxx4: 12,
+          xxx5: 24,
+          xxx6: 26
+        },
+        {
+          xxx1: '啊哈哈哈哈哈哈',
+          xxx2: 10,
+          xxx3: 11,
+          xxx4: 12,
+          xxx5: 24,
+          xxx6: 26
+        },
+        {
+          xxx1: '啊哈哈哈哈哈哈',
+          xxx2: 10,
+          xxx3: 11,
+          xxx4: 12,
+          xxx5: 24,
+          xxx6: 26
+        },
+        {
+          xxx1: '啊哈哈哈哈哈哈',
+          xxx2: 10,
+          xxx3: 11,
+          xxx4: 12,
+          xxx5: 24,
+          xxx6: 26
+        },
+        {
+          xxx1: '啊哈哈哈哈哈哈',
+          xxx2: 10,
+          xxx3: 11,
+          xxx4: 12,
+          xxx5: 24,
+          xxx6: 26
+        },
+        {
+          xxx1: '啊哈哈哈哈哈哈',
+          xxx2: 10,
+          xxx3: 11,
+          xxx4: 12,
+          xxx5: 24,
+          xxx6: 26
+        },
+        {
+          xxx1: '啊哈哈哈哈哈哈',
+          xxx2: 10,
+          xxx3: 11,
+          xxx4: 12,
+          xxx5: 24,
+          xxx6: 26
+        }
+      ],
       selects: [],
       sort: {
         name: 'xxx1',
@@ -387,13 +403,13 @@ export default {
       loading: true
     };
   },
-  created () {
+  created() {
     setTimeout(() => (this.loading = false), 2000);
   },
   methods: {
-    closeAlert () {
+    closeAlert() {
       this.alert = false;
     }
   }
-}
+};
 </script>

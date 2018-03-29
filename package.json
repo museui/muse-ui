@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "parcel demo/index.html",
     "build": "rm -rf dist && rollup --config rollup.config.js && npm run package",
-    "package": "rm -rf libs && babel src -d libs && mkdir libs/styles && cp -rf src/styles/* libs/styles"
+    "package": "rm -rf lib && babel src -d lib && mkdir lib/styles && cp -rf src/styles/* lib/styles"
   },
   "peerDependencies": {
     "vue": "^2.5.0"
