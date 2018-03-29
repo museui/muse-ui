@@ -1,19 +1,77 @@
 <template>
-<div class="mu-date-picker" :class="{'fullWidth': fullWidth}">
-  <text-field @focus="handleFocus" @labelClick="handleClick" :value="inputValue" :disabled="disabled" :fullWidth="fullWidth"
-    :label="label" :labelFloat="labelFloat" :labelClass="labelClass" :labelFocusClass="labelFocusClass"
-    :hintText="hintText" :hintTextClass="hintTextClass" :helpText="helpText" :helpTextClass="helpTextClass"
-    :errorText="errorText" :errorColor="errorColor" :icon="icon" :iconClass="iconClass" :inputClass="inputClass" :required="required"
-    :underlineShow="underlineShow" :underlineClass="underlineClass" :underlineFocusClass="underlineFocusClass"/>
-  <date-picker-dialog v-if="!disabled" @monthChange="handleMonthChange" @yearChange="handleYearChange" @accept="handleAccept" @dismiss="dismiss" :initialDate="dialogDate" ref="dialog" :mode="mode" :maxDate="maxLimitDate" :minDate="minLimitDate" :shouldDisableDate="shouldDisableDate" :firstDayOfWeek="firstDayOfWeek" :container="container" :disableYearSelection="disableYearSelection" :dateTimeFormat="dateTimeFormat" :autoOk="autoOk" :okLabel="okLabel" :cancelLabel="cancelLabel"/>
+<div class="mu-datetime-picker" :class="{'fullWidth': fullWidth}">
+
+  <text-field
+    @focus="handleFocus"
+    @labelClick="handleClick"
+    :value="inputValue"
+    :disabled="disabled"
+    :fullWidth="fullWidth"
+    :label="label"
+    :labelFloat="labelFloat"
+    :labelClass="labelClass"
+    :labelFocusClass="labelFocusClass"
+    :hintText="hintText"
+    :hintTextClass="hintTextClass"
+    :helpText="helpText"
+    :helpTextClass="helpTextClass"
+    :errorText="errorText"
+    :errorColor="errorColor"
+    :icon="icon"
+    :iconClass="iconClass"
+    :inputClass="inputClass"
+    :required="required"
+    :underlineShow="underlineShow"
+    :underlineClass="underlineClass"
+    :underlineFocusClass="underlineFocusClass"/>
+
+  <date-picker-dialog
+    ref="dialog"
+    v-if="!disabled"
+    @monthChange="handleMonthChange"
+    @yearChange="handleYearChange"
+    @accept="handleDateAccept"
+    @dismiss="dismiss"
+    :initialDate="dialogDate"
+    :mode="mode"
+    :maxDate="maxLimitDate"
+    :minDate="minLimitDate"
+    :shouldDisableDate="shouldDisableDate"
+    :firstDayOfWeek="firstDayOfWeek"
+    :container="container"
+    :disableYearSelection="disableYearSelection"
+    :dateTimeFormat="dateTimeFormat"
+    :autoOk="autoOk"
+    :okLabel="okLabel"
+    :cancelLabel="cancelLabel"/>
+
+  <time-picker-dialog
+    ref="timeDialog"
+    v-if="!disabled"
+    @accept="handleAccept"
+    :initialTime="dialogTime"
+    :mode="mode"
+    :container="container"
+    :autoOk="autoOk"
+    :okLabel="okLabel"
+    :cancelLabel="cancelLabel"/>
+
 </div>
 </template>
 <script>
-import * as dateUtils from './dateUtils'
 import textField from '../textField'
-import datePickerDialog from './datePickerDialog'
+import * as dateUtils from '../datePicker/dateUtils'
+import * as timeUtils from '../timePicker/timeUtils'
+import datePickerDialog from '../datePicker/datePickerDialog'
+import timePickerDialog from '../timePicker/timePickerDialog'
+
 export default {
-  name: 'mu-date-picker',
+  name: 'mu-datetime-picker',
+  components: {
+    'text-field': textField,
+    'date-picker-dialog': datePickerDialog,
+    'time-picker-dialog': timePickerDialog
+  },
   props: {
     dateTimeFormat: {
       type: Object,
@@ -60,7 +118,7 @@ export default {
     },
     format: {
       type: String,
-      default: 'YYYY-MM-DD'
+      default: 'YYYY-MM-DD hh:mm:ss'
     },
     maxDate: {
       type: [String, Date]
@@ -144,7 +202,21 @@ export default {
   data () {
     return {
       inputValue: this.value,
-      dialogDate: null
+      dialogDate: null,
+      dialogTime: null,
+      dateFormat: 'YYYY-MM-DD',
+      timeFormat: 'hh:mm:ss',
+      date: null,
+      time: null
+    }
+  },
+  mounted () {
+    let datetime
+
+    if (typeof this.inputValue === 'string') {
+      datetime = dateUtils.strFormatToDate(this.inputValue, this.format)
+      this.date = dateUtils.dateToStr(datetime, this.dateFormat)
+      this.time = dateUtils.dateToStr(datetime, this.timeFormat)
     }
   },
   methods: {
@@ -155,23 +227,42 @@ export default {
         }, 0)
       }
     },
+    getDatetime () {
+      let datetime = this.date + ' ' + this.time
+      let dateStr = dateUtils.dateToStr(new Date(datetime), this.format)
+
+      return dateStr
+    },
     handleFocus (event) {
       event.target.blur()
       this.$emit('focus', event)
     },
     openDialog () {
       if (this.disabled) return
-      this.dialogDate = this.inputValue ? dateUtils.strFormatToDate(this.inputValue, this.format) : new Date()
+      this.dialogDate = this.date ? dateUtils.strFormatToDate(this.date, this.dateFormat) : new Date()
       this.$refs.dialog.open = true
     },
+    openTimeDialog () {
+      if (this.disabled) return
+      this.dialogTime = this.time ? timeUtils.strToTime(this.time, this.timeFormat) : new Date()
+      this.$refs.timeDialog.open = true
+    },
+    handleDateAccept (val) {
+      this.date = dateUtils.dateToStr(val, this.dateFormat)
+
+      setTimeout(() => {
+        this.openTimeDialog()
+      }, 0)
+    },
     handleAccept (val) {
-      const newValue = dateUtils.dateToStr(val, this.format)
-      if (this.inputValue === newValue) {
-        this.$emit('change', newValue)
+      this.time = timeUtils.formatTime(val, this.timeFormat)
+      const datetime = this.getDatetime()
+      if (this.inputValue === datetime) {
+        this.$emit('change', datetime)
         return
       }
-      this.inputValue = newValue
-      this.$emit('change', newValue)
+      this.inputValue = datetime
+      this.$emit('change', datetime)
     },
     dismiss () {
       this.$emit('dismiss')
@@ -190,18 +281,14 @@ export default {
     inputValue (val) {
       this.$emit('input', val)
     }
-  },
-  components: {
-    'text-field': textField,
-    'date-picker-dialog': datePickerDialog
   }
 }
 </script>
 
 <style lang="less">
 @import "../styles/import.less";
-.mu-date-picker{
-  display: inline-block;
+.mu-datetime-picker{
+  display: flex;
   position: relative;
   width: 256px;
   &.fullWidth {

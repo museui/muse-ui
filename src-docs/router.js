@@ -23,6 +23,7 @@ import FloatButton from './views/components/floatButton'
 import Card from './views/components/card'
 import Chip from './views/components/chip'
 import DatePicker from './views/components/datePicker'
+import DatetimePicker from './views/components/datetimePicker'
 import Dialog from './views/components/dialog'
 import Divider from './views/components/divider'
 import Drawer from './views/components/drawer'
@@ -88,6 +89,7 @@ const router = new Router({
     { path: '/card', component: Card },
     { path: '/chip', component: Chip },
     { path: '/datePicker', component: DatePicker },
+    { path: '/datetimePicker', component: DatetimePicker },
     { path: '/dialog', component: Dialog },
     { path: '/divider', component: Divider },
     { path: '/drawer', component: Drawer },

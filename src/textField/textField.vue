@@ -10,11 +10,11 @@
           :max="max" :min="min" class="mu-text-field-input" :class="inputClass" :required="required">
         <enhanced-textarea :name="name" v-if="multiLine" ref="textarea" :normalClass="inputClass":value="inputValue" :disabled="disabled" :rows="rows" :rowsMax="rowsMax" @change="handleChange" @input="handleInput" @focus="handleFocus" @blur="handleBlur"></enhanced-textarea>
       </slot>
-      <underline v-if="underlineShow" :error="!!errorText" :disabled="disabled"
+      <underline v-if="underlineShow" :error="!!errText" :disabled="disabled"
       :errorColor="errorColor" :focus="isFocused" :normalClass="underlineClass" :focusClass="underlineFocusClass"/>
-      <div class="mu-text-field-help" :class="helpTextClass" :style="errorStyle" v-if="errorText || helpText || maxLength > 0">
+      <div class="mu-text-field-help" :class="helpTextClass" :style="errorStyle" v-if="errText || helpText || maxLength > 0">
           <div>
-              {{errorText || helpText}}
+              {{errText || helpText}}
           </div>
           <div v-if="maxLength > 0">
               {{charLength}}/{{maxLength}}
@@ -129,7 +129,8 @@ export default {
     return {
       isFocused: false,
       inputValue: this.value,
-      charLength: 0
+      charLength: 0,
+      errorMsg: ''
     }
   },
   computed: {
@@ -139,18 +140,21 @@ export default {
         'has-label': this.label,
         'no-empty-state': this.inputValue,
         'has-icon': this.icon,
-        'error': this.errorText,
+        'error': this.errText,
         'multi-line': this.multiLine,
         'disabled': this.disabled,
         'full-width': this.fullWidth
       }
+    },
+    errText () {
+      return this.errorMsg || this.errorText
     },
     float () {
       return this.labelFloat && !this.isFocused && !this.inputValue && this.inputValue !== 0
     },
     errorStyle () {
       return {
-        color: !this.disabled && this.errorText ? getColor(this.errorColor) : ''
+        color: !this.disabled && this.errText ? getColor(this.errorColor) : ''
       }
     },
     showHint () {
