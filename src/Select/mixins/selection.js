@@ -27,7 +27,7 @@ export default {
       if (keycode === 'left') {
         this.selectedIndex = this.selectedIndex === -1 ? maxIndex : this.selectedIndex - 1;
       } else if (keycode === 'right') {
-        this.selectedIndex = this.selectedIndex >= maxIndex ? -1 : this.selectedIndex + 1
+        this.selectedIndex = this.selectedIndex >= maxIndex ? -1 : this.selectedIndex + 1;
       } else if (this.selectedIndex === -1) {
         this.selectedIndex = maxIndex;
         return;

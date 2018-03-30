@@ -190,7 +190,7 @@ export default {
     const tagName = this.getTagName();
     const attrs = {
       tagret: this.target,
-      tabindex: !this.disabled ? (this.$attrs.tabindex || 0)  : -1
+      tabindex: !this.disabled ? (this.$attrs.tabindex || 0) : -1
     };
 
     if (tagName === 'button') {

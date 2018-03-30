@@ -1,5 +1,4 @@
-// From Vue, slightly modified
-
+/*eslint-disable*/
 function noop () {}
 
 if (typeof console === 'undefined') {

@@ -28,7 +28,6 @@ export default {
       const arr = [];
       const start = 1;
       const end = this.totalPage;
-      const half = Math.floor(SHOW_PAGE_COUNT / 2);
 
       if (end <= SHOW_PAGE_COUNT + 2) {
         for (let i = start + 1; i <= end; i++) {

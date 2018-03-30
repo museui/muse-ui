@@ -16,6 +16,12 @@
     browser: true
   },
   extends: "vue",
+  globals: {
+    expect: true,
+    describe: true,
+    it: true,
+    jest: true
+  },
   rules: {
     quotes: [2, "single", { "allowTemplateLiterals": true }],
     linebreak-style: [2, "unix"],

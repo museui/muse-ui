@@ -10,7 +10,7 @@ export default {
       type: String,
       default: 'minute',
       validator (val) {
-        return ['hour', 'minute'].indexOf(val) !== -1
+        return ['hour', 'minute'].indexOf(val) !== -1;
       }
     },
     value: {

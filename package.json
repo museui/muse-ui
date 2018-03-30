@@ -7,6 +7,7 @@
   "scripts": {
     "dev": "parcel demo/index.html",
     "build": "rm -rf dist && rollup --config rollup.config.js && npm run package",
+    "lint": "eslint --ext .js,.vue src",
     "test": "NODE_ENV=test jest -i",
     "test:coverage": "NODE_ENV=test jest -i --coverage",
     "package": "rm -rf lib && babel src -d lib && mkdir lib/styles && cp -rf src/styles/* lib/styles"
