@@ -5,7 +5,7 @@ import uglify from 'rollup-plugin-uglify';
 import postcss from 'rollup-plugin-postcss';
 import packageJson from './package.json';
 export default {
-  entry: 'src/index.js',
+  input: 'src/index.js',
   output: {
     banner: '/* muse-ui myron.liu version ' + packageJson.version + ' */',
     file: 'dist/muse-ui.js',
@@ -16,7 +16,7 @@ export default {
     postcss({ extensions: ['.less'], extract: 'dist/muse-ui.css' }),
     resolve({ jsnext: true, main: true, browser: true }),
     commonjs(),
-    babel({ 
+    babel({
       babelrc: false,
       include: 'src/**',
       runtimeHelpers: true,
