@@ -7,8 +7,8 @@
       <slot>
         <input v-if="!multiLine" ref="input" :name="name" :type="type" :value="inputValue"
           :disabled="disabled" @change="handleChange" @focus="handleFocus" @input="handleInput" @blur="handleBlur"
-          :max="max" :min="min" class="mu-text-field-input" :class="inputClass" :required="required">
-        <enhanced-textarea :name="name" v-if="multiLine" ref="textarea" :normalClass="inputClass":value="inputValue" :disabled="disabled" :rows="rows" :rowsMax="rowsMax" @change="handleChange" @input="handleInput" @focus="handleFocus" @blur="handleBlur"></enhanced-textarea>
+          :max="max" :min="min" :step="step" :pattern="pattern" class="mu-text-field-input" :class="inputClass" :required="required">
+        <enhanced-textarea :name="name" v-if="multiLine" ref="textarea" :normalClass="inputClass":value="inputValue" :disabled="disabled" :rows="rows" :rowsMax="rowsMax" :required="required" @change="handleChange" @input="handleInput" @focus="handleFocus" @blur="handleBlur"></enhanced-textarea>
       </slot>
       <underline v-if="underlineShow" :error="!!errText" :disabled="disabled"
       :errorColor="errorColor" :focus="isFocused" :normalClass="underlineClass" :focusClass="underlineFocusClass"/>
@@ -119,6 +119,12 @@ export default {
     },
     min: {
       type: [Number, String]
+    },
+    step: {
+      type: [Number, String]
+    },
+    pattern :{
+      type: String
     },
     required: {
       type: Boolean,
