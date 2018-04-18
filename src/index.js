@@ -1,5 +1,5 @@
 import './styles/base.less';
-import Alert from './alert';
+import Alert from './Alert';
 import AppBar from './AppBar';
 import Avatar from './Avatar';
 import Badge from './Badge';
