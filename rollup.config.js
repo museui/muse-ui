@@ -18,7 +18,7 @@ export default {
     commonjs(),
     babel({
       babelrc: false,
-      include: 'src/**',
+      include: 'ui/**',
       runtimeHelpers: true,
       presets: [
         [

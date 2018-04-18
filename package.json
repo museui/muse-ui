@@ -7,10 +7,10 @@
   "scripts": {
     "dev": "parcel demo/index.html",
     "build": "rm -rf dist && rollup --config rollup.config.js && npm run package",
-    "lint": "eslint --ext .js,.vue src",
+    "lint": "eslint --ext .js,.vue ui",
     "test": "NODE_ENV=test jest -i",
     "test:coverage": "NODE_ENV=test jest -i --coverage",
-    "package": "rm -rf lib && babel src -d lib && mkdir lib/styles && cp -rf src/styles/* lib/styles"
+    "package": "rm -rf lib && babel ui -d lib && mkdir lib/styles && cp -rf ui/styles/* lib/styles"
   },
   "peerDependencies": {
     "vue": "^2.5.0"
@@ -64,7 +64,7 @@
   "jest": {
     "verbose": false,
     "roots": [
-      "<rootDir>/src"
+      "<rootDir>/ui"
     ],
     "moduleFileExtensions": [
       "js",
