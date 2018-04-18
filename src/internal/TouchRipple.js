@@ -92,6 +92,7 @@ export default {
       const rippleSize = rippleRadius * 2;
       const left = pointerX - rippleRadius;
       const top = pointerY - rippleRadius;
+
       return {
         directionInvariant: true,
         height: rippleSize + 'px',

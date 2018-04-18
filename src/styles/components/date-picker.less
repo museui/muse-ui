@@ -336,6 +336,7 @@
   width: 42px;
   &.disabled {
     opacity: .4;
+    cursor: not-allowed;
   }
 }
 
@@ -376,7 +377,7 @@
   .mu-day-button.now & {
     color: @primaryColor;
   }
-  .mu-day-button:hover &,
+  .mu-day-button:hover:not(:disabled) &,
   .mu-day-button.selected & {
     color: @alternateTextColor;
   }
