@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import MuseUI from '../src';
+import MuseUI from '../ui';
 import App from './App';
 Vue.use(MuseUI);
 
