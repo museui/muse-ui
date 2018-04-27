@@ -1722,6 +1722,10 @@ clone@^1.0.2:
   version "1.0.3"
   resolved "http://registry.npm.taobao.org/clone/download/clone-1.0.3.tgz#298d7e2231660f40c003c2ed3140decf3f53085f"
 
+clone@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/clone/-/clone-2.1.1.tgz#d217d1e961118e3ac9a4b8bba3285553bf647cdb"
+
 clones@^1.1.0:
   version "1.1.0"
   resolved "http://registry.npm.taobao.org/clones/download/clones-1.1.0.tgz#87e904132d6140c5c0b72006c08c0d05bd7b63b3"
@@ -4705,6 +4709,14 @@ lcid@^1.0.0:
 left-pad@^1.2.0:
   version "1.2.0"
   resolved "http://registry.npm.taobao.org/left-pad/download/left-pad-1.2.0.tgz#d30a73c6b8201d8f7d8e7956ba9616087a68e0ee"
+
+less-loader@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/less-loader/-/less-loader-4.1.0.tgz#2c1352c5b09a4f84101490274fd51674de41363e"
+  dependencies:
+    clone "^2.1.1"
+    loader-utils "^1.1.0"
+    pify "^3.0.0"
 
 less@^3.0.1:
   version "3.0.1"

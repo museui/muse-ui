@@ -26,7 +26,8 @@ export default {
         'background-color': getColor(this.color)
       },
       props: {
-        zDepth: this.zDepth
+        zDepth: this.zDepth,
+        rounded: false
       }
     }, [left, center, right]);
   }
