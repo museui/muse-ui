@@ -38,6 +38,39 @@
       </div>
     </mu-col>
   </mu-row>
+  <mu-row>
+    <mu-col lg="4" span="12" class="mu-desc-item">
+      <div class="mu-desc-item-header">
+        <mu-icon value="file_download"/>
+        <h2 class="mu-desc-item-title">安装</h2>
+      </div>
+      <div class="mu-desc-item-content"></div>
+      <mu-divider />
+      <mu-button flat>查看安装文档</mu-button>
+    </mu-col>
+    <mu-col lg="4" span="12" class="mu-desc-item">
+      <div class="mu-desc-item-header">
+        <mu-icon value="build"/>
+        <h2 class="mu-desc-item-title">使用</h2>
+      </div>
+      <div class="mu-desc-item-content"></div>
+      <mu-divider />
+      <mu-button flat>查看使用文档</mu-button>
+    </mu-col>
+    <mu-col lg="4" span="12" class="mu-desc-item">
+      <div class="mu-desc-item-header">
+        <mu-icon value="whatshot"/>
+        <h2 class="mu-desc-item-title">定制化样式</h2>
+      </div>
+      <div class="mu-desc-item-content"></div>
+      <mu-divider />
+      <mu-button flat>查看使用文档</mu-button>
+    </mu-col>
+  </mu-row>
+  <div class="mu-footer">
+      Muse-UI is open source and released under the MIT Licence.<br/>
+      Copyright (c) 2016 myron
+  </div>
 </div>
 </template>
 <script>
@@ -111,8 +144,8 @@ export default {
 .mu-feature-item {
   height: 400px;
   text-align: center;
-  background-color: #fff;
-  border-bottom: 1px solid @borderColor;
+  background-color: @dialogBackgroundColor;
+  // border-bottom: 1px solid @borderColor;
   > img {
     width: 300px;
   }
@@ -131,5 +164,40 @@ export default {
   margin: 0 auto;
   padding-left: 16px;
   padding-right: 16px;
+}
+
+.mu-desc-item {
+  padding: 40px 32px !important;
+  border: 1px solid @alternateTextColor;
+  .mu-icon {
+    font-size: 30px;
+    color: @primaryColor;
+    margin-right: 16px;
+  }
+  .mu-divider {
+    margin-top: 32px;
+    margin-bottom: 16px;
+  }
+}
+.mu-desc-item-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+}
+.mu-desc-item-title {
+  color: @textColor;
+  margin: 0;
+  font-size: 21px;
+  line-height: 24px;
+  font-weight: 500;
+}
+.mu-desc-item-content {
+  min-height: 270px;
+}
+.mu-footer{
+  background-color: #1b1b1b;
+  text-align: center;
+  color: #777777;
+  padding: 50px 40px;
 }
 </style>
