@@ -10,12 +10,12 @@ function createEnumProps (type, def, enums) {
 
 export const props = {
   direction: createEnumProps(String, 'row', ['row', 'column', 'row-reverse', 'column-reverse']),
-  wrap: createEnumProps(String, '', ['wrap', 'nowrap', 'wrap-reverse']),
+  wrap: createEnumProps(String, '', ['', 'wrap', 'nowrap', 'wrap-reverse']),
   fill: Boolean,
   justifyContent: createEnumProps(String, 'start', ['start', 'center', 'end', 'between', 'around']),
   alignItems: createEnumProps(String, 'start', ['start', 'center', 'end', 'baseline', 'stretch']),
-  alignContent: createEnumProps(String, '', ['start', 'center', 'end', 'between', 'around', 'stretch']),
-  alignSelf: createEnumProps(String, '', ['auto', 'start', 'center', 'end', 'baseline', 'stretch'])
+  alignContent: createEnumProps(String, '', ['', 'start', 'center', 'end', 'between', 'around', 'stretch']),
+  alignSelf: createEnumProps(String, '', ['', 'auto', 'start', 'center', 'end', 'baseline', 'stretch'])
 };
 
 export function generatePropsClass (props) {

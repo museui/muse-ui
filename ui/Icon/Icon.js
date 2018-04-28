@@ -7,7 +7,7 @@ export default {
     value: String,
     left: Boolean,
     right: Boolean,
-    size: Number,
+    size: [Number, String],
     color: String
   },
   render (h, { data, props }) {

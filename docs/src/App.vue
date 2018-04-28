@@ -1,10 +1,11 @@
 <template>
   <div id="app">
-    <mu-appbar color="transparent" style="position: fixed; left: 0; right: 0;top: 0; z-index: 101; overflow: hidden;" :zDepth="0">
-      <mu-button icon slot="left">
+    <app-nav-drawer :open.sync="open"/>
+    <mu-appbar :color="home ? 'transparent' : 'primary'" class="mu-appbar-header" style="z-index: 101;" :class="{'is-open': !home}" :zDepth="home ? 0 : 1">
+      <mu-button v-if="home" icon slot="left" @click="toggleMenu">
         <mu-icon size="24" value="menu"/>
       </mu-button>
-      <img src="./assets/images/bg.png" width="100%" height="500" class="mu-banner-image">
+      <img src="./assets/images/bg.png" v-if="home" width="100%" height="500" class="mu-banner-image">
       <mu-menu slot="right" :targetOrigin="{
           vertical: 'bottom',
           horizontal: 'right'
@@ -30,13 +31,92 @@
         <mu-icon size="24" value=":mudocs-icon-custom-github"/>
       </mu-button>
     </mu-appbar>
-    <router-view/>
+    <div class="app-content" :class="{'is-open': !home}">
+      <router-view/>
+    </div>
   </div>
 </template>
 
 <script>
+import AppNavDrawer from './components/nav';
 export default {
-  name: 'App'
+  name: 'App',
+  data () {
+    return {
+      open: false
+    }
+  },
+  computed: {
+    home () {
+      return this.$route && this.$route.name === 'home';
+    }
+  },
+  methods: {
+    toggleMenu () {
+      this.open = !this.open;
+    }
+  },
+  components: {
+    'app-nav-drawer': AppNavDrawer
+  }
 }
 </script>
+<style lang="less">
+@import '../../lib/styles/vars.less';
+.mu-app-drawer {
+  border-right: 1px solid @borderColor;
+}
+.mu-app-drawer-header {
+  .mu-appbar-title {
+    line-height: 24px;
+    display: flex;
+    align-items: flex-start;
+    font-size: 24px;
+    flex-direction: column;
+    color: @secondaryTextColor;
+    font-weight: 500;
+  }
+  .mu-appbar-title-text {
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline;
+      color: @primaryColor;
+    }
+  }
+  .mu-app-version {
+    line-height: 1;
+    font-size: 12px;
+    margin-top: 4px;
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline;
+      color: @primaryColor;
+    }
+  }
+}
+.mu-appbar-header {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 101;
+  overflow: hidden;
+  &.is-open {
+    left: 256px;
+  }
+}
+.app-content {
+  transition: all .45s cubic-bezier(.23,1,.32,1);
+}
+.app-content.is-open {
+  padding-left: 256px;
+  padding-top: 56px;
+}
 
+@media (min-width: 480px) {
+  .app-content.is-open {
+    padding-top: 64px;
+  }
+}
+
+</style>
