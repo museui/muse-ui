@@ -12,7 +12,7 @@
       基于 Vue 2.0 优雅的 Material Design UI 组件库
     </h2>
     <div class="mu-banner-actions">
-      <mu-button raised to="/demo" text-color="primary" class="mu-banner-button">GET STARTED</mu-button>
+      <mu-button raised to="/demo" text-color="primary" class="mu-banner-button">快速上手</mu-button>
     </div>
   </div>
   <mu-row>

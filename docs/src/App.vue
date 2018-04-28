@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <app-nav-drawer :open.sync="open"/>
-    <mu-appbar :color="home ? 'transparent' : 'primary'" class="mu-appbar-header" style="z-index: 101;" :class="{'is-open': !home}" :zDepth="home ? 0 : 1">
-      <mu-button v-if="home" icon slot="left" @click="toggleMenu">
+    <mu-appbar :color="home ? 'transparent' : 'primary'" class="mu-appbar-header" style="z-index: 101;" :class="{'is-open': (!home && open)}" :zDepth="home ? 0 : 1">
+      <mu-button v-if="home || !open" icon slot="left" @click="toggleMenu">
         <mu-icon size="24" value="menu"/>
       </mu-button>
       <img src="./assets/images/bg.png" v-if="home" width="100%" height="500" class="mu-banner-image">
@@ -31,7 +31,7 @@
         <mu-icon size="24" value=":mudocs-icon-custom-github"/>
       </mu-button>
     </mu-appbar>
-    <div class="app-content" :class="{'is-open': !home}">
+    <div class="app-content" :class="{'is-open': (!home && open)}">
       <router-view/>
     </div>
   </div>
@@ -111,6 +111,13 @@ export default {
 .app-content.is-open {
   padding-left: 256px;
   padding-top: 56px;
+}
+.toggle-icon {
+  color: @secondaryTextColor;
+  transition: transform .3s cubic-bezier(.23,1,.32,1);
+  .mu-item.is-open & {
+    transform: rotate(180deg);
+  }
 }
 
 @media (min-width: 480px) {
