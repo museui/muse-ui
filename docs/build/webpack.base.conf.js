@@ -2,6 +2,7 @@ const path = require('path');
 const utils = require('./utils');
 const config = require('../config');
 const vueLoaderConfig = require('./vue-loader.conf');
+const vueMarkdownLoaderConfig = require('./vue-markdown-loader.conf');
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir);
@@ -40,8 +41,14 @@ module.exports = {
         include: [
           resolve('src'),
           resolve('test'),
-          resolve('node_modules/webpack-dev-server/client')
+          resolve('../node_modules/webpack-dev-server/client'),
+          resolve('../ui')
         ]
+      },
+      {
+        test: /\.md$/,
+        loader: 'vue-markdown-loader',
+        options: vueMarkdownLoaderConfig
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
@@ -79,6 +86,6 @@ module.exports = {
     fs: 'empty',
     net: 'empty',
     tls: 'empty',
-    'child_process': 'empty'
+    child_process: 'empty'
   }
 };

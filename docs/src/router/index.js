@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Home from '../views/home';
-import demo from '../views/demo';
+import Install from '../docs/install.md';
 Vue.use(Router);
 
 export default new Router({
@@ -12,9 +12,9 @@ export default new Router({
       component: Home
     },
     {
-      path: '/demo',
-      name: 'demo',
-      component: demo
+      path: '/install',
+      name: 'install',
+      component: Install
     }
   ]
 });

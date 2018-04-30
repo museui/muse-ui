@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <app-nav-drawer :open.sync="open"/>
-    <mu-appbar :color="home ? 'transparent' : 'primary'" class="mu-appbar-header" style="z-index: 101;" :class="{'is-open': (!home && open)}" :zDepth="home ? 0 : 1">
+    <app-nav-drawer :open.sync="open" :docked="docked" :home="home"/>
+    <mu-appbar :color="home ? 'transparent' : 'primary'" class="mu-appbar-header" style="z-index: 101;" :class="{'is-open': (!home && open && docked)}" :zDepth="home ? 0 : 1">
       <mu-button v-if="home || !open" icon slot="left" @click="toggleMenu">
         <mu-icon size="24" value="menu"/>
       </mu-button>
@@ -31,8 +31,8 @@
         <mu-icon size="24" value=":mudocs-icon-custom-github"/>
       </mu-button>
     </mu-appbar>
-    <div class="app-content" :class="{'is-open': (!home && open)}">
-      <router-view/>
+    <div class="app-content" :class="{'is-open': (!home && open && docked)}">
+      <router-view />
     </div>
   </div>
 </template>
@@ -43,22 +43,52 @@ export default {
   name: 'App',
   data () {
     return {
+      docked: isDesktop(),
       open: false
     }
   },
   computed: {
     home () {
-      return this.$route && this.$route.name === 'home';
+      return (this.$route && this.$route.name === 'home');
     }
   },
+  mounted () {
+    this.changeNav();
+    this.handleResize = () => {
+      this.changeNav();
+    };
+    window.addEventListener('resize', this.handleResize);
+  },
   methods: {
+    changeNav () {
+      const desktop = isDesktop();
+      this.docked = this.home ? false : desktop;
+      if (desktop === this.desktop) return;
+      if (!desktop && this.desktop && this.open) {
+        this.open = false;
+      }
+      if (desktop && !this.desktop && !this.open && !this.home) {
+        this.open = true;
+      }
+      this.desktop = desktop;
+    },
     toggleMenu () {
-      this.open = !this.open;
+      setTimeout(() => (this.open = !this.open), 0);
+    }
+  },
+  watch: {
+    home (val) {
+      this.open = !val;
+      this.changeNav();
     }
   },
   components: {
     'app-nav-drawer': AppNavDrawer
   }
+}
+
+function isDesktop () {
+  return window.innerWidth > 993;
 }
 </script>
 <style lang="less">
@@ -107,10 +137,10 @@ export default {
 }
 .app-content {
   transition: all .45s cubic-bezier(.23,1,.32,1);
+  padding-top: 56px;
 }
 .app-content.is-open {
   padding-left: 256px;
-  padding-top: 56px;
 }
 .toggle-icon {
   color: @secondaryTextColor;
@@ -119,11 +149,33 @@ export default {
     transform: rotate(180deg);
   }
 }
+.markdown-body {
+  padding-top: 16px;
+  margin: 0 auto;
+  max-width: 100%;
+  padding-left: 16px;
+  padding-right: 16px;
+  margin-bottom: 100px;
+}
 
 @media (min-width: 480px) {
-  .app-content.is-open {
+  .app-content {
     padding-top: 64px;
   }
 }
+
+@media (min-width: 600px) {
+  .markdown-body {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+@media (min-width: 960px) {
+  .markdown-body {
+    max-width: 960px;
+  }
+}
+
+
 
 </style>
