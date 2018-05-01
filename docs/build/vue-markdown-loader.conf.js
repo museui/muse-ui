@@ -7,6 +7,7 @@ module.exports = {
   linkify: true,
   typographer: true,
   langPrefix: 'language-',
+  preventExtract: true,
   wrapper: 'div class="markdown-body"',
   highlight: function (str, lang) {
     if (lang && hljs.getLanguage(lang)) {

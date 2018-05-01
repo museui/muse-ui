@@ -44,27 +44,33 @@
         <mu-icon value="file_download"/>
         <h2 class="mu-desc-item-title">安装</h2>
       </div>
-      <div class="mu-desc-item-content"></div>
+      <div class="mu-desc-item-content">
+        <mu-install />
+      </div>
       <mu-divider />
-      <mu-button flat>查看安装文档</mu-button>
+      <mu-button flat :to="`/${locale}/installation`">查看安装文档</mu-button>
     </mu-col>
     <mu-col lg="4" span="12" class="mu-desc-item">
       <div class="mu-desc-item-header">
         <mu-icon value="build"/>
         <h2 class="mu-desc-item-title">使用</h2>
       </div>
-      <div class="mu-desc-item-content"></div>
+      <div class="mu-desc-item-content">
+        <mu-usage />
+      </div>
       <mu-divider />
-      <mu-button flat>查看使用文档</mu-button>
+      <mu-button flat :to="`/${locale}/usage`">查看使用文档</mu-button>
     </mu-col>
     <mu-col lg="4" span="12" class="mu-desc-item">
       <div class="mu-desc-item-header">
         <mu-icon value="whatshot"/>
         <h2 class="mu-desc-item-title">定制化样式</h2>
       </div>
-      <div class="mu-desc-item-content"></div>
+      <div class="mu-desc-item-content">
+        <mu-theme />
+      </div>
       <mu-divider />
-      <mu-button flat>查看使用文档</mu-button>
+      <mu-button flat :to="`/${locale}/theme`">自定义主题</mu-button>
     </mu-col>
   </mu-row>
   <div class="mu-footer">
@@ -75,12 +81,21 @@
 </template>
 <script>
 import locale from '../../locale';
+import install from './install.md';
+import usage from './usage.md';
+import theme from './theme.md';
+
 export default {
   name: 'home',
   data () {
     return {
       locale
     };
+  },
+  components: {
+    'mu-install': install,
+    'mu-usage': usage,
+    'mu-theme': theme
   }
 };
 </script>
@@ -205,5 +220,19 @@ export default {
   text-align: center;
   color: #777777;
   padding: 50px 40px;
+}
+
+.mu-desc-item-content {
+  .markdown-body {
+    padding: 0;
+    margin: 0;
+    p {
+      margin: 0;
+    }
+    pre {
+      background-color: transparent;
+      margin: 0;
+    }
+  }
 }
 </style>

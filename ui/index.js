@@ -38,6 +38,7 @@ import TimePicker from './TimePicker';
 import Tooltip from './Tooltip';
 import './styles/theme.less';
 import theme from './theme';
+import * as Colors from './theme/colors';
 
 function MuseUI (Vue) {
   [
@@ -55,4 +56,5 @@ function MuseUI (Vue) {
 }
 
 MuseUI.theme = theme;
+MuseUI.Colors = Colors;
 export default MuseUI;

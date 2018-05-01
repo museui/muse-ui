@@ -6,7 +6,9 @@
         <mu-icon size="24" value="menu"/>
       </mu-button>
       {{pageName}}
-      <img src="./assets/images/bg.png" v-if="home" width="100%" height="500" class="mu-banner-image">
+      <mu-fade-transition>
+        <img src="./assets/images/bg.png" v-if="home" width="100%" height="500" class="mu-banner-image">
+      </mu-fade-transition>
       <mu-menu slot="right" :open.sync="activeMenu" :targetOrigin="{
           vertical: 'bottom',
           horizontal: 'right'
@@ -43,6 +45,7 @@ import AppNavDrawer from './components/nav';
 import langs from './configs/lang';
 import locale from './locale';
 import { changeLocale } from './locale';
+import { FadeTransition } from '../../ui/internal/transitions';
 
 export default {
   name: 'App',
@@ -106,7 +109,8 @@ export default {
     }
   },
   components: {
-    'app-nav-drawer': AppNavDrawer
+    'app-nav-drawer': AppNavDrawer,
+    'mu-fade-transition': FadeTransition
   }
 }
 
