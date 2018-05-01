@@ -1,12 +1,13 @@
 <template>
   <div id="app">
     <app-nav-drawer :open.sync="open" :docked="docked" :home="home"/>
-    <mu-appbar :color="home ? 'transparent' : 'primary'" class="mu-appbar-header" style="z-index: 101;" :class="{'is-open': (!home && open && docked)}" :zDepth="home ? 0 : 1">
-      <mu-button v-if="home || !open" icon slot="left" @click="toggleMenu">
+    <mu-appbar :color="home ? 'transparent' : 'primary'" class="mu-appbar-header" style="z-index: 101;" :class="{'is-open': (!home && open && docked), 'is-only-title': !(home || !docked)}" :zDepth="home ? 0 : 1">
+      <mu-button v-if="home || !docked" icon slot="left" @click="toggleMenu">
         <mu-icon size="24" value="menu"/>
       </mu-button>
+      {{pageName}}
       <img src="./assets/images/bg.png" v-if="home" width="100%" height="500" class="mu-banner-image">
-      <mu-menu slot="right" :targetOrigin="{
+      <mu-menu slot="right" :open.sync="activeMenu" :targetOrigin="{
           vertical: 'bottom',
           horizontal: 'right'
         }" :anchorOrigin="{
@@ -14,15 +15,15 @@
           horizontal: 'right'
         }">
         <mu-button flat>
-          <img src="https://countryflags.io/cn/flat/32.png" alt="">
+          <img :src="lang.img(32)" alt="">
         </mu-button>
         <mu-list slot="content">
-          <mu-list-item button>
+          <mu-list-item button v-for="item in langs" :key="item.lang" @click="changeLang(item.lang)">
             <mu-list-item-action>
-              <img src="https://countryflags.io/cn/flat/24.png" alt="">
+              <img :src="item.img(24)" alt="">
             </mu-list-item-action>
             <mu-list-item-content>
-              <mu-list-item-title>简体中文</mu-list-item-title>
+              <mu-list-item-title>{{item.desc}}</mu-list-item-title>
             </mu-list-item-content>
           </mu-list-item>
         </mu-list>
@@ -39,17 +40,30 @@
 
 <script>
 import AppNavDrawer from './components/nav';
+import langs from './configs/lang';
+import locale from './locale';
+import { changeLocale } from './locale';
+
 export default {
   name: 'App',
   data () {
     return {
       docked: isDesktop(),
+      activeMenu: false,
+      locale,
+      langs,
       open: false
     }
   },
   computed: {
+    lang () {
+      return this.langs.filter((item) => item.lang === this.locale)[0];
+    },
     home () {
       return (this.$route && this.$route.name === 'home');
+    },
+    pageName () {
+      return this.$route && this.$route.meta && this.$route.meta.name;
     }
   },
   mounted () {
@@ -60,6 +74,15 @@ export default {
     window.addEventListener('resize', this.handleResize);
   },
   methods: {
+    changeLang (lang) {
+      changeLocale(lang);
+      this.activeMenu = false;
+      if (this.$route.meta && this.$route.meta.path) {
+        this.$router.replace(`/${lang}${this.$route.meta.path}`);
+      } else {
+        location.reload();
+      }
+    },
     changeNav () {
       const desktop = isDesktop();
       this.docked = this.home ? false : desktop;
@@ -133,6 +156,11 @@ function isDesktop () {
   overflow: hidden;
   &.is-open {
     left: 256px;
+  }
+  &.is-only-title {
+    .mu-appbar-title {
+      margin-left: 16px;
+    }
   }
 }
 .app-content {

@@ -1,4 +1,4 @@
-# Install
+# 安装
 
 安装 `muse-ui` [xixixi](http://www.baidu.com)
 

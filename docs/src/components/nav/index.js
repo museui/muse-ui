@@ -1,4 +1,7 @@
 import packageJson from '../../../../package.json';
+import navConfig from '../../configs/nav';
+import locale from '../../locale';
+
 export default {
   props: {
     open: Boolean,
@@ -9,6 +12,11 @@ export default {
     return {
       version: packageJson.version
     };
+  },
+  computed: {
+    path () {
+      return this.$route && this.$route.meta && this.$route.meta.path
+    }
   },
   methods: {
     createHeader (h) {
@@ -21,9 +29,9 @@ export default {
     },
     createMenuItem (h, menu, isNested) {
       return (
-        <mu-list-item slot={isNested ? 'nested' : 'default'} button nested={menu.children && menu.children.length > 0} toggleNested>
+        <mu-list-item to={menu.path ? '/' + locale + menu.path : undefined} value={menu.path} slot={isNested ? 'nested' : 'default'} button nested={menu.children && menu.children.length > 0} toggleNested>
           <mu-list-item-content>
-            <mu-list-item-title style={{ 'font-size': isNested ? '14px' : '16px' }}>{menu.title}</mu-list-item-title>
+            <mu-list-item-title style={{ 'font-size': isNested ? '14px' : '16px', 'font-weight': isNested ? '400' : '500' }}>{menu.name}</mu-list-item-title>
           </mu-list-item-content>
           {
             menu.children && menu.children.length > 0 ? <mu-list-item-action>
@@ -39,104 +47,13 @@ export default {
       );
     },
     createContent (h) {
-      const menus = [{
-        title: '快速上手',
-        children: [{
-          title: '安装'
-        }, {
-          title: '使用'
-        }, {
-          title: '常见问题解答'
-        }]
-      }, {
-        title: '样式 & 主题风格',
-        children: [{
-          title: 'Color 色彩'
-        }, {
-          title: 'Theme 主题'
-        }, {
-          title: 'Icons 图标'
-        }]
-      }, {
-        title: '组件',
-        children: [{
-          title: 'Alert'
-        }, {
-          title: 'AppBar'
-        }, {
-          title: 'Avatar'
-        }, {
-          title: 'Badge'
-        }, {
-          title: 'Bottom Navigation'
-        }, {
-          title: 'Bottom Sheet'
-        }, {
-          title: 'Breadcrumbs'
-        }, {
-          title: 'Buttons'
-        }, {
-          title: 'Card'
-        }, {
-          title: 'Chip'
-        }, {
-          title: 'Data Table'
-        }, {
-          title: 'Dialog'
-        }, {
-          title: 'Divider'
-        }, {
-          title: 'Grid List'
-        }, {
-          title: 'Input controls',
-          children: [{
-            title: 'Date Input'
-          }, {
-            title: 'Select'
-          }, {
-            title: 'Select Controls'
-          }, {
-            title: 'Text Field'
-          }]
-        }, {
-          title: 'List'
-        }, {
-          title: 'Menu'
-        }, {
-          title: 'Pagination'
-        }, {
-          title: 'Paper'
-        }, {
-          title: 'Pickers',
-          children: [{
-            title: 'Date Picker'
-          }, {
-            title: 'Time Picker'
-          }]
-        }, {
-          title: 'Popover'
-        }, {
-          title: 'Progress'
-        }, {
-          title: 'Slider'
-        }, {
-          title: 'Snackbar'
-        }, {
-          title: 'Stepper'
-        }, {
-          title: 'SubHeader'
-        }, {
-          title: 'Tabs'
-        }, {
-          title: 'Tooltip'
-        }]
-      }].map((menu) => {
+      const menus = navConfig[locale].map(menu => {
         return this.createMenuItem(h, menu);
       });
       return (
         <div class='mu-app-drawer-content'>
           <mu-divider />
-          <mu-list dense>
+          <mu-list dense value={this.path}>
             {menus}
           </mu-list>
         </div>
@@ -158,5 +75,10 @@ export default {
       this.createHeader(h),
       this.createContent(h)
     ]);
+  },
+  watch: {
+    path () {
+      if (!this.docked) this.$emit('update:open', false);
+    }
   }
 };
