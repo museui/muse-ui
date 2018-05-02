@@ -1,5 +1,6 @@
 import '../styles/components/touch-ripple.less';
 import CircleRipple from './CircleRipple';
+import { getOffset } from '../utils/dom';
 
 export default {
   props: {
@@ -74,14 +75,14 @@ export default {
     getRippleStyle (event) {
       const el = this.$refs.holder;
       if (!el) return;
-      const react = el.getBoundingClientRect();
-      const elHeight = react.height;
-      const elWidth = react.width;
+      const offset = getOffset(el);
+      const elHeight = el.offsetHeight;
+      const elWidth = el.offsetWidth;
       const isTouchEvent = event.touches && event.touches.length;
       const pageX = isTouchEvent ? event.touches[0].pageX : event.pageX;
       const pageY = isTouchEvent ? event.touches[0].pageY : event.pageY;
-      const pointerX = pageX - react.left;
-      const pointerY = pageY - react.top;
+      const pointerX = pageX - offset.left;
+      const pointerY = pageY - offset.top;
       const topLeftDiag = this.calcDiag(pointerX, pointerY);
       const topRightDiag = this.calcDiag(elWidth - pointerX, pointerY);
       const botRightDiag = this.calcDiag(elWidth - pointerX, elHeight - pointerY);
