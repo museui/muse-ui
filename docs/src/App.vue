@@ -157,6 +157,9 @@ export default {
     home (val) {
       this.open = !val;
       this.changeNav();
+    },
+    pageName () {
+      this.activeMenu = false
     }
   },
   components: {
