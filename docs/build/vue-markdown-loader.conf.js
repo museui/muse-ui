@@ -47,7 +47,7 @@ module.exports = {
 
           jsfiddle = md.utils.escapeHtml(JSON.stringify(jsfiddle));
 
-          return `<demo-block class="demo-box" :jsfiddle="${jsfiddle}">
+          return `<demo-block :jsfiddle="${jsfiddle}">
                     <div class="source" slot="source">${html}</div>
                     ${descriptionHTML}
                     <div class="highlight" slot="highlight">`;
