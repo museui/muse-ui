@@ -25,7 +25,8 @@ module.exports = {
     extensions: ['.js', '.vue', '.json', '.md'],
     alias: {
       vue$: 'vue/dist/vue.esm.js',
-      '@': resolve('src')
+      '@': resolve('src'),
+      'muse-ui': resolve('../ui')
     }
   },
   module: {
@@ -87,6 +88,6 @@ module.exports = {
     fs: 'empty',
     net: 'empty',
     tls: 'empty',
-    'child_process': 'empty'
+    child_process: 'empty'
   }
 };

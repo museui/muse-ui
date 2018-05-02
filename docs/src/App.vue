@@ -261,7 +261,4 @@ function isDesktop () {
     max-width: 960px;
   }
 }
-
-
-
 </style>

@@ -7,12 +7,9 @@ export default {
     }, {
       name: '使用',
       path: '/usage'
-    }, {
-      name: '常见问题解答',
-      path: '/faq'
     }]
   }, {
-    name: '样式 & 主题风格',
+    name: '风格与布局',
     children: [{
       name: 'Color',
       path: '/color'

@@ -3,7 +3,7 @@
   "version": "3.0.0-beta.1",
   "description": "material design ui for vue2",
   "author": "myronliu347 <myronliu347@gmail.com>",
-  "main": "libs/index.js",
+  "main": "lib/index.js",
   "scripts": {
     "docs:dev": "webpack-dev-server --inline --progress --config docs/build/webpack.dev.conf.js",
     "docs:build": "node docs/build/build.js",
