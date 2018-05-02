@@ -87,7 +87,11 @@ export default {
     }
   },
   render (h) {
-    return h(FadeTransition, [
+    return h('transition', {
+      props: {
+        name: 'mu-tooltip-' + this.placement.split('-')[0]
+      }
+    }, [
       this.open ? h('div', {
         staticClass: 'mu-tooltip',
         style: {
