@@ -15,6 +15,16 @@ export default {
     default: '确定',
     desc: 'props.cancelLabel'
   }, {
+    name: 'showNowButton',
+    type: 'Boolean',
+    default: 'true',
+    desc: 'props.showNowButton'
+  }, {
+    name: 'nowLabel',
+    type: 'String',
+    default: '现在',
+    desc: 'props.nowLabel'
+  }, {
     name: 'container',
     type: 'String',
     default: 'dialog',

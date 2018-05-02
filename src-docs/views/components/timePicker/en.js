@@ -10,6 +10,8 @@ export default {
     autoOk: 'whether it is completed automatically or not after you choose the minute, if it is true, the `ok` button is disappear.',
     okLabel: 'the text of `ok` button',
     cancelLabel: 'the text of `cancel` button',
+    showNowButton: 'whether to show "now" button',
+    nowLabel: 'the text of "now" button',
     container: 'dialog/inline, the way of popup time picker',
     mode: '`portrait`-showing with the vertical direction, `landscape`-showing with the horizontal direction',
     format: 'ampm: 12 hours; 24hr: 24 hours',

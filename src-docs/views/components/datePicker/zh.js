@@ -17,6 +17,8 @@ export default {
     autoOk: '是否在选择日期后自动确定, 设为true则不显示确定按钮',
     okLabel: '确定按钮的文字',
     cancelLabel: '取消按钮的文字',
+    showNowButton: '是否显示"今天"按钮',
+    nowLabel: '"今天"按钮的文字',
     container: 'dialog/inline, 弹出日期的方式， dialog 弹出框， inline 内联弹出显示',
     disableYearSelection: '设置为 `ture`, 则不可选择年份',
     firstDayOfWeek: '那一天作为一个星期的开始， 默认星期一， 有些情况可能会设置成星期日(0)',

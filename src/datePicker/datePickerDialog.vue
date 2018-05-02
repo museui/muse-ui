@@ -18,6 +18,12 @@ export default {
     okLabel: {
       type: String
     },
+    showNowButton: {
+      type: Boolean
+    },
+    nowLabel: {
+      type: String
+    },
     container: {
       type: String,
       default: 'dialog',
@@ -101,6 +107,8 @@ export default {
         dateTimeFormat: this.dateTimeFormat,
         okLabel: this.okLabel,
         cancelLabel: this.cancelLabel,
+        showNowButton: this.showNowButton,
+        nowLabel: this.nowLabel,
         disableYearSelection: this.disableYearSelection,
         shouldDisableDate: this.shouldDisableDate,
         firstDayOfWeek: this.firstDayOfWeek,

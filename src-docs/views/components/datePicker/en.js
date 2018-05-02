@@ -17,6 +17,8 @@ export default {
     autoOk: 'whether it is completed automatically or not after you choose the date, if it is true, the `ok` button will be disappeared.',
     okLabel: 'the text of `ok` button',
     cancelLabel: 'the text of `cancel` button',
+    showNowButton: 'whether to show "today" button',
+    nowLabel: 'the text of "today" button',
     container: 'dialog/inline, the way of popup date picker',
     disableYearSelection: 'if it is `ture`, not allow to choose the year',
     firstDayOfWeek: 'to determine which day is the first day of a week, default to Monday, sometimes it maybe the Sunday(0)',
