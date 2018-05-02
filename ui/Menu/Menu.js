@@ -1,6 +1,4 @@
-import Vue from 'vue';
 import Popover from '../Popover';
-import { getFirstComponentChild } from '../utils';
 
 export default {
   name: 'mu-menu',
@@ -33,29 +31,10 @@ export default {
       trigger: null
     };
   },
-  beforeCreate () {
-    if (this.$isServer) return;
-
-    this.popoverVM = new Vue({
-      data: { node: '' },
-      render (h) {
-        return this.node;
-      }
-    }).$mount();
-  },
   mounted () {
     this.trigger = this.$el;
   },
   methods: {
-    addEventHandle (old, fn) {
-      if (!old) {
-        return fn;
-      } else if (Array.isArray(old)) {
-        return old.indexOf(fn) > -1 ? old : old.concat(fn);
-      } else {
-        return old === fn ? old : [old, fn];
-      }
-    },
     show () {
       if (this.timer) clearTimeout(this.timer);
       this.active = true;
@@ -68,10 +47,40 @@ export default {
         this.$emit('close');
       }, 200);
     },
-    close (reason) {
-      this.active = false;
-      this.$emit('close');
+    createPopover (h) {
+      return h(Popover, {
+        class: this.popoverClass,
+        style: {
+          'min-width': this.trigger ? this.trigger.offsetWidth + 'px' : ''
+        },
+        props: {
+          anchorOrigin: this.anchorOrigin,
+          targetOrigin: this.targetOrigin,
+          open: this.active,
+          trigger: this.trigger
+        },
+        on: {
+          close: this.hide,
+          mouseenter: () => this.openOnHover && this.show(),
+          mouseleave: () => this.openOnHover && this.hide()
+        }
+      }, this.$slots.content);
     }
+  },
+  render (h) {
+    return h('div', {
+      staticClass: 'mu-menu'
+    }, [
+      h('div', {
+        staticClass: 'mu-menu-activator',
+        on: {
+          click: () => this.openOnHover ? null : this.active ? this.hide() : this.show(),
+          mouseenter: () => this.openOnHover && this.show(),
+          mouseleave: () => this.openOnHover && this.hide()
+        }
+      }, this.$slots.default),
+      this.createPopover(h)
+    ]);
   },
   watch: {
     active (val) {
@@ -80,40 +89,5 @@ export default {
     open (val) {
       this.active = val;
     }
-  },
-  render (h) {
-    this.popoverVM.node = h(Popover, {
-      class: this.popoverClass,
-      style: {
-        'min-width': this.trigger ? this.trigger.offsetWidth + 'px' : ''
-      },
-      props: {
-        anchorOrigin: this.anchorOrigin,
-        targetOrigin: this.targetOrigin,
-        open: this.active,
-        trigger: this.trigger
-      },
-      on: {
-        close: this.close
-      },
-      nativeOn: {
-        mouseenter: () => this.openOnHover && this.show(),
-        mouseleave: () => this.openOnHover && this.hide()
-      }
-    }, this.$slots.content);
-
-    const vnode = getFirstComponentChild(this.$slots.default);
-    if (!vnode) return vnode;
-
-    const on = vnode.data.on = vnode.data.on || {};
-    const nativeOn = vnode.data.nativeOn = vnode.data.nativeOn || {};
-    if (this.openOnHover) {
-      nativeOn.mouseenter = on.mouseenter = this.addEventHandle(on.mouseenter, this.show);
-      nativeOn.mouseleave = on.mouseleave = this.addEventHandle(on.mouseleave, this.hide);
-    } else {
-      nativeOn.click = on.click = this.addEventHandle(on.click, () => this.show());
-    }
-
-    return vnode;
   }
 };

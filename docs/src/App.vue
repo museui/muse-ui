@@ -150,7 +150,7 @@ export default {
       this.desktop = desktop;
     },
     toggleMenu () {
-      setTimeout(() => (this.open = !this.open), 0);
+      this.open = !this.open;
     }
   },
   watch: {

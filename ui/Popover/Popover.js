@@ -77,7 +77,7 @@ export default {
       };
     },
     setStyle () {
-      if (!this.open) return;
+      if (!this.open || !this.trigger) return;
       const { targetOrigin, anchorOrigin } = this;
       const el = this.$el;
       const anchor = this.getAnchorPosition(this.trigger);
@@ -165,6 +165,7 @@ export default {
       return targetPosition;
     },
     close (reason) {
+      if (!this.open) return;
       this.$emit('update:open', false);
       this.$emit('close', reason);
     },
@@ -188,6 +189,7 @@ export default {
         style: {
           'z-index': this.zIndex
         },
+        on: this.$listeners,
         directives: [{
           name: 'show',
           value: this.open
