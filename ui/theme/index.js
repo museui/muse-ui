@@ -59,6 +59,10 @@ function getThemeStyle () {
 }
 
 export default {
+  addCreateTheme (theme) {
+    themes.push(theme);
+    return this;
+  },
   add (name, varObj = {}, extend = 'light') {
     const theme = {
       ...vars[extend],

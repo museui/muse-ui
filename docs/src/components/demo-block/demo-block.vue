@@ -104,6 +104,7 @@ export default {
   background-color: #eeeeee;
 }
 .demo-block-tools {
+  display: none;
   position: absolute;
   right: 0;
   top: 0;
@@ -122,6 +123,9 @@ export default {
     padding-left: 24px;
     padding-right: 24px;
     padding-bottom: 24px;
+  }
+  .demo-block-tools {
+    display: block;
   }
 }
 </style>

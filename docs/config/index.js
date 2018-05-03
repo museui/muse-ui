@@ -1,4 +1,5 @@
 const path = require('path');
+const myIP = require('my-ip');
 
 module.exports = {
   dev: {
@@ -8,7 +9,7 @@ module.exports = {
     proxyTable: {},
 
     // Various Dev Server settings
-    host: 'localhost', // can be overwritten by process.env.HOST
+    host: myIP(), // can be overwritten by process.env.HOST
     port: 8080, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
     autoOpenBrowser: false,
     errorOverlay: true,
