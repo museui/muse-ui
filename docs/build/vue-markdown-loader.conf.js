@@ -58,24 +58,7 @@ module.exports = {
     [require('markdown-it-container'), 'tip'],
     [require('markdown-it-container'), 'warning']
   ]
-  // ,
-  // preprocess: function (MarkdownIt, source) {
-  //   MarkdownIt.renderer.rules['table_open'] = function () {
-  //     return '<table class="table">';
-  //   };
-  //   MarkdownIt.renderer.rules.fence = wrap(MarkdownIt.renderer.rules.fence);
-  //   return source;
-  // }
 };
-
-// function wrap (render) {
-//   return function () {
-//     return render
-//       .apply(this, arguments)
-//       .replace('<code v-pre class="', '<code class="hljs ')
-//       .replace('<code>', '<code class="hljs">');
-//   };
-// };
 
 function convert (str) {
   str = str.replace(/(&#x)(\w{4});/gi, function ($0) {
