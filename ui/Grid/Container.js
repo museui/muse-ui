@@ -5,7 +5,7 @@ export default {
     fluid: Boolean
   },
   render (h, { data, props, children }) {
-    data.staticClass = `${props.fluid ? 'container-fluid' : 'container'}`;
+    data.staticClass = `${data.staticClass || ''} ${props.fluid ? 'container-fluid' : 'container'}`;
     return h('div', data, children);
   }
 };
