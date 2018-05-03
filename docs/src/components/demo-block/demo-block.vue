@@ -93,6 +93,12 @@ export default {
   .highlight {
     margin-bottom: 0 !important;
   }
+  .source {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 .demo-block-content {
   display: flex;

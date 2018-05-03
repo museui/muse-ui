@@ -21,29 +21,31 @@
 
 ::: demo
 ```html
-<div class="icon-container">
-  <mu-icon value="home"></mu-icon>
-  <mu-icon value="flight_takeoff" color="red"></mu-icon>
-  <mu-icon value="cloud_download" color="orange"></mu-icon>
-  <mu-icon value="info" color="blue"></mu-icon>
-</div>
-<div class="icon-container">
-  <mu-icon size="36" value="home"></mu-icon>
-  <mu-icon size="36" value="flight_takeoff" color="red"></mu-icon>
-  <mu-icon size="36" value="cloud_download" color="orange"></mu-icon>
-  <mu-icon size="36" value="info" color="blue"></mu-icon>
-</div>
-<div class="icon-container">
-  <mu-icon size="48" value="home"></mu-icon>
-  <mu-icon size="48" value="flight_takeoff" color="red"></mu-icon>
-  <mu-icon size="48" value="cloud_download" color="orange"></mu-icon>
-  <mu-icon size="48" value="info" color="blue"></mu-icon>
-</div>
-<div class="icon-container">
-  <mu-icon size="56" value="home"></mu-icon>
-  <mu-icon size="56" value="flight_takeoff" color="red"></mu-icon>
-  <mu-icon size="56" value="cloud_download" color="orange"></mu-icon>
-  <mu-icon size="56" value="info" color="blue"></mu-icon>
+<div>
+  <div class="icon-container">
+    <mu-icon value="home"></mu-icon>
+    <mu-icon value="flight_takeoff" color="red"></mu-icon>
+    <mu-icon value="cloud_download" color="orange"></mu-icon>
+    <mu-icon value="info" color="blue"></mu-icon>
+  </div>
+  <div class="icon-container">
+    <mu-icon size="36" value="home"></mu-icon>
+    <mu-icon size="36" value="flight_takeoff" color="red"></mu-icon>
+    <mu-icon size="36" value="cloud_download" color="orange"></mu-icon>
+    <mu-icon size="36" value="info" color="blue"></mu-icon>
+  </div>
+  <div class="icon-container">
+    <mu-icon size="48" value="home"></mu-icon>
+    <mu-icon size="48" value="flight_takeoff" color="red"></mu-icon>
+    <mu-icon size="48" value="cloud_download" color="orange"></mu-icon>
+    <mu-icon size="48" value="info" color="blue"></mu-icon>
+  </div>
+  <div class="icon-container">
+    <mu-icon size="56" value="home"></mu-icon>
+    <mu-icon size="56" value="flight_takeoff" color="red"></mu-icon>
+    <mu-icon size="56" value="cloud_download" color="orange"></mu-icon>
+    <mu-icon size="56" value="info" color="blue"></mu-icon>
+  </div>
 </div>
 <style>
 .icon-container {

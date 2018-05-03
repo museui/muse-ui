@@ -419,6 +419,7 @@
   word-break: keep-all;
   border-collapse: collapse;
   border-spacing: 0;
+  font-size: 14px;
   /* table-layout: fixed; */
 }
 
@@ -429,7 +430,6 @@
 
 .markdown-body table th {
   font-weight: normal;
-  font-size: 12px;
   padding-left: 24px;
   padding-right: 24px;
   height: 56px;
@@ -444,9 +444,12 @@
   padding-right: 24px;
   height: 48px;
   text-align: left;
-  font-size: 13px;
   text-overflow: ellipsis;
   border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.markdown-body table td:first-child {
+  white-space: nowrap;
 }
 
 .markdown-body img {

@@ -22,6 +22,9 @@ export default {
     }, {
       name: 'Layout',
       path: '/layout'
+    }, {
+      name: 'Grid',
+      path: '/grid'
     }]
   }, {
     name: '组件',
