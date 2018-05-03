@@ -147,7 +147,7 @@ export default {
       this.$emit('accept', this.selectedDate)
     },
     handleNow () {
-      this.selectedDate = new Date()
+      this.setSelected(new Date())
     },
     setSelected (date) {
       this.selectedDate = date
