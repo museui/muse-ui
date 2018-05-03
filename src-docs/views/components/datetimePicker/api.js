@@ -17,8 +17,23 @@ export default {
   }, {
     name: 'cancelLabel',
     type: 'String',
-    default: '确定',
+    default: '取消',
     desc: 'props.cancelLabel'
+  }, {
+    name: 'showNowButton',
+    type: 'Boolean',
+    default: 'true',
+    desc: 'props.showNowButton'
+  }, {
+    name: 'todayLabel',
+    type: 'String',
+    default: '今天',
+    desc: 'props.todayLabel'
+  }, {
+    name: 'nowLabel',
+    type: 'String',
+    default: '现在',
+    desc: 'props.nowLabel'
   }, {
     name: 'container',
     type: 'String',

@@ -20,6 +20,16 @@ export default {
     default: '取消',
     desc: 'props.cancelLabel'
   }, {
+    name: 'showNowButton',
+    type: 'Boolean',
+    default: 'true',
+    desc: 'props.showNowButton'
+  }, {
+    name: 'nowLabel',
+    type: 'String',
+    default: '今天',
+    desc: 'props.nowLabel'
+  }, {
     name: 'container',
     type: 'String',
     default: 'dialog',

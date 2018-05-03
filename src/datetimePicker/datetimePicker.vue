@@ -43,7 +43,9 @@
     :dateTimeFormat="dateTimeFormat"
     :autoOk="autoOk"
     :okLabel="okLabel"
-    :cancelLabel="cancelLabel"/>
+    :cancelLabel="cancelLabel"
+    :showNowButton="showNowButton"
+    :nowLabel="todayLabel"/>
 
   <time-picker-dialog
     ref="timeDialog"
@@ -54,7 +56,9 @@
     :container="container"
     :autoOk="autoOk"
     :okLabel="okLabel"
-    :cancelLabel="cancelLabel"/>
+    :cancelLabel="cancelLabel"
+    :showNowButton="showNowButton"
+    :nowLabel="nowLabel"/>
 
 </div>
 </template>
@@ -91,6 +95,16 @@ export default {
       type: String
     },
     okLabel: {
+      type: String
+    },
+    showNowButton: {
+      type: Boolean,
+      default: true
+    },
+    todayLabel: {
+      type: String
+    },
+    nowLabel: {
       type: String
     },
     container: {

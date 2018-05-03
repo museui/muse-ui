@@ -17,6 +17,7 @@
     </div>
     <calendar-year @change="handleYearChange" v-if="!displayMonthDay" :selectedDate="selectedDate" :maxDate="maxDate" :minDate="minDate"/>
     <div class="mu-calendar-actions">
+      <flat-button v-if="showNowButton" :label="nowLabel" @click="handleNow" />
       <flat-button :label="cancelLabel"  @click="handleCancel" primary/>
       <flat-button v-if="!autoOk" @click="handleOk" :label="okLabel" primary/>
     </div>
@@ -51,6 +52,14 @@ export default {
     cancelLabel: {
       type: String,
       default: '取消'
+    },
+    showNowButton: {
+      type: Boolean,
+      default: true
+    },
+    nowLabel: {
+      type: String,
+      default: '今天'
     },
     disableYearSelection: {
       type: Boolean,
@@ -136,6 +145,9 @@ export default {
       if (selectedDate.getTime() < minDate.getTime()) this.selectedDate = new Date(minDate.getTime())
 
       this.$emit('accept', this.selectedDate)
+    },
+    handleNow () {
+      this.setSelected(new Date())
     },
     setSelected (date) {
       this.selectedDate = date

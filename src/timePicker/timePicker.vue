@@ -5,7 +5,7 @@
     :hintText="hintText" :hintTextClass="hintTextClass" :helpText="helpText" :helpTextClass="helpTextClass"
     :disabled="disabled" :errorText="errorText" :errorColor="errorColor" :icon="icon" :iconClass="iconClass"
     :underlineShow="underlineShow" :underlineClass="underlineClass" :underlineFocusClass="underlineFocusClass"/>
-  <time-picker-dialog v-if="!disabled" @accept="handleAccept" ref="dialog" :initialTime="dialogTime" :format="format" :mode="mode" :container="container" :autoOk="autoOk" :okLabel="okLabel" :cancelLabel="cancelLabel" :minuteInterval="minuteInterval"/>
+  <time-picker-dialog v-if="!disabled" @accept="handleAccept" ref="dialog" :initialTime="dialogTime" :format="format" :mode="mode" :container="container" :autoOk="autoOk" :okLabel="okLabel" :cancelLabel="cancelLabel" :showNowButton="showNowButton" :nowLabel="nowLabel" :minuteInterval="minuteInterval"/>
 </div>
 </template>
 
@@ -24,6 +24,13 @@ export default {
       type: String
     },
     okLabel: {
+      type: String
+    },
+    showNowButton: {
+      type: Boolean,
+      default: true
+    },
+    nowLabel: {
       type: String
     },
     container: {

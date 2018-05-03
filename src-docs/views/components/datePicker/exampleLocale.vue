@@ -1,5 +1,5 @@
 <template>
-<mu-date-picker hintText="English" okLabel="Ok" cancelLabel="Cancel" :dateTimeFormat="enDateFormat"/>
+<mu-date-picker hintText="English" okLabel="Ok" cancelLabel="Cancel" nowLabel="Today" :dateTimeFormat="enDateFormat"/>
 </template>
 
 <script>

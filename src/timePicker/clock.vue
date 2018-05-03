@@ -8,6 +8,7 @@
     <clock-hours v-if="mode === 'hour'" :format="format" :initialHours="selectedTime.getHours()" @change="handleChangeHours" />
         <clock-minutes v-if="mode === 'minute'" @change="handleChangeMinutes" :initialMinutes="selectedTime.getMinutes()" :minuteInterval="minuteInterval"/>
     <div class="mu-clock-actions">
+      <flat-button v-if="showNowButton" :label="nowLabel" @click="handleNow" />
       <flat-button :label="cancelLabel" @click="dismiss" primary/>
       <flat-button :label="okLabel" @click="accept" primary/>
     </div>
@@ -46,6 +47,14 @@ export default {
     cancelLabel: {
       type: String,
       default: '取消'
+    },
+    showNowButton: {
+      type: Boolean,
+      default: true
+    },
+    nowLabel: {
+      type: String,
+      default: '现在'
     },
     landscape: {
       type: Boolean,
@@ -123,6 +132,9 @@ export default {
     },
     dismiss () {
       this.$emit('dismiss')
+    },
+    handleNow () {
+      this.selectedTime = new Date()
     }
   },
   watch: {

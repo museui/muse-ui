@@ -14,6 +14,12 @@ export default {
     okLabel: {
       type: String
     },
+    showNowButton: {
+      type: Boolean
+    },
+    nowLabel: {
+      type: String
+    },
     container: {
       type: String,
       default: 'dialog',
@@ -82,6 +88,8 @@ export default {
         autoOk: this.autoOk,
         cancelLabel: this.cancelLabel,
         okLabel: this.okLabel,
+        showNowButton: this.showNowButton,
+        nowLabel: this.nowLabel,
         landscape: this.mode === 'landscape',
         initialTime: this.initialTime,
         format: this.format,

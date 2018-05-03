@@ -10,6 +10,8 @@ export default {
     autoOk: '是否在选择分钟后自动确定, 设为true则不显示确定按钮',
     okLabel: '确定按钮的文字',
     cancelLabel: '取消按钮的文字',
+    showNowButton: '是否显示"现在"按钮',
+    nowLabel: '"现在"按钮的文字',
     container: 'dialog/inline, 弹出时间选择的方式， dialog 弹出框， inline 内联弹出显示',
     mode: '`portrait` 竖屏显示， `landscape` 横屏显示',
     format: 'ampm: 12小时制; 24hr: 24小时制',
