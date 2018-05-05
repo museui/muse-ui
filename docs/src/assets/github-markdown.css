@@ -363,11 +363,6 @@
   border: 0 none;
 }
 
-.markdown-body ul,
-.markdown-body ol {
-  padding-left: 2em;
-}
-
 .markdown-body ul ul,
 .markdown-body ul ol,
 .markdown-body ol ol,
