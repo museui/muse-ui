@@ -163,35 +163,35 @@ Muse-UI 使用 [Bootstrap 4.0](https://getbootstrap.com/docs/4.0/layout/grid/) �
 
 | 参数 | 介绍 | 类型 | 可选值 | 默认值 |
 |------|------|------|------|------|
-| fluid | 是否是流体布局，设置之后 container 的 width 不会响应式改变，恒为 100% | Boolean | - | false |
+| fluid | 是否是流体布局，设置之后 container 的 width 不会响应式改变，恒为 100% | Boolean | — | false |
 
 ## Row Props
 
 | 参数 | 介绍 | 类型 | 可选值 | 默认值 |
 |------|------|------|------|------|
-| tag | 渲染之后的 dom 标签名称 | String | - | div |
-| gutter | 是否有间隔 | Boolean | - | false |
+| tag | 渲染之后的 dom 标签名称 | String | — | div |
+| gutter | 是否有间隔 | Boolean | — | false |
 | wrap | 指定 flex 元素单行显示还是多行显示 | String | wrap/nowrap/wrap-reverse | nowrap |
-| fill | 此 flex 元素是否填充满剩余空间， 设置为 true, 则 `flex: 1 1 auto`  | Boolean | - | false |
+| fill | 此 flex 元素是否填充满剩余空间， 设置为 true, 则 `flex: 1 1 auto`  | Boolean | — | false |
 | justify-content | 定义了主轴的 flex 元素对齐方式 | String | start/center/end/between/around | start |
 | align-items | 定义了侧轴方向上将当前行上的 flex 元素对齐方式 | String | start/center/end/baseline/stretch | start |
-| align-content | 定义了当作为一个 flex box 容器的属性时，浏览器如何在容器的侧轴围绕弹性盒子项目分配空间。 | String | start/center/end/between/around/stretch | - |
-| align-self | 对齐当前 flex 行中的 flex 元素，并覆盖 align-items 的值. 如果任何 flex 元素的侧轴方向 margin 值设置为 auto，则会忽略 align-self。 | String | auto/start/center/end/baseline/stretch | - |
+| align-content | 定义了当作为一个 flex box 容器的属性时，浏览器如何在容器的侧轴围绕弹性盒子项目分配空间。 | String | start/center/end/between/around/stretch | — |
+| align-self | 对齐当前 flex 行中的 flex 元素，并覆盖 align-items 的值. 如果任何 flex 元素的侧轴方向 margin 值设置为 auto，则会忽略 align-self。 | String | auto/start/center/end/baseline/stretch | — |
 
 ## Col Props
 
 | 参数 | 介绍 | 类型 | 可选值 | 默认值 |
 |------|------|------|------|------|
-| tag | 渲染之后的 dom 标签名称 | String | - | div |
-| align-self | 对齐当前 flex 行中的 flex 元素，并覆盖 align-items 的值. 如果任何 flex 元素的侧轴方向 margin 值设置为 auto，则会忽略 align-self。 | String | auto/start/center/end/baseline/stretch | - |
-| fill | 此 flex 元素是否填充满剩余空间， 设置为 true, 则 `flex: 1 1 auto`  | Boolean | - | false |
-| span | 栅格占据的格数 | Number/String | - | - |
-| sm | `≥576px` 响应式栅格数 | Number/String | - | - |
-| md | `≥768px` 响应式栅格数 | Number/String | - | - |
-| lg | `≥992px` 响应式栅格数 | Number/String | - | - |
-| xl | `≥1200px` 响应式栅格数 | Number/String | - | - |
-| order | 规定了弹性容器中的可伸缩项目在布局时的顺序。 | Number/String | - | - |
-| offset | 栅格左侧的间隔格数 | Number/String | - | - |
+| tag | 渲染之后的 dom 标签名称 | String | — | div |
+| align-self | 对齐当前 flex 行中的 flex 元素，并覆盖 align-items 的值. 如果任何 flex 元素的侧轴方向 margin 值设置为 auto，则会忽略 align-self。 | String | auto/start/center/end/baseline/stretch | — |
+| fill | 此 flex 元素是否填充满剩余空间， 设置为 true, 则 `flex: 1 1 auto`  | Boolean | — | false |
+| span | 栅格占据的格数 | Number/String | — | — |
+| sm | `≥576px` 响应式栅格数 | Number/String | — | — |
+| md | `≥768px` 响应式栅格数 | Number/String | — | — |
+| lg | `≥992px` 响应式栅格数 | Number/String | — | — |
+| xl | `≥1200px` 响应式栅格数 | Number/String | — | — |
+| order | 规定了弹性容器中的可伸缩项目在布局时的顺序。 | Number/String | — | — |
+| offset | 栅格左侧的间隔格数 | Number/String | — | — |
 
 
 <style lang="less">

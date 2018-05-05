@@ -1,5 +1,4 @@
 import color from '../internal/mixins/color';
-import { FadeTransition } from '../internal/transitions';
 import { getColor } from '../utils';
 
 export default {
@@ -7,7 +6,12 @@ export default {
   mixins: [color],
   props: {
     delete: Boolean,
-    show: Boolean
+    transition: String,
+    mode: String,
+    show: {
+      type: Boolean,
+      default: true
+    }
   },
   methods: {
     handleDelete (e) {
@@ -32,7 +36,12 @@ export default {
         }
       })
     ]);
-    return h(FadeTransition, [
+    return h('transition', {
+      props: {
+        mode: this.mode,
+        name: this.transition
+      }
+    }, [
       this.show ? h('div', {
         staticClass: `mu-alert ${this.getColorClass()}`,
         props: {
