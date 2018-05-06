@@ -71,6 +71,24 @@
     </mu-badge>
   </mu-flex>
 </mu-container>
+<style lang="less">
+.badge-list-wrap {
+  width: 100%;
+  max-width: 360px;
+  background-color: #fff;
+  margin: 0 auto;
+}
+.demo-icon-badge {
+  padding: 12px;
+  margin-right: 16px;
+}
+.demo-badge-content {
+  padding: 12px;
+  margin-left: 16px;
+  margin-right: 16px;
+
+}
+</style>
 ```
 :::
 
