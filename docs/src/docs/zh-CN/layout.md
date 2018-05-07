@@ -69,6 +69,7 @@ Muse-UI 提供基于 [Flexible Box](https://developer.mozilla.org/docs/Web/CSS/C
 :::
 
 ## Flex Props
+
 | 参数 | 介绍 | 类型 | 可选值 | 默认值 |
 |------|------|------|------|------|
 | tag | 渲染之后的 dom 标签名称 | String | — | div |
