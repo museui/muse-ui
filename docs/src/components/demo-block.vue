@@ -24,7 +24,7 @@
 </template>
 <script>
 import { ExpandTransition } from 'muse-ui/internal/transitions';
-import packageJson from '../../../../package.json';
+import packageJson from '../../../package.json';
 export default {
   name: 'demo-block',
   props: {

@@ -1,6 +1,6 @@
-import packageJson from '../../../../package.json';
-import navConfig from '../../configs/nav';
-import locale from '../../locale';
+import packageJson from '../../../package.json';
+import navConfig from '../configs/nav';
+import locale from '../locale';
 
 export default {
   props: {

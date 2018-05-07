@@ -87,12 +87,14 @@
     </mu-appbar>
     <div class="app-content" :class="{'is-open': (!home && open && docked)}">
       <router-view />
+      <mu-backtop />
     </div>
   </div>
 </template>
 
 <script>
 import AppNavDrawer from './components/nav';
+import BackTop from './components/back-top';
 import langs from './configs/lang';
 import locale from './locale';
 import { changeLocale } from './locale';
@@ -163,6 +165,7 @@ export default {
     }
   },
   components: {
+    'mu-backtop': BackTop,
     'app-nav-drawer': AppNavDrawer,
     'mu-fade-transition': FadeTransition
   }
