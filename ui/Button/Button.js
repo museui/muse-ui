@@ -51,9 +51,7 @@ export default {
         rippleColor: this.rippleColor,
         ...this.generateRouteProps()
       },
-      on: {
-        ...this.getListener()
-      }
+      on: this.getListener()
     }, this.$slots.default);
   }
 };

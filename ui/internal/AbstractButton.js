@@ -73,12 +73,14 @@ export default {
       if (!this.disabled && isPc()) {
         this.hover = true;
         this.$emit('hover', event);
+        this.$emit('mouseenter', event);
       }
     },
     handleOut (event) {
       if (!this.disabled && isPc()) {
         this.hover = false;
         this.$emit('hoverExit', event);
+        this.$emit(event.type, event);
       }
     },
     removeKeyboardFocus (event) {
@@ -108,6 +110,7 @@ export default {
           this.removeKeyboardFocus(event);
         }
       }
+      this.$emit('keydown', event);
     },
     handleFocus (event) {
       if (!this.disabled && !this.disableKeyboardFocus) {
@@ -117,11 +120,13 @@ export default {
             tabPressed = false;
           }
         }, 150);
+        this.$emit('focus', event);
       }
     },
     handleBlur (event) {
       this.cancelFocusTimeout();
       this.removeKeyboardFocus(event);
+      this.$emit('blur', event);
     },
     handleClick (event) {
       if (!this.disabled) {
@@ -224,6 +229,7 @@ export default {
         'appearance': 'none'
       } : {},
       [tagName === 'router-link' ? 'nativeOn' : 'on']: {
+        ...this.$listeners,
         mouseenter: this.handleHover,
         mouseleave: this.handleOut,
         touchend: this.handleOut,

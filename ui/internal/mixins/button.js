@@ -28,6 +28,7 @@ export default {
     },
     getListener () {
       return {
+        ...this.$listeners,
         click: this.handleClick,
         keyboardFocus: this.handleKeyboardFocus,
         hover: this.handleHover,
