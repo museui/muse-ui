@@ -8,10 +8,11 @@ export default {
   },
   render (h) {
     const props = this.to ? this.generateRouteProps() : {};
-    return h('li', [
+    return h('li', {
+      staticClass: 'mu-breadcrumbs-item',
+      class: this.disabled ? 'is-disbaled' : ''
+    }, [
       h(this.to ? 'router-link' : 'a', {
-        staticClass: 'mu-breadcrumbs-item',
-        class: this.disabled ? 'is-disbaled' : '',
         props
       }, this.$slots.default)
     ]);

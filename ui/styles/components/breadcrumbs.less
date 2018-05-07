@@ -22,9 +22,17 @@
   color: @primaryColor;
   display: block;
   transition: .3s @easeOutFunction;
-  text-decoration: none;
+  > a {
+    display: block;
+    text-decoration: none;
+    cursor: pointer;
+    color: inherit;
+  }
   &.is-disbaled {
     color: @disabledColor;
+    > a {
+      cursor: default;
+    }
   }
 }
 

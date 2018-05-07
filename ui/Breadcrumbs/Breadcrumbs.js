@@ -25,7 +25,8 @@ export default {
   },
   render (h) {
     return h('ul', {
-      staticClass: 'mu-breadcrumbs'
+      staticClass: 'mu-breadcrumbs',
+      on: this.$listeners
     }, this.createChildren(h));
   }
 };
