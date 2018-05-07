@@ -409,13 +409,20 @@
 
 .markdown-body table {
   width: 100%;
-  overflow: auto;
   word-break: normal;
   word-break: keep-all;
   border-collapse: collapse;
   border-spacing: 0;
   font-size: 14px;
   /* table-layout: fixed; */
+}
+@media (max-width: 768px ) {
+  .markdown-body table {
+    display: block;
+    overflow: hidden;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
 }
 
 .markdown-body table tr {
