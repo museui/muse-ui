@@ -8,6 +8,9 @@ export default (theme) => {
   .mu-item {
     color: ${theme.text.primary};
   }
+  .mu-item-action {
+    color: ${theme.text.secondary};
+  }
   .mu-item.is-selected {
     color: ${theme.primary};
   }

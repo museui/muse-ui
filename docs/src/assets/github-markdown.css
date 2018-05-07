@@ -46,10 +46,10 @@
   border: 0;
 }
 
-.markdown-body hr {
+/* .markdown-body hr {
   box-sizing: content-box;
   height: 0;
-}
+} */
 
 .markdown-body pre {
   overflow: auto;
@@ -61,7 +61,7 @@
   font-family: monospace, monospace;
   font-size: 1em;
 }
-
+/*
 .markdown-body input {
   color: inherit;
   font: inherit;
@@ -79,7 +79,7 @@
 .markdown-body input[type="checkbox"] {
   box-sizing: border-box;
   padding: 0;
-}
+} */
 
 .markdown-body table {
   border-collapse: collapse;
@@ -94,10 +94,10 @@
 .markdown-body * {
   box-sizing: border-box;
 }
-
+/*
 .markdown-body input {
   font: 13px/1.4 Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
-}
+} */
 
 .markdown-body a {
   color: #ff4081;
@@ -109,16 +109,16 @@
   text-decoration: underline;
 }
 
-.markdown-body hr {
+/* .markdown-body hr {
   height: 0;
   margin: 15px 0;
   overflow: hidden;
   background: transparent;
   border: 0;
   border-bottom: 1px solid #ddd;
-}
+} */
 
-.markdown-body hr:before {
+/* .markdown-body hr:before {
   display: table;
   content: "";
 }
@@ -127,7 +127,7 @@
   display: table;
   clear: both;
   content: "";
-}
+} */
 
 .markdown-body h1,
 .markdown-body h2,
@@ -355,13 +355,13 @@
   margin-bottom: 16px;
 }
 
-.markdown-body hr {
+/* .markdown-body hr {
   height: 4px;
   padding: 0;
   margin: 16px 0;
   background-color: #e7e7e7;
   border: 0 none;
-}
+} */
 
 .markdown-body ul ul,
 .markdown-body ul ol,
