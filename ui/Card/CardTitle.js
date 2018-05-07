@@ -1,5 +1,6 @@
 export default {
   name: 'mu-card-title',
+  functional: true,
   props: {
     title: String,
     subTitle: String

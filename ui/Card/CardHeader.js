@@ -1,10 +1,12 @@
 export default {
   name: 'mu-card-header',
+  functional: true,
   props: {
     title: String,
     subTitle: String
   },
   render (h, { data, props, slots }) {
+    slots = slots();
     const title = props.title || props.subTitle ? h('div', {
       staticClass: 'mu-card-header-title'
     }, [

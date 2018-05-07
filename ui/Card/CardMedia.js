@@ -1,5 +1,6 @@
 export default {
   name: 'mu-card-media',
+  functional: true,
   props: {
     title: String,
     subTitle: String
