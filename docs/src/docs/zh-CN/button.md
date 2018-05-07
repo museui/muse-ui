@@ -147,6 +147,18 @@
     <mu-icon value="thumb_up"></mu-icon>
   </mu-button>
 <mu-container>
+  <style lang="less">
+.button-wrapper {
+  text-align: center;
+  .mu-button{
+    margin: 8px;
+    vertical-align: middle;
+  }
+  a.mu-button {
+    text-decoration: none;
+  }
+}
+</style>
 ```
 :::
 
@@ -174,6 +186,18 @@
     </mu-button>
   </mu-flex>
 </mu-container>
+<style lang="less">
+.button-wrapper {
+  text-align: center;
+  .mu-button{
+    margin: 8px;
+    vertical-align: middle;
+  }
+  a.mu-button {
+    text-decoration: none;
+  }
+}
+</style>
 ```
 :::
 
@@ -189,6 +213,18 @@
     <mu-button full-width color="primary">full width button</mu-button>
   </mu-flex>
 </mu-container>
+<style lang="less">
+.button-wrapper {
+  text-align: center;
+  .mu-button{
+    margin: 8px;
+    vertical-align: middle;
+  }
+  a.mu-button {
+    text-decoration: none;
+  }
+}
+</style>
 ```
 :::
 

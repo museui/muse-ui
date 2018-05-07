@@ -18,6 +18,7 @@ export default {
       style: {
         width: size,
         height: size,
+        'font-size': this.size / 2 + 'px',
         'background-color': getColor(this.color),
         'color': getColor(this.textColor)
       },
