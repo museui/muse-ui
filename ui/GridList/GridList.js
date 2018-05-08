@@ -32,7 +32,7 @@ export default {
       return this.padding;
     }
   },
-  renter (h) {
+  render (h) {
     return h('div', {
       staticClass: 'mu-grid-list',
       style: {

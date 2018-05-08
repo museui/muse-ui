@@ -57,6 +57,7 @@ export default {
     }, this.$slots.subTitle && this.$slots.subTitle.length > 0 ? this.$slots.subTitle : this.subTitle);
 
     return h('div', {
+      staticClass: 'mu-grid-tile-wrapper',
       style: this.style,
       on: this.$listeners
     }, [
