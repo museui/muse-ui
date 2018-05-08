@@ -19,12 +19,6 @@
 }
 
 .mu-dialog-scrollable {
-  .mu-dialog-title {
-    border-bottom: 1px solid @borderColor;
-  }
-  .mu-dialog-actions {
-    border-top: 1px solid @borderColor;
-  }
   .mu-dialog-body {
     overflow-x: hidden;
     overflow-y: auto;
@@ -43,6 +37,9 @@
   height: 100% !important;
   max-height: 100% !important;
   border-radius: 0;
+  .mu-dialog-body {
+    padding: 0;
+  }
 }
 
 .mu-dialog-title {

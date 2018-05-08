@@ -51,12 +51,6 @@ export default {
         elBody.style.maxHeight = maxBodyHeight + 'px';
       }
       dialogEl.style.maxHeight = maxDialogContentHeight + 'px';
-    },
-    show () {
-      this.$emit('show');
-    },
-    hide () {
-      this.$emit('hide');
     }
   },
   watch: {
