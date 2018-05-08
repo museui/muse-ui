@@ -68,6 +68,9 @@ export default {
       name: 'Divider',
       path: '/divider'
     }, {
+      name: 'Drawer',
+      path: '/drawer'
+    }, {
       name: 'Grid List',
       path: '/grid-list'
     }, {

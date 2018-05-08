@@ -83,7 +83,7 @@ export default {
   </mu-flex>
   <mu-dialog title="Phone Ringtone" width="360" scrollable :open.sync="openScroll">
     <mu-list>
-      <mu-list-item v-for="option in options">
+      <mu-list-item :key="option" v-for="option in options">
         <mu-list-item-content>
           <mu-radio  :label="option" :value="option" v-model="ringtone"></mu-radio>
         </mu-list-item-content>

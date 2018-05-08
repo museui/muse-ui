@@ -9,6 +9,8 @@ module.exports = {
         'not ie < 10'
       ]
     }),
-    require('cssnano')
+    require('cssnano')({
+      safe: true
+    })
   ]
 };
