@@ -31,7 +31,7 @@ export default {
       }
       selects.sort((a, b) => a - b);
       this.$emit('update:selects', selects);
-      this.isSelectAll = selects.length >= this.data.length;
+      this.$emit('select-change', index, selects);
     },
     toggleExpand (index) {
       this.expandIndex = this.expandIndex === index ? -1 : index;
@@ -133,6 +133,11 @@ export default {
           h('tbody', {}, this.createContent(h))
         ])
       ]) : this.createEmpty(h);
+    }
+  },
+  watch: {
+    selects (val) {
+      this.isSelectAll = val && val.length >= this.data.length;
     }
   }
 };

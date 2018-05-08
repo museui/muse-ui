@@ -82,11 +82,11 @@ export default {
             column.align ? `is-${column.align}` : '',
             column.class || '',
             column.sortable ? 'is-sortable' : '',
-            this.sort && this.sort.name === column.name ? 'is-sorting' : '',
-            this.sort && this.sort.order === 'asc' ? 'sort-asc' : ''
+            column.sortable && this.sort && this.sort.name === column.name ? 'is-sorting' : '',
+            column.sortable && this.sort && this.sort.name === column.name && this.sort.order === 'asc' ? 'sort-asc' : ''
           ],
           on: {
-            click: () => this.handleSortChange(column)
+            click: () => column.sortable && this.handleSortChange(column)
           }
         }, this.createTh(h, column));
 

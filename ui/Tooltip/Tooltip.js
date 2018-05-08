@@ -75,7 +75,7 @@ export default {
 
     const vnode = getFirstComponentChild(this.$slots.default);
     if (!vnode) return vnode;
-
+    vnode.data = vnode.data || {};
     const on = vnode.data.on = vnode.data.on || {};
     const nativeOn = vnode.data.nativeOn = vnode.data.nativeOn || {};
     nativeOn.mouseenter = on.mouseenter = this.addEventHandle(on.mouseenter, this.show);

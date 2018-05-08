@@ -30,6 +30,15 @@
     font-size: 13px;
     text-overflow: ellipsis;
     border-bottom: 1px solid @borderColor;
+    &.is-left {
+      text-align: left;
+    }
+    &.is-center {
+      text-align: center;
+    }
+    &.is-right {
+      text-align: right;
+    }
   }
   th {
     font-weight: normal;
@@ -41,6 +50,7 @@
     color: @secondaryTextColor;
     position: relative;
     border-bottom: 1px solid @borderColor;
+    white-space: nowrap;
     &.is-left {
       text-align: left;
     }
@@ -52,6 +62,7 @@
     }
     &.is-sortable {
       cursor: pointer;
+      user-select: none;
       &:hover {
         color: @textColor;
         .mu-table-sort-icon {
@@ -114,6 +125,7 @@
   vertical-align: sub;
   width: 16px;
   height: 16px;
+  font-size: 16px;
   fill: currentColor;
   opacity: 0;
   transition: .3s @easeOutFunction;

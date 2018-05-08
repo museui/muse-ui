@@ -62,7 +62,7 @@ export default {
 :::demo
 ```html
 <mu-container  class="demo-chip-wrapper">
-  <mu-chip class="demo-chip" v-for="chip, index in chips" :color="chip" @delete="remove(index)" delete>{{chip}}</mu-chip>
+  <mu-chip class="demo-chip" v-for="chip, index in chips" :key="chip" :color="chip" @delete="remove(index)" delete>{{chip}}</mu-chip>
   <mu-button color="primary" v-if="chips.length === 0" @click="reset">reset</mu-button>
 </mu-container>
 <script>
