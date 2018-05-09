@@ -10,7 +10,7 @@
   <mu-flex justify-content="center">
     <mu-paper :z-depth="1">
       <mu-appbar color="primary">
-        <mu-button icon>
+        <mu-button icon slot="left">
           <mu-icon value="menu"></mu-icon>
         </mu-button>
         Photo
@@ -98,7 +98,7 @@ export default {
   <mu-flex justify-content="center">
     <mu-paper :z-depth="1">
       <mu-appbar color="primary">
-        <mu-button icon>
+        <mu-button icon  slot="left">
           <mu-icon value="menu"></mu-icon>
         </mu-button>
         Photo
@@ -178,7 +178,7 @@ export default {
 
 :::demo
 ```html
-<mu-grid-list class="gridlist-inline-demo" cols="4">
+<mu-grid-list class="gridlist-inline-demo" :cols="4">
   <mu-grid-tile v-for="tile, index in list" :key="index">
     <img :src="tile.image" >
     <span slot="title">{{tile.title}}</span>
