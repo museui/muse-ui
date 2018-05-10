@@ -23,7 +23,7 @@ export default {
       const containerHeight = container.clientHeight;
       const yearButtonNodeHeight = yearButtonNode.clientHeight || 32;
       const scrollYOffset = (yearButtonNode.offsetTop + yearButtonNodeHeight / 2) - containerHeight / 2;
-      container.scrollTop = scrollYOffset;
+      setTimeout(() => (container.scrollTop = scrollYOffset), 0);
     },
     createYearButtons (h) {
       return this.years.map((year) => {

@@ -129,6 +129,7 @@ export default {
       [
         !this.noDisplay ? h(DateDisplay, {
           props: {
+            type: this.type,
             monthDaySelected: this.view !== 'year',
             displayDate: this.displayDate,
             dateTimeFormat: this.dateTimeFormat

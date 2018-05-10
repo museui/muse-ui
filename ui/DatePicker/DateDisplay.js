@@ -1,5 +1,6 @@
 export default {
   props: {
+    type: String,
     dateTimeFormat: Object,
     monthDaySelected: {
       type: Boolean,
@@ -40,7 +41,7 @@ export default {
     },
     createMonthSlide (h) {
       return this.displayDates.map((displayDate, index) => {
-        const displayMonthDay = this.dateTimeFormat.formatDisplay(displayDate);
+        const displayMonthDay = this.type === 'date' ? this.dateTimeFormat.formatDisplay(displayDate) : this.dateTimeFormat.getMonthList()[displayDate.getMonth()];
         return h('transition', {
           props: {
             name: `mu-date-display-${this.slideType}`
@@ -64,12 +65,12 @@ export default {
         click: () => this.$emit('changeView', 'year')
       }
     }, this.createYearSlide(h));
-    const displayMonthDay = h('div', {
+    const displayMonthDay = this.type !== 'year' ? h('div', {
       staticClass: 'mu-date-display-monthday',
       on: {
-        click: () => this.$emit('changeView', 'monthDay')
+        click: () => this.$emit('changeView', this.type === 'date' ? 'monthDay' : 'month')
       }
-    }, this.createMonthSlide(h));
+    }, this.createMonthSlide(h)) : undefined;
 
     return h('div', {
       staticClass: 'mu-date-display',

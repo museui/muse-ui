@@ -65,6 +65,7 @@ export default {
       const time = new Date(this.time);
       time.setMinutes(minutes);
       this.changeTime(time, 'minute', finished);
+      if (finished) this.mode = 'hour';
     },
     changeTime (time, mode, finished) {
       this.$emit('change', time, mode, finished);

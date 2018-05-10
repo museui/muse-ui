@@ -51,8 +51,13 @@ export default {
       }
       return event.buttons;
     },
+    handleDown (event) {
+      this.isMouseDown = true;
+    },
     handleUp (event) {
+      if (!this.isMouseDown) return;
       event.preventDefault();
+      this.isMouseDown = false;
       this.setClock(event, true);
     },
     handleMove (event) {
@@ -126,6 +131,7 @@ export default {
       h('div', {
         staticClass: 'mu-timepicker-hours-mask',
         on: {
+          mousedown: this.handleDown,
           mouseup: this.handleUp,
           mousemove: this.handleMove,
           touchmove: this.handleTouchMove,
