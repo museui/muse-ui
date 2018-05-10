@@ -105,6 +105,7 @@ export default {
       const triggerEl = this.trigger;
       if (!el || !triggerEl) return;
       const react = triggerEl.getBoundingClientRect();
+      if (react.top < -react.height || react.top > window.innerHeight) this.close('overflow');
       el.style.top = this.getTopPosition(el.offsetHeight, react) + 'px';
       el.style.left = this.getLeftPosition(el.offsetWidth, react) + 'px';
     },

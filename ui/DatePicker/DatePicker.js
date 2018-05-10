@@ -15,7 +15,7 @@ export default {
     },
     firstDayOfWeek: {
       type: Number,
-      default: 1
+      default: 0
     },
     date: {
       type: Date,

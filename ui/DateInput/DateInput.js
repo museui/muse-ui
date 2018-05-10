@@ -21,6 +21,7 @@ const PickerProps = {
 delete PickerProps.date;
 delete PickerProps.time;
 delete PickerProps.type;
+delete PickerProps.format;
 export default {
   name: 'mu-date-input',
   model: {
@@ -176,7 +177,7 @@ export default {
     }
   },
   render (h) {
-    const dateStr = this.date ? dateUtils.dateToStr(this.date, DEFAULT_FORMAT[this.type]) : '';
+    const dateStr = this.value ? dateUtils.dateToStr(this.value, this.format ? this.format : DEFAULT_FORMAT[this.type]) : '';
     const listeners = this.$listeners;
     delete listeners.input;
     delete listeners.change;
