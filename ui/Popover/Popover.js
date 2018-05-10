@@ -4,6 +4,7 @@ import resize from '../internal/directives/resize';
 import clickOutSide from '../internal/directives/click-outside';
 import { PopoverTransiton } from '../internal/transitions';
 
+const SPACE = 8;
 export default {
   name: 'mu-popover',
   mixins: [popup],
@@ -16,153 +17,96 @@ export default {
     overlay: {
       default: false
     },
+    cover: Boolean,
     trigger: {},
-    autoPosition: {
-      type: Boolean,
-      default: true
-    },
-    anchorOrigin: {
-      type: Object,
-      default () {
-        return {
-          vertical: 'bottom',
-          horizontal: 'left'
-        };
-      }
-    },
-    targetOrigin: {
-      type: Object,
-      default () {
-        return {
-          vertical: 'top',
-          horizontal: 'left'
-        };
+    placement: {
+      type: String,
+      default: 'bottom-start',
+      validator (val) {
+        return [
+          'top', 'top-start', 'top-end',
+          'bottom', 'bottom-start', 'bottom-end',
+          'left', 'left-start', 'left-end',
+          'right', 'right-start', 'right-end'
+        ].indexOf(val) !== -1;
       }
     }
   },
   methods: {
-    getAnchorPosition (el) {
-      const rect = el.getBoundingClientRect();
-      const a = {
-        top: rect.top,
-        left: rect.left,
-        width: el.width,
-        height: el.height
-      };
-
-      a.right = rect.right || a.left + a.width;
-      a.bottom = rect.bottom || a.top + a.height;
-      a.middle = a.left + ((a.right - a.left) / 2);
-      a.center = a.top + ((a.bottom - a.top) / 2);
-
-      return a;
+    getLeftPosition (width, react) {
+      let left = 0;
+      const maxLeft = window.innerWidth - SPACE - width;
+      const minLeft = SPACE;
+      switch (this.placement) {
+        case 'left':
+        case 'left-start':
+        case 'left-end':
+          left = react.left - width;
+          if (this.cover) left += react.width;
+          break;
+        case 'right':
+        case 'right-start':
+        case 'right-end':
+          left = this.cover ? react.left : react.left + react.width;
+          break;
+        case 'top':
+        case 'bottom':
+          left = react.left + react.width / 2 - width / 2;
+          break;
+        case 'bottom-start':
+        case 'top-start':
+          left = react.left;
+          break;
+        case 'bottom-end':
+        case 'top-end':
+          left = react.left + react.width - width;
+          break;
+      }
+      left = Math.min(maxLeft, left);
+      left = Math.max(minLeft, left);
+      return left;
     },
-    getTargetPosition (targetEl) {
-      return {
-        top: 0,
-        center: targetEl.offsetHeight / 2,
-        bottom: targetEl.offsetHeight,
-        left: 0,
-        middle: targetEl.offsetWidth / 2,
-        right: targetEl.offsetWidth
-      };
-    },
-    getElInfo (el) {
-      const box = el.getBoundingClientRect();
-      return {
-        left: box.left,
-        top: box.top,
-        width: el.offsetWidth,
-        height: el.offsetHeight
-      };
+    getTopPosition (height, react) {
+      let top = 0;
+      const maxTop = window.innerHeight - SPACE - height;
+      const minTop = SPACE;
+      switch (this.placement) {
+        case 'top':
+        case 'top-start':
+        case 'top-end':
+          top = react.top - height;
+          if (this.cover) top += react.height;
+          break;
+        case 'bottom':
+        case 'bottom-start':
+        case 'bottom-end':
+          top = this.cover ? react.top : react.top + react.height;
+          break;
+        case 'left':
+        case 'right':
+          top = react.top + react.height / 2 - height / 2;
+          break;
+        case 'left-start':
+        case 'right-start':
+          top = react.top;
+          break;
+        case 'left-end':
+        case 'right-end':
+          top = react.top + react.height - height;
+          break;
+      }
+      top = Math.min(maxTop, top);
+      top = Math.max(minTop, top);
+      return top;
     },
     setStyle () {
-      if (!this.open || !this.trigger) return;
-      const { targetOrigin, anchorOrigin } = this;
+      if (!this.open) return;
       const el = this.$el;
-      const anchor = this.getAnchorPosition(this.trigger);
-      let target = this.getTargetPosition(el);
-      let targetPosition = {
-        top: anchor[anchorOrigin.vertical] - target[targetOrigin.vertical],
-        left: anchor[anchorOrigin.horizontal] - target[targetOrigin.horizontal]
-      };
-      if (anchor.top < 0 || anchor.top > window.innerHeight ||
-          anchor.left < 0 || anchor.left > window.innerWidth) {
-        this.close('overflow');
-        return;
-      };
-      if (this.autoPosition) {
-        target = this.getTargetPosition(el); // update as height may have changed
-        targetPosition = this.applyAutoPositionIfNeeded(anchor, target, targetOrigin, anchorOrigin, targetPosition);
-      }
-      el.style.left = `${Math.max(0, targetPosition.left)}px`;
-      el.style.top = `${Math.max(0, targetPosition.top)}px`;
-    },
-    getOverlapMode (anchor, target, median) {
-      if ([anchor, target].indexOf(median) >= 0) return 'auto';
-      if (anchor === target) return 'inclusive';
-      return 'exclusive';
-    },
-
-    getPositions (anchor, target) {
-      const a = { ...anchor };
-      const t = { ...target };
-
-      const positions = {
-        x: ['left', 'right'].filter((p) => p !== t.horizontal),
-        y: ['top', 'bottom'].filter((p) => p !== t.vertical)
-      };
-
-      const overlap = {
-        x: this.getOverlapMode(a.horizontal, t.horizontal, 'middle'),
-        y: this.getOverlapMode(a.vertical, t.vertical, 'center')
-      };
-
-      positions.x.splice(overlap.x === 'auto' ? 0 : 1, 0, 'middle');
-      positions.y.splice(overlap.y === 'auto' ? 0 : 1, 0, 'center');
-
-      if (overlap.y !== 'auto') {
-        a.vertical = a.vertical === 'top' ? 'bottom' : 'top';
-        if (overlap.y === 'inclusive') {
-          t.vertical = t.vertical;
-        }
-      }
-
-      if (overlap.x !== 'auto') {
-        a.horizontal = a.horizontal === 'left' ? 'right' : 'left';
-        if (overlap.y === 'inclusive') {
-          t.horizontal = t.horizontal;
-        }
-      }
-
-      return {
-        positions: positions,
-        anchorPos: a
-      };
-    },
-
-    applyAutoPositionIfNeeded (anchor, target, targetOrigin, anchorOrigin, targetPosition) {
-      const { positions, anchorPos } = this.getPositions(anchorOrigin, targetOrigin);
-
-      if (targetPosition.top < 0 || targetPosition.top + target.bottom > window.innerHeight) {
-        let newTop = anchor[anchorPos.vertical] - target[positions.y[0]];
-        if (newTop + target.bottom <= window.innerHeight) {
-          targetPosition.top = Math.max(0, newTop);
-        } else {
-          newTop = anchor[anchorPos.vertical] - target[positions.y[1]];
-          if (newTop + target.bottom <= window.innerHeight) targetPosition.top = Math.max(0, newTop);
-        }
-      }
-      if (targetPosition.left < 0 || targetPosition.left + target.right > window.innerWidth) {
-        let newLeft = anchor[anchorPos.horizontal] - target[positions.x[0]];
-        if (newLeft + target.right <= window.innerWidth) {
-          targetPosition.left = Math.max(0, newLeft);
-        } else {
-          newLeft = anchor[anchorPos.horizontal] - target[positions.x[1]];
-          if (newLeft + target.right <= window.innerWidth) targetPosition.left = Math.max(0, newLeft);
-        }
-      }
-      return targetPosition;
+      const triggerEl = this.trigger;
+      if (!el || !triggerEl) return;
+      const react = triggerEl.getBoundingClientRect();
+      el.style.top = this.getTopPosition(el.offsetHeight, react) + 'px';
+      el.style.left = this.getLeftPosition(el.offsetWidth, react) + 'px';
     },
     close (reason) {
       if (!this.open) return;

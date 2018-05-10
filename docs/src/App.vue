@@ -9,13 +9,7 @@
       <mu-fade-transition>
         <img src="./assets/images/bg.png" v-if="home" width="100%" height="500" class="mu-banner-image">
       </mu-fade-transition>
-      <mu-menu slot="right" :open.sync="activeMenu" :targetOrigin="{
-          vertical: 'bottom',
-          horizontal: 'right'
-        }" :anchorOrigin="{
-          vertical: 'top',
-          horizontal: 'right'
-        }">
+      <mu-menu slot="right" :open.sync="activeMenu" placement="bottom-end">
         <mu-button flat>
           <img :src="lang.img(32)" alt="">
         </mu-button>
@@ -30,13 +24,7 @@
           </mu-list-item>
         </mu-list>
       </mu-menu>
-      <mu-menu slot="right" :targetOrigin="{
-          vertical: 'bottom',
-          horizontal: 'right'
-        }" :anchorOrigin="{
-          vertical: 'top',
-          horizontal: 'right'
-        }">
+      <mu-menu slot="right" placement="bottom-end">
         <mu-button flat>
           <mu-icon value="public" />
         </mu-button>

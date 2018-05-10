@@ -124,15 +124,7 @@ export default {
         ref: 'popover',
         props: {
           trigger: trigger,
-          open: this.open,
-          anchorOrigin: {
-            vertical: 'bottom',
-            horizontal: 'left'
-          },
-          targetOrigin: {
-            vertical: 'top',
-            horizontal: 'left'
-          }
+          open: this.open
         },
         on: {
           close: () => this.closeMenu()

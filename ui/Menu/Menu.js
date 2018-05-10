@@ -4,24 +4,8 @@ export default {
   name: 'mu-menu',
   props: {
     popoverClass: [String, Object, Array],
-    anchorOrigin: {
-      type: Object,
-      default () {
-        return {
-          vertical: 'top',
-          horizontal: 'left'
-        };
-      }
-    },
-    targetOrigin: {
-      type: Object,
-      default () {
-        return {
-          vertical: 'top',
-          horizontal: 'left'
-        };
-      }
-    },
+    cover: Popover.props.cover,
+    placement: Popover.props.placement,
     open: Boolean,
     openOnHover: Boolean
   },
@@ -54,8 +38,8 @@ export default {
           'min-width': this.trigger ? this.trigger.offsetWidth + 'px' : ''
         },
         props: {
-          anchorOrigin: this.anchorOrigin,
-          targetOrigin: this.targetOrigin,
+          cover: this.cover,
+          placement: this.placement,
           open: this.active,
           trigger: this.trigger
         },

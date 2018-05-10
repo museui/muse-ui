@@ -1,5 +1,4 @@
 import popup from '../internal/mixins/popup';
-import { FadeTransition } from '../internal/transitions';
 
 const SPACE = 8;
 export default {

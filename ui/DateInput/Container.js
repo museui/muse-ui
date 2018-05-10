@@ -27,9 +27,9 @@ export default {
           }, children);
         case 'dialog':
           return h(Dialog, {
-            staticClass: 'mu-picker-dialog',
             props: {
               open: this.open,
+              dialogClass: 'mu-picker-dialog',
               transition: 'slide-top'
             },
             on: this.$listeners

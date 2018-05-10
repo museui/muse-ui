@@ -122,10 +122,7 @@ export default {
               open: this.nestedOpen,
               trigger: this.$el,
               appendBody: false,
-              anchorOrigin: {
-                vertical: 'top',
-                horizontal: 'right'
-              }
+              placement: 'right-start'
             },
             on: {
               'update:open': (val) => {

@@ -176,7 +176,7 @@ export default {
     }
   },
   render (h) {
-    const dateStr = this.value ? dateUtils.dateToStr(this.value, DEFAULT_FORMAT[this.type]) : '';
+    const dateStr = this.date ? dateUtils.dateToStr(this.date, DEFAULT_FORMAT[this.type]) : '';
     const listeners = this.$listeners;
     delete listeners.input;
     delete listeners.change;
