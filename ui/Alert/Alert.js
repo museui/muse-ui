@@ -36,6 +36,7 @@ export default {
         }
       })
     ]);
+
     return h('transition', {
       props: {
         mode: this.mode,
@@ -44,7 +45,7 @@ export default {
     }, [
       this.show ? h('div', {
         staticClass: `mu-alert ${this.getColorClass()}`,
-        props: {
+        style: {
           'background-color': getColor(this.color)
         },
         on: this.$listeners

@@ -42,13 +42,13 @@ export default {
 <mu-container>
   <mu-row gutter>
     <mu-col span="12" lg="4" sm="6">
-      <mu-date-input v-model="value4" label="popover 显示" label-float full-width></mu-date-input>
+      <mu-date-input  icon="today" icon="today" v-model="value4" label="popover 显示" label-float full-width></mu-date-input>
     </mu-col>
     <mu-col span="12" lg="4" sm="6">
-      <mu-date-input v-model="value5" label="对话框显示" container="dialog" label-float full-width></mu-date-input>
+      <mu-date-input  icon="today" v-model="value5" label="对话框显示" container="dialog" label-float full-width></mu-date-input>
     </mu-col>
     <mu-col span="12" lg="4" sm="6">
-      <mu-date-input v-model="value6" label="底部弹出显示" container="bottomSheet" label-float full-width></mu-date-input>
+      <mu-date-input  icon="today" v-model="value6" label="底部弹出显示" container="bottomSheet" label-float full-width></mu-date-input>
     </mu-col>
   </mu-row>
 </mu-container>
@@ -73,19 +73,19 @@ export default {
 <mu-container>
   <mu-row gutter>
     <mu-col span="12" lg="4" sm="6">
-      <mu-date-input v-model="value7" label="选择日期" type="date" label-float full-width></mu-date-input>
+      <mu-date-input  icon="today" v-model="value7" label="选择日期" type="date" label-float full-width></mu-date-input>
     </mu-col>
     <mu-col span="12" lg="4" sm="6">
-      <mu-date-input v-model="value8" label="选择时间" type="time" label-float full-width></mu-date-input>
+      <mu-date-input  icon="today" v-model="value8" label="选择时间" type="time" label-float full-width></mu-date-input>
     </mu-col>
     <mu-col span="12" lg="4" sm="6">
-      <mu-date-input v-model="value9" label="选择年份" type="year" label-float full-width></mu-date-input>
+      <mu-date-input  icon="today" v-model="value9" label="选择年份" type="year" label-float full-width></mu-date-input>
     </mu-col>
     <mu-col span="12" lg="4" sm="6">
-      <mu-date-input v-model="value10" label="选择月份" type="month" label-float full-width></mu-date-input>
+      <mu-date-input  icon="today" v-model="value10" label="选择月份" type="month" label-float full-width></mu-date-input>
     </mu-col>
     <mu-col span="12" lg="4" sm="6">
-      <mu-date-input v-model="value11" label="选择日期和时间" type="dateTime" label-float full-width landscape></mu-date-input>
+      <mu-date-input  icon="today" v-model="value11" label="选择日期和时间" type="dateTime" label-float full-width landscape></mu-date-input>
     </mu-col>
   </mu-row>
 </mu-container>
@@ -115,22 +115,22 @@ export default {
 <mu-container>
   <mu-row gutter>
     <mu-col span="12" lg="4" sm="6">
-      <mu-date-input v-model="value12" label="显示确定/取消按钮" actions label-float full-width></mu-date-input>
+      <mu-date-input  icon="today" v-model="value12" label="显示确定/取消按钮" actions label-float full-width></mu-date-input>
     </mu-col>
     <mu-col span="12" lg="4" sm="6">
-      <mu-date-input v-model="value13" label="格式化显示: yyyy 年 MM 月 dd 日" format="yyyy 年 MM 月 dd 日" label-float full-width></mu-date-input>
+      <mu-date-input  icon="today" v-model="value13" label="格式化显示" format="yyyy 年 MM 月 dd 日" label-float full-width></mu-date-input>
     </mu-col>
     <mu-col span="12" lg="4" sm="6">
-      <mu-date-input v-model="value14" label="不展示日期" no-display label-float full-width></mu-date-input>
+      <mu-date-input  icon="today" v-model="value14" label="不展示日期" no-display label-float full-width></mu-date-input>
     </mu-col>
     <mu-col span="12" lg="4" sm="6">
-      <mu-date-input v-model="value15" label="只能选择当前月份"  :max-date="maxDate" :min-date="minDate" label-float full-width></mu-date-input>
+      <mu-date-input  icon="today" v-model="value15" label="只能选择当前月份"  :max-date="maxDate" :min-date="minDate" label-float full-width></mu-date-input>
     </mu-col>
     <mu-col span="12" lg="4" sm="6">
-      <mu-date-input v-model="value16" label="只能选工作日"  :should-disable-date="disableWeekends" label-float full-width></mu-date-input>
+      <mu-date-input  icon="today" v-model="value16" label="只能选工作日"  :should-disable-date="disableWeekends" label-float full-width></mu-date-input>
     </mu-col>
     <mu-col span="12" lg="4" sm="6">
-      <mu-date-input v-model="value17" label="只能选择偶数日期"  :should-disable-date="allowedDates" label-float full-width></mu-date-input>
+      <mu-date-input  icon="today" v-model="value17" label="只能选择偶数日期"  :should-disable-date="allowedDates" label-float full-width></mu-date-input>
     </mu-col>
   </mu-row>
 </mu-container>
@@ -175,7 +175,7 @@ export default {
 <mu-container>
   <mu-row gutter>
     <mu-col span="12" lg="4" sm="6">
-      <mu-date-input v-model="value18" label="English" label-float full-width :date-time-format="enDateFormat"></mu-date-input>
+      <mu-date-input icon="today" v-model="value18" label="English" label-float full-width :date-time-format="enDateFormat"></mu-date-input>
     </mu-col>
   </mu-row>
 </mu-container>
@@ -223,7 +223,37 @@ export default {
 ```
 :::
 
+<mu-alert color="info">mu-date-input 支持 input 标签所有的原生属性和事件。</mu-alert>
 
+## Date Input props
+
+| 参数 | 介绍 | 类型 | 可选值 | 默认值 |
+|------|------|------|------|------|
+| container | 弹出方式 | String | popover/dialog/bottomSheet  | popover |
+| type | 选择的类型 | String | date/time/year/month/dateTime | date |
+| format | 显示在输入框中的格式 | String | — | yyyy—MM-dd  |
+| actions | 是否显示底部的确定/取消按钮 | Boolean | — | false |
+| ok-label | 确定按钮的文本 | String | — | 确定 |
+| cancel-label | 取消按钮的文本 | String | — | 取消 |
+| value | 用于 `v-model` 绑定 | Date, String | — | — |
+| icon | 输入框左边的图标 | String | — | — |
+| label | 标签文本 | String | — | — |
+| label-float | 标签是否浮动 | Boolean | — | false |
+| underline-show | 是否显示底部的横线 | Boolean | — | true |
+| error-text | 错误提醒文字，如果此参数有值，那么输入框会转为错误的状态, 显示效果将会更改 | String | — | — |
+| help-text | 帮助文字 | String | — | — |
+| full-width | 是否将宽度设置为 100%, 默认 256px | Boolean | — | false |
+| disabled | 输入框是否不可用 | Boolean | — | false |
+| action-icon | 输入框右边的图标 | String | — | — |
+| action-click | 图标点击之后执行的函数 | Function | — | — |
+| suffix | 输入框尾部内容 | String | — | — |
+| date-time-format | 日期格式化对象，用于改变不同的语言环境显示 | Object | — | — |
+| first-day-of-week | 哪一天作为一个星期的开始 | Number | 0-6 | 0 |
+| max-date | 最大可选择日期 | Date | — | — |
+| min-date | 最小可选择日期 | Date | — | — |
+| landscape | 是否横屏显示 | Boolean | — | false |
+| no-display | 是否不存在时间显示部分 | Boolean | — | false |
+| should-disable-date | 判断日期是否不可用的函数 | Function | — | — |
 
 <script>
 const dayAbbreviation = ['S', 'M', 'T', 'W', 'T', 'F', 'S']
