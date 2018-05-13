@@ -12,7 +12,7 @@
   <mu-text-field disabled placeholder="disabled input"></mu-text-field><br/>
   <mu-text-field placeholder="error input" error-text="Please input......"></mu-text-field><br/>
   <mu-text-field label="Email Address" suffix="@gmail.com"></mu-text-field><br/>
-  <mu-text-field label="Label Float" label-float ></mu-text-field><br/>
+  <mu-text-field label="Label Float" prefix="$" label-float ></mu-text-field><br/>
   <mu-text-field label="Password" :action-icon="visibility ? 'visibility_off' : 'visibility'" :action-click="() => (visibility = !visibility)" :type="visibility ? 'text' : 'password'"></mu-text-field><br/>
   <mu-text-field label="Full Width" full-width></mu-text-field>
 </mu-container>
@@ -91,6 +91,8 @@ export default {
 | rows-max | 最大行数 | — | — |
 | action-icon | 输入框右边的图标 | String | — | — |
 | action-click | 图标点击之后执行的函数 | Function | — | — |
+| solo | 改变样式，设置之后会隐藏输入框的下划线和标签 | Boolean | — | false |
+| prefix | 输入框前缀内容 | String | — | — |
 | suffix | 输入框尾部内容 | String | — | — |
 
 <script>

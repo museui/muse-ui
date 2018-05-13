@@ -13,9 +13,8 @@ export default {
     rowsMax: {
       type: Number
     },
-    actionIcon: String,
-    actionClick: Function,
-    suffix: String
+    multiLine: Boolean,
+    maxLength: [String, Number]
   },
   methods: {
     handleInput (e) {
@@ -37,9 +36,7 @@ export default {
         blur: this.handleBlur
       };
       const placeholder = !this.labelFloat ? this.$attrs.placeholder : '';
-      return h('div', {
-        staticClass: 'mu-text-field'
-      }, [
+      return [
         this.multiLine ? h(Textarea, {
           attrs: {
             ...this.$attrs,
@@ -64,22 +61,14 @@ export default {
             placeholder
           },
           on: listeners
-        }),
-        this.suffix ? h('span', { staticClass: 'mu-text-field-suffix' }, this.suffix) : undefined,
-        this.actionIcon ? h(Icon, {
-          staticClass: 'mu-text-field-action',
-          props: {
-            value: this.actionIcon
-          },
-          on: {
-            click: () => !this.disabled && this.actionClick && this.actionClick()
-          }
-        }) : undefined
-      ]);
+        })
+      ];
     }
   },
   render (h) {
-    return this.createInput(h, [
+    return this.createInput(h, {
+      staticClass: 'mu-text-field'
+    }, [
       this.createTextField(h)
     ]);
   }

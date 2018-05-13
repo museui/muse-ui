@@ -22,6 +22,9 @@
   &.has-label{
     min-height: 72px;
   }
+  &.is-solo {
+    margin-bottom: 0;
+  }
 }
 
 .mu-input-icon {
@@ -31,10 +34,12 @@
   .mu-input.has-label & {
     top: 32px;
   }
+  .mu-input.is-solo & {
+    top: 12px;
+  }
 }
 
 .mu-input-content{
-  display: block;
   height: 100%;
   .mu-input.disabled &{
     color: @disabledColor;
@@ -46,13 +51,17 @@
     padding-top: 28px;
     padding-bottom: 12px;
   }
+  .mu-input.is-solo & {
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
 }
 
 .mu-input-help {
   position: absolute;
-  margin-top: 6px;
   font-size: 12px;
   line-height: 12px;
+  bottom: -4px;
   color: @secondaryTextColor;
   display: flex;
   justify-content: space-between;
@@ -67,6 +76,24 @@
   .mu-input.disabled &{
     color: inherit;
   }
+}
+
+.mu-input-action-icon {
+  .flex-shrink(0);
+  padding: 0 6px;
+  cursor: pointer;
+}
+.mu-input-suffix-text {
+  padding-left: 4px;
+}
+.mu-input-prefix-text {
+  padding-right: 4px;
+}
+.mu-input-suffix-text,
+.mu-input-prefix-text {
+  color: @secondaryTextColor;
+  white-space: nowrap;
+  .flex-shrink(0);
 }
 
 .mu-input-label {

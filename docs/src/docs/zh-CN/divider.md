@@ -8,25 +8,20 @@
 ```html
 <mu-container>
   <mu-paper :z-depth="2">
-    <mu-text-field placeholder="Input One" class="demo-divider-form" :underline-show="false"></mu-text-field>
+    <mu-text-field placeholder="Input One" solo full-width class="demo-divider-form"></mu-text-field>
     <mu-divider></mu-divider>
-    <mu-text-field placeholder="Input Two" class="demo-divider-form" :underline-show="false"></mu-text-field>
+    <mu-text-field placeholder="Input Two" solo full-width class="demo-divider-form"></mu-text-field>
     <mu-divider></mu-divider>
-    <mu-text-field placeholder="Input Three" class="demo-divider-form" :underline-show="false"></mu-text-field>
+    <mu-text-field placeholder="Input Three" solo full-width class="demo-divider-form"></mu-text-field>
     <mu-divider></mu-divider>
-    <mu-text-field placeholder="Input Four" class="demo-divider-form" :underline-show="false"></mu-text-field>
+    <mu-text-field placeholder="Input Four" solo full-width class="demo-divider-form"></mu-text-field>
     <mu-divider></mu-divider>
-    <mu-text-field placeholder="Input Five" class="demo-divider-form" :underline-show="false"></mu-text-field>
+    <mu-text-field placeholder="Input Five" solo full-width class="demo-divider-form"></mu-text-field>
   </mu-paper>
 </mu-container>
 <style lang="less">
 .demo-divider-form {
-  margin-bottom: 0;
-  margin-left: 20px;
-  .mu-input-content {
-    padding-top: 8px;
-    padding-bottom: 8px;
-  }
+  padding: 0 16px;
 }
 </style>
 ```
@@ -108,12 +103,7 @@
 
 <style lang="less">
 .demo-divider-form {
-  margin-bottom: 0;
-  margin-left: 20px;
-  .mu-input-content {
-    padding-top: 8px;
-    padding-bottom: 8px;
-  }
+  padding: 0 16px;
 }
 .divider-list-wrap {
   margin: 0 auto;

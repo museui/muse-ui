@@ -21,6 +21,8 @@ export default {
           return h(Popover, {
             props: {
               open: this.open,
+              cover: true,
+              lazy: true,
               trigger: this.trigger
             },
             on: this.$listeners

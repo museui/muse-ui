@@ -115,48 +115,51 @@ export default {
         ...this.createSelectedItems(h),
         ...this.createInputElement(h)
       ] : this.createInputElement(h));
-      const action = h('div', {
-        staticClass: 'mu-select-action'
-      }, [
-        h('svg', {
-          staticClass: 'mu-select-icon',
-          attrs: {
-            viewBox: '0 0 24 24'
-          }
-        }, [
-          h('path', {
-            attrs: {
-              d: 'M7 10l5 5 5-5z'
+      return {
+        data: {
+          staticClass: 'mu-select',
+          class: {
+            'is-open': this.open,
+            'is-multi': this.multiple,
+            'is-filterable': this.filterable,
+            'is-readonly': this.readonly,
+            'is-disabled': this.disabled
+          },
+          on: {
+            click: (e) => {
+              if (this.disabled || this.readonly || (this.filterable && e.target === this.$refs.input)) return;
+              this.toggleMenu();
             }
-          })
+          },
+          directives: [{
+            name: 'click-outside',
+            value: (e) => {
+              if (this.$refs.popover.$el.contains(e.target)) return;
+              this.blur();
+            }
+          }],
+          ref: 'select'
+        },
+        children: [
+          content
+        ],
+        defaultActionIcon: h('div', {
+          staticClass: 'mu-select-action'
+        }, [
+          h('svg', {
+            staticClass: 'mu-select-icon',
+            attrs: {
+              viewBox: '0 0 24 24'
+            }
+          }, [
+            h('path', {
+              attrs: {
+                d: 'M7 10l5 5 5-5z'
+              }
+            })
+          ])
         ])
-      ]);
-      return h('div', {
-        staticClass: 'mu-select',
-        class: {
-          'is-open': this.open,
-          'is-multi': this.multiple,
-          'is-filterable': this.filterable,
-          'is-readonly': this.readonly
-        },
-        on: {
-          click: (e) => {
-            if (this.disabled || this.readonly || (this.filterable && e.target === this.$refs.input)) return;
-            this.toggleMenu();
-          }
-        },
-        directives: [{
-          name: 'click-outside',
-          value: (e) => {
-            if (this.$refs.popover.$el.contains(e.target) ) return;
-            this.blur();
-          }
-        }],
-        ref: 'select'
-      }, [
-        content,
-        action
-      ]);
+      };
     }
   },
   watch: {

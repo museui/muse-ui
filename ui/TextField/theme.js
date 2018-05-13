@@ -33,6 +33,10 @@ export default (theme) => {
   .mu-input-focus-line.error {
     background-color: ${theme.error};
   }
+  .mu-input-suffix-text,
+  .mu-input-prefix-text {
+    color: ${theme.text.secondary};
+  }
   .mu-text-field-input {
     color: ${theme.text.primary};
   }

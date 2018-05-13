@@ -194,8 +194,9 @@ export default {
         },
         on: {
           ...listeners,
-          focus: () => {
+          click: (e) => {
             this.open = true;
+            this.$emit('click', e);
           }
         }
       },

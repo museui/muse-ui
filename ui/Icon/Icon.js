@@ -15,6 +15,7 @@ export default {
     data.style = data.style || {};
     data.style = {
       ...data.style,
+      'user-select': 'none',
       'font-size': props.size + 'px',
       'width': props.size + 'px',
       'height': props.size + 'px',

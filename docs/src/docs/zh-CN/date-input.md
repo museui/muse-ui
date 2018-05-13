@@ -246,6 +246,8 @@ export default {
 | disabled | 输入框是否不可用 | Boolean | — | false |
 | action-icon | 输入框右边的图标 | String | — | — |
 | action-click | 图标点击之后执行的函数 | Function | — | — |
+| solo | 改变样式，设置之后会隐藏输入框的下划线和标签 | Boolean | — | false |
+| prefix | 输入框前缀内容 | String | — | — |
 | suffix | 输入框尾部内容 | String | — | — |
 | date-time-format | 日期格式化对象，用于改变不同的语言环境显示 | Object | — | — |
 | first-day-of-week | 哪一天作为一个星期的开始 | Number | 0-6 | 0 |

@@ -6,16 +6,15 @@ export default {
     icon: String,
     label: String,
     labelFloat: Boolean,
-    underlineShow: {
-      type: Boolean,
-      default: true
-    },
-    multiLine: Boolean,
-    maxLength: [String, Number],
+    actionIcon: String,
+    actionClick: Function,
+    suffix: String,
+    prefix: String,
     errorText: String,
     helpText: String,
     fullWidth: Boolean,
     disabled: Boolean,
+    solo: Boolean,
     value: {}
   },
   data () {
@@ -34,7 +33,8 @@ export default {
         'error': this.errorText,
         'multi-line': this.multiLine,
         'disabled': this.disabled,
-        'full-width': this.fullWidth
+        'full-width': this.fullWidth,
+        'is-solo': this.solo
       };
     },
     float () {
@@ -52,7 +52,7 @@ export default {
       });
     },
     createLabel (h) {
-      return this.label ? h('div', {
+      return !this.solo && this.label ? h('div', {
         staticClass: 'mu-input-label',
         class: {
           float: this.float
@@ -60,7 +60,7 @@ export default {
       }, this.label) : undefined;
     },
     createUnderline (h) {
-      if (!this.underlineShow) return;
+      if (this.solo) return;
       return h('div', [
         h('div', {
           staticClass: 'mu-input-line',
@@ -86,18 +86,30 @@ export default {
         this.maxLength ? h('div', {}, `${this.inputValue ? String(this.inputValue).length : 0} / ${this.maxLength}`) : undefined
       ]);
     },
-    createInput (h, children) {
+    createActionIcon (h) {
+      return this.actionIcon ? h(Icon, {
+        staticClass: 'mu-input-action-icon',
+        props: {
+          value: this.actionIcon
+        },
+        on: {
+          click: () => !this.disabled && this.actionClick && this.actionClick()
+        }
+      }) : undefined;
+    },
+    createInput (h, data, children, defaultAction) {
+      data.staticClass = `${data.staticClass || ''} mu-input-content`;
       return h('div', {
         staticClass: 'mu-input',
         class: this.inputClass
       }, [
         this.createIcon(h),
-        h('div', {
-          staticClass: 'mu-input-content',
-          ref: 'content'
-        }, [
-          this.createLabel(h),
+        this.createLabel(h),
+        h('div', data, [
+          this.prefix && !this.float ? h('span', { staticClass: 'mu-input-prefix-text' }, this.prefix) : undefined,
           ...children,
+          this.suffix && !this.float ? h('span', { staticClass: 'mu-input-suffix-text' }, this.suffix) : undefined,
+          defaultAction || this.createActionIcon(h),
           this.createUnderline(h),
           this.createHelpText(h),
           this.$slots.default

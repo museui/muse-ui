@@ -17,6 +17,7 @@ export default {
     overlay: {
       default: false
     },
+    lazy: Boolean,
     cover: Boolean,
     trigger: {},
     placement: {
@@ -119,7 +120,6 @@ export default {
     },
     close (reason) {
       if (!this.open) return;
-      console.log('click-out-side');
       this.$emit('update:open', false);
       this.$emit('close', reason);
     },
@@ -137,30 +137,35 @@ export default {
     }, 0);
   },
   render (h) {
+    const directives = [{
+      name: 'resize',
+      value: this.setStyle
+    }, {
+      name: 'scroll',
+      value: {
+        target: this.trigger,
+        callback: this.setStyle
+      }
+    }, {
+      name: 'click-outside',
+      value: this.clickOutSide
+    }];
+    if (!this.lazy) {
+      directives.push({
+        name: 'show',
+        value: this.open
+      });
+    }
+
     return h(PopoverTransiton, [
-      h('div', {
+      !this.lazy || this.open ? h('div', {
         staticClass: `mu-popover transition-${this.placement}`,
         style: {
           'z-index': this.zIndex
         },
         on: this.$listeners,
-        directives: [{
-          name: 'show',
-          value: this.open
-        }, {
-          name: 'resize',
-          value: this.setStyle
-        }, {
-          name: 'scroll',
-          value: {
-            target: this.trigger,
-            callback: this.setStyle
-          }
-        }, {
-          name: 'click-outside',
-          value: this.clickOutSide
-        }]
-      }, this.$slots.default)
+        directives
+      }, this.$slots.default) : undefined
     ]);
   }
 };
