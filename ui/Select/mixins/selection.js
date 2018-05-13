@@ -134,7 +134,7 @@ export default {
           directives: [{
             name: 'click-outside',
             value: (e) => {
-              if (this.$refs.popover.$el.contains(e.target)) return;
+              if (this.open && this.$refs.popover.$el.contains(e.target)) return;
               this.blur();
             }
           }],
