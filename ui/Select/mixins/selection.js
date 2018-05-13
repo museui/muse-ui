@@ -140,15 +140,15 @@ export default {
           'is-readonly': this.readonly
         },
         on: {
-          click: () => {
-            if (this.disabled || this.readonly) return;
+          click: (e) => {
+            if (this.disabled || this.readonly || (this.filterable && e.target === this.$refs.input)) return;
             this.toggleMenu();
           }
         },
         directives: [{
           name: 'click-outside',
           value: (e) => {
-            if (this.$refs.popover.$el.contains(e.target)) return;
+            if (this.$refs.popover.$el.contains(e.target) ) return;
             this.blur();
           }
         }],

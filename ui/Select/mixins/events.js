@@ -25,7 +25,6 @@ export default {
         ...listeners,
         click: (e) => {
           if (this.disabled || this.readonly || !this.filterable) return;
-          e.stopPropagation();
           if (this.isFocused && !this.open) {
             this.openMenu();
             return;

@@ -92,6 +92,7 @@ export default {
           break;
       }
       this.inputValue = selectedValue;
+      if (this.multiple && this.filterable) this.searchValue = '';
       this.$nextTick(() => {
         this.focusInput();
         if (!this.multiple) this.closeMenu();
@@ -126,7 +127,8 @@ export default {
         ref: 'popover',
         props: {
           trigger: trigger,
-          open: this.open
+          open: this.open,
+          cover: !this.filterable
         },
         on: {
           close: () => this.closeMenu()

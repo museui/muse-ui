@@ -42,12 +42,16 @@ export default {
         case 'left-start':
         case 'left-end':
           left = react.left - width;
-          if (this.cover) left += react.width;
+          if (this.cover) {
+            left += react.width;
+          } else if (left < minLeft) {
+            left = react.left + react.width;
+          };
           break;
         case 'right':
         case 'right-start':
         case 'right-end':
-          left = this.cover ? react.left : react.left + react.width;
+          left = this.cover ? react.left : react.left + react.width > maxLeft ? react.left - width : react.left + react.width;
           break;
         case 'top':
         case 'bottom':
@@ -75,12 +79,16 @@ export default {
         case 'top-start':
         case 'top-end':
           top = react.top - height;
-          if (this.cover) top += react.height;
+          if (!this.cover) {
+            if (top < minTop) top = react.top;
+          } else {
+            top += react.height;
+          }
           break;
         case 'bottom':
         case 'bottom-start':
         case 'bottom-end':
-          top = this.cover ? react.top : react.top + react.height;
+          top = this.cover ? react.top : react.top + react.height > maxTop ? react.top - height : react.top + react.height;
           break;
         case 'left':
         case 'right':
@@ -111,6 +119,7 @@ export default {
     },
     close (reason) {
       if (!this.open) return;
+      console.log('click-out-side');
       this.$emit('update:open', false);
       this.$emit('close', reason);
     },

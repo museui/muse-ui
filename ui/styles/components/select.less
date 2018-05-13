@@ -51,7 +51,7 @@
   &.is-enable {
     cursor: text;
   }
-  .mu-select.is-filterable & {
+  .mu-input.focus-state .mu-select.is-filterable & {
     min-width: 200px;
   }
 }
@@ -70,6 +70,7 @@
   width: 24px;
   height: 24px;
   user-select: none;
+  transition: .3s @easeOutFunction;
   .mu-select.is-open & {
     transform: rotate(180deg);
   }
