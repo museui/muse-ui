@@ -11,7 +11,7 @@
     <mu-checkbox v-model="normal.checkbox" :label="'Checkbox: ' + normal.checkbox"></mu-checkbox>
   </mu-flex>
   <div class="select-control-group">
-    <mu-flex class="select-control-row" v-for="i in 3">
+    <mu-flex class="select-control-row" :key="'radio ' + i" v-for="i in 3">
       <mu-radio :value="i" v-model="normal.radio" :label="'Radio ' + i"></mu-checkbox>
     </mu-flex>
   </div>
@@ -56,7 +56,7 @@ export default {
   </mu-flex>
   <div class="select-control-group" >
     Selects: {{checkbox.value1}}
-    <mu-flex class="select-control-row" v-for="i in 3">
+    <mu-flex class="select-control-row" :key="'Checkbox ' + i" v-for="i in 3">
       <mu-checkbox :value="'Checkbox ' + i" v-model="checkbox.value1" :label="'Checkbox ' + i"></mu-checkbox>
     </mu-flex>
   </div>
@@ -106,7 +106,7 @@ export default {
   </mu-flex>
   <div class="select-control-group" >
     Selects: {{radio.value1}}
-    <mu-flex class="select-control-row" v-for="i in 3">
+    <mu-flex class="select-control-row" :key="'radio ' + i" v-for="i in 3">
       <mu-radio :value="'radio ' + i" v-model="radio.value1" :label="'radio ' + i"></mu-radio>
     </mu-flex>
   </div>

@@ -9,7 +9,10 @@ export default {
     rowsMax: {
       type: Number
     },
-    value: String
+    value: {
+      type: String,
+      default: ''
+    }
   },
   mounted () {
     this.resizeTextarea();
@@ -33,7 +36,7 @@ export default {
       let pd = window.getComputedStyle(element, null).getPropertyValue('padding-bottom');
       pd = Number(pd.substring(0, pd.indexOf('px')));
       const minHeight = pd + pt + lineHeight * this.rows;
-      const maxHeight = pd + pt + lineHeight * (this.rowsMax || 0);
+      const maxHeight = pd + pt + lineHeight * (this.rowsMax || this.rows);
       const height = hiddenEl.scrollHeight;
       element.style.height = (height < minHeight ? minHeight : height > maxHeight && maxHeight > 0 ? maxHeight : height) + 'px';
     }
@@ -49,7 +52,7 @@ export default {
           rows: 1
         },
         domProps: {
-          innerText: this.value
+          innerText: this.value || ' '
         }
       }),
       h('textarea', {
@@ -61,7 +64,7 @@ export default {
           disabled: this.disabled
         },
         domProps: {
-          innerText: this.value
+          innerText: this.value || ''
         },
         on: this.$listeners
       })

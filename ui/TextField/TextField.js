@@ -50,7 +50,7 @@ export default {
             disabled: this.disabled,
             rows: this.rows,
             rowsMax: this.rowsMax,
-            value: String(this.inputValue)
+            value: String(this.inputValue || '')
           },
           on: listeners
         }) : h('input', {
