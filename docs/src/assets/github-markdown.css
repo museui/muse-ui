@@ -462,10 +462,12 @@
 
 .markdown-body code {
   display: inline-block;
-  padding: 3px 6px;
   margin: 0;
   font-size: 14px;
   background-color: #fff;
+  line-height: 26px;
+  vertical-align: top;
+
 }
 
 .markdown-body code:before,

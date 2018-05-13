@@ -10,11 +10,18 @@ export default {
   props: {
     popoverClass: [String, Object, Array],
     multiple: Boolean,
-    readonly: Boolean,
     maxHeight: {
       type: [String, Number],
       default: 300
-    }
+    },
+    readonly: Boolean,
+    chips: Boolean,
+    placeholder: String,
+    separator: {
+      type: String,
+      default: ','
+    },
+    filterable: Boolean // enable search option
   },
   render (h) {
     return this.createInput(h, [

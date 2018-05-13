@@ -1,11 +1,6 @@
 import Chip from '../../Chip';
 import clickOutSide from '../../internal/directives/click-outside';
 export default {
-  props: {
-    chips: Boolean,
-    placeholder: String,
-    filterable: Boolean // enable search option
-  },
   directives: {
     'click-outside': clickOutSide
   },
@@ -73,7 +68,7 @@ export default {
         class: {
           'is-active': selected
         }
-      }, isLast ? label : label + ',');
+      }, isLast ? label : label + this.separator);
     },
     createSelectedItems (h) {
       return this.selects.map((item, index) => {
@@ -141,6 +136,7 @@ export default {
         class: {
           'is-open': this.open,
           'is-multi': this.multiple,
+          'is-filterable': this.filterable,
           'is-readonly': this.readonly
         },
         on: {

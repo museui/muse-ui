@@ -15,6 +15,7 @@ export default {
   },
   methods: {
     onKeydown (e) {
+      if (this.disabled || this.readonly) return;
       const code = keycode(e);
       if (!this.open && ['enter', 'space', 'up', 'down'].indexOf(code) !== -1) {
         e.preventDefault();

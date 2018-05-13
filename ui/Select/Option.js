@@ -1,5 +1,6 @@
 import { ListItem, ListItemContent, ListItemTitle, ListAction } from '../List';
 import Checkbox from '../Checkbox';
+
 export default {
   name: 'mu-option',
   inject: ['addOption', 'removeOption', 'optionClick', 'isOptionSelected', 'isMultiple'],
@@ -11,7 +12,12 @@ export default {
     value: {
       required: true
     },
-    disabled: Boolean
+    disabled: Boolean,
+    ripple: {
+      type: Boolean,
+      default: true
+    },
+    avatar: Boolean
   },
   data () {
     return {
@@ -55,8 +61,10 @@ export default {
         'is-focused': this.focused
       },
       props: {
+        ripple: this.ripple,
+        open: this.open,
+        avatar: this.avatar,
         button: !this.disabled,
-        nested: false,
         tabIndex: -1
       },
       directives: [{

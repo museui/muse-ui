@@ -12,13 +12,14 @@ export default {
     };
   },
   props: {
+    textline: List.props.textline,
+    dense: {
+      ...List.props.dense,
+      default: true
+    },
     noDataText: {
       type: String,
       default: '暂无数据显示'
-    },
-    maxHeight: {
-      type: [String, Number],
-      default: 300
     }
   },
   data () {
@@ -106,10 +107,11 @@ export default {
       }, [
         h(List, {
           props: {
-            dense: true
+            textline: this.textline,
+            dense: this.dense
           }
         }, [
-          this.enableOptions.length === 0 ? h('div', { staticClass: 'mu-select-no-data' }, this.noDataText) : null,
+          this.filterable && this.enableOptions.length === 0 ? h('div', { staticClass: 'mu-select-no-data' }, this.noDataText) : null,
           this.$slots.default
         ])
       ]);

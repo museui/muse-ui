@@ -12,12 +12,13 @@
 
 .mu-popover-transition-enter-active, .mu-popover-transition-leave-active{
   transition-duration: 300ms;
-  transform-origin: center top;
+  // transform-origin: left top;
   transition-property: opacity, transform;
+  backface-visibility: hidden;
 }
 
 .mu-popover-transition-enter, .mu-popover-transition-leave-active {
-  transform: scaleY(0);
+  transform: scale(0.6);
   opacity: 0;
 }
 

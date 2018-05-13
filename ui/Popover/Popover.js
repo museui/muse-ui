@@ -129,13 +129,16 @@ export default {
   },
   render (h) {
     return h(PopoverTransiton, [
-      this.open ? h('div', {
-        staticClass: 'mu-popover',
+      h('div', {
+        staticClass: `mu-popover transition-${this.placement}`,
         style: {
           'z-index': this.zIndex
         },
         on: this.$listeners,
         directives: [{
+          name: 'show',
+          value: this.open
+        }, {
           name: 'resize',
           value: this.setStyle
         }, {
@@ -148,7 +151,7 @@ export default {
           name: 'click-outside',
           value: this.clickOutSide
         }]
-      }, this.$slots.default) : undefined
+      }, this.$slots.default)
     ]);
   }
 };
