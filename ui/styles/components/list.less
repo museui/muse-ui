@@ -64,13 +64,20 @@
   }
 }
 .mu-item-action {
-  width: 56px;
+  min-width: 56px;
   display: flex;
   height: 100%;
   align-items: center;
   color: @secondaryTextColor;
+  &:first-child .mu-icon-button {
+    margin-left: -12px;
+  }
+  &:last-child .mu-icon-button {
+    margin-right: -12px;
+  }
   &.is-avatar {
     max-height: 72px;
+    align-self: flex-start;
   }
   &.is-more {
     flex-direction: column;
@@ -105,6 +112,7 @@
 }
 
 .mu-item-sub-title {
+  width: 100%;
   font-size: 14px;
   line-height: 1.5;
   color: @secondaryTextColor;
@@ -112,7 +120,7 @@
   white-space: nowrap;
   text-overflow: ellipsis;
   word-wrap: break-word;
-  .mu-item.three-line & {
+  .mu-list.mu-list-three-line & {
     white-space: normal;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;

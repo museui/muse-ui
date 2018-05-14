@@ -8,7 +8,7 @@ export default {
     textColor: String,
     size: {
       type: [Number, String],
-      default: 48
+      default: 40
     }
   },
   render (h) {
