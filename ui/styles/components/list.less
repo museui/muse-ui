@@ -87,15 +87,12 @@
     padding-bottom: 8px;
   }
 }
-
+.mu-item-title,
 .mu-item-content {
   flex: 1 1 auto;
   text-align: left;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  + .mu-item-action {
+  min-width: 1px;
+  + .mu-item-action:not(.is-more) {
     justify-content: flex-end;
   }
 }

@@ -1,11 +1,9 @@
 import select from '../internal/mixins/select';
-import color from '../internal/mixins/color';
-import { getColor } from '../utils';
 import Icon from '../Icon';
 
 export default {
   name: 'mu-checkbox',
-  mixins: [select('checkbox'), color],
+  mixins: [select('checkbox')],
   props: {
     inputValue: [Boolean, Array]
   },
@@ -35,13 +33,8 @@ export default {
     }
   },
   render (h) {
-    const colorClass = this.getNormalColorClass(this.color, true);
-    const colorStyle = getColor(this.color);
     const defaultSvgUnCheckIcon = h('svg', {
-      staticClass: `mu-checkbox-icon-uncheck mu-checkbox-svg-icon ${this.checked ? colorClass : ''}`,
-      style: {
-        color: this.checked ? colorStyle : ''
-      },
+      staticClass: `mu-checkbox-icon-uncheck mu-checkbox-svg-icon`,
       attrs: {
         viewBox: '0 0 24 24'
       }
@@ -53,10 +46,7 @@ export default {
       })
     ]);
     const defaultSvgCheckedIcon = h('svg', {
-      staticClass: `mu-checkbox-icon-checked mu-checkbox-svg-icon ${colorClass}`,
-      style: {
-        color: colorStyle
-      },
+      staticClass: `mu-checkbox-icon-checked mu-checkbox-svg-icon`,
       attrs: {
         viewBox: '0 0 24 24'
       }
@@ -69,19 +59,13 @@ export default {
     ]);
     const view = this.createRipple(h, 'mu-checkbox-icon', [
       this.uncheckIcon ? h(Icon, {
-        staticClass: `mu-checkbox-icon-uncheck ${this.checked ? colorClass : ''}`,
-        style: {
-          color: this.checked ? colorStyle : ''
-        },
+        staticClass: `mu-checkbox-icon-uncheck`,
         props: {
           value: this.uncheckIcon
         }
       }) : defaultSvgUnCheckIcon,
       this.checkedIcon ? h(Icon, {
-        staticClass: `mu-checkbox-icon-checked ${colorClass}`,
-        style: {
-          color: colorStyle
-        },
+        staticClass: `mu-checkbox-icon-checked`,
         props: {
           value: this.checkedIcon
         }

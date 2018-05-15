@@ -1,9 +1,12 @@
 import TouchRipple from '../TouchRipple';
 import keycode from 'keycode';
+import color from './color';
+import { getColor } from '../../utils';
 
 export default function (type = 'checkbox') { // checkbox
   const iconProps = type === 'switch' ? {} : { uncheckIcon: String, checkedIcon: String };
   return {
+    mixins: [color],
     inheritAttrs: false,
     model: {
       prop: 'inputValue',
@@ -12,6 +15,7 @@ export default function (type = 'checkbox') { // checkbox
     props: {
       label: String,
       labelLeft: Boolean,
+      readonly: Boolean,
       ...iconProps,
       disabled: Boolean,
       tabIndex: [Number, String]
@@ -30,14 +34,14 @@ export default function (type = 'checkbox') { // checkbox
         this.$emit(event.type, event);
       },
       handleClick (e) {
-        if (this.disabled) return;
+        if (this.disabled || this.readonly) return;
         this.toggle();
         this.$emit('click', e);
       },
       handleKeydown (e) {
         if (this.disabled) return;
         this.end(e);
-        if (keycode(e) === 'enter') this.handleClick(e);
+        if (keycode(e) === 'enter' && !this.readonly) this.handleClick(e);
       },
       createRipple (h, staticClass, children) {
         return this.disabled ? h('div', {
@@ -58,24 +62,30 @@ export default function (type = 'checkbox') { // checkbox
             type: type === 'switch' ? 'checkbox' : type,
             disabled: this.disabled,
             checked: this.checked,
+            readonly: this.readonly,
             tabindex: -1
           }
         });
       },
       createSelect (h, view) {
+        const colorClass = this.getNormalColorClass(this.color, true);
         const label = this.label ? h('div', { staticClass: `mu-${type}-label` }, this.label) : undefined;
         const wrapper = h('div', {
           staticClass: `mu-${type}-wrapper`
         }, this.labelLeft ? [label, view] : [view, label]);
 
         return h('div', {
-          staticClass: `mu-${type}`,
+          staticClass: `mu-${type} ${this.checked ? colorClass : ''}`,
           attrs: {
             tabindex: this.disabled ? -1 : this.tabIndex ? this.tabIndex : 0
+          },
+          style: {
+            color: this.checked ? getColor(this.color) : ''
           },
           class: {
             'label-left': this.labelLeft,
             'disabled': this.disabled,
+            [`mu-${type}-checked`]: this.checked,
             'no-label': !this.label
           },
           on: {

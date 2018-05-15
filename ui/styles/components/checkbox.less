@@ -7,43 +7,26 @@
   cursor: pointer;
   user-select: none;
   outline: none;
+  color: @secondaryTextColor;
   input[type="checkbox"] {
     display: none;
-    &:checked {
-      +.mu-checkbox-wrapper {
-        .mu-checkbox-icon-uncheck {
-          opacity: 0;
-          transition: opacity 650ms @easeOutFunction 150ms;
-          color: @primaryColor;
-          &.mu-secondary-text-color {
-            color: @secondaryColor;
-          }
-          &.mu-success-text-color {
-            color: @successColor;
-          }
-          &.mu-warning-text-color {
-            color: @warningColor;
-          }
-          &.mu-info-text-color {
-            color: @infoColor;
-          }
-          &.mu-error-text-color {
-            color: @errorColor;
-          }
-        }
-        .mu-checkbox-icon-checked {
-          opacity: 1;
-          transform: scale(1);
-          transition: opacity 0ms @easeOutFunction, transform 800ms @easeOutFunction;
-        }
-        .mu-checkbox-ripple-wrapper {
-          color: @primaryColor;
-        }
-      }
-    }
   }
   &.disabled {
     cursor: not-allowed;
+    color: @disabledColor;
+  }
+}
+
+.mu-checkbox-checked {
+  color: @primaryColor;
+  .mu-checkbox-icon-uncheck {
+    opacity: 0;
+    transition: opacity 650ms @easeOutFunction 150ms;
+  }
+  .mu-checkbox-icon-checked {
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity 0ms @easeOutFunction, transform 800ms @easeOutFunction;
   }
 }
 
@@ -92,10 +75,6 @@
   top: 0;
   opacity: 1;
   transition: opacity 1s @easeOutFunction .2s;
-  color: @secondaryTextColor;
-  .mu-checkbox.disabled & {
-    color: @disabledColor;
-  }
 }
 
 .mu-checkbox-icon-checked {
@@ -103,12 +82,8 @@
   left: 0;
   top: 0;
   opacity: 0;
-  color: @primaryColor;
   transform: scale(0);
   transition: opacity 450ms @easeOutFunction, transform 0ms @easeOutFunction 450ms;
-  .mu-checkbox.disabled & {
-    color: @disabledColor;
-  }
 }
 
 .mu-checkbox-ripple-wrapper {

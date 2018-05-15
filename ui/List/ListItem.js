@@ -32,12 +32,17 @@ export default {
   },
   data () {
     return {
-      nestedOpen: this.toggleNestedType === 'popover' ? false : this.open
+      nestedOpen: this.open
     };
   },
   computed: {
     nestedLevel () {
       return this.getNestedLevel();
+    }
+  },
+  created () {
+    if (this.toggleNestedType === 'popover' && this.nestedOpen) {
+      this.nestedOpen = false;
     }
   },
   methods: {
@@ -125,9 +130,7 @@ export default {
               placement: 'right-start'
             },
             on: {
-              'update:open': (val) => {
-                this.nestedOpen = val;
-              }
+              close: this.handleToggleNested
             }
           }, [list]);
       }
@@ -136,5 +139,13 @@ export default {
   },
   render (h) {
     return h('li', [this.createItem(h), this.createNestedList(h)]);
+  },
+  watch: {
+    open (val) {
+      this.nestedOpen = val;
+    },
+    nestedOpen (val) {
+      this.$emit('update:open', val);
+    }
   }
 };
