@@ -81,7 +81,7 @@ export default {
         case 'top-end':
           top = react.top - height;
           if (!this.cover) {
-            if (top < minTop) top = react.top;
+            if (top < minTop) top = react.top + react.height;
           } else {
             top += react.height;
           }
