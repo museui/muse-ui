@@ -25,6 +25,11 @@ export default {
   }
 }
 </script>
+<style>
+.demo-date-picker {
+  margin: 8px;
+}
+</style>
 ```
 :::
 
@@ -52,6 +57,11 @@ export default {
   }
 }
 </script>
+<style>
+.demo-date-picker {
+  margin: 8px;
+}
+</style>
 ```
 :::
 
@@ -75,6 +85,11 @@ export default {
   }
 }
 </script>
+<style>
+.demo-date-picker {
+  margin: 8px;
+}
+</style>
 ```
 :::
 
@@ -132,6 +147,11 @@ export default {
   }
 };
 </script>
+<style>
+.demo-date-picker {
+  margin: 8px;
+}
+</style>
 ```
 :::
 
@@ -146,7 +166,7 @@ export default {
 | max-date | 最大可选择日期 | Date | — | — |
 | min-date | 最小可选择日期 | Date | — | — |
 | landscape | 是否横屏显示 | Boolean | — | false |
-| no-display | 是否不存在时间显示部分 | Boolean | — | false |
+| no-display | 是否不存在日期显示部分 | Boolean | — | false |
 | should-disable-date | 判断日期是否不可用的函数 | Function | — | — |
 
 ## Date Picker Events
