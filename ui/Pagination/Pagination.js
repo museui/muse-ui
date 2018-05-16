@@ -1,6 +1,5 @@
 import Button from '../Button';
 
-const SHOW_PAGE_COUNT = 5;
 export default {
   name: 'mu-pagination',
   props: {
@@ -14,29 +13,41 @@ export default {
       default: 1,
       validator: (val) => val >= 1
     },
+    pageCount: {
+      type: Number,
+      default: 7,
+      validator (val) {
+        return val >= 5 && val <= 21 && val % 2 !== 0;
+      }
+    },
     pageSize: {
       type: Number,
       default: 10
     }
   },
   computed: {
+    showPageCount () {
+      return this.pageCount - 2;
+    },
     totalPage () {
       return Math.ceil(this.total / this.pageSize);
     },
     items () {
       if (this.total === 0) return [];
+      const showPageCount = this.showPageCount;
       const arr = [];
       const start = 1;
-      const end = this.totalPage;
+      const end = this.totalPage; 
 
-      if (end <= SHOW_PAGE_COUNT + 2) {
-        for (let i = start + 1; i <= end; i++) {
+      if (end <= showPageCount + 2) {
+        for (let i = start; i <= end; i++) {
           arr.push({ text: i, value: i });
         }
+        return arr;
       }
       arr.push({ text: start, value: start });
-      if (this.current - start >= SHOW_PAGE_COUNT - 1) {
-        const go = this.current - SHOW_PAGE_COUNT;
+      if (this.current - start >= showPageCount - 1) {
+        const go = this.current - showPageCount;
         arr.push({
           text: '...',
           value: go < 1 ? 1 : go
@@ -45,16 +56,16 @@ export default {
 
       let listStart = this.current - 2;
       if (listStart <= 1) listStart = 2;
-      let listEnd = listStart + SHOW_PAGE_COUNT - 1;
+      let listEnd = listStart + showPageCount - 1;
       if (listEnd >= end) listEnd = end - 1;
-      listStart = listEnd - SHOW_PAGE_COUNT + 1;
+      listStart = listEnd - showPageCount + 1;
 
       for (let i = listStart; i <= listEnd; i++) {
         arr.push({ text: i, value: i });
       }
 
-      if (end - this.current >= SHOW_PAGE_COUNT - 1) {
-        const go = this.current + SHOW_PAGE_COUNT;
+      if (end - this.current >= showPageCount - 1) {
+        const go = this.current + showPageCount;
         arr.push({
           text: '...',
           value: go > end ? end : go
