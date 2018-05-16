@@ -1,5 +1,5 @@
 import scroll from 'muse-ui/internal/directives/scroll';
-import { ScaleTransition } from 'muse-ui/internal/transitions';
+import { FadeTransition } from 'muse-ui/internal/transitions';
 
 export default {
   name: 'mu-backtop',
@@ -16,36 +16,38 @@ export default {
     }
   },
   render (h) {
-    return h('mu-button', {
-      directives: [{
-        name: 'scroll',
-        value: {
-          target: this.$el,
-          callback: this.handleScroll
-        }
-      }, {
-        name: 'show',
-        value: this.show
-      }],
-      style: {
-        position: 'fixed',
-        right: '16px',
-        bottom: '16px',
-        'z-index': 101
-      },
-      props: {
-        fab: true,
-        color: 'red'
-      },
-      on: {
-        click: () => window.scrollTo(0, 0)
-      }
-    }, [
-      h('mu-icon', {
+    return h(FadeTransition, {}, [
+      h('mu-button', {
+        directives: [{
+          name: 'scroll',
+          value: {
+            target: this.$el,
+            callback: this.handleScroll
+          }
+        }, {
+          name: 'show',
+          value: this.show
+        }],
+        style: {
+          position: 'fixed',
+          right: '16px',
+          bottom: '16px',
+          'z-index': 101
+        },
         props: {
-          value: 'arrow_upward'
+          fab: true,
+          color: 'red'
+        },
+        on: {
+          click: () => window.scrollTo(0, 0)
         }
-      })
+      }, [
+        h('mu-icon', {
+          props: {
+            value: 'arrow_upward'
+          }
+        })
+      ])
     ]);
   },
   directives: {

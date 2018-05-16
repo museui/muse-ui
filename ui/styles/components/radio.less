@@ -9,25 +9,23 @@
   outline: none;
   input[type="radio"] {
     display: none;
-    &:checked {
-      + .mu-radio-wrapper {
-        .mu-radio-icon-uncheck{
-          opacity: 0;
-          transform: scale(0);
-          color: @primaryColor;
-        }
-        .mu-radio-icon-checked{
-          opacity: 1;
-          transform: scale(1);
-        }
-        .mu-radio-ripple-wrapper{
-          color: @primaryColor;
-        }
-      }
-    }
   }
   &.disabled  {
     cursor: not-allowed;
+    color: @disabledColor;
+  }
+}
+
+
+.mu-radio-checked {
+  color: @primaryColor;
+  .mu-radio-icon-uncheck {
+    opacity: 0;
+    transform: scale(0);
+  }
+  .mu-radio-icon-checked {
+    opacity: 1;
+    transform: scale(1);
   }
 }
 
@@ -77,10 +75,6 @@
   top: 0;
   opacity: 1;
   transition: all 450ms @easeOutFunction;
-  color: @secondaryTextColor;
-  .mu-radio.disabled & {
-    color: @disabledColor;
-  }
 }
 
 .mu-radio-icon-checked {
@@ -88,12 +82,8 @@
   left: 0;
   top: 0;
   opacity: 0;
-  color: @primaryColor;
   transform: scale(0);
   transition: all 450ms @easeOutFunction;
-  .mu-radio.disabled & {
-     color: @disabledColor;
-   }
 }
 
 .mu-radio-ripple-wrapper {

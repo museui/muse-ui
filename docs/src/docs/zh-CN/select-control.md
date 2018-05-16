@@ -12,7 +12,7 @@
   </mu-flex>
   <div class="select-control-group">
     <mu-flex class="select-control-row" :key="'radio ' + i" v-for="i in 3">
-      <mu-radio :value="i" v-model="normal.radio" :label="'Radio ' + i"></mu-checkbox>
+      <mu-radio :value="i" v-model="normal.radio" :label="'Radio ' + i"></mu-radio>
     </mu-flex>
   </div>
   <mu-flex class="select-control-row">
@@ -66,7 +66,7 @@ export default {
     <mu-checkbox disabled label="disabled"></mu-checkbox>
   </mu-flex>
   <mu-flex class="select-control-row">
-    <mu-checkbox disabled input-value="true" label="disabled"></mu-checkbox>
+    <mu-checkbox disabled :input-value="true" label="disabled"></mu-checkbox>
   </mu-flex>
 </mu-container>
 <script>
@@ -186,6 +186,7 @@ export default {
 | checked-icon | 已选择时的 icon | String | — | — |
 | input-value | 用于 `v-model` 绑定 | Boolean, Array | — | — |
 | disabled | 是否禁用 | Boolean | — | — |
+| color | 颜色 | String | — | — |
 
 ## Radio Props
 
@@ -197,6 +198,7 @@ export default {
 | checked-icon | 已选择时的 icon | String | — | — |
 | input-value | 用于 `v-model` 绑定 | — | — | — |
 | disabled | 是否禁用 | Boolean | — | — |
+| color | 颜色 | String | — | — |
 
 ## Switch Props
 
@@ -206,6 +208,7 @@ export default {
 | label-left | 标签是否在左边 | Boolean | — | — |
 | input-value | 用于 `v-model` 绑定 | Boolean | — | — |
 | disabled | 是否禁用 | Boolean | — | — |
+| color | 颜色 | String | — | — |
 
 <script>
 export default {

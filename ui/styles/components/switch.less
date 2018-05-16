@@ -9,20 +9,6 @@
   outline: none;
   input[type="checkbox"] {
     display: none;
-    &:checked {
-      + .mu-switch-wrapper {
-        .mu-switch-track{
-          background-color: @primaryColor;
-          opacity: 0.5;
-        }
-        .mu-switch-thumb{
-          background-color: @primaryColor;
-          color: @primaryColor;
-          transform: translate3d(18px, 0, 0);
-        }
-      }
-
-    }
   }
   &.disabled {
     input[type="checkbox"]:checked{
@@ -45,6 +31,18 @@
   }
 }
 
+.mu-switch-checked {
+  color: @primaryColor;
+  .mu-switch-track{
+    background-color: currentColor;
+    opacity: 0.5;
+  }
+  .mu-switch-thumb{
+    background-color: currentColor;
+    transform: translate3d(18px, 0, 0);
+  }
+}
+
 .mu-switch-wrapper{
   display: flex;
   width: 100%;
@@ -58,7 +56,6 @@
   padding: 4px 0px 4px 2px;
   position: relative;
   margin-right: 8px;
-  transition: all 450ms @easeOutFunction;
   .mu-switch.label-left &{
     margin-right: 0;
     margin-left: 8px;
@@ -94,7 +91,6 @@
   width: 20px;
   height: 20px;
   line-height: 24px;
-  color: @textColor;
   background-color: @backgroundColor;
   border-radius: 50%;
   .depth(1);
