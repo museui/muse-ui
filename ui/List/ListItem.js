@@ -9,7 +9,13 @@ import { isNotNull } from '../utils';
 export default {
   name: 'mu-list-item',
   mixins: [route, ripple],
-  inject: ['listItemClick', 'getNestedLevel', 'getListValue', 'getToggleNestedType'],
+  inject: [
+    'listItemClick',
+    'getNestedLevel',
+    'getListValue',
+    'getToggleNested',
+    'getToggleNestedType'
+  ],
   props: {
     button: Boolean,
     nestedListClass: [String, Object, Array],
@@ -20,14 +26,6 @@ export default {
     avatar: Boolean,
     nested: Boolean, // 是否允许嵌套
     tabIndex: [String, Number],
-    toggleNested: Boolean,
-    toggleNestedType: {
-      type: String,
-      default: 'expand',
-      validator (val) {
-        return ['expand', 'popover'].indexOf !== -1;
-      }
-    },
     value: {}
   },
   data () {
@@ -38,6 +36,12 @@ export default {
   computed: {
     nestedLevel () {
       return this.getNestedLevel();
+    },
+    toggleNested () {
+      return this.getToggleNested();
+    },
+    toggleNestedType () {
+      return this.getToggleNestedType();
     }
   },
   created () {
@@ -69,7 +73,15 @@ export default {
     },
     createItem (h) {
       const listValue = this.getListValue();
-      const nestedPadding = this.getToggleNestedType() === 'expand' ? 18 * this.nestedLevel : 0;
+      const nestedPadding = this.toggleNestedType === 'expand' ? 18 * this.nestedLevel : 0;
+      const itemClass = [
+          'mu-item',
+          this.nestedOpen && this.nested ? 'is-open' : '',
+          this.avatar ? 'has-avatar' : '',
+          this.textline,
+          isNotNull(listValue) && isNotNull(this.value) && listValue === this.value ? 'is-selected' : ''
+        ].join(' ');
+
       return h(AbstractButton, {
         class: 'mu-item-wrapper',
         ref: 'button',
@@ -78,6 +90,7 @@ export default {
         },
         props: {
           containerElement: this.button ? 'a' : 'div',
+          wrapperClass: itemClass,
           wrapperStyle: {
             'margin-left': nestedPadding ? nestedPadding + 'px' : ''
           },
@@ -94,21 +107,14 @@ export default {
           hover: this.handleHover,
           hoverExit: this.handleHoverExit
         }
-      }, [h('div', {
-        class: [
-          'mu-item',
-          this.nestedOpen && this.nested ? 'is-open' : '',
-          this.avatar ? 'has-avatar' : '',
-          this.textline,
-          isNotNull(listValue) && isNotNull(this.value) && listValue === this.value ? 'is-selected' : ''
-        ]
-      }, this.$slots.default)]);
+      }, this.$slots.default);
     },
     createNestedList (h) {
       if (!this.nested) return null;
       const list = h(List, {
         class: this.nestedListClass,
         props: {
+          toggleNested: this.toggleNested,
           toggleNestedType: this.toggleNestedType,
           nestedLevel: this.nestedLevel + 1,
           value: this.getListValue()

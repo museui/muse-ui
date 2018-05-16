@@ -29,7 +29,7 @@ export default {
     },
     createMenuItem (h, menu, isNested) {
       return (
-        <mu-list-item to={menu.path ? '/' + locale + menu.path : undefined} value={menu.path} slot={isNested ? 'nested' : 'default'} button nested={menu.children && menu.children.length > 0} toggleNested>
+        <mu-list-item to={menu.path ? '/' + locale + menu.path : undefined} value={menu.path} slot={isNested ? 'nested' : 'default'} button nested={menu.children && menu.children.length > 0}>
           <mu-list-item-content>
             <mu-list-item-title style={{ 'font-size': isNested ? '14px' : '16px', 'font-weight': isNested ? '400' : '500' }}>{menu.name}</mu-list-item-title>
           </mu-list-item-content>
@@ -53,7 +53,7 @@ export default {
       return (
         <div class='mu-app-drawer-content'>
           <mu-divider />
-          <mu-list dense value={this.path}>
+          <mu-list dense value={this.path} toggleNested>
             {menus}
           </mu-list>
         </div>

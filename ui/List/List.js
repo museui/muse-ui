@@ -4,6 +4,7 @@ export default {
     return {
       listItemClick: this.listItemClick,
       getNestedLevel: this.getNestedLevel,
+      getToggleNested: this.getToggleNested,
       getToggleNestedType: this.getToggleNestedType,
       getListValue: this.getListValue
     };
@@ -20,9 +21,13 @@ export default {
         return ['', 'two-line', 'three-line'].indexOf(val) !== -1;
       }
     },
+    toggleNested: Boolean,
     toggleNestedType: {
       type: String,
-      default: 'expand'
+      default: 'expand',
+      validator (val) {
+        return ['expand', 'popover'].indexOf !== -1;
+      }
     },
     dense: Boolean,
     value: {}
@@ -37,6 +42,9 @@ export default {
     },
     getNestedLevel () {
       return this.nestedLevel;
+    },
+    getToggleNested () {
+      return this.toggleNested;
     },
     getToggleNestedType () {
       return this.toggleNestedType;

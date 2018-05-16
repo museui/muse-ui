@@ -97,7 +97,7 @@
   <mu-list>
     <mu-sub-header>Today</mu-sub-header>
     <mu-list-item avatar button :ripple="false">
-      <mu-list-item-action avatar>
+      <mu-list-item-action>
         <mu-avatar>
           <img src="../../assets/images/avatar1.jpg">
         </mu-avatar>
@@ -108,7 +108,7 @@
       </mu-list-item-action>
     </mu-list-item>
     <mu-list-item avatar button :ripple="false">
-      <mu-list-item-action avatar>
+      <mu-list-item-action>
         <mu-avatar>
           <img src="../../assets/images/avatar2.jpg">
         </mu-avatar>
@@ -119,7 +119,7 @@
       </mu-list-item-action>
     </mu-list-item>
     <mu-list-item avatar button :ripple="false">
-      <mu-list-item-action avatar>
+      <mu-list-item-action>
         <mu-avatar>
           <img src="../../assets/images/avatar3.jpg">
         </mu-avatar>
@@ -130,7 +130,7 @@
       </mu-list-item-action>
     </mu-list-item>
     <mu-list-item avatar button :ripple="false">
-      <mu-list-item-action avatar>
+      <mu-list-item-action>
         <mu-avatar>
           <img src="../../assets/images/avatar4.jpg">
         </mu-avatar>
@@ -141,7 +141,7 @@
       </mu-list-item-action>
     </mu-list-item>
     <mu-list-item avatar button :ripple="false">
-      <mu-list-item-action avatar>
+      <mu-list-item-action>
         <mu-avatar>
           <img src="../../assets/images/uicon.jpg">
         </mu-avatar>
@@ -156,7 +156,7 @@
   <mu-list>
     <mu-sub-header>History</mu-sub-header>
     <mu-list-item avatar button :ripple="false">
-      <mu-list-item-action avatar>
+      <mu-list-item-action>
         <mu-avatar>
           <img src="../../assets/images/avatar5.jpg">
         </mu-avatar>
@@ -167,7 +167,7 @@
       </mu-list-item-action>
     </mu-list-item>
     <mu-list-item avatar button :ripple="false">
-      <mu-list-item-action avatar>
+      <mu-list-item-action>
         <mu-avatar>
           <img src="../../assets/images/avatar6.jpg">
         </mu-avatar>
@@ -208,7 +208,7 @@
         <mu-icon value="star" color="pink"></mu-icon>
       </mu-list-item-action>
       <mu-list-item-title>Mike Li</mu-list-item-title>
-      <mu-list-item-action avatar>
+      <mu-list-item-action>
         <mu-avatar>
           <img src="../../assets/images/avatar1.jpg">
         </mu-avatar>
@@ -217,7 +217,7 @@
     <mu-list-item avatar button :ripple="false">
       <mu-list-item-action></mu-list-item-action>
       <mu-list-item-title>Maco Mai</mu-list-item-title>
-      <mu-list-item-action avatar>
+      <mu-list-item-action>
         <mu-avatar>
           <img src="../../assets/images/avatar2.jpg">
         </mu-avatar>
@@ -226,7 +226,7 @@
     <mu-list-item avatar button :ripple="false">
       <mu-list-item-action></mu-list-item-action>
       <mu-list-item-title>Alex Qin</mu-list-item-title>
-      <mu-list-item-action avatar>
+      <mu-list-item-action>
         <mu-avatar>
           <img src="../../assets/images/avatar3.jpg">
         </mu-avatar>
@@ -235,7 +235,7 @@
     <mu-list-item avatar button :ripple="false">
       <mu-list-item-action></mu-list-item-action>
       <mu-list-item-title>Allen Qun</mu-list-item-title>
-      <mu-list-item-action avatar>
+      <mu-list-item-action>
         <mu-avatar>
           <img src="../../assets/images/avatar4.jpg">
         </mu-avatar>
@@ -271,7 +271,7 @@
   <mu-list textline="two-line">
     <mu-sub-header inset>Folders</mu-sub-header>
     <mu-list-item avatar button :ripple="false">
-      <mu-list-item-action avatar>
+      <mu-list-item-action>
         <mu-avatar>
           <mu-icon value="folder"></mu-icon>
         </mu-avatar>
@@ -287,7 +287,7 @@
       </mu-list-item-action>
     </mu-list-item>
     <mu-list-item avatar button :ripple="false">
-      <mu-list-item-action avatar>
+      <mu-list-item-action>
         <mu-avatar>
           <mu-icon value="folder"></mu-icon>
         </mu-avatar>
@@ -303,7 +303,7 @@
       </mu-list-item-action>
     </mu-list-item>
     <mu-list-item avatar button :ripple="false">
-      <mu-list-item-action avatar>
+      <mu-list-item-action>
         <mu-avatar>
           <mu-icon value="folder"></mu-icon>
         </mu-avatar>
@@ -323,7 +323,7 @@
   <mu-list textline="two-line">
     <mu-sub-header inset>Files</mu-sub-header>
     <mu-list-item avatar button :ripple="false">
-      <mu-list-item-action avatar>
+      <mu-list-item-action>
         <mu-avatar color="blue">
           <mu-icon value="assignment"></mu-icon>
         </mu-avatar>
@@ -339,7 +339,7 @@
       </mu-list-item-action>
     </mu-list-item>
     <mu-list-item avatar button :ripple="false">
-      <mu-list-item-action avatar>
+      <mu-list-item-action>
         <mu-avatar color="yellow600">
           <mu-icon value="insert_chart"></mu-icon>
         </mu-avatar>
@@ -383,7 +383,7 @@
   <mu-list textline="three-line">
     <mu-sub-header>今天</mu-sub-header>
     <mu-list-item avatar :ripple="false" button>
-      <mu-list-item-action avatar>
+      <mu-list-item-action>
         <mu-avatar>
           <img src="../../assets/images/avatar1.jpg">
         </mu-avatar>
@@ -397,7 +397,7 @@
     </mu-list-item>
     <mu-divider></mu-divider>
     <mu-list-item avatar :ripple="false" button>
-      <mu-list-item-action avatar>
+      <mu-list-item-action>
         <mu-avatar>
           <img src="../../assets/images/avatar2.jpg">
         </mu-avatar>
@@ -412,7 +412,7 @@
     </mu-list-item>
     <mu-divider></mu-divider>
     <mu-list-item avatar :ripple="false" button>
-      <mu-list-item-action avatar>
+      <mu-list-item-action>
         <mu-avatar>
           <img src="../../assets/images/avatar3.jpg">
         </mu-avatar>
@@ -427,7 +427,7 @@
     </mu-list-item>
     <mu-divider></mu-divider>
     <mu-list-item avatar :ripple="false" button>
-      <mu-list-item-action avatar>
+      <mu-list-item-action>
         <mu-avatar>
           <img src="../../assets/images/uicon.jpg">
         </mu-avatar>
@@ -517,7 +517,7 @@
           Have any ideas about what we should get Heidi for her
         </mu-list-item-sub-title>
       </mu-list-item-content>
-      <mu-list-item-action >
+      <mu-list-item-action>
         <mu-list-item-after-text>12 hr</mu-list-item-after-text>
         <mu-checkbox color="yellow700" v-model="selects" value="value4"  uncheck-icon="star_border" checked-icon="star"></mu-checkbox>
       </mu-list-item-action>
@@ -669,8 +669,8 @@ export default {
     </mu-button>
     Inbox
   </mu-appbar>
-   <mu-list>
-    <mu-list-item button :ripple="false" toggle-nested nested :open="open === 'send'" @toggle-nested="open = arguments[0] ? 'send' : ''">
+   <mu-list toggle-nested>
+    <mu-list-item button :ripple="false" nested :open="open === 'send'" @toggle-nested="open = arguments[0] ? 'send' : ''">
       <mu-list-item-action>
         <mu-icon value="send"></mu-icon>
       </mu-list-item-action>
@@ -688,7 +688,7 @@ export default {
         <mu-list-item-title>List Item 3</mu-list-item-title>
       </mu-list-item>
     </mu-list-item>
-    <mu-list-item button :ripple="false" toggle-nested nested :open="open === 'drafts'" @toggle-nested="open = arguments[0] ? 'drafts' : ''">
+    <mu-list-item button :ripple="false" nested :open="open === 'drafts'" @toggle-nested="open = arguments[0] ? 'drafts' : ''">
       <mu-list-item-action>
         <mu-icon value="drafts"></mu-icon>
       </mu-list-item-action>
@@ -706,7 +706,7 @@ export default {
         <mu-list-item-title>List Item 3</mu-list-item-title>
       </mu-list-item>
     </mu-list-item>
-    <mu-list-item button :ripple="false" toggle-nested nested :open="open === 'inbox'" @toggle-nested="open = arguments[0] ? 'inbox' : ''">
+    <mu-list-item button :ripple="false" nested :open="open === 'inbox'" @toggle-nested="open = arguments[0] ? 'inbox' : ''">
       <mu-list-item-action>
         <mu-icon value="inbox"></mu-icon>
       </mu-list-item-action>
@@ -724,7 +724,7 @@ export default {
         <mu-list-item-title>List Item 3</mu-list-item-title>
       </mu-list-item>
     </mu-list-item>
-    <mu-list-item button :ripple="false" toggle-nested nested :open="open === 'stared'" @toggle-nested="open = arguments[0] ? 'stared' : ''">
+    <mu-list-item button :ripple="false" nested :open="open === 'stared'" @toggle-nested="open = arguments[0] ? 'stared' : ''">
       <mu-list-item-action>
         <mu-icon value="grade"></mu-icon>
       </mu-list-item-action>
@@ -753,6 +753,44 @@ export default {
 </style>
 ```
 :::
+
+## List Props
+
+| 参数 | 介绍 | 类型 | 可选值 | 默认值 |
+|------|------|------|------|------|
+| textline | 行数，用于改变列表项的高度 | String | two-line/three-line | — | 
+| dense | 是否是密集型列表，会调整列表项的高度 | Boolean | — | — |
+| toggle-nested | 是否可以切换显示/隐藏嵌套列表 | Boolean | — | — |
+| toggle-nested-type | 切换显示类型 | String | expand/popover | — |
+| value | 需要和子组件 `mu-list-item` 配合使用时生效 | — | — | — |
+
+## List Events
+
+| 名称  | 介绍  | 回调参数 |
+|-------|------|--------|
+| change | 当列表项被点击，`value` 需要被改变时触发事件 | (value) | 
+
+## List Item Props
+
+| 参数 | 介绍 | 类型 | 可选值 | 默认值 |
+|------|------|------|------|------|
+| button | 列表项是否可点击 | Boolean | — | — |
+| avatar | 是否包含 `mu-avatar` 组件，会相应调整列表项高度 | Boolean | — | — |
+| nested | 是否允许嵌套列表 | Boolean | — | — |
+| nested-list-class | 嵌套列表的样式 | Boolean | — | — |
+| open | 嵌套列表是否显示 | Boolean | — | true | 
+| value | 当 `value` 和 `mu-list` 组件的 `value` 值相等时，组件呈现被选择状态 | — | — | — |
+| ripple | 是否有波纹效果 | Boolean | — | true |
+| href | 相当于 a 标签的 href属性，设置之后会渲染成 a 标签，默认是使用button标签 | String | — | — |
+| to | 表示目标路由的链接。设置之后组件会被渲染成`router-link`, 当被点击后，内部会立刻把 `to` 的值传到 `router.push()`，所以这个值可以是一个字符串或者是描述目标位置的对象。 | String/Object | - | - |
+| tag | 有时候想要 `<router-link>` 渲染成某种标签，例如 `<li>`。 于是我们使用 `tag prop` 类指定何种标签，同样它还是会监听点击，触发导航。 | String |  - | - |
+| active-class | 设置 链接激活时使用的 CSS 类名。默认值可以通过路由的构造选项 `linkActiveClass` 来全局配置。 | String |  - | - |
+| event | 声明可以用来触发导航的事件。可以是一个字符串或是一个包含字符串的数组 | String/Array | — | click |
+| exact | "是否激活" 默认类名的依据是 **inclusive match** （全包含匹配）。 举个例子，如果当前的路径是 `/a` 开头的，那么 `<router-link to="/a">` 也会被设置 CSS 类名。| Boolean | — | — |
+| exact-active-class | 配置当链接被精确匹配的时候应该激活的 class。注意默认值也是可以通过路由构造函数选项 linkExactActiveClass 进行全局配置的。 | String | — | router-link-exact-active |
+| append | 设置 `append` 属性后，则在当前（相对）路径前添加基路径。例如，我们从 `/a` 导航到一个相对路径 b，如果没有配置 append，则路径为 /b，如果配了，则为 /a/b | Boolean | — | false |
+| replace | 设置 `replace` 属性的话，当点击时，会调用 `router.replace()` 而不是 `router.push()`，于是导航后不会留下 history 记录。 | Boolean | — | false |
+
 
 <script>
 export default {

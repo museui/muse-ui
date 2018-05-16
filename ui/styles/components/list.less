@@ -49,7 +49,6 @@
   align-items: center;
   padding: 0 16px;
   color: @textColor;
-  position: relative;
   &.has-avatar {
     height: 56px;
   }
@@ -75,10 +74,6 @@
   &:last-child .mu-icon-button {
     margin-right: -12px;
   }
-  &.is-avatar {
-    max-height: 72px;
-    align-self: flex-start;
-  }
   &.is-more {
     flex-direction: column;
     justify-content: space-between;
@@ -87,6 +82,10 @@
     padding-bottom: 8px;
   }
 }
+.mu-list-three-line .mu-item-action .mu-avatar {
+  margin-top: -18px;
+}
+
 .mu-item-title,
 .mu-item-content {
   flex: 1 1 auto;
