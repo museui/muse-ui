@@ -168,7 +168,7 @@ export default {
 
 ## 不同语言环境
 
-通过自定义 dateTimeFormat 来格式化不同语言的显示
+通过自定义 `date-time-format` 来格式化不同语言的显示
 
 :::demo
 ```html
@@ -181,7 +181,7 @@ export default {
 </mu-container>
 <script>
 const dayAbbreviation = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
-const dayList = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']l
+const dayList = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 const monthList = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep',
   'Oct', 'Nov', 'Dec'];
 const monthLongList = ['January', 'February', 'March', 'April', 'May', 'June',
