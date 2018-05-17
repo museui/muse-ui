@@ -1,4 +1,4 @@
-import { convertClass } from '../../utils';
+import { convertClass, getColor } from '../../utils';
 
 export default {
   props: {
@@ -10,6 +10,10 @@ export default {
     },
     getTextColorClass () {
       return this.getNormalColorClass(this.textColor, true);
+    },
+    getColor (color, disabled) {
+      if (disabled || this.disabled) return;
+      return getColor(color);
     },
     getNormalColorClass (color, text) {
       const classObj = {};

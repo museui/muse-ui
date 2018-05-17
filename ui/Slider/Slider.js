@@ -1,8 +1,10 @@
 import keycode from 'keycode';
 import FocusRipple from '../internal/FocusRipple';
+import color from '../internal/mixins/color';
 
 export default {
   name: 'mu-slider',
+  mixins: [color],
   model: {
     prop: 'value',
     event: 'change'
@@ -24,6 +26,8 @@ export default {
       type: Number,
       default: 0.1
     },
+    thumbColor: String,
+    trackColor: String,
     disabled: Boolean,
     displayValue: {
       type: Boolean,
@@ -42,13 +46,6 @@ export default {
     percent () {
       const percentNum = (this.value - this.min) / (this.max - this.min) * 100;
       return percentNum > 100 ? 100 : percentNum < 0 ? 0 : percentNum;
-    },
-    sliderClass () {
-      return {
-        zero: this.value <= this.min,
-        active: this.active,
-        disabled: this.disabled
-      };
     }
   },
   created () {
@@ -206,7 +203,16 @@ export default {
     }
   },
   render (h) {
+    const colorClass = this.getNormalColorClass(this.color, true);
+    const color = this.getColor(this.color);
+    const thumbColorClass = this.getNormalColorClass(this.thumbColor);
+    const thumbColor = this.getColor(this.thumbColor);
+    const thumbTextColorClass = this.getNormalColorClass(this.thumbColor, true);
+    const trackColorClass = this.getNormalColorClass(this.trackColor);
+    const trackColor = this.getColor(this.trackColor);
+
     const percent = this.percent + '%';
+
     const input = h('input', {
       attrs: {
         ...this.$attrs,
@@ -216,9 +222,10 @@ export default {
     });
 
     const displayValue = this.displayValue ? h('div', {
-      staticClass: 'mu-slider-display-value',
+      staticClass: 'mu-slider-display-value ' + thumbColorClass,
       style: {
-        left: percent
+        left: percent,
+        'background-color': thumbColor
       }
     }, [
       h('span', {
@@ -227,19 +234,26 @@ export default {
     ]) : undefined;
 
     const thumb = h('div', {
-      staticClass: 'mu-slider-thumb',
+      staticClass: ['mu-slider-thumb', thumbColorClass, thumbTextColorClass].join(' '),
       style: {
-        left: this.percent + '%'
+        left: this.percent + '%',
+        color: thumbColor,
+        'background-color': thumbColor
       }
     }, [
       (this.focused || this.hover) && !this.active ? h(FocusRipple) : undefined
     ]);
 
     return h('div', {
-      staticClass: 'mu-slider',
-      class: this.sliderClass,
+      staticClass: 'mu-slider ' + colorClass,
+      class: {
+        zero: this.value <= this.min,
+        active: this.active,
+        disabled: this.disabled
+      },
+      style: { color },
       attrs: {
-        tabindex: 0
+        tabindex: this.disabled ? -1 : 0
       },
       on: {
         ...this.$listeners,
@@ -257,7 +271,12 @@ export default {
     }, [
       input,
       displayValue,
-      h('div', { staticClass: 'mu-slider-track' }),
+      h('div', {
+        staticClass: `mu-slider-track ${trackColorClass}`,
+        style: {
+          'background-color': trackColor
+        }
+      }),
       h('div', { staticClass: 'mu-slider-fill', style: { width: percent }}),
       thumb
     ]);

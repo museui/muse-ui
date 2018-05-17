@@ -9,6 +9,7 @@
   cursor: default;
   user-select:none;
   outline: none;
+  color: @primaryColor;
 }
 
 .mu-slider-display-value {
@@ -19,9 +20,8 @@
   height: 26px;
   text-align: center;
   line-height: 26px;
-  color: @alternateTextColor;
   font-size: 10px;
-  background: @primaryColor;
+  background: currentColor;
   border-radius: 50% 50% 50% 0;
   transform: scale(1) rotate(-45deg) translate(-11px, -8px);
   .mu-slider.active &{
@@ -29,6 +29,7 @@
   }
   .display-value-text {
     display: inline-block;
+    color: @alternateTextColor;
     transform: rotate(45deg);
   }
 }
@@ -47,7 +48,7 @@
   position: absolute;
   height: 2px;
   width: 100%;
-  background-color: @primaryColor;
+  background-color: currentColor;
   left: 0;
   top: 50%;
   margin-top: -1px;
@@ -61,8 +62,8 @@
   top: 50%;
   width: 12px;
   height: 12px;
-  background-color: @primaryColor;
-  color: @primaryColor;
+  background-color: currentColor;
+  color: currentColor;
   border-radius: 50%;
   transform: translate(-50%, -50%);
   transition: background 450ms @easeOutFunction, border-color 450ms @easeOutFunction, width 450ms @easeOutFunction, height 450ms @easeOutFunction;
