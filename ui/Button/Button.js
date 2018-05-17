@@ -3,7 +3,6 @@ import ripple from '../internal/mixins/ripple';
 import button from '../internal/mixins/button';
 import color from '../internal/mixins/color';
 import AbstractButton from '../internal/AbstractButton';
-import { getColor } from '../utils';
 
 export default {
   name: 'mu-button',
@@ -38,7 +37,7 @@ export default {
       staticClass: 'mu-button',
       class: this.buttonClass,
       style: {
-        [this.flat || this.icon ? 'color' : 'background-color' ]: !this.disabled ? getColor(this.color) : ''
+        [this.flat || this.icon ? 'color' : 'background-color' ]: !this.disabled ? this.getColor(this.color) : ''
       },
       props: {
         wrapperClass: 'mu-button-wrapper',

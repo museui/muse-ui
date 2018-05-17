@@ -1,4 +1,4 @@
-import { getColor, getWidth } from '../utils';
+import { getWidth } from '../utils';
 import color from '../internal/mixins/color';
 
 export default {
@@ -19,8 +19,8 @@ export default {
         width: size,
         height: size,
         'font-size': this.size / 2 + 'px',
-        'background-color': getColor(this.color),
-        'color': getColor(this.textColor)
+        'background-color': this.getColor(this.color),
+        'color': this.getColor(this.textColor)
       },
       on: this.$listeners
     }, [h('div', { class: 'mu-avatar-inner' }, this.$slots.default)]);

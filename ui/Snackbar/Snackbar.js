@@ -1,5 +1,4 @@
 import popup from '../internal/mixins/popup';
-import { getColor } from '../utils';
 import { SlideTopTransition, SlideBottomTransition } from '../internal/transitions';
 import color from '../internal/mixins/color';
 
@@ -38,8 +37,8 @@ export default {
         staticClass: `mu-snackbar ${this.getColorClass()} ${this.getTextColorClass()}`,
         style: {
           'z-index': this.zIndex,
-          'background-color': getColor(this.color),
-          'color': getColor(this.textColor)
+          'background-color': this.getColor(this.color),
+          'color': this.getColor(this.textColor)
         },
         class: {
           ['mu-snackbar-' + this.position]: !!this.position

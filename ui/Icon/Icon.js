@@ -1,4 +1,4 @@
-import { getColor } from '../utils';
+import color from '../internal/mixins/color';
 
 export default {
   name: 'mu-icon',
@@ -19,12 +19,12 @@ export default {
       'font-size': props.size + 'px',
       'width': props.size + 'px',
       'height': props.size + 'px',
-      'color': getColor(props.color)
+      'color': color.methods.getColor(props.color)
     };
     const isMaterial = props.value.indexOf(':') !== 0;
     const text = isMaterial ? props.value : '';
 
-    data.staticClass = `${data.staticClass || ''} mu-icon ${isMaterial ? 'material-icons' : props.value.substring(1)} ${props.left ? 'mu-icon-left' : ''} ${props.right ? 'mu-icon-right' : ''}`;
+    data.staticClass = `${data.staticClass || ''} mu-icon ${color.methods.getNormalColorClass(props.color, true)} ${isMaterial ? 'material-icons' : props.value.substring(1)} ${props.left ? 'mu-icon-left' : ''} ${props.right ? 'mu-icon-right' : ''}`;
     return h('i', data, text);
   }
 };

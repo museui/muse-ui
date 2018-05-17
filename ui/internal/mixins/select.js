@@ -1,7 +1,6 @@
 import TouchRipple from '../TouchRipple';
 import keycode from 'keycode';
 import color from './color';
-import { getColor } from '../../utils';
 
 export default function (type = 'checkbox') { // checkbox
   const iconProps = type === 'switch' ? {} : { uncheckIcon: String, checkedIcon: String };
@@ -80,7 +79,7 @@ export default function (type = 'checkbox') { // checkbox
             tabindex: this.disabled ? -1 : this.tabIndex ? this.tabIndex : 0
           },
           style: {
-            color: this.checked ? getColor(this.color) : ''
+            color: this.checked && !this.disabled ? this.getColor(this.color) : ''
           },
           class: {
             'label-left': this.labelLeft,

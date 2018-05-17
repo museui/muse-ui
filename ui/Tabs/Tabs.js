@@ -1,4 +1,4 @@
-import { getColor, isNotNull } from '../utils';
+import { isNotNull } from '../utils';
 import resize from '../internal/directives/resize';
 import color from '../internal/mixins/color';
 
@@ -54,7 +54,7 @@ export default {
       return this.tabIndex++;
     },
     getActiveColor () {
-      return getColor(this.textColor);
+      return this.getColor(this.textColor);
     },
     addTab (tab) {
       this.tabs.push(tab);
@@ -116,7 +116,7 @@ export default {
           'mu-secondary-color': this.indicatorColor === 'secondary'
         },
         style: {
-          'background-color': getColor(this.indicatorColor)
+          'background-color': this.getColor(this.indicatorColor)
         },
         ref: 'line'
       })

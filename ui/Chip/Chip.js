@@ -1,4 +1,3 @@
-import { getColor } from '../utils';
 import color from '../internal/mixins/color';
 
 export default {
@@ -41,8 +40,8 @@ export default {
         tabindex: 0
       },
       style: {
-        color: getColor(this.textColor),
-        backgroundColor: getColor(this.color)
+        color: this.getColor(this.textColor),
+        backgroundColor: this.getColor(this.color)
       },
       on: this.$listeners
     }, [this.$slots.default, this.delete ? svgDeleteIcon : undefined]);

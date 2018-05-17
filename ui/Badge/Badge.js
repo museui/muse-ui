@@ -1,4 +1,4 @@
-import { getColor, convertClass } from '../utils';
+import { convertClass } from '../utils';
 import color from '../internal/mixins/color';
 
 export default {
@@ -18,7 +18,7 @@ export default {
     const badge = h('em', {
       staticClass: `mu-badge ${convertClass(this.badgeClass).join(' ')} ${this.getColorClass()}`,
       style: {
-        'background-color': getColor(this.color)
+        'background-color': this.getColor(this.color)
       },
       class: {
         'mu-badge-circle': this.circle,

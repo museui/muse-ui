@@ -1,4 +1,3 @@
-import { getColor } from '../utils';
 import color from '../internal/mixins/color';
 
 export default {
@@ -28,7 +27,7 @@ export default {
       h('div', {
         staticClass: `mu-circle-spinner active ${this.getColorClass()}`,
         style: {
-          'border-color': getColor(this.color)
+          'border-color': this.getColor(this.color)
         }
       }, [
         h('div', { staticClass: 'mu-circle-clipper left' }, [

@@ -1,5 +1,4 @@
 import Circular from './Circular';
-import { getColor } from '../utils';
 import color from '../internal/mixins/color';
 
 export default {
@@ -47,7 +46,7 @@ export default {
     circularPathStyle () {
       const relVal = this.getRelativeValue();
       return {
-        stroke: getColor(this.color),
+        stroke: this.getColor(this.color),
         'stroke-dasharray': `${this.getArcLength(relVal)}, ${this.getArcLength(1)}`
       };
     }

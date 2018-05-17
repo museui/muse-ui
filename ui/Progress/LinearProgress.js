@@ -1,4 +1,3 @@
-import { getColor } from '../utils';
 import color from '../internal/mixins/color';
 
 export default {
@@ -33,7 +32,7 @@ export default {
     linearStyle () {
       const { color, mode, percent } = this;
       return {
-        'background-color': getColor(color),
+        'background-color': this.getColor(color),
         width: mode === 'determinate' ? percent + '%' : ''
       };
     },
@@ -51,7 +50,7 @@ export default {
       h('div', {
         staticClass: 'mu-linear-progress-background',
         style: {
-          'background-color': getColor(this.color)
+          'background-color': this.getColor(this.color)
         }
       }),
       h('div', {

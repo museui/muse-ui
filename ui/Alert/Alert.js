@@ -1,5 +1,4 @@
 import color from '../internal/mixins/color';
-import { getColor } from '../utils';
 
 export default {
   name: 'mu-alert',
@@ -46,7 +45,7 @@ export default {
       this.show ? h('div', {
         staticClass: `mu-alert ${this.getColorClass()}`,
         style: {
-          'background-color': getColor(this.color)
+          'background-color': this.getColor(this.color)
         },
         on: this.$listeners
       }, [this.$slots.default, this.delete ? deleteIcon : undefined]) : undefined

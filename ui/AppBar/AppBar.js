@@ -1,6 +1,6 @@
 import Paper from '../Paper';
 import color from '../internal/mixins/color';
-import { getColor } from '../utils';
+
 export default {
   name: 'mu-appbar',
   mixins: [color],
@@ -23,7 +23,7 @@ export default {
     return h(Paper, {
       staticClass: `mu-appbar ${this.getColorClass()}`,
       style: {
-        'background-color': getColor(this.color)
+        'background-color': this.getColor(this.color)
       },
       props: {
         zDepth: this.zDepth,
