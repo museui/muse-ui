@@ -14,8 +14,6 @@ export default {
     },
     textColor: String,
     message: String,
-    action: String,
-    actionColor: String,
     position: {
       type: String,
       default: 'bottom',

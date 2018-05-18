@@ -6,7 +6,7 @@
   color: @alternateTextColor;
   background-color: @textColor;
   border-radius: 2px;
-  padding: 6px 24px;
+  padding: 6px 16px;
   line-height: 20px;
   font-size: 14px;
   min-height: 48px;
@@ -15,7 +15,7 @@
   position: fixed;
   flex-wrap: wrap;
   .depth(1);
-  > .mu-icon {
+  .mu-icon {
     margin-right: 16px;
     font-size: 20px;
   }
@@ -27,6 +27,7 @@
   align-items: center;
   flex-shrink: 0;
   margin-right: -16px;
+  padding: 0 8px;
   margin-left: auto;
   .mu-circle-ripple {
     background-color: #fff;
@@ -94,7 +95,17 @@
     max-width: 100%;
     left: 0;
     right: 0;
+    transform: translate3d(0, 0, 0);
+    &.mu-slide-bottom-transition-enter,
+    &.mu-slide-bottom-transition-leave-active {
+      transform: translate3d(0, 100%, 0);
+    }
+    &.mu-slide-top-transition-enter,
+    &.mu-slide-top-transition-leave-active {
+      transform: translate3d(0, -100%, 0);
+    }
   }
+
   .mu-snackbar-top-start,
   .mu-snackbar-top-end {
     top: 0;
