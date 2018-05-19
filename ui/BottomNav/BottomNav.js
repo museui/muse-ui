@@ -1,13 +1,16 @@
+import color from '../internal/mixins/color';
 import AbstractButton from '../internal/AbstractButton';
 
 export default {
   name: 'mu-bottom-nav',
+  mixins: [color],
   provide () {
     return {
       getBottomNavValue: this.getBottomNavValue,
       getBottomNavShift: this.getBottomNavShift,
       bottomNavItemClick: this.bottomNavItemClick,
-      getDefaultVal: this.getDefaultVal
+      getDefaultVal: this.getDefaultVal,
+      getActiveColor: this.getActiveColor
     };
   },
   props: {
@@ -30,6 +33,12 @@ export default {
       if (!this.index) this.index = 0;
       return this.index++;
     },
+    getActiveColor () {
+      return {
+        className: this.getNormalColorClass(this.color, true),
+        color: this.getColor(this.color)
+      };
+    },
     bottomNavItemClick (value) {
       this.activeValue = value;
     }
@@ -47,7 +56,11 @@ export default {
     return h(AbstractButton, {
       class: {
         'mu-bottom-nav': true,
-        'mu-bottom-nav-shift': this.shift
+        'mu-bottom-nav-shift': this.shift,
+        [this.getColorClass(false)]: this.shift
+      },
+      style: {
+        'background-color': this.shift ? this.getColor(this.color) : ''
       },
       props: {
         ripple: this.shift,

@@ -6,7 +6,13 @@ import { isNotNull } from '../utils';
 export default {
   name: 'mu-bottom-nav-item',
   mixins: [route, ripple],
-  inject: ['getBottomNavValue', 'getBottomNavShift', 'getDefaultVal', 'bottomNavItemClick'],
+  inject: [
+    'getBottomNavValue',
+    'getBottomNavShift',
+    'getDefaultVal',
+    'bottomNavItemClick',
+    'getActiveColor'
+  ],
   props: {
     icon: String,
     title: String,
@@ -23,6 +29,12 @@ export default {
   computed: {
     active () {
       return this.getBottomNavValue() === this.itemVal;
+    },
+    activeClassName () {
+      return this.getActiveColor().className;
+    },
+    activeColor () {
+      return this.getActiveColor().color;
     },
     shift () {
       return this.getBottomNavShift();
@@ -44,7 +56,12 @@ export default {
     return h(AbstractButton, {
       staticClass: 'mu-bottom-item',
       class: {
-        'mu-bottom-item-active': this.active
+        'mu-bottom-item-active': this.active,
+        'is-shift': this.active && this.shift,
+        [this.activeClassName]: !this.shift && this.active
+      },
+      style: {
+        color: !this.shift && this.active ? this.activeColor : ''
       },
       props: {
         ripple: !this.shift && this.ripple,

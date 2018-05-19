@@ -43,6 +43,7 @@ export default {
 
 | 参数 | 介绍 | 类型 | 可选值 | 默认值 |
 |------|------|------|------|------|
+| color | 导航颜色 | String | — | — |
 | shift | 是否使用 shift 模式 | Boolean | — | false |
 | value | 配合 bottom-nav-item 使用， 可使用 `.sync` 修饰符进行双向绑定 | — | — | — |
 
