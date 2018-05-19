@@ -234,7 +234,7 @@ function isDesktop () {
   padding-right: 16px;
   margin-bottom: 100px;
 }
-@media (min-width: 480px) {
+@media (min-width: 600px) {
   .app-content {
     padding-top: 64px;
   }

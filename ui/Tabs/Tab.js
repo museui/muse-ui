@@ -1,11 +1,21 @@
 import route from '../internal/mixins/route';
+import ripple from '../internal/mixins/ripple';
 import { isNotNull } from '../utils';
 import AbstractButton from '../internal/AbstractButton';
 
 export default {
   name: 'mu-tab',
-  mixins: [route],
-  inject: ['tabClick', 'getActiveValue', 'getDefaultVal', 'addTab', 'removeTab', 'setTabHighLineStyle', 'getActiveColor'],
+  mixins: [route, ripple],
+  inject: [
+    'tabClick',
+    'getActiveValue',
+    'getDefaultVal',
+    'addTab',
+    'removeTab',
+    'setTabHighLineStyle',
+    'getActiveColor',
+    'getTabsInverse'
+  ],
   props: {
     disabled: Boolean,
     value: {}
@@ -52,13 +62,21 @@ export default {
         ...this.generateRouteProps(),
         containerElement: 'div',
         wrapperClass: 'mu-tab-wrapper',
-        disabled: this.disabled
+        disabled: this.disabled,
+        ripple: this.ripple,
+        rippleOpacity: this.rippleOpacity,
+        rippleColor: this.rippleColor
       },
       style: {
-        color: this.active ? this.activeColor : ''
+        color: this.active ? this.activeColor.color : ''
       },
       class: {
-        'mu-tab-active': this.active
+        'mu-tab-active': this.active,
+        'is-inverse': this.active &&
+                    this.getTabsInverse() &&
+                    !this.activeColor.className &&
+                    !this.activeColor.color,
+        [this.activeColor.className]: this.active
       },
       on: {
         click: this.handleClick

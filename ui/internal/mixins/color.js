@@ -5,24 +5,24 @@ export default {
     color: String
   },
   methods: {
-    getColorClass () {
-      return this.getNormalColorClass(this.color);
+    getColorClass (addInverse = true) {
+      return this.getNormalColorClass(this.color, false, addInverse);
     },
     getTextColorClass () {
-      return this.getNormalColorClass(this.textColor, true);
+      return this.getNormalColorClass(this.textColor, true, true);
     },
     getColor (color, disabled) {
       if (disabled || this.disabled) return;
       return getColor(color);
     },
-    getNormalColorClass (color, text) {
+    getNormalColorClass (color, text = false, addInverse = true) {
       const classObj = {};
       const themes = ['primary', 'secondary', 'success', 'warning', 'info', 'error'];
 
       themes.forEach((theme) => {
         classObj[`mu-${theme}${text ? '-text' : ''}-color`] = color === theme;
       });
-      if (!text) classObj['mu-inverse'] = !!color;
+      if (!text && addInverse) classObj['mu-inverse'] = !!color;
 
       return convertClass(classObj).join(' ');
     }

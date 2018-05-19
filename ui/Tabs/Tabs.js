@@ -13,15 +13,15 @@ export default {
       removeTab: this.removeTab,
       setTabHighLineStyle: this.setTabHighLineStyle,
       getActiveValue: this.getActiveValue,
-      getActiveColor: this.getActiveColor
+      getActiveColor: this.getActiveColor,
+      getTabsInverse: this.getInverse
     };
   },
   props: {
+    inverse: Boolean,
     indicatorColor: String,
-    textColor: String,
     fullWidth: Boolean,
     center: Boolean,
-    fixed: Boolean,
     value: {}
   },
   data () {
@@ -54,7 +54,13 @@ export default {
       return this.tabIndex++;
     },
     getActiveColor () {
-      return this.getColor(this.textColor);
+      return this.inverse ? {
+        className: this.getNormalColorClass(this.color, true),
+        color: this.getColor(this.color)
+      } : { className: '', color: '' };
+    },
+    getInverse () {
+      return this.inverse;
     },
     addTab (tab) {
       this.tabs.push(tab);
@@ -93,15 +99,14 @@ export default {
   },
   render (h) {
     return h('div', {
-      staticClass: `mu-tabs ${this.getColorClass()} ${this.getTextColorClass()}`,
+      staticClass: `mu-tabs ${!this.inverse ? this.getColorClass(false) : ''}`,
       class: {
         'mu-tabs-full-width': this.fullWidth,
         'mu-tabs-center': this.center,
-        'mu-tabs-inverse': this.textColor,
-        'mu-tabs-fixed': this.fixed
+        'mu-tabs-inverse': this.inverse
       },
       style: {
-        'background-color': !this.textColor ? getColor(this.color) : ''
+        'background-color': !this.inverse ? this.getColor(this.color) : ''
       },
       directives: [{
         name: 'resize',
@@ -110,11 +115,7 @@ export default {
     }, [
       this.$slots.default,
       h('span', {
-        staticClass: 'mu-tab-link-highlight',
-        class: {
-          'mu-primary-color': this.indicatorColor === 'primary',
-          'mu-secondary-color': this.indicatorColor === 'secondary'
-        },
+        staticClass: `mu-tab-link-highlight ${this.getNormalColorClass(this.indicatorColor, false, false)}`,
         style: {
           'background-color': this.getColor(this.indicatorColor)
         },
