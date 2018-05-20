@@ -1,5 +1,4 @@
 import input from '../internal/mixins/input';
-import Icon from '../Icon';
 import Textarea from './Textarea';
 
 export default {

@@ -37,7 +37,7 @@ export default {
       const showPageCount = this.showPageCount;
       const arr = [];
       const start = 1;
-      const end = this.totalPage; 
+      const end = this.totalPage;
 
       if (end <= showPageCount + 2) {
         for (let i = start; i <= end; i++) {

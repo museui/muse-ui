@@ -75,12 +75,12 @@ export default {
       const listValue = this.getListValue();
       const nestedPadding = this.toggleNestedType === 'expand' ? 18 * this.nestedLevel : 0;
       const itemClass = [
-          'mu-item',
-          this.nestedOpen && this.nested ? 'is-open' : '',
-          this.avatar ? 'has-avatar' : '',
-          this.textline,
-          isNotNull(listValue) && isNotNull(this.value) && listValue === this.value ? 'is-selected' : ''
-        ].join(' ');
+        'mu-item',
+        this.nestedOpen && this.nested ? 'is-open' : '',
+        this.avatar ? 'has-avatar' : '',
+        this.textline,
+        isNotNull(listValue) && isNotNull(this.value) && listValue === this.value ? 'is-selected' : ''
+      ].join(' ');
 
       return h(AbstractButton, {
         class: 'mu-item-wrapper',
