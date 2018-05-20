@@ -27,6 +27,9 @@ export default {
     }, {
       name: 'Grid',
       path: '/grid'
+    }, {
+      name: 'Typography',
+      path: '/typography'
     }]
   }, {
     name: '组件',
@@ -136,6 +139,15 @@ export default {
     }, {
       name: 'Tooltip',
       path: '/tooltip'
+    }]
+  }, {
+    name: '更多',
+    children: [{
+      name: '更新日志',
+      path: '/changelog'
+    }, {
+      name: '参与贡献',
+      path: '/contributing'
     }]
   }]
 };
