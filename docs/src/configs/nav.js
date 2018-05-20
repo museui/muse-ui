@@ -1,6 +1,7 @@
 export default {
   'zh-CN': [{
-    name: '快速上手',
+    name: '开发指南',
+    icon: 'explore',
     children: [{
       name: '安装',
       path: '/installation'
@@ -9,7 +10,8 @@ export default {
       path: '/usage'
     }]
   }, {
-    name: '风格与布局',
+    name: '风格',
+    icon: 'color_lens',
     children: [{
       name: 'Color',
       path: '/color'
@@ -28,11 +30,12 @@ export default {
     }]
   }, {
     name: '组件',
+    icon: 'dashboard',
     children: [{
       name: 'Alert',
       path: '/alert'
     }, {
-      name: 'AppBar',
+      name: 'App Bar',
       path: '/appbar'
     }, {
       name: 'Avatar',

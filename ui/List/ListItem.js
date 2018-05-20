@@ -12,6 +12,7 @@ export default {
   inject: [
     'listItemClick',
     'getNestedLevel',
+    'getNestedIndent',
     'getListValue',
     'getToggleNested',
     'getToggleNestedType'
@@ -36,6 +37,9 @@ export default {
   computed: {
     nestedLevel () {
       return this.getNestedLevel();
+    },
+    nestedIndent () {
+      return this.getNestedIndent();
     },
     toggleNested () {
       return this.getToggleNested();
@@ -73,7 +77,7 @@ export default {
     },
     createItem (h) {
       const listValue = this.getListValue();
-      const nestedPadding = this.toggleNestedType === 'expand' ? 18 * this.nestedLevel : 0;
+      const nestedPadding = this.nestedIndent && this.toggleNestedType === 'expand' ? 18 * this.nestedLevel : 0;
       const itemClass = [
         'mu-item',
         this.nestedOpen && this.nested ? 'is-open' : '',
@@ -114,6 +118,7 @@ export default {
       const list = h(List, {
         class: this.nestedListClass,
         props: {
+          nestedIndent: this.nestedIndent,
           toggleNested: this.toggleNested,
           toggleNestedType: this.toggleNestedType,
           nestedLevel: this.nestedLevel + 1,

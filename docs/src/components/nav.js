@@ -39,6 +39,11 @@ export default {
             </mu-list-item-action> : null
           }
           {
+            !menu.children && menu.badge ? <mu-list-item-action>
+              <mu-badge color='secondary' content={menu.badge}/>
+            </mu-list-item-action> : null
+          }
+          {
             menu.children && menu.children.map((m) => {
               return this.createMenuItem(h, m, true);
             })

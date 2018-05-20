@@ -1,5 +1,6 @@
 import * as Colors from './colors';
 export default {
+  type: 'light',
   primary: Colors.blue,
   secondary: Colors.pinkA200,
   success: Colors.green,

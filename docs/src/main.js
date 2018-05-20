@@ -4,6 +4,7 @@ import './assets/font-icons/style.css';
 import './assets/github-markdown.css';
 import './assets/atom-one-light.css';
 import MuseUI from '../../ui';
+import './theme.js';
 import App from './App';
 import ColorPalette from './components/color-palette';
 import DemoBlock from './components/demo-block';

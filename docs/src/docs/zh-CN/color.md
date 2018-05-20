@@ -6,10 +6,15 @@ Muse-UI 中所有组件的 `color` 或者 `*-color` 属性，都可以使用 `pr
 
 :::demo
 ```html
-<mu-button color="primary"> primary </mu-button>
-<mu-button color="success"> success </mu-button>
-<mu-button color="indigo400"> indigo400 </mu-button>
-<mu-button color="#1565c0"> Custom </mu-button>
+<mu-button class="demo-color-btn" color="primary"> primary </mu-button>
+<mu-button class="demo-color-btn" color="success"> success </mu-button>
+<mu-button class="demo-color-btn" color="indigo400"> indigo400 </mu-button>
+<mu-button class="demo-color-btn" color="#1565c0"> Custom </mu-button>
+<style>
+.demo-color-btn {
+  margin: 8px;
+}
+</style>
 ```
 :::
 
@@ -32,3 +37,9 @@ theme.add('custom-theme', {
 以下是按原色分组的Material Design调色板列表。
 
 <color-palette />
+
+<style>
+.demo-color-btn {
+  margin: 8px;
+}
+</style>

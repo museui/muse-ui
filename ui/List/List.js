@@ -6,7 +6,8 @@ export default {
       getNestedLevel: this.getNestedLevel,
       getToggleNested: this.getToggleNested,
       getToggleNestedType: this.getToggleNestedType,
-      getListValue: this.getListValue
+      getListValue: this.getListValue,
+      getNestedIndent: this.getNestedIndent
     };
   },
   props: {
@@ -20,6 +21,10 @@ export default {
       validator (val) {
         return ['', 'two-line', 'three-line'].indexOf(val) !== -1;
       }
+    },
+    nestedIndent: {
+      type: Boolean,
+      default: true
     },
     toggleNested: Boolean,
     toggleNestedType: {
@@ -42,6 +47,9 @@ export default {
     },
     getNestedLevel () {
       return this.nestedLevel;
+    },
+    getNestedIndent () {
+      return this.nestedIndent;
     },
     getToggleNested () {
       return this.toggleNested;

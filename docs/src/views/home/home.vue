@@ -20,18 +20,18 @@
       <img src="../../assets/images/img1.png" alt="">
       <h3 class="mu-feature-item-title">组件丰富</h3>
       <div class="mu-feature-item-desc">
-        Muse UI 基本实现了 Material Design 设计规范类的所有组件，另外还开发许多的功能性的组件
+        Muse UI 拥有40多个UI 组件，用于适应不同业务环境。
       </div>
     </mu-col>
     <mu-col lg="4" span="12" class="mu-feature-item">
       <img src="../../assets/images/img2.png" alt="">
       <h3 class="mu-feature-item-title">可定制</h3>
       <div class="mu-feature-item-desc">
-        Muse UI 使用less文件，所有的颜色都有一个变量维护，通过编写 less 文件完成自定义主题，另外组件内部也提供一些修改效果的参数
+        Muse UI 自定义主题方式及为优雅，仅需少量代码即可完成主题样式替换。
       </div>
     </mu-col>
     <mu-col lg="4" span="12" class="mu-feature-item">
-      <img src="../../assets/images/img1.png" alt="">
+      <img src="../../assets/images/img3.png" alt="">
       <h3 class="mu-feature-item-title">基于 Vue 2.0</h3>
       <div class="mu-feature-item-desc">
         Muse UI 基于 Vue2.0 开发，Vue2.0是当下最快的前端框架之一，小巧，api友好，可用于开发的复杂单页应用

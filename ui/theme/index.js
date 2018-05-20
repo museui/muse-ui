@@ -63,9 +63,10 @@ export default {
     themes.push(theme);
     return this;
   },
-  add (name, varObj = {}, extend = 'light') {
+  add (name, varObj = {}, extendName = 'light') {
     const theme = {
-      ...vars[extend],
+      name,
+      ...vars[extendName],
       ...varObj
     };
     vars[name] = theme;
@@ -73,6 +74,6 @@ export default {
   },
   use (name) {
     const themeEl = getThemeStyle();
-    themeEl.innerHTML = themes.map((theme) => theme(vars[name])).join(' ');
+    themeEl.innerHTML = themes.map((theme) => theme(vars[name], vars[name].type, name)).join(' ');
   }
 };

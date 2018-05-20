@@ -18,9 +18,20 @@
             <mu-list-item-action>
               <img :src="item.img(24)" alt="">
             </mu-list-item-action>
-            <mu-list-item-content>
-              <mu-list-item-title>{{item.desc}}</mu-list-item-title>
-            </mu-list-item-content>
+            <mu-list-item-title>{{item.desc}}</mu-list-item-title>
+          </mu-list-item>
+        </mu-list>
+      </mu-menu>
+      <mu-menu slot="right" :open.sync="openTheme">
+        <mu-button flat>
+          <mu-icon value="color_lens"></mu-icon>
+        </mu-button>
+        <mu-list slot="content" :value="theme" @change="changeTheme">
+          <mu-list-item button v-for="item in themes" :value="item.value" :key="item.value">
+            <mu-list-item-action>
+              <mu-icon :color="item.color" value="brightness_1"></mu-icon>
+            </mu-list-item-action>
+            <mu-list-item-title>{{item.label}}</mu-list-item-title>
           </mu-list-item>
         </mu-list>
       </mu-menu>
@@ -85,6 +96,7 @@ import AppNavDrawer from './components/nav';
 import BackTop from './components/back-top';
 import langs from './configs/lang';
 import locale from './locale';
+import MuseUI from 'muse-ui';
 import { changeLocale } from './locale';
 import { FadeTransition } from '../../ui/internal/transitions';
 
@@ -94,6 +106,17 @@ export default {
     return {
       docked: isDesktop(),
       activeMenu: false,
+      themes: [{
+        label: 'Light',
+        value: 'light',
+        color: 'blue'
+      }, {
+        label: 'Dark',
+        value: 'dark',
+        color: 'blue700'
+      }],
+      theme: 'light',
+      openTheme: false,
       locale,
       langs,
       open: false
@@ -126,6 +149,11 @@ export default {
       } else {
         location.reload();
       }
+    },
+    changeTheme (theme) {
+      this.theme = theme;
+      this.openTheme = false;
+      MuseUI.theme.use(theme);
     },
     changeNav () {
       const desktop = isDesktop();

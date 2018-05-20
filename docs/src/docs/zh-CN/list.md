@@ -758,8 +758,9 @@ export default {
 
 | 参数 | 介绍 | 类型 | 可选值 | 默认值 |
 |------|------|------|------|------|
-| textline | 行数，用于改变列表项的高度 | String | two-line/three-line | — | 
+| textline | 行数，用于改变列表项的高度 | String | two-line/three-line | — |
 | dense | 是否是密集型列表，会调整列表项的高度 | Boolean | — | — |
+| nested-indent | 嵌套列表是否有缩进距离 | Boolean | — | true |
 | toggle-nested | 是否可以切换显示/隐藏嵌套列表 | Boolean | — | — |
 | toggle-nested-type | 切换显示类型 | String | expand/popover | — |
 | value | 需要和子组件 `mu-list-item` 配合使用时生效 | — | — | — |
@@ -768,7 +769,7 @@ export default {
 
 | 名称  | 介绍  | 回调参数 |
 |-------|------|--------|
-| change | 当列表项被点击，`value` 需要被改变时触发事件 | (value) | 
+| change | 当列表项被点击，`value` 需要被改变时触发事件 | (value) |
 
 ## List Item Props
 
@@ -778,7 +779,7 @@ export default {
 | avatar | 是否包含 `mu-avatar` 组件，会相应调整列表项高度 | Boolean | — | — |
 | nested | 是否允许嵌套列表 | Boolean | — | — |
 | nested-list-class | 嵌套列表的样式 | Boolean | — | — |
-| open | 嵌套列表是否显示 | Boolean | — | true | 
+| open | 嵌套列表是否显示 | Boolean | — | true |
 | value | 当 `value` 和 `mu-list` 组件的 `value` 值相等时，组件呈现被选择状态 | — | — | — |
 | ripple | 是否有波纹效果 | Boolean | — | true |
 | href | 相当于 a 标签的 href属性，设置之后会渲染成 a 标签，默认是使用button标签 | String | — | — |
