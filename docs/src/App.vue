@@ -114,6 +114,10 @@ export default {
         label: 'Dark',
         value: 'dark',
         color: 'blue700'
+      }, {
+        label: 'Carbon',
+        value: 'carbon',
+        color: '#474a4f'
       }],
       theme: 'light',
       openTheme: false,

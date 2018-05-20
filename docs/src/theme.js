@@ -95,5 +95,17 @@ const appTheme = (theme, type) => {
   `;
 };
 
+MuseUI.theme.add('carbon', {
+  primary: '#474a4f',
+  secondary: '#ff5252',
+  text: {
+    primary: '#474a4f',
+    secondary: '#7e848c',
+    alternate: '#fff',
+    disabled: 'rgba(0, 0, 0, 0.38)',
+    hint: 'rgba(0, 0, 0, 0.38)'
+  },
+  divider: '#edeff2'
+});
 MuseUI.theme.addCreateTheme(markdownTheme);
 MuseUI.theme.addCreateTheme(appTheme);
