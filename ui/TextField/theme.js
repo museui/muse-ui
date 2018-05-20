@@ -3,10 +3,10 @@ export default (theme) => {
   .mu-input {
     color: ${theme.text.secondary};
   }
-  .mu-input.focus-state {
+  .mu-input__focus {
     color: ${theme.primary};
   }
-  .mu-input.error {
+  .mu-input__error {
     color: ${theme.error};
   }
   .mu-input.disabled .mu-input-content {
@@ -15,7 +15,7 @@ export default (theme) => {
   .mu-input-help {
     color: ${theme.text.secondary};
   }
-  .mu-input.error .mu-input-help {
+  .mu-input__error .mu-input-help {
     color: ${theme.error};
   }
   .mu-input.has-label .mu-input-label.float {
@@ -30,7 +30,7 @@ export default (theme) => {
   .mu-input-focus-line {
     background-color: ${theme.primary};
   }
-  .mu-input-focus-line.error {
+  .mu-input-focus-line__error {
     background-color: ${theme.error};
   }
   .mu-input-suffix-text,

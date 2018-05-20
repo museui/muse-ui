@@ -10,7 +10,7 @@
 
 * [Home Page](http://www.muse-ui.org/)
 * [中文文档](http://www.muse-ui.org/#/install)
-* [English Docs](http://www.muse-ui.org/?lang=en)
+<!-- * [English Docs](http://www.muse-ui.org/?lang=en) -->
 
 ## Install
 
@@ -36,7 +36,7 @@ Vue.use(MuseUI)
 ## Browser Support
 
 * IE 10+
-* Andorid 4.4+
+* Andorid 4.4.4+
 * IOS 7+
 * Chrome
 * Firefox

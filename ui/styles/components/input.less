@@ -13,18 +13,20 @@
   &.has-icon {
     padding-left: 56px;
   }
-  &.focus-state {
-    color: @primaryColor;
-  }
-  &.error{
-    color: @errorColor;
-  }
   &.has-label{
     min-height: 72px;
   }
   &.is-solo {
     margin-bottom: 0;
   }
+}
+
+.mu-input__focus {
+  color: @primaryColor;
+}
+
+.mu-input__error {
+  color: @errorColor;
 }
 
 .mu-input-icon {
@@ -70,7 +72,7 @@
   .mu-input.has-icon & {
     left: 56px;
   }
-  .mu-input.error &{
+  .mu-input__error & {
     color: @errorColor;
   }
   .mu-input.disabled &{
@@ -139,7 +141,7 @@
   margin: 0;
   height: 2px;
   border: none;
-  background-color: @primaryColor;
+  background-color: currentColor;
   position: absolute;
   left: 0;
   right: 0;
@@ -153,8 +155,9 @@
   &.focus {
     transform: scaleX(1);
   }
-  &.error {
-    transform: scaleX(1);
-    background-color: @errorColor;
-  }
+}
+
+.mu-input-focus-line__error {
+  transform: scaleX(1);
+  background-color: @errorColor;
 }

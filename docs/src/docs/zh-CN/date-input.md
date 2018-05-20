@@ -236,6 +236,7 @@ export default {
 | ok-label | 确定按钮的文本 | String | — | 确定 |
 | cancel-label | 取消按钮的文本 | String | — | 取消 |
 | value | 用于 `v-model` 绑定 | Date, String | — | — |
+| color | 输入框颜色 | String | — | — |
 | icon | 输入框左边的图标 | String | — | — |
 | label | 标签文本 | String | — | — |
 | label-float | 标签是否浮动 | Boolean | — | false |

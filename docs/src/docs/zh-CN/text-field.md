@@ -77,6 +77,7 @@ export default {
 
 | 参数 | 介绍 | 类型 | 可选值 | 默认值 |
 |------|------|------|------|------|
+| color | 输入框颜色 | String | — | — |
 | icon | 输入框左边的图标 | String | — | — |
 | label | 标签文本 | String | — | — |
 | label-float | 标签是否浮动 | Boolean | — | false |

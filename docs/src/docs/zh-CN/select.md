@@ -253,6 +253,7 @@ export default {
 | textline | 弹出列表项显示行数，设置之后会改变选项的高度 | String | two-line/three-line | — |
 | dense | 减小弹出列表最大高度 | Boolean | — | true |
 | value | 用于 `v-model` 绑定 | — | — | — |
+| color | 输入框颜色 | String | — | — |
 | icon | 输入框左边的图标 | String | — | — |
 | label | 标签文本 | String | — | — |
 | label-float | 标签是否浮动 | Boolean | — | false |

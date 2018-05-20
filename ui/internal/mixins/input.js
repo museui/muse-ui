@@ -1,7 +1,9 @@
 import '../../styles/components/input.less';
 import Icon from '../../Icon';
+import color from './color';
 export default {
   inheritAttrs: false,
+  mixins: [color],
   props: {
     icon: String,
     label: String,
@@ -26,11 +28,11 @@ export default {
   computed: {
     inputClass () {
       return {
-        'focus-state': this.isFocused,
+        'mu-input__focus': this.isFocused,
         'has-label': this.label,
         'no-empty-state': this.inputValue,
         'has-icon': this.icon,
-        'error': this.errorText,
+        'mu-input__error': this.errorText,
         'multi-line': this.multiLine,
         'disabled': this.disabled,
         'full-width': this.fullWidth,
@@ -71,7 +73,7 @@ export default {
         this.disabled ? undefined : h('div', {
           staticClass: 'mu-input-focus-line',
           class: {
-            error: this.errorText,
+            'mu-input-focus-line__error': this.errorText,
             focus: this.isFocused
           }
         })
@@ -99,9 +101,15 @@ export default {
     },
     createInput (h, data, children, defaultAction) {
       data.staticClass = `${data.staticClass || ''} mu-input-content`;
+      const isFocus = !this.disabled && !this.errorText && this.isFocused;
+      const colorClass = isFocus ? this.getNormalColorClass(this.color, true) : '';
+      const color = isFocus ? this.getColor(this.color) : '';
       return h('div', {
-        staticClass: 'mu-input',
-        class: this.inputClass
+        staticClass: `mu-input ${colorClass}`,
+        class: this.inputClass,
+        style: {
+          color
+        }
       }, [
         this.createIcon(h),
         this.createLabel(h),
