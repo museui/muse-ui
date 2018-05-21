@@ -159,6 +159,7 @@ export default {
 
 | 参数 | 介绍 | 类型 | 可选值 | 默认值 |
 |------|------|------|------|------|
+| color | 日期选择器颜色 | String | — | — |
 | date | 选择日期，支持 `.sync` 修饰符 | Date | — | new Date() |
 | type | 选择的类型 | String | date/year/month | date |
 | date-time-format | 日期格式化对象，用于改变不同的语言环境显示 | Object | — | — |

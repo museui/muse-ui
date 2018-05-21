@@ -1,6 +1,6 @@
 @import "../import.less";
 .mu-datepicker {
-  color: @textColor;
+  color: @primaryColor;
   user-select: none;
   width: 310px;
 }
@@ -35,6 +35,7 @@
   line-height: 15px;
   opacity: 0.5;
   text-align: center;
+  color: @textColor;
 }
 
 .mu-datepicker-week-day {
@@ -170,10 +171,11 @@
   top: 0px;
   left: 0px;
   line-height: 48px;
+  color: @textColor;
   &.clickable {
     cursor: pointer;
     &:hover {
-      color: @primaryColor;
+      color: currentColor;
     }
   }
 }
@@ -184,6 +186,7 @@
   height: 24px;
   width: 24px;
   user-select: none;
+  color: @textColor;
 }
 
 .mu-datepicker-year-container {
@@ -216,11 +219,10 @@
   width: 100%;
   font-weight: 700;
   display: block;
-  background-color: @primaryColor;
+  background-color: currentColor;
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
   border-bottom-left-radius: 0;
-  color: @alternateTextColor;
   padding: 20px;
   .mu-datepicker-landspace & {
     width: 165px;
@@ -242,6 +244,7 @@
   opacity: 0.7;
   transition: all .45s @easeOutFunction;
   margin-bottom: 10px;
+  color: @alternateTextColor;
   .mu-date-display.selected-year & {
     opacity: 1;
   }
@@ -267,6 +270,7 @@
   transition: all .45s @easeOutFunction;
   width: 100%;
   font-weight: 500;
+  color: @alternateTextColor;
   .mu-date-display.selected-year & {
     opacity: 0.7;
   }
@@ -334,6 +338,7 @@
   position: relative;
   border: 10px;
   width: 42px;
+  color: inherit;
   &.disabled {
     opacity: .4;
     cursor: not-allowed;
@@ -352,7 +357,7 @@
   top: 0;
   left: 4px;
   height: 34px;
-  background-color: @primaryColor;
+  background-color: currentColor;
   border-radius: 50%;
   opacity: 0;
   transform: scale(0);
@@ -375,7 +380,7 @@
   position: relative;
   color: @textColor;
   .mu-day-button.now & {
-    color: @primaryColor;
+    color: currentColor;
   }
   .mu-day-button:hover:not(:disabled) &,
   .mu-day-button.selected & {
@@ -398,6 +403,7 @@
   width: 84px;
   height: 56px;
   padding: 10px 0;
+  color: inherit;
   &:disabled {
     cursor: not-allowed;
   }
@@ -408,7 +414,7 @@
   right: 0;
   top: 10px;
   bottom: 10px;
-  background-color: @primaryColor;
+  background-color: currentColor;
   border-radius: 2px;
   opacity: 0;
 
@@ -448,6 +454,7 @@
   font-weight: inherit;
   text-align: center;
   line-height: inherit;
+  color: currentColor;
 }
 
 .mu-year-button-text {
@@ -458,11 +465,11 @@
   position: relative;
   top: -1px;
   .mu-year-button.selected & {
-    color: @primaryColor;
+    color: currentColor;
     font-size: 26px;
     font-weight: 500;
   }
   .mu-year-button:hover & {
-    color: @primaryColor;
+    color: currentColor;
   }
 }
