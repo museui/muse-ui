@@ -48,6 +48,7 @@ export default {
       default: '—'
     },
     actions: Boolean,
+    clockType: TimePicker.props.format,
     okLabel: {
       type: String,
       default: '确定'
@@ -151,7 +152,7 @@ export default {
               ...this.generateTimePickerProps(),
               time: this.date,
               noDisplay: false,
-              format: '24hr'
+              format: this.clockType
             },
             on: {
               change: this.handleTimeChange

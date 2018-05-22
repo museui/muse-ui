@@ -76,7 +76,7 @@ export default {
       <mu-date-input  icon="today" v-model="value7" label="选择日期" type="date" label-float full-width></mu-date-input>
     </mu-col>
     <mu-col span="12" lg="4" sm="6">
-      <mu-date-input  icon="today" v-model="value8" label="选择时间" type="time" label-float full-width></mu-date-input>
+      <mu-date-input  icon="today" landscape v-model="value8" label="选择时间" type="time" label-float full-width></mu-date-input>
     </mu-col>
     <mu-col span="12" lg="4" sm="6">
       <mu-date-input  icon="today" v-model="value9" label="选择年份" type="year" label-float full-width></mu-date-input>
@@ -231,6 +231,7 @@ export default {
 |------|------|------|------|------|
 | container | 弹出方式 | String | popover/dialog/bottomSheet  | popover |
 | type | 选择的类型 | String | date/time/year/month/dateTime | date |
+| clock-type | 时间选择器显示类型 | String | ampm/24hr | ampm |
 | format | 显示在输入框中的格式 | String | — | yyyy—MM-dd  |
 | actions | 是否显示底部的确定/取消按钮 | Boolean | — | false |
 | ok-label | 确定按钮的文本 | String | — | 确定 |

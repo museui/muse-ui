@@ -28,6 +28,7 @@ const innerPositions = [
   [-37, 50]
 ];
 export default {
+  inject: ['getColorObject'],
   props: {
     value: {
       type: Number,
@@ -51,8 +52,8 @@ export default {
     },
     numberClass () {
       return {
-        selected: this.selected,
-        inner: this.isInner
+        'mu-timepicker-number__selected': this.selected,
+        'mu-timepicker-number__inner': this.isInner
       };
     },
     numberStyle () {
@@ -72,10 +73,14 @@ export default {
     }
   },
   render (h) {
+    const { color, bgColorClass } = this.getColorObject();
     return h('span', {
-      staticClass: 'mu-timepicker-number',
+      staticClass: 'mu-timepicker-number ' + (this.selected ? bgColorClass : ''),
       class: this.numberClass,
-      style: this.numberStyle
+      style: {
+        'background-color': this.selected ? color : '',
+        ...this.numberStyle
+      }
     }, this.value === 0 ? '00' : this.value);
   }
 };

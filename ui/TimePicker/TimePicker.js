@@ -1,9 +1,16 @@
 import TimeDisplay from './TimeDisplay';
 import ClockHours from './Hours';
 import ClockMinutes from './Minutes';
+import color from '../internal/mixins/color';
 
 export default {
   name: 'mu-time-picker',
+  provide () {
+    return {
+      getColorObject: this.getColorObject
+    };
+  },
+  mixins: [color],
   props: {
     format: {
       type: String,
@@ -27,6 +34,13 @@ export default {
     };
   },
   methods: {
+    getColorObject () {
+      return {
+        color: this.getColor(this.color),
+        colorClass: this.getNormalColorClass(this.color, true),
+        bgColorClass: this.getNormalColorClass(this.color)
+      };
+    },
     getAffix () {
       if (this.format !== 'ampm') return '';
       const hours = this.time.getHours();
@@ -73,8 +87,12 @@ export default {
     }
   },
   render (h) {
+    const { color, colorClass } = this.getColorObject();
     return h('div', {
-      staticClass: 'mu-timepicker',
+      staticClass: 'mu-timepicker ' + colorClass,
+      style: {
+        color
+      },
       class: {
         'mu-timepicker-landspace': this.landscape
       }
@@ -93,7 +111,10 @@ export default {
         }
       }) : undefined,
       h('div', {
-        staticClass: 'mu-timepicker-container'
+        staticClass: 'mu-timepicker-container',
+        class: {
+          'mu-timepicker-container__action': this.$slots.default && this.$slots.default.length > 0
+        }
       }, [
         h('div', { staticClass: 'mu-timepicker-circle' }),
         this.mode === 'hour' ? h(ClockHours, {

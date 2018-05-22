@@ -2,6 +2,7 @@
 .mu-timepicker {
   user-select: none;
   width: 280px;
+  color: @primaryColor;
 }
 
 .mu-timepicker-landspace {
@@ -18,8 +19,11 @@
   position: relative;
   .mu-timepicker-landspace & {
     width: 300px;
-    padding-bottom: 62px;
   }
+}
+
+.mu-timepicker-container__action {
+  padding-bottom: 62px;
 }
 
 .mu-timepicker-circle {
@@ -54,8 +58,7 @@
   padding: 14px 0px;
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
-  background-color: @primaryColor;
-  color: @alternateTextColor;
+  background-color: currentColor;
   .mu-timepicker-landspace & {
     width: 179px;
     position: relative;
@@ -63,6 +66,7 @@
 }
 
 .mu-time-display-text {
+  color: @alternateTextColor;
   margin: 6px 0px;
   line-height: 58px;
   height: 58px;
@@ -169,20 +173,21 @@
   box-sizing: border-box;
   transform: translate(0px, 5px);
   user-select: none;
-  &.selected {
-    background-color: @primaryColor;
-    color: @alternateTextColor;
-  }
-  &.inner {
-    width: 28px;
-    height: 28px;
-    line-height: 28px;
-  }
+  color: @textColor;
+}
+.mu-timepicker-number__inner {
+  width: 28px;
+  height: 28px;
+  line-height: 28px;
+}
+.mu-timepicker-number__selected {
+  background-color: @primaryColor;
+  color: @alternateTextColor;
 }
 
 .mu-timepicker-pointer {
   height: 40%;
-  background-color: @primaryColor;
+  background-color: currentColor;
   width: 2px;
   left: calc(50% - 1px);
   position: absolute;
@@ -197,7 +202,7 @@
 .mu-timepicker-pointer-mark {
   box-sizing: content-box;
   background-color: @alternateTextColor;
-  border: 4px solid @primaryColor;
+  border: 4px solid currentColor;
   width: 7px;
   height: 7px;
   position: absolute;
