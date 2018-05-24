@@ -1,10 +1,11 @@
-export default (theme) => {
+export default (theme, type) => {
   return `
   .mu-timepicker {
     color: ${theme.primary};
+    background-color: ${theme.background.paper};
   }
-  .mu-time-display-text {
-    color: ${theme.text.alternate};
+  .mu-time-display {
+    background-color: ${type === 'dark' ? '#555555' : ''};
   }
   .mu-timepicker-number {
     color: ${theme.text.primary};

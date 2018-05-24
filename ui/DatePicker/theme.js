@@ -1,7 +1,8 @@
-export default (theme) => {
+export default (theme, type) => {
   return `
   .mu-datepicker {
     color: ${theme.primary};
+    background-color: ${theme.background.paper};
   }
   .mu-datepicker-week {
     color: ${theme.text.primary};
@@ -12,14 +13,8 @@ export default (theme) => {
   .mu-datepicker-svg-icon {
     color: ${theme.text.primary};
   }
-  .mu-datepicker-year {
-    background-color: ${theme.background.paper};
-  }
-  .mu-date-display-year {
-    color: ${theme.text.alternate};
-  }
-  .mu-date-display-monthday {
-    color: ${theme.text.alternate};
+  .mu-date-display {
+    background-color: ${type === 'dark' ? '#555555' : ''};
   }
   .mu-day-button-text {
     color: ${theme.text.primary};
