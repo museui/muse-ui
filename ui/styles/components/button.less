@@ -51,7 +51,7 @@
     }
     &.hover {
       .mu-button-wrapper {
-        background-color: fade(@alternateTextColor, 30%);
+        background-color: fade(@alternateTextColor, 10%);
       }
     }
   }
@@ -122,30 +122,6 @@
   font-size: 14px;
   color: @textColor;
   background: transparent;
-  &.mu-primary-color{
-    color: @primaryColor;
-    background-color: transparent;
-  }
-  &.mu-secondary-color{
-    color: @secondaryColor;
-    background-color: transparent;
-  }
-  &.mu-success-color {
-    color: @successColor;
-    background-color: transparent;
-  }
-  &.mu-warning-color {
-    color: @warningColor;
-    background-color: transparent;
-  }
-  &.mu-info-color {
-    color: @infoColor;
-    background-color: transparent;
-  }
-  &.mu-error-color {
-    color: @errorColor;
-    background-color: transparent;
-  }
   &.hover {
     background-color: fade(@textColor, 10%);
   }
@@ -196,32 +172,8 @@
   background: none;
   color: inherit;
   background-color: transparent;
-  .mu-circle-ripple{
+  .mu-circle-ripple {
     color: @textColor;
-  }
-  &.mu-primary-color{
-    color: @primaryColor;
-    background-color: transparent;
-  }
-  &.mu-secondary-color{
-    color: @secondaryColor;
-    background-color: transparent;
-  }
-  &.mu-success-color {
-    color: @successColor;
-    background-color: transparent;
-  }
-  &.mu-warning-color {
-    color: @warningColor;
-    background-color: transparent;
-  }
-  &.mu-info-color {
-    color: @infoColor;
-    background-color: transparent;
-  }
-  &.mu-error-color {
-    color: @errorColor;
-    background-color: transparent;
   }
   &.disabled{
     color: @disabledColor;
@@ -257,7 +209,7 @@
   &:active{
     .depth(3);
     .mu-button-wrapper {
-      background-color: fade(@alternateTextColor, 30%);
+      background-color: fade(@alternateTextColor, 10%);
     }
   }
 

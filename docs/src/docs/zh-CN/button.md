@@ -233,6 +233,7 @@
 | 参数 | 介绍 | 类型 | 可选值 | 默认值 |
 |------|------|------|------|------|
 | color | 按钮的颜色 | String | — | - |
+| textColor | 文本颜色 | String | — | — |
 | ripple | 是否有波纹效果 | Boolean | — | true |
 | fab | 浮动按钮 | Boolean | — | false |
 | flat | 扁平按钮 | Boolean | — | false |

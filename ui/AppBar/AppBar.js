@@ -12,7 +12,8 @@ export default {
     title: {
       type: String,
       default: ''
-    }
+    },
+    textColor: String
   },
   render (h) {
     const slots = this.$slots;
@@ -21,9 +22,10 @@ export default {
     const center = h('div', { staticClass: 'mu-appbar-title' }, slots.default && slots.default.length > 0 ? slots.default : this.title);
 
     return h(Paper, {
-      staticClass: `mu-appbar ${this.getColorClass()}`,
+      staticClass: `mu-appbar ${this.getColorClass()} ${this.getTextColorClass()}`,
       style: {
-        'background-color': this.getColor(this.color)
+        'background-color': this.getColor(this.color),
+        color: this.getColor(this.textColor)
       },
       props: {
         zDepth: this.zDepth,

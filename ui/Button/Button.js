@@ -14,10 +14,13 @@ export default {
     small: Boolean,
     large: Boolean,
     round: Boolean,
+    textColor: String,
     fullWidth: Boolean
   },
   computed: {
     buttonClass () {
+      const colorClass = this.getNormalColorClass(this.color, this.icon || this.flat);
+      const textColorClass = this.getTextColorClass();
       return {
         'mu-fab-button': this.fab,
         'mu-flat-button': this.flat,
@@ -26,7 +29,8 @@ export default {
         'mu-button-small': this.small,
         'mu-button-large': this.large,
         'mu-button-full-width': !this.fab && !this.icon && this.fullWidth,
-        [this.getColorClass()]: true,
+        [colorClass]: true,
+        [textColorClass]: true,
         'mu-button-round': this.round,
         'is-focus': this.focus
       };
@@ -37,7 +41,8 @@ export default {
       staticClass: 'mu-button',
       class: this.buttonClass,
       style: {
-        [this.flat || this.icon ? 'color' : 'background-color' ]: !this.disabled ? this.getColor(this.color) : ''
+        [this.flat || this.icon ? 'color' : 'background-color' ]: this.getColor(this.color),
+        color: this.getColor(this.textColor)
       },
       props: {
         wrapperClass: 'mu-button-wrapper',

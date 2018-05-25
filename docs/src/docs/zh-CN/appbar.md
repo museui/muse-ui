@@ -59,6 +59,7 @@
 | 参数 | 介绍 | 类型 | 可选值 | 默认值 |
 |------|------|------|------|------|
 | color | 组件的颜色 | String | — | — |
+| textColor | 文本的颜色 | String | — | — |
 | title | 组件的标题，定义了 default slot | String | — | — |
 | z-depth | 阴影深度 | Number | 0-5 | 1 |
 
