@@ -1,6 +1,6 @@
 import MuseUI from 'muse-ui';
 
-const markdownTheme = (theme) => {
+const markdownTheme = (theme, type) => {
   return `
   .markdown-body {
     color: ${theme.text.primary};
@@ -27,6 +27,7 @@ const markdownTheme = (theme) => {
   .markdown-body h6 .octicon-link {
     color: ${theme.text.primary};
   }
+
   .markdown-body blockquote {
     border-left-color: ${theme.text.disabled};
     background-color: #fff;
@@ -50,6 +51,70 @@ const markdownTheme = (theme) => {
   `;
 };
 
+const highlightTheme = (theme, type) => {
+  return type === 'dark' ? `
+   pre.hljs {
+    color: #abb2bf;
+    background: #282c34 !important;
+  }
+
+  .hljs-comment,
+  .hljs-quote {
+    color: #5c6370;
+  }
+
+  .hljs-doctag,
+  .hljs-keyword,
+  .hljs-formula {
+    color: #c678dd;
+  }
+
+  .hljs-section,
+  .hljs-name,
+  .hljs-selector-tag,
+  .hljs-deletion,
+  .hljs-subst {
+    color: #e06c75;
+  }
+
+  .hljs-literal {
+    color: #56b6c2;
+  }
+
+  .hljs-string,
+  .hljs-regexp,
+  .hljs-addition,
+  .hljs-attribute,
+  .hljs-meta-string {
+    color: #98c379;
+  }
+
+  .hljs-built_in,
+  .hljs-class .hljs-title {
+    color: #e6c07b;
+  }
+
+  .hljs-attr,
+  .hljs-variable,
+  .hljs-template-variable,
+  .hljs-type,
+  .hljs-selector-class,
+  .hljs-selector-attr,
+  .hljs-selector-pseudo,
+  .hljs-number {
+    color: #d19a66;
+  }
+
+  .hljs-symbol,
+  .hljs-bullet,
+  .hljs-link,
+  .hljs-meta,
+  .hljs-selector-id,
+  .hljs-title {
+    color: #61aeee;
+  }
+  ` : '';
+}
 const appTheme = (theme, type) => {
   return `
   .mu-app-drawer {
@@ -108,4 +173,5 @@ MuseUI.theme.add('carbon', {
   divider: '#edeff2'
 });
 MuseUI.theme.addCreateTheme(markdownTheme);
+MuseUI.theme.addCreateTheme(highlightTheme);
 MuseUI.theme.addCreateTheme(appTheme);

@@ -22,14 +22,14 @@ export default {
       name: 'Icon',
       path: '/icon'
     }, {
+      name: 'Typography',
+      path: '/typography'
+    }, {
       name: 'Layout',
       path: '/layout'
     }, {
       name: 'Grid',
       path: '/grid'
-    }, {
-      name: 'Typography',
-      path: '/typography'
     }]
   }, {
     name: '组件',
