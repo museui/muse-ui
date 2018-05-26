@@ -7,7 +7,7 @@ export default {
   props: {
     zDepth: {
       type: Number,
-      default: 1
+      default: 4
     },
     title: {
       type: String,

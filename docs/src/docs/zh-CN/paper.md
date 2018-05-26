@@ -37,7 +37,7 @@
 
 | 参数 | 介绍 | 类型 | 可选值 | 默认值 |
 |------|------|------|------|------|
-| z-depth | 纸片的阴影程度 | Number | 1—6 | — |
+| z-depth | 纸片的阴影程度 | Number | 0—24 | — |
 | round | 圆角的纸片 | Boolean | — | false |
 | circle | 圆形的纸片 | Boolean | — | false |
 

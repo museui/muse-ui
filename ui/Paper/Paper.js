@@ -9,13 +9,19 @@ export default {
       type: Boolean,
       default: true
     },
-    zDepth: Number
+    zDepth: {
+      type: Number,
+      default: 0,
+      validator (val) {
+        return val >= 0 && val < 25;
+      }
+    }
   },
   render (h, { data, props, children }) {
     const classObj = {
       'mu-paper-circle': props.circle,
       'mu-paper-round': props.rounded,
-      ['mu-paper-' + props.zDepth]: !!props.zDepth
+      ['mu-paper-elevation-' + props.zDepth]: !!props.zDepth
     };
     data.staticClass = `mu-paper ${data.staticClass || ''} ${convertClass(classObj).join(' ')}`;
     return h('div', data, children);

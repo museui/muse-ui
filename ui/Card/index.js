@@ -1,11 +1,11 @@
 import '../styles/components/card.less';
+import Card from './Card';
 import CardHeader from './CardHeader';
 import CardMedia from './CardMedia';
 import CardTitle from './CardTitle';
 import { createSimpleFunctional } from '../utils';
 
-export { CardHeader, CardMedia, CardTitle };
-export const Card = createSimpleFunctional('mu-card', 'div', 'mu-card');
+export { Card, CardHeader, CardMedia, CardTitle };
 export const CardActions = createSimpleFunctional('mu-card-actions', 'div', 'mu-card-actions');
 export const CardText = createSimpleFunctional('mu-card-text', 'div', 'mu-card-text');
 

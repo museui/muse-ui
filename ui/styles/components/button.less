@@ -39,7 +39,7 @@
   border-radius: 2px;
   background-color: @dialogBackgroundColor;
   color: @textColor;
-  .depth(1);
+  .depth(2);
   &.hover {
     .mu-button-wrapper {
       background-color: fade(@textColor, 10%);
@@ -59,7 +59,7 @@
     color: fade(@textColor, 30%);
     cursor: not-allowed;
     background-color: darken(@alternateTextColor, 10%);
-    box-shadow: none;
+    .depth(0);
     &.hover,
     &:active,
     &:hover {
@@ -70,10 +70,10 @@
     }
   }
   &.focus {
-    .depth(2);
+    .depth(6);
   }
   &:active {
-    .depth(2);
+    .depth(8);
   }
 
   .mu-button-wrapper {
@@ -204,10 +204,10 @@
   appearance: none;
   background-color: @primaryColor;
   color: @alternateTextColor;
-  .depth(2);
+  .depth(6);
   &.hover,
   &:active{
-    .depth(3);
+    .depth(12);
     .mu-button-wrapper {
       background-color: fade(@alternateTextColor, 10%);
     }
