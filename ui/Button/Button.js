@@ -37,12 +37,15 @@ export default {
     }
   },
   render (h) {
+    const flat = this.flat || this.icon;
+    let color = this.getColor(this.textColor);
+    if (!color && flat) color = this.getColor(this.color);
     return h(AbstractButton, {
       staticClass: 'mu-button',
       class: this.buttonClass,
       style: {
-        [this.flat || this.icon ? 'color' : 'background-color' ]: this.getColor(this.color),
-        color: this.getColor(this.textColor)
+        'background-color': !flat ? this.getColor(this.color) : '',
+        color
       },
       props: {
         wrapperClass: 'mu-button-wrapper',
