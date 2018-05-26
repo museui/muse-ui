@@ -6,18 +6,36 @@ Muse-UI是一个在MIT授权下的开源项目。它现在允许并且永远允�
 
 ## 一次性赞助
 
-* 微信支付
-* 支付宝
+<p>
+  <mu-menu open-on-hover placement="right">
+    <a href="javascript:;">微信支付</a>
+    <img :src="WechatImg" width="273" slot="content">
+  </mu-menu>
+<p>
+<p>
+  <mu-menu open-on-hover placement="right">
+    <a href="javascript:;">支付宝</a>
+    <img :src="PayImg" width="273" slot="content">
+  </mu-menu>
+</p>
 
 ## 周期性赞助
 
 周期性赞助可以获得额外的回报，比如你的名字 会出现在 Muse-UI 的 GitHub 仓库和现在我们的官网中。
 
-* 通过 OpenCollective 赞助成为 backer 或 sponsor
-* 通过 Patreon 赞助成为 backer
+* 通过 [Patreon](https://www.patreon.com/MuseUI) 赞助成为 backer
+* 给我们发邮件联系赞助事宜: myronliu347@gmail.com
 
-## 鸣谢
 
-#### Contributors
-
-[![](https://opencollective.com/muse-ui/contributors.svg?width=890)](https://github.com/DIYgod/RSSHub/graphs/contributors)
+<script>
+import PayImg from '../../assets/images/pay.png';
+import WechatImg from '../../assets/images/wechat.png';
+export default {
+  data () {
+    return {
+      PayImg,
+      WechatImg
+    };
+  }
+}
+</script>

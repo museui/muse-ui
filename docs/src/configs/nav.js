@@ -8,6 +8,15 @@ export default {
     }, {
       name: '使用',
       path: '/usage'
+    }, {
+      name: '参与贡献',
+      path: '/contributing'
+    }, {
+      name: '支持Muse-UI',
+      path: '/support'
+    }, {
+      name: '更新日志',
+      path: '/changelog'
     }]
   }, {
     name: '风格',
@@ -139,15 +148,6 @@ export default {
     }, {
       name: 'Tooltip',
       path: '/tooltip'
-    }]
-  }, {
-    name: '更多',
-    children: [{
-      name: '更新日志',
-      path: '/changelog'
-    }, {
-      name: '参与贡献',
-      path: '/contributing'
     }]
   }]
 };
