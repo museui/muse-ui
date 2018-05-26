@@ -35,7 +35,7 @@
           </mu-list-item>
         </mu-list>
       </mu-menu>
-      <mu-menu slot="right" placement="bottom-end">
+      <mu-menu slot="right" placement="bottom-end" v-if="!isMobile">
         <mu-button flat>
           <mu-icon value="public" />
         </mu-button>
@@ -80,7 +80,7 @@
           </mu-list-item>
         </mu-list>
       </mu-menu>
-      <mu-button icon href="https://github.com/museui/muse-ui" slot="right">
+      <mu-button icon href="https://github.com/museui/muse-ui" v-if="!isMobile" slot="right">
         <mu-icon size="24" value=":mudocs-icon-custom-github"/>
       </mu-button>
     </mu-appbar>
@@ -105,6 +105,7 @@ export default {
   data () {
     return {
       docked: isDesktop(),
+      isMobile: isMobile(),
       activeMenu: false,
       themes: [{
         label: 'Light',
@@ -141,6 +142,7 @@ export default {
     this.changeNav();
     this.handleResize = () => {
       this.changeNav();
+      this.isMobile = isMobile();
     };
     window.addEventListener('resize', this.handleResize);
   },
@@ -193,6 +195,10 @@ export default {
 
 function isDesktop () {
   return window.innerWidth > 993;
+}
+
+function isMobile () {
+  return window.innerWidth < 660;
 }
 </script>
 <style lang="less">

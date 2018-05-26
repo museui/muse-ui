@@ -13,7 +13,7 @@ const PopupManager = {
       this.showOverlay(instance);
     }
     this.instances.push(instance);
-    this.changeOverlayStyle();
+    if (instance.overlay) this.changeOverlayStyle();
   },
   close (instance) {
     const index = this.instances.indexOf(instance);

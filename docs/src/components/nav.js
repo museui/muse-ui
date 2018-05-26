@@ -23,7 +23,17 @@ export default {
       return (
         <mu-appbar zDepth={0} class='mu-app-drawer-header'>
           <router-link tag='div' class='mu-appbar-title-text' to='/'>Muse-UI</router-link>
-          <div class='mu-app-version'>v{this.version}</div>
+          <mu-menu>
+            <div class='mu-app-version'>v{this.version}</div>
+            <mu-list slot='content' dense>
+              <mu-list-item button href='/'>
+                <mu-list-item-title>v3.0.0-beta</mu-list-item-title>
+              </mu-list-item>
+              <mu-list-item button={true} href='/2.1.0'>
+                <mu-list-item-title>v2.10.0</mu-list-item-title>
+              </mu-list-item>
+            </mu-list>
+          </mu-menu>
         </mu-appbar>
       );
     },
