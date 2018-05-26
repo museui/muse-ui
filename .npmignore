@@ -4,6 +4,8 @@ config
 static
 docs
 src-docs
+coverage
+ui
 .DS_Store
 .*
 index.html

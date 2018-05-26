@@ -40,40 +40,18 @@
           <mu-icon value="public" />
         </mu-button>
         <mu-list slot="content">
-          <mu-sub-header>链接</mu-sub-header>
-          <mu-list-item button>
-            <mu-list-item-content>
-              <mu-list-item-title>代码仓库</mu-list-item-title>
-            </mu-list-item-content>
-          </mu-list-item>
-          <mu-list-item button>
-            <mu-list-item-content>
-              <mu-list-item-title>更新日志</mu-list-item-title>
-            </mu-list-item-content>
-          </mu-list-item>
-          <mu-list-item button>
-            <mu-list-item-content>
-              <mu-list-item-title>最后发布版本</mu-list-item-title>
-            </mu-list-item-content>
-          </mu-list-item>
-          <mu-list-item button>
-            <mu-list-item-content>
-              <mu-list-item-title>Material Design</mu-list-item-title>
-            </mu-list-item-content>
-          </mu-list-item>
-          <mu-divider />
           <mu-sub-header>社区</mu-sub-header>
-          <mu-list-item button>
+          <mu-list-item button href="https://gitter.im/muse-ui/muse-ui?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge" target="_blank">
             <mu-list-item-content>
               <mu-list-item-title>在线讨论</mu-list-item-title>
             </mu-list-item-content>
           </mu-list-item>
-          <mu-list-item button>
+          <mu-list-item button href="https://github.com/museui/muse-ui/issues" target="_blank">
             <mu-list-item-content>
               <mu-list-item-title>反馈建议</mu-list-item-title>
             </mu-list-item-content>
           </mu-list-item>
-          <mu-list-item button>
+          <mu-list-item button to="/zh-CN/contributing">
             <mu-list-item-content>
               <mu-list-item-title>如何贡献</mu-list-item-title>
             </mu-list-item-content>

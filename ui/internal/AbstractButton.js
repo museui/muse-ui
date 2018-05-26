@@ -194,7 +194,7 @@ export default {
   render (h) {
     const tagName = this.getTagName();
     const attrs = {
-      tagret: this.target,
+      target: this.target,
       tabindex: !this.disabled ? (this.$attrs.tabindex || 0) : -1
     };
 
