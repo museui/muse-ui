@@ -45,7 +45,7 @@ import 'muse-ui/dist/muse-ui.css'
 Vue.use(MuseUI)
 ```
 
-For more information, please refer to [Usage](http://www.muse-ui.org/#/zh-CN/contributing) in our documentation.
+For more information, please refer to [Usage](http://www.muse-ui.org/#/zh-CN/usage) in our documentation.
 
 ## Browser Support
 
