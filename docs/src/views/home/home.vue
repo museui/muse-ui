@@ -9,32 +9,32 @@
       Muse-UI
     </h1>
     <h2 class="mu-banner-sub-title">
-      基于 Vue 2.0 优雅的 Material Design UI 组件库
+      {{i18n.subtitle}}
     </h2>
     <div class="mu-banner-actions">
-      <mu-button raised :to="`/${locale}/installation`" class="mu-banner-button">快速上手</mu-button>
+      <mu-button raised :to="`/${locale}/installation`" class="mu-banner-button">{{i18n.getStart}}</mu-button>
     </div>
   </div>
   <mu-row>
     <mu-col lg="4" span="12" class="mu-feature-item">
       <img src="../../assets/images/img1.png" alt="">
-      <h3 class="mu-feature-item-title">组件丰富</h3>
+      <h3 class="mu-feature-item-title">{{i18n.featureTitle1}}</h3>
       <div class="mu-feature-item-desc">
-        Muse UI 拥有40多个UI 组件，用于适应不同业务环境。
+        {{i18n.featureContent1}}
       </div>
     </mu-col>
     <mu-col lg="4" span="12" class="mu-feature-item">
       <img src="../../assets/images/img2.png" alt="">
-      <h3 class="mu-feature-item-title">可定制</h3>
+      <h3 class="mu-feature-item-title">{{i18n.featureTitle2}}</h3>
       <div class="mu-feature-item-desc">
-        Muse UI 自定义主题方式及为优雅，仅需少量代码即可完成主题样式替换。
+        {{i18n.featureContent2}}
       </div>
     </mu-col>
     <mu-col lg="4" span="12" class="mu-feature-item">
       <img src="../../assets/images/img3.png" alt="">
-      <h3 class="mu-feature-item-title">基于 Vue 2.0</h3>
+      <h3 class="mu-feature-item-title">{{i18n.featureTitle3}}</h3>
       <div class="mu-feature-item-desc">
-        Muse UI 基于 Vue2.0 开发，Vue2.0是当下最快的前端框架之一，小巧，api友好，可用于开发的复杂单页应用
+        {{i18n.featureContent3}}
       </div>
     </mu-col>
   </mu-row>
@@ -42,35 +42,35 @@
     <mu-col lg="4" span="12" class="mu-desc-item">
       <div class="mu-desc-item-header">
         <mu-icon value="file_download"/>
-        <h2 class="mu-desc-item-title">安装</h2>
+        <h2 class="mu-desc-item-title">{{i18n.install}}</h2>
       </div>
       <div class="mu-desc-item-content">
         <mu-install />
       </div>
       <mu-divider />
-      <mu-button flat :to="`/${locale}/installation`">查看安装文档</mu-button>
+      <mu-button flat :to="`/${locale}/installation`">{{i18n.readInstallDoc}}</mu-button>
     </mu-col>
     <mu-col lg="4" span="12" class="mu-desc-item">
       <div class="mu-desc-item-header">
         <mu-icon value="build"/>
-        <h2 class="mu-desc-item-title">使用</h2>
+        <h2 class="mu-desc-item-title">{{i18n.usage}}</h2>
       </div>
       <div class="mu-desc-item-content">
         <mu-usage />
       </div>
       <mu-divider />
-      <mu-button flat :to="`/${locale}/usage`">查看使用文档</mu-button>
+      <mu-button flat :to="`/${locale}/usage`">{{i18n.readUsage}}</mu-button>
     </mu-col>
     <mu-col lg="4" span="12" class="mu-desc-item">
       <div class="mu-desc-item-header">
         <mu-icon value="whatshot"/>
-        <h2 class="mu-desc-item-title">定制化样式</h2>
+        <h2 class="mu-desc-item-title">{{i18n.custom}}</h2>
       </div>
       <div class="mu-desc-item-content">
         <mu-theme />
       </div>
       <mu-divider />
-      <mu-button flat :to="`/${locale}/theme`">自定义主题</mu-button>
+      <mu-button flat :to="`/${locale}/theme`">{{i18n.customTheme}}</mu-button>
     </mu-col>
   </mu-row>
   <div class="mu-footer">
@@ -81,21 +81,18 @@
 </template>
 <script>
 import locale from '../../locale';
-import install from './install.md';
-import usage from './usage.md';
-import theme from './theme.md';
+import i18n from '../../configs/i18n';
 
 export default {
   name: 'home',
   data () {
     return {
-      locale
+      locale,
+      i18n
     };
   },
   components: {
-    'mu-install': install,
-    'mu-usage': usage,
-    'mu-theme': theme
+    ...i18n.components
   }
 };
 </script>

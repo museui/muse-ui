@@ -1,12 +1,12 @@
 <template>
 <div class="demo-block">
   <div class="demo-block-tools">
-    <mu-tooltip content="前往 jsfiddle.net 运行此示例">
+    <mu-tooltip :content="i18n.jsfiddle">
       <mu-button icon @click="goJsfiddle">
         <mu-icon value="cloud"/>
       </mu-button>
     </mu-tooltip>
-    <mu-tooltip :content="visible ? '隐藏代码' : '显示代码'">
+    <mu-tooltip :content="visible ? i18n.hidden : i18n.visible">
       <mu-button icon @click="toggle">
         <mu-icon value="code"/>
       </mu-button>
@@ -25,6 +25,8 @@
 <script>
 import { ExpandTransition } from 'muse-ui/internal/transitions';
 import packageJson from '../../../package.json';
+import i18n from '../configs/i18n';
+
 export default {
   name: 'demo-block',
   props: {
@@ -35,7 +37,8 @@ export default {
   },
   data () {
     return {
-      visible: false
+      visible: false,
+      i18n
     }
   },
   methods: {

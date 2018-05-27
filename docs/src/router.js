@@ -42,7 +42,7 @@ function registerRoute (navs, lang) {
 routes.push({
   path: '*',
   redirect: '/'
-})
+});
 
 export default new Router({
   routes

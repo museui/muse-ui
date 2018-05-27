@@ -40,20 +40,20 @@
           <mu-icon value="public" />
         </mu-button>
         <mu-list slot="content">
-          <mu-sub-header>社区</mu-sub-header>
+          <mu-sub-header>{{i18n.community}}</mu-sub-header>
           <mu-list-item button href="https://gitter.im/muse-ui/muse-ui?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge" target="_blank">
             <mu-list-item-content>
-              <mu-list-item-title>在线讨论</mu-list-item-title>
+              <mu-list-item-title>{{i18n.chat}}</mu-list-item-title>
             </mu-list-item-content>
           </mu-list-item>
           <mu-list-item button href="https://github.com/museui/muse-ui/issues" target="_blank">
             <mu-list-item-content>
-              <mu-list-item-title>反馈建议</mu-list-item-title>
+              <mu-list-item-title>{{i18n.issue}}</mu-list-item-title>
             </mu-list-item-content>
           </mu-list-item>
           <mu-list-item button to="/zh-CN/contributing">
             <mu-list-item-content>
-              <mu-list-item-title>如何贡献</mu-list-item-title>
+              <mu-list-item-title>{{i18n.contributing}}</mu-list-item-title>
             </mu-list-item-content>
           </mu-list-item>
         </mu-list>
@@ -75,6 +75,7 @@ import BackTop from './components/back-top';
 import langs from './configs/lang';
 import locale from './locale';
 import MuseUI from 'muse-ui';
+import i18n from './configs/i18n';
 import { changeLocale } from './locale';
 import { FadeTransition } from '../../ui/internal/transitions';
 
@@ -102,6 +103,7 @@ export default {
       openTheme: false,
       locale,
       langs,
+      i18n,
       open: false
     }
   },
