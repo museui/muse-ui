@@ -1,18 +1,18 @@
 
-<p style="text-align: center;">
+<p align="center">
   <a href="https://www.muse-ui.org" target="_blank">
     <img width="120" src="https://www.muse-ui.org/static/img/icon_logo.a76a122.png">
   </a>
 </p>
 
-<h1 style="text-align: center;">Muse-UI</h1>
+<h1 align="center">Muse-UI</h1>
 
-<p style="text-align: center;">
+<p align="center">
   <a href="https://material.io/">Material Design</a>
   UI library for <a href="https://vuejs.org/">Vuejs 2.0</a>
 </p>
 
-<p style="text-align: center;">
+<p align="center">
   <a href="https://travis-ci.org/museui/muse-ui">
     <img src="https://img.shields.io/travis/museui/muse-ui.svg" alt="travis ci badge">
   </a>
