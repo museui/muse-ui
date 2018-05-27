@@ -252,6 +252,14 @@ function isMobile () {
   padding-right: 16px;
   margin-bottom: 100px;
 }
+
+.mu-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
 @media (min-width: 600px) {
   .app-content {
     padding-top: 64px;

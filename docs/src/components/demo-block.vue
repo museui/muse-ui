@@ -47,14 +47,14 @@ export default {
     },
     goJsfiddle() {
       const { script, html, style } = this.jsfiddle;
-      const resourcesTpl = '<script src="//unpkg.com/vue/dist/vue.js"></scr' + 'ipt>' +
+      const resourcesTpl = '<link rel="stylesheet" href="https://cdn.bootcss.com/material-design-icons/3.0.1/iconfont/material-icons.css">\n<script src="//unpkg.com/vue/dist/vue.js"></scr' + 'ipt>' +
       '\n<scr' + `ipt src="//unpkg.com/muse-ui@${ packageJson.version }/dist/muse-ui.js"></scr` + 'ipt>';
       let jsTpl = (script || '').replace(/export default/, 'var Main =').trim();
       let htmlTpl = `${resourcesTpl}\n<div id="app">\n${html.trim()}\n</div>`;
       let cssTpl = `@import url("//unpkg.com/muse-ui@${ packageJson.version }/dist/muse-ui.css");\n${(style || '').trim()}\n`;
       jsTpl = jsTpl
-        ? jsTpl + '\nvar Ctor = Vue.extend(Main)\nnew Ctor().$mount(\'#app\')'
-        : 'new Vue().$mount(\'#app\')';
+        ? jsTpl + '\nVue.use(MuseUI)\nvar Ctor = Vue.extend(Main)\nnew Ctor().$mount(\'#app\')'
+        : 'Vue.use(MuseUI)\nnew Vue().$mount(\'#app\')';
       const data = {
         js: jsTpl,
         css: cssTpl,

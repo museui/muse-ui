@@ -9,6 +9,7 @@ import App from './App';
 import ColorPalette from './components/color-palette';
 import DemoBlock from './components/demo-block';
 import router from './router';
+import progress from './components/progress';
 Vue.use(MuseUI);
 Vue.component(ColorPalette.name, ColorPalette);
 Vue.component(DemoBlock.name, DemoBlock);
@@ -16,7 +17,12 @@ Vue.config.productionTip = false;
 
 router.beforeEach((to, from, next) => {
   window.scrollTo(0, 0);
+  progress.start();
   next();
+});
+
+router.afterEach(() => {
+  progress.end();
 });
 
 const app = new Vue({
