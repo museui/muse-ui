@@ -15,7 +15,7 @@ const env = require('../config/prod.env');
 const webpackConfig = merge(baseWebpackConfig, {
   module: {
     rules: utils.styleLoaders({
-      sourceMap: config.build.productionSourceMap,
+      sourceMap: false,
       extract: true,
       usePostCSS: true
     })
@@ -37,7 +37,7 @@ const webpackConfig = merge(baseWebpackConfig, {
           warnings: false
         }
       },
-      sourceMap: config.build.productionSourceMap,
+      sourceMap: false,
       parallel: true
     }),
     // extract css into its own file
@@ -52,7 +52,7 @@ const webpackConfig = merge(baseWebpackConfig, {
     // Compress extracted CSS. We are using this plugin so that possible
     // duplicated CSS from different components can be deduped.
     new OptimizeCSSPlugin({
-      cssProcessorOptions: config.build.productionSourceMap
+      cssProcessorOptions: false
         ? { safe: true, map: { inline: false } }
         : { safe: true }
     }),
