@@ -1,0 +1,66 @@
+@import "../import.less";
+.mu-text-field {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+}
+
+.mu-text-field-input {
+  appearance: none;
+  outline: none;
+  border: none;
+  background: none;
+  border-radius: 0 0 0 0;
+  box-shadow: none;
+  display: block;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 32px;
+  font-style: inherit;
+  font-variant: inherit;
+  font-weight: inherit;
+  font-stretch: inherit;
+  font-size: inherit;
+  font-family: inherit;
+  color: @textColor;
+  font-family: inherit;
+  position: relative;
+  flex: 1;
+}
+
+.mu-text-field-action {
+  .flex-shrink(0);
+  padding: 0 6px;
+  cursor: pointer;
+}
+
+.mu-text-field-suffix {
+  color: @secondaryTextColor;
+  white-space: nowrap;
+  .flex-shrink(0);
+}
+
+.mu-text-field-textarea{
+  resize: vertical;
+  line-height: 1.5;
+  position: relative;
+  height: 100%;
+  resize: none;
+}
+
+.mu-text-field-multiline{
+  width: 100%;
+  position: relative;
+}
+
+.mu-text-field-textarea-hide{
+  width: 100%;
+  height: initial;
+  resize: none;
+  position: absolute;
+  padding: 0;
+  overflow: auto;
+  visibility: hidden;
+}

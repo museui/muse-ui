@@ -1,0 +1,163 @@
+@import "../import.less";
+.mu-input {
+  font-size: 16px;
+  width: 256px;
+  min-height: 48px;
+  display: inline-block;
+  position: relative;
+  color: @secondaryTextColor;
+  margin-bottom: 8px;
+  &.full-width {
+    width: 100%;
+  }
+  &.has-icon {
+    padding-left: 56px;
+  }
+  &.has-label{
+    min-height: 72px;
+  }
+  &.is-solo {
+    margin-bottom: 0;
+  }
+}
+
+.mu-input__focus {
+  color: @primaryColor;
+}
+
+.mu-input__error {
+  color: @errorColor;
+}
+
+.mu-input-icon {
+  position: absolute;
+  left: 16px;
+  top: 8px;
+  .mu-input.has-label & {
+    top: 32px;
+  }
+  .mu-input.is-solo & {
+    top: 12px;
+  }
+}
+
+.mu-input-content{
+  height: 100%;
+  .mu-input.disabled &{
+    color: @disabledColor;
+    cursor: not-allowed;
+  }
+  padding-bottom: 12px;
+  padding-top: 4px;
+  .mu-input.has-label &{
+    padding-top: 28px;
+    padding-bottom: 12px;
+  }
+  .mu-input.is-solo & {
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+}
+
+.mu-input-help {
+  position: absolute;
+  font-size: 12px;
+  line-height: 12px;
+  bottom: -4px;
+  color: @secondaryTextColor;
+  display: flex;
+  justify-content: space-between;
+  left: 0;
+  right: 0;
+  .mu-input.has-icon & {
+    left: 56px;
+  }
+  .mu-input__error & {
+    color: @errorColor;
+  }
+  .mu-input.disabled &{
+    color: inherit;
+  }
+}
+
+.mu-input-action-icon {
+  .flex-shrink(0);
+  padding: 0 6px;
+  cursor: pointer;
+}
+.mu-input-suffix-text {
+  padding-left: 4px;
+}
+.mu-input-prefix-text {
+  padding-right: 4px;
+}
+.mu-input-suffix-text,
+.mu-input-prefix-text {
+  color: @secondaryTextColor;
+  white-space: nowrap;
+  .flex-shrink(0);
+}
+
+.mu-input-label {
+  line-height: 20px;
+  transition: all .45s @easeOutFunction;
+  z-index: 1;
+  cursor: text;
+  transform: translate3d(0, 0, 0) scale(0.75);
+  transform-origin: left top;
+  user-select: none;
+  pointer-events: none;
+  backface-visibility: hidden;
+  .mu-input.has-label & {
+    top: 8px;
+    position: absolute;
+  }
+  .mu-input.has-label &.float {
+    transform: translate3d(0, 28px, 0) scale(1);
+    color: @disabledColor;
+  }
+}
+
+.mu-input-line {
+  margin: 0;
+  height: 1px;
+  border: none;
+  background-color: @borderColor;
+  left: 0;
+  right: 0;
+  bottom: 12px;
+  position: absolute;
+  .mu-input.has-icon & {
+    left: 56px;
+  }
+  &.disabled{
+    height: auto;
+    background-color: transparent;
+    border-bottom: 2px dotted @disabledColor;
+  }
+}
+
+.mu-input-focus-line{
+  margin: 0;
+  height: 2px;
+  border: none;
+  background-color: currentColor;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 12px;
+  margin-top: -1px;
+  transform: scaleX(0);
+  transition: transform .45s @easeOutFunction;
+  .mu-input.has-icon & {
+    left: 56px;
+  }
+  &.focus {
+    transform: scaleX(1);
+  }
+}
+
+.mu-input-focus-line__error {
+  transform: scaleX(1);
+  background-color: @errorColor;
+}

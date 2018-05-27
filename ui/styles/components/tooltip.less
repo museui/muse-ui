@@ -1,0 +1,61 @@
+@import "../import.less";
+.mu-tooltip {
+  position: fixed;
+  font-size: 10px;
+  line-height: 22px;
+  padding: 4px 8px;
+  color: @fullWhite;
+  border-radius: 2px;
+  background-color: @grey700;
+  opacity: 0.9;
+  left: 300px;
+  top: 400px;
+}
+
+.mu-tooltip-top-enter-active,
+.mu-tooltip-top-leave-active {
+  transition: transform .3s @easeOutFunction, opacity .3s @easeOutFunction;
+  backface-visibility: hidden;
+}
+
+.mu-tooltip-top-enter,
+.mu-tooltip-top-leave-active {
+  transform: translate3d(0, 60%, 0);
+  opacity: 0;
+}
+
+.mu-tooltip-bottom-enter-active,
+.mu-tooltip-bottom-leave-active {
+  transition: transform .3s @easeOutFunction, opacity .3s @easeOutFunction;
+  backface-visibility: hidden;
+}
+
+.mu-tooltip-bottom-enter,
+.mu-tooltip-bottom-leave-active {
+  transform: translate3d(0, -60%, 0);
+  opacity: 0;
+}
+
+.mu-tooltip-left-enter-active,
+.mu-tooltip-left-leave-active {
+  transition: transform .3s @easeOutFunction, opacity .3s @easeOutFunction;
+  backface-visibility: hidden;
+}
+
+.mu-tooltip-left-enter,
+.mu-tooltip-left-leave-active {
+  transform: translate3d(24px, 0, 0);
+  opacity: 0;
+}
+
+.mu-tooltip-right-enter-active,
+.mu-tooltip-right-leave-active {
+  transition: transform .3s @easeOutFunction, opacity .3s @easeOutFunction;
+  backface-visibility: hidden;
+}
+
+.mu-tooltip-right-enter,
+.mu-tooltip-right-leave-active {
+  transform: translate3d(-24px, 0, 0);
+  opacity: 0;
+}

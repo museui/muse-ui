@@ -1,0 +1,218 @@
+@import "../import.less";
+.mu-timepicker {
+  user-select: none;
+  width: 280px;
+  color: @primaryColor;
+  background-color: @dialogBackgroundColor;
+}
+
+.mu-timepicker-landspace {
+  width: 479px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.mu-timepicker-container {
+  height: 280px;
+  padding: 10px;
+  position: relative;
+  box-sizing: content-box;
+  position: relative;
+  .mu-timepicker-landspace & {
+    width: 300px;
+  }
+}
+
+.mu-timepicker-container__action {
+  padding-bottom: 62px;
+}
+
+.mu-timepicker-circle {
+  position: absolute;
+  top: 20px;
+  width: 260px;
+  height: 260px;
+  border-radius: 100%;
+  background-color: fade(@darkBlack, 7%);
+  left: 50%;
+  margin-left: -130px;
+  .mu-timepicker-landspace & {
+    left: 50%;
+    margin-left: -130px;
+  }
+}
+
+.mu-timepicker-actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding: 8px;
+  .mu-timepicker-landspace & {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}
+
+.mu-time-display {
+  padding: 14px 0px;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  background-color: currentColor;
+  .mu-timepicker-landspace & {
+    width: 179px;
+    position: relative;
+  }
+}
+
+.mu-time-display-text {
+  color: @alternateTextColor;
+  margin: 6px 0px;
+  line-height: 58px;
+  height: 58px;
+  font-size: 58px;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  .mu-timepicker-landspace & {
+    margin: 0;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 48px;
+  }
+}
+
+.mu-time-display-affix {
+  flex: 1 1;
+  position: relative;
+  line-height: 17px;
+  height: 17px;
+  font-size: 17px;
+  .mu-timepicker-landspace & {
+    flex: none;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.mu-time-display-time {
+  margin: 0px 10px;
+  .mu-timepicker-landspace & {
+    margin-top: -28px;
+  }
+}
+
+.mu-time-display-clickable {
+  cursor: pointer;
+  &.inactive {
+    opacity: 0.7
+  }
+  .mu-timepicker-landspace & {
+    margin-top: 8px;
+  }
+}
+
+.mu-time-display-affix-top {
+  position: absolute;
+  top: -20px;
+  left: 0px;
+  .mu-timepicker-landspace & {
+    position: static;
+    order: -1;
+  }
+}
+.mu-timepicker-hours {
+  height: 100%;
+  width: 100%;
+  border-radius: 100%;
+  position: relative;
+  pointer-events: none;
+  box-sizing: border-box;
+}
+
+.mu-timepicker-hours-mask {
+  height: 100%;
+  width: 100%;
+  pointer-events: auto;
+}
+.mu-timepicker-minutes {
+  height: 100%;
+  width: 100%;
+  border-radius: 100%;
+  position: relative;
+  pointer-events: none;
+  box-sizing: border-box;
+}
+
+.mu-timepicker-minutes-mask {
+  height: 100%;
+  width: 100%;
+  pointer-events: auto;
+}
+
+.mu-timepicker-number {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  position: absolute;
+  top: 10px;
+  text-align: center;
+  // padding-top: 5px;
+  font-size: 1.1em;
+  pointer-events: none;
+  border-radius: 100%;
+  box-sizing: border-box;
+  transform: translate(0px, 5px);
+  user-select: none;
+  color: @textColor;
+}
+.mu-timepicker-number__inner {
+  width: 28px;
+  height: 28px;
+  line-height: 28px;
+}
+.mu-timepicker-number__selected {
+  background-color: @primaryColor;
+  color: @alternateTextColor;
+}
+
+.mu-timepicker-pointer {
+  height: 40%;
+  background-color: currentColor;
+  width: 2px;
+  left: calc(50% - 1px);
+  position: absolute;
+  bottom: 50%;
+  transform-origin: center bottom 0px;
+  pointer-events: none;
+  &.inner {
+    height: 30%;
+  }
+}
+
+.mu-timepicker-pointer-mark {
+  box-sizing: content-box;
+  background-color: @alternateTextColor;
+  border: 4px solid currentColor;
+  width: 7px;
+  height: 7px;
+  position: absolute;
+  top: -5px;
+  left: -6px;
+  border-radius: 100%;
+  &.has-selected {
+    display: none;
+  }
+}
+
+

@@ -1,0 +1,47 @@
+@import "../import.less";
+.mu-pagination {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  color: @textColor;
+  font-size: 14px;
+  > ul {
+    display: flex;
+    list-style: 0;
+    margin: 0;
+    padding: 0;
+    li {
+      display: inline-block;
+      margin: 0 2px;
+    }
+  }
+}
+
+.mu-pagination-svg-icon {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+.mu-pagination-btn.mu-button {
+  height: 32px;
+  padding: 0;
+  min-width: 32px;
+  border-radius: 50%;
+  .mu-button-wrapper {
+    padding: 0;
+  }
+}
+
+.mu-pagination-item.mu-button {
+  min-width: 32px;
+  height: 32px;
+  padding: 0 8px;
+  .mu-button-wrapper {
+    padding: 0;
+  }
+  &.is-current {
+    background-color: @primaryColor;
+    color: @alternateTextColor;
+  }
+}

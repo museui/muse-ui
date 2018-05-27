@@ -1,5 +1,0 @@
-export {default as step} from './step'
-export {default as stepButton} from './stepButton'
-export {default as stepContent} from './stepContent'
-export {default as stepLabel} from './stepLabel'
-export {default as stepper} from './stepper'

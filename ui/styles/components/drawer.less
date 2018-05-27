@@ -1,0 +1,26 @@
+@import "../import.less";
+.mu-drawer {
+  width: 256px;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  background-color: @dialogBackgroundColor;
+  .scrollable();
+  .no-scrollbar();
+  transition-property: transform, visibility;
+  transition-duration: 0.45s;
+  transform: translate3d(-100%, 0, 0);
+  border-radius: 0;
+  left: 0;
+  visibility: hidden;
+  z-index: 200;
+  &.is-right {
+    right: 0;
+    left: auto;
+    transform: translate3d(100%, 0, 0);
+  }
+  &.is-open {
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
+  }
+}

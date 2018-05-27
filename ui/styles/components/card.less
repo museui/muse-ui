@@ -1,0 +1,92 @@
+@import "../import.less";
+
+.mu-card {
+  background-color: @dialogBackgroundColor;
+  position: relative;
+  border-radius: 2px;
+  .depth(1);
+}
+
+.mu-card__raised {
+  .depth(8);
+}
+
+.mu-card-actions {
+  padding: 8px;
+  position: relative;
+}
+
+.mu-card-header {
+  padding: 16px;
+  font-weight: 500;
+  position: relative;
+  white-space: nowrap;
+  .mu-avatar {
+    margin-right: 16px;
+  }
+}
+
+.mu-card-header-title{
+  display: inline-block;
+  vertical-align: top;
+  white-space: normal;
+  padding-right: 90px;
+  .mu-card-title{
+    font-size: 15px;
+    color: fade(@textColor, 87%);
+  }
+  .mu-card-sub-title{
+    font-size: 14px;
+    color: fade(@textColor, 57%);
+  }
+}
+
+.mu-card-media {
+  position: relative;
+  > img {
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    display: block;
+    vertical-align: top;
+  }
+}
+
+.mu-card-media-title {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 16px;
+  background-color: @lightBlack;
+  .mu-card-title {
+    font-size: 24px;
+    color: @darkWhite;
+    line-height: 36px;
+  }
+  .mu-card-sub-title {
+    color: @lightWhite;
+    font-size: 14px;
+  }
+}
+
+.mu-card-text{
+  padding: 16px;
+  font-size: 14px;
+  color: @textColor;
+}
+
+.mu-card-title-container{
+  padding: 16px;
+  position: relative;
+  .mu-card-title{
+    font-size: 24px;
+    color: @textColor;
+    line-height: 36px;
+  }
+  .mu-card-sub-title{
+    font-size: 14px;
+    color: @secondaryTextColor;
+    display: block;
+  }
+}

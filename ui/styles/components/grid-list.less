@@ -1,0 +1,81 @@
+@import '../import.less';
+
+.mu-grid-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.mu-grid-tile-wrapper {
+  flex-shrink: 0;
+}
+.mu-grid-tile {
+  position: relative;
+  display: block;
+  height: 100%;
+  overflow: hidden;
+  > img {
+    height: 100%;
+    transform: translateX(-50%);
+    position: relative;
+    left: 50%;
+  }
+}
+
+.mu-grid-tile-titlebar{
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 48px;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+
+  .mu-grid-tile.multiline & {
+    height: 68px;
+  }
+
+  .mu-grid-tile.is-top & {
+    bottom: auto;
+    top: 0;
+  }
+
+}
+
+.mu-grid-tile-title-container{
+  margin-left: 16px;
+  margin-right: 0;
+  color: @alternateTextColor;
+  flex: 1;
+  overflow: hidden;
+  .mu-grid-tile.action-left & {
+    margin-right: 16px;
+    margin-left: 0;
+  }
+}
+
+.mu-grid-tile-action {
+  order: 1;
+  .mu-grid-tile.action-left & {
+    order: -1;
+  }
+  .mu-icon {
+    color: @alternateTextColor;
+  }
+}
+
+.mu-grid-tile-title {
+  font-size: 16px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  word-wrap: break-word;
+}
+
+.mu-grid-tile-subtitle {
+  font-size: 12px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  word-wrap: break-word;
+}

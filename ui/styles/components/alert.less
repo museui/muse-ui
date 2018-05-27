@@ -1,0 +1,34 @@
+@import '../import.less';
+.mu-alert {
+  min-height: 56px;
+  padding: 16px;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: flex;
+  font-size: 14px;
+  color: @alternateTextColor;
+  border-radius: 2px;
+  .mu-icon {
+    color: fade(@textColor, 26%);
+    margin-right: 16px;
+    .flex-shrink(0);
+  }
+}
+
+.mu-alert-delete-icon{
+  display: inline-block;
+  margin-left: auto;
+  color: fade(@textColor, 26%);
+  fill: currentColor;
+  height: 24px;
+  width: 40px;
+  padding-left: 16px;
+  user-select: none;
+  transition: all 450ms @easeOutFunction;
+  cursor: pointer;
+  .flex-shrink(0);
+  &:hover {
+    color: fade(fade(@textColor, 26%), 40%);
+  }
+}

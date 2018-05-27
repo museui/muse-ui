@@ -1,0 +1,117 @@
+@import "../import.less";
+.mu-snackbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: @alternateTextColor;
+  background-color: @textColor;
+  border-radius: 2px;
+  padding: 6px 16px;
+  line-height: 20px;
+  font-size: 14px;
+  min-height: 48px;
+  min-width: 288px;
+  max-width: 568px;
+  position: fixed;
+  flex-wrap: wrap;
+  .depth(1);
+  .mu-icon {
+    margin-right: 16px;
+    font-size: 20px;
+  }
+}
+
+.mu-snackbar-action {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-shrink: 0;
+  margin-right: -16px;
+  padding: 0 8px;
+  margin-left: auto;
+  .mu-circle-ripple {
+    background-color: #fff;
+    opacity: .3;
+  }
+}
+
+.mu-snackbar-message {
+  padding: 8px 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.mu-snackbar-top {
+  left: 50%;
+  transform: translate3d(-50%, 0, 0);
+  top: 0;
+  &.mu-slide-bottom-transition-enter,
+  &.mu-slide-bottom-transition-leave-active {
+    transform: translate3d(-50%, 100%, 0);
+  }
+  &.mu-slide-top-transition-enter,
+  &.mu-slide-top-transition-leave-active {
+    transform: translate3d(-50%, -100%, 0);
+  }
+}
+
+.mu-snackbar-top-start {
+  left: 8px;
+  top: 8px;
+}
+
+.mu-snackbar-top-end {
+  right: 8px;
+  top: 8px;
+}
+
+.mu-snackbar-bottom {
+  left: 50%;
+  transform: translate3d(-50%, 0, 0);
+  bottom: 0;
+  &.mu-slide-bottom-transition-enter,
+  &.mu-slide-bottom-transition-leave-active {
+    transform: translate3d(-50%, 100%, 0);
+  }
+  &.mu-slide-top-transition-enter,
+  &.mu-slide-top-transition-leave-active {
+    transform: translate3d(-50%, -100%, 0);
+  }
+}
+
+.mu-snackbar-bottom-start {
+  left: 8px;
+  bottom: 8px;
+}
+
+.mu-snackbar-bottom-end {
+  right: 8px;
+  bottom: 8px;
+}
+
+@media only screen and (max-width: 600px) {
+  .mu-snackbar {
+    width: 100%;
+    max-width: 100%;
+    left: 0;
+    right: 0;
+    transform: translate3d(0, 0, 0);
+    &.mu-slide-bottom-transition-enter,
+    &.mu-slide-bottom-transition-leave-active {
+      transform: translate3d(0, 100%, 0);
+    }
+    &.mu-slide-top-transition-enter,
+    &.mu-slide-top-transition-leave-active {
+      transform: translate3d(0, -100%, 0);
+    }
+  }
+
+  .mu-snackbar-top-start,
+  .mu-snackbar-top-end {
+    top: 0;
+  }
+  .mu-snackbar-bottom-start,
+  .mu-snackbar-bottom-end {
+    bottom: 0;
+  }
+}

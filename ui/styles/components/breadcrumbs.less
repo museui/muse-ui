@@ -1,0 +1,43 @@
+@import '../import.less';
+
+.mu-breadcrumbs {
+  display: flex;
+  padding: 18px 12px;
+  margin: 0;
+  align-items: center;
+  > li {
+    font-size: 14px;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    .mu-icon {
+      font-size: 16px;
+    }
+  }
+}
+
+.mu-breadcrumbs-item {
+  display: flex;
+  align-items: center;
+  color: @primaryColor;
+  display: block;
+  transition: .3s @easeOutFunction;
+  > a {
+    display: block;
+    text-decoration: none;
+    cursor: pointer;
+    color: inherit;
+  }
+  &.is-disbaled {
+    color: @disabledColor;
+    > a {
+      cursor: default;
+    }
+  }
+}
+
+.mu-breadcrumbs-divider {
+  padding: 0 12px;
+  color: @disabledColor;
+}
+

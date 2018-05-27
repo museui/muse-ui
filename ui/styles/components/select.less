@@ -1,0 +1,112 @@
+@import "../import.less";
+.mu-select {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  outline: none;
+  cursor: pointer;
+  &.is-readonly,
+  &.is-disabled {
+    cursor: default;
+  }
+}
+
+.mu-select-content {
+  flex: 1;
+  color: @textColor;
+  width: 100%;
+  min-height: 32px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  .mu-chip {
+    margin: 4px 4px 4px 0;
+  }
+}
+
+.mu-select-input {
+  appearance: none;
+  outline: none;
+  border: none;
+  background: none;
+  border-radius: 0 0 0 0;
+  box-shadow: none;
+  display: block;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 32px;
+  font-style: inherit;
+  font-variant: inherit;
+  font-weight: inherit;
+  font-stretch: inherit;
+  font-size: inherit;
+  font-family: inherit;
+  color: @textColor;
+  font-family: inherit;
+  position: relative;
+  flex: 1;
+  cursor: inherit;
+  &.is-enable {
+    cursor: text;
+  }
+  .mu-input__focus .mu-select.is-filterable & {
+    min-width: 200px;
+  }
+}
+
+.mu-select-action {
+  .flex-shrink(0);
+  padding: 0 6px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mu-select-icon {
+  fill: currentColor;
+  width: 24px;
+  height: 24px;
+  user-select: none;
+  transition: .3s @easeOutFunction;
+  .mu-select.is-open & {
+    transform: rotate(180deg);
+  }
+}
+
+.mu-selection-text {
+  &.is-active {
+    color: @primaryColor;
+  }
+}
+
+.mu-select-no-data {
+  height: 36px;
+  padding: 0 16px;
+  line-height: 36px;
+  color: @disabledColor;
+}
+
+.mu-option-list {
+  .scrollable();
+  outline: none;
+}
+
+.mu-option {
+  &.is-selected {
+    .mu-item {
+      color: @secondaryColor;
+    }
+  }
+  &.is-focused {
+    background-color: fade(@textColor, 10%);
+  }
+  &.is-disabled {
+    .mu-item {
+      color: @disabledColor;
+    }
+  }
+}

@@ -1,0 +1,48 @@
+@import '../import.less';
+
+.mu-popover{
+  position: fixed;
+  background: @dialogBackgroundColor;
+  border-radius: 2px;
+  max-height: 100%;
+  max-width: 100%;
+  overflow: visible;
+  -webkit-overflow-scrolling: touch;
+  .depth(1);
+  &.transition-bottom-start {
+    transform-origin: left top;
+  }
+  &.transition-bottom {
+    transform-origin: center top;
+  }
+  &.transition-bottom-end {
+    transform-origin: right top;
+  }
+  &.transition-top-start {
+    transform-origin: left bottom;
+  }
+  &.transition-top {
+    transform-origin: center bottom;
+  }
+  &.transition-top-end {
+    transform-origin: right bottom;
+  }
+  &.transition-left-start {
+    transform-origin: right top;
+  }
+  &.transition-left {
+    transform-origin: right center;
+  }
+  &.transition-left-end {
+    transform-origin: right bottom;
+  }
+  &.transition-right-start {
+    transform-origin: left top;
+  }
+  &.transition-right {
+    transform-origin: left center;
+  }
+  &.transition-right-end {
+    transform-origin: left bottom;
+  }
+}

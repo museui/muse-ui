@@ -1,5 +1,16 @@
 ---
 language: node_js
 node_js:
-  - "stable"
-sudo: false
+  - "8.11.2"
+
+before_script:
+  - yarn global add codecov
+
+script:
+  - yarn
+  - yarn run lint
+  - yarn run test:coverage && codecov
+  - yarn run build
+
+cache:
+  yarn: true

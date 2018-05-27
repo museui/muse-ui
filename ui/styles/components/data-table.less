@@ -1,0 +1,152 @@
+@import "../import.less";
+.mu-table {
+  background-color: @alternateTextColor;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    table-layout: fixed;
+  }
+  tr {
+    color: @textColor;
+    height: 48px;
+    &.is-stripe {
+      background-color:  @grey50;
+    }
+    &.is-hover {
+      background-color: @grey200;
+    }
+    &.is-selected {
+      background-color: @grey100;
+    }
+  }
+  td {
+    padding-left: 24px;
+    padding-right: 24px;
+    height: 48px;
+    text-align: left;
+    font-size: 13px;
+    text-overflow: ellipsis;
+    border-bottom: 1px solid @borderColor;
+    &.is-left {
+      text-align: left;
+    }
+    &.is-center {
+      text-align: center;
+    }
+    &.is-right {
+      text-align: right;
+    }
+  }
+  th {
+    font-weight: normal;
+    font-size: 12px;
+    padding-left: 24px;
+    padding-right: 24px;
+    height: 56px;
+    text-align: left;
+    color: @secondaryTextColor;
+    position: relative;
+    border-bottom: 1px solid @borderColor;
+    white-space: nowrap;
+    &.is-left {
+      text-align: left;
+    }
+    &.is-center {
+      text-align: center;
+    }
+    &.is-right {
+      text-align: right;
+    }
+    &.is-sortable {
+      cursor: pointer;
+      user-select: none;
+      &:hover {
+        color: @textColor;
+        .mu-table-sort-icon {
+          opacity: .6;
+        }
+      }
+    }
+    &.is-sorting {
+      color: @textColor;
+      .mu-table-sort-icon,
+      &:hover .mu-table-sort-icon {
+        opacity: 1;
+      }
+    }
+    &.sort-asc {
+      .mu-table-sort-icon {
+        transform: rotate(180deg);
+      }
+    }
+  }
+}
+.mu-table-border {
+  border: 1px solid @borderColor;
+  th, td {
+    border-right: 1px solid @borderColor;
+    &:last-child {
+      border-right: none;
+    }
+  }
+}
+.mu-table-header-wrapper,
+.mu-table-footer-wrapper {
+  overflow: hidden;
+}
+
+.mu-table-empty {
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: @secondaryTextColor;
+  font-size: 14px;
+}
+
+.mu-table-progress.mu-linear-progress {
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 10;
+}
+
+.mu-table-body-wrapper {
+  flex: 1;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.mu-table-sort-icon {
+  display: inline-block;
+  vertical-align: sub;
+  width: 16px;
+  height: 16px;
+  font-size: 16px;
+  fill: currentColor;
+  opacity: 0;
+  transition: .3s @easeOutFunction;
+}
+
+.mu-checkbox-col {
+  .mu-checkbox {
+    vertical-align: middle;
+  }
+}
+
+.mu-table-expand-row {
+  tr& {
+    height: 0;
+  }
+  td {
+    padding: 0;
+    height: 0;
+    border: none;
+    &.is-expand {
+      border-bottom: 1px solid @borderColor;
+    }
+  }
+}

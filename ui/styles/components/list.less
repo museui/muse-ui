@@ -1,0 +1,130 @@
+@import '../import.less';
+
+.mu-list {
+  padding: 8px 0;
+  width: 100%;
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: visible;
+  margin: 0;
+  display: block;
+  > li {
+    display: block;
+  }
+  .mu-sub-header:first-child{
+    margin-top: -8px;
+  }
+  .mu-list {
+    padding: 0;
+  }
+}
+
+.mu-item-wrapper {
+  display: block;
+  color: inherit;
+  position: relative;
+  outline: none;
+  cursor: pointer;
+  &.hover {
+    background-color: fade(@textColor, 10%);
+  }
+  &.disabled{
+    cursor: default;
+  }
+}
+.mu-list-dense {
+  .mu-item {
+    height: 36px;
+  }
+  .mu-icon {
+    font-size: 22px;
+  }
+  .mu-item-title {
+    font-size: 14px;
+  }
+}
+.mu-item {
+  height: 48px;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  color: @textColor;
+  &.has-avatar {
+    height: 56px;
+  }
+  .mu-list-two-line & {
+    height: 72px;
+  }
+  .mu-list-three-line & {
+    height: 88px;
+  }
+  &.is-selected {
+    color: @primaryColor;
+  }
+}
+.mu-item-action {
+  min-width: 56px;
+  display: flex;
+  height: 100%;
+  align-items: center;
+  color: @secondaryTextColor;
+  &:first-child .mu-icon-button {
+    margin-left: -12px;
+  }
+  &:last-child .mu-icon-button {
+    margin-right: -12px;
+  }
+  &.is-more {
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+}
+.mu-list-three-line .mu-item-action .mu-avatar {
+  margin-top: -18px;
+}
+
+.mu-item-title,
+.mu-item-content {
+  flex: 1 1 auto;
+  text-align: left;
+  min-width: 1px;
+  + .mu-item-action:not(.is-more) {
+    justify-content: flex-end;
+  }
+}
+
+.mu-item-title {
+  font-size: 16px;
+  height: 24px;
+  line-height: 24px;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+}
+
+.mu-item-sub-title {
+  width: 100%;
+  font-size: 14px;
+  line-height: 1.5;
+  color: @secondaryTextColor;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  .mu-list.mu-list-three-line & {
+    white-space: normal;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+  }
+}
+
+.mu-item-after-text {
+  color: @secondaryTextColor;
+  font-size: 12px;
+}

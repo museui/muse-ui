@@ -1,0 +1,20 @@
+@import "../import.less";
+.mu-menu {
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+}
+
+.mu-menu-activator {
+  align-items: center;
+  cursor: pointer;
+  height: 100%;
+  position: relative;
+  input[readonly] {
+    cursor: pointer;
+  }
+  .mu-menu.is-disabled & {
+    cursor: default;
+    pointer-events: none;
+  }
+}

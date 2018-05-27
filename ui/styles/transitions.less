@@ -1,0 +1,73 @@
+@import "./import.less";
+
+.mu-fade-transition-enter-active,
+.mu-fade-transition-leave-active {
+  transition: opacity .45s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.mu-fade-transition-enter,
+.mu-fade-transition-leave-active {
+  opacity: 0 !important;
+}
+
+.mu-popover-transition-enter-active, .mu-popover-transition-leave-active{
+  transition-duration: 300ms;
+  // transform-origin: left top;
+  transition-property: opacity, transform;
+  backface-visibility: hidden;
+}
+
+.mu-popover-transition-enter, .mu-popover-transition-leave-active {
+  transform: scale(0.6);
+  opacity: 0;
+}
+
+.mu-bottom-sheet-transition-enter-active,
+.mu-bottom-sheet-transition-leave-active{
+  transition: transform .45s @easeOutFunction;
+  backface-visibility: hidden;
+}
+
+.mu-bottom-sheet-transition-enter,
+.mu-bottom-sheet-transition-leave-active{
+  transform: translate3d(0, 100%, 0);
+}
+
+.mu-slide-top-transition-enter-active,
+.mu-slide-top-transition-leave-active {
+  transition: transform .45s @easeOutFunction, opacity .45s @easeOutFunction;
+  backface-visibility: hidden;
+}
+
+.mu-slide-top-transition-enter,
+.mu-slide-top-transition-leave-active {
+  transform: translate3d(0, -100%, 0);
+  opacity: 0;
+}
+
+.mu-slide-bottom-transition-enter-active,
+.mu-slide-bottom-transition-leave-active {
+  transition: transform .45s @easeOutFunction, opacity .45s @easeOutFunction;
+  backface-visibility: hidden;
+}
+
+.mu-slide-bottom-transition-enter,
+.mu-slide-bottom-transition-leave-active {
+  transform: translate3d(0, 100%, 0);
+  opacity: 0;
+}
+
+
+.mu-scale-transition-enter-active,
+.mu-scale-transition-leave-active {
+  transition: all .45s @easeOutFunction;
+  backface-visibility: hidden;
+}
+
+.mu-scale-transition-enter,
+.mu-scale-transition-leave-active {
+  transform: scale(0);
+  opacity: 0;
+}
+
+

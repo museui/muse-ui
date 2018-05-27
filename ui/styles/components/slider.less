@@ -1,0 +1,96 @@
+@import "../import.less";
+.mu-slider {
+  width: 100%;
+  position: relative;
+  height: 24px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  cursor: default;
+  user-select:none;
+  outline: none;
+  color: @primaryColor;
+}
+
+.mu-slider-display-value {
+  position: absolute;
+  top: -35px;
+  display: none;
+  width: 26px;
+  height: 26px;
+  text-align: center;
+  line-height: 26px;
+  font-size: 10px;
+  background: currentColor;
+  border-radius: 50% 50% 50% 0;
+  transform: scale(1) rotate(-45deg) translate(-11px, -8px);
+  .mu-slider.active &{
+    display: block;
+  }
+  .display-value-text {
+    display: inline-block;
+    color: @alternateTextColor;
+    transform: rotate(45deg);
+  }
+}
+
+.mu-slider-track{
+  position: absolute;
+  height: 2px;
+  left: 0;
+  right: 0;
+  top: 50%;
+  margin-top: -1px;
+  background-color: @trackColor;
+}
+
+.mu-slider-fill{
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  background-color: currentColor;
+  left: 0;
+  top: 50%;
+  margin-top: -1px;
+  .mu-slider.disabled & {
+    background-color: @trackColor;
+  }
+}
+
+.mu-slider-thumb {
+  position: absolute;
+  top: 50%;
+  width: 12px;
+  height: 12px;
+  background-color: currentColor;
+  color: currentColor;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: background 450ms @easeOutFunction, border-color 450ms @easeOutFunction, width 450ms @easeOutFunction, height 450ms @easeOutFunction;
+  cursor: pointer;
+  .mu-slider.active &{
+    width: 20px;
+    height: 20px;
+  }
+  .mu-slider.zero &,
+  .mu-slider.disabled &{
+    border: 2px solid @trackColor;
+    color: @trackColor;
+    background-color: @alternateTextColor;
+    .mu-focus-ripple-wrapper {
+      top: -14px;
+      left: -14px;
+    }
+  }
+
+  .mu-slider.disabled & {
+    cursor: default;
+  }
+
+  .mu-focus-ripple-wrapper {
+    width: 36px;
+    height: 36px;
+    top: -12px;
+    left: -12px;
+  }
+}

@@ -1,0 +1,114 @@
+@import "../import.less";
+.mu-dialog-wrapper {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.mu-dialog {
+  padding: 0;
+  max-width: 75%;
+  background-color: @dialogBackgroundColor;
+  border-radius: 2px;
+  font-size: 16px;
+  .depth(8);
+}
+
+.mu-dialog-scrollable {
+  .mu-dialog-body {
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+.mu-dialog-fullscreen {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  max-width: 100% !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-height: 100% !important;
+  border-radius: 0;
+  .mu-dialog-body {
+    padding: 0;
+  }
+}
+
+.mu-dialog-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 24px 20px;
+  margin: 0;
+  font-size: 22px;
+  font-weight: normal;
+  line-height: 32px;
+  color: @textColor;
+  + .mu-dialog-body{
+    padding-top: 0;
+  }
+}
+.mu-dialog-body {
+  padding: 24px 24px 20px;
+  color: fade(@textColor, 60%);
+}
+
+.mu-dialog-actions {
+  min-height: 48px;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  .mu-raised-button + .mu-raised-button{
+    margin-left: 10px;
+  }
+}
+
+.mu-dialog-transition-enter-active,
+.mu-dialog-transition-leave-active {
+  transition: opacity .45s @easeOutFunction;
+  .mu-dialog {
+    &.mu-slide-top,
+    &.mu-slide-bottom,
+    &.mu-slide-left,
+    &.mu-slide-right,
+    &.mu-scale{
+      transition: transform .45s @easeOutFunction
+    }
+  }
+}
+
+.mu-dialog-transition-enter,
+.mu-dialog-transition-leave-active {
+  opacity: 0;
+}
+
+.mu-dialog-transition-enter,
+.mu-dialog-transition-leave-active {
+  .mu-dialog {
+    backface-visibility: hidden;
+    &.mu-slide-top {
+      transform: translate3d(0, -100%, 0);
+    }
+    &.mu-slide-bottom {
+      transform: translate3d(0, 100%, 0);
+    }
+    &.mu-slide-right {
+      transform: translate3d(100%, 0, 0);
+    }
+    &.mu-slide-left {
+      transform: translate3d(-100%, 0, 0);
+    }
+    &.mu-scale {
+      transform: scale(0.6);
+    }
+  }
+}

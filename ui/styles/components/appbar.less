@@ -1,0 +1,64 @@
+@import '../import.less';
+
+.mu-appbar {
+  display: flex;
+  align-self: flex-start;
+  justify-content: flex-start;
+  align-items: center;
+  color: @textColor;
+  background-color: @backgroundColor;
+  height: 56px;
+  padding: 0 4px;
+  .flex-shrink(0);
+  z-index: 100;
+  > .left,
+  > .right{
+    .flex-shrink(0);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100%;
+  }
+  > .left {
+    padding-right: 8px;
+  }
+  .mu-icon-button {
+    color: inherit;
+  }
+  .mu-flat-button {
+    color: inherit;
+    height: 100%;
+    line-height: 100%;
+    min-width: auto;
+  }
+  .mu-menu {
+    height: 100%;
+    line-height: 100%;
+    min-width: auto;
+  }
+}
+
+.mu-appbar-title {
+  flex: 1;
+  padding-left: 12px;
+  padding-right: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 56px;
+}
+
+@media only screen and (min-width: 600px) {
+  .mu-appbar-title {
+    line-height: 64px;
+  }
+  .mu-appbar {
+    height: 64px;
+  }
+  .mu-appbar-title {
+    font-size: 24px;
+  }
+}

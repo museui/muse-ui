@@ -1,0 +1,99 @@
+@import "../import.less";
+.mu-checkbox {
+  position: relative;
+  display: inline-block;
+  height: 24px;
+  line-height: 24px;
+  cursor: pointer;
+  user-select: none;
+  outline: none;
+  color: @secondaryTextColor;
+  input[type="checkbox"] {
+    display: none;
+  }
+  &.disabled {
+    cursor: not-allowed;
+    color: @disabledColor;
+  }
+}
+
+.mu-checkbox-checked {
+  color: @primaryColor;
+  .mu-checkbox-icon-uncheck {
+    opacity: 0;
+    transition: opacity 650ms @easeOutFunction 150ms;
+  }
+  .mu-checkbox-icon-checked {
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity 0ms @easeOutFunction, transform 800ms @easeOutFunction;
+  }
+}
+
+.mu-checkbox-wrapper {
+  display: flex;
+  width: 100%;
+  height: 24px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mu-checkbox-icon {
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+  position: relative;
+  margin-right: 16px;
+  .mu-checkbox.label-left & {
+    margin-right: 0;
+    margin-left: 16px;
+  }
+  .mu-checkbox.no-label & {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+.mu-checkbox-label {
+  color: @textColor;
+  .mu-checkbox.disabled & {
+    color: @disabledColor;
+  }
+}
+
+.mu-checkbox-svg-icon {
+  display: inline-block;
+  fill: currentColor;
+  height: 24px;
+  width: 24px;
+  user-select: none;
+}
+
+.mu-checkbox-icon-uncheck {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 1;
+  transition: opacity 1s @easeOutFunction .2s;
+}
+
+.mu-checkbox-icon-checked {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  transform: scale(0);
+  transition: opacity 450ms @easeOutFunction, transform 0ms @easeOutFunction 450ms;
+}
+
+.mu-checkbox-ripple-wrapper {
+  width: 48px;
+  height: 48px;
+  top: -12px;
+  left: -12px;
+  position: absolute;
+  .mu-checkbox.label-left & {
+    right: -12px;
+    left: auto;
+  }
+}
