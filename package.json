@@ -4,7 +4,7 @@
   "description": "material design ui for vue2",
   "author": "myronliu347 <myronliu347@gmail.com>",
   "repository": "https://github.com/museui/muse-ui.git",
-  "main": "lib/index.js",
+  "main": "dist/muse-ui.js",
   "scripts": {
     "docs:dev": "webpack-dev-server --inline --progress --config docs/build/webpack.dev.conf.js",
     "docs:build": "node docs/build/build.js",
