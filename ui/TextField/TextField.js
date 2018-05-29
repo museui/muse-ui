@@ -68,7 +68,8 @@ export default {
     return this.createInput(h, {
       staticClass: 'mu-text-field'
     }, [
-      this.createTextField(h)
+      this.createTextField(h),
+      this.$slots.default
     ]);
   }
 };
