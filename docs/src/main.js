@@ -4,6 +4,7 @@ import './assets/font-icons/style.css';
 import './assets/github-markdown.css';
 import './assets/atom-one-light.css';
 import MuseUI from '../../ui';
+import FastClick from 'fastclick';
 import './theme.js';
 import App from './App';
 import ColorPalette from './components/color-palette';
@@ -15,6 +16,7 @@ Vue.component(ColorPalette.name, ColorPalette);
 Vue.component(DemoBlock.name, DemoBlock);
 Vue.config.productionTip = false;
 
+if (navigator && navigator.userAgent.toLowerCase().indexOf('mobile') !== -1) FastClick.attach(document.body);
 router.beforeEach((to, from, next) => {
   window.scrollTo(0, 0);
   progress.start();
