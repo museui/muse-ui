@@ -2265,6 +2265,10 @@ date-time@^2.1.0:
   dependencies:
     time-zone "^1.0.0"
 
+dayjs@^1.6.5:
+  version "1.6.5"
+  resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.6.5.tgz#d7c18785990f6d839161b84f4cc924d9324dfa33"
+
 de-indent@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/de-indent/-/de-indent-1.0.2.tgz#b2038e846dc33baa5796128d0804b455b8c1e21d"

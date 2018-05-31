@@ -98,6 +98,7 @@
     "not ie <= 10"
   ],
   "dependencies": {
+    "dayjs": "^1.6.5",
     "keycode": "^2.1.9",
     "normalize-wheel": "^1.0.1"
   },

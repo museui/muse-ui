@@ -223,7 +223,12 @@ export default {
 ```
 :::
 
-<mu-alert color="info">mu-date-input 支持 input 标签所有的原生属性和事件。</mu-alert>
+<mu-alert color="info">
+  <div>
+    <p>mu-date-input 支持 input 标签所有的原生属性和事件。</p>
+    <p style="margin-bottom: 0">mu-date-input 日期解析和格式化依赖于 <a style="color: inherit;" target="_blank" href="https://github.com/iamkun/dayjs/blob/master/docs/en/API-reference.md">dayjs</a></p>
+  </div>
+</mu-alert>
 
 ## Date Input props
 
@@ -237,6 +242,7 @@ export default {
 | ok-label | 确定按钮的文本 | String | — | 确定 |
 | cancel-label | 取消按钮的文本 | String | — | 取消 |
 | value | 用于 `v-model` 绑定 | Date, String | — | — |
+| value-format | 绑定值的格式。不指定则绑定值为 Date 对象 | String | - |
 | color | 输入框颜色 | String | — | — |
 | icon | 输入框左边的图标 | String | — | — |
 | label | 标签文本 | String | — | — |
