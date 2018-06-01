@@ -119,8 +119,7 @@ export default {
           this.suffix && !this.float ? h('span', { staticClass: 'mu-input-suffix-text' }, this.suffix) : undefined,
           defaultAction || this.createActionIcon(h),
           this.createUnderline(h),
-          this.createHelpText(h),
-          this.$slots.default
+          this.createHelpText(h)
         ])
       ]);
     }

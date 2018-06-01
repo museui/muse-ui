@@ -97,7 +97,7 @@ export default {
 };
 </script>
 <style lang="less">
-@import "../../../../lib/styles/vars.less";
+@import "../../../../ui/styles/vars.less";
 .mu-banner{
   z-index: 100;
   height: 500px;

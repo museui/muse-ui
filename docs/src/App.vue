@@ -182,7 +182,7 @@ function isMobile () {
 }
 </script>
 <style lang="less">
-@import '../../lib/styles/vars.less';
+@import '../../ui/styles/vars.less';
 .mu-app-drawer {
   border-right: 1px solid @borderColor;
 }

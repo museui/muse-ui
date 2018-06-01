@@ -9,19 +9,13 @@ export default {
       type: String,
       default: 'a'
     },
-    activeClass: {
-      type: String,
-      default: 'router-link-active'
-    },
+    activeClass: String,
     event: {
       type: [String, Array],
       default: 'click'
     },
     exact: Boolean,
-    exactActiveClass: {
-      type: String,
-      default: 'router-link-exact-active'
-    },
+    exactActiveClass: String,
     append: Boolean,
     replace: Boolean
   },

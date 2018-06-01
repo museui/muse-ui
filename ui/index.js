@@ -57,4 +57,6 @@ function MuseUI (Vue) {
 
 MuseUI.theme = theme;
 MuseUI.Colors = Colors;
+
+if (typeof window !== 'undefined' && window.Vue) MuseUI(window.Vue);
 export default MuseUI;

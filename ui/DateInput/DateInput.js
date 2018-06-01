@@ -2,15 +2,15 @@ import TextField from '../TextField';
 import DatePicker from '../DatePicker';
 import Container from './Container';
 import TimePicker from '../TimePicker';
-import * as dateUtils from '../DatePicker/dateUtils';
+import dayjs from 'dayjs';
 import Button from '../Button/Button';
 
 const DEFAULT_FORMAT = {
-  date: 'yyyy-MM-dd',
+  date: 'YYYY-MM-DD',
   time: 'hh:mm',
-  year: 'yyyy',
-  month: 'yyyy-MM',
-  dateTime: 'yyyy-MM-dd hh:mm'
+  year: 'YYYY',
+  month: 'YYYY-MM',
+  dateTime: 'YYYY-MM-DD hh:mm'
 };
 
 const PickerProps = {
@@ -57,24 +57,24 @@ export default {
       type: String,
       default: '取消'
     },
-    value: {
-      type: Date
-    },
+    value: {},
+    valueFormat: String,
     ...TextField.props,
     ...PickerProps
   },
   data () {
     return {
       open: false,
-      date: this.value,
+      date: this.value ? dayjs(this.value).toDate() : undefined,
       view: this.type === 'time' ? 'time' : this.type === 'dateRange' ? 'dateRange' : 'date'
     };
   },
   methods: {
     changeValue () {
       this.closePicker();
-      this.$emit('change', this.date);
-      this.$emit('input', this.date);
+      const value = this.valueFormat ? dayjs(this.date).format(this.valueFormat) : this.date;
+      this.$emit('change', value);
+      this.$emit('input', value);
     },
     closePicker () {
       this.open = false;
@@ -178,7 +178,7 @@ export default {
     }
   },
   render (h) {
-    const dateStr = this.value ? dateUtils.dateToStr(this.value, this.format ? this.format : DEFAULT_FORMAT[this.type]) : '';
+    const dateStr = this.value ? dayjs(this.value).format(this.format ? this.format : DEFAULT_FORMAT[this.type]) : '';
     const listeners = this.$listeners;
     delete listeners.input;
     delete listeners.change;
@@ -206,7 +206,7 @@ export default {
   },
   watch: {
     value (val) {
-      this.date = val;
+      this.date = val ? dayjs(val).toDate() : undefined;
     }
   }
 };
