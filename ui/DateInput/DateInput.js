@@ -2,7 +2,6 @@ import TextField from '../TextField';
 import DatePicker from '../DatePicker';
 import Container from './Container';
 import TimePicker from '../TimePicker';
-import * as dateUtils from '../DatePicker/dateUtils';
 import dayjs from 'dayjs';
 import Button from '../Button/Button';
 

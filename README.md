@@ -1,7 +1,7 @@
 
 <p align="center">
   <a href="https://www.muse-ui.org" target="_blank">
-    <img width="120" src="https://www.muse-ui.org/static/img/icon_logo.a76a122.png">
+    <img width="120" src="./demo/icon_logo.png">
   </a>
 </p>
 
@@ -69,11 +69,11 @@ If you find Muse-UI useful, you can buy us a cup of coffee
 
 <div style="display:inline-block;">
   <p style="font-size: 20px;text-align: center;">支付宝</p>
-  <img src="https://www.muse-ui.org/static/img/pay.ad1cfea.png" width="273">
+  <img src="./demo/pay.png" width="273">
 </div>
 <div style="display:inline-block;margin-left: 16px;">
   <p style="font-size: 20px;text-align: center;">微信</p>
-  <img src="https://www.muse-ui.org/static/img/wechat.876176b.png" width="273">
+  <img src="./demo/wechat.png" width="273">
 </div>
 
 ## Licence
