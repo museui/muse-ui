@@ -53,8 +53,8 @@ export default {
       let htmlTpl = `${resourcesTpl}\n<div id="app">\n${html.trim()}\n</div>`;
       let cssTpl = `@import url("//unpkg.com/muse-ui@${ packageJson.version }/dist/muse-ui.css");\n${(style || '').trim()}\n`;
       jsTpl = jsTpl
-        ? jsTpl + '\nVue.use(MuseUI)\nvar Ctor = Vue.extend(Main)\nnew Ctor().$mount(\'#app\')'
-        : 'Vue.use(MuseUI)\nnew Vue().$mount(\'#app\')';
+        ? jsTpl + '\nvar Ctor = Vue.extend(Main)\nnew Ctor().$mount(\'#app\')'
+        : '\nnew Vue().$mount(\'#app\')';
       const data = {
         js: jsTpl,
         css: cssTpl,
