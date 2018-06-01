@@ -1,6 +1,15 @@
 # 更新日志
 
 <mu-stepper orientation="vertical" :linear="false">
+<mu-step active>
+    <mu-step-label>
+      <mu-icon value="panorama_fish_eye" color="primary" slot="icon"></mu-icon>
+      <span class="version-title">3.0.0-beta.2</span>
+    </mu-step-label>
+    <mu-step-content >
+      <v3-0-0-beta2></v3-0-0-beta2>
+    </mu-step-content>
+  </mu-step>
   <mu-step active>
     <mu-step-label>
       <mu-icon value="panorama_fish_eye" color="primary" slot="icon"></mu-icon>
@@ -20,10 +29,12 @@
 
 <script>
 import V3Beta1 from './version/3.0.0-beta.1.md';
+import V3Beta2 from './version/3.0.0-beta.2.md';
 
 export default {
   components: {
-    'v3-0-0-beta1': V3Beta1
+    'v3-0-0-beta1': V3Beta1,
+    'v3-0-0-beta2': V3Beta2
   }
 }
 </script>
