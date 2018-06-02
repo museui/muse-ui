@@ -9,7 +9,7 @@
 <mu-container>
   <mu-flex justify-content="between" align-items="end" wrap="wrap">
     <mu-paper :z-depth="1" class="demo-date-picker">
-      <mu-date-time-picker view-type="list" :date.sync="date"></mu-date-time-picker>
+      <mu-date-picker :date.sync="date"></mu-date-picker>
     </mu-paper>
     <mu-paper :z-depth="1" class="demo-date-picker">
       <mu-date-picker landscape :date.sync="date"></mu-date-picker>
