@@ -6,7 +6,7 @@ export default {
   props: {
     centerRipple: {
       type: Boolean,
-      default: true
+      default: false
     },
     rippleWrapperClass: {},
     tag: {
