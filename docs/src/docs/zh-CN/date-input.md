@@ -115,10 +115,10 @@ export default {
 <mu-container>
   <mu-row gutter>
     <mu-col span="12" lg="4" sm="6">
-      <mu-date-input  icon="today" v-model="value12" label="显示确定/取消按钮" actions label-float full-width></mu-date-input>
+      <mu-date-input  icon="today" type="time" v-model="value12" label="显示确定/取消按钮" actions label-float full-width></mu-date-input>
     </mu-col>
     <mu-col span="12" lg="4" sm="6">
-      <mu-date-input  icon="today" v-model="value13" label="格式化显示" format="yyyy 年 MM 月 dd 日" label-float full-width></mu-date-input>
+      <mu-date-input  icon="today" v-model="value13" label="格式化显示" format="YYYY 年 MM 月 DD 日" label-float full-width></mu-date-input>
     </mu-col>
     <mu-col span="12" lg="4" sm="6">
       <mu-date-input  icon="today" v-model="value14" label="不展示日期" no-display label-float full-width></mu-date-input>
@@ -237,6 +237,7 @@ export default {
 | container | 弹出方式 | String | popover/dialog/bottomSheet  | popover |
 | type | 选择的类型 | String | date/time/year/month/dateTime | date |
 | clock-type | 时间选择器显示类型 | String | ampm/24hr | ampm |
+| view-type | 时间选择模式 | String | clock/list| clock |
 | format | 显示在输入框中的格式 | String | — | yyyy—MM-dd  |
 | actions | 是否显示底部的确定/取消按钮 | Boolean | — | false |
 | ok-label | 确定按钮的文本 | String | — | 确定 |
@@ -244,6 +245,7 @@ export default {
 | value | 用于 `v-model` 绑定 | Date, String | — | — |
 | value-format | 绑定值的格式。不指定则绑定值为 Date 对象 | String | - |
 | color | 输入框颜色 | String | — | — |
+| display-color | 时间显示区域背景色 | String | - | - |
 | icon | 输入框左边的图标 | String | — | — |
 | label | 标签文本 | String | — | — |
 | label-float | 标签是否浮动 | Boolean | — | false |

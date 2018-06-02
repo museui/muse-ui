@@ -10,7 +10,6 @@ import CardTheme from '../Card/theme';
 import CheckboxTheme from '../Checkbox/theme';
 import ChipTheme from '../Chip/theme';
 import DataTableTheme from '../DataTable/theme';
-import DatePickerTheme from '../DatePicker/theme';
 import DialogTheme from '../Dialog/theme';
 import DividerTheme from '../Divider/theme';
 import DrawerTheme from '../Drawer/theme';
@@ -18,6 +17,7 @@ import GradListTheme from '../GridList/theme';
 import ListTheme from '../List/theme';
 import PaginationTheme from '../Pagination/theme';
 import PaperTheme from '../Paper/theme';
+import PickerTheme from '../Picker/theme';
 import PopoverTheme from '../Popover/theme';
 import ProgressTheme from '../Progress/theme';
 import RadioTheme from '../Radio/theme';
@@ -29,7 +29,6 @@ import SubHeaderTheme from '../SubHeader/theme';
 import SwitchTheme from '../Switch/theme';
 import Tabs from '../Tabs/theme';
 import TextField from '../TextField/theme';
-import TimePickerTheme from '../TimePicker/theme';
 import ColorTheme from './colorTheme';
 import light from './light';
 import dark from './dark';
@@ -37,10 +36,11 @@ import dark from './dark';
 const themes = [
   BaseTheme, AppBarTheme, AvatarTheme, BadgeTheme, BottomNavTheme,
   BottomSheetTheme, BreadcrumbsTheme, ButtonTheme, CardTheme, CheckboxTheme,
-  ChipTheme, DataTableTheme, DatePickerTheme, DialogTheme, DividerTheme,
+  ChipTheme, DataTableTheme, DialogTheme, DividerTheme,
   DrawerTheme, GradListTheme, SliderTheme,
-  ListTheme, PaginationTheme, PaperTheme, PopoverTheme, ProgressTheme, RadioTheme, SnackbarTheme,
-  SelectTheme, StepperTheme, SubHeaderTheme, SwitchTheme, Tabs, TextField, TimePickerTheme, ColorTheme
+  ListTheme, PaginationTheme, PaperTheme, PickerTheme,
+  PopoverTheme, ProgressTheme, RadioTheme, SnackbarTheme,
+  SelectTheme, StepperTheme, SubHeaderTheme, SwitchTheme, Tabs, TextField, ColorTheme
 ];
 
 const vars = {

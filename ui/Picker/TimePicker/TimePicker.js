@@ -1,7 +1,9 @@
 import TimeDisplay from './TimeDisplay';
 import ClockHours from './Hours';
 import ClockMinutes from './Minutes';
-import color from '../internal/mixins/color';
+import ListView from './ListView';
+import color from '../../internal/mixins/color';
+import pickerProps from '../mixins/props';
 
 export default {
   name: 'mu-time-picker',
@@ -10,8 +12,15 @@ export default {
       getColorObject: this.getColorObject
     };
   },
-  mixins: [color],
+  mixins: [color, pickerProps],
   props: {
+    viewType: {
+      type: String,
+      default: 'clock',
+      validator (val) {
+        return ['clock', 'list'].indexOf(val) !== -1;
+      }
+    },
     format: {
       type: String,
       default: 'ampm',
@@ -24,13 +33,11 @@ export default {
       default () {
         return new Date();
       }
-    },
-    noDisplay: Boolean,
-    landscape: Boolean
+    }
   },
   data () {
     return {
-      mode: 'hour'
+      view: 'hour'
     };
   },
   methods: {
@@ -73,51 +80,44 @@ export default {
       }
       time.setHours(hours);
       this.changeTime(time, 'hour', finished);
-      if (finished) this.mode = 'minute';
+      if (finished) this.view = 'minute';
     },
     handleChangeMinutes (minutes, finished) {
       const time = new Date(this.time);
       time.setMinutes(minutes);
       this.changeTime(time, 'minute', finished);
-      if (finished) this.mode = 'hour';
+      if (finished) this.view = 'hour';
     },
-    changeTime (time, mode, finished) {
-      this.$emit('change', time, mode, finished);
+    changeTime (time, view, finished) {
+      this.$emit('change', time, view, finished);
       this.$emit('update:time', time);
-    }
-  },
-  render (h) {
-    const { color, colorClass } = this.getColorObject();
-    return h('div', {
-      staticClass: 'mu-timepicker ' + colorClass,
-      style: {
-        color
-      },
-      class: {
-        'mu-timepicker-landspace': this.landscape
-      }
-    }, [
-      !this.noDisplay ? h(TimeDisplay, {
+    },
+    changeView (view) {
+      this.view = view;
+    },
+    createTimeDisplay (h) {
+      if (this.noDisplay) return;
+      return h(TimeDisplay, {
         props: {
           selectedTime: this.time,
           format: this.format,
-          mode: this.mode,
+          mode: this.view,
+          color: this.displayColor,
+          viewType: this.viewType,
           affix: this.getAffix()
         },
         on: {
-          selectMin: () => { this.mode = 'minute'; },
-          selectHour: () => { this.mode = 'hour'; },
+          changeView: this.changeView,
           selectAffix: this.handleSelectAffix
         }
-      }) : undefined,
-      h('div', {
-        staticClass: 'mu-timepicker-container',
-        class: {
-          'mu-timepicker-container__action': this.$slots.default && this.$slots.default.length > 0
-        }
+      });
+    },
+    createClock (h) {
+      return h('div', {
+        staticClass: 'mu-timepicker-clock'
       }, [
         h('div', { staticClass: 'mu-timepicker-circle' }),
-        this.mode === 'hour' ? h(ClockHours, {
+        this.view === 'hour' ? h(ClockHours, {
           props: {
             format: this.format,
             initialHours: this.time.getHours()
@@ -126,7 +126,7 @@ export default {
             change: this.handleChangeHours
           }
         }) : undefined,
-        this.mode === 'minute' ? h(ClockMinutes, {
+        this.view === 'minute' ? h(ClockMinutes, {
           props: {
             initialMinutes: this.time.getMinutes()
           },
@@ -134,8 +134,42 @@ export default {
             change: this.handleChangeMinutes
           }
         }) : undefined
-      ]),
-      this.$slots.default
+      ]);
+    },
+    createList (h) {
+      return h(ListView, {
+        props: {
+          format: this.format,
+          time: this.time
+        },
+        on: {
+          changeHours: (val) => this.handleChangeHours(val, true),
+          changeMinutes: (val) => this.handleChangeMinutes(val, true)
+        }
+      });
+    }
+  },
+  render (h) {
+    const { color, colorClass } = this.getColorObject();
+    return h('div', {
+      staticClass: 'mu-picker mu-timepicker ' + colorClass,
+      style: {
+        color
+      },
+      class: {
+        'mu-picker-landspace': this.landscape
+      }
+    }, [
+      this.createTimeDisplay(h),
+      h('div', {
+        staticClass: 'mu-picker-container',
+        class: {
+          'mu-timepicker-container__action': this.$slots.default && this.$slots.default.length > 0
+        }
+      }, [
+        this.viewType === 'list' ? this.createList(h) : this.createClock(h),
+        this.$slots.default
+      ])
     ]);
   }
 };

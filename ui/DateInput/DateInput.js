@@ -1,16 +1,15 @@
 import TextField from '../TextField';
-import DatePicker from '../DatePicker';
+import { DatePicker, TimePicker } from '../Picker';
 import Container from './Container';
-import TimePicker from '../TimePicker';
 import dayjs from 'dayjs';
 import Button from '../Button/Button';
 
 const DEFAULT_FORMAT = {
   date: 'YYYY-MM-DD',
-  time: 'hh:mm',
+  time: 'HH:mm',
   year: 'YYYY',
   month: 'YYYY-MM',
-  dateTime: 'YYYY-MM-DD hh:mm'
+  dateTime: 'YYYY-MM-DD HH:mm'
 };
 
 const PickerProps = {
@@ -110,10 +109,10 @@ export default {
       });
       return obj;
     },
-    createActions (h, name) {
+    createActions (h) {
       if (!this.actions) return;
       return h('div', {
-        staticClass: `mu-${name}-actions`
+        staticClass: `mu-picker-actions`
       }, [
         h(Button, {
           props: {
@@ -160,7 +159,7 @@ export default {
             style: {
               width: this.container === 'bottomSheet' ? 'auto' : ''
             }
-          }, [this.createActions(h, 'timepicker')])
+          }, [this.createActions(h)])
           : h(DatePicker, {
             props: {
               ...this.generateDatePickerProps(),
@@ -173,7 +172,7 @@ export default {
             style: {
               width: this.container === 'bottomSheet' ? 'auto' : ''
             }
-          }, [this.createActions(h, 'datepicker')])
+          }, [this.createActions(h)])
       ]);
     }
   },
