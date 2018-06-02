@@ -249,6 +249,7 @@ export default {
       class: {
         zero: this.value <= this.min,
         active: this.active,
+        'display-value': this.displayValue && this.active,
         disabled: this.disabled
       },
       style: { color },
