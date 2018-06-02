@@ -17,8 +17,8 @@ export default {
   },
   render (h) {
     const slots = this.$slots;
-    const left = slots.left && slots.left.length > 0 ? h('div', { staticClass: 'left' }, slots.left) : undefined;
-    const right = slots.right && slots.right.length > 0 ? h('div', { staticClass: 'right' }, slots.right) : undefined;
+    const left = slots.left && slots.left.length > 0 ? h('div', { staticClass: 'mu-appbar-left' }, slots.left) : undefined;
+    const right = slots.right && slots.right.length > 0 ? h('div', { staticClass: 'mu-appbar-right' }, slots.right) : undefined;
     const center = h('div', { staticClass: 'mu-appbar-title' }, slots.default && slots.default.length > 0 ? slots.default : this.title);
 
     return h(Paper, {
