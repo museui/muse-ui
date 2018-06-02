@@ -17,6 +17,7 @@ import Divider from './Divider';
 import Drawer from './Drawer';
 import Grid from './Grid';
 import GridList from './GridList';
+import Helpers from './Helpers';
 import Icon from './Icon';
 import List from './List';
 import Menu from './Menu';
@@ -45,7 +46,7 @@ function MuseUI (Vue) {
     Badge, BottomNav, BottomSheet, Breadcrumbs, Button,
     Card, Checkbox, Chip,
     DataTable, DateInput, Dialog, Divider, Drawer,
-    Grid, GridList, Icon, List, Menu,
+    Grid, GridList, Helpers, Icon, List, Menu,
     Pagination, Paper, Picker, Popover, Progress, Radio,
     Select, Slider, Snackbar, Stepper, SubHeader, Switch,
     Tabs, TextField, Tooltip
