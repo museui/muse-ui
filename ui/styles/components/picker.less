@@ -10,6 +10,20 @@
   width: 280px;
 }
 
+.mu-datetime-picker {
+  .mu-tabs {
+    .depth(1);
+  }
+  .mu-picker-container {
+    position: relative;
+  }
+  .mu-fade-transition-leave-active {
+    position: absolute;
+    left: 0;
+    right: 0;
+  }
+}
+
 .mu-picker-landspace {
   width: 479px;
   display: flex;
@@ -22,13 +36,21 @@
 }
 
 .mu-picker-display {
-  display: block;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+  height: 100px;
   background-color: currentColor;
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
   border-bottom-left-radius: 0;
+  padding-left: 16px;
+  padding-right: 16px;
   .mu-picker-landspace & {
     width: 165px;
+    height: auto;
+    padding-top: 16px;
     border-top-right-radius: 0;
     border-bottom-left-radius: 2px;
     position: relative;
@@ -37,15 +59,63 @@
 
 .mu-date-display {
   font-weight: 700;
-  padding: 20px;
+}
+@media (min-width: 600px){
+  .mu-picker-display {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  .mu-picker-landspace .mu-picker-display {
+    padding-top: 24px;
+  }
 }
 .mu-time-display {
-  padding: 14px 0px;
+  align-items: center;
+}
+
+.mu-date-time-display {
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  .mu-time-display-text {
+    font-size: 45px;
+    line-height: 45px;
+  }
+  .mu-date-display-monthday {
+    font-size: 34px;
+    line-height: 41px;
+    height: 41px;
+  }
+  .mu-time-display-time {
+    margin: 0 8px;
+  }
+  .mu-date-display,
+  .mu-time-display {
+    height: 65px;
+  }
+  .mu-time-display-text {
+    height: 100%;
+    align-items: flex-end;
+    margin: 0;
+  }
+  .mu-time-display-affix {
+    height: 45px;
+    padding-top: 7px;
+  }
+  .mu-date-display-year,
+  .mu-date-display-monthday,
+  .mu-time-display-clickable {
+    opacity: .7;
+    &.active {
+      opacity: 1;
+    }
+  }
 }
 .mu-date-display-year {
   position: relative;
   overflow: hidden;
   margin: 0;
+  width: 100%;
   font-size: 16px;
   font-weight: 500;
   line-height: 16px;
@@ -180,7 +250,8 @@
 
 .mu-time-display-clickable {
   cursor: pointer;
-  &.inactive {
+  &.inactive,
+  + span {
     opacity: 0.7
   }
   .mu-picker-landspace & {
@@ -348,6 +419,14 @@
       color: currentColor;
     }
   }
+}
+
+.mu-datetime-picker-svg {
+  display: block;
+  fill: currentColor;
+  height: 24px;
+  width: 24px;
+  user-select: none;
 }
 
 .mu-datepicker-svg-icon {

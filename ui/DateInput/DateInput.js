@@ -1,5 +1,5 @@
 import TextField from '../TextField';
-import { DatePicker, TimePicker } from '../Picker';
+import { DatePicker, TimePicker, DateTimePicker } from '../Picker';
 import Container from './Container';
 import dayjs from 'dayjs';
 import Button from '../Button/Button';
@@ -64,8 +64,7 @@ export default {
   data () {
     return {
       open: false,
-      date: this.value ? dayjs(this.value).toDate() : undefined,
-      view: this.type === 'time' ? 'time' : this.type === 'dateRange' ? 'dateRange' : 'date'
+      date: this.value ? dayjs(this.value).toDate() : undefined
     };
   },
   methods: {
@@ -77,15 +76,9 @@ export default {
     },
     closePicker () {
       this.open = false;
-      this.view = this.type === 'time' ? 'time' : this.type === 'dateRange' ? 'dateRange' : 'date';
     },
     handleDateChange (date) {
       this.date = date;
-      if (this.type === 'dateTime') {
-        this.view = 'time';
-        return;
-      }
-
       if (!this.actions) this.changeValue();
     },
     handleTimeChange (date, mode, finished) {
@@ -135,32 +128,11 @@ export default {
       ]);
     },
     createPicker (h) {
-      return h(Container, {
-        props: {
-          container: this.container,
-          open: this.open,
-          trigger: this.$el
-        },
-        on: {
-          close: this.closePicker
-        }
-      }, [
-        this.view === 'time'
-          ? h(TimePicker, {
-            props: {
-              ...this.generateTimePickerProps(),
-              time: this.date,
-              noDisplay: false,
-              format: this.clockType
-            },
-            on: {
-              change: this.handleTimeChange
-            },
-            style: {
-              width: this.container === 'bottomSheet' ? 'auto' : ''
-            }
-          }, [this.createActions(h)])
-          : h(DatePicker, {
+      switch (this.type) {
+        case 'date':
+        case 'year':
+        case 'month':
+          return h(DatePicker, {
             props: {
               ...this.generateDatePickerProps(),
               type: this.type === 'month' ? 'month' : this.type === 'year' ? 'year' : 'date',
@@ -172,8 +144,37 @@ export default {
             style: {
               width: this.container === 'bottomSheet' ? 'auto' : ''
             }
-          }, [this.createActions(h)])
-      ]);
+          }, [this.createActions(h)]);
+        case 'dateTime':
+          return h(DateTimePicker, {
+            props: {
+              ...this.generateDatePickerProps(),
+              ...this.generateTimePickerProps(),
+              format: this.clockType,
+              date: this.date
+            },
+            on: {
+              change: this.handleTimeChange
+            },
+            style: {
+              width: this.container === 'bottomSheet' ? 'auto' : ''
+            }
+          }, [this.createActions(h)]);
+        case 'time':
+          return h(TimePicker, {
+            props: {
+              ...this.generateTimePickerProps(),
+              time: this.date,
+              format: this.clockType
+            },
+            on: {
+              change: this.handleTimeChange
+            },
+            style: {
+              width: this.container === 'bottomSheet' ? 'auto' : ''
+            }
+          }, [this.createActions(h)]);
+      }
     }
   },
   render (h) {
@@ -200,7 +201,18 @@ export default {
           }
         }
       },
-      [this.createPicker(h)]
+      [
+        h(Container, {
+          props: {
+            container: this.container,
+            open: this.open,
+            trigger: this.$el
+          },
+          on: {
+            close: this.closePicker
+          }
+        }, [this.createPicker(h)])
+      ]
     );
   },
   watch: {

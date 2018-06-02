@@ -47,7 +47,6 @@ export default {
       const top = containerTop + containerHeight / 2;
       const maxScrollTop = container.scrollHeight - containerHeight;
       let scrollTop = btnTop + btnHeight / 2 - top;
-      scrollTop = container.scrollTop + scrollTop;
       scrollTop = Math.min(maxScrollTop, scrollTop);
       scrollTop = Math.max(0, scrollTop);
       setTimeout(() => (container.scrollTop = scrollTop), 0);

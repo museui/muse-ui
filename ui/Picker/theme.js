@@ -60,5 +60,12 @@ export default (theme, type) => {
   .mu-year-button:hover {
     background-color: ${fade(theme.text.primary, 0.1)};
   }
+  .mu-datetime-picker .mu-tabs {
+    background-color: ${type === 'dark' ? '#555555' : ''};
+    color: ${type === 'dark' ? theme.text.secondary : ''}
+  }
+  .mu-datetime-picker .mu-tab-active {
+    color: ${type === 'dark' ? theme.text.primary : ''}
+  }
   `;
 };

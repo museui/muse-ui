@@ -162,10 +162,7 @@ export default {
     }, [
       this.createTimeDisplay(h),
       h('div', {
-        staticClass: 'mu-picker-container',
-        class: {
-          'mu-timepicker-container__action': this.$slots.default && this.$slots.default.length > 0
-        }
+        staticClass: 'mu-picker-container'
       }, [
         this.viewType === 'list' ? this.createList(h) : this.createClock(h),
         this.$slots.default
