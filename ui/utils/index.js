@@ -82,3 +82,7 @@ export function createSimpleFunctional (c, el = 'div', name) {
 export function getFirstComponentChild (children) {
   return children && children.filter(c => c && c.tag)[0];
 };
+
+export function isPromise (val) {
+  return val && typeof val.then === 'function';
+}

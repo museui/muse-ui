@@ -13,7 +13,8 @@ import DataTableTheme from '../DataTable/theme';
 import DialogTheme from '../Dialog/theme';
 import DividerTheme from '../Divider/theme';
 import DrawerTheme from '../Drawer/theme';
-import GradListTheme from '../GridList/theme';
+import FormTheme from '../Form/theme';
+import GridListTheme from '../GridList/theme';
 import ListTheme from '../List/theme';
 import PaginationTheme from '../Pagination/theme';
 import PaperTheme from '../Paper/theme';
@@ -37,7 +38,7 @@ const themes = [
   BaseTheme, AppBarTheme, AvatarTheme, BadgeTheme, BottomNavTheme,
   BottomSheetTheme, BreadcrumbsTheme, ButtonTheme, CardTheme, CheckboxTheme,
   ChipTheme, DataTableTheme, DialogTheme, DividerTheme,
-  DrawerTheme, GradListTheme, SliderTheme,
+  DrawerTheme, FormTheme, GridListTheme, SliderTheme,
   ListTheme, PaginationTheme, PaperTheme, PickerTheme,
   PopoverTheme, ProgressTheme, RadioTheme, SnackbarTheme,
   SelectTheme, StepperTheme, SubHeaderTheme, SwitchTheme, Tabs, TextField, ColorTheme
