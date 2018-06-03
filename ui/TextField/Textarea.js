@@ -64,7 +64,7 @@ export default {
           disabled: this.disabled
         },
         domProps: {
-          innerText: this.value || ''
+          value: this.value || ''
         },
         on: this.$listeners
       })

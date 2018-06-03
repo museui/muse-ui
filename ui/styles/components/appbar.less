@@ -9,19 +9,7 @@
   background-color: @backgroundColor;
   height: 56px;
   padding: 0 4px;
-  .flex-shrink(0);
   z-index: 100;
-  > .left,
-  > .right{
-    .flex-shrink(0);
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    height: 100%;
-  }
-  > .left {
-    padding-right: 8px;
-  }
   .mu-icon-button {
     color: inherit;
   }
@@ -37,7 +25,17 @@
     min-width: auto;
   }
 }
-
+.mu-appbar-left,
+.mu-appbar-right {
+  .flex-shrink(0);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
+}
+.mu-appbar-left {
+  padding-right: 8px;
+}
 .mu-appbar-title {
   flex: 1;
   padding-left: 12px;

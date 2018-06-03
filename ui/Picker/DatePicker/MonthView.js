@@ -91,7 +91,7 @@ export default {
     return h(
       'div',
       {
-        staticClass: 'mu-datepick-month-container'
+        staticClass: 'mu-datepicker-month-container'
       },
       [
         h(Toolbar, {

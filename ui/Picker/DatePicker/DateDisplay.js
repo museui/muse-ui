@@ -1,4 +1,7 @@
+import color from '../../internal/mixins/color';
+
 export default {
+  mixins: [color],
   props: {
     type: String,
     dateTimeFormat: Object,
@@ -73,7 +76,10 @@ export default {
     }, this.createMonthSlide(h)) : undefined;
 
     return h('div', {
-      staticClass: 'mu-date-display',
+      staticClass: 'mu-picker-display mu-date-display ' + this.getColorClass(false),
+      style: {
+        'background-color': this.getColor(this.color)
+      },
       class: {
         'selected-year': !this.monthDaySelected
       }

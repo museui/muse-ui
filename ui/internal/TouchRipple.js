@@ -6,9 +6,13 @@ export default {
   props: {
     centerRipple: {
       type: Boolean,
-      default: true
+      default: false
     },
     rippleWrapperClass: {},
+    tag: {
+      type: String,
+      default: 'div'
+    },
     color: {
       type: String,
       default: ''
@@ -119,7 +123,7 @@ export default {
     }
   },
   render (h) {
-    return h('div', {
+    return h(this.tag, {
       on: {
         mousedown: this.handleMouseDown,
         mouseup: this.end,

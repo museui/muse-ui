@@ -14,6 +14,10 @@ export const dateTimeFormat = {
     var day = date.getDate();
     return `${localConfig.monthList[date.getMonth()]}-${day > 9 ? day : '0' + day} ${localConfig.dayList[date.getDay()]}`;
   },
+  formatDateDisplay (date) {
+    var day = date.getDate();
+    return `${localConfig.monthList[date.getMonth()]}-${day > 9 ? day : '0' + day}`;
+  },
   formatMonth (date) {
     return `${date.getFullYear()} ${localConfig.monthLongList[date.getMonth()]}`;
   },
@@ -53,7 +57,7 @@ export function getMonthArray (d) {
   const months = [];
   let month = [];
   for (let i = 0; i < 12; i++) {
-    month.push(new Date(d.getFullYear(), i, 1));
+    month.push(new Date(d.getFullYear(), i, 1, d.getHours(), d.getMinutes()));
     if (month.length === length) {
       months.push(month);
       month = [];
@@ -70,7 +74,7 @@ export function getWeekArray (d, firstDayOfWeek) {
   let week = [];
 
   for (let i = 1; i <= daysInMonth; i++) {
-    dayArray.push(new Date(d.getFullYear(), d.getMonth(), i));
+    dayArray.push(new Date(d.getFullYear(), d.getMonth(), i, d.getHours(), d.getMinutes()));
   }
 
   const addWeek = (week) => {

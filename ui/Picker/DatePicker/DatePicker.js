@@ -1,4 +1,5 @@
-import color from '../internal/mixins/color';
+import color from '../../internal/mixins/color';
+import pickerProps from '../mixins/props';
 import DateDisplay from './DateDisplay';
 import MonthDayView from './MonthDayView';
 import YearView from './YearView';
@@ -7,7 +8,7 @@ import * as dateUtils from './dateUtils';
 
 export default {
   name: 'mu-date-picker',
-  mixins: [color],
+  mixins: [color, pickerProps],
   props: {
     dateTimeFormat: {
       type: Object,
@@ -41,8 +42,6 @@ export default {
         return dateUtils.addYears(new Date(), -100);
       }
     },
-    landscape: Boolean,
-    noDisplay: Boolean,
     shouldDisableDate: Function
   },
   data () {
@@ -125,9 +124,9 @@ export default {
     return h(
       'div',
       {
-        staticClass: `mu-datepicker ${colorClass}`,
+        staticClass: `mu-picker mu-datepicker ${colorClass}`,
         class: {
-          'mu-datepicker-landspace': this.landscape
+          'mu-picker-landspace': this.landscape
         },
         style: {
           color
@@ -138,6 +137,7 @@ export default {
           props: {
             type: this.type,
             monthDaySelected: this.view !== 'year',
+            color: this.displayColor,
             displayDate: this.displayDate,
             dateTimeFormat: this.dateTimeFormat
           },
@@ -148,7 +148,7 @@ export default {
         h(
           'div',
           {
-            staticClass: 'mu-datepicker-container'
+            staticClass: 'mu-picker-container'
           },
           [
             this.view === 'monthDay'

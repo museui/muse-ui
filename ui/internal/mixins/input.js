@@ -4,6 +4,11 @@ import color from './color';
 export default {
   inheritAttrs: false,
   mixins: [color],
+  inject: {
+    muFormItem: {
+      default: ''
+    }
+  },
   props: {
     icon: String,
     label: String,
@@ -26,13 +31,16 @@ export default {
     };
   },
   computed: {
+    error () {
+      return !!this.errorText || (this.muFormItem && this.muFormItem.errorMessage);
+    },
     inputClass () {
       return {
         'mu-input__focus': this.isFocused,
         'has-label': this.label,
         'no-empty-state': this.inputValue,
         'has-icon': this.icon,
-        'mu-input__error': this.errorText,
+        'mu-input__error': this.error,
         'multi-line': this.multiLine,
         'disabled': this.disabled,
         'full-width': this.fullWidth,
@@ -73,7 +81,7 @@ export default {
         this.disabled ? undefined : h('div', {
           staticClass: 'mu-input-focus-line',
           class: {
-            'mu-input-focus-line__error': this.errorText,
+            'mu-input-focus-line__error': this.error,
             focus: this.isFocused
           }
         })
@@ -130,6 +138,10 @@ export default {
     },
     inputValue (val) {
       this.$emit('input', val);
+    },
+    isFocused (val) {
+      if (!this.muFormItem) return;
+      val ? this.muFormItem.onFocus() : this.muFormItem.onBlur();
     }
   }
 };

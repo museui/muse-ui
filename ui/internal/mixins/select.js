@@ -7,6 +7,11 @@ export default function (type = 'checkbox') { // checkbox
   return {
     mixins: [color],
     inheritAttrs: false,
+    inject: {
+      muFormItem: {
+        default: ''
+      }
+    },
     model: {
       prop: 'inputValue',
       event: 'change'
@@ -35,6 +40,7 @@ export default function (type = 'checkbox') { // checkbox
       handleClick (e) {
         if (this.disabled || this.readonly) return;
         this.toggle();
+        this.muFormItem && this.muFormItem.onBlur();
         this.$emit('click', e);
       },
       handleKeydown (e) {

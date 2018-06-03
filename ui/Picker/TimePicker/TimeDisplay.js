@@ -1,4 +1,7 @@
+import color from '../../internal/mixins/color';
+
 export default {
+  mixins: [color],
   props: {
     affix: {
       type: String,
@@ -26,7 +29,8 @@ export default {
         return new Date();
       },
       required: true
-    }
+    },
+    viewType: String
   },
   computed: {
     sanitizeTime () {
@@ -47,10 +51,10 @@ export default {
       this.$emit('selectAffix', affix);
     },
     handleSelectHour () {
-      this.$emit('selectHour');
+      this.$emit('changeView', 'hour');
     },
     handleSelectMin () {
-      this.$emit('selectMin');
+      this.$emit('changeView', 'minute');
     }
   },
   render (h) {
@@ -60,20 +64,20 @@ export default {
       h('span', {
         staticClass: 'mu-time-display-clickable',
         class: {
-          'inactive': this.mode === 'minute'
+          'inactive': this.viewType === 'clock' && this.mode === 'minute'
         },
         on: {
-          click: this.handleSelectHour
+          click: this.viewType === 'list' ? () => {} : this.handleSelectHour
         }
       }, this.sanitizeTime[0]),
       h('span', {}, ':'),
       h('span', {
         staticClass: 'mu-time-display-clickable',
         class: {
-          'inactive': this.mode === 'hour'
+          'inactive': this.viewType === 'clock' && this.mode === 'hour'
         },
         on: {
-          click: this.handleSelectMin
+          click: this.viewType === 'list' ? () => {} : this.handleSelectMin
         }
       }, this.sanitizeTime[1])
     ]);
@@ -101,7 +105,10 @@ export default {
       }, 'AM')
     ]) : undefined;
     return h('div', {
-      staticClass: 'mu-time-display'
+      staticClass: 'mu-picker-display mu-time-display ' + this.getColorClass(false),
+      style: {
+        'background-color': this.getColor(this.color)
+      }
     }, [
       h('div', {
         staticClass: 'mu-time-display-text'

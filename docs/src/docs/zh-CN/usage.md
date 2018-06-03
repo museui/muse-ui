@@ -35,7 +35,8 @@ npm i babel-plugin-import less less-loader -D
   "plugins": [
     ["import", {
       "libraryName": "muse-ui",
-      "libraryDirectory": "lib"
+      "libraryDirectory": "lib",
+      "camel2DashComponentName": false
     }]
   ]
 }
@@ -71,18 +72,19 @@ import {
   Checkbox,
   Chip,
   DateInput,
-  DatePicker,
   DataTable,
   Dialog,
   Divider,
   Drawer,
   Grid,
   GridList,
+  Helpers,
   Icon,
   List,
   Menu,
   Pagination,
   Paper,
+  Picker,
   Popover,
   Progress,
   Radio,
@@ -94,7 +96,6 @@ import {
   Switch,
   Tabs,
   TextField,
-  TimePicker,
   Tooltip
 } from 'muse-ui';
 import theme from 'muse-ui/lib/theme';
@@ -112,7 +113,6 @@ Vue.use(Card);
 Vue.use(Checkbox);
 Vue.use(Chip);
 Vue.use(DateInput);
-Vue.use(DatePicker);
 Vue.use(DataTable);
 Vue.use(Dialog);
 Vue.use(Divider);
@@ -124,6 +124,7 @@ Vue.use(List);
 Vue.use(Menu);
 Vue.use(Pagination);
 Vue.use(Paper);
+Vue.use(Picker);
 Vue.use(Popover);
 Vue.use(Progress);
 Vue.use(Radio);
@@ -135,7 +136,6 @@ Vue.use(SubHeader);
 Vue.use(Switch);
 Vue.use(Tabs);
 Vue.use(TextField);
-Vue.use(TimePicker);
 Vue.use(Tooltip);
 ```
 

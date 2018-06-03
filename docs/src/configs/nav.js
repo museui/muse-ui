@@ -41,6 +41,18 @@ export default {
       path: '/grid'
     }]
   }, {
+    name: '工具',
+    children: [{
+      name: 'Transitions',
+      path: '/transitions'
+    }, {
+      name: 'Directives',
+      path: '/directives'
+    }, {
+      name: 'Ripple',
+      path: '/ripple'
+    }]
+  }, {
     name: '组件',
     icon: 'dashboard',
     children: [{
@@ -91,8 +103,13 @@ export default {
     }, {
       name: 'Input controls',
       children: [{
+        name: 'Form',
+        path: '/form',
+        badge: 'news'
+      }, {
         name: 'Date Input',
-        path: '/date-input'
+        path: '/date-input',
+        badge: 'updated'
       }, {
         name: 'Select',
         path: '/select'

@@ -1,7 +1,3 @@
-/**
- * vuetify resize.js
- * https://github.com/vuetifyjs/vuetify/blob/dev/src/directives/resize.js
- */
 export default {
   name: 'resize',
   inserted (el, binding) {

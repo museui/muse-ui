@@ -50,7 +50,7 @@ export default {
           }
           {
             !menu.children && menu.badge ? <mu-list-item-action>
-              <mu-badge color='secondary' content={menu.badge}/>
+              <mu-badge color='primary' content={menu.badge} />
             </mu-list-item-action> : null
           }
           {

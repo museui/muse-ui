@@ -1,16 +1,15 @@
 import TextField from '../TextField';
-import DatePicker from '../DatePicker';
+import { DatePicker, TimePicker, DateTimePicker } from '../Picker';
 import Container from './Container';
-import TimePicker from '../TimePicker';
 import dayjs from 'dayjs';
 import Button from '../Button/Button';
 
 const DEFAULT_FORMAT = {
   date: 'YYYY-MM-DD',
-  time: 'hh:mm',
+  time: 'HH:mm',
   year: 'YYYY',
   month: 'YYYY-MM',
-  dateTime: 'YYYY-MM-DD hh:mm'
+  dateTime: 'YYYY-MM-DD HH:mm'
 };
 
 const PickerProps = {
@@ -65,8 +64,7 @@ export default {
   data () {
     return {
       open: false,
-      date: this.value ? dayjs(this.value).toDate() : undefined,
-      view: this.type === 'time' ? 'time' : this.type === 'dateRange' ? 'dateRange' : 'date'
+      date: this.value ? dayjs(this.value).toDate() : undefined
     };
   },
   methods: {
@@ -78,15 +76,9 @@ export default {
     },
     closePicker () {
       this.open = false;
-      this.view = this.type === 'time' ? 'time' : this.type === 'dateRange' ? 'dateRange' : 'date';
     },
     handleDateChange (date) {
       this.date = date;
-      if (this.type === 'dateTime') {
-        this.view = 'time';
-        return;
-      }
-
       if (!this.actions) this.changeValue();
     },
     handleTimeChange (date, mode, finished) {
@@ -110,10 +102,10 @@ export default {
       });
       return obj;
     },
-    createActions (h, name) {
+    createActions (h) {
       if (!this.actions) return;
       return h('div', {
-        staticClass: `mu-${name}-actions`
+        staticClass: `mu-picker-actions`
       }, [
         h(Button, {
           props: {
@@ -136,32 +128,11 @@ export default {
       ]);
     },
     createPicker (h) {
-      return h(Container, {
-        props: {
-          container: this.container,
-          open: this.open,
-          trigger: this.$el
-        },
-        on: {
-          close: this.closePicker
-        }
-      }, [
-        this.view === 'time'
-          ? h(TimePicker, {
-            props: {
-              ...this.generateTimePickerProps(),
-              time: this.date,
-              noDisplay: false,
-              format: this.clockType
-            },
-            on: {
-              change: this.handleTimeChange
-            },
-            style: {
-              width: this.container === 'bottomSheet' ? 'auto' : ''
-            }
-          }, [this.createActions(h, 'timepicker')])
-          : h(DatePicker, {
+      switch (this.type) {
+        case 'date':
+        case 'year':
+        case 'month':
+          return h(DatePicker, {
             props: {
               ...this.generateDatePickerProps(),
               type: this.type === 'month' ? 'month' : this.type === 'year' ? 'year' : 'date',
@@ -173,8 +144,37 @@ export default {
             style: {
               width: this.container === 'bottomSheet' ? 'auto' : ''
             }
-          }, [this.createActions(h, 'datepicker')])
-      ]);
+          }, [this.createActions(h)]);
+        case 'dateTime':
+          return h(DateTimePicker, {
+            props: {
+              ...this.generateDatePickerProps(),
+              ...this.generateTimePickerProps(),
+              format: this.clockType,
+              date: this.date
+            },
+            on: {
+              change: this.handleTimeChange
+            },
+            style: {
+              width: this.container === 'bottomSheet' ? 'auto' : ''
+            }
+          }, [this.createActions(h)]);
+        case 'time':
+          return h(TimePicker, {
+            props: {
+              ...this.generateTimePickerProps(),
+              time: this.date,
+              format: this.clockType
+            },
+            on: {
+              change: this.handleTimeChange
+            },
+            style: {
+              width: this.container === 'bottomSheet' ? 'auto' : ''
+            }
+          }, [this.createActions(h)]);
+      }
     }
   },
   render (h) {
@@ -201,7 +201,18 @@ export default {
           }
         }
       },
-      [this.createPicker(h)]
+      [
+        h(Container, {
+          props: {
+            container: this.container,
+            open: this.open,
+            trigger: this.$el
+          },
+          on: {
+            close: this.closePicker
+          }
+        }, [this.createPicker(h)])
+      ]
     );
   },
   watch: {

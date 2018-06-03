@@ -11,18 +11,20 @@ import Card from './Card';
 import Checkbox from './Checkbox';
 import Chip from './Chip';
 import DateInput from './DateInput';
-import DatePicker from './DatePicker';
 import DataTable from './DataTable';
 import Dialog from './Dialog';
 import Divider from './Divider';
 import Drawer from './Drawer';
+import Form from './Form';
 import Grid from './Grid';
 import GridList from './GridList';
+import Helpers from './Helpers';
 import Icon from './Icon';
 import List from './List';
 import Menu from './Menu';
 import Pagination from './Pagination';
 import Paper from './Paper';
+import Picker from './Picker';
 import Popover from './Popover';
 import Progress from './Progress';
 import Radio from './Radio';
@@ -34,7 +36,6 @@ import SubHeader from './SubHeader';
 import Switch from './Switch';
 import Tabs from './Tabs';
 import TextField from './TextField';
-import TimePicker from './TimePicker';
 import Tooltip from './Tooltip';
 import './styles/theme.less';
 import theme from './theme';
@@ -45,11 +46,11 @@ function MuseUI (Vue) {
     Alert, AppBar, Avatar,
     Badge, BottomNav, BottomSheet, Breadcrumbs, Button,
     Card, Checkbox, Chip,
-    DataTable, DateInput, DatePicker, Dialog, Divider, Drawer,
-    Grid, GridList, Icon, List, Menu,
-    Pagination, Paper, Popover, Progress, Radio,
+    DataTable, DateInput, Dialog, Divider, Drawer,
+    Form, Grid, GridList, Helpers, Icon, List, Menu,
+    Pagination, Paper, Picker, Popover, Progress, Radio,
     Select, Slider, Snackbar, Stepper, SubHeader, Switch,
-    Tabs, TextField, TimePicker, Tooltip
+    Tabs, TextField, Tooltip
   ].forEach((component) => {
     Vue.use(component);
   });

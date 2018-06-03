@@ -14,7 +14,7 @@
 
 .mu-slider-display-value {
   position: absolute;
-  top: -35px;
+  top: -30px;
   display: none;
   width: 26px;
   height: 26px;
@@ -68,9 +68,13 @@
   transform: translate(-50%, -50%);
   transition: background 450ms @easeOutFunction, border-color 450ms @easeOutFunction, width 450ms @easeOutFunction, height 450ms @easeOutFunction;
   cursor: pointer;
-  .mu-slider.active &{
+  .mu-slider.active & {
     width: 20px;
     height: 20px;
+  }
+  .mu-slider.display-value & {
+    width: 0;
+    height: 0;
   }
   .mu-slider.zero &,
   .mu-slider.disabled &{
