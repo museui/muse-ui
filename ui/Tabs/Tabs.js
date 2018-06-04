@@ -63,7 +63,8 @@ export default {
       return this.inverse;
     },
     addTab (tab) {
-      this.tabs.push(tab);
+      const index = this.$children.indexOf(tab);
+      return index === -1 ? this.tabs.push(tab) : this.tabs.splice(index, 0, tab);
     },
     removeTab (tab) {
       const index = this.tabs.indexOf(tab);
