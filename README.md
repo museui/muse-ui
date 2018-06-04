@@ -1,6 +1,6 @@
 
 <p align="center">
-  <a href="https://www.muse-ui.org" target="_blank">
+  <a href="https://muse-ui.org" target="_blank">
     <img width="120" src="./demo/icon_logo.png">
   </a>
 </p>
@@ -45,7 +45,7 @@ import 'muse-ui/dist/muse-ui.css'
 Vue.use(MuseUI)
 ```
 
-For more information, please refer to [Usage](https://www.muse-ui.org/#/zh-CN/usage) in our documentation.
+For more information, please refer to [Usage](https://muse-ui.org/#/zh-CN/usage) in our documentation.
 
 ## Browser Support
 
@@ -53,15 +53,15 @@ Modern browsers and Internet Explorer 10+.
 
 ## Contributing
 
-Please make sure to read the contributing guide ([中文](https://www.muse-ui.org/#/zh-CN/contributing)) before making a pull request.
+Please make sure to read the contributing guide ([中文](https://muse-ui.org/#/zh-CN/contributing)) before making a pull request.
 
 ## Changelog
 
-Detailed changes for each release are documented in the [release notes](https://www.muse-ui.org/#/zh-CN/changelog).
+Detailed changes for each release are documented in the [release notes](https://muse-ui.org/#/zh-CN/changelog).
 
 ## Documentation
 
-Check out our [documentation website](https://www.muse-ui.org).
+Check out our [documentation website](https://muse-ui.org).
 
 ## Supporting Muse-UI
 
