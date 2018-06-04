@@ -41,6 +41,49 @@
     </template>
   </div>
 </div>
+<script>
+export default {
+  data () {
+    return {
+      activeStep: 0
+    };
+  },
+  computed: {
+    content () {
+      let message = ''
+      switch (this.activeStep) {
+        case 0:
+          message = '选择一个活动的地点';
+          break
+        case 1:
+          message = '创建群组，50人左右';
+          break
+        case 2:
+          message = '多在群里发消息宣传宣传';
+          break
+        default:
+          message = 'fuck! 又 TM 出错了！！！';
+          break
+      }
+      return message
+    },
+    finished () {
+      return this.activeStep > 2;
+    }
+  },
+  methods: {
+    handleNext () {
+      this.activeStep++;
+    },
+    handlePrev () {
+      this.activeStep--;
+    },
+    reset () {
+      this.activeStep = 0;
+    }
+  }
+}
+</script>
 ```
 :::
 
