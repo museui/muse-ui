@@ -16,6 +16,7 @@ export default {
     },
     readonly: Boolean,
     chips: Boolean,
+    tags: Boolean, // 可创建条目
     placeholder: String,
     separator: {
       type: String,

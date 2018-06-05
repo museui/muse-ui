@@ -4,6 +4,10 @@ import color from './color';
 export default {
   inheritAttrs: false,
   mixins: [color],
+  model: {
+    prop: 'value',
+    event: 'input'
+  },
   inject: {
     muFormItem: {
       default: ''
@@ -26,8 +30,7 @@ export default {
   },
   data () {
     return {
-      isFocused: false,
-      inputValue: this.value
+      isFocused: false
     };
   },
   computed: {
@@ -38,7 +41,7 @@ export default {
       return {
         'mu-input__focus': this.isFocused,
         'has-label': this.label,
-        'no-empty-state': this.inputValue,
+        'no-empty-state': this.value,
         'has-icon': this.icon,
         'mu-input__error': this.error,
         'multi-line': this.multiLine,
@@ -48,7 +51,7 @@ export default {
       };
     },
     float () {
-      return this.labelFloat && !this.isFocused && !this.inputValue && this.inputValue !== 0;
+      return this.labelFloat && !this.isFocused && !this.value && this.value !== 0;
     }
   },
   methods: {
@@ -93,7 +96,7 @@ export default {
         staticClass: 'mu-input-help'
       }, [
         h('div', {}, (this.errorText ? this.errorText : this.helpText) || ''),
-        this.maxLength ? h('div', {}, `${this.inputValue ? String(this.inputValue).length : 0} / ${this.maxLength}`) : undefined
+        this.maxLength ? h('div', {}, `${this.value ? String(this.value).length : 0} / ${this.maxLength}`) : undefined
       ]);
     },
     createActionIcon (h) {
@@ -133,12 +136,6 @@ export default {
     }
   },
   watch: {
-    value (val) {
-      this.inputValue = val;
-    },
-    inputValue (val) {
-      this.$emit('input', val);
-    },
     isFocused (val) {
       if (!this.muFormItem) return;
       val ? this.muFormItem.onFocus() : this.muFormItem.onBlur();

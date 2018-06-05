@@ -37,7 +37,7 @@ export default {
       }
     },
     removeSelection (index) {
-      return this.inputValue.splice(index, 1);
+      return this.value.splice(index, 1);
     },
     createSlotSelection (item) {
       return this.$scopedSlots.selection({
@@ -96,7 +96,7 @@ export default {
           attrs: {
             tabindex: 0,
             readonly: !enable,
-            placeholder: !this.inputValue && this.inputValue !== 0 ? this.placeholder : ''
+            placeholder: !this.value && this.value !== 0 ? this.placeholder : ''
           },
           domProps: {
             value: this.searchValue

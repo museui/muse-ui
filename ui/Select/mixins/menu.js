@@ -65,7 +65,7 @@ export default {
       return this.multiple;
     },
     isOptionSelected (value) {
-      return value === this.inputValue || (this.multiple && this.inputValue && this.inputValue.indexOf(value) !== -1);
+      return value === this.value || (this.multiple && this.value && this.value.indexOf(value) !== -1);
     },
     addOption (option) {
       this.options.push(option);
@@ -76,7 +76,7 @@ export default {
     },
     optionClick (option) {
       const { value, selected } = option;
-      let selectedValue = this.multiple ? this.inputValue ? [...this.inputValue] : [] : this.inputValue;
+      let selectedValue = this.multiple ? this.value ? [...this.value] : [] : this.value;
       switch (true) {
         case selected && this.multiple:
           selectedValue.splice(selectedValue.indexOf(value), 1);
@@ -91,7 +91,7 @@ export default {
           selectedValue = value;
           break;
       }
-      this.inputValue = selectedValue;
+      this.$emit('input', selectedValue);
       if (this.multiple && this.filterable) this.searchValue = '';
       this.$nextTick(() => {
         this.focusInput();
@@ -112,7 +112,7 @@ export default {
             dense: this.dense
           }
         }, [
-          this.filterable && this.enableOptions.length === 0 ? h('div', { staticClass: 'mu-select-no-data' }, this.noDataText) : null,
+          !this.tags && this.filterable && this.enableOptions.length === 0 ? h('div', { staticClass: 'mu-select-no-data' }, this.noDataText) : null,
           this.$slots.default
         ])
       ]);

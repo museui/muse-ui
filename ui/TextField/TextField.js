@@ -17,7 +17,7 @@ export default {
   },
   methods: {
     handleInput (e) {
-      this.inputValue = e.target.value;
+      this.$emit('input', e.target.value);
     },
     handleFocus (e) {
       this.isFocused = true;
@@ -46,7 +46,7 @@ export default {
             disabled: this.disabled,
             rows: this.rows,
             rowsMax: this.rowsMax,
-            value: String(this.inputValue || '')
+            value: String(this.value || '')
           },
           on: listeners
         }) : h('input', {
@@ -59,7 +59,7 @@ export default {
             placeholder
           },
           domProps: {
-            value: this.inputValue
+            value: this.value
           },
           on: listeners
         })
