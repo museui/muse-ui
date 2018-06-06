@@ -54,7 +54,7 @@ export default {
         });
       }
 
-      let listStart = this.current - 2;
+      let listStart = this.current - Math.floor(showPageCount / 2);
       if (listStart <= 1) listStart = 2;
       let listEnd = listStart + showPageCount - 1;
       if (listEnd >= end) listEnd = end - 1;
