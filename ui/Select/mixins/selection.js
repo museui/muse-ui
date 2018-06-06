@@ -7,6 +7,7 @@ export default {
   data () {
     return {
       searchValue: '',
+      shouldBreak: false,
       selectedIndex: -1
     };
   },
@@ -96,7 +97,8 @@ export default {
           staticClass: 'mu-select-input',
           ref: 'input',
           class: {
-            'is-enable': enable
+            'is-enable': enable,
+            'is-break': this.shouldBreak
           },
           attrs: {
             tabindex: 0,
@@ -169,6 +171,12 @@ export default {
   },
   watch: {
     searchValue (val) {
+      if (this.$refs.input.scrollWidth > this.$refs.input.clientWidth) {
+        this.shouldBreak = true;
+      } else if (val === '') {
+        this.shouldBreak = false;
+      }
+
       this.options.forEach(option => {
         option.visible = !this.autoComplete || !val || option.label.toLowerCase().indexOf(val.toLowerCase()) !== -1;
       });
