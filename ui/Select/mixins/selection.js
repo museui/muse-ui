@@ -37,7 +37,9 @@ export default {
       }
     },
     removeSelection (index) {
-      return this.value.splice(index, 1);
+      const value = [...this.value];
+      value.splice(index, 1);
+      return this.$emit('input', value);
     },
     createSlotSelection (item) {
       return this.$scopedSlots.selection({
