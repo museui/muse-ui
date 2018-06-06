@@ -148,7 +148,8 @@ export default {
         staticClass: 'mu-option-list',
         ref: 'list',
         style: {
-          'maxHeight': this.maxHeight + 'px'
+          'maxHeight': this.maxHeight + 'px',
+          'height': this.tags && this.enableOptions.length === 0 ? 0 : ''
         }
       }, [
         h(List, {

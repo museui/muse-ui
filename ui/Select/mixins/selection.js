@@ -170,7 +170,7 @@ export default {
   watch: {
     searchValue (val) {
       this.options.forEach(option => {
-        option.visible = !this.autoComplete || !val || option.label.indexOf(val) !== -1;
+        option.visible = !this.autoComplete || !val || option.label.toLowerCase().indexOf(val.toLowerCase()) !== -1;
       });
       this.resetFocusIndex();
       if (this.isFocused && !this.open) this.open = true;
