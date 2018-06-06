@@ -25,16 +25,20 @@ export default {
       switch (code) {
         case 'enter':
           const option = options[this.focusIndex];
-          if (option) this.optionClick(option);
+          if (option) {
+            this.optionClick(option.value);
+          } else if (this.tags && this.multiple && this.searchValue) {
+            this.optionClick(this.searchValue, true);
+          }
           break;
         case 'up':
           event.preventDefault();
-          this.selectedIndex = -1;
+          this.resetSelectedIndex();
           this.decrementFocusIndex();
           break;
         case 'down':
           event.preventDefault();
-          this.selectedIndex = -1;
+          this.resetSelectedIndex();
           this.incrementFocusIndex();
           break;
         case 'tab':
@@ -45,7 +49,10 @@ export default {
         case 'right':
         case 'delete':
         case 'backspace':
-          if (!this.searchValue && this.filterable && this.multiple) this.changeSelectedIndex(code);
+          if (!this.searchValue && this.autoComplete && this.multiple) this.changeSelectedIndex(code);
+          break;
+        default:
+          this.resetSelectedIndex();
           break;
       }
     },

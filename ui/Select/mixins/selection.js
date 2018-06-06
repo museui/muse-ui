@@ -36,6 +36,9 @@ export default {
         this.selectedIndex = newIndex;
       }
     },
+    resetSelectedIndex () {
+      this.selectedIndex = -1;
+    },
     removeSelection (index) {
       const value = [...this.value];
       value.splice(index, 1);
@@ -87,7 +90,7 @@ export default {
       });
     },
     createInputElement (h) {
-      const enable = this.filterable && !this.readonly;
+      const enable = this.autoComplete && !this.readonly;
       return [
         h('input', {
           staticClass: 'mu-select-input',
@@ -123,13 +126,13 @@ export default {
           class: {
             'is-open': this.open,
             'is-multi': this.multiple,
-            'is-filterable': this.filterable,
+            'is-filterable': this.autoComplete,
             'is-readonly': this.readonly,
             'is-disabled': this.disabled
           },
           on: {
             click: (e) => {
-              if (this.disabled || this.readonly || (this.filterable && e.target === this.$refs.input)) return;
+              if (this.disabled || this.readonly || (this.autoComplete && e.target === this.$refs.input)) return;
               this.toggleMenu();
             }
           },
@@ -167,7 +170,7 @@ export default {
   watch: {
     searchValue (val) {
       this.options.forEach(option => {
-        option.visible = !this.filterable || !val || option.label.indexOf(val) !== -1;
+        option.visible = !this.autoComplete || !val || option.label.indexOf(val) !== -1;
       });
       this.resetFocusIndex();
       if (this.isFocused && !this.open) this.open = true;

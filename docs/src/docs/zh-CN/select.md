@@ -237,6 +237,39 @@ export default {
 ```
 :::
 
+## 标签输入
+
+可创建选项中没有的值，只需将 `tags` 设置为 true
+
+:::demo
+```html
+<mu-container>
+  <mu-row gutter>
+    <mu-col span="12" lg="4" sm="6">
+      <mu-select label="Tags Input" v-model="tags" multiple tags>
+        <mu-option v-for="language,index in languages" :key="language" :label="language" :value="language"></mu-option>
+      </mu-select>
+    </mu-col>
+    <mu-col span="12" lg="4" sm="6">
+      <mu-select label="Tags Input" v-model="tags" chips multiple tags>
+        <mu-option v-for="language,index in languages" :key="language" :label="language" :value="language"></mu-option>
+      </mu-select>
+    </mu-col>
+    <mu-col span="12" lg="4" sm="6">
+      <mu-select label="Tags Input" v-model="tags" chips multiple tags>
+        <template slot="selection" slot-scope="scope">
+          <mu-chip :selected="scope.selected" color="teal">
+            {{scope.label}}
+          </mu-chip>
+        </template>
+        <mu-option v-for="language,index in languages" :key="language" :label="language" :value="language"></mu-option>
+      </mu-select>
+    </mu-col>
+  </mu-row>
+</mu-container>
+```
+:::
+
 <mu-alert color="info">mu-select 支持 select 标签所有的原生属性和事件。</mu-alert>
 
 ## Select Props
@@ -303,7 +336,7 @@ export default {
         'Texas', 'Utah', 'Vermont', 'Virgin Island', 'Virginia',
         'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'
       ],
-      languages: ['Java', 'JavaScript', 'C#', 'C++', 'HTML', 'React', 'Vue', 'Muse-UI'],
+      languages: ['Java', 'JavaScript', 'C#', 'C++', 'HTML'],
       normal: {
         value1: '',
         value2: '',
@@ -325,7 +358,8 @@ export default {
         value1: '',
         value2: [],
         value3: []
-      }
+      },
+      tags: []
     }
   }
 }

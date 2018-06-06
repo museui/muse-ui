@@ -72,7 +72,7 @@ export default {
         value: this.visible
       }],
       on: {
-        click: (e) => this.optionClick(this, e)
+        click: (e) => this.optionClick(this.value)
       }
     }, this.$slots.default && this.$slots.default.length > 0 ? this.$slots.default : defaultItem);
   }

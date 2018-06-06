@@ -30,13 +30,37 @@ export default {
   },
   computed: {
     selects () {
-      return this.options.filter((option) => option.selected).map((option, index) => {
-        return {
-          value: option.value,
+      if (!this.multiple) {
+        const option = this.getOption(this.value);
+        return option ? [{
           label: option.label,
-          index
-        };
-      });
+          value: this.value,
+          index: 0
+        }] : [];
+      }
+      const selects = Array.isArray(this.value) ? this.value : [];
+      const selectItems = [];
+      for (let i = 0; i < selects.length; i++) {
+        const value = selects[i];
+        const option = this.getOption(value);
+        if (option) {
+          selectItems.push({
+            label: option.label,
+            value: option.value,
+            index: selectItems.length
+          });
+          continue;
+        }
+
+        if (this.tags) {
+          selectItems.push({
+            label: value,
+            value,
+            index: selectItems.length
+          });
+        }
+      }
+      return selectItems;
     }
   },
   methods: {
@@ -65,7 +89,11 @@ export default {
       return this.multiple;
     },
     isOptionSelected (value) {
-      return value === this.value || (this.multiple && this.value && this.value.indexOf(value) !== -1);
+      return value === this.value || (
+        this.multiple &&
+        this.value &&
+        this.value.indexOf(value) !== -1
+      );
     },
     addOption (option) {
       this.options.push(option);
@@ -74,25 +102,42 @@ export default {
       const index = this.options.indexOf(option);
       if (index !== -1) this.options.splice(index, 1);
     },
-    optionClick (option) {
-      const { value, selected } = option;
+    getOption (value) {
+      const option = this.options.filter((option) => option.value === value)[0];
+      if (option) return option;
+      return {
+        label: value,
+        value
+      };
+    },
+    insertValue (selectedValue, value) {
+      let index = 0;
+      for (let i = 0; i < this.options.length; i++) {
+        const item = this.options[i];
+        if (item.selected) {
+          index = selectedValue.indexOf(item.value) + 1;
+          continue;
+        }
+        if (item.value === value) {
+          return selectedValue.splice(index, 0, value);
+        }
+      }
+      return selectedValue.push(value);
+    },
+    optionClick (value, notRemove = false) {
       let selectedValue = this.multiple ? this.value ? [...this.value] : [] : this.value;
-      switch (true) {
-        case selected && this.multiple:
-          selectedValue.splice(selectedValue.indexOf(value), 1);
-          break;
-        case !selected && this.multiple:
-          selectedValue = [];
-          this.options.forEach((item) => {
-            if (item.value === option.value || item.selected) selectedValue.push(item.value);
-          });
-          break;
-        default:
-          selectedValue = value;
-          break;
+      if (this.multiple) {
+        const index = selectedValue.indexOf(value);
+        if (index === -1) {
+          this.insertValue(selectedValue, value);
+        } else {
+          if (!notRemove) selectedValue.splice(index, 1);
+        }
+      } else {
+        selectedValue = value;
       }
       this.$emit('input', selectedValue);
-      if (this.multiple && this.filterable) this.searchValue = '';
+      if (this.multiple && this.autoComplete) this.searchValue = '';
       this.$nextTick(() => {
         this.focusInput();
         if (!this.multiple) this.closeMenu();
@@ -128,7 +173,7 @@ export default {
         props: {
           trigger: trigger,
           open: this.open,
-          cover: !this.filterable
+          cover: !this.autoComplete
         },
         on: {
           close: () => this.closeMenu()

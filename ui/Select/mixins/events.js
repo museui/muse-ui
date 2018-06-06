@@ -24,7 +24,7 @@ export default {
       return {
         ...listeners,
         click: (e) => {
-          if (this.disabled || this.readonly || !this.filterable) return;
+          if (this.disabled || this.readonly || !this.autoComplete) return;
           if (this.isFocused && !this.open) {
             this.openMenu();
             return;

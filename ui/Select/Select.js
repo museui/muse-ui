@@ -24,6 +24,11 @@ export default {
     },
     filterable: Boolean // enable search option
   },
+  computed: {
+    autoComplete () {
+      return this.filterable || this.tags;
+    }
+  },
   render (h) {
     const { data, children, defaultActionIcon } = this.createSelection(h);
     return this.createInput(h, data, [...children, this.createMenu(h)], defaultActionIcon);
