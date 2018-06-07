@@ -19,6 +19,10 @@ export default {
       type: [String, Number],
       default: 300
     },
+    maxSearchResults: {
+      type: Number,
+      default: 0
+    },
     openOnFocus: Boolean,
     dense: {
       type: Boolean,
@@ -35,10 +39,15 @@ export default {
   },
   computed: {
     enableData () {
-      return this.data.filter((item) => {
-        const value = typeof item === 'string' ? item : item.value;
-        return value.toLowerCase().indexOf((this.value || '').toLowerCase()) !== -1
-      });
+      const results = [];
+      for (let i = 0; i < this.data.length; i++) {
+        const value = this.getValueByItem(this.data[i]);
+        if (value.toLowerCase().indexOf((this.value || '').toLowerCase()) !== -1) {
+          results.push(this.data[i]);
+        }
+        if (this.maxSearchResults && this.maxSearchResults === results.length) break;
+      }
+      return results;
     }
   },
   methods: {
@@ -154,7 +163,6 @@ export default {
           on: {
             click: () => {
               this.setValue(item);
-              this.$nextTick(() => this.$refs.input.focus());
             }
           }
         }, this.$scopedSlots.default ? this.$scopedSlots.default({
@@ -185,7 +193,7 @@ export default {
           before,
           `<span class="mu-secondary-text-color">${highlight}</span>`,
           after
-        ]
+        ].join('')
       };
     }
   },
@@ -209,6 +217,9 @@ export default {
         props: {
           trigger: trigger,
           open: this.open
+        },
+        on: {
+          close: () => (this.open = false)
         },
         ref: 'popover',
         style: {
