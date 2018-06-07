@@ -98,6 +98,9 @@ export default {
       name: 'Drawer',
       path: '/drawer'
     }, {
+      name: 'Expansion Panel',
+      path: '/expansion-panel'
+    }, {
       name: 'Grid List',
       path: '/grid-list'
     }, {

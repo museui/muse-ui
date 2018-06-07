@@ -16,6 +16,7 @@ import DataTable from './DataTable';
 import Dialog from './Dialog';
 import Divider from './Divider';
 import Drawer from './Drawer';
+import ExpansionPanel from './ExpansionPanel';
 import Form from './Form';
 import Grid from './Grid';
 import GridList from './GridList';
@@ -48,7 +49,7 @@ function MuseUI (Vue) {
     Badge, BottomNav, BottomSheet, Breadcrumbs, Button,
     Card, Checkbox, Chip,
     DataTable, DateInput, Dialog, Divider, Drawer,
-    Form, Grid, GridList, Helpers, Icon, List, Menu,
+    ExpansionPanel, Form, Grid, GridList, Helpers, Icon, List, Menu,
     Pagination, Paper, Picker, Popover, Progress, Radio,
     Select, Slider, Snackbar, Stepper, SubHeader, Switch,
     Tabs, TextField, Tooltip
