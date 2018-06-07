@@ -1,4 +1,5 @@
 import TextField from '../TextField';
+import input from '../internal/mixins/input';
 import { DatePicker, TimePicker, DateTimePicker } from '../Picker';
 import Container from './Container';
 import dayjs from 'dayjs';
@@ -58,7 +59,7 @@ export default {
     },
     value: {},
     valueFormat: String,
-    ...TextField.props,
+    ...input.props,
     ...PickerProps
   },
   data () {
@@ -87,7 +88,7 @@ export default {
       if (!this.actions) this.changeValue();
     },
     generateTextFieldProps () {
-      return this.generateProps(TextField.props);
+      return this.generateProps(input.props);
     },
     generateDatePickerProps () {
       return this.generateProps(DatePicker.props);
