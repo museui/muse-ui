@@ -143,31 +143,14 @@ export default {
         if (!this.multiple) this.closeMenu();
       });
     },
-    createContent (h) {
-      return h('div', {
-        staticClass: 'mu-option-list',
-        ref: 'list',
-        style: {
-          'maxHeight': this.maxHeight + 'px',
-          'height': this.tags && this.enableOptions.length === 0 ? 0 : ''
-        }
-      }, [
-        h(List, {
-          props: {
-            textline: this.textline,
-            dense: this.dense
-          }
-        }, [
-          !this.tags && this.filterable && this.enableOptions.length === 0 ? h('div', { staticClass: 'mu-select-no-data' }, this.noDataText) : null,
-          this.$slots.default
-        ])
-      ]);
-    },
     createMenu (h) {
       const trigger = this.$refs.select;
       return h(Popover, {
+        staticClass: 'mu-option-list',
         class: this.popoverClass,
         style: {
+          'maxHeight': this.maxHeight + 'px',
+          'height': this.tags && this.enableOptions.length === 0 ? 0 : '',
           'min-width': trigger ? trigger.offsetWidth + 'px' : ''
         },
         ref: 'popover',
@@ -180,7 +163,15 @@ export default {
           close: () => this.closeMenu()
         }
       }, [
-        this.createContent(h)
+        h(List, {
+          props: {
+            textline: this.textline,
+            dense: this.dense
+          }
+        }, [
+          !this.tags && this.filterable && this.enableOptions.length === 0 ? h('div', { staticClass: 'mu-select-no-data' }, this.noDataText) : null,
+          this.$slots.default
+        ])
       ]);
     }
   }

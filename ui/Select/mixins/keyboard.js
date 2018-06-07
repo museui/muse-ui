@@ -93,7 +93,7 @@ export default {
         const optionHeight = optionEl.offsetHeight;
         let scrollTop = optionEl.offsetTop - optionHeight;
         if (scrollTop < optionHeight) scrollTop = 0;
-        this.$refs.list.scrollTop = scrollTop;
+        this.$refs.popover.$el.scrollTop = scrollTop;
       });
     }
   },
