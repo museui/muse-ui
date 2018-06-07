@@ -189,6 +189,7 @@ export default {
           ...this.generateTextFieldProps(),
           value: dateStr
         },
+        ref: 'text',
         attrs: {
           readonly: true,
           ...this.$attrs
@@ -206,7 +207,7 @@ export default {
           props: {
             container: this.container,
             open: this.open,
-            trigger: this.$el
+            trigger: this.$el ? this.$el.querySelector('.mu-text-field') : undefined
           },
           on: {
             close: this.closePicker

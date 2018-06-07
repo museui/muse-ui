@@ -7,6 +7,16 @@
   position: relative;
   color: @secondaryTextColor;
   margin-bottom: 8px;
+  padding-bottom: 12px;
+  padding-top: 4px;
+  &.has-label {
+    padding-top: 28px;
+    padding-bottom: 12px;
+  }
+  &.is-solo {
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
   &.full-width {
     width: 100%;
   }
@@ -46,16 +56,6 @@
   .mu-input.disabled &{
     color: @disabledColor;
     cursor: not-allowed;
-  }
-  padding-bottom: 12px;
-  padding-top: 4px;
-  .mu-input.has-label &{
-    padding-top: 28px;
-    padding-bottom: 12px;
-  }
-  .mu-input.is-solo & {
-    padding-top: 8px;
-    padding-bottom: 8px;
   }
 }
 
