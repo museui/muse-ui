@@ -1,6 +1,7 @@
 import './styles/base.less';
 import Alert from './Alert';
 import AppBar from './AppBar';
+import AutoComplete from './AutoComplete';
 import Avatar from './Avatar';
 import Badge from './Badge';
 import BottomNav from './BottomNav';
@@ -43,7 +44,7 @@ import * as Colors from './theme/colors';
 
 function MuseUI (Vue) {
   [
-    Alert, AppBar, Avatar,
+    Alert, AppBar, AutoComplete, Avatar,
     Badge, BottomNav, BottomSheet, Breadcrumbs, Button,
     Card, Checkbox, Chip,
     DataTable, DateInput, Dialog, Divider, Drawer,

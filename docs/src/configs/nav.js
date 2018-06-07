@@ -119,6 +119,9 @@ export default {
       }, {
         name: 'Text Field',
         path: '/text-field'
+      }, {
+        name: 'Auto Complete',
+        path: '/auto-complete'
       }]
     }, {
       name: 'List',
