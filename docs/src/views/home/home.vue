@@ -12,7 +12,11 @@
       {{i18n.subtitle}}
     </h2>
     <div class="mu-banner-actions">
-      <mu-button raised :to="`/${locale}/installation`" class="mu-banner-button">{{i18n.getStart}}</mu-button>
+      <mu-button :to="`/${locale}/installation`" class="mu-banner-button">{{i18n.getStart}}</mu-button>
+      <mu-button href="https://github.com/museui/muse-ui"  class="mu-banner-button">
+        <mu-icon  size="24" value=":mudocs-icon-custom-github" left />
+        github
+      </mu-button>
     </div>
   </div>
   <mu-row>

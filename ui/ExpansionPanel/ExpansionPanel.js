@@ -37,7 +37,11 @@ export default {
       return h('div', {
         staticClass: 'mu-expansion-panel-header',
         on: {
-          click: () => (this.show = !this.show)
+          click: () => {
+            this.show = !this.show;
+            this.$emit('update:expand', this.show);
+            this.$emit('change', this.show);
+          }
         }
       }, [
         this.$slots.header,
@@ -45,6 +49,9 @@ export default {
           staticClass: 'mu-expansion-toggle-btn',
           props: {
             icon: true
+          },
+          attrs: {
+            tabindex: -1
           }
         }, [this.createToggleIcon(h)])
       ]);
@@ -92,9 +99,6 @@ export default {
     ]);
   },
   watch: {
-    show (val) {
-      this.$emit('update:expand', val);
-    },
     expand (val) {
       this.show = val;
     }
