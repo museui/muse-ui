@@ -8,7 +8,7 @@ export function getScrollEventTarget (element) {
     currentNode = currentNode.parentNode;
   }
   return window;
-};
+}
 
 export function getScrollTop (element) {
   if (element === window) {
@@ -16,7 +16,7 @@ export function getScrollTop (element) {
   } else {
     return element.scrollTop;
   }
-};
+}
 
 export function getOffset (el) {
   const box = el.getBoundingClientRect();
@@ -29,4 +29,19 @@ export function getOffset (el) {
     top: box.top + scrollTop - clientTop,
     left: box.left + scrollLeft - clientLeft
   };
-};
+}
+
+export function transitionEnd (el, fun) {
+  const arr = ['msTransitionEnd', 'mozTransitionEnd', 'oTransitionEnd', 'webkitTransitionEnd', 'transitionend'];
+  const handler = {
+    handleEvent (event) {
+      arr.forEach(function (eventName) {
+        el.removeEventListener(eventName, handler, false);
+      });
+      fun.apply(el, arguments);
+    }
+  };
+  arr.forEach(function (eventName) {
+    el.addEventListener(eventName, handler, false);
+  });
+}

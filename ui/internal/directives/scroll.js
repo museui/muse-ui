@@ -12,12 +12,16 @@ function bindScroll (el, binding) {
   } else if (target !== window) {
     target = document.querySelector(target);
   }
+
+  const handleScroll = function (e) {
+    callback(target, e);
+  };
   if (el._onScroll && target !== el._onScroll.target) unbind(el, binding);
 
-  target.addEventListener('scroll', callback, options);
+  target.addEventListener('scroll', handleScroll, options);
 
   el._onScroll = {
-    callback,
+    callback: handleScroll,
     options,
     target
   };

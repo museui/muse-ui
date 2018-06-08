@@ -130,6 +130,9 @@ export default {
       name: 'List',
       path: '/list'
     }, {
+      name: 'LoadMore',
+      path: '/load-more'
+    }, {
       name: 'Menu',
       path: '/menu'
     }, {
