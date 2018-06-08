@@ -23,9 +23,9 @@
       <mu-list>
         <template v-for="i in num">
           <mu-list-item>
-            <mu-list-item-title>List Item {{i}}</mu-list-item-title>
+            <mu-list-item-title>{{text}} Item {{i}}</mu-list-item-title>
           </mu-list-item>
-          <mu-divider v-if=" i < num "/>
+          <mu-divider />
         </template>
       </mu-list>
     </mu-load-more>
@@ -37,7 +37,8 @@ export default {
     return {
       num: 10,
       refreshing: false,
-      loading: false
+      loading: false,
+      text: 'List'
     }
   },
   methods: {
@@ -46,6 +47,7 @@ export default {
       this.$refs.container.scrollTop = 0;
       setTimeout(() => {
         this.refreshing = false;
+        this.text = this.text === 'List' ? 'Menu' : 'List';
         this.num = 10;
       }, 2000)
     },
@@ -105,7 +107,8 @@ export default {
     return {
       num: 10,
       refreshing: false,
-      loading: false
+      loading: false,
+      text: 'List'
     }
   },
   methods: {
@@ -114,6 +117,7 @@ export default {
       this.$refs.container.scrollTop = 0;
       setTimeout(() => {
         this.refreshing = false;
+        this.text = this.text === 'List' ? 'Menu' : 'List';
         this.num = 10;
       }, 2000)
     },
@@ -137,6 +141,9 @@ export default {
   flex-direction: column;
   .mu-appbar {
     width: 100%;
+  }
+  .mu-list {
+    margin-bottom: 0 !important;
   }
 }
 .demo-loadmore-content {

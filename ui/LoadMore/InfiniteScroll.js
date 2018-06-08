@@ -17,6 +17,14 @@ export default {
       default: '正在加载...'
     }
   },
+  data () {
+    return {
+      target: null
+    }
+  },
+  mounted () {
+    this.target = this.$el;
+  },
   methods: {
     onScroll (scroller) {
       if (this.loading) return;
@@ -37,7 +45,7 @@ export default {
         name: 'scroll',
         value: {
           callback: this.onScroll,
-          target: this.$el
+          target: this.target
         }
       }]
     }, [
