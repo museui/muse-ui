@@ -56,6 +56,9 @@ export default {
   </mu-flex>
   <div class="select-control-group" >
     Selects: {{checkbox.value1}}
+    <mu-flex class="select-control-row">
+      <mu-checkbox label="全选" :input-value="checkAll" @change="handleCheckAll" :checked-icon="this.checkbox.value1.length < 3 ? 'indeterminate_check_box' : undefined"></mu-checkbox>
+    </mu-flex>
     <mu-flex class="select-control-row" :key="'Checkbox ' + i" v-for="i in 3">
       <mu-checkbox :value="'Checkbox ' + i" v-model="checkbox.value1" :label="'Checkbox ' + i"></mu-checkbox>
     </mu-flex>
@@ -234,6 +237,16 @@ export default {
         value2: true,
         value3: false
       }
+    }
+  },
+  computed: {
+    checkAll () {
+      return this.checkbox.value1.length > 0;
+    }
+  },
+  methods: {
+    handleCheckAll (val) {
+      this.checkbox.value1 = this.checkAll && this.checkbox.value1.length >= 3 ? [] : ['Checkbox 1', 'Checkbox 2', 'Checkbox 3'];
     }
   }
 }
