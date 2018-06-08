@@ -32,6 +32,7 @@ import Popover from './Popover';
 import Progress from './Progress';
 import Radio from './Radio';
 import Select from './Select';
+import SlidePicker from './SlidePicker';
 import Slider from './Slider';
 import Snackbar from './Snackbar';
 import Stepper from './Stepper';
@@ -53,7 +54,7 @@ function MuseUI (Vue) {
     ExpansionPanel, Form, Grid, GridList, Helpers, Icon,
     LoadMore, List, Menu,
     Pagination, Paper, Picker, Popover, Progress, Radio,
-    Select, Slider, Snackbar, Stepper, SubHeader, Switch,
+    Select, SlidePicker, Slider, Snackbar, Stepper, SubHeader, Switch,
     Tabs, TextField, Tooltip
   ].forEach((component) => {
     Vue.use(component);

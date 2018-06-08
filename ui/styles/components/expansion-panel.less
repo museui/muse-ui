@@ -18,6 +18,10 @@
 
 .mu-expansion-panel__expand {
   margin: 16px 0;
+  border-top: none;
+  + .mu-expansion-panel  {
+    border-top: none;
+  }
   &:first-child {
     margin-top: 0;
   }
@@ -54,12 +58,6 @@
     transform: rotate(180deg);
   }
 }
-
-// .mu-expansion-panel-container {
-//   height: 0;
-//   min-height: 0;
-//   overflow: hidden;
-// }
 
 .mu-expansion-panel-content {
   padding: 8px 24px 24px;

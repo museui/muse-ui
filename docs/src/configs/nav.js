@@ -157,6 +157,9 @@ export default {
       name: 'Progress',
       path: '/progress'
     }, {
+      name: 'Slide Picker',
+      path: '/slide-picker'
+    }, {
       name: 'Slider',
       path: '/slider'
     }, {
