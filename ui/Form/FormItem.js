@@ -1,6 +1,8 @@
 import Form from './Form';
 import Icon from '../Icon';
 import { getWidth } from '../utils';
+import { SlideTopTransition } from '../internal/transitions';
+
 export default {
   name: 'mu-form-item',
   inject: ['muForm'],
@@ -112,7 +114,7 @@ export default {
     }, [
       this.createLabel(h),
       labelPosition === 'top' ? this.createIcon(h) : undefined,
-      this.createHelpText(h),
+      h(SlideTopTransition, {}, [this.createHelpText(h)]),
       this.createContent(h)
     ]);
   },
