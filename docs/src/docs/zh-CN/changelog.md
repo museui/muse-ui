@@ -4,6 +4,15 @@
   <mu-step active>
     <mu-step-label>
       <mu-icon value="panorama_fish_eye" color="primary" slot="icon"></mu-icon>
+      <span class="version-title">3.0.0-beta.4</span>
+    </mu-step-label>
+    <mu-step-content >
+      <v3-0-0-beta4></v3-0-0-beta4>
+    </mu-step-content>
+  </mu-step>
+  <mu-step active>
+    <mu-step-label>
+      <mu-icon value="panorama_fish_eye" color="primary" slot="icon"></mu-icon>
       <span class="version-title">3.0.0-beta.3</span>
     </mu-step-label>
     <mu-step-content >
@@ -40,12 +49,14 @@
 import V3Beta1 from './version/3.0.0-beta.1.md';
 import V3Beta2 from './version/3.0.0-beta.2.md';
 import V3Beta3 from './version/3.0.0-beta.3.md';
+import V3Beta4 from './version/3.0.0-beta.4.md';
 
 export default {
   components: {
     'v3-0-0-beta1': V3Beta1,
     'v3-0-0-beta2': V3Beta2,
-    'v3-0-0-beta3': V3Beta3
+    'v3-0-0-beta3': V3Beta3,
+    'v3-0-0-beta4': V3Beta4
   }
 }
 </script>

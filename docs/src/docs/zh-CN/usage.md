@@ -62,6 +62,7 @@ import 'muse-ui/lib/styles/base.less';
 import {
   Alert,
   AppBar,
+  AutoComplete,
   Avatar,
   Badge,
   BottomNav,
@@ -76,11 +77,14 @@ import {
   Dialog,
   Divider,
   Drawer,
+  ExpansionPanel,
+  Form,
   Grid,
   GridList,
   Helpers,
   Icon,
   List,
+  LoadMore,
   Menu,
   Pagination,
   Paper,
@@ -89,6 +93,7 @@ import {
   Progress,
   Radio,
   Select,
+  SlidePicker,
   Slider,
   Snackbar,
   Stepper,
@@ -103,6 +108,7 @@ import 'muse-ui/lib/styles/theme.less';
 
 Vue.use(Alert);
 Vue.use(AppBar);
+Vue.use(AutoComplete);
 Vue.use(Avatar);
 Vue.use(Badge);
 Vue.use(BottomNav);
@@ -117,10 +123,14 @@ Vue.use(DataTable);
 Vue.use(Dialog);
 Vue.use(Divider);
 Vue.use(Drawer);
+Vue.use(ExpansionPanel);
+Vue.use(Form);
 Vue.use(Grid);
 Vue.use(GridList);
+Vue.use(Helpers);
 Vue.use(Icon);
 Vue.use(List);
+Vue.use(LoadMore);
 Vue.use(Menu);
 Vue.use(Pagination);
 Vue.use(Paper);
@@ -129,6 +139,7 @@ Vue.use(Popover);
 Vue.use(Progress);
 Vue.use(Radio);
 Vue.use(Select);
+Vue.use(SlidePicker);
 Vue.use(Slider);
 Vue.use(Snackbar);
 Vue.use(Stepper);
