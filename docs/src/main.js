@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import 'typeface-roboto';
+import './assets/font-icons/material/material-icons.css';
 import './assets/font-icons/style.css';
 import './assets/github-markdown.css';
 import './assets/atom-one-light.css';
