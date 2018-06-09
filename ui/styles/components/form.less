@@ -20,6 +20,7 @@
   position: relative;
   color: @secondaryTextColor;
   margin-bottom: 8px;
+  position: relative;
   .mu-input {
     padding-top: 0;
     margin-bottom: 0;
@@ -28,11 +29,8 @@
   .mu-input-content {
     padding-top: 0px;
   }
-  .mu-text-field-input {
-    height: 36px;
-  }
-  .mu-select-content {
-    min-height: 36px;
+  .mu-input {
+    min-height: auto;
   }
   .mu-slider {
     margin-bottom: 0;
@@ -61,8 +59,23 @@
 .mu-form-item__has-label {
   min-height: 72px;
 }
+
 .mu-form-item__has-icon {
   padding-left: 56px;
+}
+
+.mu-form-item__float-label {
+  padding-top: 28px;
+  .mu-form-item-label {
+    transition: all .45s @easeOutFunction;
+    position: absolute;
+    top: 2px;
+    transform: translate3d(0, 0, 0);
+    &.is-float {
+      transform: translate3d(0, 28px,0);
+      font-size: 16px;
+    }
+  }
 }
 
 .mu-form-item__label-left,

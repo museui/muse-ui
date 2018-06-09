@@ -11,6 +11,7 @@ export default {
   },
   props: {
     label: String,
+    labelFloat: Boolean,
     icon: String,
     prop: String,
     labelWidth: Form.props.labelWidth,
@@ -72,8 +73,12 @@ export default {
     },
     createLabel (h) {
       const labelWidth = getWidth(this.labelWidth || this.muForm.labelWidth);
+      const value = this.muForm.model[this.prop];
       return h('div', {
         staticClass: 'mu-form-item-label',
+        class: {
+          'is-float': this.labelFloat && !this.focus && !value && value !== 0
+        },
         style: {
           width: labelWidth
         }
@@ -96,6 +101,7 @@ export default {
     return h('div', {
       staticClass: 'mu-form-item',
       class: {
+        'mu-form-item__float-label': this.labelFloat,
         'mu-form-item__label-left': labelPosition === 'left',
         'mu-form-item__label-right': labelPosition === 'right',
         'mu-form-item__has-icon': !!this.icon && labelPosition === 'top',

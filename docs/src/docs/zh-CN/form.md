@@ -150,9 +150,9 @@ export default {
 |------|------|------|------|------|
 | model | 表单数据对象 | Object | — | — |
 | inline | 是否为行内表单 | Boolean | — | — |
-| labelWidth | 标签宽度 |  String,Number | — | — |
-| labelPosition | 标签位置 | String | top / left / right | top |
-| autoValidate | 是否自动验证表单 | Boolean | — | true |
+| label-width | 标签宽度 |  String,Number | — | — |
+| label-position | 标签位置 | String | top / left / right | top |
+| auto-validate | 是否自动验证表单 | Boolean | — | true |
 
 ## Form Item Props
 
@@ -160,11 +160,13 @@ export default {
 |------|------|------|------|------|
 | prop | 表单域 model 字段，在使用 validate 方法的情况下，该属性是必填的 | String | — | — |
 | icon | 图标 | String | — | — |
-| labelWidth | 标签宽度 |  String,Number | — | — |
-| labelPosition | 标签位置 | String | top / left / right | top |
+| label | 文本标签 | String | — | — |
+| label-float | 标签是否浮动 | Boolean | - | false |
+| label-width | 标签宽度 |  String,Number | — | — |
+| label-position | 标签位置 | String | top / left / right | top |
 | rules | 表单验证规则 { validate: (val, model) , message: ''} | Array | — | — |
-| helpText | 帮助文字 | String | — | — |
-| errorText | 错误信息，设置该值会使表单验证状态变为error，并显示该错误信息 | String | — | — |
+| help-text | 帮助文字 | String | — | — |
+| error-text | 错误信息，设置该值会使表单验证状态变为error，并显示该错误信息 | String | — | — |
 
 ## Form Item Slots
 

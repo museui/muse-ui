@@ -107,12 +107,10 @@ export default {
       name: 'Input controls',
       children: [{
         name: 'Form',
-        path: '/form',
-        badge: 'news'
+        path: '/form'
       }, {
         name: 'Date Input',
-        path: '/date-input',
-        badge: 'updated'
+        path: '/date-input'
       }, {
         name: 'Select',
         path: '/select'
