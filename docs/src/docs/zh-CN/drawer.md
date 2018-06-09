@@ -51,7 +51,7 @@ export default {
 | right | 是否从右侧滑出 | Boolean | — | false |
 | docked | 是否固定 drawer， 设为 `true`， 将不会显示遮盖层，也不会触发 `close` 事件 | Boolean | — | false |
 | width | drawer 宽度 | String/Number | — | — |
-| z-depth | 阴影的深度 | Number | 0 — 5 | 2 |
+| z-depth | 阴影的深度 | Number | 0 — 24 | 16 |
 
 <script>
 export default {
