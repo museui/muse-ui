@@ -4,6 +4,7 @@ import { DatePicker, TimePicker, DateTimePicker } from '../Picker';
 import Container from './Container';
 import dayjs from 'dayjs';
 import Button from '../Button/Button';
+import keycode from 'keycode';
 
 const DEFAULT_FORMAT = {
   date: 'YYYY-MM-DD',
@@ -197,9 +198,12 @@ export default {
         },
         on: {
           ...listeners,
-          click: (e) => {
+          focus: (e) => {
             this.open = true;
-            this.$emit('click', e);
+          },
+          keydown: (e) => {
+            if (keycode(e) === 'tab') this.closePicker();
+            this.$emit('keydown', e);
           }
         }
       },
