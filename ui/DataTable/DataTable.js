@@ -50,6 +50,7 @@ export default {
       const { pixelX, pixelY } = data;
       if (Math.abs(pixelX) >= Math.abs(pixelY)) {
         event.preventDefault();
+        if (!this.$refs.body) return;
         this.$refs.body.scrollLeft += data.pixelX / 5;
       }
     }
