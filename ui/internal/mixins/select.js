@@ -1,11 +1,12 @@
 import TouchRipple from '../TouchRipple';
 import keycode from 'keycode';
 import color from './color';
+import ripple from './ripple';
 
 export default function (type = 'checkbox') { // checkbox
   const iconProps = type === 'switch' ? {} : { uncheckIcon: String, checkedIcon: String };
   return {
-    mixins: [color],
+    mixins: [color, ripple],
     inheritAttrs: false,
     inject: {
       muFormItem: {
@@ -27,14 +28,14 @@ export default function (type = 'checkbox') { // checkbox
     methods: {
       start (event) {
         if (this.disabled) return;
-        if (event.type !== 'mousedown' || event.button === 0) {
+        if (this.ripple && (event.type !== 'mousedown' || event.button === 0)) {
           this.$refs.ripple.start(event);
         }
         this.$emit(event.type, event);
       },
       end (event) {
         if (this.disabled) return;
-        this.$refs.ripple.end();
+        if (this.ripple) this.$refs.ripple.end();
         this.$emit(event.type, event);
       },
       handleClick (e) {
@@ -49,13 +50,15 @@ export default function (type = 'checkbox') { // checkbox
         if (keycode(e) === 'enter' && !this.readonly) this.handleClick(e);
       },
       createRipple (h, staticClass, children) {
-        return this.disabled ? h('div', {
+        return this.disabled || !this.ripple ? h('div', {
           staticClass
         }, children) : h(TouchRipple, {
           staticClass,
           props: {
             rippleWrapperClass: `mu-${type}-ripple-wrapper`,
-            centerRipple: true
+            centerRipple: true,
+            color: this.rippleColor,
+            opacity: this.rippleOpacity
           },
           ref: 'ripple'
         }, children);
