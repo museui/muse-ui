@@ -5,6 +5,13 @@
   vertical-align: middle;
 }
 
+.mu-menu-toggle-icon {
+  transition: transform .3s cubic-bezier(.23,1,.32,1);
+  .mu-menu__open & {
+    transform: rotate(180deg);
+  }
+}
+
 .mu-menu-activator {
   align-items: center;
   cursor: pointer;

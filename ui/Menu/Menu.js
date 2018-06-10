@@ -53,7 +53,10 @@ export default {
   },
   render (h) {
     return h('div', {
-      staticClass: 'mu-menu'
+      staticClass: 'mu-menu',
+      class: {
+        'mu-menu__open': this.open
+      }
     }, [
       h('div', {
         staticClass: 'mu-menu-activator',

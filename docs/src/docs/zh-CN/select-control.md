@@ -12,7 +12,7 @@
   </mu-flex>
   <div class="select-control-group">
     <mu-flex class="select-control-row" :key="'radio ' + i" v-for="i in 3">
-      <mu-radio :value="i" v-model="normal.radio" :label="'Radio ' + i"></mu-radio>
+      <mu-radio :value="i" v-model="normal.radio"  :label="'Radio ' + i"></mu-radio>
     </mu-flex>
   </div>
   <mu-flex class="select-control-row">
@@ -190,6 +190,7 @@ export default {
 | input-value | 用于 `v-model` 绑定 | Boolean, Array | — | — |
 | disabled | 是否禁用 | Boolean | — | — |
 | color | 颜色 | String | — | — |
+| ripple | 是否开启波纹动画 | Boolean | - | true |
 
 ## Radio Props
 
@@ -202,6 +203,7 @@ export default {
 | input-value | 用于 `v-model` 绑定 | — | — | — |
 | disabled | 是否禁用 | Boolean | — | — |
 | color | 颜色 | String | — | — |
+| ripple | 是否开启波纹动画 | Boolean | - | true |
 
 ## Switch Props
 
@@ -212,6 +214,7 @@ export default {
 | input-value | 用于 `v-model` 绑定 | Boolean | — | — |
 | disabled | 是否禁用 | Boolean | — | — |
 | color | 颜色 | String | — | — |
+| ripple | 是否开启波纹动画 | Boolean | - | true |
 
 <script>
 export default {

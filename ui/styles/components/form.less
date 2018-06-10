@@ -19,7 +19,7 @@
   min-height: 48px;
   position: relative;
   color: @secondaryTextColor;
-  margin-bottom: 8px;
+  margin-bottom: 16px;
   position: relative;
   .mu-input {
     padding-top: 0;
@@ -27,7 +27,7 @@
     width: 100%;
   }
   .mu-input-content {
-    padding-top: 0px;
+    padding-top: 0;
   }
   .mu-input {
     min-height: auto;
@@ -38,7 +38,7 @@
   .mu-checkbox,
   .mu-radio,
   .mu-switch {
-    margin-right: 8px;
+    margin-right: 16px;
     &:last-child {
       margin-right: 0;
     }
@@ -93,8 +93,11 @@
     flex: 1;
     align-items: flex-start;
     > *:not(.mu-input) {
-      margin-top: 8px;
+      margin-top: 6px;
     }
+  }
+  .mu-input-content {
+    padding-top: 3px;
   }
 }
 .mu-form-item__label-right .mu-form-item-label {

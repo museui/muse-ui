@@ -126,6 +126,12 @@ export default {
     clickOutSide (e) {
       if (this.trigger && this.trigger.contains(e.target)) return;
       this.close('clickOutSide');
+    },
+    getTransitionName () {
+      if (this.cover) return `transition-${this.placement}`;
+      return this.placement.indexOf('top') !== -1 ||
+        ['left-end', 'right-end'].indexOf(this.placement) !== -1
+        ? 'transition-top' : 'transition-bottom';
     }
   },
   mounted () {
@@ -157,9 +163,10 @@ export default {
       });
     }
 
+    const transition = this.getTransitionName();
     return h(PopoverTransiton, [
       !this.lazy || this.open ? h('div', {
-        staticClass: `mu-popover transition-${this.placement}`,
+        staticClass: `mu-popover ${transition}`,
         style: {
           'z-index': this.zIndex
         },

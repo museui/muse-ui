@@ -16,7 +16,7 @@ export default {
     width: [Number, String],
     zDepth: {
       type: Number,
-      default: 2
+      default: 16
     }
   },
   data () {
