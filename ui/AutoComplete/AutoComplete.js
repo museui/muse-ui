@@ -85,7 +85,7 @@ export default {
           if (this.focusIndex > maxIndex) this.focusIndex = minIndex;
           break;
         case 'tab':
-          this.blur();
+          this.blur(e);
           break;
         default:
           this.focusIndex = -1;
@@ -98,15 +98,16 @@ export default {
       if (val) this.open = true;
       this.$emit('input', val);
     },
-    focus () {
+    focus (e) {
       this.isFocused = true;
       if (this.openOnFocus) this.open = true;
+      this.$emit('focus', e);
     },
-    blur () {
+    blur (e) {
       this.isFocused = false;
       this.focusIndex = -1;
       this.open = false;
-      this.$emit('blur');
+      this.$emit('blur', e);
     },
     setScollPosition (index) {
       if (!this.open) return;
@@ -208,7 +209,7 @@ export default {
         name: 'click-outside',
         value: (e) => {
           if (this.$refs.popover.$el.contains(e.target)) return;
-          this.blur();
+          this.blur(e);
         }
       }]
     }, [

@@ -77,7 +77,7 @@ export default {
     setTabHighLineStyle () {
       this.$nextTick(() => {
         const activeTab = this.getActiveTab();
-        if (!activeTab) return;
+        if (!activeTab || !lineEl || !activeTab.$el) return;
         const el = activeTab.$el;
         const lineEl = this.$refs.line;
         const rect = el.getBoundingClientRect();
