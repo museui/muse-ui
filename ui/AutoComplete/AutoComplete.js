@@ -63,7 +63,7 @@ export default {
       return typeof item === 'string' ? item : item.value;
     },
     onKeydown (e) {
-      if (this.disabled || this.$attrs.readonly || !this.open) return;
+      if (this.disabled || this.$attrs.readonly) return;
       const code = keycode(e);
       const maxIndex = this.enableData.length - 1;
       const minIndex = 0;
@@ -74,11 +74,13 @@ export default {
           break;
         case 'up':
           event.preventDefault();
+          if (!this.open) return;
           this.focusIndex--;
           if (this.focusIndex < minIndex) this.focusIndex = maxIndex;
           break;
         case 'down':
           event.preventDefault();
+          if (!this.open) return;
           this.focusIndex++;
           if (this.focusIndex > maxIndex) this.focusIndex = minIndex;
           break;
