@@ -36,12 +36,13 @@ export default function (type = 'checkbox') { // checkbox
       end (event) {
         if (this.disabled) return;
         if (this.ripple) this.$refs.ripple.end();
-        this.$emit(event.type, event);
+        if (event) this.$emit(event.type, event);
       },
       handleClick (e) {
         if (this.disabled || this.readonly) return;
         this.toggle();
         this.muFormItem && this.muFormItem.onBlur();
+        this.end();
         this.$emit('click', e);
       },
       handleKeydown (e) {
