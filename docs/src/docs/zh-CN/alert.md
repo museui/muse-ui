@@ -41,18 +41,18 @@
 ```html
 <div class="alert-demo-wrapper">
   <mu-alert color="success">
-    <mu-icon value="check_circle"></mu-icon> this is success alert
+    <mu-icon left value="check_circle"></mu-icon> this is success alert
   </mu-alert>
   <mu-alert color="warning">
-    <mu-icon value="priority_high"></mu-icon> this is warning alert
+    <mu-icon left value="priority_high"></mu-icon> this is warning alert
   </mu-alert>
   <mu-alert color="info" >
-    <mu-icon value="info"></mu-icon> this is info alert
+    <mu-icon left value="info"></mu-icon> this is info alert
   </mu-alert>
-  <mu-alert color="error" delete :show.sync="alert">
-    <mu-icon value="warning"></mu-icon> this is error alert
+  <mu-alert color="error" delete v-if="alert" @delete="closeAlert()">
+    <mu-icon left value="warning"></mu-icon> this is error alert
   </mu-alert>
-  <mu-button color="primary" v-if="!alert" @click="closeAlert()">SHOW ALERT</mu-button>
+  <mu-button color="primary" v-if="!alert" @click="showAlert()">SHOW ALERT</mu-button>
 </div>
 <script>
 export default {
@@ -62,8 +62,11 @@ export default {
     };
   },
   methods: {
-    closeAlert () {
+    showAlert () {
       this.alert = true;
+    },
+    closeAlert () {
+      this.alert = false;
     }
   }
 }
@@ -94,8 +97,8 @@ export default {
 ```html
 <div class="alert-demo-wrapper">
   <mu-button color="primary" style="margin-bottom: 16px;" @click="toggleAlert()">TOGGLE</mu-button>
-  <mu-alert color="warning" delete :show.sync="alert1" transition="mu-scale-transition">
-    <mu-icon value="warning"></mu-icon> this is warning alert
+  <mu-alert color="warning" delete v-if="alert1" transition="mu-scale-transition">
+    <mu-icon left value="warning"></mu-icon> this is warning alert
   </mu-alert>
 </div>
 <script>
@@ -168,8 +171,11 @@ export default {
     };
   },
   methods: {
-    closeAlert () {
+    showAlert () {
       this.alert = true;
+    },
+    closeAlert () {
+      this.alert = false;
     },
     toggleAlert () {
       this.alert1 = !this.alert1;
