@@ -78,7 +78,7 @@ export default {
     },
     handleTouch (event) {
       event.preventDefault();
-      this.setClock(event.changedTouches[0], false);
+      this.setClock(event.changedTouches[0], event.type.toLowerCase() === 'touchend');
     },
     setClock (event, finish) {
       if (typeof event.offsetX === 'undefined') {

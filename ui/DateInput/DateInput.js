@@ -138,7 +138,8 @@ export default {
             tabindex: 0,
             ...this.$attrs,
             disabled: this.disabled,
-            placeholder
+            placeholder,
+            readonly: true
           },
           domProps: {
             value: dateStr
