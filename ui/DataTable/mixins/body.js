@@ -68,24 +68,45 @@ export default {
         const arr = this.$scopedSlots.default
           ? this.createSlotContent(row, index)
           : this.columns.map((column) => {
-            return h('td', {}, row[column.name]);
+            const text = column.formatter && typeof column.formatter === 'function'
+              ? column.formatter(row[column.name], row)
+              : row[column.name];
+            return h('td', {
+              class: [
+                column.align || column.cellAlign ? `is-${column.cellAlign || column.align}` : ''
+              ]
+            }, text);
           }) || [];
         if (this.checkbox) arr.unshift(this.createCheckboxTd(h, index));
+
+        const rowClassName = typeof this.rowClassName === 'function' ? this.rowClassName(index, row) : this.rowClassName;
         contents.push(
           h('tr', {
+            staticClass: rowClassName,
             class: {
               'is-hover': this.hover && this.hoverIndex === index,
               'is-stripe': this.stripe && index % 2 !== 0,
               'is-selected': this.isSelected(index)
             },
+            style: typeof this.rowStyle === 'function' ? this.rowStyle(index, row) : this.rowStyle,
             on: {
-              mouseenter: () => (this.hoverIndex = index),
-              mouseleave: () => (this.hoverIndex = -1),
-              click: () => {
+              mouseenter: (e) => {
+                this.hoverIndex = index;
+                this.$emit('row-mouseenter', index, row, e);
+              },
+              mouseleave: (e) => {
+                this.hoverIndex = -1;
+                this.$emit('row-mouseleave', index, row, e);
+              },
+              contextmenu: (e) => {
+                this.$emit('row-contextmenu', index, row, e);
+              },
+              click: (e) => {
                 this.toggleSelect(index);
                 this.toggleExpand(index);
-                this.$emit('row-click', index, row);
-              }
+                this.$emit('row-click', index, row, e);
+              },
+              dblclick: (e) => this.$emit('row-dblclick', e)
             },
             key: row[this.rowKey]
           }, arr)

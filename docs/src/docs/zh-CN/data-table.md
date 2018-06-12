@@ -829,7 +829,7 @@ export default {
         <td class="is-right">{{scope.row.iron}}%</td>
       </template>
     </mu-data-table>
-    <mu-flex align-items="center" style="padding: 8px;">
+    <mu-flex align-items="center" style="padding: 8px;" wrap="wrap">
       selects: <mu-chip delete v-for="selectIndex in selects" @delete="removeSelect(selectIndex)" style="margin: 8px;" color="green" :key="selectIndex">{{list[selectIndex].name}}</mu-chip>
     </mu-flex>
   </mu-paper>
@@ -1100,6 +1100,8 @@ export default {
 | border | 是否是边框表格 | Boolean | — | false |
 | loading | 是否显示加载进度条 | Boolean | — | false |
 | hideHeader | 是否隐藏表头 | Boolean | — | false |
+| rowClassName | 行的 className 的回调方法，也可以使用字符串为所有行设置一个固定的 className。| String / Function(rowIndex, row) | — | — |
+| rowStyke | 行的 style 的回调方法，也可以使用一个固定的 Object 为所有行设置一样的 Style。 | String /  Function(rowIndex, row) | — | — |
 | rowKey | 行数据的 Key，用来优化 Table 的渲染；| String | — | — |
 | fit | 列的宽度是否自撑开 | Boolean | — | true |
 | hover | 是否显示鼠标悬浮在行上的样式 | Boolean | — | true |
@@ -1113,14 +1115,20 @@ export default {
 | width | 列的宽度 | Number | — | — |
 | sortable | 列是否可以排序 | Boolean | — | false |
 | align | 列的对齐方式 | String | left, center, right | left |
+| cellAlign | 单元格对齐方式 | String | left, center, right | left |
 | class | 列的样式 | String | — | — |
 | tooltip | 列的提示文字 | String | — | — |
+| formatter | 单元格单词格式化 | Function(value, row) | - | - |
 
 ## Data Table Events
 
 | 名称 | 介绍 | 回调参数 |
 |------|------|-------|
-| row-click | 点击某一行时触发 | (index, row) |
+| row-click | 点击某一行时触发 | (index, row, event) |
+| row-dblclick | 双击击某一行时触发 | (index, row, event) |
+| row-mouseenter | 鼠标进入某一行时触发 | (index, row, event) |
+| row-mouseleave | 鼠标离开某一行时触发 | (index, row, event) |
+| row-contextmenu | 当某一行被鼠标右键点击时会触发该事件 | (index, row, event) |
 | select-change | 选择行时触发 | (index, selects) |
 | sort-change | 点击头部排序时触发 | (sort) |
 

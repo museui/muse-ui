@@ -32,6 +32,8 @@ export default {
     border: Boolean,
     loading: Boolean,
     hideHeader: Boolean,
+    rowClassName: [String, Function],
+    rowStyle: [Object, Function],
     rowKey: {
       type: String,
       default: 'id'
