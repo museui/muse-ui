@@ -1,4 +1,6 @@
 import '../styles/components/stepper.less';
+import theme from '../theme';
+import StepperTheme from './theme';
 import Stepper from './Stepper';
 import Step from './Step';
 import StepLabel from './StepLabel';
@@ -15,5 +17,6 @@ Stepper.install = function (Vue) {
   Vue.component(StepContent.name, StepContent);
 };
 
+theme.addCreateTheme(StepperTheme);
 export { Stepper, Step, StepLabel, StepButton, StepConnector, StepContent };
 export default Stepper;
