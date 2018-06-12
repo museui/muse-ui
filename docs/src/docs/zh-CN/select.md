@@ -293,7 +293,19 @@ export default {
 | error-text | 错误提醒文字，如果此参数有值，那么输入框会转为错误的状态, 显示效果将会更改 | String | — | — |
 | help-text | 帮助文字 | String | — | — |
 | full-width | 是否将宽度设置为 100%, 默认 256px | Boolean | — | false |
-| disabled | 输入框是否不可用 | Boolean | — | false |
+| disabled | 是否不可用 | Boolean | — | false |
+| action-icon | 选择框右边的图标 | String | — | — |
+| solo | 改变样式，设置之后会隐藏输入框的下划线和标签 | Boolean | — | false |
+| underline-color | 下划线的颜色  | String | - | - |
+
+## Select Slots
+
+| 名称 | 介绍 |
+|-----|------|
+| prepend | 选择框前置内容 |
+| append | 选择框后置内容 |
+| default | - |
+
 
 ## Select Scope Slots
 

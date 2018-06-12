@@ -26,6 +26,7 @@ export default {
     fullWidth: Boolean,
     disabled: Boolean,
     solo: Boolean,
+    underlineColor: String,
     value: {}
   },
   data () {
@@ -82,10 +83,15 @@ export default {
           }
         }),
         this.disabled ? undefined : h('div', {
-          staticClass: 'mu-input-focus-line',
+          staticClass: [
+            'mu-input-focus-line',
+            this.getNormalColorClass(this.underlineColor, false, false)
+          ].join(' '),
           class: {
-            'mu-input-focus-line__error': this.error,
-            focus: this.isFocused
+            focus: this.isFocused || this.underlineColor || this.error
+          },
+          style: {
+            'background-color': this.getColor(this.underlineColor)
           }
         })
       ]);
@@ -125,10 +131,12 @@ export default {
         this.createIcon(h),
         this.createLabel(h),
         h('div', data, [
+          this.$slots.prepend,
           this.prefix && !this.float ? h('span', { staticClass: 'mu-input-prefix-text' }, this.prefix) : undefined,
           ...children,
           this.suffix && !this.float ? h('span', { staticClass: 'mu-input-suffix-text' }, this.suffix) : undefined,
           defaultAction || this.createActionIcon(h),
+          this.$slots.append,
           this.createUnderline(h),
           this.createHelpText(h)
         ])

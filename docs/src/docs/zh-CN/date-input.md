@@ -256,6 +256,7 @@ export default {
 | action-icon | 输入框右边的图标 | String | — | — |
 | action-click | 图标点击之后执行的函数 | Function | — | — |
 | solo | 改变样式，设置之后会隐藏输入框的下划线和标签 | Boolean | — | false |
+| underline-color | 下划线的颜色  | String | - | - |
 | prefix | 输入框前缀内容 | String | — | — |
 | suffix | 输入框尾部内容 | String | — | — |
 | date-time-format | 日期格式化对象，用于改变不同的语言环境显示 | Object | — | — |
@@ -265,6 +266,14 @@ export default {
 | landscape | 是否横屏显示 | Boolean | — | false |
 | no-display | 是否不存在时间显示部分 | Boolean | — | false |
 | should-disable-date | 判断日期是否不可用的函数 | Function | — | — |
+
+## Date Input Slots
+
+| 名称 | 介绍 |
+|-----|------|
+| prepend | 输入框前置内容 |
+| append | 输入框后置内容 |
+| default | - |
 
 <script>
 const dayAbbreviation = ['S', 'M', 'T', 'W', 'T', 'F', 'S']

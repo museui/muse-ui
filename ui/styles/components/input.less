@@ -53,6 +53,7 @@
 
 .mu-input-content{
   height: 100%;
+  position: relative;
   .mu-input.disabled &{
     color: @disabledColor;
     cursor: not-allowed;
@@ -63,15 +64,12 @@
   position: absolute;
   font-size: 12px;
   line-height: 12px;
-  bottom: -4px;
+  bottom: -16px;
   color: @secondaryTextColor;
   display: flex;
   justify-content: space-between;
   left: 0;
   right: 0;
-  .mu-input.has-icon & {
-    left: 56px;
-  }
   .mu-input__error & {
     color: @errorColor;
   }
@@ -125,12 +123,9 @@
   background-color: @borderColor;
   left: 0;
   right: 0;
-  bottom: 12px;
+  bottom: -1px;
   position: absolute;
-  .mu-input.has-icon & {
-    left: 56px;
-  }
-  &.disabled{
+  &.disabled {
     height: auto;
     background-color: transparent;
     border-bottom: 2px dotted @disabledColor;
@@ -145,19 +140,10 @@
   position: absolute;
   left: 0;
   right: 0;
-  bottom: 12px;
-  margin-top: -1px;
+  bottom: -1px;
   transform: scaleX(0);
   transition: transform .45s @easeOutFunction;
-  .mu-input.has-icon & {
-    left: 56px;
-  }
   &.focus {
     transform: scaleX(1);
   }
-}
-
-.mu-input-focus-line__error {
-  transform: scaleX(1);
-  background-color: @errorColor;
 }

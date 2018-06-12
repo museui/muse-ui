@@ -171,8 +171,18 @@ export default {
 | action-icon | 输入框右边的图标 | String | — | — |
 | action-click | 图标点击之后执行的函数 | Function | — | — |
 | solo | 改变样式，设置之后会隐藏输入框的下划线和标签 | Boolean | — | false |
+| underline-color | 下划线的颜色  | String | - | - |
 | prefix | 输入框前缀内容 | String | — | — |
 | suffix | 输入框尾部内容 | String | — | — |
+
+## Auto Complete Slots
+
+| 名称 | 介绍 |
+|-----|------|
+| prepend | 输入框前置内容 |
+| append | 输入框后置内容 |
+| default | - |
+
 
 ## Auto Complete Scope Slots
 
