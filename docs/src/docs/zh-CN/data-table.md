@@ -1101,7 +1101,7 @@ export default {
 | loading | 是否显示加载进度条 | Boolean | — | false |
 | hideHeader | 是否隐藏表头 | Boolean | — | false |
 | rowClassName | 行的 className 的回调方法，也可以使用字符串为所有行设置一个固定的 className。| String / Function(rowIndex, row) | — | — |
-| rowStyke | 行的 style 的回调方法，也可以使用一个固定的 Object 为所有行设置一样的 Style。 | String /  Function(rowIndex, row) | — | — |
+| rowStyle | 行的 style 的回调方法，也可以使用一个固定的 Object 为所有行设置一样的 Style。 | String /  Function(rowIndex, row) | — | — |
 | rowKey | 行数据的 Key，用来优化 Table 的渲染；| String | — | — |
 | fit | 列的宽度是否自撑开 | Boolean | — | true |
 | hover | 是否显示鼠标悬浮在行上的样式 | Boolean | — | true |

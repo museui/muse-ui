@@ -3,8 +3,6 @@
   background-color: @alternateTextColor;
   position: relative;
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
   table {
     border-collapse: collapse;
     border-spacing: 0;
@@ -87,6 +85,10 @@
     }
   }
 }
+.mu-table-flex {
+  display: flex;
+  flex-direction: column;
+}
 .mu-table-border {
   border: 1px solid @borderColor;
   th, td {
@@ -148,6 +150,7 @@
     padding: 0;
     height: 0;
     border: none;
+    min-height: 0;
     &.is-expand {
       border-bottom: 1px solid @borderColor;
     }

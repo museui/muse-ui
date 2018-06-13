@@ -97,7 +97,7 @@ export default {
 ```html
 <div class="alert-demo-wrapper">
   <mu-button color="primary" style="margin-bottom: 16px;" @click="toggleAlert()">TOGGLE</mu-button>
-  <mu-alert color="warning" delete v-if="alert1" transition="mu-scale-transition">
+  <mu-alert color="warning" @delete="alert1 = false" delete v-if="alert1" transition="mu-scale-transition">
     <mu-icon left value="warning"></mu-icon> this is warning alert
   </mu-alert>
 </div>
@@ -152,7 +152,6 @@ export default {
 |------|------|------|------|------|
 | color | 组件颜色 | String | — | — |
 | delete | 是否显示删除图标 | Boolean | — | — |
-| show | 组件是否显示, 使用 `.sync` 修饰符双向绑定 | Boolean | — | true |
 | transition | 设置组件显示和隐藏的过渡动画 | String | — | — |
 | mode | 设置过渡动画的模式 | String | out-in/in-out | — |
 

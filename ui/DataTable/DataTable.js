@@ -61,7 +61,8 @@ export default {
     return h('div', {
       staticClass: 'mu-table',
       class: {
-        'mu-table-border': this.border
+        'mu-table-border': this.border,
+        'mu-table-flex': this.maxHeight || this.height
       },
       style: {
         'max-height': getWidth(this.maxHeight),
