@@ -40,7 +40,7 @@ export default {
   },
   methods: {
     validate () {
-      if (!this.rules || this.rules.length === 0) return;
+      if (!this.rules || this.rules.length === 0) return true;
       for (let i = 0; i < this.rules.length; i++) {
         const rule = this.rules[i];
         if (!rule.validate(this.muForm.model[this.prop], this.muForm.model)) {
