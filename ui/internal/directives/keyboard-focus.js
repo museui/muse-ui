@@ -37,7 +37,7 @@ export default {
       bindingFn: binding.value
     };
     el.addEventListener('focus', handleFocus);
-    el.addEventListener('blur', () =>  {
+    el.addEventListener('blur', () => {
       if (timer) clearTimeout(timer);
     });
   },

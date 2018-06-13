@@ -1,13 +1,14 @@
 const IS_TOUCH = typeof window !== 'undefined' && (('ontouchstart' in window) || window.DocumentTouch && document instanceof window.DocumentTouch);
 export default class Drag {
-  constructor (element) {
+  constructor (element, onlyTouch) {
     this.el = element;
     this.startPos = {};
     this.endPos = {};
     this.starts = [];
     this.drags = [];
     this.ends = [];
-    if (IS_TOUCH) {
+    this.onlyTouch = onlyTouch;
+    if (IS_TOUCH || onlyTouch) {
       this.el.addEventListener('touchstart', this, false);
     } else {
       this.el.addEventListener('mousedown', this, false);
@@ -24,7 +25,7 @@ export default class Drag {
       case 'touchcancel':
       case 'touchend':
         this.touchEnd(event);
-        break
+        break;
       case 'mousedown':
         this.mouseStart(event);
         break;
@@ -97,19 +98,19 @@ export default class Drag {
     };
 
     this.drags.map((func) => {
-      func.call(this, this.endPos, event)
+      func.call(this, this.endPos, event);
     });
   }
 
   mouseEnd (event) {
-    this.el.removeEventListener('mousemove', this, false)
-    this.el.removeEventListener('mouseup', this, false)
+    this.el.removeEventListener('mousemove', this, false);
+    this.el.removeEventListener('mouseup', this, false);
 
-    this.endPos.time = new Date().getTime() - this.startPos.time
+    this.endPos.time = new Date().getTime() - this.startPos.time;
 
     this.ends.map((func) => {
-      func.call(this, this.endPos, event)
-    })
+      func.call(this, this.endPos, event);
+    });
   }
 
   start (fun) {
@@ -140,7 +141,7 @@ export default class Drag {
     };
   }
   destory () {
-    if (IS_TOUCH) {
+    if (IS_TOUCH || this.onlyTouch) {
       this.el.removeEventListener('touchstart', this, false);
     } else {
       this.el.removeEventListener('mousedown', this, false);

@@ -83,6 +83,9 @@ export default {
       name: 'Card',
       path: '/card'
     }, {
+      name: 'Carousel',
+      path: '/carousel'
+    }, {
       name: 'Chip',
       path: '/chip'
     }, {
