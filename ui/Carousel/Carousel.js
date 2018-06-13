@@ -90,7 +90,7 @@ export default {
       }
     },
     createControls (h) {
-      if (this.hideControls) return;
+      if (this.hideControls) return [];
       return [
         h(Button, {
           class: 'mu-carousel-button mu-carousel-button__left',
@@ -159,13 +159,13 @@ export default {
       return h('div', {
         staticClass: 'mu-carousel-indicators'
       }, this.items.map((item, index) => {
-        const selected = index === this.activeIndex;
+        const active = index === this.activeIndex;
         return this.$scopedSlots.indicator
-          ? this.$scopedSlots.indicator({ index, selected })
+          ? this.$scopedSlots.indicator({ index, active })
           : h(Button, {
             staticClass: 'mu-carousel-indicator-button',
             class: {
-              'mu-carousel-indicator-button__active': selected
+              'mu-carousel-indicator-button__active': active
             },
             props: {
               icon: true
@@ -206,6 +206,7 @@ export default {
   watch: {
     activeIndex (val) {
       this.startAutoNext();
+      this.$emit('change', val);
       this.$emit('update:active', val);
     },
     active (val) {
