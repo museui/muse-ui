@@ -1,10 +1,13 @@
-import Drag from '../utils/drag';
+import swipe from '../internal/directives/swipe';
 import translateUtil from '../utils/translate';
 import { transitionEnd } from '../utils/dom';
 const ITEM_HEIGHT = 36;
 
 export default {
   name: 'mu-slide-picker-slot',
+  directives: {
+    swipe
+  },
   props: {
     divider: {
       type: Boolean,
@@ -36,10 +39,16 @@ export default {
   },
   data () {
     return {
-      animate: false
+      animate: false,
+      startTop: 0,
+      velocityTranslate: 0,
+      prevTranslate: 0
     };
   },
   computed: {
+    itemHeight () {
+
+    },
     contentHeight () {
       return ITEM_HEIGHT * this.visibleItemCount;
     },
@@ -52,9 +61,8 @@ export default {
       return [-ITEM_HEIGHT * (values.length - Math.ceil(visibleItemCount / 2)), ITEM_HEIGHT * Math.floor(visibleItemCount / 2)];
     }
   },
-  mounted: function () {
+  mounted () {
     if (!this.divider) {
-      this.initEvents();
       this.doOnValueChange();
     }
   },
@@ -84,43 +92,41 @@ export default {
         translateUtil.translateElement(item, null, ITEM_HEIGHT * index);
       });
     },
-    initEvents () {
+    handleStart () {
+      this.startTop = translateUtil.getElementTranslate(this.$refs.wrapper).top;
+    },
+    handleMove (pos, drag, event) {
       const el = this.$refs.wrapper;
-      const drag = new Drag(this.$el);
-      let startTop = 0;
-      let velocityTranslate, prevTranslate;
-      drag.start(() => {
-        startTop = translateUtil.getElementTranslate(el).top;
-      }).drag((endPos, event) => {
-        event.preventDefault();
-        event.stopPropagation();
-        const translate = startTop + endPos.y;
-        translateUtil.translateElement(el, 0, translate);
-        velocityTranslate = translate - prevTranslate || translate;
-        prevTranslate = translate;
-      }).end((endPos) => {
-        const momentumRatio = 7;
-        const currentTranslate = translateUtil.getElementTranslate(el).top;
-        let momentumTranslate;
-        if (endPos.time < 300) {
-          momentumTranslate = currentTranslate + velocityTranslate * momentumRatio;
+      event.preventDefault();
+      event.stopPropagation();
+      const translate = this.startTop + pos.y;
+      translateUtil.translateElement(el, 0, translate);
+      this.velocityTranslate = translate - this.prevTranslate || translate;
+      this.prevTranslate = translate;
+    },
+    handleEnd (pos, drag, event) {
+      const el = this.$refs.wrapper;
+      const momentumRatio = 7;
+      const currentTranslate = translateUtil.getElementTranslate(el).top;
+      let momentumTranslate;
+      if (pos.time < 300) {
+        momentumTranslate = currentTranslate + this.velocityTranslate * momentumRatio;
+      }
+      const dragRange = this.dragRange;
+      this.animate = true;
+      transitionEnd(el, () => {
+        this.animate = false;
+      });
+      this.$nextTick(() => {
+        let translate;
+        if (momentumTranslate) {
+          translate = Math.round(momentumTranslate / ITEM_HEIGHT) * ITEM_HEIGHT;
+        } else {
+          translate = Math.round(currentTranslate / ITEM_HEIGHT) * ITEM_HEIGHT;
         }
-        const dragRange = this.dragRange;
-        this.animate = true;
-        transitionEnd(el, () => {
-          this.animate = false;
-        });
-        this.$nextTick(() => {
-          let translate;
-          if (momentumTranslate) {
-            translate = Math.round(momentumTranslate / ITEM_HEIGHT) * ITEM_HEIGHT;
-          } else {
-            translate = Math.round(currentTranslate / ITEM_HEIGHT) * ITEM_HEIGHT;
-          }
-          translate = Math.max(Math.min(translate, dragRange[1]), dragRange[0]);
-          translateUtil.translateElement(el, null, translate);
-          this.$emit('change', this.translate2Value(translate));
-        });
+        translate = Math.max(Math.min(translate, dragRange[1]), dragRange[0]);
+        translateUtil.translateElement(el, null, translate);
+        this.$emit('change', this.translate2Value(translate));
       });
     }
   },
@@ -132,7 +138,20 @@ export default {
       },
       style: {
         width: this.width
-      }
+      },
+      on: {
+        touchmove: (e) => {
+          e.preventDefault();
+        }
+      },
+      directives: this.divider ? [] : [{
+        name: 'swipe',
+        value: {
+          start: this.handleStart,
+          move: this.handleMove,
+          end: this.handleEnd
+        }
+      }]
     }, [
       this.divider
         ? h('div', {}, this.content)

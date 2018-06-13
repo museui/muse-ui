@@ -47,8 +47,8 @@ export default class Drag {
       time: new Date().getTime()
     };
     this.endPos = {};
-    this.el.addEventListener('touchmove', this, false);
-    this.el.addEventListener('touchend', this, false);
+    document.addEventListener('touchmove', this, false);
+    document.addEventListener('touchend', this, false);
     this.starts.map((func) => {
       func.call(this, this.startPos, event);
     });
@@ -70,8 +70,8 @@ export default class Drag {
   touchEnd (event) {
     this.endPos.time = new Date().getTime() - this.startPos.time;
 
-    this.el.removeEventListener('touchmove', this, false);
-    this.el.removeEventListener('touchend', this, false);
+    document.removeEventListener('touchmove', this, false);
+    document.removeEventListener('touchend', this, false);
     this.ends.map((func) => {
       func.call(this, this.endPos, event);
     });
@@ -84,8 +84,8 @@ export default class Drag {
       time: new Date().getTime()
     };
     this.endPos = {};
-    this.el.addEventListener('mousemove', this, false);
-    this.el.addEventListener('mouseup', this, false);
+    document.addEventListener('mousemove', this, false);
+    document.addEventListener('mouseup', this, false);
     this.starts.map((func) => {
       func.call(this, this.startPos, event);
     });
@@ -103,8 +103,8 @@ export default class Drag {
   }
 
   mouseEnd (event) {
-    this.el.removeEventListener('mousemove', this, false);
-    this.el.removeEventListener('mouseup', this, false);
+    document.removeEventListener('mousemove', this, false);
+    document.removeEventListener('mouseup', this, false);
 
     this.endPos.time = new Date().getTime() - this.startPos.time;
 
