@@ -7,7 +7,7 @@
 :::demo
 ```html
 <mu-container>
-  <mu-text-field v-model="value1" ></mu-text-field><br/>
+  <mu-text-field v-model="value1"></mu-text-field><br/>
   <mu-text-field v-model="value2" placeholder="Please input......"></mu-text-field><br/>
   <mu-text-field v-model="value3" disabled placeholder="disabled input"></mu-text-field><br/>
   <mu-text-field v-model="value4" placeholder="error input" error-text="Please input......"></mu-text-field><br/>
@@ -75,6 +75,9 @@ export default {
 ```
 :::
 
+
+## Text Field Props
+
 | 参数 | 介绍 | 类型 | 可选值 | 默认值 |
 |------|------|------|------|------|
 | color | 输入框颜色 | String | — | — |
@@ -92,8 +95,17 @@ export default {
 | action-icon | 输入框右边的图标 | String | — | — |
 | action-click | 图标点击之后执行的函数 | Function | — | — |
 | solo | 改变样式，设置之后会隐藏输入框的下划线和标签 | Boolean | — | false |
+| underline-color | 下划线的颜色  | String | - | - |
 | prefix | 输入框前缀内容 | String | — | — |
 | suffix | 输入框尾部内容 | String | — | — |
+
+## Text Field Slots
+
+| 名称 | 介绍 |
+|-----|------|
+| prepend | 输入框前置内容 |
+| append | 输入框后置内容 |
+| default | - |
 
 <script>
 export default {

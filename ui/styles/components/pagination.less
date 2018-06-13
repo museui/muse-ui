@@ -12,7 +12,7 @@
     padding: 0;
     li {
       display: inline-block;
-      margin: 0 2px;
+      margin: 0 4px;
     }
   }
 }
@@ -24,10 +24,25 @@
 }
 
 .mu-pagination-btn.mu-button {
-  height: 32px;
+  height: 28px;
   padding: 0;
-  min-width: 32px;
-  border-radius: 50%;
+  width: 28px;
+  min-width: auto;
+  .mu-pagination__raised & {
+    background-color: @alternateTextColor;
+    .depth(2);
+  }
+  .mu-pagination__circle & {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+  }
+  &:first-child {
+    margin-right: 4px;
+  }
+  &:last-child {
+    margin-left: 4px;
+  }
   .mu-button-wrapper {
     padding: 0;
   }
@@ -37,6 +52,14 @@
   min-width: 32px;
   height: 32px;
   padding: 0 8px;
+  .mu-pagination__raised & {
+    background-color: @alternateTextColor;
+    .depth(2);
+  }
+  .mu-pagination__circle & {
+    width: 32px;
+    border-radius: 50%;
+  }
   .mu-button-wrapper {
     padding: 0;
   }

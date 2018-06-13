@@ -22,7 +22,7 @@
   margin-bottom: 16px;
   position: relative;
   .mu-input {
-    padding-top: 0;
+    padding: 0;
     margin-bottom: 0;
     width: 100%;
   }
@@ -82,10 +82,9 @@
 .mu-form-item__label-right {
   flex-direction: row;
   min-height: 48px;
-
+  padding-top: 4px;
   .mu-form-item-label {
-    line-height: 1.5;
-    padding-top: 8px;
+    line-height: 32px;
     padding-right: 16px;
     flex-shrink: 0;
   }
@@ -93,11 +92,8 @@
     flex: 1;
     align-items: flex-start;
     > *:not(.mu-input) {
-      margin-top: 6px;
+      margin-top: 4px;
     }
-  }
-  .mu-input-content {
-    padding-top: 3px;
   }
 }
 .mu-form-item__label-right .mu-form-item-label {
@@ -118,7 +114,7 @@
   }
 }
 .mu-form-item-content {
-  min-height: 36px;
+  min-height: 32px;
   display: flex;
   align-items: center;
   flex-wrap: wrap;

@@ -1,4 +1,6 @@
 import '../styles/components/card.less';
+import theme from '../theme';
+import CardTheme from './theme';
 import Card from './Card';
 import CardHeader from './CardHeader';
 import CardMedia from './CardMedia';
@@ -18,4 +20,5 @@ Card.install = function (Vue) {
   Vue.component(CardText.name, CardText);
 };
 
+theme.addCreateTheme(CardTheme);
 export default Card;

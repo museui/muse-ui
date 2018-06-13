@@ -1,4 +1,6 @@
 import '../styles/components/list.less';
+import theme from '../theme';
+import ListTheme from './theme';
 import { createSimpleFunctional } from '../utils';
 import List from './List';
 import ListItem from './ListItem';
@@ -20,4 +22,5 @@ List.install = function (Vue) {
   Vue.component(ListItemAfterText.name, ListItemAfterText);
 };
 
+theme.addCreateTheme(ListTheme);
 export default List;

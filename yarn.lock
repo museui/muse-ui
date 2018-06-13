@@ -1018,7 +1018,7 @@ babel-plugin-transform-vue-jsx@^3.5.1:
 
 babel-polyfill@^6.26.0:
   version "6.26.0"
-  resolved "http://registry.npm.taobao.org/babel-polyfill/download/babel-polyfill-6.26.0.tgz#379937abc67d7895970adc621f284cd966cf2153"
+  resolved "https://registry.yarnpkg.com/babel-polyfill/-/babel-polyfill-6.26.0.tgz#379937abc67d7895970adc621f284cd966cf2153"
   dependencies:
     babel-runtime "^6.26.0"
     core-js "^2.5.0"
@@ -6807,6 +6807,10 @@ requires-port@1.0.x, requires-port@1.x.x, requires-port@^1.0.0:
 reserved-words@^0.1.2:
   version "0.1.2"
   resolved "http://registry.npm.taobao.org/reserved-words/download/reserved-words-0.1.2.tgz#00a0940f98cd501aeaaac316411d9adc52b31ab1"
+
+resize-observer-polyfill@^1.5.0:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/resize-observer-polyfill/-/resize-observer-polyfill-1.5.0.tgz#660ff1d9712a2382baa2cad450a4716209f9ca69"
 
 resolve-cwd@^2.0.0:
   version "2.0.0"

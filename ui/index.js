@@ -9,6 +9,7 @@ import BottomSheet from './BottomSheet';
 import Breadcrumbs from './Breadcrumbs';
 import Button from './Button';
 import Card from './Card';
+import Carousel from './Carousel';
 import Checkbox from './Checkbox';
 import Chip from './Chip';
 import DateInput from './DateInput';
@@ -49,7 +50,7 @@ function MuseUI (Vue) {
   [
     Alert, AppBar, AutoComplete, Avatar,
     Badge, BottomNav, BottomSheet, Breadcrumbs, Button,
-    Card, Checkbox, Chip,
+    Card, Carousel, Checkbox, Chip,
     DataTable, DateInput, Dialog, Divider, Drawer,
     ExpansionPanel, Form, Grid, GridList, Helpers, Icon,
     LoadMore, List, Menu,

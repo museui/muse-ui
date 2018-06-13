@@ -4,6 +4,7 @@ import footer from './mixins/footer';
 import colgroup from './mixins/colgroup';
 import progress from './mixins/progress';
 import mousewheel from '../internal/directives/mousewheel';
+import { addResizeListener, removeResizeListener } from '../utils/resize-event';
 import { getWidth } from '../utils';
 
 export default {
@@ -32,6 +33,8 @@ export default {
     border: Boolean,
     loading: Boolean,
     hideHeader: Boolean,
+    rowClassName: [String, Function],
+    rowStyle: [Object, Function],
     rowKey: {
       type: String,
       default: 'id'
@@ -53,13 +56,25 @@ export default {
         if (!this.$refs.body) return;
         this.$refs.body.scrollLeft += data.pixelX / 5;
       }
+    },
+    resizeListener () {
+      this.setCols();
     }
+  },
+  mounted () {
+    if (this.fit) {
+      addResizeListener(this.$el, this.resizeListener);
+    }
+  },
+  beforeDestroy () {
+    if (this.resizeListener) removeResizeListener(this.$el, this.resizeListener);
   },
   render (h) {
     return h('div', {
       staticClass: 'mu-table',
       class: {
-        'mu-table-border': this.border
+        'mu-table-border': this.border,
+        'mu-table-flex': this.maxHeight || this.height
       },
       style: {
         'max-height': getWidth(this.maxHeight),

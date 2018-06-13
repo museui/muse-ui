@@ -1,3 +1,4 @@
+import 'babel-polyfill';
 import Vue from 'vue';
 import 'typeface-roboto';
 import './assets/font-icons/material/material-icons.css';

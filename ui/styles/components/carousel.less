@@ -1,0 +1,119 @@
+@import '../import.less';
+
+.mu-carousel {
+  height: 500px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.mu-carousel-button {
+  color: @alternateTextColor;
+  width: 48px;
+  height: 48px;
+  z-index: 3;
+  position: absolute;
+  top: 50%;
+  margin-top: -24px;
+  font-size: 36px;
+  padding: 0;
+  &.hover .mu-ripple-wrapper {
+    background-color: fade(@alternateTextColor, 10%);
+  }
+  .mu-circle-ripple {
+    opacity: .2;
+    color: @alternateTextColor;
+  }
+}
+
+.mu-carousel-button__left {
+  left: 8px;
+}
+
+.mu-carousel-button__right {
+  right: 8px;
+}
+
+
+.mu-carousel-svg-icon {
+  width: 1em;
+  height: 1em;
+  fill: currentColor;
+  display: inline-block;
+}
+
+.mu-carousel-indicators {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+}
+
+.mu-carousel-indicator-button {
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  margin: 0 8px;
+}
+
+.mu-carousel-indicator-icon {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  background-color: @alternateTextColor;
+  border-radius: 50%;
+  opacity: .5;
+  transition: opacity .3s @easeOutFunction;
+  .mu-carousel-indicator-button__active & {
+    opacity: 1;
+  }
+}
+.mu-carousel-wrap {
+  display: flex;
+  height: 100%;
+}
+
+.mu-carousel-item {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  flex-shrink: 0;
+  position: absolute;
+  left: 0;
+  right: 0;
+  transition: .3s cubic-bezier(.25,.8,.5,1);
+  > img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    min-width: 100%;
+    transition: inherit;
+    will-change: transform;
+    max-width: none;
+  }
+}
+
+.mu-carousel-slide-enter {
+  transform: translate3d(100%, 0, 0);
+  .mu-carousel__transition_inverse & {
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+.mu-carousel-slide-leave-active {
+  transform: translate3d(-100%, 0, 0);
+  .mu-carousel__transition_inverse & {
+    transform: translate3d(100%, 0, 0);
+  }
+}
+
+.mu-carousel-fade-enter,
+.mu-carousel-fade-leave-active {
+  opacity: 0;
+}

@@ -6,7 +6,17 @@
 
 :::demo
 ```html
-<mu-pagination :total="1000" :current.sync="current"></mu-pagination>
+<mu-container>
+  <mu-flex justify-content="center">
+    <mu-pagination :total="1000" :current.sync="current"></mu-pagination>
+  </mu-flex>
+  <mu-flex justify-content="center" style="margin: 32px 0;">
+    <mu-pagination raised :total="1000" :current.sync="current"></mu-pagination>
+  </mu-flex>
+  <mu-flex justify-content="center">
+    <mu-pagination raised circle :total="1000" :current.sync="current"></mu-pagination>
+  </mu-flex>
+</mu-container>
 <script>
 export default {
     data () {
@@ -18,6 +28,7 @@ export default {
 </script>
 ```
 :::
+
 
 ## Pagination Props
 

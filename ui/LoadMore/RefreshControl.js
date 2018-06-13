@@ -118,9 +118,16 @@ export default {
           transitionEnd(this.$el, this.clearState.bind(this));
         }
       });
+
+      // fix ios
+      this.handlePrevent = event => {
+        if (this.draging && this.y > 0) event.preventDefault();
+      };
+      this.trigger.addEventListener('touchmove', this.handlePrevent);
     },
     unbindDrag () {
       if (!this.drager) return;
+      if (this.handlePrevent) this.trigger.removeEventListener('touchmove', this.handlePrevent);
       this.drager.destory();
       this.drager = null;
     },

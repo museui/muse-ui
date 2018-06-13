@@ -51,11 +51,19 @@ export default {
   <mu-button @click="show2 = !show2">Click Me</mu-button>
   <mu-flex class="mu-transition-row">
     <mu-slide-top-transition>
-    <div class="mu-transition-box mu-primary-color mu-inverse" v-show="show2">mu-slide-top-transition</div>
+      <div class="mu-transition-box mu-primary-color mu-inverse" v-show="show2">mu-slide-top-transition</div>
     </mu-slide-top-transition>
     <mu-slide-bottom-transition>
-    <div class="mu-transition-box mu-primary-color mu-inverse" v-show="show2">mu-slide-bottom-transition</div>
+      <div class="mu-transition-box mu-primary-color mu-inverse" v-show="show2">mu-slide-bottom-transition</div>
     </mu-slide-bottom-transition>
+  </mu-flex>
+  <mu-flex class="mu-transition-row">
+    <mu-slide-left-transition>
+      <div class="mu-transition-box mu-primary-color mu-inverse" v-show="show2">mu-slide-left-transition</div>
+    </mu-slide-left-transition>
+    <mu-slide-right-transition>
+      <div class="mu-transition-box mu-primary-color mu-inverse" v-show="show2">mu-slide-right-transition</div>
+    </mu-slide-right-transition>
   </mu-flex>
 </mu-container>
 <script>

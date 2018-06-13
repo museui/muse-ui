@@ -1,5 +1,5 @@
-import TextField from '../TextField';
 import input from '../internal/mixins/input';
+import keyboardFocus from '../internal/directives/keyboard-focus';
 import { DatePicker, TimePicker, DateTimePicker } from '../Picker';
 import Container from './Container';
 import dayjs from 'dayjs';
@@ -25,6 +25,10 @@ delete PickerProps.type;
 delete PickerProps.format;
 export default {
   name: 'mu-date-input',
+  mixins: [input],
+  directives: {
+    keyboardFocus
+  },
   model: {
     prop: 'value',
     event: 'input'
@@ -60,7 +64,6 @@ export default {
     },
     value: {},
     valueFormat: String,
-    ...input.props,
     ...PickerProps
   },
   data () {
@@ -75,6 +78,14 @@ export default {
       const value = this.valueFormat ? dayjs(this.date).format(this.valueFormat) : this.date;
       this.$emit('change', value);
       this.$emit('input', value);
+    },
+    focus (e) {
+      this.isFocused = true;
+      this.$emit('focus', e);
+    },
+    blur (e) {
+      this.isFocused = false;
+      this.$emit('blur', e);
     },
     closePicker () {
       this.open = false;
@@ -103,6 +114,43 @@ export default {
         obj[key] = this[key];
       });
       return obj;
+    },
+    createTextField (h) {
+      const dateStr = this.value ? dayjs(this.value).format(this.format ? this.format : DEFAULT_FORMAT[this.type]) : '';
+      const listeners = {
+        ...this.$listeners,
+        keydown: (e) => {
+          if (keycode(e) === 'tab') {
+            this.blur(e);
+            this.open = false;
+          }
+        },
+        click: () => (this.open = true),
+        focus: this.focus,
+        blur: this.blur
+      };
+      const placeholder = !this.labelFloat ? this.$attrs.placeholder : '';
+      return [
+        h('input', {
+          staticClass: 'mu-text-field-input',
+          ref: 'input',
+          attrs: {
+            tabindex: 0,
+            ...this.$attrs,
+            disabled: this.disabled,
+            placeholder,
+            readonly: true
+          },
+          domProps: {
+            value: dateStr
+          },
+          directives: [{
+            name: 'keyboard-focus',
+            value: () => (this.open = true)
+          }],
+          on: listeners
+        })
+      ];
     },
     createActions (h) {
       if (!this.actions) return;
@@ -180,46 +228,28 @@ export default {
     }
   },
   render (h) {
-    const dateStr = this.value ? dayjs(this.value).format(this.format ? this.format : DEFAULT_FORMAT[this.type]) : '';
     const listeners = this.$listeners;
     delete listeners.input;
     delete listeners.change;
-    return h(
-      TextField,
-      {
+
+    return this.createInput(h, {
+      staticClass: 'mu-text-field',
+      ref: 'content'
+    }, [
+      this.createTextField(h),
+      this.$slots.default,
+      h(Container, {
         props: {
-          ...this.generateTextFieldProps(),
-          value: dateStr
+          container: this.container,
+          open: this.open,
+          trigger: this.$el ? this.$el.querySelector('.mu-text-field') : undefined
         },
-        ref: 'text',
-        attrs: {
-          readonly: true,
-          ...this.$attrs
-        },
+        ref: 'popover',
         on: {
-          ...listeners,
-          focus: (e) => {
-            this.open = true;
-          },
-          keydown: (e) => {
-            if (keycode(e) === 'tab') this.closePicker();
-            this.$emit('keydown', e);
-          }
+          close: this.closePicker
         }
-      },
-      [
-        h(Container, {
-          props: {
-            container: this.container,
-            open: this.open,
-            trigger: this.$el ? this.$el.querySelector('.mu-text-field') : undefined
-          },
-          on: {
-            close: this.closePicker
-          }
-        }, [this.createPicker(h)])
-      ]
-    );
+      }, [this.createPicker(h)])
+    ]);
   },
   watch: {
     value (val) {

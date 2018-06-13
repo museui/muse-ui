@@ -20,7 +20,7 @@ export default {
   data () {
     return {
       target: null
-    }
+    };
   },
   mounted () {
     this.target = this.$el;

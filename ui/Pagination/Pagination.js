@@ -23,7 +23,9 @@ export default {
     pageSize: {
       type: Number,
       default: 10
-    }
+    },
+    raised: Boolean,
+    circle: Boolean
   },
   computed: {
     showPageCount () {
@@ -165,7 +167,11 @@ export default {
   },
   render (h) {
     return h('div', {
-      staticClass: 'mu-pagination'
+      staticClass: 'mu-pagination',
+      class: {
+        'mu-pagination__raised': this.raised,
+        'mu-pagination__circle': this.circle
+      }
     }, [
       this.createPrevBtn(h),
       this.createPageList(h),

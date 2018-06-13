@@ -2,8 +2,7 @@
 .mu-table {
   background-color: @alternateTextColor;
   position: relative;
-  display: flex;
-  flex-direction: column;
+  overflow: hidden;
   table {
     border-collapse: collapse;
     border-spacing: 0;
@@ -25,10 +24,12 @@
   td {
     padding-left: 24px;
     padding-right: 24px;
-    height: 48px;
+    min-height: 48px;
     text-align: left;
     font-size: 13px;
     text-overflow: ellipsis;
+    overflow: hidden;
+    word-break: break-all;
     border-bottom: 1px solid @borderColor;
     &.is-left {
       text-align: left;
@@ -83,6 +84,10 @@
       }
     }
   }
+}
+.mu-table-flex {
+  display: flex;
+  flex-direction: column;
 }
 .mu-table-border {
   border: 1px solid @borderColor;
@@ -145,6 +150,7 @@
     padding: 0;
     height: 0;
     border: none;
+    min-height: 0;
     &.is-expand {
       border-bottom: 1px solid @borderColor;
     }

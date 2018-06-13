@@ -11,7 +11,7 @@ export default {
   },
   methods: {
     setCols () {
-      const minWidth = 80;
+      const minWidth = 128;
       const checkboxColWidth = 75;
       let tableElWidth = this.$el.offsetWidth;
       const widthArr = this.columns.filter((column) => column.width).map((column) => Number(column.width));
@@ -28,10 +28,10 @@ export default {
     },
     createColGroup (h) {
       return h('colgroup', {
-        directives: [{
-          name: 'resize',
-          value: this.setCols
-        }]
+        // directives: [{
+        //   name: 'resize',
+        //   value: this.setCols
+        // }]
       }, this.cols.map((width) => {
         return h('col', {
           attrs: {
