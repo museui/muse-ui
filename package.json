@@ -100,7 +100,8 @@
   "dependencies": {
     "dayjs": "^1.6.5",
     "keycode": "^2.1.9",
-    "normalize-wheel": "^1.0.1"
+    "normalize-wheel": "^1.0.1",
+    "resize-observer-polyfill": "^1.5.0"
   },
   "jest": {
     "verbose": false,

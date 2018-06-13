@@ -28,10 +28,10 @@ export default {
     },
     createColGroup (h) {
       return h('colgroup', {
-        directives: [{
-          name: 'resize',
-          value: this.setCols
-        }]
+        // directives: [{
+        //   name: 'resize',
+        //   value: this.setCols
+        // }]
       }, this.cols.map((width) => {
         return h('col', {
           attrs: {
