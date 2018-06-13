@@ -2,6 +2,9 @@ import locale from '../locale';
 import ZhInstall from '../docs/zh-CN/home/install';
 import ZhTheme from '../docs/zh-CN/home/theme';
 import ZhUsage from '../docs/zh-CN/home/usage';
+import EnInstall from '../docs/en-US/home/install';
+import EnTheme from '../docs/en-US/home/theme';
+import EnUsage from '../docs/en-US/home/usage';
 
 const config = {
   'zh-CN': {
@@ -13,9 +16,11 @@ const config = {
     featureTitle1: '组件丰富',
     featureContent1: 'Muse UI 拥有40多个UI 组件，用于适应不同业务环境。',
     featureTitle2: '可定制',
-    featureContent2: 'Muse UI 自定义主题方式极为优雅，仅需少量代码即可完成主题样式替换。',
+    featureContent2:
+      'Muse UI 自定义主题方式极为优雅，仅需少量代码即可完成主题样式替换。',
     featureTitle3: '基于 Vue 2.0',
-    featureContent3: 'Muse UI 基于 Vue2.0 开发，Vue2.0是当下最快的前端框架之一，小巧，api友好，可用于开发的复杂单页应用',
+    featureContent3:
+      'Muse UI 基于 Vue2.0 开发，Vue2.0是当下最快的前端框架之一，小巧，api友好，可用于开发的复杂单页应用',
     install: '安装',
     readInstallDoc: '查看安装文档',
     usage: '使用',
@@ -30,6 +35,36 @@ const config = {
       'mu-install': ZhInstall,
       'mu-theme': ZhTheme,
       'mu-usage': ZhUsage
+    }
+  },
+  'en-US': {
+    jsfiddle: 'Run this demo on jsfiddle.net',
+    visible: 'Show the source',
+    hidden: 'Hide the source',
+    subtitle: '基于 Vue 2.0 优雅的 Material Design UI 组件库',
+    getStart: 'Get Started',
+    featureTitle1: '组件丰富',
+    featureContent1: 'Muse UI 拥有40多个UI 组件，用于适应不同业务环境。',
+    featureTitle2: '可定制',
+    featureContent2:
+      'Muse UI 自定义主题方式极为优雅，仅需少量代码即可完成主题样式替换。',
+    featureTitle3: '基于 Vue 2.0',
+    featureContent3:
+      'Muse UI 基于 Vue2.0 开发，Vue2.0是当下最快的前端框架之一，小巧，api友好，可用于开发的复杂单页应用',
+    install: 'Installation',
+    readInstallDoc: 'Read installation docs',
+    usage: 'Usage',
+    readUsage: 'Explore the docs',
+    custom: '定制化样式',
+    customTheme: '自定义主题',
+    community: '社区',
+    chat: 'Gitter',
+    issue: 'Issues',
+    contributing: 'Contributing',
+    components: {
+      'mu-install': EnInstall,
+      'mu-theme': EnTheme,
+      'mu-usage': EnUsage
     }
   }
 };

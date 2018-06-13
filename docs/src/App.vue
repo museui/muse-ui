@@ -128,13 +128,13 @@ export default {
   },
   methods: {
     changeLang (lang) {
+      this.locale = lang;
       changeLocale(lang);
       this.activeMenu = false;
       if (this.$route.meta && this.$route.meta.path) {
         this.$router.replace(`/${lang}${this.$route.meta.path}`);
-      } else {
-        location.reload();
       }
+      location.reload();
     },
     changeTheme (theme) {
       this.theme = theme;
