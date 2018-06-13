@@ -196,7 +196,7 @@ export default {
       name: 'Support Muse-UI',
       path: '/support'
     }, {
-      name: '更新日志',
+      name: 'Changelog',
       path: '/changelog'
     }]
   }, {

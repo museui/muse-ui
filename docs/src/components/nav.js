@@ -21,7 +21,7 @@ export default {
   methods: {
     createHeader (h) {
       return (
-        <mu-appbar zDepth={0} class='mu-app-drawer-header'>
+        <mu-appbar zDepth={0} color='transparent' class='mu-app-drawer-header'>
           <router-link tag='div' class='mu-appbar-title-text' to='/'>Muse-UI</router-link>
           <mu-menu>
             <div class='mu-app-version'>v{this.version}</div>

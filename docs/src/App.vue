@@ -132,7 +132,7 @@ export default {
       changeLocale(lang);
       this.activeMenu = false;
       if (this.$route.meta && this.$route.meta.path) {
-        this.$router.replace(`/${lang}${this.$route.meta.path}`);
+        location.href = `${location.protocol}//${location.host}/#/${lang}${this.$route.meta.path}`;
       }
       location.reload();
     },

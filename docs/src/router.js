@@ -26,7 +26,6 @@ function registerRoute (navs, lang) {
         name: `${lang}-${nav.path.substring(1)}`,
         path: `/${lang}${nav.path}`,
         component: () => {
-          // console.log(nav.path);
           return import(`./docs/${lang}${nav.path}`);
         },
         meta: {
