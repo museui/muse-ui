@@ -58,7 +58,6 @@ export default {
       }
     },
     resizeListener () {
-      console.log('resize');
       this.setCols();
     }
   },
