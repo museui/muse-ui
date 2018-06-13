@@ -26,10 +26,12 @@
   td {
     padding-left: 24px;
     padding-right: 24px;
-    height: 48px;
+    min-height: 48px;
     text-align: left;
     font-size: 13px;
     text-overflow: ellipsis;
+    overflow: hidden;
+    word-break: break-all;
     border-bottom: 1px solid @borderColor;
     &.is-left {
       text-align: left;

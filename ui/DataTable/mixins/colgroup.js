@@ -11,7 +11,7 @@ export default {
   },
   methods: {
     setCols () {
-      const minWidth = 80;
+      const minWidth = 128;
       const checkboxColWidth = 75;
       let tableElWidth = this.$el.offsetWidth;
       const widthArr = this.columns.filter((column) => column.width).map((column) => Number(column.width));
