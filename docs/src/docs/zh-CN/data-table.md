@@ -986,7 +986,7 @@ export default {
           { title: 'Fat (g)', name: 'fat', width: 126, align: 'center', sortable: true },
           { title: 'Carbs (g)', name: 'carbs', width: 126, align: 'center', sortable: true },
           { title: 'Protein (g)', name: 'protein', width: 126, align: 'center', sortable: true },
-          { title: 'Iron (%)', name: 'iron', width: 126, align: 'center', sortable: true }
+          { title: 'Iron (%)', name: 'iron', align: 'center', sortable: true }
       ],
       list: [
         {
@@ -1163,7 +1163,7 @@ export default {
           { title: 'Fat (g)', name: 'fat', width: 126, align: 'center', sortable: true },
           { title: 'Carbs (g)', name: 'carbs', width: 126, align: 'center', sortable: true },
           { title: 'Protein (g)', name: 'protein', width: 126, align: 'center', sortable: true },
-          { title: 'Iron (%)', name: 'iron', width: 126, align: 'center', sortable: true }
+          { title: 'Iron (%)', name: 'iron', align: 'center', sortable: true }
       ],
       list: [
         {
