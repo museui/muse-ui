@@ -57,6 +57,7 @@ export default {
       if (!item) return;
       const value = this.getValueByItem(item);
       this.$emit('input', value);
+      this.$emit('select', value, item);
     },
     getValueByItem (item) {
       if (!item) return '';
