@@ -27,12 +27,6 @@ export default (theme) => {
   .mu-input-line.disabled{
     border-bottom-color: ${theme.text.disabled};
   }
-  .mu-input-focus-line {
-    background-color: ${theme.primary};
-  }
-  .mu-input-focus-line__error {
-    background-color: ${theme.error};
-  }
   .mu-input-suffix-text,
   .mu-input-prefix-text {
     color: ${theme.text.secondary};
