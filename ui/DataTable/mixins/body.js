@@ -106,7 +106,7 @@ export default {
                 this.toggleExpand(index);
                 this.$emit('row-click', index, row, e);
               },
-              dblclick: (e) => this.$emit('row-dblclick', e)
+              dblclick: (e) => this.$emit('row-dblclick', index, row, e)
             },
             key: row[this.rowKey]
           }, arr)
