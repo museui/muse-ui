@@ -1,6 +1,7 @@
 import input from '../internal/mixins/input';
 import keyboardFocus from '../internal/directives/keyboard-focus';
 import { DatePicker, TimePicker, DateTimePicker } from '../Picker';
+import PickerMixin from '../Picker/mixins/props';
 import Container from './Container';
 import dayjs from 'dayjs';
 import Button from '../Button/Button';
@@ -16,7 +17,8 @@ const DEFAULT_FORMAT = {
 
 const PickerProps = {
   ...TimePicker.props,
-  ...DatePicker.props
+  ...DatePicker.props,
+  ...PickerMixin.props
 };
 
 delete PickerProps.date;
@@ -102,6 +104,9 @@ export default {
     generateTextFieldProps () {
       return this.generateProps(input.props);
     },
+    generatePickerProps () {
+      return this.generateProps(PickerMixin.props);
+    },
     generateDatePickerProps () {
       return this.generateProps(DatePicker.props);
     },
@@ -185,6 +190,7 @@ export default {
           return h(DatePicker, {
             props: {
               ...this.generateDatePickerProps(),
+              ...this.generatePickerProps(),
               type: this.type === 'month' ? 'month' : this.type === 'year' ? 'year' : 'date',
               date: this.date
             },
@@ -200,6 +206,7 @@ export default {
             props: {
               ...this.generateDatePickerProps(),
               ...this.generateTimePickerProps(),
+              ...this.generatePickerProps(),
               format: this.clockType,
               date: this.date
             },
@@ -214,6 +221,7 @@ export default {
           return h(TimePicker, {
             props: {
               ...this.generateTimePickerProps(),
+              ...this.generatePickerProps(),
               time: this.date,
               format: this.clockType
             },
