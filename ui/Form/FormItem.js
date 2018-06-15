@@ -61,6 +61,7 @@ export default {
             const valid = this.validateResult(results[i]);
             if (!valid) return Promise.reject(false);
           }
+          this.errorMessage = '';
           return true;
         });
       }
