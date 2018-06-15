@@ -13,7 +13,7 @@
     "lint": "eslint --ext .js,.vue ui",
     "test": "NODE_ENV=test jest -i",
     "test:coverage": "NODE_ENV=test jest -i --coverage",
-    "package": "rm -rf lib && babel ui -d lib && mkdir lib/styles && cp -rf ui/styles/* lib/styles"
+    "package": "rm -rf lib && babel ui -d lib --ignore *.spec.js && mkdir lib/styles && cp -rf ui/styles/* lib/styles"
   },
   "peerDependencies": {
     "vue": "^2.5.0"
