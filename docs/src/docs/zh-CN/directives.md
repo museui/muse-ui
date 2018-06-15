@@ -1,6 +1,6 @@
 # 指令
 
-Muse-UI 提供 `v-click-outside` 、 `v-resize` 和 `v-scroll` 三个指令。
+Muse-UI 提供 `v-click-outside` 、 `v-resize` 、 `v-scroll` 、 `v-elevation` 四个指令。
 
 
 ## ClickOutside
@@ -112,6 +112,28 @@ export default {
 ```
 :::
 
+## Elevation
+
+:::demo
+```html
+<mu-container>
+  <mu-flex wrap="wrap" justify-content="between" align-items="center">
+    <mu-slider :max="24" v-model="elevation" :step="1" style="width: 400px;"></mu-slider>
+    <div v-elevation="elevation" style="width: 300px; height: 200px; background-color: #fff;"></div>
+  </mu-flex>
+</mu-container>
+<script>
+export default {
+  data () {
+    return {
+      elevation: 4
+    }
+  }
+}
+</script>
+```
+:::
+
 
 ## 按需引入
 
@@ -131,7 +153,8 @@ export default {
       message: 'click! click! click!',
       width: 0,
       height: 0,
-      scrollTop: 0
+      scrollTop: 0,
+      elevation: 4
     };
   },
   mounted () {

@@ -86,3 +86,7 @@ export function getFirstComponentChild (children) {
 export function isPromise (val) {
   return val && typeof val.then === 'function';
 }
+
+export function isObject (val) {
+  return val !== null && val && typeof val === 'object' && !Array.isArray(val);
+}

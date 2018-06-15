@@ -137,6 +137,7 @@ export default {
         selectedValue = value;
       }
       this.$emit('input', selectedValue);
+      this.$emit('change', selectedValue);
       if (this.multiple && this.autoComplete) this.searchValue = '';
       this.$nextTick(() => {
         this.focusInput();

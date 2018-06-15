@@ -267,6 +267,12 @@ export default {
 | no-display | 是否不存在时间显示部分 | Boolean | — | false |
 | should-disable-date | 判断日期是否不可用的函数 | Function | — | — |
 
+## Date Input Events
+
+| 名称 | 介绍 | 参数 |
+|-----|------|-----|
+| change | 值改变时触发 | (value) |
+
 ## Date Input Slots
 
 | 名称 | 介绍 |

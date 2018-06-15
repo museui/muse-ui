@@ -1,6 +1,6 @@
 import Form from './Form';
 import Icon from '../Icon';
-import { getWidth } from '../utils';
+import { getWidth, isPromise, isObject } from '../utils';
 import { SlideTopTransition } from '../internal/transitions';
 
 export default {
@@ -41,14 +41,43 @@ export default {
   methods: {
     validate () {
       if (!this.rules || this.rules.length === 0) return true;
+      const promises = [];
+      const promiseMessages = [];
       for (let i = 0; i < this.rules.length; i++) {
         const rule = this.rules[i];
-        if (!rule.validate(this.muForm.model[this.prop], this.muForm.model)) {
-          this.errorMessage = rule.message;
-          return false;
+        const result = rule.validate(this.muForm.model[this.prop], this.muForm.model);
+        if (isPromise(result)) {
+          promises.push(result);
+          promiseMessages.push(rule.message);
+          continue;
         }
+        if (!this.validateResult(result, rule.message)) return false;
       }
+
+      // promise 处理
+      if (promises.length > 0 && typeof Promise !== 'undefined') {
+        return Promise.all(promises).then((results) => {
+          for (let i = 0; i < results.length; i++) {
+            const valid = this.validateResult(results[i], promiseMessages[i]);
+            if (!valid) return Promise.reject(false);
+          }
+          this.errorMessage = '';
+          return true;
+        });
+      }
+
       this.errorMessage = '';
+      return true;
+    },
+    validateResult (result, message) {
+      switch (true) {
+        case isObject(result) && !result.valid:
+          this.errorMessage = result.message || message;
+          return false;
+        case !result:
+          this.errorMessage = message;
+          return false;
+      }
       return true;
     },
     onFocus () {

@@ -1,3 +1,4 @@
+import { isPromise } from '../utils';
 export default {
   name: 'mu-form',
   provide () {
@@ -39,14 +40,29 @@ export default {
       this.items.splice(index, 1);
     },
     validate () {
-      let result = true;
+      let valid = true;
+      const promises = [];
       for (let i = 0; i < this.items.length; i++) {
         const item = this.items[i];
-        if (!item.validate()) {
-          result = false;
+        const result = item.validate();
+        if (isPromise(result)) {
+          promises.push(result);
+          continue;
+        }
+        if (!result) {
+          valid = false;
         }
       }
-      return result;
+      if (promises.length > 0 && typeof Promise !== 'undefined') {
+        return Promise.all([
+          valid ? Promise.resolve(valid) : Promise.reject(valid),
+          ...promises
+        ]).then(
+          () => true,
+          () => false
+        );
+      }
+      return typeof Promise !== 'undefined' ? Promise.resolve(valid) : valid;
     },
     clear () {
       this.items.forEach((item) => (item.errorMessage = ''));

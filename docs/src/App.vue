@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <app-nav-drawer :open.sync="open" :docked="docked" :home="home"/>
-    <mu-appbar :color="home ? 'transparent' : 'primary'" class="mu-appbar-header" style="z-index: 101;" :class="{'is-open': (!home && open && docked), 'is-only-title': !(home || !docked)}" :zDepth="home ? 0 : 4">
+    <mu-appbar :color="home ? 'transparent' : 'primary'" class="mu-appbar-header" style="z-index: 101;" :class="{'is-open': (!home && open && docked), 'is-only-title': !(home || !docked)}" :z-depth="home ? 0 : 4">
       <mu-button v-if="home || !docked" icon slot="left" @click="toggleMenu">
         <mu-icon size="24" value="menu"/>
       </mu-button>
