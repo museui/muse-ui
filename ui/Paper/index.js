@@ -1,4 +1,5 @@
 import '../styles/components/paper.less';
+import '../styles/components/elevation.less';
 import theme from '../theme';
 import PaperTheme from './theme';
 import Paper from './Paper';

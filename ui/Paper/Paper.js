@@ -21,7 +21,7 @@ export default {
     const classObj = {
       'mu-paper-circle': props.circle,
       'mu-paper-round': props.rounded,
-      ['mu-paper-elevation-' + props.zDepth]: !!props.zDepth
+      ['mu-elevation-' + props.zDepth]: !!props.zDepth
     };
     data.staticClass = `mu-paper ${data.staticClass || ''} ${convertClass(classObj).join(' ')}`;
     return h('div', data, children);
