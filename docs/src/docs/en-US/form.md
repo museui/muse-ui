@@ -156,6 +156,14 @@ export default {
 | label-position | 标签位置 | String | top / left / right | top |
 | auto-validate | 是否自动验证表单 | Boolean | — | true |
 
+## Form Methods
+
+| 名称 | 介绍 | 参数 |
+|-----|------|-----|
+| validate | 启动表单验证，返回一个Promise 对象 | — |
+| clear | 清空表单验证结果信息 | — |
+
+
 ## Form Item Props
 
 | 参数 | 介绍 | 类型 | 可选值 | 默认值 |
