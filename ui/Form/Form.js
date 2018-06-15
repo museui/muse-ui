@@ -57,9 +57,12 @@ export default {
         return Promise.all([
           valid ? Promise.resolve(valid) : Promise.reject(valid),
           ...promises
-        ]);
+        ]).then(
+          () => true,
+          () => false
+        );
       }
-      return valid;
+      return typeof Promise !== 'undefined' ? Promise.resolve(valid) : valid;
     },
     clear () {
       this.items.forEach((item) => (item.errorMessage = ''));

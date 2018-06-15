@@ -51,14 +51,14 @@ export default {
           promiseMessages.push(rule.message);
           continue;
         }
-        if (!this.validateResult(result)) return false;
+        if (!this.validateResult(result, rule.message)) return false;
       }
 
       // promise 处理
       if (promises.length > 0 && typeof Promise !== 'undefined') {
         return Promise.all(promises).then((results) => {
           for (let i = 0; i < results.length; i++) {
-            const valid = this.validateResult(results[i]);
+            const valid = this.validateResult(results[i], promiseMessages[i]);
             if (!valid) return Promise.reject(false);
           }
           this.errorMessage = '';

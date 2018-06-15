@@ -122,7 +122,9 @@ export default {
   },
   methods: {
     submit () {
-      this.$refs.form.validate();
+      this.$refs.form.validate().then((result) => {
+        console.log('form valid: ', result)
+      });
     },
     clear () {
       this.$refs.form.clear();
@@ -213,7 +215,9 @@ export default {
   },
   methods: {
     submit () {
-      this.$refs.form.validate();
+      this.$refs.form.validate().then((result) => {
+        console.log('form valid: ', result)
+      });
     },
     clear () {
       this.$refs.form.clear();
