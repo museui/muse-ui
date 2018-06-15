@@ -51,13 +51,14 @@ export default {
     }
   },
   methods: {
-    setValue (item) {
+    setValue (item, e) {
       this.open = false;
       this.focusIndex = -1;
       if (!item) return;
       const value = this.getValueByItem(item);
-      this.$emit('input', value);
-      this.$emit('select', value, item);
+      this.$emit('input', value, e);
+      this.$emit('select', value, item, e);
+      this.$emit('change', value, e);
     },
     getValueByItem (item) {
       if (!item) return '';
@@ -71,7 +72,7 @@ export default {
       switch (code) {
         case 'enter':
           if (this.focusIndex === -1) return;
-          this.setValue(this.enableData[this.focusIndex]);
+          this.setValue(this.enableData[this.focusIndex], e);
           break;
         case 'up':
           event.preventDefault();
@@ -97,7 +98,7 @@ export default {
     onInput (e) {
       const val = e.target.value;
       if (val) this.open = true;
-      this.$emit('input', val);
+      this.$emit('input', val, e);
     },
     focus (e) {
       this.isFocused = true;
@@ -126,6 +127,7 @@ export default {
       const listeners = {
         ...this.$listeners,
         input: this.onInput,
+        change: (e) => this.$emit('change', e.target.value, e),
         keydown: this.onKeydown,
         focus: this.focus
       };
@@ -165,8 +167,8 @@ export default {
             avatar: this.avatar
           },
           on: {
-            click: () => {
-              this.setValue(item);
+            click: (e) => {
+              this.setValue(item, e);
             }
           }
         }, this.$scopedSlots.default ? this.$scopedSlots.default({

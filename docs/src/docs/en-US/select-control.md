@@ -192,6 +192,12 @@ export default {
 | color | 颜色 | String | — | — |
 | ripple | 是否开启波纹动画 | Boolean | - | true |
 
+## Checkbox Events
+
+| 名称 | 介绍 | 参数 |
+|-----|------|-----|
+| change | 值改变时触发 | (value) |
+
 ## Radio Props
 
 | 参数 | 介绍 | 类型 | 可选值 | 默认值 |
@@ -205,6 +211,12 @@ export default {
 | color | 颜色 | String | — | — |
 | ripple | 是否开启波纹动画 | Boolean | - | true |
 
+## Checkbox Events
+
+| 名称 | 介绍 | 参数 |
+|-----|------|-----|
+| change | 值改变时触发 | (value) |
+
 ## Switch Props
 
 | 参数 | 介绍 | 类型 | 可选值 | 默认值 |
@@ -215,6 +227,12 @@ export default {
 | disabled | 是否禁用 | Boolean | — | — |
 | color | 颜色 | String | — | — |
 | ripple | 是否开启波纹动画 | Boolean | - | true |
+
+## Switch Events
+
+| 名称 | 介绍 | 参数 |
+|-----|------|-----|
+| change | 值改变时触发 | (value) |
 
 <script>
 export default {

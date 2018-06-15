@@ -99,6 +99,12 @@ export default {
 | prefix | 输入框前缀内容 | String | — | — |
 | suffix | 输入框尾部内容 | String | — | — |
 
+## Text Field Events
+
+| 名称 | 介绍 | 参数 |
+|-----|------|-----|
+| change | 值改变时触发 | (value) |
+
 ## Text Field Slots
 
 | 名称 | 介绍 |

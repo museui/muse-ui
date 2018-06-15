@@ -43,7 +43,8 @@ export default {
     removeSelection (index) {
       const value = [...this.value];
       value.splice(index, 1);
-      return this.$emit('input', value);
+      this.$emit('input', value);
+      this.$emit('change', value);
     },
     createSlotSelection (item) {
       return this.$scopedSlots.selection({
@@ -111,6 +112,15 @@ export default {
           on: {
             ...this.createListeners(),
             input: (e) => { this.searchValue = e.target.value; }
+          }
+        }),
+        h('input', {
+          attrs: {
+            ...this.$attrs,
+            type: 'hidden'
+          },
+          domProps: {
+            value: this.value
           }
         })
       ];

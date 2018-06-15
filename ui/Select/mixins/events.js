@@ -20,7 +20,7 @@ export default {
     createListeners () {
       const listeners = Object.assign({}, this.$listeners);
       delete listeners.input;
-
+      delete listeners.change;
       return {
         ...listeners,
         click: (e) => {

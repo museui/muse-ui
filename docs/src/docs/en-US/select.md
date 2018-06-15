@@ -307,6 +307,12 @@ export default {
 | default | - |
 
 
+## Select Events
+
+| 名称 | 介绍 | 参数 |
+|-----|------|-----|
+| change | 值改变时触发 | (value) |
+
 ## Select Scope Slots
 
 | 名称 | 介绍 | 参数 |

@@ -16,9 +16,6 @@ export default {
     maxLength: [String, Number]
   },
   methods: {
-    handleInput (e) {
-      this.$emit('input', e.target.value);
-    },
     handleFocus (e) {
       this.isFocused = true;
       this.$emit('focus', e);
@@ -30,7 +27,8 @@ export default {
     createTextField (h) {
       const listeners = {
         ...this.$listeners,
-        input: this.handleInput,
+        input: (e) => this.$emit('input', e.target.value, e),
+        change: (e) => this.$emit('change', e.target.value, e),
         focus: this.handleFocus,
         blur: this.handleBlur
       };
