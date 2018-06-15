@@ -20,6 +20,14 @@
 export default {
   data () {
     return {
+      value1: '',
+      value2: '',
+      value3: '',
+      value4: '',
+      value5: '',
+      value6: '',
+      value7: '',
+      value8: '',
       visibility: false
     }
   }
@@ -37,6 +45,16 @@ export default {
   <mu-text-field v-model="value9" placeholder="默认3行, 最大显示6行" multi-line :rows="3" :rows-max="6"></mu-text-field><br/>
   <mu-text-field v-model="value10" multi-line :rows="4" full-width></mu-text-field><br/>
 </mu-container>
+<script>
+export default {
+  data () {
+    return {
+      value9: '',
+      value10: ''
+    }
+  }
+}
+</script>
 ```
 :::
 
@@ -48,6 +66,16 @@ export default {
   <mu-text-field v-model="value11" type="number" placeholder="电话号码" icon="phone"></mu-text-field><br/>
   <mu-text-field v-model="value12" multi-line :rows="4" icon="comment"  placeholder="输入信息"></mu-text-field><br/>
 </mu-container>
+<script>
+export default {
+  data () {
+    return {
+      value11: '',
+      value12: ''
+    }
+  }
+}
+</script>
 ```
 :::
 
@@ -59,6 +87,16 @@ export default {
   <mu-text-field v-model="value13" label="UserName" label-float help-text="用户名为6-12长度的字符" icon="account_circle"></mu-text-field><br/>
   <mu-text-field v-model="value14" label="Password" label-float error-text="请输入密码" icon="locked"></mu-text-field><br/>
 </mu-container>
+<script>
+export default {
+  data () {
+    return {
+      value13: '',
+      value14: ''
+    }
+  }
+}
+</script>
 ```
 :::
 
@@ -72,6 +110,16 @@ export default {
   <mu-text-field v-model="value15" placeholder="最多不超过10个字符" :max-length="10"></mu-text-field><br/>
   <mu-text-field v-model="value16" placeholder="不允许超过100个字符" multi-line :rows="3" :max-length="100"></mu-text-field><br/>
 </mu-container>
+<script>
+export default {
+  data () {
+    return {
+      value15: '',
+      value16: ''
+    }
+  }
+}
+</script>
 ```
 :::
 
