@@ -19,25 +19,8 @@ export default (theme) => {
   .mu-flat-button {
     color: ${theme.text.primary};
   }
-  .mu-flat-button.mu-primary-color {
-    color: ${theme.primary};
-  }
-  .mu-flat-button.mu-secondary-color {
-    color: ${theme.secondary};
-  }
-  .mu-flat-button.mu-success-color {
-    color: ${theme.success};
-  }
-  .mu-flat-button.mu-warning-color {
-    color: ${theme.warning};
-  }
-  .mu-flat-button.mu-info-color {
-    color: ${theme.info};
-  }
-  .mu-flat-button.mu-error-color {
-    color: ${theme.error};
-  }
-  .mu-flat-button.hover {
+  .mu-flat-button.hover,
+  .mu-icon-button.hover {
     background-color: ${fade(theme.text.primary, 0.1)};
   }
   .mu-flat-button.disabled {
@@ -51,24 +34,6 @@ export default (theme) => {
   }
   .mu-icon-button .mu-circle-ripple{
     color: ${theme.text.primary};
-  }
-  .mu-icon-button.mu-primary-color {
-    color: ${theme.primary};
-  }
-  .mu-icon-button.mu-secondary-color {
-    color: ${theme.secondary};
-  }
-  .mu-icon-button.mu-success-color {
-    color: ${theme.success};
-  }
-  .mu-icon-button.mu-warning-color {
-    color: ${theme.warning};
-  }
-  .mu-icon-button.mu-info-color {
-    color: ${theme.info};
-  }
-  .mu-icon-button.mu-error-color {
-    color: ${theme.error};
   }
   .mu-icon-button.disabled {
     color: ${theme.text.disabled};
