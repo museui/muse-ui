@@ -150,6 +150,9 @@ export default {
   watch: {
     errorText (val) {
       this.errorMessage = val;
+    },
+    rules () {
+      if (this.errorMessage) this.validate();
     }
   }
 };
