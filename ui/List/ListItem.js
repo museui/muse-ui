@@ -80,7 +80,7 @@ export default {
       const nestedPadding = this.nestedIndent && this.toggleNestedType === 'expand' ? 18 * this.nestedLevel : 0;
       const itemClass = [
         'mu-item',
-        this.nestedOpen && this.nested ? 'is-open' : '',
+        this.nestedOpen && this.nested ? 'mu-item__open' : '',
         this.avatar ? 'has-avatar' : '',
         this.textline,
         isNotNull(listValue) && isNotNull(this.value) && listValue === this.value ? 'is-selected' : ''
