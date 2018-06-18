@@ -74,6 +74,7 @@ export default {
       staticClass: 'mu-datepicker-toolbar'
     }, [
       h(Button, {
+        staticClass: 'mu-datepicker-tool-btn',
         props: {
           icon: true,
           disabled: !this.prevMonth
@@ -89,6 +90,7 @@ export default {
         }
       }, [this.createTitleSlide(h)]),
       h(Button, {
+        staticClass: 'mu-datepicker-tool-btn',
         props: {
           icon: true,
           disabled: !this.nextMonth
