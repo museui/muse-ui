@@ -75,6 +75,12 @@ export default {
     openMenu () {
       this.open = true;
       this.setFocusIndex(this.getSelectedIndex());
+      this.resetOptionVisable();
+      if (this.autoComplete) {
+        this.$nextTick(() => {
+          this.$refs.input.select();
+        });
+      }
     },
     closeMenu () {
       this.open = false;
@@ -84,6 +90,9 @@ export default {
       if (this.open) return this.closeMenu();
       this.openMenu();
       this.focusInput();
+    },
+    resetOptionVisable () {
+      this.options.forEach((option) => (option.visible = true));
     },
     isMultiple () {
       return this.multiple;
