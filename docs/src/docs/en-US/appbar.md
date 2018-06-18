@@ -1,8 +1,8 @@
-# 顶部导航条
+# App Bar
 
-`mu-appbar` 组件，一般放置在页面顶部，作为页面标题、logo、菜单和操作按钮的容器。
+The `mu-appbar` component is generally placed at the top of the page as a container for page titles, logos, menus, and action buttons.
 
-## 示例
+## Example
 
 :::demo
 ```html
@@ -10,7 +10,7 @@
 ```
 :::
 
-## 配合按钮使用
+## Use with button
 
 :::demo
 ```html
@@ -26,7 +26,7 @@
 :::
 
 
-## 配合菜单使用
+## Use with menu
 
 :::demo
 ```html
@@ -56,17 +56,17 @@
 
 ## AppBar Props
 
-| 参数 | 介绍 | 类型 | 可选值 | 默认值 |
+| Attribute | Description | Type | Accepted values | Default |
 |------|------|------|------|------|
-| color | 组件的颜色 | String | — | — |
-| textColor | 文本的颜色 | String | — | — |
-| title | 组件的标题，定义了 default slot | String | — | — |
-| z-depth | 阴影深度 | Number | 0-24 | 4 |
+| color | component color | String | — | — |
+| textColor | font color | String | — | — |
+| title | component title, defined default slot | String | — | — |
+| z-depth | shadow depth | Number | 0-24 | 4 |
 
 ## AppBar Slots
 
-| 名称 | 介绍 |
+| Name | Description |
 |------|------|
-| left | 组件左边的内容 |
-| right | 组件右边的内容 |
-| default | 组件中间的内容，会覆盖掉 *title* 属性 |
+| left | content of component's left side |
+| right | content of component's right side |
+| default | the content in the middle of the component overrides the *title* property |

@@ -1,10 +1,10 @@
-# 徽章
+# Badge
 
-`mu-badge` 可以配合图标、按钮、列表等组件使用，用于标记一些数字和文字。
+`Mu-badge` can be used with some components such as icons, buttons, lists to mark some number and text.
 
-## 示例
+## Example
 
-`content` 属性定义内容，设置 `color` 属性来改变颜色
+`Content` property define content, set `color` property to change color.
 
 ::: demo
 ```html
@@ -47,7 +47,7 @@
 ```
 :::
 
-## 搭配图标和按钮
+## Use with icons and buttons
 
 :::demo
 ```html
@@ -94,18 +94,18 @@
 
 ## Badge Props
 
-| 参数 | 介绍 | 类型 | 可选值 | 默认值 |
+| Attribute | Description | Type | Accepted values | Default |
 |------|------|------|------|------|
-| color | 徽章的颜色 | String | — | — |
-| content | 徽章的内容 | String | — | — |
-| circle | 徽章是否为圆形 | Boolean | — | false |
-| badge-class | 徽章的类名 | String | — | — |
+| color | badge color | String | — | — |
+| content | badge content | String | — | — |
+| circle | the badge whether is round | Boolean | — | false |
+| badge-class | badge class | String | — | — |
 
 ## Badge Slots
 
-| 名称 | 介绍 |
+| Name | Description |
 |------|------|
-| content | 徽章的内容 |
+| content | badge content |
 | default | — |
 
 <style lang="less">

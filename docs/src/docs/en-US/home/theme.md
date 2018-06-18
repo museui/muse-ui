@@ -1,4 +1,4 @@
-MuseUI 提供一个极为简单和优化的方式自定义主题风格
+MuseUI provides a very simple and optimized way to customize theme styles.
 
 ```javascript
 import MuseUI from 'muse-ui';

@@ -1,21 +1,21 @@
-# 自动补全输入
+# Auto-complete
 
-`mu-auto-complete` 是普通文本输入框的扩展，可以动态的自动完成输入。
+`Mu-auto-complete` is an extension of the normal text input box, which can be dynamically completed automatically.。
 
 
-## 示例
+## Example
 :::demo
 ```html
 <mu-container>
   <mu-row gutter>
     <mu-col span="12" lg="4" sm="6">
-      <mu-auto-complete :data="fruits" label="提示输入内容" v-model="value1"></mu-auto-complete>
+      <mu-auto-complete :data="fruits" label="prompt for input" v-model="value1"></mu-auto-complete>
     </mu-col>
     <mu-col span="12" lg="4" sm="6">
-      <mu-auto-complete :data="fruits" label="最多显示五条搜索数据" :max-search-results="5" v-model="value2"></mu-auto-complete>
+      <mu-auto-complete :data="fruits" label="display up to five search data" :max-search-results="5" v-model="value2"></mu-auto-complete>
     </mu-col>
     <mu-col span="12" lg="4" sm="6">
-      <mu-auto-complete :data="fruits" label="激活及显示输入提示" :max-search-results="5"  v-model="value3" open-on-focus></mu-auto-complete>
+      <mu-auto-complete :data="fruits" label="activate and display input prompts" :max-search-results="5"  v-model="value3" open-on-focus></mu-auto-complete>
     </mu-col>
   </mu-row>
 </mu-container>
@@ -68,7 +68,7 @@ export default {
 <mu-container>
   <mu-row gutter>
     <mu-col span="12" lg="4" sm="6">
-      <mu-auto-complete :data="fruits" label="提示输入内容" v-model="value4" avatar>
+      <mu-auto-complete :data="fruits" label="prompt for input" v-model="value4" avatar>
         <template slot-scope="scope">
           <mu-list-item-action>
             <mu-avatar color="primary">
@@ -80,7 +80,7 @@ export default {
       </mu-auto-complete>
     </mu-col>
     <mu-col span="12" lg="4" sm="6">
-      <mu-auto-complete :data="fruits" label="最多显示五条搜索数据" :max-search-results="5" v-model="value5" avatar>
+      <mu-auto-complete :data="fruits" label="display up to five search data" :max-search-results="5" v-model="value5" avatar>
         <template slot-scope="scope">
           <mu-list-item-action>
             <mu-avatar color="primary">
@@ -92,7 +92,7 @@ export default {
       </mu-auto-complete>
     </mu-col>
     <mu-col span="12" lg="4" sm="6">
-      <mu-auto-complete :data="fruits" label="激活及显示输入提示" :max-search-results="6"  v-model="value6" open-on-focus avatar>
+      <mu-auto-complete :data="fruits" label="activate and display input prompts" :max-search-results="6"  v-model="value6" open-on-focus avatar>
         <template slot-scope="scope">
           <mu-list-item-action>
             <mu-avatar color="primary">
@@ -147,48 +147,48 @@ export default {
 ```
 :::
 
-<mu-alert color="info">mu-auto-complete 支持 input 标签所有的原生属性和事件。</mu-alert>
+<mu-alert color="info">Mu-auto-complete supports all native properties and events for input tags.</mu-alert>
 
 ## Auto Complete Props
 
-| 参数 | 介绍 | 类型 | 可选值 | 默认值 |
+| Attribute | Description | Type | Accepted values | Default |
 |------|------|------|------|------|
-| data | 提示的输入的数据 | Array | — | — |
-| max-height | 弹出框的最大高度 | Number/String | 300 |
-| max-search-results | 最大显示搜索结果数 | Number | — |
-| open-on-focus | 是否在 focus 时打开提示输入列表 | Boolean | — |
-| textline | 弹出列表项显示行数，设置之后会改变选项的高度 | String | two-line/three-line | — |
-| dense | 减小弹出列表最大高度 | Boolean | — | true |
-| avatar | 选项内容中是否有头像，会根据此参数调整列表项高度 | Boolean | — | false |
-| color | 输入框颜色 | String | — | — |
-| icon | 输入框左边的图标 | String | — | — |
-| label | 标签文本 | String | — | — |
-| label-float | 标签是否浮动 | Boolean | — | false |
-| error-text | 错误提醒文字，如果此参数有值，那么输入框会转为错误的状态, 显示效果将会更改 | String | — | — |
-| help-text | 帮助文字 | String | — | — |
-| full-width | 是否将宽度设置为 100%, 默认 256px | Boolean | — | false |
-| disabled | 输入框是否不可用 | Boolean | — | false |
-| action-icon | 输入框右边的图标 | String | — | — |
-| action-click | 图标点击之后执行的函数 | Function | — | — |
-| solo | 改变样式，设置之后会隐藏输入框的下划线和标签 | Boolean | — | false |
-| underline-color | 下划线的颜色  | String | - | - |
-| prefix | 输入框前缀内容 | String | — | — |
-| suffix | 输入框尾部内容 | String | — | — |
+| data | prompt input data | Array | — | — |
+| max-height | maximum height of pop-up box | Number/String | 300 |
+| max-search-results | maximum display of search results | Number | — |
+| open-on-focus | whether to open prompt input list when focus | Boolean | — |
+| textline | The pop-up list item displays the number of rows, which changes the height of the option after setting | String | two-line/three-line | — |
+| dense | decrease pop-up list maximum height | Boolean | — | true |
+| avatar | if there is an avatar in the content of the option, the height of the list item will be adjusted according to this parameter | Boolean | — | false |
+| color | input box color | String | — | — |
+| icon | the icon to the left of the input box | String | — | — |
+| label | label text | String | — | — |
+| label-float | whether the label floats | Boolean | — | false |
+| error-text | Error reminder text, if this parameter has a value, then the input box will be converted to the wrong state, the display effect will change | String | — | — |
+| help-text | help text | String | — | — |
+| full-width | whether the width is set to 100%, default 256px | Boolean | — | false |
+| disabled |  whether the input box is not available | Boolean | — | false |
+| action-icon | the icon to the right of the input box | String | — | — |
+| action-click | function executed after icon click | Function | — | — |
+| solo | change the style, and then hide the underline and label of the input box after setting | Boolean | — | false |
+| underline-color | underline color  | String | - | - |
+| prefix | input box prefix content | String | — | — |
+| suffix | input box tail content | String | — | — |
 
 ## Auto Complete Slots
 
-| 名称 | 介绍 |
+| Name | Description |
 |-----|------|
-| prepend | 输入框前置内容 |
-| append | 输入框后置内容 |
+| prepend | input box front content |
+| append | input box post content |
 | default | - |
 
 
 ## Auto Complete Scope Slots
 
-| 名称 | 介绍 | 参数 |
+| Name | Description | Attribute |
 |------|------|------|
-| — | 选项的插槽 | { item, index, highlight }  |
+| — | slots for options | { item, index, highlight }  |
 
 <script>
 const fruits = [
