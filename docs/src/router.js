@@ -31,7 +31,8 @@ function registerRoute (navs, lang) {
         meta: {
           title: `Muse-UI ${nav.name}`,
           name: nav.name,
-          path: nav.path
+          path: nav.path,
+          lang: lang
         }
       });
     }

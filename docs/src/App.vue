@@ -9,6 +9,7 @@
       <mu-fade-transition>
         <img src="./assets/images/bg.png" v-if="home" width="100%" height="500" class="mu-banner-image">
       </mu-fade-transition>
+      <mu-search slot="right" />
       <mu-menu slot="right" :open.sync="activeMenu" placement="bottom-end">
         <mu-button flat>
           <img :src="lang.img(32)" alt="">
@@ -78,6 +79,7 @@ import MuseUI from 'muse-ui';
 import i18n from './configs/i18n';
 import { changeLocale } from './locale';
 import { FadeTransition } from '../../ui/internal/transitions';
+import Search from './components/search';
 
 export default {
   name: 'App',
@@ -169,7 +171,8 @@ export default {
   components: {
     'mu-backtop': BackTop,
     'app-nav-drawer': AppNavDrawer,
-    'mu-fade-transition': FadeTransition
+    'mu-fade-transition': FadeTransition,
+    'mu-search': Search
   }
 }
 
@@ -259,6 +262,31 @@ function isMobile () {
   left: 0;
   right: 0;
   z-index: 1000;
+}
+
+.mu-docs-search {
+  width: 200px;
+  background: rgba(255, 255, 255, 0.15);
+  transition: width .3s @easeOutFunction;
+  margin-right: 16px;
+  &.mu-input__focus {
+    width: 250px;
+  }
+  &.mu-input {
+    padding-top: 0;
+    padding-bottom: 0;
+    min-height: 0;
+    height: 36px;
+    color: #fff;
+  }
+  .mu-text-field-input {
+    color: #fff;
+    font-weight: 300;
+  }
+  .mu-input-icon {
+    top: 6px !important;
+    color: #fff;
+  }
 }
 @media (min-width: 600px) {
   .app-content {

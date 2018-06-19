@@ -230,7 +230,7 @@ export default {
         ref: 'popover',
         style: {
           'maxHeight': this.maxHeight + 'px',
-          'height': this.enableData.length === 0 ? 0 : '',
+          'visibility': this.enableData.length === 0 ? 'hidden' : '',
           'min-width': trigger ? trigger.offsetWidth + 'px' : ''
         }
       }, [

@@ -19,6 +19,7 @@
     "vue": "^2.5.0"
   },
   "devDependencies": {
+    "algoliasearch": "^3.28.0",
     "autoprefixer": "^8.0.0",
     "avoriaz": "^6.3.0",
     "babel-cli": "^6.26.0",

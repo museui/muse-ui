@@ -15,7 +15,7 @@ export default {
   },
   computed: {
     path () {
-      return this.$route && this.$route.meta && this.$route.meta.path
+      return this.$route && this.$route.meta && this.$route.meta.path;
     }
   },
   methods: {
