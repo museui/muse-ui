@@ -1,9 +1,9 @@
-# 提示框
+# Prompt box
 
-`mu-alert` 组件用来向用户传递信息，它可以定义不同的颜色和图标。
+`Mu-alert` components are used to pass information to users, it can define different colors and icons.
 
 
-## 基础示例
+## Basic example
 
 :::demo
 ```html
@@ -35,7 +35,7 @@
 ```
 :::
 
-## 显示 Icon 和 delete 图标
+## Display Icon and delete icon
 
 ::: demo
 ```html
@@ -89,9 +89,9 @@ export default {
 ```
 :::
 
-## 过渡动画定制
+## Transition animation customization
 
-通过 `transition` 属性定制过渡动画。
+Use the transition property to customize the transition animation
 
 :::demo
 ```html
@@ -148,18 +148,18 @@ export default {
 
 ## Alert Props
 
-| 参数 | 介绍 | 类型 | 可选值 | 默认值 |
+| Attribute | Description | Type | Accepted values | Default |
 |------|------|------|------|------|
-| color | 组件颜色 | String | — | — |
-| delete | 是否显示删除图标 | Boolean | — | — |
-| transition | 设置组件显示和隐藏的过渡动画 | String | — | — |
-| mode | 设置过渡动画的模式 | String | out-in/in-out | — |
+| color | component color | String | — | — |
+| delete | determine whether it's to display deleting icons | Boolean | — | — |
+| transition | setting the transition animation to display and hide the component | String | — | — |
+| mode | setting the mode of the transtion animation | String | out-in/in-out | — |
 
 ## Alert Events
 
-| 名称 | 介绍 | 回调参数|
+| Name | Description | Parameters |
 |------|------|------|
-| delete | 当删除图标被点击时触发 | — |
+| delete | triggers when the delete icon clicked | — |
 
 <script>
 export default {

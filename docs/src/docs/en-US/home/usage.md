@@ -1,4 +1,4 @@
-Muse-UI 基于 Vue 2.0 实现，需要作为 Vue 的一个插件安装使用
+Muse-UI is based on Vue 2.0 implementation and needs to be installed as a plugin for Vue.
 
 ```javascript
 import Vue from 'vue';

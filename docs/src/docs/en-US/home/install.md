@@ -1,17 +1,17 @@
-推荐使用 npm 安装 muse-ui
+Installing muse-ui with npm is recommended.
 
 ```bash
 npm i muse-ui -S
 ```
 
-或者使用 CDN
+CDN
 
 ```html
 <link rel="stylesheet" href="https://unpkg.com/muse-ui/dist/muse-ui.css">
 <script src="https://unpkg.com/muse-ui/dist/muse-ui.js"></script>
 ```
 
-加载字体和图标
+Load fonts and icons.
 
 ```html
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">

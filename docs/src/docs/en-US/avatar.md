@@ -1,17 +1,17 @@
-# 头像
+# Avatar
 
-`mu-avatar` 用于显示用户头像、简短的问题和图标。
+`Mu-avatar` uses to display user avatar, simple questions and icons.
 
-## 示例
+## Example
 
-设置 `size` 属性，可以改变 `mu-avatar` 的大小
+Setting `size` property can change `mu-avatar`'s size.
 
 :::demo
 ```html
 <mu-container style="padding: 16px 0;">
   <mu-flex>
     <mu-flex>
-      改变大小：
+      change size：
     </mu-flex>
     <mu-flex fill style="padding: 0 16px;">
       <mu-slider v-model="size" :min="36" :step="1" :max="200"/>
@@ -35,7 +35,7 @@ export default {
 ```
 :::
 
-## 显示文字或者图标
+## Display text or icon
 
 :::demo
 ```html
@@ -66,11 +66,11 @@ export default {
 
 ## Avatar Props
 
-| 参数 | 介绍 | 类型 | 可选值 | 默认值 |
+| Attribute | Description | Type | Accepted values | Default |
 |------|------|------|------|------|
-| color | 组件的背景色 | String | — | — |
-| text-color| 文字的颜色 | String | — | — |
-| size | 组件大小 | Number/String | — | 48 |
+| color | component background | String | — | — |
+| text-color| font color | String | — | — |
+| size | component size | Number/String | — | 48 |
 
 
 <script>
