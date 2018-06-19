@@ -162,7 +162,7 @@ export default {
         class: this.popoverClass,
         style: {
           'maxHeight': this.maxHeight + 'px',
-          'height': this.tags && this.enableOptions.length === 0 ? 0 : '',
+          'visibility': this.tags && this.enableOptions.length === 0 ? 'hidden' : '',
           'min-width': trigger ? trigger.offsetWidth + 'px' : ''
         },
         ref: 'popover',
