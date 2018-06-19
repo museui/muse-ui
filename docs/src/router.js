@@ -3,17 +3,24 @@ import Router from 'vue-router';
 import navConfig from './configs/nav';
 import langs from './configs/lang';
 import Home from './views/home';
+import locale from './locale';
 Vue.use(Router);
 
-const routes = [{
-  path: '/',
-  name: 'home',
-  component: Home,
-  meta: {}
-}];
+const routes = [];
 
 langs.forEach(({ lang }) => {
   registerRoute(navConfig[lang], lang);
+  routes.push({
+    path: `/${lang}`,
+    name: `${lang}-home`,
+    component: Home,
+    meta: {
+      title: 'Muse-UI',
+      name: 'home',
+      path: '/',
+      lang: lang
+    }
+  });
 });
 
 function registerRoute (navs, lang) {
@@ -41,7 +48,7 @@ function registerRoute (navs, lang) {
 
 routes.push({
   path: '*',
-  redirect: '/'
+  redirect: '/' + locale
 });
 
 export default new Router({

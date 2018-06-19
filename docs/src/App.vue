@@ -5,7 +5,7 @@
       <mu-button v-if="home || !docked" icon slot="left" @click="toggleMenu">
         <mu-icon size="24" value="menu"/>
       </mu-button>
-      {{pageName}}
+      {{pageName || ''}}
       <mu-fade-transition>
         <img src="./assets/images/bg.png" v-if="home" width="100%" height="500" class="mu-banner-image">
       </mu-fade-transition>
@@ -103,21 +103,25 @@ export default {
       }],
       theme: 'light',
       openTheme: false,
-      locale,
       langs,
-      i18n,
       open: false
     }
   },
   computed: {
+    locale () {
+      return this.$route.meta && this.$route.meta.lang;
+    },
+    i18n () {
+      return i18n[this.locale];
+    },
     lang () {
       return this.langs.filter((item) => item.lang === this.locale)[0];
     },
     home () {
-      return (this.$route && this.$route.name === 'home');
+      return (this.$route && this.$route.meta && this.$route.meta.name === 'home');
     },
     pageName () {
-      return this.$route && this.$route.meta && this.$route.meta.name;
+      return this.$route && this.$route.meta && this.$route.meta.name !== 'home' && this.$route.meta.name;
     }
   },
   mounted () {
@@ -130,13 +134,9 @@ export default {
   },
   methods: {
     changeLang (lang) {
-      this.locale = lang;
       changeLocale(lang);
       this.activeMenu = false;
-      if (this.$route.meta && this.$route.meta.path) {
-        location.href = `${location.protocol}//${location.host}/#/${lang}${this.$route.meta.path}`;
-      }
-      location.reload();
+      this.$router.replace(`/${lang}${this.$route.meta.path}`);
     },
     changeTheme (theme) {
       this.theme = theme;

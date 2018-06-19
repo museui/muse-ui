@@ -49,7 +49,7 @@
         <h2 class="mu-desc-item-title">{{i18n.install}}</h2>
       </div>
       <div class="mu-desc-item-content">
-        <mu-install />
+        <component :is="`${locale.toLowerCase()}-install`" />
       </div>
       <mu-divider />
       <mu-button flat :to="`/${locale}/installation`">{{i18n.readInstallDoc}}</mu-button>
@@ -60,7 +60,7 @@
         <h2 class="mu-desc-item-title">{{i18n.usage}}</h2>
       </div>
       <div class="mu-desc-item-content">
-        <mu-usage />
+        <component :is="`${locale.toLowerCase()}-usage`" />
       </div>
       <mu-divider />
       <mu-button flat :to="`/${locale}/usage`">{{i18n.readUsage}}</mu-button>
@@ -71,7 +71,7 @@
         <h2 class="mu-desc-item-title">{{i18n.custom}}</h2>
       </div>
       <div class="mu-desc-item-content">
-        <mu-theme />
+        <component :is="`${locale.toLowerCase()}-theme`" />
       </div>
       <mu-divider />
       <mu-button flat :to="`/${locale}/theme`">{{i18n.customTheme}}</mu-button>
@@ -84,19 +84,31 @@
 </div>
 </template>
 <script>
-import locale from '../../locale';
 import i18n from '../../configs/i18n';
+import ZhInstall from '../../docs/zh-CN/home/install';
+import ZhTheme from '../../docs/zh-CN/home/theme';
+import ZhUsage from '../../docs/zh-CN/home/usage';
+import EnInstall from '../../docs/en-US/home/install';
+import EnTheme from '../../docs/en-US/home/theme';
+import EnUsage from '../../docs/en-US/home/usage';
 
 export default {
   name: 'home',
-  data () {
-    return {
-      locale,
-      i18n
-    };
+  computed: {
+    locale () {
+      return this.$route && this.$route.meta && this.$route.meta.lang;
+    },
+    i18n () {
+      return i18n[this.locale];
+    }
   },
   components: {
-    ...i18n.components
+    'zh-cn-install': ZhInstall,
+    'zh-cn-theme': ZhTheme,
+    'zh-cn-usage': ZhUsage,
+    'en-us-install': EnInstall,
+    'en-us-theme': EnTheme,
+    'en-us-usage': EnUsage
   }
 };
 </script>
