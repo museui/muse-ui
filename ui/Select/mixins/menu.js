@@ -74,7 +74,9 @@ export default {
     },
     openMenu () {
       this.open = true;
-      this.setFocusIndex(this.getSelectedIndex());
+      const selectedIndex = this.getSelectedIndex();
+      this.setFocusIndex(selectedIndex);
+      setTimeout(() => this.setScollPosition(selectedIndex), 0);
       this.resetOptionVisable();
       if (this.autoComplete) {
         this.$nextTick(() => {
