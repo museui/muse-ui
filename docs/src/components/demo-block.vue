@@ -37,8 +37,13 @@ export default {
   },
   data () {
     return {
-      visible: false,
-      i18n
+      visible: false
+    }
+  },
+  computed: {
+    i18n () {
+      const locale = this.$route.meta.lang;
+      return i18n[locale];
     }
   },
   methods: {

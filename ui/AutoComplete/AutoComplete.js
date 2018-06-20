@@ -29,6 +29,12 @@ export default {
       default: true
     },
     textline: List.props.textline,
+    popoverClass: String,
+    placement: {
+      type: String,
+      default: 'bottom-start'
+    },
+    space: Number,
     avatar: Boolean
   },
   data () {
@@ -114,7 +120,7 @@ export default {
     setScollPosition (index) {
       if (!this.open) return;
       this.$nextTick(() => {
-        const popoverEl = this.$refs.popover.$el;
+        const popoverEl = this.$refs.list.$el;
         const optionEl = popoverEl.querySelector('.is-focused');
         if (!optionEl) return;
         const optionHeight = optionEl.offsetHeight;
@@ -151,9 +157,14 @@ export default {
     },
     createContentList (h) {
       return h(List, {
+        staticClass: 'mu-option-list',
+        ref: 'list',
         props: {
           dense: this.dense,
           textline: this.textline
+        },
+        style: {
+          'maxHeight': this.maxHeight + 'px'
         }
       }, this.enableData.map((item, index) => {
         const highlight = this.getHighlight(item);
@@ -204,7 +215,7 @@ export default {
     }
   },
   render (h) {
-    const trigger = this.$refs.content;
+    const trigger = this.$refs.input;
     return this.createInput(h, {
       staticClass: 'mu-text-field',
       ref: 'content',
@@ -219,9 +230,11 @@ export default {
       this.createTextField(h),
       this.$slots.default,
       h(Popover, {
-        staticClass: 'mu-option-list',
+        staticClass: [this.popoverClass || ''].join(' '),
         props: {
           trigger: trigger,
+          placement: this.placement,
+          space: this.space,
           open: this.open
         },
         on: {
@@ -229,12 +242,12 @@ export default {
         },
         ref: 'popover',
         style: {
-          'maxHeight': this.maxHeight + 'px',
-          'height': this.enableData.length === 0 ? 0 : '',
+          'visibility': this.enableData.length === 0 ? 'hidden' : '',
           'min-width': trigger ? trigger.offsetWidth + 'px' : ''
         }
       }, [
-        this.createContentList(h)
+        this.createContentList(h),
+        this.$slots.popover
       ])
     ]);
   },

@@ -6,6 +6,7 @@ export default {
     popoverClass: [String, Object, Array],
     cover: Popover.props.cover,
     placement: Popover.props.placement,
+    space: Popover.props.space,
     open: Boolean,
     openOnHover: Boolean
   },
@@ -41,6 +42,7 @@ export default {
           cover: this.cover,
           placement: this.placement,
           open: this.active,
+          space: this.space,
           trigger: this.trigger
         },
         on: {

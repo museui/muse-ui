@@ -13,6 +13,8 @@ export default {
   },
   props: {
     textline: List.props.textline,
+    space: Popover.props.space,
+    placement: Popover.props.placement,
     dense: {
       ...List.props.dense,
       default: true
@@ -74,7 +76,15 @@ export default {
     },
     openMenu () {
       this.open = true;
-      this.setFocusIndex(this.getSelectedIndex());
+      const selectedIndex = this.getSelectedIndex();
+      this.setFocusIndex(selectedIndex);
+      setTimeout(() => this.setScollPosition(selectedIndex), 0);
+      this.resetOptionVisable();
+      if (this.autoComplete) {
+        this.$nextTick(() => {
+          this.$refs.input.select();
+        });
+      }
     },
     closeMenu () {
       this.open = false;
@@ -84,6 +94,9 @@ export default {
       if (this.open) return this.closeMenu();
       this.openMenu();
       this.focusInput();
+    },
+    resetOptionVisable () {
+      this.options.forEach((option) => (option.visible = true));
     },
     isMultiple () {
       return this.multiple;
@@ -151,14 +164,16 @@ export default {
         class: this.popoverClass,
         style: {
           'maxHeight': this.maxHeight + 'px',
-          'height': this.tags && this.enableOptions.length === 0 ? 0 : '',
+          'visibility': this.tags && this.enableOptions.length === 0 ? 'hidden' : '',
           'min-width': trigger ? trigger.offsetWidth + 'px' : ''
         },
         ref: 'popover',
         props: {
           trigger: trigger,
           open: this.open,
-          cover: !this.autoComplete
+          space: this.space,
+          cover: !this.autoComplete,
+          placement: this.placement
         },
         on: {
           close: () => this.closeMenu()

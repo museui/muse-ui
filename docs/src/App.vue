@@ -1,22 +1,23 @@
 <template>
   <div id="app">
-    <app-nav-drawer :open.sync="open" :docked="docked" :home="home"/>
-    <mu-appbar :color="home ? 'transparent' : 'primary'" class="mu-appbar-header" style="z-index: 101;" :class="{'is-open': (!home && open && docked), 'is-only-title': !(home || !docked)}" :z-depth="home ? 0 : 4">
+    <app-nav-drawer v-if="locale" :open.sync="open" :docked="docked" :home="home"/>
+    <mu-appbar v-if="locale" :color="home ? 'transparent' : 'primary'" class="mu-appbar-header" style="z-index: 101;" :class="{'is-open': (!home && open && docked), 'is-only-title': !(home || !docked)}" :z-depth="home ? 0 : 4">
       <mu-button v-if="home || !docked" icon slot="left" @click="toggleMenu">
         <mu-icon size="24" value="menu"/>
       </mu-button>
-      {{pageName}}
+      {{pageName || ''}}
       <mu-fade-transition>
         <img src="./assets/images/bg.png" v-if="home" width="100%" height="500" class="mu-banner-image">
       </mu-fade-transition>
+      <mu-search  v-if="!isMobile"  slot="right" />
       <mu-menu slot="right" :open.sync="activeMenu" placement="bottom-end">
         <mu-button flat>
-          <img :src="lang.img(32)" alt="">
+          <img v-if="lang && lang.img" :src="lang.img(32)" alt="">
         </mu-button>
         <mu-list slot="content">
           <mu-list-item button v-for="item in langs" :key="item.lang" @click="changeLang(item.lang)">
             <mu-list-item-action>
-              <img :src="item.img(24)" alt="">
+              <img v-if="item.img" :src="item.img(24)" alt="">
             </mu-list-item-action>
             <mu-list-item-title>{{item.desc}}</mu-list-item-title>
           </mu-list-item>
@@ -51,7 +52,7 @@
               <mu-list-item-title>{{i18n.issue}}</mu-list-item-title>
             </mu-list-item-content>
           </mu-list-item>
-          <mu-list-item button to="/zh-CN/contributing">
+          <mu-list-item button to="`/${locale}/contributing`">
             <mu-list-item-content>
               <mu-list-item-title>{{i18n.contributing}}</mu-list-item-title>
             </mu-list-item-content>
@@ -78,6 +79,7 @@ import MuseUI from 'muse-ui';
 import i18n from './configs/i18n';
 import { changeLocale } from './locale';
 import { FadeTransition } from '../../ui/internal/transitions';
+import Search from './components/search';
 
 export default {
   name: 'App',
@@ -101,21 +103,25 @@ export default {
       }],
       theme: 'light',
       openTheme: false,
-      locale,
       langs,
-      i18n,
       open: false
     }
   },
   computed: {
+    locale () {
+      return this.$route.meta && this.$route.meta.lang;
+    },
+    i18n () {
+      return i18n[this.locale];
+    },
     lang () {
       return this.langs.filter((item) => item.lang === this.locale)[0];
     },
     home () {
-      return (this.$route && this.$route.name === 'home');
+      return (this.$route && this.$route.meta && this.$route.meta.name === 'home');
     },
     pageName () {
-      return this.$route && this.$route.meta && this.$route.meta.name;
+      return this.$route && this.$route.meta && this.$route.meta.name !== 'home' && this.$route.meta.name;
     }
   },
   mounted () {
@@ -128,13 +134,9 @@ export default {
   },
   methods: {
     changeLang (lang) {
-      this.locale = lang;
       changeLocale(lang);
       this.activeMenu = false;
-      if (this.$route.meta && this.$route.meta.path) {
-        location.href = `${location.protocol}//${location.host}/#/${lang}${this.$route.meta.path}`;
-      }
-      location.reload();
+      this.$router.replace(`/${lang}${this.$route.meta.path}`);
     },
     changeTheme (theme) {
       this.theme = theme;
@@ -169,7 +171,8 @@ export default {
   components: {
     'mu-backtop': BackTop,
     'app-nav-drawer': AppNavDrawer,
-    'mu-fade-transition': FadeTransition
+    'mu-fade-transition': FadeTransition,
+    'mu-search': Search
   }
 }
 
@@ -259,6 +262,61 @@ function isMobile () {
   left: 0;
   right: 0;
   z-index: 1000;
+}
+
+.mu-docs-search {
+  width: 200px;
+  transition: width .3s @easeOutFunction;
+  margin-right: 16px;
+  &.mu-input__focus {
+    width: 250px;
+  }
+  .mu-input-content {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.15);
+  }
+  .mu-text-field-input {
+    color: #fff;
+    font-weight: 300;
+  }
+  .mu-search-icon {
+    width: 56px;
+    text-align: center;
+  }
+}
+.algolia-search-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 36px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 8px;
+}
+
+.algolia-search-link {
+  height: 20px;
+  > img {
+    height: 100%;
+  }
+}
+
+.mu-search-popover {
+  max-width: 500px;
+  padding-bottom: 36px;
+  em {
+    font-weight: normal;
+    font-style: normal;
+    color: @secondaryColor;
+  }
+  .search-component {
+    text-transform: capitalize;
+  }
+  .search-separator {
+    margin: 0 8px;
+  }
 }
 @media (min-width: 600px) {
   .app-content {
