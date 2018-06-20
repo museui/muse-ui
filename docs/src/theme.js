@@ -114,7 +114,7 @@ const highlightTheme = (theme, type) => {
     color: #61aeee;
   }
   ` : '';
-}
+};
 const appTheme = (theme, type) => {
   return `
   .mu-app-drawer {

@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <app-nav-drawer :open.sync="open" :docked="docked" :home="home"/>
-    <mu-appbar :color="home ? 'transparent' : 'primary'" class="mu-appbar-header" style="z-index: 101;" :class="{'is-open': (!home && open && docked), 'is-only-title': !(home || !docked)}" :z-depth="home ? 0 : 4">
+    <app-nav-drawer v-if="locale" :open.sync="open" :docked="docked" :home="home"/>
+    <mu-appbar v-if="locale" :color="home ? 'transparent' : 'primary'" class="mu-appbar-header" style="z-index: 101;" :class="{'is-open': (!home && open && docked), 'is-only-title': !(home || !docked)}" :z-depth="home ? 0 : 4">
       <mu-button v-if="home || !docked" icon slot="left" @click="toggleMenu">
         <mu-icon size="24" value="menu"/>
       </mu-button>
@@ -12,12 +12,12 @@
       <!-- <mu-search slot="right" /> -->
       <mu-menu slot="right" :open.sync="activeMenu" placement="bottom-end">
         <mu-button flat>
-          <img :src="lang.img(32)" alt="">
+          <img v-if="lang && lang.img" :src="lang.img(32)" alt="">
         </mu-button>
         <mu-list slot="content">
           <mu-list-item button v-for="item in langs" :key="item.lang" @click="changeLang(item.lang)">
             <mu-list-item-action>
-              <img :src="item.img(24)" alt="">
+              <img v-if="item.img" :src="item.img(24)" alt="">
             </mu-list-item-action>
             <mu-list-item-title>{{item.desc}}</mu-list-item-title>
           </mu-list-item>
@@ -52,7 +52,7 @@
               <mu-list-item-title>{{i18n.issue}}</mu-list-item-title>
             </mu-list-item-content>
           </mu-list-item>
-          <mu-list-item button to="/zh-CN/contributing">
+          <mu-list-item button to="`/${locale}/contributing`">
             <mu-list-item-content>
               <mu-list-item-title>{{i18n.contributing}}</mu-list-item-title>
             </mu-list-item-content>
