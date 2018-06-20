@@ -1,5 +1,3 @@
-import locale from '../locale';
-
 const config = {
   'zh-CN': {
     jsfiddle: '前往 jsfiddle.net 运行此示例',
