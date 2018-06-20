@@ -68,6 +68,7 @@ export default {
         textline: 'two-line',
         popoverClass: 'mu-search-popover',
         maxHeight: 500 - 36,
+        space: 8,
         dense: false
       },
       on: {
@@ -80,7 +81,7 @@ export default {
           this.searchText = '';
           this.$refs.input.blur();
           this.$nextTick(() => {
-            this.$router.push(`/${this.locale}/${item.component}`);
+            this.$router.push(`/${this.locale}/${item.component}${item.anchor ? '#' + item.anchor : ''}`);
           });
         }
       },

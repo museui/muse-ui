@@ -9,7 +9,7 @@
       <mu-fade-transition>
         <img src="./assets/images/bg.png" v-if="home" width="100%" height="500" class="mu-banner-image">
       </mu-fade-transition>
-      <mu-search slot="right" />
+      <mu-search  v-if="!isMobile"  slot="right" />
       <mu-menu slot="right" :open.sync="activeMenu" placement="bottom-end">
         <mu-button flat>
           <img v-if="lang && lang.img" :src="lang.img(32)" alt="">

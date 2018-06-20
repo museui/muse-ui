@@ -13,6 +13,8 @@ export default {
   },
   props: {
     textline: List.props.textline,
+    space: Popover.props.space,
+    placement: Popover.props.placement,
     dense: {
       ...List.props.dense,
       default: true
@@ -169,7 +171,9 @@ export default {
         props: {
           trigger: trigger,
           open: this.open,
-          cover: !this.autoComplete
+          space: this.space,
+          cover: !this.autoComplete,
+          placement: this.placement
         },
         on: {
           close: () => this.closeMenu()

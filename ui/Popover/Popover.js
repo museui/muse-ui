@@ -19,6 +19,10 @@ export default {
     },
     lazy: Boolean,
     cover: Boolean,
+    space: {
+      type: Number,
+      default: 0
+    }, // 距离trigger 的间隔, 在cover false的情况下完成
     trigger: {},
     placement: {
       type: String,
@@ -42,17 +46,21 @@ export default {
         case 'left':
         case 'left-start':
         case 'left-end':
-          left = react.left - width;
+          left = react.left - width - this.space;
           if (this.cover) {
             left += react.width;
           } else if (left < minLeft) {
-            left = react.left + react.width;
+            left = react.left + react.width + this.space;
           };
           break;
         case 'right':
         case 'right-start':
         case 'right-end':
-          left = this.cover ? react.left : react.left + react.width > maxLeft ? react.left - width : react.left + react.width;
+          left = this.cover
+            ? react.left
+            : react.left + react.width > maxLeft
+              ? react.left - width - this.space
+              : react.left + react.width + this.space;
           break;
         case 'top':
         case 'bottom':
@@ -81,7 +89,8 @@ export default {
         case 'top-end':
           top = react.top - height;
           if (!this.cover) {
-            if (top < minTop) top = react.top + react.height;
+            top += this.space;
+            if (top < minTop) top = react.top + react.height + this.space;
           } else {
             top += react.height;
           }
@@ -89,7 +98,10 @@ export default {
         case 'bottom':
         case 'bottom-start':
         case 'bottom-end':
-          top = this.cover ? react.top : react.top + react.height > maxTop ? react.top - height : react.top + react.height;
+          top = this.cover ? react.top
+            : react.top + react.height + this.space > maxTop
+              ? react.top - height - this.space
+              : react.top + react.height + this.space;
           break;
         case 'left':
         case 'right':

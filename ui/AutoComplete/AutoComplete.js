@@ -34,6 +34,7 @@ export default {
       type: String,
       default: 'bottom-start'
     },
+    space: Number,
     avatar: Boolean
   },
   data () {
@@ -214,7 +215,7 @@ export default {
     }
   },
   render (h) {
-    const trigger = this.$el;
+    const trigger = this.$refs.input;
     return this.createInput(h, {
       staticClass: 'mu-text-field',
       ref: 'content',
@@ -233,6 +234,7 @@ export default {
         props: {
           trigger: trigger,
           placement: this.placement,
+          space: this.space,
           open: this.open
         },
         on: {
