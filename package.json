@@ -7,7 +7,7 @@
   "main": "dist/muse-ui.js",
   "scripts": {
     "docs:dev": "webpack-dev-server --inline --progress --config docs/build/webpack.dev.conf.js",
-    "docs:build": "node docs/build/build.js",
+    "docs:build": "node docs/build/build.js && node docs/build/gen-indices.js",
     "dev": "parcel demo/index.html",
     "build": "rm -rf dist && rollup --config rollup.config.js && npm run package",
     "lint": "eslint --ext .js,.vue ui",

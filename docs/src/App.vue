@@ -9,7 +9,7 @@
       <mu-fade-transition>
         <img src="./assets/images/bg.png" v-if="home" width="100%" height="500" class="mu-banner-image">
       </mu-fade-transition>
-      <!-- <mu-search slot="right" /> -->
+      <mu-search slot="right" />
       <mu-menu slot="right" :open.sync="activeMenu" placement="bottom-end">
         <mu-button flat>
           <img v-if="lang && lang.img" :src="lang.img(32)" alt="">
@@ -266,26 +266,56 @@ function isMobile () {
 
 .mu-docs-search {
   width: 200px;
-  background: rgba(255, 255, 255, 0.15);
   transition: width .3s @easeOutFunction;
   margin-right: 16px;
   &.mu-input__focus {
     width: 250px;
   }
-  &.mu-input {
-    padding-top: 0;
-    padding-bottom: 0;
-    min-height: 0;
-    height: 36px;
+  .mu-input-content {
     color: #fff;
+    background: rgba(255, 255, 255, 0.15);
   }
   .mu-text-field-input {
     color: #fff;
     font-weight: 300;
   }
-  .mu-input-icon {
-    top: 6px !important;
-    color: #fff;
+  .mu-search-icon {
+    width: 56px;
+    text-align: center;
+  }
+}
+.algolia-search-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 36px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 8px;
+}
+
+.algolia-search-link {
+  height: 20px;
+  > img {
+    height: 100%;
+  }
+}
+
+.mu-search-popover {
+  max-width: 500px;
+  padding-bottom: 36px;
+  em {
+    font-weight: normal;
+    font-style: normal;
+    color: @secondaryColor;
+  }
+  .search-component {
+    text-transform: capitalize;
+  }
+  .search-separator {
+    margin: 0 8px;
   }
 }
 @media (min-width: 600px) {
