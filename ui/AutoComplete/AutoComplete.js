@@ -164,7 +164,7 @@ export default {
           textline: this.textline
         },
         style: {
-          'maxHeight': this.maxHeight + 'px',
+          'maxHeight': this.maxHeight + 'px'
         }
       }, this.enableData.map((item, index) => {
         const highlight = this.getHighlight(item);

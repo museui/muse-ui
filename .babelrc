@@ -3,7 +3,7 @@
     "env",
     "stage-2"
   ],
-  "plugins": ["transform-runtime", "transform-vue-jsx"],
+  "plugins": ["transform-vue-jsx"],
   "comments": false,
   "env": {
     "test": {
