@@ -1,8 +1,8 @@
-# 分隔线
+# Divider
 
-`mu-divider` 主要用于管理和分隔列表和页面布局内的内容。
+`Mu-divider` is primarily used to manage and separate content within lists and page layouts.
 
-## 示例
+## Example
 
 :::demo
 ```html
@@ -27,9 +27,9 @@
 ```
 :::
 
-## 分隔列表
+## Separate list
 
-通过设置 `shallow-inset` 和 `inset` 改变分隔线的缩进距离
+Change the indentation distance of the divider by setting `shallow-inset` and `inset`
 
 :::demo
 ```html
@@ -96,10 +96,10 @@
 
 ## Divider Props
 
-| 参数 | 介绍 | 类型 | 可选值 | 默认值 |
+| Attribute | Description | Type | Accepted values | Default |
 |------|------|------|------|------|
-| inset | 设置为true，将 `margin-left` 设为 `72px` | Boolean | — | false |
-| shallow-inset | 设置为true，将 `margin-left` 设为 `16px` | Boolean | — | false |
+| inset | set to true，set `margin-left` to `72px` | Boolean | — | false |
+| shallow-inset | set to true，set `margin-left` to `16px` | Boolean | — | false |
 
 <style lang="less">
 .demo-divider-form {

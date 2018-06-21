@@ -1,6 +1,6 @@
-# 指令
+# Directives
 
-Muse-UI 提供 `v-click-outside` 、 `v-resize` 、 `v-scroll` 、 `v-elevation` 四个指令。
+Muse-UI provides `v-click-outside` 、 `v-resize` 、 `v-scroll` 、 `v-elevation` three directives.
 
 
 ## ClickOutside
@@ -135,9 +135,9 @@ export default {
 :::
 
 
-## 按需引入
+## Import on demand
 
-工具类的组件在 `lib/Helpers` 目录下
+The components of the tool class are in the `lib/helpers` directory
 
 ```javascript
 import Vue from 'vue';

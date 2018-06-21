@@ -1,8 +1,8 @@
-## 抽屉导航
+## Drawer navigation
 
-`mu-drawer` 从侧边弹出的对话框。
+`Mu-drawer` pop-up dialog box from the side.
 
-## 示例
+## Example
 
 :::demo
 ```html
@@ -45,13 +45,13 @@ export default {
 
 ## Drawer Props
 
-| 参数 | 介绍 | 类型 | 可选值 | 默认值 |
+| Attribute | Description | Type | Accepted values | Default |
 |------|------|------|------|------|
-| open `.sync` | 是否打开 | Boolean | — | false |
-| right | 是否从右侧滑出 | Boolean | — | false |
-| docked | 是否固定 drawer， 设为 `true`， 将不会显示遮盖层，也不会触发 `close` 事件 | Boolean | — | false |
-| width | drawer 宽度 | String/Number | — | — |
-| z-depth | 阴影的深度 | Number | 0 — 24 | 16 |
+| open `.sync` | whether to open | Boolean | — | false |
+| right | whether to slide from the right | Boolean | — | false |
+| docked | whether the drawer is fixed or not, set to `true`, will not show masking layer, nor trigger `close` event | Boolean | — | false |
+| width | drawer width | String/Number | — | — |
+| z-depth | shadow depth | Number | 0 — 24 | 16 |
 
 <script>
 export default {
