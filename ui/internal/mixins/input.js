@@ -88,7 +88,7 @@ export default {
             this.getNormalColorClass(this.underlineColor, false, false)
           ].join(' '),
           class: {
-            focus: this.isFocused || this.underlineColor || this.error
+            focus: this.isFocused
           },
           style: {
             'background-color': this.getColor(this.underlineColor)

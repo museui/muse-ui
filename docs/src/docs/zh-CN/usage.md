@@ -25,7 +25,7 @@ new Vue({
 首先，安装 babel-plugin-import, less-loader:
 
 ```bash
-npm i babel-plugin-import less less-loader -D
+npm i babel-plugin-import babel-runtime less less-loader -D
 ```
 
 然后，将 `.babelrc` 修改为：

@@ -122,7 +122,9 @@ export default {
   },
   methods: {
     submit () {
-      this.$refs.form.validate();
+      this.$refs.form.validate().then((result) => {
+        console.log('form valid: ', result)
+      });
     },
     clear () {
       this.$refs.form.clear();
@@ -153,6 +155,14 @@ export default {
 | label-width | 标签宽度 |  String,Number | — | — |
 | label-position | 标签位置 | String | top / left / right | top |
 | auto-validate | 是否自动验证表单 | Boolean | — | true |
+
+## Form Methods
+
+| 名称 | 介绍 | 参数 |
+|-----|------|-----|
+| validate | 启动表单验证，返回一个Promise 对象 | — |
+| clear | 清空表单验证结果信息 | — |
+
 
 ## Form Item Props
 
@@ -213,7 +223,9 @@ export default {
   },
   methods: {
     submit () {
-      this.$refs.form.validate();
+      this.$refs.form.validate().then((result) => {
+        console.log('form valid: ', result)
+      });
     },
     clear () {
       this.$refs.form.clear();

@@ -32,14 +32,10 @@ export default {
           }
           break;
         case 'up':
-          event.preventDefault();
-          this.resetSelectedIndex();
-          this.decrementFocusIndex();
-          break;
         case 'down':
           event.preventDefault();
           this.resetSelectedIndex();
-          this.incrementFocusIndex();
+          code === 'up' ? this.decrementFocusIndex() : this.incrementFocusIndex();
           break;
         case 'tab':
           this.blur();
@@ -86,6 +82,7 @@ export default {
       return -1;
     },
     setScollPosition (index) {
+      if (index === -1 || !this.open) return;
       this.$nextTick(() => {
         const option = this.enableOptions[index];
         if (!option) return;

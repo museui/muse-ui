@@ -42,6 +42,12 @@
 | disabled | 是否禁用 | Boolean | — | — |
 | display-value | 是否显示当前值 | Boolean | — | — |
 
+## Slider Events
+
+| 名称 | 介绍 | 参数 |
+|-----|------|-----|
+| change | 值改变时触发 | (value) |
+
 ## Slider change
 
 | 名称 | 介绍 | 回调参数 |

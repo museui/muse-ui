@@ -21,6 +21,16 @@
   .mu-icon-right {
     margin-left: 8px;
   }
+  &.hover::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: currentColor;
+    opacity: .12;
+  }
 }
 
 .mu-button-wrapper {
@@ -40,19 +50,9 @@
   background-color: @dialogBackgroundColor;
   color: @textColor;
   .depth(2);
-  &.hover {
-    .mu-button-wrapper {
-      background-color: fade(@textColor, 10%);
-    }
-  }
   &.mu-inverse {
     .mu-circle-ripple {
       opacity: 0.3;
-    }
-    &.hover {
-      .mu-button-wrapper {
-        background-color: fade(@alternateTextColor, 10%);
-      }
     }
   }
   &.disabled{
@@ -64,9 +64,6 @@
     &:active,
     &:hover {
       box-shadow: none;
-      .mu-button-wrapper {
-        background-color: transparent;
-      }
     }
   }
   &.focus {
@@ -122,10 +119,6 @@
   font-size: 14px;
   color: @textColor;
   background: transparent;
-  &.hover {
-    background-color: fade(@textColor, 10%);
-  }
-
   &.disabled{
     color: @disabledColor;
     cursor: not-allowed;
@@ -133,9 +126,6 @@
   }
   .mu-button-wrapper {
     padding: 0 16px;
-  }
-  .mu-circle-ripple{
-    color: @textColor;
   }
 
   &.mu-button-small {
@@ -172,9 +162,6 @@
   background: none;
   color: inherit;
   background-color: transparent;
-  .mu-circle-ripple {
-    color: @textColor;
-  }
   &.disabled{
     color: @disabledColor;
     cursor: not-allowed;
@@ -208,9 +195,6 @@
   &.hover,
   &:active{
     .depth(12);
-    .mu-button-wrapper {
-      background-color: fade(@alternateTextColor, 10%);
-    }
   }
 
   &.disabled{
@@ -221,9 +205,6 @@
     &.hover,
     &:active,
     &:hover {
-      .mu-button-wrapper {
-        background-color: transparent;
-      }
       box-shadow: none;
     }
   }

@@ -1,24 +1,31 @@
 {
   "name": "muse-ui",
-  "version": "3.0.0-beta.6",
+  "version": "3.0.0-rc.2",
   "description": "material design ui for vue2",
   "author": "myronliu347 <myronliu347@gmail.com>",
   "repository": "https://github.com/museui/muse-ui.git",
-  "main": "dist/muse-ui.js",
+  "main": "dist/muse-ui.common.js",
+  "module": "dist/muse-ui.esm.js",
+  "unpkg": "dist/muse-ui.js",
+  "jsdelivr": "dist/muse-ui.js",
   "scripts": {
     "docs:dev": "webpack-dev-server --inline --progress --config docs/build/webpack.dev.conf.js",
-    "docs:build": "node docs/build/build.js",
+    "docs:build": "node docs/build/build.js && node docs/build/gen-indices.js",
     "dev": "parcel demo/index.html",
-    "build": "rm -rf dist && rollup --config rollup.config.js && npm run package",
+    "build": "npm run build:dist && npm run build:lib",
+    "build:dist": "rm -rf dist && NODE_ENV=module rollup --config rollup.config.js && NODE_ENV=production rollup --config rollup.config.js",
+    "build:lib": "rm -rf lib && babel ui -d lib --ignore *.spec.js && mkdir lib/styles && cp -rf ui/styles/* lib/styles",
     "lint": "eslint --ext .js,.vue ui",
     "test": "NODE_ENV=test jest -i",
     "test:coverage": "NODE_ENV=test jest -i --coverage",
-    "package": "rm -rf lib && babel ui -d lib && mkdir lib/styles && cp -rf ui/styles/* lib/styles"
+    "precommit": "yarn run lint",
+    "prepush": "yarn run lint"
   },
   "peerDependencies": {
     "vue": "^2.5.0"
   },
   "devDependencies": {
+    "algoliasearch": "^3.28.0",
     "autoprefixer": "^8.0.0",
     "avoriaz": "^6.3.0",
     "babel-cli": "^6.26.0",
@@ -32,6 +39,7 @@
     "babel-plugin-transform-vue-jsx": "^3.5.1",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.1",
+    "babel-preset-es2015-rollup": "^3.0.0",
     "babel-preset-stage-2": "^6.24.1",
     "chalk": "^2.0.1",
     "copy-webpack-plugin": "^4.0.1",

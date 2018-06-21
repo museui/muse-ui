@@ -175,6 +175,13 @@ export default {
 | prefix | input box prefix content | String | — | — |
 | suffix | input box tail content | String | — | — |
 
+## Auto Complete Events
+
+| 名称 | 介绍 | 回调参数 |
+|-----|------|--------|
+| select | 选择某一项时触发事件 | (value, item) |
+| change | 值改变时触发 | (value) |
+
 ## Auto Complete Slots
 
 | Name | Description |
@@ -182,7 +189,6 @@ export default {
 | prepend | input box front content |
 | append | input box post content |
 | default | - |
-
 
 ## Auto Complete Scope Slots
 

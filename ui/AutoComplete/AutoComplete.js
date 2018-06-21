@@ -29,6 +29,12 @@ export default {
       default: true
     },
     textline: List.props.textline,
+    popoverClass: String,
+    placement: {
+      type: String,
+      default: 'bottom-start'
+    },
+    space: Number,
     avatar: Boolean
   },
   data () {
@@ -51,12 +57,14 @@ export default {
     }
   },
   methods: {
-    setValue (item) {
+    setValue (item, e) {
       this.open = false;
       this.focusIndex = -1;
       if (!item) return;
       const value = this.getValueByItem(item);
-      this.$emit('input', value);
+      this.$emit('input', value, e);
+      this.$emit('select', value, item, e);
+      this.$emit('change', value, e);
     },
     getValueByItem (item) {
       if (!item) return '';
@@ -70,7 +78,7 @@ export default {
       switch (code) {
         case 'enter':
           if (this.focusIndex === -1) return;
-          this.setValue(this.enableData[this.focusIndex]);
+          this.setValue(this.enableData[this.focusIndex], e);
           break;
         case 'up':
           event.preventDefault();
@@ -96,7 +104,7 @@ export default {
     onInput (e) {
       const val = e.target.value;
       if (val) this.open = true;
-      this.$emit('input', val);
+      this.$emit('input', val, e);
     },
     focus (e) {
       this.isFocused = true;
@@ -112,7 +120,7 @@ export default {
     setScollPosition (index) {
       if (!this.open) return;
       this.$nextTick(() => {
-        const popoverEl = this.$refs.popover.$el;
+        const popoverEl = this.$refs.list.$el;
         const optionEl = popoverEl.querySelector('.is-focused');
         if (!optionEl) return;
         const optionHeight = optionEl.offsetHeight;
@@ -125,6 +133,7 @@ export default {
       const listeners = {
         ...this.$listeners,
         input: this.onInput,
+        change: (e) => this.$emit('change', e.target.value, e),
         keydown: this.onKeydown,
         focus: this.focus
       };
@@ -148,9 +157,14 @@ export default {
     },
     createContentList (h) {
       return h(List, {
+        staticClass: 'mu-option-list',
+        ref: 'list',
         props: {
           dense: this.dense,
           textline: this.textline
+        },
+        style: {
+          'maxHeight': this.maxHeight + 'px'
         }
       }, this.enableData.map((item, index) => {
         const highlight = this.getHighlight(item);
@@ -164,8 +178,8 @@ export default {
             avatar: this.avatar
           },
           on: {
-            click: () => {
-              this.setValue(item);
+            click: (e) => {
+              this.setValue(item, e);
             }
           }
         }, this.$scopedSlots.default ? this.$scopedSlots.default({
@@ -201,7 +215,7 @@ export default {
     }
   },
   render (h) {
-    const trigger = this.$refs.content;
+    const trigger = this.$refs.input;
     return this.createInput(h, {
       staticClass: 'mu-text-field',
       ref: 'content',
@@ -216,9 +230,11 @@ export default {
       this.createTextField(h),
       this.$slots.default,
       h(Popover, {
-        staticClass: 'mu-option-list',
+        staticClass: [this.popoverClass || ''].join(' '),
         props: {
           trigger: trigger,
+          placement: this.placement,
+          space: this.space,
           open: this.open
         },
         on: {
@@ -226,12 +242,12 @@ export default {
         },
         ref: 'popover',
         style: {
-          'maxHeight': this.maxHeight + 'px',
-          'height': this.enableData.length === 0 ? 0 : '',
+          'visibility': this.enableData.length === 0 ? 'hidden' : '',
           'min-width': trigger ? trigger.offsetWidth + 'px' : ''
         }
       }, [
-        this.createContentList(h)
+        this.createContentList(h),
+        this.$slots.popover
       ])
     ]);
   },

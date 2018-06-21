@@ -1,6 +1,5 @@
 import packageJson from '../../../package.json';
 import navConfig from '../configs/nav';
-import locale from '../locale';
 
 export default {
   props: {
@@ -14,19 +13,22 @@ export default {
     };
   },
   computed: {
+    locale () {
+      return this.$route && this.$route.meta && this.$route.meta.lang;
+    },
     path () {
-      return this.$route && this.$route.meta && this.$route.meta.path
+      return this.$route && this.$route.meta && this.$route.meta.path;
     }
   },
   methods: {
     createHeader (h) {
       return (
         <mu-appbar zDepth={0} color='transparent' class='mu-app-drawer-header'>
-          <router-link tag='div' class='mu-appbar-title-text' to='/'>Muse-UI</router-link>
+          <router-link tag='div' class='mu-appbar-title-text' to={'/' + this.locale}>Muse-UI</router-link>
           <mu-menu>
             <div class='mu-app-version'>v{this.version}</div>
             <mu-list slot='content' dense>
-              <mu-list-item button href='/'>
+              <mu-list-item button to={'/' + this.locale}>
                 <mu-list-item-title>v3.0.0-beta</mu-list-item-title>
               </mu-list-item>
               <mu-list-item button={true} href='/2.1.0'>
@@ -39,7 +41,7 @@ export default {
     },
     createMenuItem (h, menu, isNested) {
       return (
-        <mu-list-item to={menu.path ? '/' + locale + menu.path : undefined} value={menu.path} slot={isNested ? 'nested' : 'default'} button nested={menu.children && menu.children.length > 0}>
+        <mu-list-item to={menu.path ? '/' + this.locale + menu.path : undefined} value={menu.path} slot={isNested ? 'nested' : 'default'} button nested={menu.children && menu.children.length > 0}>
           <mu-list-item-content>
             <mu-list-item-title style={{ 'font-size': isNested ? '14px' : '16px', 'font-weight': isNested ? '400' : '500' }}>{menu.name}</mu-list-item-title>
           </mu-list-item-content>
@@ -62,7 +64,7 @@ export default {
       );
     },
     createContent (h) {
-      const menus = navConfig[locale].map(menu => {
+      const menus = navConfig[this.locale].map(menu => {
         return this.createMenuItem(h, menu);
       });
       return (

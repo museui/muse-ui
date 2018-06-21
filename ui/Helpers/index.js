@@ -11,6 +11,7 @@ import {
 import clickOutside from '../internal/directives/click-outside';
 import resize from '../internal/directives/resize';
 import scroll from '../internal/directives/scroll';
+import elevation from '../internal/directives/elevation';
 
 export default {
   install (Vue) {
@@ -27,5 +28,6 @@ export default {
     Vue.directive(clickOutside.name, clickOutside);
     Vue.directive(resize.name, resize);
     Vue.directive(scroll.name, scroll);
+    Vue.directive(elevation.name, elevation);
   }
 };

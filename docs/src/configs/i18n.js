@@ -1,11 +1,3 @@
-import locale from '../locale';
-import ZhInstall from '../docs/zh-CN/home/install';
-import ZhTheme from '../docs/zh-CN/home/theme';
-import ZhUsage from '../docs/zh-CN/home/usage';
-import EnInstall from '../docs/en-US/home/install';
-import EnTheme from '../docs/en-US/home/theme';
-import EnUsage from '../docs/en-US/home/usage';
-
 const config = {
   'zh-CN': {
     jsfiddle: '前往 jsfiddle.net 运行此示例',
@@ -30,12 +22,7 @@ const config = {
     community: '社区',
     chat: '在线讨论',
     issue: '反馈建议',
-    contributing: '如何贡献',
-    components: {
-      'mu-install': ZhInstall,
-      'mu-theme': ZhTheme,
-      'mu-usage': ZhUsage
-    }
+    contributing: '如何贡献'
   },
   'en-US': {
     jsfiddle: 'Run this demo on jsfiddle.net',
@@ -62,13 +49,8 @@ const config = {
     community: 'Community',
     chat: 'Gitter',
     issue: 'Issues',
-    contributing: 'Contributing',
-    components: {
-      'mu-install': EnInstall,
-      'mu-theme': EnTheme,
-      'mu-usage': EnUsage
-    }
+    contributing: 'Contributing'
   }
 };
 
-export default config[locale];
+export default config;

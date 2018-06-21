@@ -8,25 +8,22 @@ export default (theme, type) => {
   .mu-picker-display {
     background-color: ${type === 'dark' ? '#555555' : 'currentColor'};
   }
-  .mu-datepicker-week {
+  .mu-datepicker-week,
+  .mu-datepicker-toolbar-title,
+  .mu-datepicker-tool-btn,
+  .mu-datepicker-svg-icon,
+  .mu-day-button-text,
+  .mu-month-button-text,
+  .mu-year-button-text,
+  .mu-timepicker-number {
     color: ${theme.text.primary};
   }
-  .mu-datepicker-toolbar-title {
-    color: ${theme.text.primary};
-  }
-  .mu-datepicker-svg-icon {
-    color: ${theme.text.primary};
-  }
-  .mu-day-button-text {
-    color: ${theme.text.primary};
-  }
+
   .mu-day-button:hover:not(:disabled) .mu-day-button-text,
   .mu-day-button.selected .mu-day-button-text{
     color: ${theme.text.alternate};
   }
-  .mu-month-button-text {
-    color: ${theme.text.primary};
-  }
+
   .mu-month-button:hover .mu-month-button-text,
   .mu-month-button.selected .mu-month-button-text {
     color: ${theme.text.alternate};
@@ -34,12 +31,7 @@ export default (theme, type) => {
   .mu-month-button:disabled .mu-month-button-text {
     color: ${theme.text.disabled};
   }
-  .mu-year-button-text {
-    color: ${theme.text.primary};
-  }
-  .mu-timepicker-number {
-    color: ${theme.text.primary};
-  }
+
   .mu-timepicker-number__selected {
     background-color: ${theme.primary};
     color: ${theme.text.alternate};
