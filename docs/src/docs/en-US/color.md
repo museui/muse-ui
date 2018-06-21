@@ -1,8 +1,8 @@
-# 色彩
+# Color
 
-Muse-UI 中所有组件的 `color` 或者 `*-color` 属性，都可以使用 `primary`, `secondary`, `success`, `warning`, `info`, `error`, 或者 [Material Design](https://material.io/) 规范中的所有色彩名称。
+The `color` or `*-color` attributes of all components in the Muse-UI can be used `primary`, `secondary`, `success`, `warning`, `info`, `error`, or [Material Design] (https://material.io/) All the color names in the  specification.
 
-## 组件中 color 使用
+## Color usage in Components
 
 :::demo
 ```html
@@ -18,9 +18,9 @@ Muse-UI 中所有组件的 `color` 或者 `*-color` 属性，都可以使用 `pr
 ```
 :::
 
-## Color 类使用
+## Use class Color
 
-Muse-UI Color 类，定义了 [Material Design](https://material.io/) 规范的中所有的色彩。
+The Muse-UI Color class that defines all the colors in the [Material Design] (https://material.io/) specification.
 
 ```javascript
 import theme from 'muse-ui/lib/theme';
@@ -32,9 +32,9 @@ theme.add('custom-theme', {
 });
 ```
 
-## Material 色彩表
+## Material color table
 
-以下是按原色分组的Material Design调色板列表。
+The following is a list of Material Design palettes grouped by primary colors.
 
 <color-palette />
 

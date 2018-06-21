@@ -1,4 +1,4 @@
-# 更新日志
+# Update log
 
 <mu-stepper orientation="vertical" :linear="false">
   <mu-step active>
@@ -49,7 +49,7 @@
   <mu-step active>
     <mu-step-label>
       <mu-icon value="panorama_fish_eye" color="primary" slot="icon"></mu-icon>
-      <a href="/2.10.0" flat>查看2.10.0版本</a>
+      <a href="/2.10.0" flat>View version 2.10.0</a>
     </mu-step-label>
   </mu-step>
 </mu-stepper>

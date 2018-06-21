@@ -1,10 +1,10 @@
-# 对话框
+# Dialog
 
-`mu-dialog` 用于提示用户作一些决定，或者是完成某个任务时需要的一些其它额外的信息。
+`Mu-dialog` is used to prompt the user for a decision or some additional information needed to complete a task.
 
-## 示例
+## Example
 
-点击对话框之外，或者按下后退，点击关闭按钮即可关闭对话框。
+Click outside the dialog box, or press back, click the Close button to close the dialog box.
 
 :::demo
 ```html
@@ -39,7 +39,7 @@ export default {
 
 ## Alerts
 
-设置 `overlay-close` 和 `esc-press-close` 使点击对话框外部或按下后退不会关闭。
+Set `overlay-close` 和 `esc-press-close` so that clicking outside the dialog box or pressing back doesn't close.
 
 :::demo
 ```html
@@ -73,7 +73,7 @@ export default {
 ```
 :::
 
-## 可滚动的对话框
+## Scrollable dialog box
 
 :::demo
 ```html
@@ -130,7 +130,7 @@ export default {
 :::
 
 
-## 全屏对话框
+## Full Screen dialog box
 
 :::demo
 ```html
@@ -175,28 +175,28 @@ export default {
 
 ## Dialog Props
 
-| 参数 | 介绍 | 类型 | 可选值 | 默认值 |
+| Attribute | Description | Type | Accepted values | Default |
 |------|------|------|------|------|
-| open | 是否打开 | Boolean | — | false |
-| title | dialog 标题，可用 `slot="title"` 代替 | String | — | — |
-| width | dialog 宽度，默认是 `auto`  | String,Number | — | — |
-| max-width | dialog 最大宽度 | String,Number | — | — |
-| scrollable | 是否可以内部滚动 | Boolean | false | false |
-| fullscreen | 是否是全屏 | Boolean | false | false |
-| transition | 过渡动画方案 | String | slide-top/slide-bottom/slide-left/slide-right/fade/scale | scale |
-| dialog-class | dialog 样式 | String | — | — |
-| overlay | 是否有遮盖层 | Boolean | — | true |
-| overlay-close | 点击遮盖层是否可以关闭 | Boolean | — | true |
-| overlay-opacity | 遮盖层的透明度 | Boolean | — | 0.4 |
-| overlay-color | 遮盖层的颜色 | String | — | #000 |
-| esc-press-close | 按下 `esc` 键是否可以关闭 | Boolean | — | true |
-| append-body | 弹出层是否添加到 body 元素后, 内部使用 | Boolean | — | true |
+| open | whether it is open | Boolean | — | false |
+| title | dialog title，use `slot="title"` instead | String | — | — |
+| width | dialog width, default is `auto`  | String,Number | — | — |
+| max-width | dialog max width | String,Number | — | — |
+| scrollable | whether it can scroll internally | Boolean | false | false |
+| fullscreen | whether it is full screen | Boolean | false | false |
+| transition | transition animation Scheme | String | slide-top/slide-bottom/slide-left/slide-right/fade/scale | scale |
+| dialog-class | dialog style | String | — | — |
+| overlay | whether there is a overlay | Boolean | — | true |
+| overlay-close | click whether the overlay can be closed | Boolean | — | true |
+| overlay-opacity | overlay opacity | Boolean | — | 0.4 |
+| overlay-color | overlay color | String | — | #000 |
+| esc-press-close | press `ESC` whether the overlay can be close | Boolean | — | true |
+| append-body | whether the overlay is added to the body element, internal use | Boolean | — | true |
 
 ## Dialog Events
 
-| 名称 | 介绍 | 回调参数 |
+| Name | Description | Parameters |
 |------|------|-------|
-| close | 当点击遮盖层或者按 esc 键，需要关闭弹层时触发 | (reason) reason 关闭的原因  <br/> `overlay` : 点击了遮盖层 <br/> `esc` 按下 esc 键 |
+| close | when you click on the overlay or press esc, trigger when you need to close the shell | (reason) reason of close  <br/> `overlay` : clicked overlay <br/> `esc` press `esc` |
 
 <script>
 export default {

@@ -1,8 +1,8 @@
-# 轮播
+# Carousel
 
-`mu-carousel` 组件用于网站首页广告图切换。
+The `mu-carousel` component is used to switch the home page advertisements.
 
-## 示例
+## Example
 
 :::demo
 ```html
@@ -40,7 +40,7 @@ export default {
 ```
 :::
 
-## 渐变过渡
+## Gradient transitions
 
 :::demo
 ```html
@@ -78,7 +78,7 @@ export default {
 ```
 :::
 
-## 自定义指示器和控制器
+## Customizing indicators and controllers
 
 :::demo
 ```html
@@ -129,7 +129,7 @@ export default {
 ```
 :::
 
-## 隐藏控制器
+## Hide controllers
 
 :::demo
 ```html
@@ -169,34 +169,34 @@ export default {
 
 ## Carousel Props
 
-| 参数 | 介绍 | 类型 | 可选值 | 默认值 |
+| Attribute | Description | Type | Accepted values | Default |
 |------|------|------|------|------|
-| active | 激活的下标 | Number | — | 0 |
-| cycle | 是否周期性自动切换 | Boolean | — | true |
-| interval | 切换时间间隔 | Number  | — | 6000 |
-| transition | 过渡动画效果 | String | slide / fade | slide |
-| hide-indicators | 是否隐藏指示器 | Boolean | — | false |
-| hide-controls | 是否隐藏控制器 | Boolean | — | false |
+| active | active subscript | Number | — | 0 |
+| cycle | whether to automatically switch periodically | Boolean | — | true |
+| interval | toggle time interval | Number  | — | 6000 |
+| transition | transition animation effect | String | slide / fade | slide |
+| hide-indicators | whether to hide indicators | Boolean | — | false |
+| hide-controls | whether to hide controllers | Boolean | — | false |
 
 ## Carousel Events
 
-| 名称 | 介绍 | 回调函数 |
+| Name | Description | Parameters |
 |-----|------|--------|
-| change | 激活项变化时触发 | (index) |
+| change | trigger when activation item changes | (index) |
 
 ## Carousel Scoped Slots
 
-| 名称 | 介绍 | 参数 |
+| Name | Description | Parameters |
 |------|------|------|
-| indicator | 指示器 | { index, active } |
+| indicator | indicators | { index, active } |
 
 ## Carousel Slots
 
-| 名称  | 介绍 |
+| Name | Description |
 |------|------|
-| left | 左边控制器图标 |
-| right | 右边控制器图标 |
-| default | 轮播内容 |
+| left | left controller icon |
+| right | right controller icon |
+| default | carousel content |
 
 <script>
 import carouselImg1 from '../../assets/images/carousel1.jpg';

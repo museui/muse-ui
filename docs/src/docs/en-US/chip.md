@@ -1,8 +1,8 @@
-# 薄片
+# Chip
 
-`mu-chip` 是一种小块的用来呈现复杂实体的块，比如说日历的事件或联系人。它可以包含一张图片，一个短字符串(必要时可能被截取的字符串)，或者是其它的一些与实体对象有关的简洁的信息。
+`Mu-chip` is a small block that renders complex entities, such as contacts or events for a calendar. It can contain a picture, a short string (a string that may be intercepted if necessary), or some other concise information about an entity object.
 
-## 示例
+## Example
 
 :::demo
 ```html
@@ -40,7 +40,7 @@
 export default {
   methods: {
     handleClose () {
-      window.alert('你点击了删除按钮')
+      window.alert('You clicked the delete button.')
     }
   }
 }
@@ -98,18 +98,18 @@ export default {
 
 ## Chip Props
 
-| 参数 | 介绍 | 类型 | 可选值 | 默认值 |
+| Attribute | Description | Type | Accepted values | Default |
 |------|------|------|------|------|
-| color | chip 的颜色 | String | — | — |
-| text-color | chip 文字颜色 | String | — | — |
-| selected | 已选中状态 | Boolean | — | false |
-| delete | 显示删除的图标 | Boolean | — | false |
+| color | chip color | String | — | — |
+| text-color | chip font color | String | — | — |
+| selected | selected state | Boolean | — | false |
+| delete | display delete icon | Boolean | — | false |
 
 ## Chip Events
 
-| 名称 | 介绍 | 回调参数 |
+| Name | Description | Parameters |
 |------|------|-------|
-| delete | 点击删除图标时触发事件 | — |
+| delete | trigger event when clicking delete icon | — |
 
 <script>
 const initChips = ['primary', 'secondary', 'success', 'warning', 'info', 'error'];
@@ -121,7 +121,7 @@ export default {
   },
   methods: {
     handleClose () {
-      window.alert('你点击了删除按钮')
+      window.alert('You clicked delete button')
     },
     remove (index) {
       this.chips.splice(index, 1);

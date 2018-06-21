@@ -1,8 +1,8 @@
-# 扩展面板
+# Expansion panel
 
-`mu-expansion-panel` 包含创建流和允许轻量级编辑的一个元素。
+`Mu-expansion-panel` contains an element that creates a stream and allows lightweight editing.
 
-## 示例
+## Example
 
 :::demo
 ```html
@@ -25,7 +25,7 @@
 ```
 :::
 
-## 手风琴模式
+## Accordion mode
 
 :::demo
 ```html
@@ -63,20 +63,20 @@ export default {
 
 ## Expansion Panel Props
 
-| 参数 | 介绍 | 类型 | 可选值 | 默认值 |
+| Attribute | Description | Type | Accepted values | Default |
 |------|------|------|------|------|
-| expand | 是否展开，支持`.sync` 修饰符 | Boolean  | — | false |
-| zDepth | 阴影深度 | Number | 0-24 | 2 |
+| expand | whether to expand，support the `.sync` modifiter | Boolean  | — | false |
+| zDepth | shadow depth | Number | 0-24 | 2 |
 
 ## Expansion Panel Events
 
-| 名称 | 介绍 | 回调参数 |
+| Name | Description | Parameters |
 |------|------|-------|
-| change | 展开/收缩面板时触发事件 | (expand) |
+| change | trigger event when expanding/shrinking panel | (expand) |
 
 ## Expansion Panel Slots
 
-| 名称 | 介绍 |
+| Name | Description |
 |-----|------|
 | header | 面板头部插槽 |
 | action | 面板操作按钮插槽 |
