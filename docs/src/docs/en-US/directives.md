@@ -1,6 +1,6 @@
 # Directives
 
-Muse-UI provides `v-click-outside` 、 `v-resize` 、 `v-scroll` 、 `v-elevation` three directives.
+Muse-UI provides `v-click-outside`, `v-resize`, `v-scroll` and `v-elevation` four directives.
 
 
 ## ClickOutside
