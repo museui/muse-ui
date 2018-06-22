@@ -9,9 +9,9 @@ export default class Drag {
     this.ends = [];
     this.onlyTouch = onlyTouch;
     if (IS_TOUCH || onlyTouch) {
-      this.el.addEventListener('touchstart', this, false);
+      this.el.addEventListener('touchstart', this);
     } else {
-      this.el.addEventListener('mousedown', this, false);
+      this.el.addEventListener('mousedown', this);
     }
   }
   handleEvent (event) {
@@ -47,8 +47,12 @@ export default class Drag {
       time: new Date().getTime()
     };
     this.endPos = {};
-    document.addEventListener('touchmove', this, false);
-    document.addEventListener('touchend', this, false);
+    document.addEventListener('touchmove', this, {
+      passive: false
+    });
+    document.addEventListener('touchend', this, {
+      passive: false
+    });
     this.starts.map((func) => {
       func.call(this, this.startPos, event);
     });
@@ -70,8 +74,8 @@ export default class Drag {
   touchEnd (event) {
     this.endPos.time = new Date().getTime() - this.startPos.time;
 
-    document.removeEventListener('touchmove', this, false);
-    document.removeEventListener('touchend', this, false);
+    document.removeEventListener('touchmove', this);
+    document.removeEventListener('touchend', this);
     this.ends.map((func) => {
       func.call(this, this.endPos, event);
     });
@@ -84,8 +88,8 @@ export default class Drag {
       time: new Date().getTime()
     };
     this.endPos = {};
-    document.addEventListener('mousemove', this, false);
-    document.addEventListener('mouseup', this, false);
+    document.addEventListener('mousemove', this);
+    document.addEventListener('mouseup', this);
     this.starts.map((func) => {
       func.call(this, this.startPos, event);
     });
@@ -103,8 +107,8 @@ export default class Drag {
   }
 
   mouseEnd (event) {
-    document.removeEventListener('mousemove', this, false);
-    document.removeEventListener('mouseup', this, false);
+    document.removeEventListener('mousemove', this);
+    document.removeEventListener('mouseup', this);
 
     this.endPos.time = new Date().getTime() - this.startPos.time;
 
@@ -142,9 +146,9 @@ export default class Drag {
   }
   destory () {
     if (IS_TOUCH || this.onlyTouch) {
-      this.el.removeEventListener('touchstart', this, false);
+      this.el.removeEventListener('touchstart', this);
     } else {
-      this.el.removeEventListener('mousedown', this, false);
+      this.el.removeEventListener('mousedown', this);
     }
   }
 }
