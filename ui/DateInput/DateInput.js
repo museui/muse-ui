@@ -71,7 +71,7 @@ export default {
   data () {
     return {
       open: false,
-      date: this.value ? dayjs(this.value).toDate() : undefined
+      date: this.value ? dayjs(this.value).toDate() : new Date()
     };
   },
   methods: {
