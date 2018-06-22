@@ -311,9 +311,6 @@ function isMobile () {
     font-style: normal;
     color: @secondaryColor;
   }
-  .search-component {
-    text-transform: capitalize;
-  }
   .search-separator {
     margin: 0 8px;
   }

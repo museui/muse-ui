@@ -37,7 +37,7 @@ const langs = {
         indices = indices.concat(matches.map(match => {
           const isComponent = match[0].indexOf('##') < 0;
           const title = match[0].replace(/#{1,4}/, '').trim();
-          const index = { component, title };
+          const index = { component: getComponentName(component), title };
           index.ranking = isComponent ? 2 : 1;
           index.anchor = slugify(title);
           index.content = (match[1] || title).replace(/<[^>]+>/g, '');
@@ -61,3 +61,11 @@ const langs = {
     });
   });
 });
+
+function getComponentName (component) {
+  if (!component) return '';
+  return component.split('-').map((name) => {
+    if (!name) return;
+    return name.substring(0, 1).toUpperCase() + name.substring(1);
+  }).join('-');
+}
