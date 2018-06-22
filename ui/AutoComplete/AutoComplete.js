@@ -3,6 +3,8 @@ import clickOutSide from '../internal/directives/click-outside';
 import Popover from '../Popover';
 import { List, ListItem } from '../List';
 import keycode from 'keycode';
+import caseSensitiveFilter from './filter';
+import { isPromise } from '../utils';
 
 export default {
   name: 'mu-auto-complete',
@@ -18,6 +20,17 @@ export default {
     maxHeight: {
       type: [String, Number],
       default: 300
+    },
+    debounce: {
+      type: Number,
+      default: 200,
+      validator (val) {
+        return val > 0;
+      }
+    },
+    filter: {
+      type: Function,
+      default: caseSensitiveFilter
     },
     maxSearchResults: {
       type: Number,
@@ -40,35 +53,18 @@ export default {
   data () {
     return {
       open: false,
+      enableData: [],
       focusIndex: -1
     };
   },
-  computed: {
-    enableData () {
-      const results = [];
-      for (let i = 0; i < this.data.length; i++) {
-        const value = this.getValueByItem(this.data[i]);
-        if (value.toLowerCase().indexOf((this.value || '').toLowerCase()) !== -1) {
-          results.push(this.data[i]);
-        }
-        if (this.maxSearchResults && this.maxSearchResults === results.length) break;
-      }
-      return results;
-    }
-  },
   methods: {
-    setValue (item, e) {
+    setValue (value, item, e) {
       this.open = false;
       this.focusIndex = -1;
       if (!item) return;
-      const value = this.getValueByItem(item);
       this.$emit('input', value, e);
       this.$emit('select', value, item, e);
       this.$emit('change', value, e);
-    },
-    getValueByItem (item) {
-      if (!item) return '';
-      return typeof item === 'string' ? item : item.value;
     },
     onKeydown (e) {
       if (this.disabled || this.$attrs.readonly) return;
@@ -78,7 +74,8 @@ export default {
       switch (code) {
         case 'enter':
           if (this.focusIndex === -1) return;
-          this.setValue(this.enableData[this.focusIndex], e);
+          const { value, item } = this.enableData[this.focusIndex];
+          this.setValue(value, item, e);
           break;
         case 'up':
           event.preventDefault();
@@ -102,14 +99,32 @@ export default {
       this.$emit('keydown', e);
     },
     onInput (e) {
-      const val = e.target.value;
-      if (val) this.open = true;
-      this.$emit('input', val, e);
+      const value = e.target.value;
+      if (this.timer) clearTimeout(this.timer);
+      this.timer = setTimeout(() => {
+        this.filterData(value);
+      }, this.debounce);
+      this.$emit('input', value, e);
     },
     focus (e) {
       this.isFocused = true;
-      if (this.openOnFocus) this.open = true;
+      if (this.openOnFocus) this.filterData(this.value);
       this.$emit('focus', e);
+    },
+    filterData (val) {
+      this.open = true;
+      const results = this.filter(val, this.data, this.maxSearchResults);
+      switch (true) {
+        case Array.isArray(results):
+          this.enableData = results;
+          return;
+        case isPromise(results):
+          results.then((results) => {
+            this.enableData = Array.isArray(results) ? results : [];
+          });
+          return;
+      }
+      this.enableData = [];
     },
     blur (e) {
       this.isFocused = false;
@@ -167,7 +182,6 @@ export default {
           'maxHeight': this.maxHeight + 'px'
         }
       }, this.enableData.map((item, index) => {
-        const highlight = this.getHighlight(item);
         return h(ListItem, {
           staticClass: 'mu-option',
           class: {
@@ -178,41 +192,20 @@ export default {
             avatar: this.avatar
           },
           on: {
-            click: (e) => {
-              this.setValue(item, e);
-            }
+            click: (e) => this.setValue(item.value, item.item, e)
           }
         }, this.$scopedSlots.default ? this.$scopedSlots.default({
-          item,
-          highlight,
+          ...item,
           index
         }) : [
-          highlight.before,
           h('span', {
-            staticClass: 'mu-secondary-text-color'
-          }, highlight.highlight),
-          highlight.after
+            domProps: {
+              innerHTML: item.highlight
+            }
+          })
         ]);
       }));
     },
-    getHighlight (item) {
-      const value = this.getValueByItem(item);
-      if (!this.value || !this.open) return { before: value, highlight: '', after: '', html: value };
-      const index = value.toLowerCase().indexOf(this.value.toLowerCase());
-      const before = value.substring(0, index);
-      const highlight = value.substring(index, index + this.value.length);
-      const after = value.substring(index + this.value.length);
-      return {
-        before,
-        highlight,
-        after,
-        html: [
-          before,
-          `<span class="mu-secondary-text-color">${highlight}</span>`,
-          after
-        ].join('')
-      };
-    }
   },
   render (h) {
     const trigger = this.$refs.input;

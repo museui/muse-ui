@@ -75,7 +75,7 @@ export default {
               {{scope.item.substring(0, 1)}}
             </mu-avatar>
           </mu-list-item-action>
-          <mu-list-item-content v-html="scope.highlight.html"></mu-list-item-content>
+          <mu-list-item-content v-html="scope.highlight"></mu-list-item-content>
         </template>
       </mu-auto-complete>
     </mu-col>
@@ -87,7 +87,7 @@ export default {
               {{scope.item.substring(0, 1)}}
             </mu-avatar>
           </mu-list-item-action>
-          <mu-list-item-content v-html="scope.highlight.html"></mu-list-item-content>
+          <mu-list-item-content v-html="scope.highlight"></mu-list-item-content>
         </template>
       </mu-auto-complete>
     </mu-col>
@@ -99,7 +99,7 @@ export default {
               {{scope.item.substring(0, 1)}}
             </mu-avatar>
           </mu-list-item-action>
-          <mu-list-item-content v-html="scope.highlight.html"></mu-list-item-content>
+          <mu-list-item-content v-html="scope.highlight"></mu-list-item-content>
         </template>
       </mu-auto-complete>
     </mu-col>
