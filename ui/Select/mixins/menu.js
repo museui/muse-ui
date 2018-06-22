@@ -76,10 +76,10 @@ export default {
     },
     openMenu () {
       this.open = true;
+      this.resetOptionVisable();
       const selectedIndex = this.getSelectedIndex();
       this.setFocusIndex(selectedIndex);
       setTimeout(() => this.setScollPosition(selectedIndex), 0);
-      this.resetOptionVisable();
       if (this.autoComplete) {
         this.$nextTick(() => {
           this.$refs.input.select();
