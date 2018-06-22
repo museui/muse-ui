@@ -205,7 +205,7 @@ export default {
           })
         ]);
       }));
-    },
+    }
   },
   render (h) {
     const trigger = this.$refs.input;
