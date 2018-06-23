@@ -104,7 +104,7 @@ export default {
     },
     createLabel (h) {
       const labelWidth = getWidth(this.labelWidth || this.muForm.labelWidth);
-      const value = this.muForm.model[this.prop];
+      const value = this.muForm.model && this.prop && this.muForm.model[this.prop];
       return h('div', {
         staticClass: 'mu-form-item-label',
         class: {
