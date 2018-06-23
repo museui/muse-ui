@@ -18,9 +18,9 @@
     "lint": "eslint --ext .js,.vue ui",
     "test": "NODE_ENV=test jest -i",
     "test:coverage": "NODE_ENV=test jest -i --coverage",
-    "precommit": "yarn run lint",
     "prepush": "yarn run lint",
-    "commit": "commit"
+    "commit": "npx git-cz",
+    "commitmsg": "commitlint -E GIT_PARAMS"
   },
   "peerDependencies": {
     "vue": "^2.5.0"
@@ -56,6 +56,7 @@
     "file-loader": "^1.1.4",
     "friendly-errors-webpack-plugin": "^1.6.1",
     "html-webpack-plugin": "^2.30.1",
+    "husky": "^0.14.3",
     "jest": "^22.4.3",
     "jest-cli": "^22.4.3",
     "jest-css-modules": "^1.1.0",
