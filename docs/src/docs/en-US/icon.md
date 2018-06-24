@@ -11,13 +11,13 @@
   margin: 6px 8px;
 }
 </style>
-# 图标
+# Icon
 
-`Muse-UI` 推荐使用 Google 的 Material 字体图标库，有关所有可用图标的列表，请访问官方的[Material Icons](https://material.io/icons/)页面。
+`Muse-ui` recommends using Google's Material font icon Library, and for a list of all available icons, please visit the official [Material Icons] (https://material.io/icons/) page.
 
-## 使用示例
+## Example
 
-使用 `value` 属性定义 icon, `size` 属性定义大小.
+Use the `value` attribute to define the icon, and the `Size` property defines the size.
 
 ::: demo
 ```html
@@ -60,9 +60,9 @@
 ```
 :::
 
-## 配合按钮使用
+## Use with button
 
-通过 `left` 和 `right` 来设置图标在此位置时的样式
+Use `left` and `right` to set the style of the icon at this location.
 
 :::demo
 ```html
@@ -102,9 +102,9 @@
 ```
 :::
 
-## 对于其它图标库的支持
+## Support for other icon libraries
 
-使用其它图标库时，需要增加 `:` 前缀
+Additional `:` prefix required when using other icon libraries.
 
 :::demo
 ```html
@@ -121,10 +121,10 @@
 
 ## Icon Props
 
-| 参数 | 介绍 | 类型 | 可选值 | 默认值 |
+| Attribute | Description | Type | Accepted values | Default |
 |------|------|------|------|------|
-| value | 图标名称 | String | — | — |
-| size | 图标大小 | String,Number | — | 24 |
-| left | 图标在左边 | Boolean | — | false |
-| right | 图标在右边 | Boolean | — | false |
-| color | 图标的颜色 | String | — | — |
+| value | icon name | String | — | — |
+| size | icon size | String,Number | — | 24 |
+| left | icon on the left | Boolean | — | false |
+| right | icon on the right | Boolean | — | false |
+| color | icon color | String | — | — |

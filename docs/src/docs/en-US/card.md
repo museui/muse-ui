@@ -1,9 +1,9 @@
-# 卡片
+# Card
 
-`mu-card` 卡片是包含一组特定数据集的纸片，数据集含有各种相关信息，例如，关于单一主题的照片，文本，和链接。卡片通常是通往更详细复杂信息的入口。卡片有固定的宽度和可变的高度。最大高度限制于可适应平台上单一视图的内容，但如果需要它可以临时扩展（例如，显示评论栏）。卡片不会翻转以展示其背后的信息。
+The `mu-card` card is a piece of paper containing a specific set of data. The dataset contains a variety of related information, such as photos, texts, and links on a single subject. Cards are often the gateway to more detailed and complex information. The card has a fixed width and variable height. The maximum height is limited to content that can adapt to a single view on the platform, but it can be temporarily expanded if needed (for example, to display a comment bar). The card will not flip to reveal the information behind it.
 
 
-## 示例
+## Example
 
 :::demo
 ```html
@@ -35,34 +35,34 @@
 
 ## Card Props
 
-| 参数 | 介绍 | 类型 | 可选值 | 默认值 |
+| Attribute | Description | Type | Accepted values | Default |
 |------|------|------|------|------|
-| raised | 加深阴影度 | Boolean | — | — |
+| raised | deepen the shadow | Boolean | — | — |
 
 ## Card Header Props
 
-| 参数 | 介绍 | 类型 | 可选值 | 默认值 |
+| Attribute | Description | Type | Accepted values | Default |
 |------|------|------|------|------|
-| title | 标题 | String | — | — |
-| sub-title | 子标题 | String | — | — |
+| title | title | String | — | — |
+| sub-title | subtitle | String | — | — |
 
 ## Card Header Slots
 
-| 名称 | 介绍 |
+| Name | Description |
 |------|------|
-| avatar | 头像部位的插槽 |
+| avatar | avatar slot |
 | default | — |
 
 ## Card Media Props
 
-| 参数 | 介绍 | 类型 | 可选值 | 默认值 |
+| Attribute | Description | Type | Accepted values | Default |
 |------|------|------|------|------|
-| title | 标题 | String | — | — |
-| sub-title | 子标题 | String | — | — |
+| title | title | String | — | — |
+| sub-title | subtitle | String | — | — |
 
 ## Card Title Props
 
-| 参数 | 介绍 | 类型 | 可选值 | 默认值 |
+| Attribute | Description | Type | Accepted values | Default |
 |------|------|------|------|------|
-| title | 标题 | String | — | — |
-| sub-title | 子标题 | String | — | — |
+| title | title | String | — | — |
+| sub-title | subtitle | String | — | — |

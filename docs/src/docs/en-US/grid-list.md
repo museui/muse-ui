@@ -1,8 +1,8 @@
-# 网格列表
+# Grid list
 
-`mu-grid-list` 网格列表是一种标准列表视图的可选组件。网格列表与应用于布局和其他可视视图中的网格有着明显的区别。
+The `mu-grid-list` grid list is an optional component of a standard list view. The grid list is significantly different from the grid applied to the layout and other visual views.
 
-## 示例
+## Example
 
 :::demo
 ```html
@@ -88,9 +88,9 @@ export default {
 ```
 :::
 
-## 不同位置
+## Different positions
 
-通过定义 `rows` 和 `cols` 来定义每个 `grid-tile` 的空间， 通过 `title-position` 改变 title 的位置，`action-position` 改变 action 位置。
+By defining `rows` and `cols` to define the space for each `grid-tile`, change the position of title by `title-position` and `action-position` change the position of the action.
 
 :::demo
 ```html
@@ -172,9 +172,9 @@ export default {
 :::
 
 
-## 在一行显示
+## Show on a row
 
-通过外部 class 调整成一行的网格列表
+A grid list that adjusts to a row by external class.
 
 :::demo
 ```html
@@ -249,31 +249,31 @@ export default {
 
 ## Grid List Props
 
-| 参数 | 介绍 | 类型 | 可选值 | 默认值 |
+| Attribute | Description | Type | Accepted values | Default |
 |------|------|------|------|------|
-| cell-height | 网格的高度 | Number | 180 |
-| cols | 每一行的列数 | Number | 2 |
-| padding | 每个网格的 `padding` | Number | 4 |
+| cell-height | grid height | Number | 180 |
+| cols | number of columns per row | Number | 2 |
+| padding | the `padding` of each grid | Number | 4 |
 
 ## Grid Tile Props
 
-| 参数 | 介绍 | 类型 | 可选值 | 默认值 |
+| Attribute | Description | Type | Accepted values | Default |
 |------|------|------|------|------|
-| cols | 占的列数, 会根据此参数计算宽度 | Number | — | 1 |
-| rows | 占的行数, 会根据此参数计算高度 | Number | — | 1 |
-| title | 标题文字，也可以通过 `slot="title"` 来设置 | String | — | — |
-| sub-title | 子标题文字，也可以通过 `slot="subTitle"` 来设置 | String | — | — |
-| title-position | 标题栏的位置 | String | top/bottom | bottom |
-| action-position | 动作按钮的位置 | String | left/right | right |
+| cols | the number of cols, calculate the width based on this parameter | Number | — | 1 |
+| rows | the number of rows, calculate the height based on this parameter | Number | — | 1 |
+| title | title text，set by `slot="subtitle"` | String | — | — |
+| sub-title | subtitle text，set by `slot="subtitle"` | String | — | — |
+| title-position | title position | String | top/bottom | bottom |
+| action-position | action button position | String | left/right | right |
 
 ## Grid Tile Slots
 
-| 名称 | 介绍 |
+| Name | Description |
 |------|------|
-| title | 标题文字插槽 |
-| subTitle | 子标题文字插槽 |
-| action | 动作按钮插槽 |
-| default | 用于放置图片等元素 |
+| title | title text slot |
+| subTitle | subtitle text slot |
+| action | action button slot |
+| default | used to place elements such as pictures |
 
 <script>
 import breakfast from '../../assets/images/breakfast.jpg';
