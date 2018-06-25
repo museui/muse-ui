@@ -154,6 +154,8 @@ export default {
 | Attribute | Description | Type | Accepted values | Default |
 |------|------|------|------|------|
 | data | prompt input data | Array | — | — |
+| filter | 搜索数据函数, 返回一个数组作为搜索显示结果 [{value, item, highlight }] | Function<value, data, maxSearchResults> | — | — |
+| debounce | 搜索触发防抖动时间 | Number | — | 200 |
 | max-height | maximum height of pop-up box | Number/String | 300 |
 | max-search-results | maximum display of search results | Number | — |
 | open-on-focus | whether to open prompt input list when focus | Boolean | — |
