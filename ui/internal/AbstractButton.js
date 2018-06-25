@@ -170,7 +170,9 @@ export default {
         children = [h(TouchRipple, {
           class: this.wrapperClass,
           style: this.wrapperStyle,
+          ref: 'ripple',
           props: {
+            autoBind: false,
             color: this.rippleColor,
             centerRipple: this.centerRipple,
             opacity: this.rippleOpacity
@@ -230,10 +232,31 @@ export default {
       } : {},
       [tagName === 'router-link' ? 'nativeOn' : 'on']: {
         ...this.$listeners,
+        mouseup: (e) => {
+          this.$refs.ripple && this.$refs.ripple.end(e);
+          this.$emit('mouseup', e);
+        },
+        mousedown: (e) => {
+          this.$refs.ripple && this.$refs.ripple.handleMouseDown(e);
+          this.$emit('mousedown', e);
+        },
         mouseenter: this.handleHover,
-        mouseleave: this.handleOut,
-        touchend: this.handleOut,
-        touchcancel: this.handleOut,
+        mouseleave: (e) => {
+          this.$refs.ripple && this.$refs.ripple.end(e);
+          this.handleOut(e);
+        },
+        touchstart: (e) => {
+          this.$refs.ripple && this.$refs.ripple.handleTouchStart(e);
+          this.$emit('touchstart', e);
+        },
+        touchend: (e) => {
+          this.$refs.ripple && this.$refs.ripple.end(e);
+          this.handleOut(e);
+        },
+        touchcancel: (e) => {
+          this.$refs.ripple && this.$refs.ripple.end(e);
+          this.handleOut(e);
+        },
         click: this.handleClick,
         focus: this.handleFocus,
         blur: this.handleBlur,

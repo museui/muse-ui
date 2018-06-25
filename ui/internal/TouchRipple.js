@@ -13,6 +13,10 @@ export default {
       type: String,
       default: 'div'
     },
+    autoBind: {
+      type: Boolean,
+      default: true
+    },
     color: {
       type: String,
       default: ''
@@ -123,15 +127,16 @@ export default {
     }
   },
   render (h) {
+    const listeners = this.autoBind ? {
+      mousedown: this.handleMouseDown,
+      mouseup: this.end,
+      mouseleave: this.end,
+      touchstart: this.handleTouchStart,
+      touchend: this.end,
+      touchcancel: this.end
+    } : {};
     return h(this.tag, {
-      on: {
-        mousedown: this.handleMouseDown,
-        mouseup: this.end,
-        mouseleave: this.end,
-        touchstart: this.handleTouchStart,
-        touchend: this.end,
-        touchcancel: this.end
-      }
+      on: listeners
     }, [h('div', {
       class: this.rippleWrapperClass,
       attrs: {
