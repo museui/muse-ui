@@ -1,7 +1,7 @@
 module.exports = {
   verbose: false,
   roots: [
-    '<rootDir>/ui'
+    '<rootDir>/src'
   ],
   moduleFileExtensions: [
     'js',

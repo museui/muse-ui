@@ -1,12 +1,7 @@
 node_modules
-build
-config
-static
 docs
 demo
-src-docs
 coverage
-ui
 rollup.config.js
 yarn.lock
 .DS_Store

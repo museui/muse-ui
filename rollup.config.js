@@ -14,7 +14,7 @@ const plugins = [
   commonjs(),
   babel({
     babelrc: false,
-    include: 'ui/**',
+    include: 'src/**',
     runtimeHelpers: true,
     presets: [
       [
@@ -33,7 +33,7 @@ const plugins = [
 ];
 
 export default [{
-  input: 'ui/index.js',
+  input: 'src/index.js',
   output: [{
     banner,
     file: `dist/${name}.common.js`,
@@ -46,7 +46,7 @@ export default [{
   plugins: plugins,
   external: ['vue']
 }, {
-  input: 'ui/index.js',
+  input: 'src/index.js',
   output: {
     file: `dist/${name}.js`,
     format: 'umd',
