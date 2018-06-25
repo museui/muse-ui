@@ -1,7 +1,16 @@
 # 更新日志
 
 <mu-stepper orientation="vertical" :linear="false">
-<mu-step active>
+  <mu-step active>
+    <mu-step-label>
+      <mu-icon value="panorama_fish_eye" color="primary" slot="icon"></mu-icon>
+      <span class="version-title">3.0.0-rc.3</span>
+    </mu-step-label>
+    <mu-step-content >
+      <v3-0-0-rc3></v3-0-0-rc3>
+    </mu-step-content>
+  </mu-step>
+  <mu-step active>
     <mu-step-label>
       <mu-icon value="panorama_fish_eye" color="primary" slot="icon"></mu-icon>
       <span class="version-title">3.0.0-rc.1</span>
@@ -70,6 +79,7 @@ import V3Beta3 from './version/3.0.0-beta.3.md';
 import V3Beta4 from './version/3.0.0-beta.4.md';
 import V3Beta6 from './version/3.0.0-beta.6.md';
 import V3Rc1 from './version/3.0.0-rc.1.md';
+import V3Rc3 from './version/3.0.0-rc.3.md';
 
 export default {
   components: {
@@ -78,7 +88,8 @@ export default {
     'v3-0-0-beta3': V3Beta3,
     'v3-0-0-beta4': V3Beta4,
     'v3-0-0-beta6': V3Beta6,
-    'v3-0-0-rc1': V3Rc1
+    'v3-0-0-rc1': V3Rc1,
+    'v3-0-0-rc3': V3Rc3
   }
 }
 </script>
