@@ -96,10 +96,6 @@ export default {
           this.draging = true;
           drager.reset(event);
         }
-        if (this.draging && pos.y > 0) {
-          event.preventDefault();
-          event.stopPropagation();
-        }
         this.y = pos.y / 2;
         if (this.y < 0) this.y = 1;
         if (this.y > LENGTH) this.y = LENGTH;
@@ -123,7 +119,7 @@ export default {
       this.handlePrevent = event => {
         if (this.draging && this.y > 0) event.preventDefault();
       };
-      this.trigger.addEventListener('touchmove', this.handlePrevent);
+      this.trigger.addEventListener('touchmove', this.handlePrevent, { passive: false });
     },
     unbindDrag () {
       if (!this.drager) return;

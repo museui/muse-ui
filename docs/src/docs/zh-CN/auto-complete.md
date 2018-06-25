@@ -75,7 +75,7 @@ export default {
               {{scope.item.substring(0, 1)}}
             </mu-avatar>
           </mu-list-item-action>
-          <mu-list-item-content v-html="scope.highlight.html"></mu-list-item-content>
+          <mu-list-item-content v-html="scope.highlight"></mu-list-item-content>
         </template>
       </mu-auto-complete>
     </mu-col>
@@ -87,7 +87,7 @@ export default {
               {{scope.item.substring(0, 1)}}
             </mu-avatar>
           </mu-list-item-action>
-          <mu-list-item-content v-html="scope.highlight.html"></mu-list-item-content>
+          <mu-list-item-content v-html="scope.highlight"></mu-list-item-content>
         </template>
       </mu-auto-complete>
     </mu-col>
@@ -99,7 +99,7 @@ export default {
               {{scope.item.substring(0, 1)}}
             </mu-avatar>
           </mu-list-item-action>
-          <mu-list-item-content v-html="scope.highlight.html"></mu-list-item-content>
+          <mu-list-item-content v-html="scope.highlight"></mu-list-item-content>
         </template>
       </mu-auto-complete>
     </mu-col>
@@ -154,6 +154,8 @@ export default {
 | 参数 | 介绍 | 类型 | 可选值 | 默认值 |
 |------|------|------|------|------|
 | data | 提示的输入的数据 | Array | — | — |
+| filter | 搜索数据函数, 返回一个数组作为搜索显示结果 [{value, item, highlight }] | Function<value, data, maxSearchResults> | — | — |
+| debounce | 搜索触发防抖动时间 | Number | — | 200 |
 | max-height | 弹出框的最大高度 | Number/String | 300 |
 | max-search-results | 最大显示搜索结果数 | Number | — |
 | open-on-focus | 是否在 focus 时打开提示输入列表 | Boolean | — |
@@ -194,7 +196,7 @@ export default {
 
 | 名称 | 介绍 | 参数 |
 |------|------|------|
-| — | 选项的插槽 | { item, index, highlight }  |
+| — | 选项的插槽 | { item, index, value, highlight }  |
 
 <script>
 const fruits = [

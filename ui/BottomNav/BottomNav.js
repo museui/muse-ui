@@ -44,10 +44,11 @@ export default {
     }
   },
   watch: {
-    val (val) {
+    value (val) {
       this.activeValue = val;
     },
     activeValue (val) {
+      if (val === this.value) return;
       this.$emit('update:value', val);
       this.$emit('change', val);
     }

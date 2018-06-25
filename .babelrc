@@ -7,8 +7,12 @@
   "comments": false,
   "env": {
     "test": {
-      "presets": ["env", "stage-2"],
-      "plugins": [ "istanbul" ]
+      "presets": [[
+        "env", {
+          "modules": false
+        }
+      ], "stage-2"],
+      "plugins": [ "istanbul", "transform-runtime"]
     }
   }
 }

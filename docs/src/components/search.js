@@ -29,29 +29,34 @@ export default {
     },
     search (text) {
       if (!text || !this.locale) return;
-      this.index.search({ query: text, hitsPerPage: 8 }, (err, res) => {
-        if (err) {
-          console.error(err);
-          return;
-        }
-        this.data = res.hits.map(hit => {
-          let content = hit._highlightResult.content.value.replace(/\s+/g, ' ');
-          const highlightStart = content.indexOf('<em>');
-          if (highlightStart > -1) {
-            const startEllipsis = highlightStart - 15 > 0;
-            content = (startEllipsis ? '...' : '') +
-              content.slice(Math.max(0, highlightStart - 15), content.length);
-          } else if (content.indexOf('|') > -1) {
-            content = '';
+      return new Promise((resolve, reject) => {
+        this.index.search({ query: text, hitsPerPage: 8 }, (err, res) => {
+          if (err) {
+            console.error(err);
+            return;
           }
-          return {
-            value: hit.title + hit.content + hit.component,
-            title: hit._highlightResult.title.value,
-            highlightedCompo: hit._highlightResult.component.value,
-            anchor: hit.anchor,
-            content: content,
-            component: hit.component
-          };
+          this.data = res.hits.map(hit => {
+            let content = hit._highlightResult.content.value.replace(/\s+/g, ' ');
+            const highlightStart = content.indexOf('<em>');
+            if (highlightStart > -1) {
+              const startEllipsis = highlightStart - 15 > 0;
+              content = (startEllipsis ? '...' : '') +
+                content.slice(Math.max(0, highlightStart - 15), content.length);
+            } else if (content.indexOf('|') > -1) {
+              content = '';
+            }
+            return {
+              value: hit.content,
+              item: {
+                title: hit._highlightResult.title.value,
+                highlightedCompo: hit._highlightResult.component.value,
+                anchor: hit.anchor,
+                content: content,
+                component: hit.component
+              }
+            };
+          });
+          resolve(this.data);
         });
       });
     }
@@ -62,21 +67,17 @@ export default {
       ref: 'input',
       props: {
         solo: true,
-        data: this.data,
         value: this.searchText,
         placement: 'bottom-end',
         textline: 'two-line',
         popoverClass: 'mu-search-popover',
         maxHeight: 500 - 36,
         space: 8,
-        dense: false
+        dense: false,
+        filter: this.search
       },
       on: {
-        input: (val) => {
-          this.searchText = val;
-          if (this.timer) clearTimeout(this.timer);
-          this.timer = setTimeout(() => this.search(this.searchText), 200);
-        },
+        input: (value) => (this.searchText = value),
         select: (value, item) => {
           this.searchText = '';
           this.$refs.input.blur();

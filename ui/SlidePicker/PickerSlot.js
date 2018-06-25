@@ -97,8 +97,6 @@ export default {
     },
     handleMove (pos, drag, event) {
       const el = this.$refs.wrapper;
-      event.preventDefault();
-      event.stopPropagation();
       const translate = this.startTop + pos.y;
       translateUtil.translateElement(el, 0, translate);
       this.velocityTranslate = translate - this.prevTranslate || translate;

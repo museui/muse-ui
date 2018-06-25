@@ -22,15 +22,18 @@ export default {
   methods: {
     show () {
       if (this.timer) clearTimeout(this.timer);
-      this.active = true;
-      this.$emit('open');
+      this.timer = setTimeout(() => {
+        this.active = true;
+        this.$emit('open');
+      }, 200);
     },
     hide () {
       if (this.timer) clearTimeout(this.timer);
+      if (!this.active) return;
       this.timer = setTimeout(() => {
         this.active = false;
         this.$emit('close');
-      }, 200);
+      });
     },
     createPopover (h) {
       return h(Popover, {

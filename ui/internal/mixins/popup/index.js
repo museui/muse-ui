@@ -37,12 +37,12 @@ export default {
   },
   methods: {
     overlayClick (e) {
-      if (!this.overlay || !this.overlayClose) return;
+      if (!this.overlay || !this.overlayClose || !this.open) return;
       this.$emit('update:open', false);
       this.$emit('close', 'overlay');
     },
     escPress (e) {
-      if (!this.escPressClose) return;
+      if (!this.escPressClose || !this.open) return;
       this.$emit('update:open', false);
       this.$emit('close', 'esc');
     },
