@@ -1,8 +1,8 @@
-# 表单
+# Form
 
-`mu-form` 、`mu-form` 用于实现表单布局以及提供简单的验证功能。
+`Mu-form` is used to implement form layouts and provide simple validation features.
 
-## 示例
+## Example
 
 :::demo
 ```html
@@ -79,24 +79,24 @@ export default {
 ```
 :::
 
-## 表单验证
+## Form validation
 
 :::demo
 ```html
 <mu-container>
   <mu-form ref="form" :model="validateForm" class="mu-demo-form">
-    <mu-form-item label="用户名" help-text="帮助文字" prop="username" :rules="usernameRules">
+    <mu-form-item label="username" help-text="help text" prop="username" :rules="usernameRules">
       <mu-text-field v-model="validateForm.username" prop="username"></mu-text-field>
     </mu-form-item>
-    <mu-form-item label="密码" prop="password" :rules="passwordRules">
+    <mu-form-item label="password" prop="password" :rules="passwordRules">
         <mu-text-field type="password" v-model="validateForm.password" prop="password"></mu-text-field>
     </mu-form-item>
     <mu-form-item prop="isAgree" :rules="argeeRules">
-      <mu-checkbox label="同意用户协议" v-model="validateForm.isAgree"></mu-checkbox>
+      <mu-checkbox label="agreed to the user agreement" v-model="validateForm.isAgree"></mu-checkbox>
     </mu-form-item>
     <mu-form-item>
-      <mu-button color="primary" @click="submit">提交</mu-button>
-      <mu-button @click="clear">重置</mu-button>
+      <mu-button color="primary" @click="submit">submit</mu-button>
+      <mu-button @click="clear">reset</mu-button>
     </mu-form-item>
   </mu-form>
 </mu-container>
@@ -105,14 +105,14 @@ export default {
   data () {
     return {
       usernameRules: [
-        { validate: (val) => !!val, message: '必须填写用户名'},
-        { validate: (val) => val.length >= 3, message: '用户名长度大于3'}
+        { validate: (val) => !!val, message: 'Username must be filled in'},
+        { validate: (val) => val.length >= 3, message: 'Username length greater than 3'}
       ],
       passwordRules: [
-        { validate: (val) => !!val, message: '必须填写密码'},
-        { validate: (val) => val.length >= 3 && val.length <= 10, message: '密码长度大于3小于10'}
+        { validate: (val) => !!val, message: 'Password must be filled in'},
+        { validate: (val) => val.length >= 3 && val.length <= 10, message: 'Password length must be greater than 3 and less than 10'}
       ],
-      argeeRules: [{ validate: (val) => !!val, message: '必须同意用户协议'}],
+      argeeRules: [{ validate: (val) => !!val, message: 'Must agree with user agreement'}],
       validateForm: {
         username: '',
         password: '',
@@ -148,42 +148,42 @@ export default {
 
 ## Form Props
 
-| 参数 | 介绍 | 类型 | 可选值 | 默认值 |
+| Attribute | Description | Type | Accepted values | Default |
 |------|------|------|------|------|
-| model | 表单数据对象 | Object | — | — |
-| inline | 是否为行内表单 | Boolean | — | — |
-| label-width | 标签宽度 |  String,Number | — | — |
-| label-position | 标签位置 | String | top / left / right | top |
-| auto-validate | 是否自动验证表单 | Boolean | — | true |
+| model | form data objects | Object | — | — |
+| inline | whether it is an inline form | Boolean | — | — |
+| label-width | label width |  String,Number | — | — |
+| label-position | label position | String | top / left / right | top |
+| auto-validate | whether to automatically verify the form | Boolean | — | true |
 
 ## Form Methods
 
-| 名称 | 介绍 | 参数 |
+| Name | Description | Parameters |
 |-----|------|-----|
-| validate | 启动表单验证，返回一个Promise 对象 | — |
-| clear | 清空表单验证结果信息 | — |
+| validate | start form validation and return a Promise object  | — |
+| clear | clear form verification result information | — |
 
 
 ## Form Item Props
 
-| 参数 | 介绍 | 类型 | 可选值 | 默认值 |
+| Attribute | Description | Type | Accepted values | Default |
 |------|------|------|------|------|
-| prop | 表单域 model 字段，在使用 validate 方法的情况下，该属性是必填的 | String | — | — |
-| icon | 图标 | String | — | — |
-| label | 文本标签 | String | — | — |
-| label-float | 标签是否浮动 | Boolean | - | false |
-| label-width | 标签宽度 |  String,Number | — | — |
-| label-position | 标签位置 | String | top / left / right | top |
-| rules | 表单验证规则 { validate: (val, model) , message: ''} | Array | — | — |
-| help-text | 帮助文字 | String | — | — |
-| error-text | 错误信息，设置该值会使表单验证状态变为error，并显示该错误信息 | String | — | — |
+| prop | form field model field, which is required when using the validate method | String | — | — |
+| icon | icon | String | — | — |
+| label | font label | String | — | — |
+| label-float | whether the label floats | Boolean | - | false |
+| label-width | label width |  String,Number | — | — |
+| label-position | label position | String | top / left / right | top |
+| rules | form validation rules { validate: (val, model) , message: ''} | Array | — | — |
+| help-text | help text | String | — | — |
+| error-text | error message, setting this value causes the form validation status to become error and displays the error message | String | — | — |
 
 ## Form Item Slots
 
-| 名称 | 介绍 |
+| Name | Description |
 |------|------|
-| label | 表单标签插槽 |
-| — | 表单输入组件插槽 |
+| label | form label slots |
+| — | form input component slots |
 
 <script>
 export default {
@@ -206,14 +206,14 @@ export default {
         textarea: ''
       },
       usernameRules: [
-        { validate: (val) => !!val, message: '必须填写用户名'},
-        { validate: (val) => val.length >= 3, message: '用户名长度大于3'}
+        { validate: (val) => !!val, message: 'Username must be filled in'},
+        { validate: (val) => val.length >= 3, message: 'Username must be greater than 3'}
       ],
       passwordRules: [
-        { validate: (val) => !!val, message: '必须填写密码'},
-        { validate: (val) => val.length >= 3 && val.length <= 10, message: '密码长度大于3小于10'}
+        { validate: (val) => !!val, message: 'Password must be filled in'},
+        { validate: (val) => val.length >= 3 && val.length <= 10, message: 'Password length must be greater than 3 and less than 10'}
       ],
-      argeeRules: [{ validate: (val) => !!val, message: '必须同意用户协议'}],
+      argeeRules: [{ validate: (val) => !!val, message: 'Must agree with user agreement'}],
       validateForm: {
         username: '',
         password: '',

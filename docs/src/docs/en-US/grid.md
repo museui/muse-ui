@@ -1,10 +1,10 @@
-# 栅格布局
+# Grid layout
 
-Muse-UI 使用 [Bootstrap 4.0](https://getbootstrap.com/docs/4.0/layout/grid/) 的栅格系统，以移动端优先原则，基于 flex box 布局设计的栅格布局。
+Muse-ui uses the [Bootstrap 4.0] (https://getbootstrap.com/docs/4.0/layout/grid/) grid system to move the end-priority principle, based on the Flex box layout design of the grid layout.
 
-## 基础布局
+## Basic layout
 
-通过 row 和 col 组件，并通过 col 组件的 span 属性我们就可以自由地组合布局。
+With the row and col components, and through the span properties of the col component, we are free to combine the layout.
 
 :::demo
 ```html
@@ -58,9 +58,9 @@ Muse-UI 使用 [Bootstrap 4.0](https://getbootstrap.com/docs/4.0/layout/grid/) �
 ```
 :::
 
-## 间隔
+## Gap
 
-每一个 `col` 存在间隔，通过设置 `gutter` 实现。
+Each `col` has an gap, set by `gutter`.
 
 :::demo
 ```html
@@ -102,9 +102,9 @@ Muse-UI 使用 [Bootstrap 4.0](https://getbootstrap.com/docs/4.0/layout/grid/) �
 ```
 :::
 
-## 偏移
+## Offset
 
-通过设置 `col` 组件的 `offset` 属性可以指定偏移的格数
+You can specify the number of cells to offset by setting the `offset` property of the `col` component.
 
 :::demo
 ```html
@@ -142,9 +142,9 @@ Muse-UI 使用 [Bootstrap 4.0](https://getbootstrap.com/docs/4.0/layout/grid/) �
 ```
 :::
 
-## 响应式布局
+## Responsive layout
 
-预设了四个响应尺寸：sm、md、lg 和 xl
+Presets four response sizes: sm, md, lg, and xl.
 
 :::demo
 ```html
@@ -161,37 +161,37 @@ Muse-UI 使用 [Bootstrap 4.0](https://getbootstrap.com/docs/4.0/layout/grid/) �
 
 ## Container Props
 
-| 参数 | 介绍 | 类型 | 可选值 | 默认值 |
+| Attribute | Description | Type | Accepted values | Default |
 |------|------|------|------|------|
-| fluid | 是否是流体布局，设置之后 container 的 width 不会响应式改变，恒为 100% | Boolean | — | false |
+| fluid | whether it is a fluid layout, the width of the container will not be changed after the setting, and the constant is 100% | Boolean | — | false |
 
 ## Row Props
 
-| 参数 | 介绍 | 类型 | 可选值 | 默认值 |
+| Attribute | Description | Type | Accepted values | Default |
 |------|------|------|------|------|
-| tag | 渲染之后的 dom 标签名称 | String | — | div |
-| gutter | 是否有间隔 | Boolean | — | false |
-| wrap | 指定 flex 元素单行显示还是多行显示 | String | wrap/nowrap/wrap-reverse | nowrap |
-| fill | 此 flex 元素是否填充满剩余空间， 设置为 true, 则 `flex: 1 1 auto`  | Boolean | — | false |
-| justify-content | 定义了主轴的 flex 元素对齐方式 | String | start/center/end/between/around | start |
-| align-items | 定义了侧轴方向上将当前行上的 flex 元素对齐方式 | String | start/center/end/baseline/stretch | start |
-| align-content | 定义了当作为一个 flex box 容器的属性时，浏览器如何在容器的侧轴围绕弹性盒子项目分配空间。 | String | start/center/end/between/around/stretch | — |
-| align-self | 对齐当前 flex 行中的 flex 元素，并覆盖 align-items 的值. 如果任何 flex 元素的侧轴方向 margin 值设置为 auto，则会忽略 align-self。 | String | auto/start/center/end/baseline/stretch | — |
+| tag | the DOM tag name after rendering | String | — | div |
+| gutter | whether is a gap | Boolean | — | false |
+| wrap | specify whether the flex element single-line display or multiline display | String | wrap/nowrap/wrap-reverse | nowrap |
+| fill | whether this flex element fills the remaining space, set to true, then `flex: 1 1 auto`  | Boolean | — | false |
+| justify-content | define the flex element alignment for the spindle | String | start/center/end/between/around | start |
+| align-items | define the flex element alignment on the current line in the direction of the side axis | String | start/center/end/baseline/stretch | start |
+| align-content | define how the browser allocates space around an flexible box item on the side axis of a container when it is a property of a flex box container. | String | start/center/end/between/around/stretch | — |
+| align-self | Aligns the flex elements in the current flex line and overwrites the align-items values. Align-self is ignored if the side axis orientation of any flex element is set to auto margin value. | String | auto/start/center/end/baseline/stretch | — |
 
 ## Col Props
 
-| 参数 | 介绍 | 类型 | 可选值 | 默认值 |
+| Attribute | Description | Type | Accepted values | Default |
 |------|------|------|------|------|
-| tag | 渲染之后的 dom 标签名称 | String | — | div |
-| align-self | 对齐当前 flex 行中的 flex 元素，并覆盖 align-items 的值. 如果任何 flex 元素的侧轴方向 margin 值设置为 auto，则会忽略 align-self。 | String | auto/start/center/end/baseline/stretch | — |
-| fill | 此 flex 元素是否填充满剩余空间， 设置为 true, 则 `flex: 1 1 auto`  | Boolean | — | false |
-| span | 栅格占据的格数 | Number/String | — | — |
-| sm | `≥576px` 响应式栅格数 | Number/String | — | — |
-| md | `≥768px` 响应式栅格数 | Number/String | — | — |
-| lg | `≥992px` 响应式栅格数 | Number/String | — | — |
-| xl | `≥1200px` 响应式栅格数 | Number/String | — | — |
-| order | 规定了弹性容器中的可伸缩项目在布局时的顺序。 | Number/String | — | — |
-| offset | 栅格左侧的间隔格数 | Number/String | — | — |
+| tag | the DOM tag name after rendering | String | — | div |
+| align-self | Aligns the flex elements in the current flex line and overwrites the align-items values. Align-self is ignored if the side axis orientation of any flex element is set to auto margin value. | String | auto/start/center/end/baseline/stretch | — |
+| fill | whether this flex element fills the remaining space, set to true, then `flex: 1 1 auto`  | Boolean | — | false |
+| span | number of grids occupied by grid | Number/String | — | — |
+| sm | `≥576px` number of response grids | Number/String | — | — |
+| md | `≥768px` number of response grids | Number/String | — | — |
+| lg | `≥992px` number of response grids | Number/String | — | — |
+| xl | `≥1200px` number of response grids | Number/String | — | — |
+| order | specify the order in which scalable items in an flexible container are laid out in the layout. | Number/String | — | — |
+| offset | number of grids to the left of the grid | Number/String | — | — |
 
 
 <style lang="less">
