@@ -1,7 +1,5 @@
-import Vue, { PluginObject } from 'vue';
+import Vue, { PluginObject, PluginFunction } from 'vue';
 import { MuTheme } from './theme';
-
-export interface InstallationOptions {}
 
 /** The version of muse-ui */
 export const version: string;
@@ -11,51 +9,51 @@ export const version: string;
  * Please do not invoke this method directly.
  * Call `Vue.use(MuseUI)` to install.
  */
-export function install (vue: typeof Vue, options?: InstallationOptions): void;
+export const install: PluginFunction<never>;
 export const Colors: object;
 export const theme: MuTheme;
 
 // components
-export const Alert: PluginObject<any>;
-export const AppBar: PluginObject<any>;
-export const AutoComplete: PluginObject<any>;
-export const Avatar: PluginObject<any>;
-export const Badge: PluginObject<any>;
-export const BottomNav: PluginObject<any>;
-export const BottomSheet: PluginObject<any>;
-export const Breadcrumbs: PluginObject<any>;
-export const Button: PluginObject<any>;
-export const Card: PluginObject<any>;
-export const Carousel: PluginObject<any>;
-export const Checkbox: PluginObject<any>;
-export const Chip: PluginObject<any>;
-export const DateInput: PluginObject<any>;
-export const DataTable: PluginObject<any>;
-export const Dialog: PluginObject<any>;
-export const Divider: PluginObject<any>;
-export const Drawer: PluginObject<any>;
-export const ExpansionPanel: PluginObject<any>;
-export const Form: PluginObject<any>;
-export const Grid: PluginObject<any>;
-export const GridList: PluginObject<any>;
-export const Helpers: PluginObject<any>;
-export const Icon: PluginObject<any>;
-export const List: PluginObject<any>;
-export const LoadMore: PluginObject<any>;
-export const Menu: PluginObject<any>;
-export const Pagination: PluginObject<any>;
-export const Paper: PluginObject<any>;
-export const Picker: PluginObject<any>;
-export const Popover: PluginObject<any>;
-export const Progress: PluginObject<any>;
-export const Radio: PluginObject<any>;
-export const Select: PluginObject<any>;
-export const SlidePicker: PluginObject<any>;
-export const Slider: PluginObject<any>;
-export const Snackbar: PluginObject<any>;
-export const Stepper: PluginObject<any>;
-export const SubHeader: PluginObject<any>;
-export const Switch: PluginObject<any>;
-export const Tabs: PluginObject<any>;
-export const TextField: PluginObject<any>;
-export const Tooltip: PluginObject<any>;
+export const Alert: PluginObject<never>;
+export const AppBar: PluginObject<never>;
+export const AutoComplete: PluginObject<never>;
+export const Avatar: PluginObject<never>;
+export const Badge: PluginObject<never>;
+export const BottomNav: PluginObject<never>;
+export const BottomSheet: PluginObject<never>;
+export const Breadcrumbs: PluginObject<never>;
+export const Button: PluginObject<never>;
+export const Card: PluginObject<never>;
+export const Carousel: PluginObject<never>;
+export const Checkbox: PluginObject<never>;
+export const Chip: PluginObject<never>;
+export const DateInput: PluginObject<never>;
+export const DataTable: PluginObject<never>;
+export const Dialog: PluginObject<never>;
+export const Divider: PluginObject<never>;
+export const Drawer: PluginObject<never>;
+export const ExpansionPanel: PluginObject<never>;
+export const Form: PluginObject<never>;
+export const Grid: PluginObject<never>;
+export const GridList: PluginObject<never>;
+export const Helpers: PluginObject<never>;
+export const Icon: PluginObject<never>;
+export const List: PluginObject<never>;
+export const LoadMore: PluginObject<never>;
+export const Menu: PluginObject<never>;
+export const Pagination: PluginObject<never>;
+export const Paper: PluginObject<never>;
+export const Picker: PluginObject<never>;
+export const Popover: PluginObject<never>;
+export const Progress: PluginObject<never>;
+export const Radio: PluginObject<never>;
+export const Select: PluginObject<never>;
+export const SlidePicker: PluginObject<never>;
+export const Slider: PluginObject<never>;
+export const Snackbar: PluginObject<never>;
+export const Stepper: PluginObject<never>;
+export const SubHeader: PluginObject<never>;
+export const Switch: PluginObject<never>;
+export const Tabs: PluginObject<never>;
+export const TextField: PluginObject<never>;
+export const Tooltip: PluginObject<never>;
