@@ -6,7 +6,7 @@ import MuseUI from '../index';
 export default function test (name, cb) {
   toHaveBeenWarnedInit();
 
-  MuseUI(Vue);
+  MuseUI.install(Vue);
 
   rafPolyfill(window);
 
