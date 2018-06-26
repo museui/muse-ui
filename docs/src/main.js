@@ -5,7 +5,7 @@ import './assets/font-icons/material/material-icons.css';
 import './assets/font-icons/style.css';
 import './assets/github-markdown.css';
 import './assets/atom-one-light.css';
-import MuseUI from '../../ui';
+import MuseUI from 'muse-ui';
 import FastClick from 'fastclick';
 import './theme.js';
 import App from './App';
@@ -13,7 +13,7 @@ import ColorPalette from './components/color-palette';
 import DemoBlock from './components/demo-block';
 import router from './router';
 import progress from './components/progress';
-import { changeLocale } from './locale'
+import { changeLocale } from './locale';
 Vue.use(MuseUI);
 Vue.component(ColorPalette.name, ColorPalette);
 Vue.component(DemoBlock.name, DemoBlock);

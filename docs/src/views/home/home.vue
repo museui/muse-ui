@@ -113,7 +113,7 @@ export default {
 };
 </script>
 <style lang="less">
-@import "../../../../ui/styles/vars.less";
+@import "~muse-ui/styles/vars.less";
 .mu-banner{
   z-index: 100;
   height: 500px;
