@@ -26,8 +26,9 @@ export type ThemeType = 'dark' | 'light';
 export interface ThemeFunction {
   (theme: ThemeOptions, type: ThemeType, name: string): void;
 }
+
 export interface MuTheme {
   addCreateTheme(theme: ThemeFunction): MuTheme;
   use(name: string): MuTheme;
-  add(name: string, options: ThemeOptions, extendName: string = 'light'): MuTheme;
-};
+  add(name: string, options: ThemeOptions, extendName: string): MuTheme;
+}
