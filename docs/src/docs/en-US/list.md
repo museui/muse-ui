@@ -1,10 +1,10 @@
-# 列表
+# List
 
-`mu-list` 列表作为一个单一的连续元素来以垂直排列的方式显示多行条目。
+The `mu-list` list displays multiple lines of entries in a vertical arrangment as a single contiguous element.
 
-## 示例
+## Example
 
-`mu-list` 需和 `mu-list-item` 组件配合使用，通过不同的组件来组成列表项的各个部分。下面就是一个只有图标和标题的示例：
+The `mu-list` needs to be used with `mu-list-item` to compose various parts of the list item by different components. There is an example with only icons and titles below.
 
 :::demo
 ```html
@@ -78,9 +78,9 @@
 ```
 :::
 
-## Avatar 和 Icon 的列表
+## Avatar and Icon list
 
-当 `mu-list-item` 内容中包含 `mu-avatar` 组件时需要在 `mu-list-item` 和 `mu-list-item-action` 组件中设定 `avatar` 参数。
+When the `mu-list-item` content contains the `mu-avatar` component, the `avatar` parameter needs to be set in the `mu-list-item` and `mu-list-item-action` components.
 
 :::demo
 ```html
@@ -188,7 +188,7 @@
 ```
 :::
 
-## 联系人列表
+## Contact list
 
 :::demo
 ```html
@@ -252,9 +252,9 @@
 ```
 :::
 
-## 两行内容和副标题
+## Two lines of content and subtitle
 
-`textline` 参数用于改变列表项的高度，有 `two-line` 和 `three-line` 可选。
+The `textline` parameter is used to change the height of the list item, with `two-line` and `three-line` optional.
 
 :::demo
 ```html
@@ -366,7 +366,7 @@
 ```
 :::
 
-## 三行内容
+## Three lines of content
 
 :::demo
 ```html
@@ -452,7 +452,7 @@
 ```
 :::
 
-## 后置文字与图表
+## Post text and chart
 
 :::demo
 ```html
@@ -557,7 +557,7 @@ export default {
 ```
 :::
 
-## 配合表单组件使用
+## Used with form component
 
 :::demo
 ```html
@@ -658,7 +658,7 @@ export default {
 
 
 
-## 嵌套列表
+## Nested list
 
 :::demo
 ```html
@@ -756,41 +756,41 @@ export default {
 
 ## List Props
 
-| 参数 | 介绍 | 类型 | 可选值 | 默认值 |
+| Attribute | Description | Type | Accepted values | Default |
 |------|------|------|------|------|
-| textline | 行数，用于改变列表项的高度 | String | two-line/three-line | — |
-| dense | 是否是密集型列表，会调整列表项的高度 | Boolean | — | — |
-| nested-indent | 嵌套列表是否有缩进距离 | Boolean | — | true |
-| toggle-nested | 是否可以切换显示/隐藏嵌套列表 | Boolean | — | — |
-| toggle-nested-type | 切换显示类型 | String | expand/popover | — |
-| value | 需要和子组件 `mu-list-item` 配合使用时生效 | — | — | — |
+| textline | number of rows, used to change the height of list items | String | two-line/three-line | — |
+| dense | whether it is an intensive list that will adjust the height of list items | Boolean | — | — |
+| nested-indent | whether the nested list has indentation distance | Boolean | — | true |
+| toggle-nested | whether to toggle the display/hide nested list | Boolean | — | — |
+| toggle-nested-type | toggle nested type | String | expand/popover | — |
+| value | needs to be used with the subcomponent `mu-list-item` | — | — | — |
 
 ## List Events
 
-| 名称  | 介绍  | 回调参数 |
+| Name | Description | Parameters |
 |-------|------|--------|
-| change | 当列表项被点击，`value` 需要被改变时触发事件 | (value) |
+| change | when the list item is clicked, the `value` needs to be changed to trigger the event | (value) |
 
 ## List Item Props
 
-| 参数 | 介绍 | 类型 | 可选值 | 默认值 |
+| Attribute | Description | Type | Accepted values | Default |
 |------|------|------|------|------|
-| button | 列表项是否可点击 | Boolean | — | — |
-| avatar | 是否包含 `mu-avatar` 组件，会相应调整列表项高度 | Boolean | — | — |
-| nested | 是否允许嵌套列表 | Boolean | — | — |
-| nested-list-class | 嵌套列表的样式 | Boolean | — | — |
-| open | 嵌套列表是否显示 | Boolean | — | true |
-| value | 当 `value` 和 `mu-list` 组件的 `value` 值相等时，组件呈现被选择状态 | — | — | — |
-| ripple | 是否有波纹效果 | Boolean | — | true |
-| href | 相当于 a 标签的 href属性，设置之后会渲染成 a 标签，默认是使用button标签 | String | — | — |
-| to | 表示目标路由的链接。设置之后组件会被渲染成`router-link`, 当被点击后，内部会立刻把 `to` 的值传到 `router.push()`，所以这个值可以是一个字符串或者是描述目标位置的对象。 | String/Object | - | - |
-| tag | 有时候想要 `<router-link>` 渲染成某种标签，例如 `<li>`。 于是我们使用 `tag prop` 类指定何种标签，同样它还是会监听点击，触发导航。 | String |  - | - |
-| active-class | 设置 链接激活时使用的 CSS 类名。默认值可以通过路由的构造选项 `linkActiveClass` 来全局配置。 | String |  - | - |
-| event | 声明可以用来触发导航的事件。可以是一个字符串或是一个包含字符串的数组 | String/Array | — | click |
-| exact | "是否激活" 默认类名的依据是 **inclusive match** （全包含匹配）。 举个例子，如果当前的路径是 `/a` 开头的，那么 `<router-link to="/a">` 也会被设置 CSS 类名。| Boolean | — | — |
-| exact-active-class | 配置当链接被精确匹配的时候应该激活的 class。注意默认值也是可以通过路由构造函数选项 linkExactActiveClass 进行全局配置的。 | String | — | router-link-exact-active |
-| append | 设置 `append` 属性后，则在当前（相对）路径前添加基路径。例如，我们从 `/a` 导航到一个相对路径 b，如果没有配置 append，则路径为 /b，如果配了，则为 /a/b | Boolean | — | false |
-| replace | 设置 `replace` 属性的话，当点击时，会调用 `router.replace()` 而不是 `router.push()`，于是导航后不会留下 history 记录。 | Boolean | — | false |
+| button | whether list items can be clicked | Boolean | — | — |
+| avatar | whether to contain the `mu-avatar` component, to adjust the height of the list item accordingly | Boolean | — | — |
+| nested | whether to allow nested lists | Boolean | — | — |
+| nested-list-class | nested list style | Boolean | — | — |
+| open | whether to display nested list | Boolean | — | true |
+| value | when the value of the `value` and `mu-list` components are equal, the component rendering state is selected | — | — | — |
+| ripple | whether there is ripple effect | Boolean | — | true |
+| href | Equivalent to the href attribute of the a tag. After setting, it will be rendered as a tag. The default is to use the button tag. | String | — | — |
+| to | Indicates the link to the target route. After setup, the component will be rendered as `router-link`, and when clicked, the value of `to` will be immediately passed to `router.push()`, so the value can be a string or an object that describes the target location. | String/Object | - | - |
+| tag | When you want the `<router-link>` to be rendered as a tag, such as `<li>`. So we use the `tag prop` class to specify which tag, and it will still listen to clicks and trigger navigation. | String |  - | - |
+| active-class | Sets the CSS class name to use when the link is activated. The default value can be configured globally via the construction option `linkactiveclass` of the route. | String |  - | - |
+| event | declares an event that can be used to trigger a navigation. Can be a string or an array that contains a string | String/Array | — | click |
+| exact |  The "Activate" default class name is based on the **inclusive match** (all contains matches). For example, if the current path starts with `/a`, then `<router-link to=""/a"">` CSS class name will also be set. | Boolean | — | — |
+| exact-active-class | Configure the class that should be activated when the link is exactly matched. Note The default values can also be configured globally through the routing constructor option Linkexactactiveclass. | String | — | router-link-exact-active |
+| append | When the `append` property is set, the base path is added before the current (relative) path. For example, we navigate from `/a` to a relative path b, if no append is configured, the path is `/b`, and if it is `/a/b` | Boolean | — | false |
+| replace | Setting the `replace` property, when clicked, will call `router.replace()` instead of `router.push()`, so the navigation will not leave the history record. | Boolean | — | false |
 
 
 <script>
