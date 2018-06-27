@@ -23,7 +23,6 @@
 </div>
 </template>
 <script>
-import { ExpandTransition } from 'muse-ui/internal/transitions';
 import packageJson from '../../../package.json';
 import i18n from '../configs/i18n';
 
@@ -86,9 +85,6 @@ export default {
 
       form.submit();
     }
-  },
-  components: {
-    'mu-expand-transition': ExpandTransition
   }
 };
 </script>

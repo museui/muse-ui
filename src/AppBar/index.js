@@ -1,3 +1,4 @@
+import '../styles/components/elevation.less';
 import '../styles/components/appbar.less';
 import theme from '../theme';
 import AppBarTheme from './theme';
