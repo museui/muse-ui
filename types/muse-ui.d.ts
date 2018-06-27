@@ -10,7 +10,7 @@ export const version: string;
  * Call `Vue.use(MuseUI)` to install.
  */
 export const install: PluginFunction<never>;
-export const Colors: object;
+export const Colors: { [key: string]: string };
 export const theme: MuTheme;
 
 // components
