@@ -20,11 +20,11 @@
 }
 
 </style>
-# 布局
+# Layout
 
-Muse-UI 提供基于 [Flexible Box](https://developer.mozilla.org/docs/Web/CSS/CSS_Flexible_Box_Layout/Using_CSS_flexible_boxes) 的布局组件 `mu-flex`。
+Muse-UI provides the layout component `mu-flex` based on [Flexible Box] (https://developer.mozilla.org/docs/Web/CSS/CSS_Flexible_Box_Layout/Using_CSS_flexible_boxes).
 
-## 示例
+## Example
 
 :::demo
 ```html
@@ -70,14 +70,14 @@ Muse-UI 提供基于 [Flexible Box](https://developer.mozilla.org/docs/Web/CSS/C
 
 ## Flex Props
 
-| 参数 | 介绍 | 类型 | 可选值 | 默认值 |
+| Attribute | Description | Type | Accepted values | Default |
 |------|------|------|------|------|
-| tag | 渲染之后的 dom 标签名称 | String | — | div |
-| inline | 是否是`inline-flex` | Boolean | — | false |
-| direction | 指定了内部元素是如何在 flex 容器中布局的 | String | row/column/row-reverse/column-reverse | row |
-| wrap | 指定 flex 元素单行显示还是多行显示 | String | wrap/nowrap/wrap-reverse | nowrap |
-| fill | 此 flex 元素是否填充满剩余空间， 设置为 true, 则 `flex: 1 1 auto`  | Boolean | — | false |
-| justify-content | 定义了主轴的 flex 元素对齐方式 | String | start/center/end/between/around | start |
-| align-items | 定义了侧轴方向上将当前行上的 flex 元素对齐方式 | String | start/center/end/baseline/stretch | start |
-| align-content | 定义了当作为一个 flex box 容器的属性时，浏览器如何在容器的侧轴围绕弹性盒子项目分配空间。 | String | start/center/end/between/around/stretch | — |
-| align-self | 对齐当前 flex 行中的 flex 元素，并覆盖 align-items 的值. 如果任何 flex 元素的侧轴方向 margin 值设置为 auto，则会忽略 align-self。 | String | auto/start/center/end/baseline/stretch | — |
+| tag | Dom tag name after rendering | String | — | div |
+| inline | whether it is `inline-flex` | Boolean | — | false |
+| direction | specifies how the inner element is laid out in the flex container | String | row/column/row-reverse/column-reverse | row |
+| wrap | specifies whether the flex element should be displayed in single or multiple lines | String | wrap/nowrap/wrap-reverse | nowrap |
+| fill | whether this flex element fills the remaining space, set to true, then `flex: 1 1 auto`  | Boolean | — | false |
+| justify-content | defines the flex element alignment for the spindle | String | start/center/end/between/around | start |
+| align-items | defines the alignment of the flex element on the current line in the side axis | String | start/center/end/baseline/stretch | start |
+| align-content | defines how the browser allocates space around the flexible box item on the side axis of the container when used as a property of a flex box container. | String | start/center/end/between/around/stretch | — |
+| align-self | Aligns the flex elements in the current flex line and overwrites the align-items values. Align-self is ignored if the side axis orientation of any flex element is set to auto margin value. | String | auto/start/center/end/baseline/stretch | — |
