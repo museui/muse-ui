@@ -23,5 +23,7 @@ test('Alert', ({ mount }) => {
     expect(wrapper.html()).toMatchSnapshot();
     wrapper.setProps({ color: 'error' });
     expect(wrapper.html()).toMatchSnapshot();
+    wrapper.setProps({ color: '#fff' });
+    expect(wrapper.hasStyle('background-color', '#fff')).toEqual(true);
   });
 });
