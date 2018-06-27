@@ -1,10 +1,10 @@
-# 菜单
+# Menu
 
-`mu-menu` 组件展示一个菜单在用于激活它的元素的位置上。
+The `mu-menu` component shows a menu at the location of the element used to activate it.
 
-## 示例
+## Example
 
-菜单的内容需要放置在 `content` 插槽中
+The contents of the menu need to be placed in the `content` slot.
 
 :::demo
 ```html
@@ -31,9 +31,9 @@
 ```
 :::
 
-## 悬停显示
+## Hover display
 
-`open-on-hover` 将触发菜单显示/隐藏的事件变为 `mouseenter` 和 `mouseleave`
+The `open-on-hover` changes the events that triggers the menu display/hide into `mouseenter` and `mouseleave`.
 
 :::demo
 ```html
@@ -60,9 +60,9 @@
 ```
 :::
 
-## 控制显示
+## Control display
 
-`open` 参数控制菜单的显示，可使用 `.sync` 进行双向绑定。
+The `open` parameter controls the display of the menu, using `.sync` for two-way binding.
 
 :::demo
 ```html
@@ -103,27 +103,27 @@ export default {
 
 ## Menu Props
 
-| 参数 | 介绍 | 类型 | 可选值 | 默认值 |
+| Attribute | Description | Type | Accepted values | Default |
 |------|------|------|------|------|
-| cover | 弹出菜单是否覆盖触发元素 | Boolean | — | false |
-| placement | 弹出位置  | String | top / top-start / top-end / bottom / bottom-start / bottom-end / left / left-start / left-end / right / right-start / right-end | bottom-start |
-| open | 是否打开菜单 | Boolean | — | false |
-| open-on-hover | 是否在悬停时打开菜单 | Boolean | — | false |
-| popover-class | 弹出菜单的样式 | String/Object/Array | — | — |
+| cover | whether the popup menu overrides the trigger element | Boolean | — | false |
+| placement | popup position  | String | top / top-start / top-end / bottom / bottom-start / bottom-end / left / left-start / left-end / right / right-start / right-end | bottom-start |
+| open | whether to open menu | Boolean | — | false |
+| open-on-hover | whether to open a menu while hovering | Boolean | — | false |
+| popover-class | pop-up menu style | String/Object/Array | — | — |
 
 ## Menu Events
 
-| 名称 | 介绍 | 回调参数 |
+| Name | Description | Parameters |
 |------|------|-------|
-| open | 菜单打开时触发事件 | — |
-| close | 菜单关闭时触发事件 | — |
+| open | trigger event when menu opens | — |
+| close | trigger event when menu close | — |
 
 ## Menu Slots
 
-| 名称 | 介绍 |
+| Name | Description |
 |------|------|
-| content | 菜单内容插槽 |
-| default | 菜单触发器插槽，只接受一个 |
+| content | menu content slot |
+| default | menu trigger slot, accept only one |
 
 <script>
 export default {

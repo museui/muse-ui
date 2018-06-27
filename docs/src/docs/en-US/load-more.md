@@ -1,10 +1,10 @@
-# 加载控件
+# Loading controls
 
-`mu-load-more` 内置下拉加载和无限滚动功能。
+`Mu-load-more` has built-in drop-down loading and infinite scrolling capabilities.
 
-## 示例
+## Example
 
-按住下拉刷新，或者滚动到底加载数据。
+Hold the drop-down to refresh, or scroll to the bottom to load data.
 
 :::demo
 ```html
@@ -85,19 +85,19 @@ export default {
 
 ## Load More Props
 
-| 参数 | 介绍 | 类型 | 可选值 | 默认值 |
+| Attribute | Description | Type | Accepted values | Default |
 |------|------|------|------|------|
-| refreshing | 是否正在刷新数据 | Boolean | — | false |
-| loading | 是否正在加载数据 | Boolean | — | false |
-| loading-text | 加载文字 | String | — | — |
-| loaded-all | 数据是否已全部加载 | Boolean | — | — |
+| refreshing | whether is refreshing data | Boolean | — | false |
+| loading | whether is loading data | Boolean | — | false |
+| loading-text | load text | String | — | — |
+| loaded-all | whether the data has been loaded | Boolean | — | — |
 
 ## Load More Events
 
-| 名称  | 介绍  | 回调参数 |
+| Name | Description | Parameters |
 |-------|------|--------|
-| refresh | 需要刷新数据时触发 | — |
-| load | 需要加载数据时触发 | — |
+| refresh | trigger when data needs to be refreshed | — |
+| load | trigger when data needs to be loaded | — |
 
 
 
