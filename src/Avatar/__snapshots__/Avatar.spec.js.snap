@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Avatar should be change size 1`] = `
+
+<div class="mu-avatar  "
+     style="width: 56px; height: 56px; font-size: 28px;"
+>
+  <div class="mu-avatar-inner">
+  </div>
+</div>
+
+`;
+
+exports[`Avatar should have an mu-avatar class 1`] = `
+
+<div class="mu-avatar  "
+     style="width: 40px; height: 40px; font-size: 20px;"
+>
+  <div class="mu-avatar-inner">
+  </div>
+</div>
+
+`;
