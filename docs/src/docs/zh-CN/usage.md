@@ -101,9 +101,9 @@ import {
   Switch,
   Tabs,
   TextField,
-  Tooltip
+  Tooltip,
+  theme
 } from 'muse-ui';
-import theme from 'muse-ui/lib/theme';
 import 'muse-ui/lib/styles/theme.less';
 
 Vue.use(Alert);

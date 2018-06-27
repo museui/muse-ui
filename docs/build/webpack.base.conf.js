@@ -26,7 +26,7 @@ module.exports = {
     alias: {
       vue$: 'vue/dist/vue.esm.js',
       '@': resolve('src'),
-      'muse-ui': resolve('../ui')
+      'muse-ui': resolve('../src')
     }
   },
   module: {
@@ -44,7 +44,7 @@ module.exports = {
           resolve('src'),
           resolve('test'),
           resolve('../node_modules/webpack-dev-server/client'),
-          resolve('../ui')
+          resolve('../src')
         ]
       },
       {

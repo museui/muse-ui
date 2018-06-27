@@ -1,12 +1,8 @@
 import color from '../internal/mixins/color';
-import elevation from '../internal/directives/elevation';
 
 export default {
   name: 'mu-appbar',
   mixins: [color],
-  directives: {
-    elevation
-  },
   props: {
     zDepth: {
       type: [Number, String],
@@ -26,15 +22,11 @@ export default {
     const center = h('div', { staticClass: 'mu-appbar-title' }, slots.default && slots.default.length > 0 ? slots.default : this.title);
 
     return h('header', {
-      staticClass: `mu-appbar ${this.getColorClass()} ${this.getTextColorClass()}`,
+      staticClass: `mu-appbar ${this.getColorClass()} ${this.getTextColorClass()} mu-elevation-${this.zDepth}`,
       style: {
         'background-color': this.getColor(this.color),
         color: this.getColor(this.textColor)
-      },
-      directives: [{
-        name: 'elevation',
-        value: this.zDepth
-      }]
+      }
     }, [left, center, right]);
   }
 };

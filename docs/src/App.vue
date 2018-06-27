@@ -78,7 +78,6 @@ import locale from './locale';
 import MuseUI from 'muse-ui';
 import i18n from './configs/i18n';
 import { changeLocale } from './locale';
-import { FadeTransition } from '../../ui/internal/transitions';
 import Search from './components/search';
 
 export default {
@@ -171,7 +170,6 @@ export default {
   components: {
     'mu-backtop': BackTop,
     'app-nav-drawer': AppNavDrawer,
-    'mu-fade-transition': FadeTransition,
     'mu-search': Search
   }
 }
@@ -185,7 +183,7 @@ function isMobile () {
 }
 </script>
 <style lang="less">
-@import '../../ui/styles/vars.less';
+@import '~muse-ui/styles/vars.less';
 .mu-app-drawer {
   border-right: 1px solid @borderColor;
 }

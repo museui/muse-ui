@@ -1,6 +1,3 @@
-import scroll from 'muse-ui/internal/directives/scroll';
-import { ScaleTransition } from 'muse-ui/internal/transitions';
-
 export default {
   name: 'mu-backtop',
   data () {
@@ -16,7 +13,7 @@ export default {
     }
   },
   render (h) {
-    return h(ScaleTransition, {}, [
+    return h('mu-scale-transition', [
       h('mu-button', {
         directives: [{
           name: 'scroll',
@@ -49,8 +46,5 @@ export default {
         })
       ])
     ]);
-  },
-  directives: {
-    scroll
   }
 };
