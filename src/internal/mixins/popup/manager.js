@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import keycode from 'keycode';
+import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
 import overlayOpt from './Overlay';
 const Overlay = Vue.extend(overlayOpt);
 
@@ -42,27 +43,24 @@ const PopupManager = {
       overlay.show = true;
     });
   },
-  // 还原滚动设置
+  // 禁止滚动
   preventScrolling () {
     if (this.locked) return;
     // body 操作
     const body = document.getElementsByTagName('body')[0];
-    const html = document.getElementsByTagName('html')[0];
-    this.bodyOverflow = body.style.overflow;
-    this.htmlOverflow = html.style.overflow;
-    body.style.overflow = 'hidden';
-    html.style.overflow = 'hidden';
+    disableBodyScroll(body, {
+      reserveScrollBarGap: true
+    });
     this.locked = true;
   },
 
-  // 禁止滚动
+  // 还原滚动设置
   allowScrolling () {
     const body = document.getElementsByTagName('body')[0];
-    const html = document.getElementsByTagName('html')[0];
-    body.style.overflow = this.bodyOverflow || '';
-    html.style.overflow = this.htmlOverflow || '';
-    this.bodyOverflow = null;
-    this.htmlOverflow = null;
+    enableBodyScroll(body, {
+      reserveScrollBarGap: true
+    });
+    clearAllBodyScrollLocks();
     this.locked = false;
   },
   closeOverlay () {
