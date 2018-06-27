@@ -1,8 +1,8 @@
-# 底部导航
+# Button navigation
 
-`mu-bottom-navigation` 用于底部的导航组件。
+`Mu-bottom-navigation` is used for the bottom navigation component.
 
-## 示例
+## Example
 
 :::demo
 ```html
@@ -41,35 +41,35 @@ export default {
 
 ## Bottom Nav Props
 
-| 参数 | 介绍 | 类型 | 可选值 | 默认值 |
+| Attribute | Description | Type | Accepted values | Default |
 |------|------|------|------|------|
-| color | 导航颜色 | String | — | — |
-| shift | 是否使用 shift 模式 | Boolean | — | false |
-| value | 配合 bottom-nav-item 使用， 可使用 `.sync` 修饰符进行双向绑定 | — | — | — |
+| color | navigation color | String | — | — |
+| shift | whether to use Shift mode | Boolean | — | false |
+| value | use with bottom-nav-item , you can use the `.sync` modifier for two-way binding | — | — | — |
 
 ## Bottom Nav Events
 
-| 名称 | 介绍 | 回调参数 |
+| Name | Description | Parameters |
 |------|------|------|
-| change | 当被激活的value 改变时触发 | (value) |
+| change | triggered when the activated value changes | (value) |
 
 ## Bottom Nav Item Props
 
-| 参数 | 介绍 | 类型 | 可选值 | 默认值 |
+| Attribute | Description | Type | Accepted values | Default |
 |------|------|------|------|------|
-| icon | 图标 | String | — | — |
-| title | 显示的标题 | String | — | — |
-| value | 当value 与父组件的 value值相等时，会变成选中状态 | — | — | — |
-| ripple | 是否开启波纹效果 | Boolean | — | true |
-| href | 相当于 a 标签的 href属性，设置之后会渲染成 a 标签，默认是使用button标签 | String | — | — |
-| to | 表示目标路由的链接。设置之后组件会被渲染成`router-link`, 当被点击后，内部会立刻把 `to` 的值传到 `router.push()`，所以这个值可以是一个字符串或者是描述目标位置的对象。 | String/Object | - | - |
-| tag | 有时候想要 `<router-link>` 渲染成某种标签，例如 `<li>`。 于是我们使用 `tag prop` 类指定何种标签，同样它还是会监听点击，触发导航。 | String |  - | - |
-| active-class | 设置 链接激活时使用的 CSS 类名。默认值可以通过路由的构造选项 `linkActiveClass` 来全局配置。 | String |  - | - |
-| event | 声明可以用来触发导航的事件。可以是一个字符串或是一个包含字符串的数组 | String/Array | — | click |
-| exact | "是否激活" 默认类名的依据是 **inclusive match** （全包含匹配）。 举个例子，如果当前的路径是 `/a` 开头的，那么 `<router-link to="/a">` 也会被设置 CSS 类名。| Boolean | — | — |
-| exact-active-class | 配置当链接被精确匹配的时候应该激活的 class。注意默认值也是可以通过路由构造函数选项 linkExactActiveClass 进行全局配置的。 | String | — | router-link-exact-active |
-| append | 设置 `append` 属性后，则在当前（相对）路径前添加基路径。例如，我们从 `/a` 导航到一个相对路径 b，如果没有配置 append，则路径为 /b，如果配了，则为 /a/b | Boolean | — | false |
-| replace | 设置 `replace` 属性的话，当点击时，会调用 `router.replace()` 而不是 `router.push()`，于是导航后不会留下 history 记录。 | Boolean | — | false |
+| icon | icon | String | — | — |
+| title | display title | String | — | — |
+| value | when value is equal to the value of the parent component, it becomes selected | — | — | — |
+| ripple | whether ripple effects are turned on | Boolean | — | true |
+| href | Equivalent to the href attribute of the a tag. After setting, it will be rendered as a tag. The default is to use the button tag. | String | — | — |
+| to | Indicates the link to the target route. After setup, the component will be rendered as `router-link`, and when clicked, the value of `to` will be immediately passed to `router.push()`, so the value can be a string or an object that describes the target location. | String/Object | - | - |
+| tag | When you want the `<router-link>` to be rendered as a tag, such as `<li>`. So we use the `tag prop` class to specify which tag, and it will still listen to clicks and trigger navigation. | String |  - | - |
+| active-class | Sets the CSS class name to use when the link is activated. The default value can be configured globally via the construction option `linkactiveclass` of the route. | String |  - | - |
+| event | declares an event that can be used to trigger a navigation. Can be a string or an array that contains a string | String/Array | — | click |
+| exact |  The "Activate" default class name is based on the **inclusive match** (all contains matches). For example, if the current path starts with `/a`, then `<router-link to=""/a"">` CSS class name will also be set. | Boolean | — | — |
+| exact-active-class | Configure the class that should be activated when the link is exactly matched. Note The default values can also be configured globally through the routing constructor option Linkexactactiveclass. | String | — | router-link-exact-active |
+| append | When the `append` property is set, the base path is added before the current (relative) path. For example, we navigate from `/a` to a relative path b, if no append is configured, the path is `/b`, and if it is `/a/b` | Boolean | — | false |
+| replace | Setting the `replace` property, when clicked, will call `router.replace()` instead of `router.push()`, so the navigation will not leave the history record. | Boolean | — | false |
 
 <script>
 export default {
