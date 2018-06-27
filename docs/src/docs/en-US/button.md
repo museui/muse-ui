@@ -1,8 +1,8 @@
-# 按钮
+# Button
 
-`mu-button` 按钮组件，可以定制不同的颜色或者图标来替换标准的 html 按钮。
+The `mu-button` button component can be customized with a different color or icon to replace the standard html button.
 
-## 示例
+## Example
 
 :::demo
 ```html
@@ -26,9 +26,9 @@
 ```
 :::
 
-## 扁平
+## Flat
 
-用于通用功能和减少分层在屏幕上,使其更具可读性。
+Used for common functionality and reduced tiering on the screen to make it more readable.
 
 :::demo
 ```html
@@ -51,9 +51,9 @@
 ```
 :::
 
-## 图标
+## Icon
 
-图标可作为按钮的主要内容, 也可以配合文字显示。
+The icon can be used as the main content of the button, or it can be displayed with text.
 
 :::demo
 ```html
@@ -121,9 +121,9 @@
 ```
 :::
 
-## 浮动
+## Floating
 
-浮动按钮是圆形的，通常包含一个图标。
+The floating button is rounded and usually contains an icon.
 
 ::: demo
 ```html
@@ -162,9 +162,9 @@
 ```
 :::
 
-## 不同的大小
+## Different size
 
-按钮可以被设置不同的尺寸，`small`、`normal`、`large`。
+Button can be set in defferent size，`small`、`normal`、`large`。
 
 :::demo
 ```html
@@ -201,7 +201,7 @@
 ```
 :::
 
-## 圆角和块状按钮
+## Fillet button and block button
 
 :::demo
 ```html
@@ -230,30 +230,30 @@
 
 ## Button props
 
-| 参数 | 介绍 | 类型 | 可选值 | 默认值 |
+| Attribute | Description | Type | Accepted values | Default |
 |------|------|------|------|------|
-| color | 按钮的颜色 | String | — | - |
-| textColor | 文本颜色 | String | — | — |
-| ripple | 是否有波纹效果 | Boolean | — | true |
-| fab | 浮动按钮 | Boolean | — | false |
-| flat | 扁平按钮 | Boolean | — | false |
-| icon | 图标按钮 | Boolean | — | false |
-| small | 小型按钮 | Boolean | — | false |
-| large | 大型按钮 | Boolean | — | false |
-| round | 圆角按钮 | Boolean | — | false |
-| full-width | 块状按钮 | Boolean | — | false |
-| disabled | 禁用按钮 | Boolean | — | false |
-| type | 按钮类型, 等同于 button 标签的 type 属性 | String | - | button |
-| keyboard-focused | 键盘事件获取焦点 | Boolean | — | false |
-| href | 相当于 a 标签的 href属性，设置之后会渲染成 a 标签，默认是使用button标签 | String | — | — |
-| to | 表示目标路由的链接。设置之后组件会被渲染成`router-link`, 当被点击后，内部会立刻把 `to` 的值传到 `router.push()`，所以这个值可以是一个字符串或者是描述目标位置的对象。 | String/Object | - | - |
-| tag | 有时候想要 `<router-link>` 渲染成某种标签，例如 `<li>`。 于是我们使用 `tag prop` 类指定何种标签，同样它还是会监听点击，触发导航。 | String |  - | - |
-| active-class | 设置 链接激活时使用的 CSS 类名。默认值可以通过路由的构造选项 `linkActiveClass` 来全局配置。 | String |  - | - |
-| event | 声明可以用来触发导航的事件。可以是一个字符串或是一个包含字符串的数组 | String/Array | — | click |
-| exact | "是否激活" 默认类名的依据是 **inclusive match** （全包含匹配）。 举个例子，如果当前的路径是 `/a` 开头的，那么 `<router-link to="/a">` 也会被设置 CSS 类名。| Boolean | — | — |
-| exact-active-class | 配置当链接被精确匹配的时候应该激活的 class。注意默认值也是可以通过路由构造函数选项 linkExactActiveClass 进行全局配置的。 | String | — | router-link-exact-active |
-| append | 设置 `append` 属性后，则在当前（相对）路径前添加基路径。例如，我们从 `/a` 导航到一个相对路径 b，如果没有配置 append，则路径为 /b，如果配了，则为 /a/b | Boolean | — | false |
-| replace | 设置 `replace` 属性的话，当点击时，会调用 `router.replace()` 而不是 `router.push()`，于是导航后不会留下 history 记录。 | Boolean | — | false |
+| color | button color | String | — | - |
+| textColor | text color | String | — | — |
+| ripple | whether there is ripple effect | Boolean | — | true |
+| fab | floating button | Boolean | — | false |
+| flat | flat button | Boolean | — | false |
+| icon | icon button | Boolean | — | false |
+| small | small button | Boolean | — | false |
+| large | large button | Boolean | — | false |
+| round | fillet button | Boolean | — | false |
+| full-width | block button | Boolean | — | false |
+| disabled | disable button | Boolean | — | false |
+| type | button type, equals the type property of the button label | String | - | button |
+| keyboard-focused | keybroad event to get focus | Boolean | — | false |
+| href | Equivalent to the href attribute of the a tag. After setting, it will be rendered as a tag. The default is to use the button tag. | String | — | — |
+| to | Indicates the link to the target route. After setup, the component will be rendered as `router-link`, and when clicked, the value of `to` will be immediately passed to `router.push()`, so the value can be a string or an object that describes the target location. | String/Object | - | - |
+| tag | When you want the `<router-link>` to be rendered as a tag, such as `<li>`. So we use the `tag prop` class to specify which tag, and it will still listen to clicks and trigger navigation. | String |  - | - |
+| active-class | Sets the CSS class name to use when the link is activated. The default value can be configured globally via the construction option `linkactiveclass` of the route. | String |  - | - |
+| event | declares an event that can be used to trigger a navigation. Can be a string or an array that contains a string | String/Array | — | click |
+| exact |  The "Activate" default class name is based on the **inclusive match** (all contains matches). For example, if the current path starts with `/a`, then `<router-link to=""/a"">` CSS class name will also be set. | Boolean | — | — |
+| exact-active-class | Configure the class that should be activated when the link is exactly matched. Note The default values can also be configured globally through the routing constructor option Linkexactactiveclass. | String | — | router-link-exact-active |
+| append | When the `append` property is set, the base path is added before the current (relative) path. For example, we navigate from `/a` to a relative path b, if no append is configured, the path is `/b`, and if it is `/a/b` | Boolean | — | false |
+| replace | Setting the `replace` property, when clicked, will call `router.replace()` instead of `router.push()`, so the navigation will not leave the history record. | Boolean | — | false |
 
 <style lang="less">
 .button-wrapper {
