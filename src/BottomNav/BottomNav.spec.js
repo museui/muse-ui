@@ -64,6 +64,6 @@ test('Bottom Navigation', ({ mount }) => {
     wrapper.setProps({
       value: 'Nearby'
     });
-    expect(wrapper.find('.mu-bottom-item')[2].hasClass('mu-bottom-item-active')).toBe(true);
+    expect(wrapper.vm.activeValue).toBe('Nearby');
   });
 });
