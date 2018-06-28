@@ -1,8 +1,8 @@
 const config = {
   'zh-CN': {
     jsfiddle: '前往 jsfiddle.net 运行此示例',
-    visible: '隐藏代码',
-    hidden: '显示代码',
+    visible: '显示代码',
+    hidden: '隐藏代码',
     subtitle: '基于 Vue 2.0 优雅的 Material Design UI 组件库',
     getStart: '快速上手',
     featureTitle1: '组件丰富',
