@@ -1,0 +1,106 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button should default view 1`] = `
+
+<button tabindex="0"
+        type="button"
+        class="mu-button mu-raised-button "
+        style="outline: none;"
+>
+  <div class="mu-button-wrapper">
+    <div class="mu-ripple-wrapper">
+    </div>
+  </div>
+</button>
+
+`;
+
+exports[`Button should variant style 1`] = `
+
+<button tabindex="0"
+        type="button"
+        class="mu-button mu-fab-button "
+        style="outline: none;"
+>
+  <div class="mu-button-wrapper">
+    <div class="mu-ripple-wrapper">
+    </div>
+  </div>
+</button>
+
+`;
+
+exports[`Button should variant style 2`] = `
+
+<button tabindex="0"
+        type="button"
+        class="mu-button mu-flat-button "
+        style="outline: none;"
+>
+  <div class="mu-button-wrapper">
+    <div class="mu-ripple-wrapper">
+    </div>
+  </div>
+</button>
+
+`;
+
+exports[`Button should variant style 3`] = `
+
+<button tabindex="0"
+        type="button"
+        class="mu-button mu-icon-button "
+        style="outline: none;"
+>
+  <div class="mu-button-wrapper">
+    <div class="mu-ripple-wrapper">
+    </div>
+  </div>
+</button>
+
+`;
+
+exports[`Button should variant style 4`] = `
+
+<button tabindex="0"
+        type="button"
+        class="mu-button mu-raised-button mu-button-small "
+        style="outline: none;"
+>
+  <div class="mu-button-wrapper">
+    <div class="mu-ripple-wrapper">
+    </div>
+  </div>
+</button>
+
+`;
+
+exports[`Button should variant style 5`] = `
+
+<button tabindex="0"
+        type="button"
+        class="mu-button mu-raised-button mu-button-large "
+        style="outline: none;"
+>
+  <div class="mu-button-wrapper">
+    <div class="mu-ripple-wrapper">
+    </div>
+  </div>
+</button>
+
+`;
+
+exports[`Button should variant style 6`] = `
+
+<button tabindex="0"
+        type="button"
+        class="mu-button mu-raised-button  mu-button-round"
+        style="outline: none;"
+>
+  <div class="mu-button-wrapper">
+    <div class="mu-ripple-wrapper">
+    </div>
+  </div>
+</button>
+
+`;
