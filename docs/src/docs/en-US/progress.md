@@ -1,8 +1,8 @@
-# 进度条
+# Progress bar
 
-`mu-linear-progress` 和 `mu-circular-progress` 用于向用户显示数据加载进度。
+The `mu-linear-progress` and `mu-circular-progress` are used to show the user the data loading progress.
 
-## 示例
+## Example
 
 :::demo
 ```html
@@ -44,7 +44,7 @@ export default {
 ```
 :::
 
-## 不同的色彩和大小
+## Different colors and sizes
 
 :::demo
 ```html
@@ -67,7 +67,7 @@ export default {
 ```
 :::
 
-## 环形进度条
+## Circular progress bar
 
 :::demo
 ```html
@@ -77,7 +77,7 @@ export default {
 ```
 :::
 
-## 定值圆环
+## Fixed value ring
 
 :::demo
 ```html
@@ -89,26 +89,26 @@ export default {
 
 ## Linear Progress Props
 
-| 参数 | 介绍 | 类型 | 可选值 | 默认值 |
+| Attribute | Description | Type | Accepted values | Default |
 |------|------|------|------|------|
-| mode | 显示模式， indeterminate 不确定进度模式，这时 value、min、max 无效, determinate 需要通过改变value值来改变进度显示 | String | indeterminate/determinate | indeterminate |
-| max | 最大值 | Number | — | 100 |
-| min | 最小值 | Number | — | 0 |
-| value | 进度显示值 | Number | — | — |
-| size | 进度条高度 | Number | — | — |
-| color | 颜色 | String | — | — |
+| mode | display mode, indeterminate uncertain progress mode, then value, min, max is invalid, determinate need to change the value to change the progress of the display | String | 
+| max | maximum value | Number | — | 100 |
+| min | minimum value | Number | — | 0 |
+| value | progress display value | Number | — | — |
+| size | progress bar height | Number | — | — |
+| color | color | String | — | — |
 
 ## Circular Progress Props
 
-| 参数 | 介绍 | 类型 | 可选值 | 默认值 |
+| Attribute | Description | Type | Accepted values | Default |
 |------|------|------|------|------|
-| mode | 显示模式， indeterminate 不确定进度模式，这时 value、min、max 无效, determinate 需要通过改变value值来改变进度显示 | String | indeterminate/determinate | indeterminate |
-| max | 最大值 | Number | — | 100 |
-| min | 最小值 | Number | — | 0 |
-| value | 进度显示值 | Number | — | — |
-| size | 圆环的尺寸 | Number | — | — |
-| stroke-width | 圆环的宽度 | Number | — | — |
-| color | 颜色 | String | — | — |
+| mode | display mode, indeterminate uncertain progress mode, then value, min, max is invalid, determinate need to change the value to change the progress of the display | String | indeterminate/determinate | indeterminate |
+| max | maximum value | Number | — | 100 |
+| min | minimum value | Number | — | 0 |
+| value | progress display value | Number | — | — |
+| size | ring size | Number | — | — |
+| stroke-width | ring width | Number | — | — |
+| color | color | String | — | — |
 
 <script>
 export default {

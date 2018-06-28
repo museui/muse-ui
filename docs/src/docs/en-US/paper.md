@@ -1,10 +1,10 @@
-# 纸片
+# Paper
 
-`mu-paper` 是一个阴影效果的容器。
+The `mu-paper` is a container with shadow effects.
 
-## 示例
+## Example
 
-设置 `z-depth` 调整阴影的深度。
+Set `z-depth` to adjust the depth of the shadow.
 
 :::demo
 ```html
@@ -19,7 +19,7 @@
 :::
 
 
-## 圆形
+## Circular
 
 :::demo
 ```html
@@ -35,11 +35,11 @@
 
 ## Paper Props
 
-| 参数 | 介绍 | 类型 | 可选值 | 默认值 |
+| Attribute | Description | Type | Accepted values | Default |
 |------|------|------|------|------|
-| z-depth | 纸片的阴影程度 | Number | 0—24 | — |
-| round | 圆角的纸片 | Boolean | — | false |
-| circle | 圆形的纸片 | Boolean | — | false |
+| z-depth | the degree of shadow of the paper | Number | 0—24 | — |
+| round | rounded paper | Boolean | — | false |
+| circle | circular paper | Boolean | — | false |
 
 <style lang="css">
 .demo-paper {
