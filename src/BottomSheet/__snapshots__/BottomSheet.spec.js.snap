@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Bottom Sheet should default view 1`] = `
+
+<div class="mu-bottom-sheet"
+     style="z-index: 20141224;"
+>
+</div>
+
+`;
