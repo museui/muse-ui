@@ -1,8 +1,8 @@
-# 波纹组件
+# Ripple
 
-`mu-ripple` 用于自定义一些元素的点击波纹效果；
+The `mu-ripple` is used to customize the click ripple effect of some elements.
 
-## 示例
+## Example
 
 :::demo
 ```html
@@ -19,9 +19,9 @@
 :::
 
 
-## 按需引入
+## Import on demand
 
-工具类的组件在 `lib/Helpers` 目录下
+The components of the tool class are in the `lib/helpers` directory.
 
 ```javascript
 import Vue from 'vue';
@@ -32,11 +32,11 @@ Vue.use(Helpers);
 
 ## Ripple Props
 
-| 参数 | 介绍 | 类型 | 可选值 | 默认值 |
+| Attribute | Description | Type | Accepted values | Default |
 |------|------|------|------|------|
-| tag  | 渲染元素标签名 | String | — | div |
-| color | 波纹颜色 | String | — | — |
-| opacity | 波纹的透明度 | Number | 0-1 | 0.3 |
+| tag  | render element tag name | String | — | div |
+| color | ripple color | String | — | — |
+| opacity | ripple opacity | Number | 0-1 | 0.3 |
 
 <style lang="less">
 .mu-ripple-demo {
