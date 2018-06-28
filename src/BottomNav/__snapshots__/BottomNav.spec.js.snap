@@ -1,0 +1,115 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Bottom Navigation should default view 1`] = `
+
+<div tabindex="0"
+     class="mu-bottom-nav"
+>
+  <div class="mu-bottom-nav-shift-wrapper">
+    <div tabindex="0"
+         class="mu-bottom-item mu-bottom-item-active "
+    >
+      <div class="mu-bottom-item-wrapper">
+        <div class="mu-ripple-wrapper">
+        </div>
+        <i class=" mu-icon  material-icons   mu-bottom-item-icon"
+           style="font-size: undefinedpx;"
+        >
+          restore
+        </i>
+        <span class="mu-bottom-item-text">
+          Recents
+        </span>
+      </div>
+    </div>
+    <div tabindex="0"
+         class="mu-bottom-item"
+    >
+      <div class="mu-bottom-item-wrapper">
+        <div class="mu-ripple-wrapper">
+        </div>
+        <i class=" mu-icon  material-icons   mu-bottom-item-icon"
+           style="font-size: undefinedpx;"
+        >
+          favorite
+        </i>
+        <span class="mu-bottom-item-text">
+          Favorites
+        </span>
+      </div>
+    </div>
+    <div tabindex="0"
+         class="mu-bottom-item"
+    >
+      <div class="mu-bottom-item-wrapper">
+        <div class="mu-ripple-wrapper">
+        </div>
+        <i class=" mu-icon  material-icons   mu-bottom-item-icon"
+           style="font-size: undefinedpx;"
+        >
+          location_on
+        </i>
+        <span class="mu-bottom-item-text">
+          Nearby
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+
+`;
+
+exports[`Bottom Navigation should shift mode 1`] = `
+
+<div tabindex="0"
+     class="mu-bottom-nav mu-bottom-nav-shift "
+>
+  <div class="mu-bottom-nav-shift-wrapper">
+    <div class="mu-ripple-wrapper">
+    </div>
+    <div tabindex="0"
+         class="mu-bottom-item mu-bottom-item-active is-shift"
+    >
+      <div class="mu-bottom-item-wrapper">
+        <i class=" mu-icon  material-icons   mu-bottom-item-icon"
+           style="font-size: undefinedpx;"
+        >
+          restore
+        </i>
+        <span class="mu-bottom-item-text">
+          Recents
+        </span>
+      </div>
+    </div>
+    <div tabindex="0"
+         class="mu-bottom-item"
+    >
+      <div class="mu-bottom-item-wrapper">
+        <i class=" mu-icon  material-icons   mu-bottom-item-icon"
+           style="font-size: undefinedpx;"
+        >
+          favorite
+        </i>
+        <span class="mu-bottom-item-text">
+          Favorites
+        </span>
+      </div>
+    </div>
+    <div tabindex="0"
+         class="mu-bottom-item"
+    >
+      <div class="mu-bottom-item-wrapper">
+        <i class=" mu-icon  material-icons   mu-bottom-item-icon"
+           style="font-size: undefinedpx;"
+        >
+          location_on
+        </i>
+        <span class="mu-bottom-item-text">
+          Nearby
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+
+`;
