@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Badge should custom class 1`] = `
+
+<div class="mu-badge-container">
+  <em class="mu-badge   mu-badge-circle">
+  </em>
+</div>
+
+`;
+
+exports[`Badge should custom class 2`] = `
+
+<div class="mu-badge-container">
+  <em class="mu-badge custom-badge  mu-badge-circle">
+  </em>
+</div>
+
+`;
+
+exports[`Badge should default view 1`] = `
+
+<div class="mu-badge-container">
+  <em class="mu-badge  ">
+  </em>
+</div>
+
+`;

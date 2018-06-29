@@ -1,6 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Alert.vue show be show by default 1`] = `
+exports[`Alert should be set color 1`] = `
+
+<div class="mu-alert mu-primary-color mu-inverse">
+</div>
+
+`;
+
+exports[`Alert should be set color 2`] = `
+
+<div class="mu-alert mu-error-color mu-inverse">
+</div>
+
+`;
+
+exports[`Alert should be show by default 1`] = `
 
 <div class="mu-alert ">
 </div>

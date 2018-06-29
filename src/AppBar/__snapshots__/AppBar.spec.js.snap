@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppBar should be default 1`] = `
+
+<header class="mu-appbar   mu-elevation-4">
+  <div class="mu-appbar-title">
+  </div>
+</header>
+
+`;
+
+exports[`AppBar should be set title 1`] = `
+
+<header class="mu-appbar   mu-elevation-4">
+  <div class="mu-appbar-title">
+    Muse-UI
+  </div>
+</header>
+
+`;
+
+exports[`AppBar should be slots 1`] = `
+
+<header class="mu-appbar   mu-elevation-4">
+  <div class="mu-appbar-left">
+  </div>
+  <div class="mu-appbar-title">
+  </div>
+</header>
+
+`;
+
+exports[`AppBar should be slots 2`] = `
+
+<header class="mu-appbar   mu-elevation-4">
+  <div class="mu-appbar-title">
+  </div>
+  <div class="mu-appbar-right">
+  </div>
+</header>
+
+`;
