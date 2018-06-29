@@ -2,7 +2,7 @@
 
 Muse-UI 中所有组件的 `color` 或者 `*-color` 属性，都可以使用 `primary`, `secondary`, `success`, `warning`, `info`, `error`, 或者 [Material Design](https://material.io/) 规范中的所有色彩名称。
 
-## 组件中 color 使用
+## 在组件中使用 color
 
 :::demo
 ```html
