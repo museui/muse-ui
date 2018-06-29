@@ -67,14 +67,7 @@ Check out our [documentation website](https://muse-ui.org).
 
 If you find Muse-UI useful, you can buy us a cup of coffee
 
-<div style="display:inline-block;">
-  <p style="font-size: 20px;text-align: center;">支付宝</p>
-  <img src="./demo/pay.png" width="273">
-</div>
-<div style="display:inline-block;margin-left: 16px;">
-  <p style="font-size: 20px;text-align: center;">微信</p>
-  <img src="./demo/wechat.png" width="273">
-</div>
+[支持 Muse-UI](https://muse-ui.org/#/zh-CN/support)
 
 ## Licence
 
