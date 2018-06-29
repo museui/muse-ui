@@ -46,11 +46,6 @@ export default {
       this.$emit('update:open', false);
       this.$emit('close', 'esc');
     },
-    setZIndex () {
-      const dom = this.$el;
-      if (!this.zIndex) this.zIndex = getZIndex();
-      if (dom) dom.style.zIndex = this.zIndex;
-    },
     resetZIndex () {
       this.overlayZIndex = getZIndex();
       this.zIndex = getZIndex();
@@ -59,14 +54,10 @@ export default {
       return this.$el;
     },
     appendPopupElToBody () {
-      if (!this.appendBody) return;
+      if (!this.appendBody || this.appened) return;
       this.$nextTick(() => {
-        const popupEl = this.popupEl();
-        if (!popupEl) {
-          console.warn('必须有一个 ref=‘popup’ 的元素');
-          return;
-        }
-        document.body.appendChild(popupEl);
+        document.body.appendChild(this.$el);
+        this.appened = true;
       });
     }
   },
@@ -76,17 +67,11 @@ export default {
       this.appendPopupElToBody();
     }
   },
-  updated () {
-    if (!this.overlay && this.open) {
-      this.setZIndex();
-    }
-  },
   beforeDestroy () {
     PopupManager.close(this);
     if (this.appendBody) {
-      const popupEl = this.popupEl();
-      if (!popupEl) return;
-      if (popupEl.parentNode) popupEl.parentNode.removeChild(popupEl);
+      if (!this.$el) return;
+      if (this.$el.parentNode) this.$el.parentNode.removeChild(this.$el);
     }
   },
   watch: {
