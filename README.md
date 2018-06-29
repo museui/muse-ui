@@ -53,7 +53,7 @@ Modern browsers and Internet Explorer 10+.
 
 ## Contributing
 
-Please make sure to read the contributing guide ([中文](https://muse-ui.org/#/zh-CN/contributing)) before making a pull request.
+Please make sure to read the contributing guide ([中文](https://muse-ui.org/#/zh-CN/contributing) | [English](https://muse-ui.org/#/en-US/contributing)) before making a pull request.
 
 ## Changelog
 
