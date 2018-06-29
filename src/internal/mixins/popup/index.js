@@ -60,14 +60,7 @@ export default {
     },
     appendPopupElToBody () {
       if (!this.appendBody) return;
-      this.$nextTick(() => {
-        const popupEl = this.popupEl();
-        if (!popupEl) {
-          console.warn('必须有一个 ref=‘popup’ 的元素');
-          return;
-        }
-        document.body.appendChild(popupEl);
-      });
+      this.$nextTick(() => document.body.appendChild(this.$el));
     }
   },
   mounted () {
@@ -84,9 +77,8 @@ export default {
   beforeDestroy () {
     PopupManager.close(this);
     if (this.appendBody) {
-      const popupEl = this.popupEl();
-      if (!popupEl) return;
-      if (popupEl.parentNode) popupEl.parentNode.removeChild(popupEl);
+      if (!this.$el) return;
+      if (this.$el.parentNode) this.$el.parentNode.removeChild(this.$el);
     }
   },
   watch: {
