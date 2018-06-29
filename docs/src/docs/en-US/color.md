@@ -2,7 +2,7 @@
 
 The `color` or `*-color` attributes of all components in the Muse-UI can be used `primary`, `secondary`, `success`, `warning`, `info`, `error`, or [Material Design] (https://material.io/) All the color names in the  specification.
 
-## Color usage in Components
+## Using color in components
 
 :::demo
 ```html
