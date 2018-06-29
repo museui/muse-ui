@@ -46,11 +46,6 @@ export default {
       this.$emit('update:open', false);
       this.$emit('close', 'esc');
     },
-    setZIndex () {
-      const dom = this.$el;
-      if (!this.zIndex) this.zIndex = getZIndex();
-      if (dom) dom.style.zIndex = this.zIndex;
-    },
     resetZIndex () {
       this.overlayZIndex = getZIndex();
       this.zIndex = getZIndex();
@@ -59,19 +54,17 @@ export default {
       return this.$el;
     },
     appendPopupElToBody () {
-      if (!this.appendBody) return;
-      this.$nextTick(() => document.body.appendChild(this.$el));
+      if (!this.appendBody || this.appened) return;
+      this.$nextTick(() => {
+        document.body.appendChild(this.$el);
+        this.appened = true;
+      });
     }
   },
   mounted () {
     if (this.open) {
       PopupManager.open(this);
       this.appendPopupElToBody();
-    }
-  },
-  updated () {
-    if (!this.overlay && this.open) {
-      this.setZIndex();
     }
   },
   beforeDestroy () {
