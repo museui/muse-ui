@@ -1,8 +1,8 @@
-# 底部表单
+# Button sheet
 
-`mu-bottom-sheet` 是一个从屏幕底部边缘向上滑出的一个面板，使用这种方式向用户呈现一组功能。呈现了简单、清晰、无需额外解释的一组操作。
+ `Mu-bottom-sheet` is a panel that slides up from the bottom edge of the screen, rendering a set of features to the user in this way. Presents a set of operations that are simple, clear, and require no additional explanation.
 
-## 示例
+## Example
 
 :::demo
 ```html
@@ -45,21 +45,21 @@
 
 ## Bottom Sheet Props
 
-| 参数 | 介绍 | 类型 | 可选值 | 默认值 |
+| Attribute | Description | Type | Accepted values | Default |
 |------|------|------|------|------|
-| open | 是否打开 | Boolean | — | false |
-| overlay | 是否有遮盖层 | Boolean | — | true |
-| overlay-close | 点击遮盖层是否可以关闭 | Boolean | — | true |
-| overlay-opacity | 遮盖层的透明度 | Boolean | — | 0.4 |
-| overlay-color | 遮盖层的颜色 | String | — | #000 |
-| esc-press-close | 按下 `esc` 键是否可以关闭 | Boolean | — | true |
-| append-body | 弹出层是否添加到 body 元素后, 内部使用 | Boolean | — | true |
+| open | whether is open | Boolean | — | false |
+| overlay | whether there is a overlayer | Boolean | — | true |
+| overlay-close | click whether the overlayer can be closed | Boolean | — | true |
+| overlay-opacity | overlayer opacity | Boolean | — | 0.4 |
+| overlay-color | overlayer color | String | — | #000 |
+| esc-press-close | whether to close when pressing the `ESC` key | Boolean | — | true |
+| append-body | whether the popup layer is added to the body element and used internally | Boolean | — | true |
 
 ## Bottom Sheet Events
 
-| 名称 | 介绍 | 回调参数 |
+| Name | Description | Parameters |
 |------|------|-------|
-| close | 当点击遮盖层或者按 esc 键，需要关闭弹层时触发 | (reason) reason 关闭的原因  <br/> `overlay` : 点击了遮盖层 <br/> `esc` 按下 esc 键 |
+| close | when you click on the overlayer or press esc, trigger when you need to close the shell | (reason) reason for closing  <br/> `overlay` : Click on the overayer <br/> `esc` press the `esc` key |
 
 <script>
 export default {

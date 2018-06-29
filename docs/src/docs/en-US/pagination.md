@@ -1,8 +1,8 @@
-# 分页
+# Pagination
 
-`mu-pagination` 组件用于分隔数据集。
+The `mu-pagination` is used to separate data sets.
 
-## 示例
+## Example
 
 :::demo
 ```html
@@ -32,18 +32,19 @@ export default {
 
 ## Pagination Props
 
-| 参数 | 介绍 | 类型 | 可选值 | 默认值 |
+| Attribute | Description | Type | Accepted values | Default |
 |------|------|------|------|------|
-| total | 总条目数 | Number | — | — |
-| current | 当前页数, 支持 `.sync` 修饰符 | Number | — | — |
-| page-size | 每页显示条目个数 | Number  | — | 10 |
-| page-count | 页码按钮的数量，当总页数超过该值时会折叠 | Number | 大于等于 5 且小于等于 21 的奇数 | 7 |
+| total | the number of total entries | Number | — | — |
+| current | current page, support for `.sync` modifiers | Number | — | — |
+| page-size | each page shows the number of entries | Number  | — | 10 |
+| page-count | the number of page buttons, which will collapse when the total number of pages exceeds this value
+ | Number | an odd number is greater than or equal to 5 and less than or equal to 21 | 7 |
 
 ## Pagination Events
 
-| 名称 | 介绍 | 回调参数 |
+| Name | Description | Parameters |
 |------|------|-------|
-| change | 当前页更改时触发事件 | — |
+| change | trigger event when current page changes | — |
 
 <script>
 export default {

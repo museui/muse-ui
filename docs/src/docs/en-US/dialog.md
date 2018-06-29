@@ -185,7 +185,7 @@ export default {
 | fullscreen | whether it is full screen | Boolean | false | false |
 | transition | transition animation Scheme | String | slide-top/slide-bottom/slide-left/slide-right/fade/scale | scale |
 | dialog-class | dialog style | String | — | — |
-| overlay | whether there is a overlay | Boolean | — | true |
+| overlay | whether there is a overlayer | Boolean | — | true |
 | overlay-close | click whether the overlay can be closed | Boolean | — | true |
 | overlay-opacity | overlay opacity | Boolean | — | 0.4 |
 | overlay-color | overlay color | String | — | #000 |

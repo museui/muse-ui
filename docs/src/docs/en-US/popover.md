@@ -1,6 +1,6 @@
-# 弹出框
+# Popup box
 
-`mu-popover` 用于弹出显示，它封装在 `mu-menu` 组件内部。
+The `mu-popover` is used to display the popup box, which is encapsulated inside the `mu-menu` component.
 
 :::demo
 ```html
@@ -42,13 +42,13 @@ export default {
 
 ## Popover Props
 
-| 参数 | 介绍 | 类型 | 可选值 | 默认值 |
+| Attribute | Description | Type | Accepted values | Default |
 |------|------|------|------|------|
-| cover | 弹出是否覆盖触发元素 | Boolean | — | false |
-| lazy | 是否在打开时才渲染元素 | Boolean | — | — |
-| placement | 弹出位置  | String | top / top-start / top-end / bottom / bottom-start / bottom-end / left / left-start / left-end / right / right-start / right-end | bottom-start |
-| open | 是否打开 | Boolean | — | false |
-| trigger | 触发元素 | Element | — | — |
+| cover | popup whether to overwrite the trigger element | Boolean | — | false |
+| lazy | whether to render elements when open | Boolean | — | — |
+| placement | popup position  | String | top / top-start / top-end / bottom / bottom-start / bottom-end / left / left-start / left-end / right / right-start / right-end | bottom-start |
+| open | whether to open | Boolean | — | false |
+| trigger | trigger element | Element | — | — |
 
 <script>
 export default {

@@ -8,6 +8,13 @@
   "module": "dist/muse-ui.esm.js",
   "unpkg": "dist/muse-ui.js",
   "jsdelivr": "dist/muse-ui.js",
+  "typings": "types/index.d.ts",
+  "files": [
+    "dist",
+    "lib",
+    "src",
+    "types"
+  ],
   "scripts": {
     "docs:dev": "webpack-dev-server --inline --progress --config docs/build/webpack.dev.conf.js",
     "docs:build": "node docs/build/build.js && node docs/build/gen-indices.js",

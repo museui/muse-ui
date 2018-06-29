@@ -61,7 +61,7 @@ export default {
 ```
 :::
 
-## 自定义模板
+## Customizing templates
 
 :::demo
 ```html
@@ -154,8 +154,8 @@ export default {
 | Attribute | Description | Type | Accepted values | Default |
 |------|------|------|------|------|
 | data | prompt input data | Array | — | — |
-| filter | 搜索数据函数, 返回一个数组作为搜索显示结果 [{value, item, highlight }] | Function<value, data, maxSearchResults> | — | — |
-| debounce | 搜索触发防抖动时间 | Number | — | 200 |
+| filter | search the data function, return an array as the result of the search display [{value, item, highlight }] | Function<value, data, maxSearchResults> | — | — |
+| debounce | search trigger debounce time | Number | — | 200 |
 | max-height | maximum height of pop-up box | Number/String | 300 |
 | max-search-results | maximum display of search results | Number | — |
 | open-on-focus | whether to open prompt input list when focus | Boolean | — |
@@ -179,10 +179,10 @@ export default {
 
 ## Auto Complete Events
 
-| 名称 | 介绍 | 回调参数 |
+| Name | Description | Parameters |
 |-----|------|--------|
-| select | 选择某一项时触发事件 | (value, item) |
-| change | 值改变时触发 | (value) |
+| select | trigger event when you select an item | (value, item) |
+| change | trigger when the value change | (value) |
 
 ## Auto Complete Slots
 
@@ -194,7 +194,7 @@ export default {
 
 ## Auto Complete Scope Slots
 
-| Name | Description | Attribute |
+| Name | Description | Parameters |
 |------|------|------|
 | — | slots for options | { item, index, highlight }  |
 
