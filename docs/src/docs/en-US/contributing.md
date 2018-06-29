@@ -1,45 +1,46 @@
-# Muse UI Contributing Guide
+## Muse UI Contributing Guide
 
-Hi! 首先感谢你使用 Muse UI。
+Hi! First of all, thank you for using Muse UI.
 
-Muse UI 是一套 Material Design 风格开源组件库，旨在快速搭建页面。它基于 Vue 2.0 开发，并提供了自定义主题，充分满足可定制化的需求。
+Muse UI is a set of Material Design style open source component library, designed for building pages rapidly. It is developed based on Vue 2.0 and provides a custom themes that are able to fully satisfy your customizable needs.
 
-Muse UI 的成长离不开大家的支持，如果你愿意为 Muse UI 贡献代码或提供建议，请阅读以下内容。
+The growth of Muse UI is inseparable from the support of everyone. If you wish to either contribute to Muse UI or provide us with your suggestions, please read the following guidelines.
 
-## Issue 规范
+## Issue Guidelines
 
-* issue 仅用于提交 Bug 或 Feature 相关的内容，其它内容可能会被直接关闭。使用上有问题可以来 [gitter](https://gitter.im/muse-ui/muse-ui) 大家一起讨论
+* Issues are only used for submitting Bug or Feature related content, other content may be closed directly. For usage problems, we can discuss it together on [gitter](https://gitter.im/muse-ui/muse-ui).
 
-* 在提交 issue 之前，请搜索相关内容是否已被提出。
+* Before submitting an issue, please search if any related issues have already been submitted.
 
-* 请说明 Muse UI 和 Vue 的版本号，并提供操作系统和浏览器信息。推荐使用 [JSFiddle](https://jsfiddle.net/) 生成在线 demo，这能够更直观地重现问题。
+* Please state the version number of Muse UI and Vue, also provide us with your operating system and browser information. We recommend using [JSFiddle](https://jsfiddle.net/) to generate an online demo for reproducing the problem more intuitively.
 
 
-## Pull Request 规范
+## Pull Request Guidelines
 
-* 请先 fork 一份到自己的项目下，不要直接在仓库下建分支。
+* Please fork a copy of the repository to your own project. Do not create a branch within the repository.
 
-* commit 信息要以[组件名]: 描述信息 的形式填写，例如 AppBar: fix xxx bug。
+* Commit message must be filled based on the `[Component Name]: Description` format. For example, *appbar: fix xxx bug*
 
-* 不要提交 `dist` 或 `docs` 文件夹下的文件
+* Do not submit files under the `dist` or `docs` directory.
 
-* 执行 npm run build 后可以正确打包文件。
+* Ensure files can be bundled correctly after executing `npm run build`.
 
-* 提交 PR 前请 rebase，确保 commit 记录的整洁。
+* Please rebase before submitting a PR to ensure tidyness in our commit history。
 
-* 如果是修复 bug，请在 PR 中给出描述信息。
+* If it is a bug fix, please provide a description of it in the PR.
 
-## 开发环境搭建
+## Development Environment Setup
 
-首先你需要 Node.js 8+ 和 NPM 4+
+First, you need Node.js 8+ and NPM 4+.
 
 ```bash
 git clone git@github.com:museui/muse-ui.git
 npm run dev
+
 # open http://localhost:3000
 ```
 
-安装慢可以使用 yarn 搭配 taobao registry
+If installation is slow, you can use yarn with the taobao registry:
 
 ```bash
 npm i yarn -g
@@ -56,6 +57,7 @@ build:
 npm run build
 ```
 
-## 代码规范
+## Code Guidelines
 
-eslint [standard](https://github.com/feross/standard/blob/master/RULES.md#javascript-standard-style) 规范，建议IDE上添加 eslint 的插件。
+ESLint [standard](https://github.com/feross/standard/blob/master/RULES.md#javascript-standard-style) Style Guide. We recommend adding the ESLint plugin to your IDE.
+
