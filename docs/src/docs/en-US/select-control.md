@@ -1,8 +1,8 @@
-# 选择控件
+# Select control
 
-选择控件允许用户选择的选项，分为 `mu-checkbox` ，`mu-radio` 和 `mu-switch`。
+The select control allows the user to select the options, which are divided into `mu-checkbox`, `mu-radio` and `mu-switch`.
 
-## 示例
+## Example
 
 :::demo
 ```html
@@ -64,7 +64,7 @@ export default {
     </mu-flex>
   </div>
 
-  不可用状态
+  Disable state
   <mu-flex class="select-control-row">
     <mu-checkbox disabled label="disabled"></mu-checkbox>
   </mu-flex>
@@ -114,7 +114,7 @@ export default {
     </mu-flex>
   </div>
 
-  不可用状态
+  Disable state
   <mu-flex class="select-control-row">
     <mu-radio disabled v-model="radio.value3" value="null" label="disabled"></mu-radio>
   </mu-flex>
@@ -177,62 +177,62 @@ export default {
 ```
 :::
 
-<mu-alert color="info"> 支持 input 标签所有的原生属性和事件。</mu-alert>
+<mu-alert color="info"> Supports all native properties and events for input tags.</mu-alert>
 
 ## Checkbox Props
 
-| 参数 | 介绍 | 类型 | 可选值 | 默认值 |
+| Attribute | Description | Type | Accepted values | Default |
 |------|------|------|------|------|
-| label | 标签 | String | — | — |
-| label-left | 标签是否在左边 | Boolean | — | — |
-| uncheck-icon | 未选择时的 icon | String | — | — |
-| checked-icon | 已选择时的 icon | String | — | — |
-| input-value | 用于 `v-model` 绑定 | Boolean, Array | — | — |
-| disabled | 是否禁用 | Boolean | — | — |
-| color | 颜色 | String | — | — |
-| ripple | 是否开启波纹动画 | Boolean | - | true |
+| label | lable | String | — | — |
+| label-left | whether the label is on the left side | Boolean | — | — |
+| uncheck-icon | unselected icon | String | — | — |
+| checked-icon | selected icon | String | — | — |
+| input-value | used for `v-model` bindings | Boolean, Array | — | — |
+| disabled | whether it is disabled | Boolean | — | — |
+| color | color | String | — | — |
+| ripple | whether to turn on ripple animation | Boolean | - | true |
 
 ## Checkbox Events
 
-| 名称 | 介绍 | 参数 |
+| Name | Description | Parameters |
 |-----|------|-----|
-| change | 值改变时触发 | (value) |
+| change | trigger when the value changes | (value) |
 
 ## Radio Props
 
-| 参数 | 介绍 | 类型 | 可选值 | 默认值 |
+| Attribute | Description | Type | Accepted values | Default |
 |------|------|------|------|------|
-| label | 标签 | String | — | — |
-| label-left | 标签是否在左边 | Boolean | — | — |
-| uncheck-icon | 未选择时的 icon | String | — | — |
-| checked-icon | 已选择时的 icon | String | — | — |
-| input-value | 用于 `v-model` 绑定 | — | — | — |
-| disabled | 是否禁用 | Boolean | — | — |
-| color | 颜色 | String | — | — |
-| ripple | 是否开启波纹动画 | Boolean | - | true |
+| label | lable | String | — | — |
+| label-left | whether the label is on the left side | Boolean | — | — |
+| uncheck-icon | unselected icon | String | — | — |
+| checked-icon | selected icon | String | — | — |
+| input-value | used for `v-model` bindings | — | — | — |
+| disabled | whether it is disabled | Boolean | — | — |
+| color | color | String | — | — |
+| ripple | whether to turn on ripple animation | Boolean | - | true |
 
 ## Checkbox Events
 
-| 名称 | 介绍 | 参数 |
+| Name | Description | Parameters |
 |-----|------|-----|
-| change | 值改变时触发 | (value) |
+| change | trigger when the value changes | (value) |
 
 ## Switch Props
 
-| 参数 | 介绍 | 类型 | 可选值 | 默认值 |
+| Attribute | Description | Type | Accepted values | Default |
 |------|------|------|------|------|
-| label | 标签 | String | — | — |
-| label-left | 标签是否在左边 | Boolean | — | — |
-| input-value | 用于 `v-model` 绑定 | Boolean | — | — |
-| disabled | 是否禁用 | Boolean | — | — |
-| color | 颜色 | String | — | — |
-| ripple | 是否开启波纹动画 | Boolean | - | true |
+| label | label | String | — | — |
+| label-left | whether the label is on the left side | Boolean | — | — |
+| input-value | used for `v-model` bindings | Boolean | — | — |
+| disabled | whether it is disabled | Boolean | — | — |
+| color | color | String | — | — |
+| ripple | whether to turn on ripple animation | Boolean | - | true |
 
 ## Switch Events
 
-| 名称 | 介绍 | 参数 |
+| Name | Description | Parameters |
 |-----|------|-----|
-| change | 值改变时触发 | (value) |
+| change | trigger when the value changes | (value) |
 
 <script>
 export default {
