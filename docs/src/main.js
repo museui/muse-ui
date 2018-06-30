@@ -6,15 +6,18 @@ import './assets/font-icons/style.css';
 import './assets/github-markdown.css';
 import './assets/atom-one-light.css';
 import MuseUI from 'muse-ui';
+import Progress from 'muse-ui-progress';
 import FastClick from 'fastclick';
 import './theme.js';
 import App from './App';
 import ColorPalette from './components/color-palette';
 import DemoBlock from './components/demo-block';
 import router from './router';
-import progress from './components/progress';
 import { changeLocale } from './locale';
 Vue.use(MuseUI);
+Vue.use(Progress, {
+  color: 'secondary'
+});
 Vue.component(ColorPalette.name, ColorPalette);
 Vue.component(DemoBlock.name, DemoBlock);
 Vue.config.productionTip = false;
@@ -25,12 +28,12 @@ router.beforeEach((to, from, next) => {
     changeLocale(to.meta.lang);
   }
   window.scrollTo(0, 0);
-  progress.start();
+  Progress.start();
   next();
 });
 
 router.afterEach(() => {
-  progress.end();
+  Progress.done();
 });
 
 const app = new Vue({
