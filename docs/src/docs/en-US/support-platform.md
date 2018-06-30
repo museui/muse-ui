@@ -1,8 +1,8 @@
-# 支持的平台
+# Support platform
 
-## 浏览器
+## Browser
 
-Muse-UI 支持最新的稳定版本的所有主要浏览器和平台。我们也支持 Internet Explorer 11。
+Muse-ui supports all major browsers and platforms for the latest stable version. We also support Internet Explorer 11。
 
 | IE |	Edge |	Firefox |	Chrome | Safari |
 |-----|------|----------|--------|--------|
