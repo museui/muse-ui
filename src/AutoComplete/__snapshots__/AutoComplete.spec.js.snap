@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AutoComplete should default view 1`] = `
+
+<div class="mu-input ">
+  <div class="mu-text-field mu-input-content">
+    <input tabindex="0"
+           class="mu-text-field-input"
+    >
+    <div class="mu-popover transition-bottom"
+         style="z-index: 20141224; visibility: hidden; display: none;"
+    >
+      <ul class="mu-list mu-option-list mu-list-dense"
+          style="max-height: 300px;"
+      >
+      </ul>
+    </div>
+    <div>
+      <div class="mu-input-line">
+      </div>
+      <div class="mu-input-focus-line ">
+      </div>
+    </div>
+  </div>
+</div>
+
+`;
