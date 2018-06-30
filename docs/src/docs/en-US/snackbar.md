@@ -1,8 +1,8 @@
-# 小吃吧
+# Snackbar
 
-`mu-snackbar` 是一种针对操作的轻量级反馈机制，常以一个小的弹出框的形式。
+The `mu-snackbar` is a lightweight feedback mechanism for operations, often in the form of a small popup box.
 
-## 示例
+## Example
 
 :::demo
 ```html
@@ -55,9 +55,9 @@ export default {
 ```
 :::
 
-## 不同颜色和图标
+## Different colors and icons
 
-可以选择不同的颜色的 `mu-snackbar`，以便于展示不同类型的提示信息。
+You can choose different colors of `mu-snackbar` to display different types of prompt information.
 
 :::demo
 ```html
@@ -123,20 +123,20 @@ export default {
 
 ## Snackbar Props
 
-| 参数 | 介绍 | 类型 | 可选值 | 默认值 |
+| Attribute | Description | Type | Accepted values | Default |
 |------|------|------|------|------|
-| color | 颜色 | String | — | — |
-| text-color | 文本颜色 | String | — | — |
-| message | 信息文本 | String | — | — |
-| position | 弹出的位置 | String | top-start / top / top-end / bottom-start / bottom / bottom-end | bottom |
-| open | 是否打开 | Boolean | — | false |
+| color | color | String | — | — |
+| text-color | text color | String | — | — |
+| message | message | String | — | — |
+| position | popup position | String | top-start / top / top-end / bottom-start / bottom / bottom-end | bottom |
+| open | whether to open | Boolean | — | false |
 
 ## Snackbar Slots
 
-| 名称 | 介绍 |
+| Attribute | Description |
 |------|-----|
-| action | 放置操作按钮的插槽 |
-| default | 放置文本信息和图标 |
+| action | slot to place action button |
+| default | place text messages and icons |
 
 <script>
 export default {

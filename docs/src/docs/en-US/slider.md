@@ -1,8 +1,8 @@
-# 滑块
+# Slider
 
-`mu-slider` 用于在一个固定区间内进行选择。
+The `mu-slider` is used to select within a fixed range.
 
-## 示例
+## Example
 
 :::demo
 ```html
@@ -14,9 +14,9 @@
 ```
 :::
 
-## 色彩
+## Color
 
-可以使用 `color` 、`track-color` 和 `thumb-color` 属性来设置滑块的颜色。
+Use `color` 、`track-color` and `thumb-color` property to set the color of silder.
 
 :::demo
 ```html
@@ -30,29 +30,29 @@
 
 ## Slider Props
 
-| 参数 | 介绍 | 类型 | 可选值 | 默认值 |
+| Attribute | Description | Type | Accepted values | Default |
 |------|------|------|------|------|
-| value | 当前值,支持 `v-model` 指令 | Number | — | — |
-| max | 最大值 | Number | — | 100 |
-| min | 最小值 | Number | — | 0 |
-| step | 步长	| Number | — | 0.1 |
-| color | 颜色 | String | — | — |
-| thumb-color | 拇指颜色 | String | — | — |
-| track-color | 填充色彩 | String | — | — |
-| disabled | 是否禁用 | Boolean | — | — |
-| display-value | 是否显示当前值 | Boolean | — | — |
+| value | current value, support `v-model` directive | Number | — | — |
+| max | maximum value | Number | — | 100 |
+| min | minimum value | Number | — | 0 |
+| step | step	| Number | — | 0.1 |
+| color | color | String | — | — |
+| thumb-color | thumb color | String | — | — |
+| track-color | track color | String | — | — |
+| disabled | whether it is disabled | Boolean | — | — |
+| display-value | whether to display the current value | Boolean | — | — |
 
 ## Slider Events
 
-| 名称 | 介绍 | 参数 |
+| Attribute | Description | Parameters |
 |-----|------|-----|
-| change | 值改变时触发 | (value) |
+| change | trigger when the value change | (value) |
 
 ## Slider change
 
-| 名称 | 介绍 | 回调参数 |
+| Attribute | Description | Parameters |
 |------|------|--------|
-| change | 拖动滑块改变值时触发事件 | (value) |
+| change | trigger event when drag slider changes value | (value) |
 
 <script>
 export default {

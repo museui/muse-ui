@@ -1,10 +1,10 @@
-# 选择框
+# Select
 
-`mu-select` 用于从选项列表中收集用户提供的信息。
+The `mu-select` is used to collect user-supplied information from a list of options.
 
-## 示例
+## Example
 
-同 `select` 标签类似，需要 `mu-select` 与 `mu-option` 两者配合使用
+Like the `select` tag, you need to use with `mu-select` and `mu-option`.
 
 :::demo
 ```html
@@ -60,9 +60,9 @@ export default {
 ```
 :::
 
-## 多选
+## Multiple selection
 
-设置 `multiple` 将选择框变为多选， `separator` 更改分隔符, `chips` 使用 `mu-chip` 组件展示已选择项
+Set `multiple` to turn the selection box into multiple choices, `separator` changes the delimiter, `chips` uses the `mu-chip` component to show selected items.
 
 :::demo
 ```html
@@ -117,9 +117,9 @@ export default {
 ```
 :::
 
-## 可搜索
+## Searchable
 
-设定 `filerable` 将选择框变为可搜索的选择框。
+Set `filerable` to turn the selection box into searchable selection box.
 
 :::demo
 ```html
@@ -174,7 +174,7 @@ export default {
 ```
 :::
 
-## 自定义模板
+## Customizing templates
 
 :::demo
 ```html
@@ -237,9 +237,9 @@ export default {
 ```
 :::
 
-## 标签输入
+## Label input
 
-可创建选项中没有的值，只需将 `tags` 设置为 true
+You can create values that are not in the options, just set `tags` to true.
 
 :::demo
 ```html
@@ -270,64 +270,66 @@ export default {
 ```
 :::
 
-<mu-alert color="info">mu-select 支持 select 标签所有的原生属性和事件。</mu-alert>
+<mu-alert color="info">mu-select supports all native properties and events for select tags.</mu-alert>
 
 ## Select Props
 
-| 参数 | 介绍 | 类型 | 可选值 | 默认值 |
+| Attribute | Description | Type | Accepted values | Default |
 |------|------|------|------|------|
-| multiple | 是否多选 | Boolean | — | — |
-| filterable | 是否可搜索 | Boolean | — | — |
-| chips | 已选项是否用 `mu-chip` 组件显示 | Boolean | — | — |
-| max-height | 弹出选择列表的最大高度 | Number/String | — | 300 |
-| separator | 多选时的文本分隔符 | String | — | , |
-| popover-class | 弹出框的样式 | String | — | — |
-| no-data-text | 未搜索数据时显示的文本 | String | — | 暂无数据显示 |
-| textline | 弹出列表项显示行数，设置之后会改变选项的高度 | String | two-line/three-line | — |
-| dense | 减小弹出列表最大高度 | Boolean | — | true |
-| value | 用于 `v-model` 绑定 | — | — | — |
-| color | 输入框颜色 | String | — | — |
-| icon | 输入框左边的图标 | String | — | — |
-| label | 标签文本 | String | — | — |
-| label-float | 标签是否浮动 | Boolean | — | false |
-| error-text | 错误提醒文字，如果此参数有值，那么输入框会转为错误的状态, 显示效果将会更改 | String | — | — |
-| help-text | 帮助文字 | String | — | — |
-| full-width | 是否将宽度设置为 100%, 默认 256px | Boolean | — | false |
-| disabled | 是否不可用 | Boolean | — | false |
-| action-icon | 选择框右边的图标 | String | — | — |
-| solo | 改变样式，设置之后会隐藏输入框的下划线和标签 | Boolean | — | false |
-| underline-color | 下划线的颜色  | String | - | - |
+| multiple | whether to multiple selection | Boolean | — | — |
+| filterable | whether to search | Boolean | — | — |
+| chips | whether the selected option is displayed with the `mu-chip` component | Boolean | — | — |
+| max-height | the maximum height of the popup selection list
+ | Number/String | — | 300 |
+| separator | text Separator for multiple selections | String | — | , |
+| popover-class | popup style | String | — | — |
+| no-data-text | text displayed when data is not searched | String | — | no data display |
+| textline | The pop-up list item displays the number of rows, which changes the height of the option after setting | String | two-line/three-line | — |
+| dense | decrease pop-up list maximum height | Boolean | — | true |
+| value | used for `v-model` bindings | — | — | — |
+| color | input box color | String | — | — |
+| icon | the icon to the left of the input box | String | — | — |
+| label | label text | String | — | — |
+| label-float | whether the label floats | Boolean | — | false |
+| error-text | Error reminder text, if this parameter has a value, then the input box will be converted to the wrong state, the display effect will change | String | — | — |
+| help-text | help text | String | — | — |
+| full-width | whether the width is set to 100%, default 256px | Boolean | — | false |
+| disabled |  whether is not available | Boolean | — | false |
+| action-icon | the icon to the right of the select box | String | — | — |
+| action-click | function executed after icon click | Function | — | — |
+| solo | change the style, and then hide the underline and label of the input box after setting | Boolean | — | false |
+| underline-color | underline color  | String | - | - |
 
 ## Select Slots
 
-| 名称 | 介绍 |
+| Name | Description |
 |-----|------|
-| prepend | 选择框前置内容 |
-| append | 选择框后置内容 |
+| prepend | select box prefix content |
+| append | select box tail content |
 | default | - |
 
 
 ## Select Events
 
-| 名称 | 介绍 | 参数 |
+| Name | Description | Parameters |
 |-----|------|-----|
-| change | 值改变时触发 | (value) |
+| change | trigger when the value change | (value) |
 
 ## Select Scope Slots
 
-| 名称 | 介绍 | 参数 |
+| Name | Description | Parameters |
 |------|------|------|
-| selection | 已选项的插槽 | { selected, label, value, index, disabled}  |
+| selection | slots for selected options | { selected, label, value, index, disabled}  |
 
 ## Option Props
 
-| 参数 | 介绍 | 类型 | 可选值 | 默认值 |
+| Attribute | Description | Type | Accepted values | Default |
 |------|------|------|------|------|
-| label | 选项的标签 | String | — | — |
-| value | 选项的值 | — | — | — |
-| ripple | 点击是否有波纹效果 | Boolean | — | false |
-| avatar | 选项内容中是否有头像，会根据此参数调整列表项高度 | Boolean | — | false |
-| disabled | 选项是否被禁用 | Boolean | — | false |
+| label | the label of the option | String | — | — |
+| value | the value of the option | — | — | — |
+| ripple | click whether there is ripple effect | Boolean | — | false |
+| avatar | if there is an avatar in the content of the option, the height of the list item will be adjusted according to this parameter | Boolean | — | false |
+| disabled | whether the option is disabled | Boolean | — | false |
 
 <script>
 export default {

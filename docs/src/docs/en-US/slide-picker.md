@@ -1,13 +1,13 @@
-# 滑动选择器
+# Slider picker
 
-`mu-slide-picker` 主要用于移动设备上。
+The `mu-slide-picker` is mainly used on mobile devices.
 
 :::demo
 ```html
 <div class="demo-picker-container">
   <mu-slide-picker :slots="addressSlots" :visible-item-count="7" @change="addressChange" :values="address"></mu-slide-picker>
   <p>
-    您选择的城市是： {{addressProvince}} {{addressCity}}
+    The city you selected: {{addressProvince}} {{addressCity}}
   </p>
 </div>
 <script>
@@ -96,17 +96,17 @@ export default {
 
 ## Slide Picker Props
 
-| 参数 | 介绍 | 类型 | 可选值 | 默认值 |
+| Attribute | Description | Type | Accepted values | Default |
 |------|------|------|------|------|
-| visible-item-count | 可见备选值的个数 | Number | — | 5 |
-| values | 已选择的值 | Array | — | — |
-| slots | slot 对象数组分发供选择的数据，<br/> { divider, content, values, width, textAlign } | Array | — | — |
+| visible-item-count | number of visible alternative values | Number | — | 5 |
+| values | selected value | Array | — | — |
+| slots | an array of objects as slot to distribute data for selection<br/> { divider, content, values, width, textAlign } | Array | — | — |
 
 ## Slide Picker Event
 
-| 参数 | 介绍 | 回调参数 |
+| Attribute | Description | Parameters |
 |------|------|-------|
-| change | 当选择某一项是触发事件 | (value, index) |
+| change | when selecting an item is a trigger event | (value, index) |
 
 <script>
 const address = {

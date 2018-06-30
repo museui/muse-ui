@@ -1,8 +1,8 @@
-# 副标题
+# Subtitle
 
-`mu-sub-header` 用于分隔列表的各部分。
+The `mu-sub-header` is used to separate the parts of the list.
 
-## 示例
+## Example
 
 :::demo
 ```html
@@ -117,9 +117,9 @@
 
 ## Sub Header Props
 
-| 参数 | 介绍 | 类型 | 可选值 | 默认值 |
+| Attribute | Description | Type | Accepted values | Default |
 |------|------|------|------|------|
-| inset | 是否向内缩进，设置为true 会调整padding-left 为 72px | Boolean | — | false |
+| inset | whether to indent inward，set to true to adjust padding-left to 72px | Boolean | — | false |
 
 <style>
 ul.mu-list {
