@@ -1,8 +1,8 @@
-# 文本输入框
+# Text input box
 
-`mu-text-field` 用于收集用户提供的信息。
+The `mu-text-field` is used to collect user-provided information.
 
-## 示例
+## Example
 
 :::demo
 ```html
@@ -36,13 +36,13 @@ export default {
 ```
 :::
 
-## 多行输入
+## Multi-Line Input
 
-设置 `multi-line` 之后会被渲染成 `textarea` 标签，通过 `rows` 和 `rowsMax` 控制显示输入框的行数。
+Setting `multi-line` will be rendered as a `textarea` tag, with `rows` and `rowsMax` controlling the number of lines to display in the input box.
 :::demo
 ```html
 <mu-container>
-  <mu-text-field v-model="value9" placeholder="默认3行, 最大显示6行" multi-line :rows="3" :rows-max="6"></mu-text-field><br/>
+  <mu-text-field v-model="value9" placeholder="Default 3 lines, maximum display 6 lines" multi-line :rows="3" :rows-max="6"></mu-text-field><br/>
   <mu-text-field v-model="value10" multi-line :rows="4" full-width></mu-text-field><br/>
 </mu-container>
 <script>
@@ -58,13 +58,13 @@ export default {
 ```
 :::
 
-## 图标显示
+## Display icons
 
 :::demo
 ```html
 <mu-container>
-  <mu-text-field v-model="value11" type="number" placeholder="电话号码" icon="phone"></mu-text-field><br/>
-  <mu-text-field v-model="value12" multi-line :rows="4" icon="comment"  placeholder="输入信息"></mu-text-field><br/>
+  <mu-text-field v-model="value11" type="number" placeholder="Telephone" icon="phone"></mu-text-field><br/>
+  <mu-text-field v-model="value12" multi-line :rows="4" icon="comment"  placeholder="Enter information"></mu-text-field><br/>
 </mu-container>
 <script>
 export default {
@@ -79,13 +79,13 @@ export default {
 ```
 :::
 
-## 帮助文字和错误状态
+## Help text and error state
 
 :::demo
 ```html
 <mu-container>
-  <mu-text-field v-model="value13" label="UserName" label-float help-text="用户名为6-12长度的字符" icon="account_circle"></mu-text-field><br/>
-  <mu-text-field v-model="value14" label="Password" label-float error-text="请输入密码" icon="locked"></mu-text-field><br/>
+  <mu-text-field v-model="value13" label="UserName" label-float help-text="A character with a username of 6-12 length" icon="account_circle"></mu-text-field><br/>
+  <mu-text-field v-model="value14" label="Password" label-float error-text="Please enter password" icon="locked"></mu-text-field><br/>
 </mu-container>
 <script>
 export default {
@@ -100,15 +100,15 @@ export default {
 ```
 :::
 
-## 输入长度限制
+## Input length limit
 
-设置 `max-length` 后会启动输入长度限制，并显示输入字符数。
+Setting `max-length` to start input length limit and display the number of input character.
 
 :::demo
 ```html
 <mu-container>
-  <mu-text-field v-model="value15" placeholder="最多不超过10个字符" :max-length="10"></mu-text-field><br/>
-  <mu-text-field v-model="value16" placeholder="不允许超过100个字符" multi-line :rows="3" :max-length="100"></mu-text-field><br/>
+  <mu-text-field v-model="value15" placeholder="No more than 10 characters" :max-length="10"></mu-text-field><br/>
+  <mu-text-field v-model="value16" placeholder="No more than 100 characters allowed" multi-line :rows="3" :max-length="100"></mu-text-field><br/>
 </mu-container>
 <script>
 export default {
@@ -126,39 +126,39 @@ export default {
 
 ## Text Field Props
 
-| 参数 | 介绍 | 类型 | 可选值 | 默认值 |
+| Attribute | Description | Type | Accepted values | Default |
 |------|------|------|------|------|
-| color | 输入框颜色 | String | — | — |
-| icon | 输入框左边的图标 | String | — | — |
-| label | 标签文本 | String | — | — |
-| label-float | 标签是否浮动 | Boolean | — | false |
-| error-text | 错误提醒文字，如果此参数有值，那么输入框会转为错误的状态, 显示效果将会更改 | String | — | — |
-| help-text | 帮助文字 | String | — | — |
-| full-width | 是否将宽度设置为 100%, 默认 256px | Boolean | — | false |
-| disabled | 输入框是否不可用 | Boolean | — | false |
-| multi-line | 是否多行输入 | String | — | — |
-| max-length | 最多可输入字符数 | Number | — | — |
-| rows | 行数 | Number | — | 1 |
-| rows-max | 最大行数 | — | — |
-| action-icon | 输入框右边的图标 | String | — | — |
-| action-click | 图标点击之后执行的函数 | Function | — | — |
-| solo | 改变样式，设置之后会隐藏输入框的下划线和标签 | Boolean | — | false |
-| underline-color | 下划线的颜色  | String | - | - |
-| prefix | 输入框前缀内容 | String | — | — |
-| suffix | 输入框尾部内容 | String | — | — |
+| color | input box color | String | — | — |
+| icon | the icon to the left of the input box | String | — | — |
+| label | label text | String | — | — |
+| label-float | whether the label floats | Boolean | — | false |
+| error-text | Error reminder text, if this parameter has a value, then the input box will be converted to the wrong state, the display effect will change | String | — | — |
+| help-text | help text | String | — | — |
+| full-width | whether the width is set to 100%, default 256px | Boolean | — | false |
+| disabled |  whether the input box is not available | Boolean | — | false |
+| multi-line | whether to input multiple lines | String | — | — |
+| max-length | maximum number of characters to input | Number | — | — |
+| rows | number of the rows | Number | — | 1 |
+| rows-max | maximum number of the rows | — | — |
+| action-icon | the icon to the right of the input box | String | — | — |
+| action-click | function executed after icon click | Function | — | — |
+| solo | change the style, and then hide the underline and label of the input box after setting | Boolean | — | false |
+| underline-color | underline color  | String | - | - |
+| prefix | input box prefix content | String | — | — |
+| suffix | input box tail content | String | — | — |
 
 ## Text Field Events
 
-| 名称 | 介绍 | 参数 |
+| Name | Description | Parameters |
 |-----|------|-----|
-| change | 值改变时触发 | (value) |
+| change | trigger when the value change | (value) |
 
 ## Text Field Slots
 
-| 名称 | 介绍 |
+| Name | Description |
 |-----|------|
-| prepend | 输入框前置内容 |
-| append | 输入框后置内容 |
+| prepend | input box front content |
+| append | input box post content |
 | default | - |
 
 <script>
