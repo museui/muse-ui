@@ -1,6 +1,6 @@
-# 字体
+# Font
 
-Material Design 推荐使用 `Roboto` 字体，可以通过 CDN  和 npm 两种方式安装.
+Material Design recommend to use the font of `Roboto`, which can be installed in both CDN and npm.
 
 
 ## Roboto Font CDN
@@ -9,7 +9,7 @@ Material Design 推荐使用 `Roboto` 字体，可以通过 CDN  和 npm 两种�
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
 ```
 
-## NPM 安装
+## NPM Installation
 
 ```bash
 npm install typeface-roboto --save
@@ -19,7 +19,7 @@ npm install typeface-roboto --save
 import 'typeface-roboto'
 ```
 
-## 字体使用规范
+## Font usage specification
 
 <p><span style="line-height: 1;display:inline-block; width: 150px;font-size: 96px; font-weight: 300;">H1</span> <span style="margin-left: 24px; opacity: 0.7">font-size: 96px; font-weight: 300;</span></p>
 <p><span style="line-height: 1;display:inline-block; width: 150px;font-size: 60px; font-weight: 300;">H2</span> <span style="margin-left: 24px; opacity: 0.7">font-size: 60px; font-weight: 300;</span></p>
