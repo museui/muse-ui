@@ -1,25 +1,25 @@
-# 时间选择器
+# Time picker
 
-`mu-time-picker` 用于时间选择
+The `mu-time-picker` for time selection.
 
 :::demo
 ```html
 <mu-container>
   <mu-flex>
-    显示时间：
+    Display time: 
     <mu-switch class="demo-picker-form" v-model="display"></mu-switch>
   </mu-flex>
   <mu-flex>
-    横屏显示：
+    Horizontal screen display: 
     <mu-checkbox class="demo-picker-form" v-model="landscape" label="landscape"></mu-checkbox>
   </mu-flex>
   <mu-flex>
-    时间类型：
+    Time type: 
     <mu-radio class="demo-picker-form" v-model="type" value="ampm" label="ampm"></mu-radio>
     <mu-radio class="demo-picker-form" v-model="type" value="24hr" label="24hr"></mu-radio>
   </mu-flex>
   <mu-flex>
-    选择模式：
+    Selection mode: 
     <mu-radio class="demo-picker-form" v-model="viewType" value="clock" label="clock"></mu-radio>
     <mu-radio class="demo-picker-form" v-model="viewType" value="list" label="list"></mu-radio>
   </mu-flex>
@@ -52,21 +52,21 @@ export default {
 
 ## Time Picker
 
-| 参数 | 介绍 | 类型 | 可选值 | 默认值 |
+| Attribute | Description | Type | Accepted values | Default |
 |------|------|------|------|------|
-| color | 时间选择器颜色 | String | — | — |
-| display-color | 时间显示区域背景色 | String | - | - |
-| time | 选择的时间，支持 `.sync` 修饰符 | Date | — | new Date() |
-| format | 日期模式 | String | ampm/24hr | ampm |
-| view-type | 时间选择模式 | String | clock/list| clock |
-| no-display | 是否不存在时间显示部分  | Boolean | — | false |
-| landscape | 是否横屏显示 | Function | — | — |
+| color | time picker color | String | — | — |
+| display-color | time display area background color | String | - | - |
+| time | selected time, support `.sync` modifier | Date | — | new Date() |
+| format | date mode | String | ampm/24hr | ampm |
+| view-type | time selection mode | String | clock/list| clock |
+| no-display | whether the time display section does not exist  | Boolean | — | false |
+| landscape | whether horizontal screen display | Function | — | — |
 
 ## Date Picker Events
 
-| 名称 | 介绍 | 回调参数 |
+| Attribute | Description | Parameters |
 |------|-----|--------|
-| change | 当选择日期改变时触发事件 | (time, mode, finished) |
+| change | trigger event when the selected date changes | (time, mode, finished) |
 
 
 <script>

@@ -1,9 +1,9 @@
-# 过渡动画
+# Transition animation
 
-Muse-UI 内应用在部分组件的过渡动画，你也可以直接使用。在使用之前请阅读 [transition 组件文档](https://cn.vuejs.org/v2/api/#transition)。
+Muse-UI uses transition animations for some of the components. You can also use it directly. Please read the [transition component documentation] (https://cn.vuejs.org/v2/api/#transition) before using it.
 
 
-## Fade 淡入淡出
+## Fade in and fade out
 
 :::demo
 ```html
@@ -43,7 +43,7 @@ export default {
 ```
 :::
 
-## Slide 滑入滑出
+## Slide in and out
 
 :::demo
 ```html
@@ -94,7 +94,7 @@ export default {
 ```
 :::
 
-## Expand 展开折叠
+## Expand Collapse
 
 :::demo
 ```html
@@ -137,7 +137,7 @@ export default {
 ```
 :::
 
-## Scale 缩放
+## Scale
 
 :::demo
 ```html
@@ -177,9 +177,9 @@ export default {
 ```
 :::
 
-## 按需引入
+## Import on demand
 
-工具类的组件在 `lib/Helpers` 目录下
+The components of the tool class are in the `lib/helpers` directory
 
 ```javascript
 import Vue from 'vue';

@@ -1,50 +1,50 @@
-# 提示
+# Tooltip
 
-`mu-tooltip`  对于用户悬停在元素上时传递信息， 也可以使用 `open.sync` 控制显示。
+The `mu-tooltip` is used to convey information when user hovers over an element, or it can also use `Open.sync` to control the display.
 
-## 示例
+## Example
 
-`mu-tooltip` 可以包裹任何元素
+The `mu-tooltip` can wrap any element.
 
 :::demo
 ```html
 <mu-container>
   <mu-flex justify-content="around" align-items="center">
-    <mu-tooltip content="提示信息">
+    <mu-tooltip content="Information">
       <mu-button color="primary">Tooltip</mu-button>
     </mu-tooltip>
-    <mu-tooltip content="打印">
+    <mu-tooltip content="Print">
       <mu-button icon>
         <mu-icon value="print"></mu-icon>
       </mu-button>
     </mu-tooltip>
-    <mu-tooltip content="提示信息">
-      <span>文本提示信息</span>
+    <mu-tooltip content="Information">
+      <span>Text message</span>
     </mu-tooltip>
   </mu-flex>
 </mu-container>
 ```
 :::
 
-## 位置
+## Placement
 
 :::demo
 ```html
 <mu-container>
   <mu-flex justify-content="around" align-items="center">
-    <mu-tooltip :placement="placement" content="提示信息">
+    <mu-tooltip :placement="placement" content="Information">
       <mu-button color="primary">Tooltip</mu-button>
     </mu-tooltip>
-    <mu-tooltip :placement="placement" content="打印">
+    <mu-tooltip :placement="placement" content="Print">
       <mu-button icon>
         <mu-icon value="print"></mu-icon>
       </mu-button>
     </mu-tooltip>
-    <mu-tooltip :placement="placement" content="提示信息">
-      <span>文本提示信息</span>
+    <mu-tooltip :placement="placement" content="Information">
+      <span>Text message</span>
     </mu-tooltip>
   </mu-flex>
-  <p class="demo-tooltip-title">弹出位置：</p>
+  <p class="demo-tooltip-title">Popup location:</p>
   <mu-row>
     <mu-col :key="p" v-for="p in placements" span="6" md="4">
       <mu-radio v-model="placement" :value="p" :label="p"></mu-radio>
@@ -56,12 +56,12 @@
 
 ## Tooltip Props
 
-| 参数 | 介绍 | 类型 | 可选值 | 默认值 |
+| Attribute | Description | Type | Accepted values | Default |
 |------|------|------|------|------|
-| content | 显示内容，可使用 `slot="content"` 代替 | String | — | — |
-| open | 是否显示 | Boolean | — | — |
-| placement | Tooltip 的出现位置 | String | top / top-start / top-end / bottom / bottom-start / bottom-end / left / left-start / left-end / right / right-start / right-end | — |
-| tooltip-class | Tooltip 样式 | String/Object/Array | — |
+| content | display content, used `slot="content"` instead | — | — |
+| open | whether to display | Boolean | — | — |
+| placement | where the Tooltip appears | String | top / top-start / top-end / bottom / bottom-start / bottom-end / left / left-start / left-end / right / right-start / right-end | — |
+| tooltip-class | tooltip style | String/Object/Array | — |
 
 <script>
 export default {

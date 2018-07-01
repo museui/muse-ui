@@ -1,8 +1,8 @@
-# 选项卡
+# Tabs
 
-`mu-tabs` 使在不同的视图和功能间探索和切换以及浏览不同类别的数据集合起来变得简单。
+The `mu-tabs` makes it easy to explore and switch between different views and functions and browse different categories of data.
 
-## 示例
+## Example
 
 :::demo
 ```html
@@ -50,7 +50,7 @@ export default {
 ```
 :::
 
-## 居中
+## Centered
 
 :::demo
 ```html
@@ -98,7 +98,7 @@ export default {
 ```
 :::
 
-## 全宽
+## Full width
 
 :::demo
 ```html
@@ -147,7 +147,7 @@ export default {
 :::
 
 
-## 图标
+## Icons
 
 :::demo
 ```html
@@ -208,37 +208,37 @@ export default {
 
 ## Tabs Props
 
-| 参数 | 介绍 | 类型 | 可选值 | 默认值 |
+| Attribute | Description | Type | Accepted values | Default |
 |------|------|------|------|------|
-| color | 颜色 | String | — | — |
-| indicator-color | 底部高亮线颜色 | String | — | — |
-| inverse | 是否启动反色模式，将更改组件的样式 | Boolean | — | — |
-| full-width | mu-tab 是否自动适应父元素宽度 | Boolean | — | — |
-| center | mu-tab 是否居中显示 | Boolean | — | — |
-| value | 用于控制 mu-tab 激活状态 | — | — | 0 |
+| color | color | String | — | — |
+| indicator-color | bottom highlight line color | String | — | — |
+| inverse | whether to start the inverse mode and will changes the style of the component | Boolean | — | — |
+| full-width | whether mu-tab is automatically adapt to parent element width | Boolean | — | — |
+| center | whether mu-tab is centered display | Boolean | — | — |
+| value | used to control mu-tab activation state | — | — | 0 |
 
 ## Tabs Events
 
-| 参数 | 介绍 | 回调参数 |
+| Attribute | Description | Parameters |
 |------|------|-------|
-| change | 当 `mu-tab` 被点击时触发事件 | (value) |
+| change | trigger when `mu-tab` clicked | (value) |
 
 ## Tab Props
 
-| 参数 | 介绍 | 类型 | 可选值 | 默认值 |
+| Attribute | Description | Type | Accepted values | Default |
 |------|------|------|------|------|
-| disabled | 是否禁用 | Boolean | — | false |
-| value | 用于控制是否激活，默认是该组件的下标值 | — | — | — |
-| ripple | 是否有波纹效果 | Boolean | — | true |
-| href | 相当于 a 标签的 href属性，设置之后会渲染成 a 标签，默认是使用button标签 | String | — | — |
-| to | 表示目标路由的链接。设置之后组件会被渲染成`router-link`, 当被点击后，内部会立刻把 `to` 的值传到 `router.push()`，所以这个值可以是一个字符串或者是描述目标位置的对象。 | String/Object | - | - |
-| tag | 有时候想要 `<router-link>` 渲染成某种标签，例如 `<li>`。 于是我们使用 `tag prop` 类指定何种标签，同样它还是会监听点击，触发导航。 | String |  - | - |
-| active-class | 设置 链接激活时使用的 CSS 类名。默认值可以通过路由的构造选项 `linkActiveClass` 来全局配置。 | String |  - | - |
-| event | 声明可以用来触发导航的事件。可以是一个字符串或是一个包含字符串的数组 | String/Array | — | click |
-| exact | "是否激活" 默认类名的依据是 **inclusive match** （全包含匹配）。 举个例子，如果当前的路径是 `/a` 开头的，那么 `<router-link to="/a">` 也会被设置 CSS 类名。| Boolean | — | — |
-| exact-active-class | 配置当链接被精确匹配的时候应该激活的 class。注意默认值也是可以通过路由构造函数选项 linkExactActiveClass 进行全局配置的。 | String | — | router-link-exact-active |
-| append | 设置 `append` 属性后，则在当前（相对）路径前添加基路径。例如，我们从 `/a` 导航到一个相对路径 b，如果没有配置 append，则路径为 /b，如果配了，则为 /a/b | Boolean | — | false |
-| replace | 设置 `replace` 属性的话，当点击时，会调用 `router.replace()` 而不是 `router.push()`，于是导航后不会留下 history 记录。 | Boolean | — | false |
+| disabled | whether it is disabled | Boolean | — | false |
+| value | used to control whether to activate, the default is the subscript value of the component | — | — | — |
+| ripple | whether there is ripple effect | Boolean | — | true |
+| href | Equivalent to the href attribute of the a tag. After setting, it will be rendered as a tag. The default is to use the button tag. | String | — | — |
+| to | Indicates the link to the target route. After setup, the component will be rendered as `router-link`, and when clicked, the value of `to` will be immediately passed to `router.push()`, so the value can be a string or an object that describes the target location. | String/Object | - | - |
+| tag | When you want the `<router-link>` to be rendered as a tag, such as `<li>`. So we use the `tag prop` class to specify which tag, and it will still listen to clicks and trigger navigation. | String |  - | - |
+| active-class | Sets the CSS class name to use when the link is activated. The default value can be configured globally via the construction option `linkactiveclass` of the route. | String |  - | - |
+| event | declares an event that can be used to trigger a navigation. Can be a string or an array that contains a string | String/Array | — | click |
+| exact |  The "Activate" default class name is based on the **inclusive match** (all contains matches). For example, if the current path starts with `/a`, then `<router-link to=""/a"">` CSS class name will also be set. | Boolean | — | — |
+| exact-active-class | Configure the class that should be activated when the link is exactly matched. Note The default values can also be configured globally through the routing constructor option Linkexactactiveclass. | String | — | router-link-exact-active |
+| append | When the `append` property is set, the base path is added before the current (relative) path. For example, we navigate from `/a` to a relative path b, if no append is configured, the path is `/b`, and if it is `/a/b` | Boolean | — | false |
+| replace | Setting the `replace` property, when clicked, will call `router.replace()` instead of `router.push()`, so the navigation will not leave the history record. | Boolean | — | false |
 
 <script>
 export default {
