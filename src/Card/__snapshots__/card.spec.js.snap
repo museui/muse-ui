@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card should card view 1`] = `
+
+<div class="mu-card">
+</div>
+
+`;
+
+exports[`Card should card view 2`] = `
+
+<div class="mu-card mu-card__raised">
+</div>
+
+`;
