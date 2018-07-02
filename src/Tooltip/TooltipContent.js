@@ -1,9 +1,15 @@
 import popup from '../internal/mixins/popup';
+import resize from '../internal/directives/resize';
+import scroll from '../internal/directives/scroll';
 
 const SPACE = 8;
 export default {
   name: 'mu-tooltip-content',
   mixins: [popup],
+  directives: {
+    resize,
+    scroll
+  },
   props: {
     overlay: {
       default: false
@@ -95,7 +101,14 @@ export default {
         staticClass: 'mu-tooltip',
         style: {
           'z-index': this.zIndex
-        }
+        },
+        directives: [{
+          name: 'resize',
+          value: this.setStyle
+        }, {
+          name: 'scroll',
+          value: this.setStyle
+        }]
       }, this.$slots.default) : undefined
     ]);
   }
