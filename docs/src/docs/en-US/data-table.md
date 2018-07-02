@@ -1,8 +1,8 @@
-# 数据表格
+# Data Table
 
-`mu-data-table` 用于显示表格数据，并且通常出现于桌面企业产品中。
+The `mu-data-table` is used to display data table and usually appears in the desktop enterprise product.
 
-## 示例
+## Example
 
 :::demo
 ```html
@@ -130,9 +130,9 @@ export default {
 ```
 :::
 
-## 条纹表格
+## Stripes Table
 
-设置 `stripe`, 可以更容易区分出不同行的数据。
+Setting `stripe` makes it easier to distinguish between different rows of data.
 
 :::demo
 ```html
@@ -260,7 +260,7 @@ export default {
 ```
 :::
 
-## 边框表格
+## Border Table
 
 :::demo
 ```html
@@ -388,9 +388,9 @@ export default {
 ```
 :::
 
-## 进度条
+## Progress bar
 
-数据在加载时，将 `loading` 设置为 `true`，显示加载进度条
+When the data is loaded, set `loading` to `true` to show the load progress bar.
 
 :::demo
 ```html
@@ -518,9 +518,9 @@ export default {
 ```
 :::
 
-## 固定表头
+## Fixed table header
 
-设置 `height` 或 `max-height` 属性后，当表格高度溢出时会显示滚动条，自动固定表头和表尾。
+When the `height` or `max-height` property is set, scroll bars are displayed when the table height overflows, and the header and footer are automatically fixed.
 
 :::demo
 ```html
@@ -811,9 +811,9 @@ export default {
 ```
 :::
 
-## 行选择
+## Row selection
 
-`selects.sync` 双向控制选择行。
+The `selects.sync` controls selection lines bidirectionally.
 
 :::demo
 ```html
@@ -949,9 +949,9 @@ export default {
 ```
 :::
 
-## 展开行
+## Expand row
 
-`mu-data-table` 支持行展开功能，用于展示更多的信息。
+The `mu-data-table` supports the line expansion feature to show more information.
 
 :::demo
 ```html
@@ -1122,7 +1122,7 @@ export default {
 
 ## Data Table Events
 
-| 名称 | 介绍 | 回调参数 |
+| Attribute | Description | Parameters |
 |------|------|-------|
 | row-click | 点击某一行时触发 | (index, row, event) |
 | row-dblclick | 双击击某一行时触发 | (index, row, event) |
@@ -1134,13 +1134,13 @@ export default {
 
 ## Data Table Slots
 
-| 名称 | 介绍 |
+| Attribute | Description |
 |------|------|
 | empty | 空数据时显示的插槽 |
 
 ## Data Table Scope Slots
 
-| 名称 | 介绍 | 参数 |
+| Attribute | Description | Parameters |
 |------|------|------|
 | default | 数据显示的内容 | { row, $index } |
 | th | 表头单元格的内容 | { name, title, width, sortable, align, class, tooltip }  |

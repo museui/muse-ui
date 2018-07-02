@@ -244,21 +244,22 @@ export default {
 | cancel-label | 取消按钮的文本 | String | — | 取消 |
 | value | used for `v-model` bindings | Date, String | — | — |
 | value-format | 绑定值的格式。不指定则绑定值为 Date 对象 | String | - |
-| color | 输入框颜色 | String | — | — |
+| color | input box color | String | — | — |
 | display-color | 时间显示区域背景色 | String | - | - |
-| icon | 输入框左边的图标 | String | — | — |
-| label | 标签文本 | String | — | — |
-| label-float | 标签是否浮动 | Boolean | — | false |
-| error-text | 错误提醒文字，如果此参数有值，那么输入框会转为错误的状态, 显示效果将会更改 | String | — | — |
-| help-text | 帮助文字 | String | — | — |
-| full-width | 是否将宽度设置为 100%, 默认 256px | Boolean | — | false |
-| disabled | 输入框是否不可用 | Boolean | — | false |
-| action-icon | 输入框右边的图标 | String | — | — |
-| action-click | 图标点击之后执行的函数 | Function | — | — |
-| solo | 改变样式，设置之后会隐藏输入框的下划线和标签 | Boolean | — | false |
-| underline-color | 下划线的颜色  | String | - | - |
-| prefix | 输入框前缀内容 | String | — | — |
-| suffix | 输入框尾部内容 | String | — | — |
+| icon | the icon to the left of the input box | String | — | — |
+| label | label text | String | — | — |
+| label-float | whether the label floats | Boolean | — | false |
+| error-text | Error reminder text, if this parameter has a value, then the input box will be converted to the wrong state, the display effect will change | String | — | — |
+| help-text | help text | String | — | — |
+| full-width | whether the width is set to 100%, default 256px | Boolean | — | false |
+| disabled |  whether the input box is not available | Boolean | — | false |
+| action-icon | the icon to the right of the input box | String | — | — |
+| action-click | function executed after icon click | Function | — | — |
+
+| solo | change the style, and then hide the underline and label of the input box after setting | Boolean | — | false |
+| underline-color | underline color  | String | - | - |
+| prefix | input box prefix content | String | — | — |
+| suffix | input box tail content | String | — | — |
 | date-time-format | 日期格式化对象，用于改变不同的语言环境显示 | Object | — | — |
 | first-day-of-week | 哪一天作为一个星期的开始 | Number | 0-6 | 0 |
 | max-date | 最大可选择日期 | Date | — | — |
@@ -269,7 +270,7 @@ export default {
 
 ## Date Input Events
 
-| 名称 | 介绍 | 参数 |
+| Attribute | Description | Parameters |
 |-----|------|-----|
 | change | trigger when the value change | (value) |
 
