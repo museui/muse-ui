@@ -232,7 +232,7 @@ export default {
 
 ## Date Input props
 
-| 参数 | 介绍 | 类型 | 可选值 | 默认值 |
+| Attribute | Description | Type | Accepted values | Default |
 |------|------|------|------|------|
 | container | 弹出方式 | String | popover/dialog/bottomSheet  | popover |
 | type | 选择的类型 | String | date/time/year/month/dateTime | date |
@@ -242,7 +242,7 @@ export default {
 | actions | 是否显示底部的确定/取消按钮 | Boolean | — | false |
 | ok-label | 确定按钮的文本 | String | — | 确定 |
 | cancel-label | 取消按钮的文本 | String | — | 取消 |
-| value | 用于 `v-model` 绑定 | Date, String | — | — |
+| value | used for `v-model` bindings | Date, String | — | — |
 | value-format | 绑定值的格式。不指定则绑定值为 Date 对象 | String | - |
 | color | 输入框颜色 | String | — | — |
 | display-color | 时间显示区域背景色 | String | - | - |
@@ -271,14 +271,14 @@ export default {
 
 | 名称 | 介绍 | 参数 |
 |-----|------|-----|
-| change | 值改变时触发 | (value) |
+| change | trigger when the value change | (value) |
 
 ## Date Input Slots
 
-| 名称 | 介绍 |
+| Name | Description |
 |-----|------|
-| prepend | 输入框前置内容 |
-| append | 输入框后置内容 |
+| prepend | input box front content |
+| append | input box post content |
 | default | - |
 
 <script>

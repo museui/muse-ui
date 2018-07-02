@@ -157,7 +157,7 @@ export default {
 
 ## Date Picker Props
 
-| 参数 | 介绍 | 类型 | 可选值 | 默认值 |
+| Attribute | Description | Type | Accepted values | Default |
 |------|------|------|------|------|
 | color | 日期选择器颜色 | String | — | — |
 | display-color | 时间显示区域背景色 | String | - | - |

@@ -1084,7 +1084,7 @@ export default {
 
 ## Data Table Props
 
-| 参数 | 介绍 | 类型 | 可选值 | 默认值 |
+| Attribute | Description | Type | Accepted values | Default |
 |------|------|------|------|------|
 | data | 显示的数据 | Array | — | — |
 | columns | 显示列的配置 | Array | — | — |
@@ -1108,7 +1108,7 @@ export default {
 
 ## Data Table Columns
 
-| 参数 | 介绍 | 类型 | 可选值 | 默认值 |
+| Attribute | Description | Type | Accepted values | Default |
 |------|------|------|------|------|
 | name | 对应列内容的字段名 | String | — | — |
 | title | 显示的标题 | String | — | — |
