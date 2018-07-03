@@ -20,20 +20,23 @@ export default {
     this.trigger = this.$el;
   },
   methods: {
-    show () {
+    handleMouseEnter () {
+      if (!this.openOnHover) return;
       if (this.timer) clearTimeout(this.timer);
-      this.timer = setTimeout(() => {
-        this.active = true;
-        this.$emit('open');
-      }, 200);
+      this.timer = setTimeout(() => this.show(), 200);
+    },
+    handleMouseLeave () {
+      if (!this.openOnHover) return;
+      if (this.timer) clearTimeout(this.timer);
+      this.timer = setTimeout(() => this.hide(), 200);
+    },
+    show () {
+      this.active = true;
+      this.$emit('open');
     },
     hide () {
-      if (this.timer) clearTimeout(this.timer);
-      if (!this.active) return;
-      this.timer = setTimeout(() => {
-        this.active = false;
-        this.$emit('close');
-      });
+      this.active = false;
+      this.$emit('close');
     },
     createPopover (h) {
       return h(Popover, {
@@ -50,8 +53,8 @@ export default {
         },
         on: {
           close: this.hide,
-          mouseenter: () => this.openOnHover && this.show(),
-          mouseleave: () => this.openOnHover && this.hide()
+          mouseenter: this.handleMouseEnter,
+          mouseleave: this.handleMouseLeave
         }
       }, this.$slots.content);
     }
@@ -67,8 +70,8 @@ export default {
         staticClass: 'mu-menu-activator',
         on: {
           click: () => this.openOnHover ? null : this.active ? this.hide() : this.show(),
-          mouseenter: () => this.openOnHover && this.show(),
-          mouseleave: () => this.openOnHover && this.hide()
+          mouseenter: this.handleMouseEnter,
+          mouseleave: this.handleMouseLeave
         }
       }, this.$slots.default),
       this.createPopover(h)
