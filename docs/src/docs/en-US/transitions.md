@@ -1,9 +1,9 @@
-# Transition animation
+# Transition
 
-Muse-UI uses transition animations for some of the components. You can also use it directly. Please read the [transition component documentation] (https://cn.vuejs.org/v2/api/#transition) before using it.
+You can use Muse-UI's built-in transitions directly. Before that, please read the [transition component documentation](https://cn.vuejs.org/v2/api/#transition).
 
 
-## Fade in and fade out
+## Fade
 
 :::demo
 ```html
@@ -43,7 +43,7 @@ export default {
 ```
 :::
 
-## Slide in and out
+## Slide
 
 :::demo
 ```html
