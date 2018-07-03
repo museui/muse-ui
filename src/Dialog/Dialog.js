@@ -66,7 +66,7 @@ export default {
     const dialogTitle = isShowTitle ? h('div', {
       staticClass: 'mu-dialog-title',
       ref: 'title'
-    }, this.$slots.title && this.slots.title.length > 0 ? this.slots.title : this.title) : undefined;
+    }, this.$slots.title && this.$slots.title.length > 0 ? this.$slots.title : this.title) : undefined;
 
     const dialogBody = h('div', {
       staticClass: 'mu-dialog-body',
