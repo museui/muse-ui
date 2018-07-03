@@ -1,21 +1,21 @@
-# 时间输入框
+# Time input Box
 
-`mu-date-input` 用于选择日期。将 `mu-text-field`、`mu-date-picker` 和 `mu-time-picker` 组合在一起形成一个新的组件。
+The `mu-date-input` is used to select date. Combine `mu-text-field`、`mu-date-picker` and `mu-time-picker` together to form a new component.
 
-## 示例
+## Example
 
 :::demo
 ```html
 <mu-container>
   <mu-row gutter>
     <mu-col span="12" lg="4" sm="6">
-      <mu-date-input v-model="value1" label="选择日期" label-float full-width></mu-date-input>
+      <mu-date-input v-model="value1" label="select date" label-float full-width></mu-date-input>
     </mu-col>
     <mu-col span="12" lg="4" sm="6">
-      <mu-date-input v-model="value2" label="横屏显示" label-float full-width landscape></mu-date-input>
+      <mu-date-input v-model="value2" label="horizontal screen display" label-float full-width landscape></mu-date-input>
     </mu-col>
     <mu-col span="12" lg="4" sm="6">
-      <mu-date-input v-model="value3" label="隐藏日期展示" label-float full-width no-display></mu-date-input>
+      <mu-date-input v-model="value3" label="hide date display" label-float full-width no-display></mu-date-input>
     </mu-col>
   </mu-row>
 </mu-container>
@@ -33,22 +33,22 @@ export default {
 ```
 :::
 
-## 不同的显示方式
+## Different display ways
 
-改变 `container` 属性改变不同的弹出方式，目前有 `popover`, `dialog`, `bottomSheet` 三种方式
+Change the `container` property to change the different pop-up modes, there are now `popover`, `dialog` and `bottomSheet` three ways
 
 :::demo
 ```html
 <mu-container>
   <mu-row gutter>
     <mu-col span="12" lg="4" sm="6">
-      <mu-date-input  icon="today" icon="today" v-model="value4" label="popover 显示" label-float full-width></mu-date-input>
+      <mu-date-input  icon="today" icon="today" v-model="value4" label="popover display" label-float full-width></mu-date-input>
     </mu-col>
     <mu-col span="12" lg="4" sm="6">
-      <mu-date-input  icon="today" v-model="value5" label="对话框显示" container="dialog" label-float full-width></mu-date-input>
+      <mu-date-input  icon="today" v-model="value5" label="dialog display" container="dialog" label-float full-width></mu-date-input>
     </mu-col>
     <mu-col span="12" lg="4" sm="6">
-      <mu-date-input  icon="today" v-model="value6" label="底部弹出显示" container="bottomSheet" label-float full-width></mu-date-input>
+      <mu-date-input  icon="today" v-model="value6" label="bottomSheet display" container="bottomSheet" label-float full-width></mu-date-input>
     </mu-col>
   </mu-row>
 </mu-container>
@@ -66,26 +66,26 @@ export default {
 ```
 :::
 
-## 不同的选择模式
+## Different select modes
 
 :::demo
 ```html
 <mu-container>
   <mu-row gutter>
     <mu-col span="12" lg="4" sm="6">
-      <mu-date-input  icon="today" v-model="value7" label="选择日期" type="date" label-float full-width></mu-date-input>
+      <mu-date-input  icon="today" v-model="value7" label="select date" type="date" label-float full-width></mu-date-input>
     </mu-col>
     <mu-col span="12" lg="4" sm="6">
-      <mu-date-input  icon="today" landscape v-model="value8" label="选择时间" type="time" label-float full-width></mu-date-input>
+      <mu-date-input  icon="today" landscape v-model="value8" label="select time" type="time" label-float full-width></mu-date-input>
     </mu-col>
     <mu-col span="12" lg="4" sm="6">
-      <mu-date-input  icon="today" v-model="value9" label="选择年份" type="year" label-float full-width></mu-date-input>
+      <mu-date-input  icon="today" v-model="value9" label="select year" type="year" label-float full-width></mu-date-input>
     </mu-col>
     <mu-col span="12" lg="4" sm="6">
-      <mu-date-input  icon="today" v-model="value10" label="选择月份" type="month" label-float full-width></mu-date-input>
+      <mu-date-input  icon="today" v-model="value10" label="select month" type="month" label-float full-width></mu-date-input>
     </mu-col>
     <mu-col span="12" lg="4" sm="6">
-      <mu-date-input  icon="today" v-model="value11" label="选择日期和时间" type="dateTime" label-float full-width landscape></mu-date-input>
+      <mu-date-input  icon="today" v-model="value11" label="select dateTime" type="dateTime" label-float full-width landscape></mu-date-input>
     </mu-col>
   </mu-row>
 </mu-container>
@@ -106,31 +106,31 @@ export default {
 :::
 
 
-## 选择控制
+## Select control
 
-格式化文本，显示模式更改，禁用一些日期的选择。
+Format text, display mode changes, and disable selection of dates.
 
 :::demo
 ```html
 <mu-container>
   <mu-row gutter>
     <mu-col span="12" lg="4" sm="6">
-      <mu-date-input  icon="today" type="time" v-model="value12" label="显示确定/取消按钮" actions label-float full-width></mu-date-input>
+      <mu-date-input  icon="today" type="time" v-model="value12" label="display ok/cancel button" actions label-float full-width></mu-date-input>
     </mu-col>
     <mu-col span="12" lg="4" sm="6">
-      <mu-date-input  icon="today" v-model="value13" label="格式化显示" format="YYYY 年 MM 月 DD 日" label-float full-width></mu-date-input>
+      <mu-date-input  icon="today" v-model="value13" label="format display" format="YYYY 年 MM 月 DD 日" label-float full-width></mu-date-input>
     </mu-col>
     <mu-col span="12" lg="4" sm="6">
-      <mu-date-input  icon="today" v-model="value14" label="不展示日期" no-display label-float full-width></mu-date-input>
+      <mu-date-input  icon="today" v-model="value14" label="not display date" no-display label-float full-width></mu-date-input>
     </mu-col>
     <mu-col span="12" lg="4" sm="6">
-      <mu-date-input  icon="today" v-model="value15" label="只能选择当前月份"  :max-date="maxDate" :min-date="minDate" label-float full-width></mu-date-input>
+      <mu-date-input  icon="today" v-model="value15" label="can only select the current month"  :max-date="maxDate" :min-date="minDate" label-float full-width></mu-date-input>
     </mu-col>
     <mu-col span="12" lg="4" sm="6">
-      <mu-date-input  icon="today" v-model="value16" label="只能选工作日"  :should-disable-date="disableWeekends" label-float full-width></mu-date-input>
+      <mu-date-input  icon="today" v-model="value16" label="can only select working days"  :should-disable-date="disableWeekends" label-float full-width></mu-date-input>
     </mu-col>
     <mu-col span="12" lg="4" sm="6">
-      <mu-date-input  icon="today" v-model="value17" label="只能选择偶数日期"  :should-disable-date="allowedDates" label-float full-width></mu-date-input>
+      <mu-date-input  icon="today" v-model="value17" label="Can only select even date"  :should-disable-date="allowedDates" label-float full-width></mu-date-input>
     </mu-col>
   </mu-row>
 </mu-container>
@@ -166,9 +166,9 @@ export default {
 ```
 :::
 
-## 不同语言环境
+## Different language environments
 
-通过自定义 `date-time-format` 来格式化不同语言的显示
+Format the display of different languages by customizing `date-time-format`.
 
 :::demo
 ```html
@@ -225,8 +225,8 @@ export default {
 
 <mu-alert color="info">
   <div>
-    <p>mu-date-input 支持 input 标签所有的原生属性和事件。</p>
-    <p style="margin-bottom: 0">mu-date-input 日期解析和格式化依赖于 <a style="color: inherit;" target="_blank" href="https://github.com/iamkun/dayjs/blob/master/docs/en/API-reference.md">dayjs</a></p>
+    <p>mu-date-input supports all native properties and events for input tags.</p>
+    <p style="margin-bottom: 0">mu-date-input parsing and formatting depends on the <a style="color: inherit;" target="_blank" href="https://github.com/iamkun/dayjs/blob/master/docs/en/API-reference.md">dayjs</a></p>
   </div>
 </mu-alert>
 
@@ -234,18 +234,18 @@ export default {
 
 | Attribute | Description | Type | Accepted values | Default |
 |------|------|------|------|------|
-| container | 弹出方式 | String | popover/dialog/bottomSheet  | popover |
-| type | 选择的类型 | String | date/time/year/month/dateTime | date |
-| clock-type | 时间选择器显示类型 | String | ampm/24hr | ampm |
-| view-type | 时间选择模式 | String | clock/list| clock |
-| format | 显示在输入框中的格式 | String | — | yyyy—MM-dd  |
-| actions | 是否显示底部的确定/取消按钮 | Boolean | — | false |
-| ok-label | 确定按钮的文本 | String | — | 确定 |
-| cancel-label | 取消按钮的文本 | String | — | 取消 |
+| container | popup mode | String | popover/dialog/bottomSheet  | popover |
+| type | selection type | String | date/time/year/month/dateTime | date |
+| clock-type | time picker display type | String | ampm/24hr | ampm |
+| view-type | time selection mode | String | clock/list| clock |
+| format | format displayed in the input box | String | — | yyyy—MM-dd  |
+| actions | whether to display the ok/cancel button at the bottom | Boolean | — | false |
+| ok-label | ok button text | String | — | ok |
+| cancel-label | cancel button text | String | — | cancel |
 | value | used for `v-model` bindings | Date, String | — | — |
-| value-format | 绑定值的格式。不指定则绑定值为 Date 对象 | String | - |
+| value-format | the format of the bound value. If not specified, the binding value is a Date object. | String | - |
 | color | input box color | String | — | — |
-| display-color | 时间显示区域背景色 | String | - | - |
+| display-color | time display area background color | String | - | - |
 | icon | the icon to the left of the input box | String | — | — |
 | label | label text | String | — | — |
 | label-float | whether the label floats | Boolean | — | false |
@@ -260,13 +260,13 @@ export default {
 | underline-color | underline color  | String | - | - |
 | prefix | input box prefix content | String | — | — |
 | suffix | input box tail content | String | — | — |
-| date-time-format | 日期格式化对象，用于改变不同的语言环境显示 | Object | — | — |
-| first-day-of-week | 哪一天作为一个星期的开始 | Number | 0-6 | 0 |
-| max-date | 最大可选择日期 | Date | — | — |
-| min-date | 最小可选择日期 | Date | — | — |
-| landscape | 是否横屏显示 | Boolean | — | false |
-| no-display | 是否不存在时间显示部分 | Boolean | — | false |
-| should-disable-date | 判断日期是否不可用的函数 | Function | — | — |
+| date-time-format | date format object, used to change the display of different language environments | Object | — | — |
+| first-day-of-week | which day as the beginning of the one week | Number | 0-6 | 0 |
+| max-date | maximum selectable date | Date | — | — |
+| min-date | minimum selectable date | Date | — | — |
+| landscape | whether horizontal screen display | Boolean | — | false |
+| no-display | whether the time display section does not exist  | Boolean | — | false |
+| should-disable-date | function to determine whether a date is not available | Function | — | — |
 
 ## Date Input Events
 
