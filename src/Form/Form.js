@@ -73,7 +73,8 @@ export default {
       staticClass: 'mu-form',
       class: {
         'mu-form__inline': this.inline
-      }
+      },
+      on: this.$listeners
     }, this.$slots.default);
   }
 };
