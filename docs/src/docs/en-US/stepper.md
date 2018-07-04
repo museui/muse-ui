@@ -1,10 +1,10 @@
-# 步骤条
+# Stepper
 
-`mu-stepper` 用途步骤导航，此组件只提供视图显示，步骤逻辑需要有使用者自行控制。
+The `mu-stepper` uses step navigation, this component only provides view display, step logic needs to be controlled by the user.
 
-## 示例
+## Example
 
-一个活动发起的示例, 默认的步骤导航，是一步完成之后才能进行下一步的， 通过改变 `active-step` 的值来控制当前步骤，使用的时候可根据 `active-step` 展示相应的页面
+An activity-initiated example, the default step navigation, is completed after the next step, by changing the value of `active-step` to control the current step, use the `active-step` to show the corresponding page.
 
 :::demo
 ```html
@@ -87,9 +87,9 @@ export default {
 ```
 :::
 
-## 垂直
+## Vertical
 
-垂直的步骤导航，步骤内容需要放置在 `mu-step-content` 组件中，当 `active-step` 改变时会显示不同的内容, `mu-step-content` 只可以被用在垂直的步骤导航中
+Vertical step navigation, the step content needs to be placed in the `mu-step-content` component. When the `active-step` changes, it will display different content. The `mu-step-content` can only be used in the vertical step navigation.
 
 :::demo
 ```html
@@ -183,9 +183,9 @@ export default {
 ```
 :::
 
-## 非线性控制
+## Nonlinear control
 
-`linear` 设置为 false 时，不用完成上一步骤也可以查看下步骤的内容，`mu-step-label` 需要被替换为 `mu-step-button` 并监听点击事件显示改步骤内容
+When set the `linear` to false, you can view the contents of the next step without completing the previous step. The `mu-step-label` needs to be replaced with `mu-step-button` and listen for the click event to display the contents of the step.
 
 :::demo
 ```html
@@ -255,7 +255,7 @@ export default {
 ```
 :::
 
-## 自定义图标
+## Custom icon
 
 :::demo
 ```html
@@ -284,18 +284,18 @@ export default {
 
 ## Stepper Props
 
-| 参数 | 介绍 | 类型 | 可选值 | 默认值 |
+| Attribute | Description | Type | Accepted values | Default |
 |------|------|------|------|------|
-| active-step | 当前步骤 | Number | — | 0 |
-| linear | 是否为线性步骤导航，设置为 false，将不再控制 `step` 组件的 completed 和 disabled 属性 | Boolean | — | true |
-| orientation | horizontal: 水平步骤导航, vertical: 垂直的步骤导航 | String | — | horizontal |
+| active-step | current step | Number | — | 0 |
+| linear | whether is linear step set to false, will no longer control the completed and disabled properties of the `step` component | Boolean | — | true |
+| orientation | horizontal: horizon step navigation, vertical: vertical step navigation | String | — | horizontal |
 
 ## Step Props
 
-| 参数 | 介绍 | 类型 | 可选值 | 默认值 |
+| Attribute | Description | Type | Accepted values | Default |
 |------|------|------|------|------|
-| completed | 是否已完成 | Boolean | — | false |
-| disabled | 是否被禁用 | Boolean | — | false |
+| completed | whether to complete | Boolean | — | false |
+| disabled | whether is disabled | Boolean | — | false |
 
 
 
