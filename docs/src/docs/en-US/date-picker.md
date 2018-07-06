@@ -1,8 +1,8 @@
-# 日期选择器
+# Date picker
 
-`mu-date-picker` 用于选择日期。
+The `mu-date-picker` is used to select date.
 
-## 示例
+## Example
 
 :::demo
 ```html
@@ -33,7 +33,7 @@ export default {
 ```
 :::
 
-## 选择月份和年份
+## Select month and year
 
 :::demo
 ```html
@@ -65,7 +65,7 @@ export default {
 ```
 :::
 
-## 不可选择日期
+## No Date selected
 
 :::demo
 ```html
@@ -93,9 +93,9 @@ export default {
 ```
 :::
 
-##  不同语言环境
+## Different language environments
 
-通过自定义 `date-time-format` 来格式化不同语言的显示
+Format the display of different languages by customizing `date-time-format`.
 
 :::demo
 ```html
@@ -157,25 +157,25 @@ export default {
 
 ## Date Picker Props
 
-| 参数 | 介绍 | 类型 | 可选值 | 默认值 |
+| Attribute | Description | Type | Accepted values | Default |
 |------|------|------|------|------|
-| color | 日期选择器颜色 | String | — | — |
-| display-color | 时间显示区域背景色 | String | - | - |
-| date | 选择日期，支持 `.sync` 修饰符 | Date | — | new Date() |
-| type | 选择的类型 | String | date/year/month | date |
-| date-time-format | 日期格式化对象，用于改变不同的语言环境显示 | Object | — | — |
-| first-day-of-week | 哪一天作为一个星期的开始 | Number | 0-6 | 0 |
-| max-date | 最大可选择日期 | Date | — | — |
-| min-date | 最小可选择日期 | Date | — | — |
-| landscape | 是否横屏显示 | Boolean | — | false |
-| no-display | 是否不存在日期显示部分 | Boolean | — | false |
-| should-disable-date | 判断日期是否不可用的函数 | Function | — | — |
+| color | date picker color | String | — | — |
+| display-color | time display area background color | String | - | - |
+| date | select date, support `sync` modifier | Date | — | new Date() |
+| type | selection type | String | date/year/month | date |
+| date-time-format | date format object, used to change the display of different language environments | Object | — | — |
+| first-day-of-week | which day as the beginning of the one week | Number | 0-6 | 0 |
+| max-date | maximum selectable date | Date | — | — |
+| min-date | minimum selectable date | Date | — | — |
+| landscape | whether horizontal screen display | Boolean | — | false |
+| no-display | whether the time display section does not exist | Boolean | — | false |
+| should-disable-date | function to determine whether a date is not available | Function | — | — |
 
 ## Date Picker Events
 
-| 名称 | 介绍 | 回调参数 |
+| Attribute | Description | Parameters |
 |------|-----|--------|
-| change | 当选择日期改变时触发事件 | (date) |
+| change | trigger when selection date changes | (date) |
 
 <script>
 const dayAbbreviation = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];

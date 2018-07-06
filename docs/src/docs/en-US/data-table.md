@@ -1,8 +1,8 @@
-# 数据表格
+# Data Table
 
-`mu-data-table` 用于显示表格数据，并且通常出现于桌面企业产品中。
+The `mu-data-table` is used to display data table and usually appears in the desktop enterprise product.
 
-## 示例
+## Example
 
 :::demo
 ```html
@@ -130,9 +130,9 @@ export default {
 ```
 :::
 
-## 条纹表格
+## Stripes Table
 
-设置 `stripe`, 可以更容易区分出不同行的数据。
+Setting `stripe` makes it easier to distinguish between different rows of data.
 
 :::demo
 ```html
@@ -260,7 +260,7 @@ export default {
 ```
 :::
 
-## 边框表格
+## Border Table
 
 :::demo
 ```html
@@ -388,9 +388,9 @@ export default {
 ```
 :::
 
-## 进度条
+## Progress bar
 
-数据在加载时，将 `loading` 设置为 `true`，显示加载进度条
+When the data is loaded, set `loading` to `true` to show the load progress bar.
 
 :::demo
 ```html
@@ -518,9 +518,9 @@ export default {
 ```
 :::
 
-## 固定表头
+## Fixed table header
 
-设置 `height` 或 `max-height` 属性后，当表格高度溢出时会显示滚动条，自动固定表头和表尾。
+When the `height` or `max-height` property is set, scroll bars are displayed when the table height overflows, and the header and footer are automatically fixed.
 
 :::demo
 ```html
@@ -648,9 +648,9 @@ export default {
 ```
 :::
 
-## 自定义表头
+## Customizing table headers
 
-通过 `th` 或 `header` slot 自定义表头
+Customize table headers through `th` or `header` slot.
 
 :::demo
 ```html
@@ -811,9 +811,9 @@ export default {
 ```
 :::
 
-## 行选择
+## Row selection
 
-`selects.sync` 双向控制选择行。
+The `selects.sync` controls selection lines bidirectionally.
 
 :::demo
 ```html
@@ -949,9 +949,9 @@ export default {
 ```
 :::
 
-## 展开行
+## Expand row
 
-`mu-data-table` 支持行展开功能，用于展示更多的信息。
+The `mu-data-table` supports the line expansion feature to show more information.
 
 :::demo
 ```html
@@ -1084,69 +1084,69 @@ export default {
 
 ## Data Table Props
 
-| 参数 | 介绍 | 类型 | 可选值 | 默认值 |
+| Attribute | Description | Type | Accepted values | Default |
 |------|------|------|------|------|
-| data | 显示的数据 | Array | — | — |
-| columns | 显示列的配置 | Array | — | — |
-| no-data-text | 空数据时显示的文本内容，也可以通过 slot="empty" 设置 | String | 暂无数据 |
-| height | Table 的高度，默认为自动高度。 | Number/String | — | — |
-| max-height | Table 的最大高度 | Number/String | — | — |
-| selectable | 是否可选择 | Boolean | — | false |
-| select-all | 是否开启全选选择框 | Boolean | — | false |
-| selects | 选择行的 index 数组，可以使用 `.sync` 双向控制 | Array | — | — |
-| sort | 排序，它的 `name` 属性指排序的列, `order` 指定排序的顺序, 可以使用 `.sync` 双向控制 |  Object | `order`:asc, desc | — |
-| checkbox | 是否显示 `mu-checkbox` | Boolean | — | false |
-| stripe | 是否是条纹表格 | Boolean | — | false |
-| border | 是否是边框表格 | Boolean | — | false |
-| loading | 是否显示加载进度条 | Boolean | — | false |
-| hideHeader | 是否隐藏表头 | Boolean | — | false |
-| rowClassName | 行的 className 的回调方法，也可以使用字符串为所有行设置一个固定的 className。| String / Function(rowIndex, row) | — | — |
-| rowStyle | 行的 style 的回调方法，也可以使用一个固定的 Object 为所有行设置一样的 Style。 | String /  Function(rowIndex, row) | — | — |
-| rowKey | 行数据的 Key，用来优化 Table 的渲染；| String | — | — |
-| fit | 列的宽度是否自撑开 | Boolean | — | true |
-| hover | 是否显示鼠标悬浮在行上的样式 | Boolean | — | true |
+| data | displayed data | Array | — | — |
+| columns | display column configuration | Array | — | — |
+| no-data-text | text content that is displayed when the data is empty, or it can be set by slot="empty" | String | no data |
+| height | the height of the Table, which defaults to the automatic height. | Number/String | — | — |
+| max-height | table maximum height | Number/String | — | — |
+| selectable | whether to select | Boolean | — | false |
+| select-all | whether to turn on the select all selection box | Boolean | — | false |
+| selects | select the index array of the row, use `.sync` bidirectional control | Array | — | — |
+| sort | sort, its `name` attribute refers to the sorted column, and `order` specifies the order of sorting. use `.sync` bidirectional control |  Object | `order`:asc, desc | — |
+| checkbox | whether to display `mu-checkbox` | Boolean | — | false |
+| stripe | whether it is stripe table | Boolean | — | false |
+| border | whether it is border table | Boolean | — | false |
+| loading | whether to display the loading progress bar | Boolean | — | false |
+| hideHeader | whether to hide the header | Boolean | — | false |
+| rowClassName | a className callback method for a row, or use a string to set a fixed className for all rows | String / Function(rowIndex, row) | — | — |
+| rowStyle | a style callback method for a row, use a fixed Object to set the same style for all rows | String /  Function(rowIndex, row) | — | — |
+| rowKey | the key of the row data, used to optimize the rendering of the table | String | — | — |
+| fit | whether the width of the column is self-expanding | Boolean | — | true |
+| hover | whether to display the style of the mouse hovering on the line | Boolean | — | true |
 
 ## Data Table Columns
 
-| 参数 | 介绍 | 类型 | 可选值 | 默认值 |
+| Attribute | Description | Type | Accepted values | Default |
 |------|------|------|------|------|
-| name | 对应列内容的字段名 | String | — | — |
-| title | 显示的标题 | String | — | — |
-| width | 列的宽度 | Number | — | — |
-| sortable | 列是否可以排序 | Boolean | — | false |
-| align | 列的对齐方式 | String | left, center, right | left |
-| cellAlign | 单元格对齐方式 | String | left, center, right | left |
-| class | 列的样式 | String | — | — |
-| tooltip | 列的提示文字 | String | — | — |
-| formatter | 单元格单词格式化 | Function(value, row) | - | - |
+| name | the field name of the corresponding column content | String | — | — |
+| title | display title | String | — | — |
+| width | columns width | Number | — | — |
+| sortable | whether the column is sortable | Boolean | — | false |
+| align | columns alignment | String | left, center, right | left |
+| cellAlign | cells alignment | String | left, center, right | left |
+| class | column style | String | — | — |
+| tooltip | columns tooltip | String | — | — |
+| formatter | cell word formatting | Function(value, row) | - | - |
 
 ## Data Table Events
 
-| 名称 | 介绍 | 回调参数 |
+| Attribute | Description | Parameters |
 |------|------|-------|
-| row-click | 点击某一行时触发 | (index, row, event) |
-| row-dblclick | 双击击某一行时触发 | (index, row, event) |
-| row-mouseenter | 鼠标进入某一行时触发 | (index, row, event) |
-| row-mouseleave | 鼠标离开某一行时触发 | (index, row, event) |
-| row-contextmenu | 当某一行被鼠标右键点击时会触发该事件 | (index, row, event) |
-| select-change | 选择行时触发 | (index, selects) |
-| sort-change | 点击头部排序时触发 | (sort) |
+| row-click | trigger when clicking on a row | (index, row, event) |
+| row-dblclick | trigger when double clicking on a row | (index, row, event) |
+| row-mouseenter | trigger when the mouse enters a row | (index, row, event) |
+| row-mouseleave | trigger when the mouse leaves a row | (index, row, event) |
+| row-contextmenu | trigger when a row is clicked by the right mouse button | (index, row, event) |
+| select-change | trigger when selecting rows | (index, selects) |
+| sort-change | trigger when clicking on the header sort | (sort) |
 
 ## Data Table Slots
 
-| 名称 | 介绍 |
+| Attribute | Description |
 |------|------|
-| empty | 空数据时显示的插槽 |
+| empty | the slot to display when data empty |
 
 ## Data Table Scope Slots
 
-| 名称 | 介绍 | 参数 |
+| Attribute | Description | Parameters |
 |------|------|------|
-| default | 数据显示的内容 | { row, $index } |
-| th | 表头单元格的内容 | { name, title, width, sortable, align, class, tooltip }  |
-| footer | 表尾内容 | { columns } |
-| header | 表头内容 | { columns } |
-| expand | 展开行的内容 | { row, $index } |
+| default | what the data shows | { row, $index } |
+| th | table header cell's content | { name, title, width, sortable, align, class, tooltip }  |
+| footer | footer content | { columns } |
+| header | header content | { columns } |
+| expand | expand the row's content | { row, $index } |
 
 <script>
 export default {

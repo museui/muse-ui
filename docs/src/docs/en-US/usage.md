@@ -1,8 +1,8 @@
-# 使用
+# Usage
 
-`muse-ui` 支持完整引入或者根据需要引入部分组件。 我们先介绍如何完整引入 `muse-ui`。
+The `muse-ui` supports fully import, or just import what you needed. Let's start with fully import.
 
-## 完整引入
+## Fully import
 
 ```javascript
 import Vue from 'vue';
@@ -19,16 +19,16 @@ new Vue({
 });
 ```
 
-## 按需引入
+## Import on demand
 
-借助 [babel-plugin-import](https://www.npmjs.com/package/babel-plugin-import), 我们可以只引入需要的组件，以达到减小项目体积的目的。
-首先，安装 babel-plugin-import, less-loader:
+With the help of [babel-plugin-import](https://www.npmjs.com/package/babel-plugin-import), we can import components we actually need, making the project smaller than otherwise.
+First, install babel-plugin-import, less-loader:
 
 ```bash
 npm i babel-plugin-import less less-loader -D
 ```
 
-然后，将 `.babelrc` 修改为：
+Then, edit `.babelrc`:
 
 ```json
 {
@@ -42,7 +42,7 @@ npm i babel-plugin-import less less-loader -D
 }
 ```
 
-接下来，如果你只希望引入部分组件，比如 Button 和 Select，那么需要在 main.js 中写入以下内容:
+Next, if you need Button and Select, edit main.js:
 
 ```javascript
 import Vue from 'vue';
@@ -54,7 +54,7 @@ Vue.use(Button);
 Vue.use(Select);
 ```
 
-完整组件列表和引入方式
+Full example
 
 ```javascript
 import Vue from 'vue';
@@ -150,6 +150,6 @@ Vue.use(TextField);
 Vue.use(Tooltip);
 ```
 
-## 开始使用
+## Start coding
 
-至此，一个基于 Vue 和 Muse-UI 的开发环境已经搭建完毕，现在就可以编写代码了。各个组件的使用方法请参阅它们各自的文档。
+Now you have implemented Vue and Muse-UI to your project, and it's time to write your code. Please refer to each component's documentation to learn how to use them.
