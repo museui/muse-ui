@@ -2,10 +2,20 @@ import Checkbox from '../../Checkbox';
 import { ExpandTransition } from '../../internal/transitions';
 
 export default {
+  props: {
+    expandRowIndex: {
+      type: Number,
+      default: -1
+    },
+    autoExpand: {
+      type: Boolean,
+      default: true
+    }
+  },
   data () {
     return {
       hoverIndex: -1,
-      expandIndex: -1,
+      expandIndex: this.expandRowIndex,
       isSelectAll: false
     };
   },
@@ -103,7 +113,7 @@ export default {
               },
               click: (e) => {
                 this.toggleSelect(index);
-                this.toggleExpand(index);
+                if (this.autoExpand) this.toggleExpand(index);
                 this.$emit('row-click', index, row, e);
               },
               dblclick: (e) => this.$emit('row-dblclick', index, row, e)
@@ -159,6 +169,14 @@ export default {
   watch: {
     selects (val) {
       this.isSelectAll = val && val.length >= this.data.length;
+    },
+    expandRowIndex (val) {
+      if (this.expandIndex === val) return;
+      this.expandIndex = val;
+    },
+    expandIndex (val) {
+      this.$emit('update:expandRowIndex', val);
+      this.$emit('change-expand', val);
     }
   }
 };
