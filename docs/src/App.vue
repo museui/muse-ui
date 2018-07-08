@@ -241,7 +241,7 @@ function isMobile () {
 .toggle-icon {
   color: @secondaryTextColor;
   transition: transform .3s cubic-bezier(.23,1,.32,1);
-  .mu-item.is-open & {
+  .mu-item__open & {
     transform: rotate(180deg);
   }
 }
