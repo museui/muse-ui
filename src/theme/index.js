@@ -40,5 +40,8 @@ export default {
   use (name) {
     const themeEl = getThemeStyle();
     themeEl.innerHTML = themes.map((theme) => theme(vars[name], vars[name].type, name)).join(' ');
+  },
+  generate (name) {
+    return themes.map((theme) => theme(vars[name], vars[name].type, name)).join(' ');
   }
 };
