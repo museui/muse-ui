@@ -10,6 +10,16 @@
       ],
       "comments": false
     },
+    "production": {
+      "presets": [
+        "env",
+        "stage-2"
+      ],
+      "plugins": [
+        "transform-vue-jsx"
+      ],
+      "comments": false
+    },
     "test": {
       "presets": [[
         "env", {

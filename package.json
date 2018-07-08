@@ -18,7 +18,7 @@
   ],
   "scripts": {
     "docs:dev": "NODE_ENV=normal webpack-dev-server --inline --progress --config docs/build/webpack.dev.conf.js",
-    "docs:build": "NODE_ENV=normal node docs/build/build.js && node docs/build/gen-indices.js",
+    "docs:build": "node docs/build/build.js && node docs/build/gen-indices.js",
     "dev": "NODE_ENV=normal parcel demo/index.html",
     "build": "npm run build:dist && npm run build:lib && npm run build:es5",
     "build:dist": "rimraf dist && rollup --config rollup.config.js",
