@@ -10,7 +10,7 @@
         <img src="./assets/images/bg.png" v-if="home" width="100%" height="500" class="mu-banner-image">
       </mu-fade-transition>
       <mu-search  v-if="!isMobile"  slot="right" />
-      <mu-menu slot="right" :open.sync="activeMenu" placement="bottom-end">
+      <mu-menu slot="right" open-on-hover :open.sync="activeMenu" placement="bottom-end">
         <mu-button flat>
           <img v-if="lang && lang.img" :src="lang.img(32)" alt="">
         </mu-button>
@@ -23,7 +23,7 @@
           </mu-list-item>
         </mu-list>
       </mu-menu>
-      <mu-menu slot="right" :open.sync="openTheme">
+      <mu-menu slot="right" open-on-hover :open.sync="openTheme">
         <mu-button flat>
           <mu-icon value="color_lens"></mu-icon>
         </mu-button>
@@ -36,7 +36,7 @@
           </mu-list-item>
         </mu-list>
       </mu-menu>
-      <mu-menu slot="right" placement="bottom-end" v-if="!isMobile">
+      <mu-menu slot="right" open-on-hover placement="bottom-end" v-if="!isMobile">
         <mu-button flat>
           <mu-icon value="public" />
         </mu-button>
