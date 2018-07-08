@@ -13,6 +13,17 @@
         }
       ], "stage-2"],
       "plugins": [ "istanbul", "transform-runtime"]
+    },
+    "es5": {
+      "presets": [
+        [
+          "env",
+          {
+            "modules": false
+          }
+        ],
+        "stage-2"
+      ]
     }
   }
 }
