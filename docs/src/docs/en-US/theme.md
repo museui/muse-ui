@@ -1,4 +1,4 @@
-# 主题
+# Theme
 
 `Muse-UI` 支持使用 javascript 定制和切换主题，默认提供 `light` 和 `dark` 两种主题风格。
 
@@ -10,7 +10,7 @@ import theme from 'muse-ui/lib/theme';
 theme.use('dark');
 ```
 
-## 自定义主题
+## Custom theme
 
 使用 `add(name, config, extendName)` 添加新的主题
 
