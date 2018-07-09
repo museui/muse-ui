@@ -1102,7 +1102,7 @@ export default {
 | border | 是否是边框表格 | Boolean | — | false |
 | loading | 是否显示加载进度条 | Boolean | — | false |
 | expand-row-index | 展开行的 index 值, 支持 `.sync` | Number | — | -1 |
-| auto-expand | 是否点击表格行自动展开 | Boolean | — | false |
+| auto-expand | 是否点击表格行自动展开 | Boolean | — | true |
 | hideHeader | 是否隐藏表头 | Boolean | — | false |
 | rowClassName | 行的 className 的回调方法，也可以使用字符串为所有行设置一个固定的 className。| String / Function(rowIndex, row) | — | — |
 | rowStyle | 行的 style 的回调方法，也可以使用一个固定的 Object 为所有行设置一样的 Style。 | String /  Function(rowIndex, row) | — | — |

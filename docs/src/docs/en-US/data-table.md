@@ -1102,7 +1102,7 @@ export default {
 | border | whether it is border table | Boolean | — | false |
 | loading | whether to display the loading progress bar | Boolean | — | false |
 | expand-row-index | 展开行的 index 值, 支持 `.sync` | Number | — | -1 |
-| auto-expand | 是否点击表格行自动展开 | Boolean | — | false |
+| auto-expand | 是否点击表格行自动展开 | Boolean | — | true |
 | hideHeader | whether to hide the header | Boolean | — | false |
 | rowClassName | a className callback method for a row, or use a string to set a fixed className for all rows | String / Function(rowIndex, row) | — | — |
 | rowStyle | a style callback method for a row, use a fixed Object to set the same style for all rows | String /  Function(rowIndex, row) | — | — |
