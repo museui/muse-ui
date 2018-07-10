@@ -21,11 +21,7 @@
       "comments": false
     },
     "test": {
-      "presets": [[
-        "env", {
-          "modules": false
-        }
-      ], "stage-2"],
+      "presets": ["env", "stage-2"],
       "plugins": [ "istanbul", "transform-runtime", "transform-vue-jsx"]
     },
     "es5": {
