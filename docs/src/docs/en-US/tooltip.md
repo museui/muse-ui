@@ -58,9 +58,9 @@ The `mu-tooltip` can wrap any element.
 
 | Attribute | Description | Type | Accepted values | Default |
 |------|------|------|------|------|
-| content | display content, used `slot="content"` instead | — | — |
+| content | display content, can be insteaded by `slot="content"` | — | — |
 | open | whether to display | Boolean | — | — |
-| placement | where the Tooltip appears | String | top / top-start / top-end / bottom / bottom-start / bottom-end / left / left-start / left-end / right / right-start / right-end | — |
+| placement | position of Tooltip | String | top / top-start / top-end / bottom / bottom-start / bottom-end / left / left-start / left-end / right / right-start / right-end | — |
 | tooltip-class | tooltip style | String/Object/Array | — |
 
 <script>

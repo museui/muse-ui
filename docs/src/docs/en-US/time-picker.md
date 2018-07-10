@@ -1,4 +1,4 @@
-# Time picker
+# TimePicker
 
 The `mu-time-picker` for time selection.
 
@@ -6,20 +6,20 @@ The `mu-time-picker` for time selection.
 ```html
 <mu-container>
   <mu-flex>
-    Display time: 
+    Display time:
     <mu-switch class="demo-picker-form" v-model="display"></mu-switch>
   </mu-flex>
   <mu-flex>
-    Horizontal screen display: 
+    Horizontal screen display:
     <mu-checkbox class="demo-picker-form" v-model="landscape" label="landscape"></mu-checkbox>
   </mu-flex>
   <mu-flex>
-    Time type: 
+    Time type:
     <mu-radio class="demo-picker-form" v-model="type" value="ampm" label="ampm"></mu-radio>
     <mu-radio class="demo-picker-form" v-model="type" value="24hr" label="24hr"></mu-radio>
   </mu-flex>
   <mu-flex>
-    Selection mode: 
+    Selection mode:
     <mu-radio class="demo-picker-form" v-model="viewType" value="clock" label="clock"></mu-radio>
     <mu-radio class="demo-picker-form" v-model="viewType" value="list" label="list"></mu-radio>
   </mu-flex>
@@ -64,7 +64,7 @@ export default {
 
 ## Date Picker Events
 
-| Attribute | Description | Parameters |
+| Event Name | Description | Parameters |
 |------|-----|--------|
 | change | trigger event when the selected date changes | (time, mode, finished) |
 
