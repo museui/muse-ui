@@ -23,8 +23,8 @@
       <mu-list-item button>
         <mu-list-item-title>Menu Item 2</mu-list-item-title>
       </mu-list-item>
-      <mu-list-item button>
-        <mu-list-item-title @click="open = false">Close</mu-list-item-title>
+      <mu-list-item  @click="open = false" button>
+        <mu-list-item-title>Close</mu-list-item-title>
       </mu-list-item>
     </mu-list>
   </mu-drawer>

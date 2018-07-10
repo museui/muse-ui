@@ -23,12 +23,12 @@ export default {
     handleMouseEnter () {
       if (!this.openOnHover) return;
       if (this.timer) clearTimeout(this.timer);
-      this.timer = setTimeout(() => this.show(), 200);
+      this.timer = setTimeout(() => this.show(), 100);
     },
     handleMouseLeave () {
       if (!this.openOnHover) return;
       if (this.timer) clearTimeout(this.timer);
-      this.timer = setTimeout(() => this.hide(), 200);
+      this.timer = setTimeout(() => this.hide(), 100);
     },
     show () {
       this.active = true;
@@ -63,7 +63,7 @@ export default {
     return h('div', {
       staticClass: 'mu-menu',
       class: {
-        'mu-menu__open': this.open
+        'mu-menu__open': this.active
       }
     }, [
       h('div', {

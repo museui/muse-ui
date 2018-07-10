@@ -31,4 +31,5 @@ export interface MuTheme {
   addCreateTheme(theme: ThemeFunction): MuTheme;
   use(name: string): MuTheme;
   add(name: string, options: ThemeOptions, extendName: string): MuTheme;
+  generate(name: string): string;
 }

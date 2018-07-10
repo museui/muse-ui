@@ -1089,6 +1089,7 @@ export default {
 | data | 显示的数据 | Array | — | — |
 | columns | 显示列的配置 | Array | — | — |
 | no-data-text | 空数据时显示的文本内容，也可以通过 slot="empty" 设置 | String | 暂无数据 |
+| min-col-width | 每一个表格最小宽度 | Number | — | 128 |
 | height | Table 的高度，默认为自动高度。 | Number/String | — | — |
 | max-height | Table 的最大高度 | Number/String | — | — |
 | selectable | 是否可选择 | Boolean | — | false |
@@ -1096,9 +1097,12 @@ export default {
 | selects | 选择行的 index 数组，可以使用 `.sync` 双向控制 | Array | — | — |
 | sort | 排序，它的 `name` 属性指排序的列, `order` 指定排序的顺序, 可以使用 `.sync` 双向控制 |  Object | `order`:asc, desc | — |
 | checkbox | 是否显示 `mu-checkbox` | Boolean | — | false |
+| checkbox-col-width | 复选框的宽度 | Number | — | 75 |
 | stripe | 是否是条纹表格 | Boolean | — | false |
 | border | 是否是边框表格 | Boolean | — | false |
 | loading | 是否显示加载进度条 | Boolean | — | false |
+| expand-row-index | 展开行的 index 值, 支持 `.sync` | Number | — | -1 |
+| auto-expand | 是否点击表格行自动展开 | Boolean | — | true |
 | hideHeader | 是否隐藏表头 | Boolean | — | false |
 | rowClassName | 行的 className 的回调方法，也可以使用字符串为所有行设置一个固定的 className。| String / Function(rowIndex, row) | — | — |
 | rowStyle | 行的 style 的回调方法，也可以使用一个固定的 Object 为所有行设置一样的 Style。 | String /  Function(rowIndex, row) | — | — |

@@ -192,12 +192,6 @@ export default {
     }, {
       name: 'Contributing',
       path: '/contributing'
-    }, {
-      name: 'Support Muse-UI',
-      path: '/support'
-    }, {
-      name: 'Changelog',
-      path: '/changelog'
     }]
   }, {
     name: 'Style & Layout',

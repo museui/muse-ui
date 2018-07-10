@@ -1,18 +1,46 @@
 {
-  "presets": [
-    "env",
-    "stage-2"
-  ],
-  "plugins": ["transform-vue-jsx"],
-  "comments": false,
   "env": {
+    "normal": {
+      "presets": [
+        "env",
+        "stage-2"
+      ],
+      "plugins": [
+        "transform-vue-jsx"
+      ],
+      "comments": false
+    },
+    "production": {
+      "presets": [
+        "env",
+        "stage-2"
+      ],
+      "plugins": [
+        "transform-vue-jsx"
+      ],
+      "comments": false
+    },
     "test": {
       "presets": [[
         "env", {
           "modules": false
         }
       ], "stage-2"],
-      "plugins": [ "istanbul", "transform-runtime"]
+      "plugins": [ "istanbul", "transform-runtime", "transform-vue-jsx"]
+    },
+    "es5": {
+      "presets": [
+        [
+          "env",
+          {
+            "modules": false
+          }
+        ],
+        "stage-2"
+      ],
+      "plugins": [
+        "transform-vue-jsx"
+      ]
     }
   }
 }
