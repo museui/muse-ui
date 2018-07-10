@@ -179,7 +179,7 @@ export default {
 
 ## Import on demand
 
-The components of the tool class are in the `lib/helpers` directory
+The components of the tool class are in the `lib/helpers` directory.
 
 ```javascript
 import Vue from 'vue';

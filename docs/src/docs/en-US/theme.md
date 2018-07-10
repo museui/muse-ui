@@ -1,8 +1,8 @@
-# 主题
+# Theme
 
-`Muse-UI` 支持使用 javascript 定制和切换主题，默认提供 `light` 和 `dark` 两种主题风格。
+`Muse-UI` supports to use javascript to customize and switch theme. We provide two theme styles, `light` and `dark` by default.
 
-## 切换主题
+## Switch theme
 
 ```javascript
 import theme from 'muse-ui/lib/theme';
@@ -10,9 +10,9 @@ import theme from 'muse-ui/lib/theme';
 theme.use('dark');
 ```
 
-## 自定义主题
+## Custom theme
 
-使用 `add(name, config, extendName)` 添加新的主题
+Using `add(name, config, extendName)` to add new theme
 
 ```javascript
 import theme from 'muse-ui/lib/theme';
@@ -26,11 +26,11 @@ theme.add('teal', {
 theme.use('teal');
 ```
 
-* name 主题名称
-* config 主题配置对象
-* extendName 继承哪个主题， 默认 ‘light’
+* name Theme name
+* config Theme Configuration Objects
+* extendName extend which theme, default ‘light’
 
-默认提供的 `light` 和 `dark` 两个主题的配置如下：
+The configurations of the `light` and `dark` themes provided by default are as follows:
 
 ```javascript
 // light.js
@@ -83,9 +83,9 @@ theme.use('teal');
 }
 ```
 
-## 主题样式扩展
+## Theme style extension
 
-如果有新加入的样式，需要添加到主题样式中， 则需要使用 `addCreateTheme(func)` 添加到themes集中控制。
+If you have a new style that needs to be added to the theme style, you need to add it to themes centralized control using `addCreateTheme(func)`.
 
 ```javascript
 import theme from 'muse-ui/lib/theme';
