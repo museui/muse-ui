@@ -181,10 +181,12 @@ export default {
   },
   watch: {
     searchValue (val) {
-      if (this.$refs.input.scrollWidth > this.$refs.input.clientWidth) {
-        this.shouldBreak = true;
-      } else if (val === '') {
-        this.shouldBreak = false;
+      if (this.$refs.input) {
+        if (this.$refs.input.scrollWidth > this.$refs.input.clientWidth) {
+          this.shouldBreak = true;
+        } else if (val === '') {
+          this.shouldBreak = false;
+        }
       }
 
       this.options.forEach(option => {
