@@ -40,6 +40,23 @@
     </mu-list>
   </mu-bottom-sheet>
 </mu-container>
+<script>
+export default {
+  data () {
+    return {
+      open: false
+    }
+  },
+  methods: {
+    closeBottomSheet () {
+      this.open = false;
+    },
+    openBotttomSheet () {
+      this.open = true;
+    }
+  }
+}
+</script>
 ```
 :::
 
