@@ -135,6 +135,8 @@ export default {
         focus: this.focus,
         blur: this.blur
       };
+      delete listeners.input;
+      delete listeners.change;
       const placeholder = !this.labelFloat ? this.$attrs.placeholder : '';
       return [
         h('input', {
