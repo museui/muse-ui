@@ -744,6 +744,15 @@ export default {
     </mu-list-item>
   </mu-list>
 </mu-paper>
+<script>
+export default {
+  data () {
+    return {
+      open: 'send'
+    }
+  }
+}
+</script>
 <style>
 .demo-list-wrap {
   width: 100%;
