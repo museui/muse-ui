@@ -1,5 +1,6 @@
 <template>
 <div style="padding: 32px;">
+  <mu-text-field v-model="value1" multi-line :rows="1" :rows-max="10"></mu-text-field><br>
   <mu-pagination :total="1000" :current.sync="page"/>
   <div style="margin-bottom: 15px;">
     <mu-data-table :columns="columns" :sort.sync="sort" :data="list" :loading="loading">
@@ -289,6 +290,7 @@ export default {
       date: new Date(),
       time: new Date(),
       value: undefined,
+      value1: 'I farI fare well without computere well without I fare well without computercomputerI fare well without computer.\r\n没电脑我也过得很好。\r\nHow did you fare?\r\n你过得怎样?\r\nA single fare is 170 dollars.\r\n单程票价为170美元。',
       alertMsg: 'every thing is disabled',
       columns: [
         {

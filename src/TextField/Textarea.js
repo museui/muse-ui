@@ -52,7 +52,7 @@ export default {
           rows: 1
         },
         domProps: {
-          innerText: this.value || ' '
+          value: this.value || ' '
         }
       }),
       h('textarea', {
