@@ -7,25 +7,22 @@ const Overlay = Vue.extend(overlayOpt);
 const PopupManager = {
   instances: [],
   overlay: false,
+  overlayStartLength: 0, // overlay start length
 
   open (instance) {
     if (!instance || this.instances.indexOf(instance) !== -1) return;
+    this.instances.push(instance);
     if (!this.overlay && instance.overlay) {
       this.showOverlay(instance);
+      this.overlayStartLength = this.instances.length;
     }
-    this.instances.push(instance);
-    if (instance.overlay) this.changeOverlayStyle();
+    this.changeOverlayStyle();
   },
   close (instance) {
     const index = this.instances.indexOf(instance);
     if (index === -1) return;
     this.instances.splice(index, 1);
-    Vue.nextTick(() => {
-      if (this.instances.length === 0) {
-        this.closeOverlay();
-      }
-      if (instance.overlay) this.changeOverlayStyle();
-    });
+    Vue.nextTick(() => this.changeOverlayStyle());
   },
 
   showOverlay (instance) {
@@ -69,6 +66,7 @@ const PopupManager = {
     const overlay = this.overlay;
     overlay.show = false;
     this.overlay = null;
+    this.overlayStartLength = 0;
     setTimeout(() => {
       document.body.removeChild(overlay.$el);
       overlay.$destroy();
@@ -82,7 +80,9 @@ const PopupManager = {
       this.overlay.color = instance.overlayColor;
       this.overlay.opacity = instance.overlayOpacity;
       this.overlay.zIndex = instance.overlayZIndex;
-    } else {
+    }
+
+    if (this.instances.length === this.overlayStartLength) {
       this.closeOverlay();
     }
   },
