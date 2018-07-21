@@ -45,7 +45,7 @@ export default {
       const promiseMessages = [];
       for (let i = 0; i < this.rules.length; i++) {
         const rule = this.rules[i];
-        const result = rule.validate(this.muForm.model[this.prop], this.muForm.model);
+        const result = rule.validate(this.muForm.getValue(this.prop), this.muForm.model);
         if (isPromise(result)) {
           promises.push(result);
           promiseMessages.push(rule.message);

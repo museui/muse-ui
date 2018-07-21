@@ -1,4 +1,4 @@
-import { isPromise } from '../utils';
+import { isPromise, getObjAttr } from '../utils';
 export default {
   name: 'mu-form',
   provide () {
@@ -31,6 +31,9 @@ export default {
     };
   },
   methods: {
+    getValue (prop) {
+      return getObjAttr(this.model, prop);
+    },
     addItem (item) {
       this.items.push(item);
     },
