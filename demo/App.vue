@@ -1,5 +1,6 @@
 <template>
 <div style="padding: 32px;">
+  <bug-date-input />
   <bug-popup />
   <mu-text-field v-model="value1" multi-line :rows="1" :rows-max="10"></mu-text-field><br>
   <mu-pagination :total="1000" :current.sync="page"/>
@@ -278,6 +279,7 @@
 </template>
 <script>
 import BugPopup from './bug-popup';
+import BugDateInput from './bug-date-input';
 export default {
   data() {
     return {
@@ -416,7 +418,8 @@ export default {
     }
   },
   components: {
-    BugPopup
+    BugPopup,
+    BugDateInput
   }
 };
 </script>

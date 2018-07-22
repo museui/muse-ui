@@ -239,10 +239,6 @@ export default {
     }
   },
   render (h) {
-    const listeners = this.$listeners;
-    delete listeners.input;
-    delete listeners.change;
-
     return this.createInput(h, {
       staticClass: 'mu-text-field',
       ref: 'content'
