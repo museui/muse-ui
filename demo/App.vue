@@ -1,5 +1,6 @@
 <template>
 <div style="padding: 32px;">
+  <bug-popup />
   <mu-text-field v-model="value1" multi-line :rows="1" :rows-max="10"></mu-text-field><br>
   <mu-pagination :total="1000" :current.sync="page"/>
   <div style="margin-bottom: 15px;">
@@ -276,6 +277,7 @@
 </div>
 </template>
 <script>
+import BugPopup from './bug-popup';
 export default {
   data() {
     return {
@@ -412,6 +414,9 @@ export default {
     closeAlert() {
       this.alert = false;
     }
+  },
+  components: {
+    BugPopup
   }
 };
 </script>

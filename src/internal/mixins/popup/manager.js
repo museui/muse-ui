@@ -11,11 +11,11 @@ const PopupManager = {
 
   open (instance) {
     if (!instance || this.instances.indexOf(instance) !== -1) return;
-    this.instances.push(instance);
     if (!this.overlay && instance.overlay) {
       this.showOverlay(instance);
       this.overlayStartLength = this.instances.length;
     }
+    this.instances.push(instance);
     this.changeOverlayStyle();
   },
   close (instance) {
@@ -74,16 +74,20 @@ const PopupManager = {
   },
 
   changeOverlayStyle () {
-    const instance = this.instances[this.instances.length - 1];
-    if (!this.overlay || this.instances.length === 0) return;
-    if (instance.overlay) {
+    if (!this.overlay) return;
+    if (this.instances.length === this.overlayStartLength) {
+      this.closeOverlay();
+    }
+    let instance;
+    for (let i = 1; i <= this.instances.length; i++) {
+      instance = this.instances[this.instances.length - i];
+      if (instance && instance.overlay) break;
+    }
+
+    if (instance && instance.overlay) {
       this.overlay.color = instance.overlayColor;
       this.overlay.opacity = instance.overlayOpacity;
       this.overlay.zIndex = instance.overlayZIndex;
-    }
-
-    if (this.instances.length === this.overlayStartLength) {
-      this.closeOverlay();
     }
   },
 
