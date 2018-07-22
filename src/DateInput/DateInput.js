@@ -25,9 +25,13 @@ delete PickerProps.date;
 delete PickerProps.time;
 delete PickerProps.type;
 delete PickerProps.format;
+
 export default {
   name: 'mu-date-input',
-  mixins: [input],
+  mixins: [{
+    ...input,
+    watch: {}
+  }],
   directives: {
     keyboardFocus
   },
