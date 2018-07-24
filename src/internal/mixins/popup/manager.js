@@ -7,13 +7,11 @@ const Overlay = Vue.extend(overlayOpt);
 const PopupManager = {
   instances: [],
   overlay: false,
-  overlayStartLength: 0, // overlay start length
 
   open (instance) {
     if (!instance || this.instances.indexOf(instance) !== -1) return;
     if (!this.overlay && instance.overlay) {
       this.showOverlay(instance);
-      this.overlayStartLength = this.instances.length;
     }
     this.instances.push(instance);
     this.changeOverlayStyle();
@@ -22,7 +20,7 @@ const PopupManager = {
     const index = this.instances.indexOf(instance);
     if (index === -1) return;
     this.instances.splice(index, 1);
-    Vue.nextTick(() => this.changeOverlayStyle());
+    this.changeOverlayStyle();
   },
 
   showOverlay (instance) {
@@ -75,14 +73,16 @@ const PopupManager = {
 
   changeOverlayStyle () {
     if (!this.overlay) return;
-    if (this.instances.length === this.overlayStartLength) {
-      this.closeOverlay();
-    }
     let instance;
     for (let i = 1; i <= this.instances.length; i++) {
       instance = this.instances[this.instances.length - i];
-      if (instance && instance.overlay) break;
+      if (instance && instance.overlay) {
+        break;
+      }
+      instance = null;
     }
+
+    if (!instance) return this.closeOverlay();
 
     if (instance && instance.overlay) {
       this.overlay.color = instance.overlayColor;
