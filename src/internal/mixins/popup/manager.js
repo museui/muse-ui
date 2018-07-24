@@ -64,7 +64,6 @@ const PopupManager = {
     const overlay = this.overlay;
     overlay.show = false;
     this.overlay = null;
-    this.overlayStartLength = 0;
     setTimeout(() => {
       document.body.removeChild(overlay.$el);
       overlay.$destroy();
