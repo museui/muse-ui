@@ -60,18 +60,20 @@ export default {
   },
   render (h) {
     const content = (this.$slots.content && this.$slots.content.length > 0 ? this.$slots.content : this.content) || '';
-    this.tooltipVM.node = h(TooltipContent, {
-      class: this.tooltipClass,
-      props: {
-        placement: this.placement,
-        open: this.active,
-        trigger: this.trigger
-      },
-      nativeOn: {
-        mouseenter: () => this.show(),
-        mouseleave: () => this.hide()
-      }
-    }, content);
+    if (this.tooltipVM) {
+      this.tooltipVM.node = h(TooltipContent, {
+        class: this.tooltipClass,
+        props: {
+          placement: this.placement,
+          open: this.active,
+          trigger: this.trigger
+        },
+        nativeOn: {
+          mouseenter: () => this.show(),
+          mouseleave: () => this.hide()
+        }
+      }, content);
+    }
 
     const vnode = getFirstComponentChild(this.$slots.default);
     if (!vnode) return vnode;
