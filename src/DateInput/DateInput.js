@@ -82,8 +82,8 @@ export default {
     changeValue () {
       this.closePicker();
       const value = this.valueFormat ? dayjs(this.date).format(this.valueFormat) : this.date;
-      this.$emit('change', value);
       this.$emit('input', value);
+      this.$emit('change', value);
       if (this.muFormItem && this.muFormItem.autoValidate) this.muFormItem.validate();
     },
     focus (e) {
