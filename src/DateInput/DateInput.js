@@ -29,8 +29,7 @@ delete PickerProps.format;
 export default {
   name: 'mu-date-input',
   mixins: [{
-    ...input,
-    watch: {}
+    ...input
   }],
   directives: {
     keyboardFocus
@@ -84,7 +83,7 @@ export default {
       const value = this.valueFormat ? dayjs(this.date).format(this.valueFormat) : this.date;
       this.$emit('input', value);
       this.$emit('change', value);
-      if (this.muFormItem && this.muFormItem.autoValidate) this.muFormItem.validate();
+      if (this.muFormItem) this.muFormItem.onBlur();
     },
     focus (e) {
       this.isFocused = true;
