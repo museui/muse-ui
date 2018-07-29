@@ -119,11 +119,16 @@ export default {
       this.handlePrevent = event => {
         if (this.draging && this.y > 0) event.preventDefault();
       };
+      this.handleTouchEnd = () => true;
       this.trigger.addEventListener('touchmove', this.handlePrevent, { passive: false });
+      this.trigger.addEventListener('touchend', this.handleTouchEnd, { passive: false });
     },
     unbindDrag () {
       if (!this.drager) return;
-      if (this.handlePrevent) this.trigger.removeEventListener('touchmove', this.handlePrevent);
+      if (this.handlePrevent) {
+        this.trigger.removeEventListener('touchmove', this.handlePrevent);
+        this.trigger.removeEventListener('touchend', this.handleTouchEnd);
+      }
       this.drager.destory();
       this.drager = null;
     },
