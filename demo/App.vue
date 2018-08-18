@@ -188,57 +188,18 @@
     <mu-tooltip content="嘻嘻嘻" open placement="left-start">
       <mu-button>Tooltip</mu-button>
     </mu-tooltip>
-    <!-- <mu-bottom-sheet :open.sync="open">
-      <mu-list>
-        <mu-list-item button nested toggleNestedType="popover" toggleNested>
-          <mu-list-item-content>
-            <mu-list-item-title>哈哈哈哈哈哈</mu-list-item-title>
-          </mu-list-item-content>
-          <mu-list-item button slot="nested" nested toggleNested toggleNestedType="popover">
-            <mu-list-item-content>
-              <mu-list-item-title>哈哈哈哈哈哈</mu-list-item-title>
-            </mu-list-item-content>
-            <mu-list-item button slot="nested" toggleNestedType="popover">
-              <mu-list-item-content>
-                <mu-list-item-title>哈哈哈哈哈哈222</mu-list-item-title>
-              </mu-list-item-content>
-            </mu-list-item>
-            <mu-list-item button slot="nested" toggleNestedType="popover">
-              <mu-list-item-content>
-                <mu-list-item-title>哈哈哈哈哈哈333</mu-list-item-title>
-              </mu-list-item-content>
-            </mu-list-item>
-          </mu-list-item>
-          <mu-list-item button slot="nested" toggleNestedType="popover">
-            <mu-list-item-content>
-              <mu-list-item-title>哈哈哈哈哈哈</mu-list-item-title>
-            </mu-list-item-content>
-          </mu-list-item>
-        </mu-list-item>
-        <mu-list-item button>
-          <mu-list-item-content>
-            <mu-list-item-title>哈哈哈哈哈哈</mu-list-item-title>
-          </mu-list-item-content>
-        </mu-list-item>
-        <mu-list-item button>
-          <mu-list-item-content>
-            <mu-list-item-title>哈哈哈哈哈哈</mu-list-item-title>
-          </mu-list-item-content>
-        </mu-list-item>
-      </mu-list>
-    </mu-bottom-sheet> -->
     <mu-bottom-nav>
       <mu-bottom-nav-item title="Movies" icon="ondemand_video" />
       <mu-bottom-nav-item title="Music" icon="music_note" />
       <mu-bottom-nav-item title="Books" icon="books" />
       <mu-bottom-nav-item title="Pictures" icon="photo" />
     </mu-bottom-nav>
-    <!-- <mu-dialog title="嘻嘻嘻" :open.sync="open" scrollable max-width="300" transition="scale">
+    <mu-dialog title="嘻嘻嘻" :padding="10" :open.sync="open" scrollable max-width="300" transition="scale">
       哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
       哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
       哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
-    </mu-dialog> -->
-    <mu-drawer :open.sync="open" :docked="false">
+    </mu-dialog>
+    <!-- <mu-drawer :open.sync="open" :docked="false">
       <mu-list dense>
         <mu-list-item nested toggleNested button :ripple="false">
           <mu-list-item-content>
@@ -274,7 +235,7 @@
           </mu-list-item>
         </mu-list-item>
       </mu-list>
-    </mu-drawer>
+    </mu-drawer> -->
 </div>
 </template>
 <script>
