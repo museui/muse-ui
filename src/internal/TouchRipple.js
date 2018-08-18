@@ -128,13 +128,16 @@ export default {
   },
   render (h) {
     const listeners = this.autoBind ? {
+      ...this.$listeners,
       mousedown: this.handleMouseDown,
       mouseup: this.end,
       mouseleave: this.end,
       touchstart: this.handleTouchStart,
       touchend: this.end,
       touchcancel: this.end
-    } : {};
+    } : {
+      ...this.$listeners
+    };
     return h(this.tag, {
       on: listeners
     }, [h('div', {
