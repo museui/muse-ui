@@ -40,9 +40,10 @@ export default function (type = 'checkbox') { // checkbox
       },
       handleClick (e) {
         if (this.disabled || this.readonly) return;
-        this.toggle();
-        this.muFormItem && this.muFormItem.onBlur();
         this.end();
+        this.toggle();
+        if (!this) return; // #1136
+        this.muFormItem && this.muFormItem.onBlur();
         this.$emit('click', e);
       },
       handleKeydown (e) {
