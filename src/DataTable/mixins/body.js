@@ -67,6 +67,12 @@ export default {
           props: {
             inputValue: this.isSelected(index),
             disabled: !this.selectable
+          },
+          on: {
+            change: () => this.toggleSelect(index),
+            click: (e) => {
+              e.stopPropagation();
+            }
           }
         })
       ]);
@@ -112,7 +118,7 @@ export default {
                 this.$emit('row-contextmenu', index, row, e);
               },
               click: (e) => {
-                this.toggleSelect(index);
+                if (!this.checkbox) this.toggleSelect(index);
                 if (this.autoExpand) this.toggleExpand(index);
                 this.$emit('row-click', index, row, e);
               },

@@ -5,7 +5,7 @@
   <mu-text-field v-model="value1" multi-line :rows="1" :rows-max="10"></mu-text-field><br>
   <mu-pagination :total="1000" :current.sync="page"/>
   <div style="margin-bottom: 15px;">
-    <mu-data-table :columns="columns" :sort.sync="sort" :data="list" :loading="loading">
+    <mu-data-table :columns="columns" checkbox selectable :selects.sync="selects" :sort.sync="sort" :data="list" :loading="loading">
       <template slot="expand" slot-scope="prop">
         <div style="padding: 24px;" >嘻嘻嘻嘻嘻嘻嘻</div>
       </template>
@@ -248,6 +248,7 @@ export default {
       open: false,
       alert: true,
       checkbox1: [],
+      selects: [],
       slider: 10,
       checkbox2: true,
       switch1: true,
