@@ -20,15 +20,15 @@
     <mu-time-picker format="24hr" :time.sync="time"/>
   </mu-paper>
 
-  <mu-select placeholder="圆圆圆圆" multiple  label="选择框">
+  <mu-select placeholder="圆圆圆圆" filterable multiple  label="选择框">
     <mu-chip slot="selection" slot-scope="scope" color="teal" :selected="scope.selected">
       {{scope.label}}
     </mu-chip>
-    <mu-option value="1" label="嘻嘻嘻1" />
-    <mu-option value="2" label="嘻嘻嘻2" />
-    <mu-option value="3" label="嘻嘻嘻3" />
-    <mu-option value="4" label="嘻嘻嘻4" />
-    <mu-option value="33" label="嘻嘻嘻1" />
+    <mu-option value="1" label="嘻嘻嘻1" search-text="xixi1"/>
+    <mu-option value="2" label="嘻嘻嘻2" search-text="xixi2"/>
+    <mu-option value="3" label="嘻嘻嘻3" search-text="xixi3"/>
+    <mu-option value="4" label="嘻嘻嘻4" search-text="xixi4"/>
+    <mu-option value="33" label="嘻嘻嘻1" search-text="xixi6"/>
     <mu-option value="42" label="嘻嘻嘻2" />
     <mu-option value="5" label="嘻嘻嘻3" />
     <mu-option value="6" label="嘻嘻嘻4" />

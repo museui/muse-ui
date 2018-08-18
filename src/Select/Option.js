@@ -17,6 +17,7 @@ export default {
       type: Boolean,
       default: true
     },
+    searchText: String, // 用户搜索的文本，如果设置此值，会根据这个字段来搜搜，否则使用label属性
     avatar: Boolean
   },
   data () {
