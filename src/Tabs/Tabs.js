@@ -1,6 +1,7 @@
 import { isNotNull } from '../utils';
 import resize from '../internal/directives/resize';
 import color from '../internal/mixins/color';
+import translateUtils from '../utils/translate';
 
 export default {
   name: 'mu-tabs',
@@ -75,16 +76,14 @@ export default {
       return this.tabs.filter((tab) => tab.active)[0];
     },
     setTabHighLineStyle () {
-      this.$nextTick(() => {
-        const activeTab = this.getActiveTab();
-        if (!activeTab || !this.$refs.line || !activeTab.$el) return;
-        const el = activeTab.$el;
-        const lineEl = this.$refs.line;
-        const rect = el.getBoundingClientRect();
-        const tabsRect = this.$el.getBoundingClientRect();
-        lineEl.style.width = rect.width + 'px';
-        lineEl.style.left = (rect.left - tabsRect.left) + 'px';
-      });
+      const activeTab = this.getActiveTab();
+      if (!activeTab || !this.$refs.line || !activeTab.$el) return;
+      const el = activeTab.$el;
+      const lineEl = this.$refs.line;
+      const rect = el.getBoundingClientRect();
+      const tabsRect = this.$el.getBoundingClientRect();
+      lineEl.style.width = rect.width + 'px';
+      translateUtils.translateElement(lineEl, rect.left - tabsRect.left, 0);
     }
   },
   watch: {

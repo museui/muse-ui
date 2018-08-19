@@ -1,13 +1,21 @@
 import popup from '../internal/mixins/popup';
+import resize from '../internal/directives/resize';
 import { convertClass, getWidth } from '../utils';
 
 export default {
   name: 'mu-dialog',
   mixins: [popup],
+  directives: {
+    resize
+  },
   props: {
     dialogClass: [String, Array, Object],
     title: String,
     scrollable: Boolean,
+    padding: { // 设置scrollable 之后dailog 框距离顶部和底部的值
+      type: Number,
+      default: 64
+    },
     fullscreen: Boolean,
     width: [String, Number],
     maxWidth: [String, Number],
@@ -39,11 +47,8 @@ export default {
         dialogEl.style.maxHeight = '';
         return;
       }
-
-      let maxDialogContentHeight = window.innerHeight - 2 * 64;
+      const maxDialogContentHeight = window.innerHeight - 2 * this.padding;
       const { footer, title, elBody } = this.$refs;
-      if (footer) maxDialogContentHeight -= footer.offsetHeight;
-      if (title) maxDialogContentHeight -= title.offsetHeight;
       if (elBody) {
         let maxBodyHeight = maxDialogContentHeight;
         if (footer) maxBodyHeight -= footer.offsetHeight;
@@ -104,6 +109,10 @@ export default {
     }, [
       h('div', {
         staticClass: 'mu-dialog-wrapper',
+        directives: [{
+          name: 'resize',
+          value: () => this.setMaxDialogContentHeight()
+        }],
         style: {
           'z-index': this.zIndex
         },

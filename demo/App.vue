@@ -2,10 +2,13 @@
 <div style="padding: 32px;">
   <bug-date-input />
   <bug-popup />
+  <mu-ripple class="demo-ripple" @click="ripple = '333333'">
+    {{ripple}}
+  </mu-ripple>
   <mu-text-field v-model="value1" multi-line :rows="1" :rows-max="10"></mu-text-field><br>
   <mu-pagination :total="1000" :current.sync="page"/>
   <div style="margin-bottom: 15px;">
-    <mu-data-table :columns="columns" :sort.sync="sort" :data="list" :loading="loading">
+    <mu-data-table :columns="columns" checkbox selectable :selects.sync="selects" :sort.sync="sort" :data="list" :loading="loading">
       <template slot="expand" slot-scope="prop">
         <div style="padding: 24px;" >嘻嘻嘻嘻嘻嘻嘻</div>
       </template>
@@ -20,15 +23,15 @@
     <mu-time-picker format="24hr" :time.sync="time"/>
   </mu-paper>
 
-  <mu-select placeholder="圆圆圆圆" multiple  label="选择框">
+  <mu-select placeholder="圆圆圆圆" filterable multiple  label="选择框">
     <mu-chip slot="selection" slot-scope="scope" color="teal" :selected="scope.selected">
       {{scope.label}}
     </mu-chip>
-    <mu-option value="1" label="嘻嘻嘻1" />
-    <mu-option value="2" label="嘻嘻嘻2" />
-    <mu-option value="3" label="嘻嘻嘻3" />
-    <mu-option value="4" label="嘻嘻嘻4" />
-    <mu-option value="33" label="嘻嘻嘻1" />
+    <mu-option value="1" label="嘻嘻嘻1" search-text="xixi1"/>
+    <mu-option value="2" label="嘻嘻嘻2" search-text="xixi2"/>
+    <mu-option value="3" label="嘻嘻嘻3" search-text="xixi3"/>
+    <mu-option value="4" label="嘻嘻嘻4" search-text="xixi4"/>
+    <mu-option value="33" label="嘻嘻嘻1" search-text="xixi6"/>
     <mu-option value="42" label="嘻嘻嘻2" />
     <mu-option value="5" label="嘻嘻嘻3" />
     <mu-option value="6" label="嘻嘻嘻4" />
@@ -188,57 +191,18 @@
     <mu-tooltip content="嘻嘻嘻" open placement="left-start">
       <mu-button>Tooltip</mu-button>
     </mu-tooltip>
-    <!-- <mu-bottom-sheet :open.sync="open">
-      <mu-list>
-        <mu-list-item button nested toggleNestedType="popover" toggleNested>
-          <mu-list-item-content>
-            <mu-list-item-title>哈哈哈哈哈哈</mu-list-item-title>
-          </mu-list-item-content>
-          <mu-list-item button slot="nested" nested toggleNested toggleNestedType="popover">
-            <mu-list-item-content>
-              <mu-list-item-title>哈哈哈哈哈哈</mu-list-item-title>
-            </mu-list-item-content>
-            <mu-list-item button slot="nested" toggleNestedType="popover">
-              <mu-list-item-content>
-                <mu-list-item-title>哈哈哈哈哈哈222</mu-list-item-title>
-              </mu-list-item-content>
-            </mu-list-item>
-            <mu-list-item button slot="nested" toggleNestedType="popover">
-              <mu-list-item-content>
-                <mu-list-item-title>哈哈哈哈哈哈333</mu-list-item-title>
-              </mu-list-item-content>
-            </mu-list-item>
-          </mu-list-item>
-          <mu-list-item button slot="nested" toggleNestedType="popover">
-            <mu-list-item-content>
-              <mu-list-item-title>哈哈哈哈哈哈</mu-list-item-title>
-            </mu-list-item-content>
-          </mu-list-item>
-        </mu-list-item>
-        <mu-list-item button>
-          <mu-list-item-content>
-            <mu-list-item-title>哈哈哈哈哈哈</mu-list-item-title>
-          </mu-list-item-content>
-        </mu-list-item>
-        <mu-list-item button>
-          <mu-list-item-content>
-            <mu-list-item-title>哈哈哈哈哈哈</mu-list-item-title>
-          </mu-list-item-content>
-        </mu-list-item>
-      </mu-list>
-    </mu-bottom-sheet> -->
     <mu-bottom-nav>
       <mu-bottom-nav-item title="Movies" icon="ondemand_video" />
       <mu-bottom-nav-item title="Music" icon="music_note" />
       <mu-bottom-nav-item title="Books" icon="books" />
       <mu-bottom-nav-item title="Pictures" icon="photo" />
     </mu-bottom-nav>
-    <!-- <mu-dialog title="嘻嘻嘻" :open.sync="open" scrollable max-width="300" transition="scale">
+    <mu-dialog title="嘻嘻嘻" :padding="10" :open.sync="open" scrollable max-width="300" transition="scale">
       哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
       哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
       哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
-    </mu-dialog> -->
-    <mu-drawer :open.sync="open" :docked="false">
+    </mu-dialog>
+    <!-- <mu-drawer :open.sync="open" :docked="false">
       <mu-list dense>
         <mu-list-item nested toggleNested button :ripple="false">
           <mu-list-item-content>
@@ -274,7 +238,7 @@
           </mu-list-item>
         </mu-list-item>
       </mu-list>
-    </mu-drawer>
+    </mu-drawer> -->
 </div>
 </template>
 <script>
@@ -287,10 +251,12 @@ export default {
       open: false,
       alert: true,
       checkbox1: [],
+      selects: [],
       slider: 10,
       checkbox2: true,
       switch1: true,
       radio1: '',
+      ripple: 'click ripple',
       date: new Date(),
       time: new Date(),
       value: undefined,
@@ -423,3 +389,11 @@ export default {
   }
 };
 </script>
+<style>
+.demo-ripple {
+  width: 300px;
+  height: 300px;
+  background-color: aqua;
+  position: relative;
+}
+</style>

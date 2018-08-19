@@ -190,7 +190,8 @@ export default {
       }
 
       this.options.forEach(option => {
-        option.visible = !this.autoComplete || !val || option.label.toLowerCase().indexOf(val.toLowerCase()) !== -1;
+        const searchText = option.searchText || option.label;
+        option.visible = !this.autoComplete || !val || searchText.toLowerCase().indexOf(val.toLowerCase()) !== -1;
       });
       this.resetFocusIndex();
       if (this.isFocused && !this.open) this.open = true;

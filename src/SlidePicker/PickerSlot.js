@@ -1,7 +1,6 @@
 import swipe from '../internal/directives/swipe';
 import translateUtil from '../utils/translate';
 import { transitionEnd } from '../utils/dom';
-const ITEM_HEIGHT = 36;
 
 export default {
   name: 'mu-slide-picker-slot',
@@ -22,6 +21,10 @@ export default {
       default () {
         return [];
       }
+    },
+    itemHeight: {
+      type: Number,
+      default: 36
     },
     value: {},
     textAlign: {
@@ -46,11 +49,8 @@ export default {
     };
   },
   computed: {
-    itemHeight () {
-
-    },
     contentHeight () {
-      return ITEM_HEIGHT * this.visibleItemCount;
+      return this.itemHeight * this.visibleItemCount;
     },
     valueIndex () {
       return this.values.indexOf(this.value);
@@ -58,7 +58,7 @@ export default {
     dragRange () {
       const values = this.values;
       const visibleItemCount = this.visibleItemCount;
-      return [-ITEM_HEIGHT * (values.length - Math.ceil(visibleItemCount / 2)), ITEM_HEIGHT * Math.floor(visibleItemCount / 2)];
+      return [-this.itemHeight * (values.length - Math.ceil(visibleItemCount / 2)), this.itemHeight * Math.floor(visibleItemCount / 2)];
     }
   },
   mounted () {
@@ -72,12 +72,12 @@ export default {
       const valueIndex = values.indexOf(value);
       const offset = Math.floor(this.visibleItemCount / 2);
       if (valueIndex !== -1) {
-        return (valueIndex - offset) * -ITEM_HEIGHT;
+        return (valueIndex - offset) * -this.itemHeight;
       }
     },
     translate2Value (translate) {
-      translate = Math.round(translate / ITEM_HEIGHT) * ITEM_HEIGHT;
-      const index = -(translate - Math.floor(this.visibleItemCount / 2) * ITEM_HEIGHT) / ITEM_HEIGHT;
+      translate = Math.round(translate / this.itemHeight) * this.itemHeight;
+      const index = -(translate - Math.floor(this.visibleItemCount / 2) * this.itemHeight) / this.itemHeight;
       return this.values[index];
     },
     doOnValueChange () {
@@ -89,7 +89,7 @@ export default {
       const el = this.$el;
       const items = el.querySelectorAll('.mu-slide-picker-item');
       Array.prototype.forEach.call(items, (item, index) => {
-        translateUtil.translateElement(item, null, ITEM_HEIGHT * index);
+        translateUtil.translateElement(item, null, this.itemHeight * index);
       });
     },
     handleStart () {
@@ -118,9 +118,9 @@ export default {
       this.$nextTick(() => {
         let translate;
         if (momentumTranslate) {
-          translate = Math.round(momentumTranslate / ITEM_HEIGHT) * ITEM_HEIGHT;
+          translate = Math.round(momentumTranslate / this.itemHeight) * this.itemHeight;
         } else {
-          translate = Math.round(currentTranslate / ITEM_HEIGHT) * ITEM_HEIGHT;
+          translate = Math.round(currentTranslate / this.itemHeight) * this.itemHeight;
         }
         translate = Math.max(Math.min(translate, dragRange[1]), dragRange[0]);
         translateUtil.translateElement(el, null, translate);
