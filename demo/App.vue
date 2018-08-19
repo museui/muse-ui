@@ -2,6 +2,9 @@
 <div style="padding: 32px;">
   <bug-date-input />
   <bug-popup />
+  <mu-ripple class="demo-ripple" @click="ripple = '333333'">
+    {{ripple}}
+  </mu-ripple>
   <mu-text-field v-model="value1" multi-line :rows="1" :rows-max="10"></mu-text-field><br>
   <mu-pagination :total="1000" :current.sync="page"/>
   <div style="margin-bottom: 15px;">
@@ -253,6 +256,7 @@ export default {
       checkbox2: true,
       switch1: true,
       radio1: '',
+      ripple: 'click ripple',
       date: new Date(),
       time: new Date(),
       value: undefined,
@@ -385,3 +389,11 @@ export default {
   }
 };
 </script>
+<style>
+.demo-ripple {
+  width: 300px;
+  height: 300px;
+  background-color: aqua;
+  position: relative;
+}
+</style>
