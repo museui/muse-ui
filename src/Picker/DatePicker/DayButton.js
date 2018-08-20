@@ -1,3 +1,4 @@
+import { findParentSlot } from '../../utils';
 export default {
   props: {
     selected: Boolean,
@@ -23,6 +24,7 @@ export default {
     }
   },
   render (h) {
+    let daySlot = findParentSlot('day', this);
     return this.date ? h('button', {
       staticClass: 'mu-day-button',
       class: this.dayButtonClass,
@@ -31,13 +33,15 @@ export default {
         disabled: this.disabled
       }
     }, [
-      h('div', { class: 'mu-day-button-bg' }),
-      h('span', {
-        class: 'mu-day-button-text',
-        domProps: {
-          innerHTML: this.date.getDate()
-        }
-      })
+      daySlot ? daySlot(this.$props) : (
+        h('div', { class: 'mu-day-button-bg' }),
+          h('span', {
+            class: 'mu-day-button-text',
+            domProps: {
+              innerHTML: this.date.getDate()
+            }
+          })
+      )
     ]) : h('span', { class: 'mu-day-empty' });
   }
 };
