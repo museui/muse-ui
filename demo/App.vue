@@ -23,7 +23,7 @@
     <mu-time-picker format="24hr" :time.sync="time"/>
   </mu-paper>
 
-  <mu-select placeholder="圆圆圆圆" filterable multiple  label="选择框">
+  <mu-select placeholder="圆圆圆圆" filterable multiple disabled label="选择框">
     <mu-chip slot="selection" slot-scope="scope" color="teal" :selected="scope.selected">
       {{scope.label}}
     </mu-chip>

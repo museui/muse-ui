@@ -104,6 +104,7 @@ export default {
           attrs: {
             tabindex: 0,
             readonly: !enable,
+            disabled: this.disabled,
             placeholder: !this.value && this.value !== 0 ? this.placeholder : ''
           },
           domProps: {
