@@ -4,6 +4,12 @@ import { BottomSheetTransition } from '../internal/transitions';
 export default {
   name: 'mu-bottom-sheet',
   mixins: [popup],
+  props: {
+    lockScroll: {
+      type: Boolean,
+      default: true
+    }
+  },
   render (h) {
     return h(BottomSheetTransition, [
       this.open ? h('div', {

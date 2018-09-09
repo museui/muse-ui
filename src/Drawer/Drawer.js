@@ -13,6 +13,10 @@ export default {
       type: Boolean,
       default: true
     },
+    lockScroll: {
+      type: Boolean,
+      default: true
+    },
     width: [Number, String],
     zDepth: {
       type: Number,

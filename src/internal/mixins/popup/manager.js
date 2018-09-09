@@ -33,7 +33,7 @@ const PopupManager = {
     overlay.zIndex = instance.overlayZIndex;
     overlay.onClick = this.handleOverlayClick.bind(this);
     document.body.appendChild(overlay.$el);
-    this.preventScrolling();
+    if (instance.lockScroll) this.preventScrolling();
     Vue.nextTick(() => {
       overlay.show = true;
     });
