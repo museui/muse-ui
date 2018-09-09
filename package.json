@@ -58,7 +58,7 @@
     "jest-css-modules": "^1.1.0",
     "jest-serializer-html": "^5.0.0",
     "less": "^3.0.1",
-    "parcel-bundler": "^1.7.1",
+    "parcel-bundler": "^1.9.7",
     "parcel-plugin-vue": "^1.5.0",
     "postcss-import": "^11.0.0",
     "postcss-modules": "^1.1.0",
