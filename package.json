@@ -78,7 +78,7 @@
     "vue-template-compiler": "^2.5.13"
   },
   "dependencies": {
-    "body-scroll-lock": "^2.4.6",
+    "body-scroll-lock": "^2.5.7",
     "dayjs": "^1.6.5",
     "keycode": "^2.1.9",
     "normalize-wheel": "^1.0.1",
