@@ -110,18 +110,3 @@ export function setObjAttr (obj, attrs, value) {
     obj = obj[key];
   });
 }
-
-/**
- * 向上查找父级的slot
- * @param {*} name slot name
- * @param {*} parent 父级
- */
-export function findParentSlot (name, parent) {
-  if (parent) {
-    if (Reflect.has(parent.$scopedSlots, name)) {
-      return parent.$scopedSlots[name];
-    }
-    return findParentSlot(name, parent.$parent);
-  }
-  return null;
-}

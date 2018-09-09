@@ -205,6 +205,9 @@ export default {
             },
             style: {
               width: this.container === 'bottomSheet' ? 'auto' : ''
+            },
+            scopedSlots: {
+              day: this.$scopedSlots.day
             }
           }, [this.createActions(h)]);
         case 'dateTime':
@@ -215,6 +218,9 @@ export default {
               ...this.generatePickerProps(),
               format: this.clockType,
               date: this.date
+            },
+            scopedSlots: {
+              day: this.$scopedSlots.day
             },
             on: {
               change: this.handleTimeChange
