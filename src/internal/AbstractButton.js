@@ -105,6 +105,7 @@ export default {
       if (!this.disabled && !this.disableKeyboardFocus) {
         if (keycode(event) === 'enter' && this.isKeyboardFocused) {
           this.$el.click();
+          event.preventDefault();
         }
         if (keycode(event) === 'esc' && this.isKeyboardFocused) {
           this.removeKeyboardFocus(event);

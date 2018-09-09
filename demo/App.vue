@@ -9,6 +9,11 @@
       </div>
     </template>
   </mu-date-input>
+
+  <br/>
+  <mu-button @click="handleClick">
+    CLICK
+  </mu-button>
 </div>
 </template>
 <script>
@@ -149,6 +154,9 @@ export default {
     setTimeout(() => (this.loading = false), 2000);
   },
   methods: {
+    handleClick () {
+      console.log('click');
+    },
     closeAlert() {
       this.alert = false;
     }
