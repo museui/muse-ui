@@ -1,4 +1,4 @@
-import '../styles/components/grid.css';
+import '../styles/components/bootstrap-grid.less';
 import Container from './Container';
 import Row from './Row';
 import Col from './Col';

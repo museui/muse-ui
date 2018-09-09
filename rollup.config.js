@@ -11,10 +11,15 @@ const banner = `/* ${name} myron.liu version ${version} */`;
 const plugins = [
   postcss({ extensions: ['.less'], extract: `dist/${name}.css` }),
   resolve({ jsnext: true, main: true, browser: true }),
-  commonjs(),
+  commonjs({
+    include: 'node_modules/**',
+    namedExports: {
+      'node_modules/body-scroll-lock/lib/bodyScrollLock.js': ['disableBodyScroll', 'enableBodyScroll', 'clearAllBodyScrollLocks']
+    }
+  }),
   babel({
     babelrc: false,
-    include: 'src/**',
+    include: 'src/**/*.js',
     runtimeHelpers: true,
     presets: [
       [
@@ -28,7 +33,7 @@ const plugins = [
     ]
   }),
   replace({
-    '__VERSION__': version
+    __VERSION__: version
   })
 ];
 

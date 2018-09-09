@@ -4,7 +4,7 @@
     <mu-flex justify-content="center" align-items="center">
       <mu-button @click="open=true">OPEN Bottom Sheet</mu-button>
     </mu-flex>
-      <mu-bottom-sheet :lock-scroll="false" :open.sync="open">
+      <mu-bottom-sheet :open.sync="open">
           <mu-list @item-click="openScroll=true">
             <mu-sub-header>Select One</mu-sub-header>
             <mu-list-item button>

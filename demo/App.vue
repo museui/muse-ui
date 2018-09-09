@@ -14,6 +14,7 @@
   <mu-button @click="handleClick">
     CLICK
   </mu-button>
+  <bug-popup />
 </div>
 </template>
 <script>
