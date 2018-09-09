@@ -24,6 +24,10 @@ export default {
       type: Boolean,
       default: true
     },
+    lockScroll: { // 是否锁定全局滚动
+      type: Boolean,
+      default: false
+    },
     appendBody: { // 是否添加到 body 元素后, 内部使用
       type: Boolean,
       default: true

@@ -19,6 +19,10 @@ export default {
     fullscreen: Boolean,
     width: [String, Number],
     maxWidth: [String, Number],
+    lockScroll: {
+      type: Boolean,
+      default: true
+    },
     transition: {
       type: String,
       default: 'scale',

@@ -25,7 +25,10 @@ export default {
   name: 'mu-date-time-picker',
   provide () {
     return {
-      getColorObject: this.getColorObject
+      getColorObject: this.getColorObject,
+      getDayButtonSlots: this.getDayButtonSlots,
+      getMonthButtonSlots: this.getMonthButtonSlots,
+      getYearButtonSlots: this.getYearButtonSlots
     };
   },
   mixins: [pickerProps, color],
@@ -38,6 +41,15 @@ export default {
     };
   },
   methods: {
+    getDayButtonSlots () {
+      return this.$scopedSlots.day;
+    },
+    getMonthButtonSlots () {
+      return this.$scopedSlots.month;
+    },
+    getYearButtonSlots () {
+      return this.$scopedSlots.year;
+    },
     getColorObject () {
       return {
         color: this.getColor(this.color),

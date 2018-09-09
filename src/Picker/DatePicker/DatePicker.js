@@ -9,6 +9,13 @@ import * as dateUtils from './dateUtils';
 export default {
   name: 'mu-date-picker',
   mixins: [color, pickerProps],
+  provide () {
+    return {
+      getDayButtonSlots: this.getDayButtonSlots,
+      getMonthButtonSlots: this.getMonthButtonSlots,
+      getYearButtonSlots: this.getYearButtonSlots
+    };
+  },
   props: {
     dateTimeFormat: {
       type: Object,
@@ -51,6 +58,15 @@ export default {
     };
   },
   methods: {
+    getDayButtonSlots () {
+      return this.$scopedSlots.day;
+    },
+    getMonthButtonSlots () {
+      return this.$scopedSlots.month;
+    },
+    getYearButtonSlots () {
+      return this.$scopedSlots.year;
+    },
     handleYearChange (year) {
       const date = dateUtils.cloneAsDate(this.displayDate);
       date.setDate(1);
