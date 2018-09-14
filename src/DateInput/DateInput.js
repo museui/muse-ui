@@ -267,6 +267,9 @@ export default {
       }, [this.createPicker(h)])
     ]);
   },
+  beforeDestroy () {
+    this.closePicker();
+  },
   watch: {
     value (val) {
       this.date = val ? dayjs(val).toDate() : undefined;

@@ -77,6 +77,9 @@ export default {
       this.createPopover(h)
     ]);
   },
+  beforeDestroy () {
+    this.hide();
+  },
   watch: {
     active (val) {
       this.$emit('update:open', val);

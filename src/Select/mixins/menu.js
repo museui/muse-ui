@@ -65,6 +65,9 @@ export default {
       return selectItems;
     }
   },
+  beforeDestroy () {
+    this.closeMenu();
+  },
   methods: {
     activateInput () {
       this.isFocused = true;
