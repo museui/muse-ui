@@ -33,7 +33,7 @@ export default {
           break;
         case 'up':
         case 'down':
-          event.preventDefault();
+          e.preventDefault();
           this.resetSelectedIndex();
           code === 'up' ? this.decrementFocusIndex() : this.incrementFocusIndex();
           break;
