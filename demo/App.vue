@@ -15,11 +15,17 @@
     CLICK
   </mu-button>
   <bug-popup />
+
+
+  <mu-text-field ref="textField" v-model="value1" multi-line :rows="4" icon="comment"  placeholder="输入信息"/>
+  <mu-button @click="handelFocusTextField">
+    FOCUS
+  </mu-button>
 </div>
 </template>
 <script>
-import BugPopup from './bug-popup';
-import BugDateInput from './bug-date-input';
+import BugPopup from "./bug-popup";
+import BugDateInput from "./bug-date-input";
 export default {
   data() {
     return {
@@ -31,55 +37,56 @@ export default {
       slider: 10,
       checkbox2: true,
       switch1: true,
-      radio1: '',
-      ripple: 'click ripple',
+      radio1: "",
+      ripple: "click ripple",
       date: new Date(),
       time: new Date(),
       value: undefined,
-      value1: 'I farI fare well without computere well without I fare well without computercomputerI fare well without computer.\r\n没电脑我也过得很好。\r\nHow did you fare?\r\n你过得怎样?\r\nA single fare is 170 dollars.\r\n单程票价为170美元。',
-      alertMsg: 'every thing is disabled',
+      value1:
+        "I farI fare well without computere well without I fare well without computercomputerI fare well without computer.\r\n没电脑我也过得很好。\r\nHow did you fare?\r\n你过得怎样?\r\nA single fare is 170 dollars.\r\n单程票价为170美元。",
+      alertMsg: "every thing is disabled",
       columns: [
         {
-          name: 'xxx1',
-          title: '嘻嘻嘻1',
+          name: "xxx1",
+          title: "嘻嘻嘻1",
           width: 300,
           sortable: true
         },
         {
-          name: 'xxx2',
-          title: '嘻嘻嘻2',
-          align: 'center',
+          name: "xxx2",
+          title: "嘻嘻嘻2",
+          align: "center",
           width: 300,
           sortable: true
         },
         {
-          name: 'xxx3',
-          title: '嘻嘻嘻3',
+          name: "xxx3",
+          title: "嘻嘻嘻3",
           width: 300,
           sortable: true
         },
         {
-          name: 'xxx4',
-          title: '嘻嘻嘻4',
+          name: "xxx4",
+          title: "嘻嘻嘻4",
           width: 300,
           sortable: true
         },
         {
-          name: 'xxx5',
-          title: '嘻嘻嘻5',
+          name: "xxx5",
+          title: "嘻嘻嘻5",
           width: 300,
           sortable: true
         },
         {
-          name: 'xxx6',
-          title: '嘻嘻嘻6',
+          name: "xxx6",
+          title: "嘻嘻嘻6",
           width: 300,
           sortable: true
         }
       ],
       list: [
         {
-          xxx1: '啊哈哈哈哈哈哈',
+          xxx1: "啊哈哈哈哈哈哈",
           xxx2: 10,
           xxx3: 11,
           xxx4: 12,
@@ -87,7 +94,7 @@ export default {
           xxx6: 26
         },
         {
-          xxx1: '啊哈哈哈哈哈哈',
+          xxx1: "啊哈哈哈哈哈哈",
           xxx2: 10,
           xxx3: 11,
           xxx4: 12,
@@ -95,7 +102,7 @@ export default {
           xxx6: 26
         },
         {
-          xxx1: '啊哈哈哈哈哈哈',
+          xxx1: "啊哈哈哈哈哈哈",
           xxx2: 10,
           xxx3: 11,
           xxx4: 12,
@@ -103,7 +110,7 @@ export default {
           xxx6: 26
         },
         {
-          xxx1: '啊哈哈哈哈哈哈',
+          xxx1: "啊哈哈哈哈哈哈",
           xxx2: 10,
           xxx3: 11,
           xxx4: 12,
@@ -111,7 +118,7 @@ export default {
           xxx6: 26
         },
         {
-          xxx1: '啊哈哈哈哈哈哈',
+          xxx1: "啊哈哈哈哈哈哈",
           xxx2: 10,
           xxx3: 11,
           xxx4: 12,
@@ -119,7 +126,7 @@ export default {
           xxx6: 26
         },
         {
-          xxx1: '啊哈哈哈哈哈哈',
+          xxx1: "啊哈哈哈哈哈哈",
           xxx2: 10,
           xxx3: 11,
           xxx4: 12,
@@ -127,7 +134,7 @@ export default {
           xxx6: 26
         },
         {
-          xxx1: '啊哈哈哈哈哈哈',
+          xxx1: "啊哈哈哈哈哈哈",
           xxx2: 10,
           xxx3: 11,
           xxx4: 12,
@@ -135,7 +142,7 @@ export default {
           xxx6: 26
         },
         {
-          xxx1: '啊哈哈哈哈哈哈',
+          xxx1: "啊哈哈哈哈哈哈",
           xxx2: 10,
           xxx3: 11,
           xxx4: 12,
@@ -145,8 +152,8 @@ export default {
       ],
       selects: [],
       sort: {
-        name: 'xxx1',
-        order: 'asc'
+        name: "xxx1",
+        order: "asc"
       },
       loading: true
     };
@@ -155,11 +162,15 @@ export default {
     setTimeout(() => (this.loading = false), 2000);
   },
   methods: {
-    handleClick () {
-      console.log('click');
+    handleClick() {
+      console.log("click");
     },
     closeAlert() {
       this.alert = false;
+    },
+    handelFocusTextField() {
+      // console.log(this.$refs.textField);
+      this.$refs.textField.focus();
     }
   },
   components: {
