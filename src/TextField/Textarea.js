@@ -41,6 +41,11 @@ export default {
       element.style.height = (height < minHeight ? minHeight : height > maxHeight && maxHeight > 0 ? maxHeight : height) + 'px';
     }
   },
+  beforeDestroy () {
+    Object.keys(this.$listeners).forEach((key) => {
+      this.$off('key', this.$listeners[key]);
+    });
+  },
   render (h) {
     return h('div', {
       staticClass: 'mu-text-field-multiline'

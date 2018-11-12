@@ -24,6 +24,14 @@ export default {
       this.isFocused = false;
       this.$emit('blur', e);
     },
+    focus () {
+      if (this.disabled) return;
+      if (this.$refs.input) {
+        this.$refs.input.focus();
+      } else if (this.$refs.textarea) {
+        this.$refs.textarea.$refs.textarea.focus();
+      }
+    },
     createTextField (h) {
       const listeners = {
         ...this.$listeners,
@@ -46,6 +54,7 @@ export default {
             rowsMax: this.rowsMax,
             value: String(this.value || '')
           },
+          ref: 'textarea',
           on: listeners
         }) : h('input', {
           staticClass: 'mu-text-field-input',
@@ -59,10 +68,20 @@ export default {
           domProps: {
             value: this.value
           },
+          ref: 'input',
           on: listeners
         })
       ];
     }
+  },
+  beforeDestroy () {
+    this.$off('input');
+    this.$off('change');
+    this.$off('focus', this.handleFocus);
+    this.$off('blur', this.handleBlur);
+    Object.keys(this.$listeners).forEach((key) => {
+      this.$off('key', this.$listeners[key]);
+    });
   },
   render (h) {
     return this.createInput(h, {

@@ -58,6 +58,11 @@ export default {
       return this.toggleNestedType;
     }
   },
+  beforeDestroy () {
+    Object.keys(this.$listeners).forEach((key) => {
+      this.$off('key', this.$listeners[key]);
+    });
+  },
   render (h) {
     return h('ul', {
       staticClass: 'mu-list',

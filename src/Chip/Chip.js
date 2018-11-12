@@ -14,6 +14,12 @@ export default {
       this.$emit('delete');
     }
   },
+  beforeDestroy () {
+    this.$off('click', this.handleDelete);
+    Object.keys(this.$listeners).forEach((key) => {
+      this.$off('key', this.$listeners[key]);
+    });
+  },
   render (h) {
     const svgDeleteIcon = h('svg', {
       staticClass: 'mu-chip-delete-icon',

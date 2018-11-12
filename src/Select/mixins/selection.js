@@ -14,6 +14,11 @@ export default {
   created () {
     this.setSeachValue();
   },
+  beforeDestroy () {
+    this.$off('delete', this.removeSelection);
+    this.$off('input');
+    this.$off('click', this.toggleMenu);
+  },
   methods: {
     setSeachValue () {
       if (!this.multiple) this.searchValue = this.selects.map(item => item.label).join(',');

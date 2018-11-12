@@ -148,5 +148,8 @@ export default {
       if (!this.muFormItem) return;
       val ? this.muFormItem.onFocus() : this.muFormItem.onBlur();
     }
+  },
+  beforeDestroy () {
+    this.$off('click', this.actionClick);
   }
 };

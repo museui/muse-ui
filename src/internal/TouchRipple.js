@@ -126,6 +126,11 @@ export default {
       });
     }
   },
+  beforeDestroy () {
+    Object.keys(this.$listeners).forEach((key) => {
+      this.$off('key', this.$listeners[key]);
+    });
+  },
   render (h) {
     const listeners = this.autoBind ? {
       ...this.$listeners,

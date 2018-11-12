@@ -67,6 +67,7 @@ export default {
   },
   beforeDestroy () {
     this.closeMenu();
+    this.$off('close', this.closeMenu);
   },
   methods: {
     activateInput () {

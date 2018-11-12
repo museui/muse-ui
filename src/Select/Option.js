@@ -34,8 +34,9 @@ export default {
   created () {
     this.addOption(this);
   },
-  destroyed () {
+  beforeDestroy () {
     this.removeOption(this);
+    this.$off('click', this.optionClick);
   },
   render (h) {
     const defaultItem = [

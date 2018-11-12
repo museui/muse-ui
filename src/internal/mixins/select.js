@@ -25,6 +25,18 @@ export default function (type = 'checkbox') { // checkbox
       disabled: Boolean,
       tabIndex: [Number, String]
     },
+    beforeDestroy () {
+      this.$off('click', this.handleClick);
+      this.$off('keydown', this.handleKeydown);
+      this.$off('mousedown', this.start);
+      this.$off('mouseleave', this.end);
+      this.$off('mouseup', this.end);
+      this.$off('touchstart', this.end);
+      this.$off('touchend', this.end);
+      this.$off('touchcancel', this.end);
+      this.$off('focus', this.start);
+      this.$off('blur', this.end);
+    },
     methods: {
       start (event) {
         if (this.disabled) return;
