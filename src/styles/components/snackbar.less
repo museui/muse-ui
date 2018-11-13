@@ -88,6 +88,18 @@
   bottom: 8px;
 }
 
+.mu-snackbar-drawer {
+  position: fixed;
+  pointer-events: none;
+  .mu-snackbar{
+    position: relative;
+    pointer-events: auto;
+    + .mu-snackbar{
+      margin-top: 8px;
+    }
+  }
+}
+
 @media only screen and (max-width: 600px) {
   .mu-snackbar {
     width: 100%;

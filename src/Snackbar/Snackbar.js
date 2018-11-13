@@ -1,3 +1,4 @@
+import Vue from 'vue';
 import popup from '../internal/mixins/popup';
 import { SlideTopTransition, SlideBottomTransition } from '../internal/transitions';
 import color from '../internal/mixins/color';
@@ -20,6 +21,10 @@ export default {
       validator (val) {
         return ['top-start', 'top', 'top-end', 'bottom-start', 'bottom', 'bottom-end'].indexOf(val) !== -1;
       }
+    },
+    drawer: {
+      type: Boolean,
+      default: false
     }
   },
   render (h) {
@@ -30,7 +35,7 @@ export default {
       staticClass: 'mu-snackbar-action'
     }, this.$slots.action) : undefined;
 
-    return h(this.position.indexOf('top') !== -1 ? SlideTopTransition : SlideBottomTransition, [
+    const snackbar = h(this.position.indexOf('top') !== -1 ? SlideTopTransition : SlideBottomTransition, [
       this.open ? h('div', {
         staticClass: `mu-snackbar ${this.getColorClass()} ${this.getTextColorClass()}`,
         style: {
@@ -39,10 +44,32 @@ export default {
           'color': this.getColor(this.textColor)
         },
         class: {
-          ['mu-snackbar-' + this.position]: !!this.position
+          ['mu-snackbar-' + this.position]: !!this.position && !this.drawer
         },
         on: this.$listeners
       }, [message, action]) : undefined
     ]);
+
+    if (!this.drawer) return snackbar;
+
+    this.insertDrawer(this.position, new Vue({
+      render () {
+        return snackbar;
+      }
+    }).$mount().$el);
+    return null;
+  },
+  methods: {
+    insertDrawer (position, snackbar) {
+      const instanceClassName = `mu-snackbar-drawer-${position}`;
+      if (document.getElementsByClassName(instanceClassName).length === 0) {
+        const instance = document.createElement('div');
+        instance.setAttribute('class', `mu-snackbar-drawer ${instanceClassName} mu-snackbar-${position}`);
+        document.body.appendChild(instance);
+      }
+      const Drawer = document.getElementsByClassName(instanceClassName)[0];
+      Drawer.style.zIndex = this.zIndex;
+      Drawer.appendChild(snackbar);
+    }
   }
 };

@@ -29,23 +29,23 @@
 </template>
 <script>
 export default {
-  data () {
+  data() {
     return {
       opens: false,
       open: false,
       timer: null,
       openScroll: false
-    }
+    };
   },
   methods: {
-		opensnakbar () {
-      this.openScroll = false
-      if (this.timer) clearTimeout(this.timer)
-      this.opens = true
+    opensnakbar() {
+      this.openScroll = false;
+      if (this.timer) clearTimeout(this.timer);
+      this.opens = true;
       this.timer = setTimeout(() => {
-        this.opens = false
-      }, 1000)
+        this.opens = false;
+      }, 1000);
     }
   }
-}
+};
 </script>

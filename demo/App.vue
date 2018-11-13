@@ -18,9 +18,13 @@
 
 
   <mu-text-field ref="textField" v-model="value1" multi-line :rows="4" icon="comment"  placeholder="输入信息"/>
-  <mu-button @click="handelFocusTextField">
-    FOCUS
-  </mu-button>
+
+
+  <mu-snackbar open drawer >Hello Snackbar1</mu-snackbar>
+  <mu-snackbar open drawer position="top">Hello Snackbar2</mu-snackbar>
+  <mu-snackbar open drawer position="top">Hello Snackbar3</mu-snackbar>
+  <mu-snackbar open drawer >Hello Snackbar3</mu-snackbar>
+  <mu-snackbar open drawer >Hello Snackbar3</mu-snackbar>
 </div>
 </template>
 <script>
