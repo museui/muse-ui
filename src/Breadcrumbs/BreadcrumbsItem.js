@@ -10,7 +10,7 @@ export default {
     const props = this.to ? this.generateRouteProps() : {};
     return h('li', {
       staticClass: 'mu-breadcrumbs-item',
-      class: this.disabled ? 'is-disbaled' : ''
+      class: this.disabled ? 'is-disabled' : ''
     }, [
       h(this.to ? 'router-link' : 'a', {
         props

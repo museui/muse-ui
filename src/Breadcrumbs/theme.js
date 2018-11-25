@@ -3,7 +3,7 @@ export default (theme) => {
   .mu-breadcrumbs-item {
     color: ${theme.primary};
   }
-  .mu-breadcrumbs-item.is-disbaled {
+  .mu-breadcrumbs-item.is-disabled {
     color: ${theme.text.disabled};
   }
   .mu-breadcrumbs-divider {
