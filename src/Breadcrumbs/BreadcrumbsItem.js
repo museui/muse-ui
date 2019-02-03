@@ -7,7 +7,9 @@ export default {
     disabled: Boolean
   },
   render (h) {
-    const props = this.to ? this.generateRouteProps() : {};
+    const props = this.to ? this.generateRouteProps() : {
+      href: this.href
+    };
     return h('li', {
       staticClass: 'mu-breadcrumbs-item',
       class: this.disabled ? 'is-disabled' : ''
