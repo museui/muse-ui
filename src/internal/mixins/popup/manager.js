@@ -44,7 +44,19 @@ const PopupManager = {
     // body 操作
     const body = document.getElementsByTagName('body')[0];
     disableBodyScroll(body, {
-      reserveScrollBarGap: true
+      reserveScrollBarGap: true,
+      allowTouchMove: (el) => {
+        for (let i = 0; i < this.instances.length; i++) {
+          if (
+            this.instances[i] &&
+            this.instances[i].$el &&
+            this.instances[i].$el.contains(el)
+          ) {
+            return true;
+          }
+        }
+        return false;
+      }
     });
     this.locked = true;
   },
