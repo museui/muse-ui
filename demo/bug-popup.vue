@@ -4,7 +4,7 @@
     <mu-flex justify-content="center" align-items="center">
       <mu-button @click="open=true">OPEN Bottom Sheet</mu-button>
     </mu-flex>
-      <mu-bottom-sheet :open.sync="open">
+      <!-- <mu-bottom-sheet :open.sync="open">
           <mu-list @item-click="openScroll=true">
             <mu-sub-header>Select One</mu-sub-header>
             <mu-list-item button>
@@ -14,8 +14,8 @@
               <mu-list-item-title>Star</mu-list-item-title>
             </mu-list-item>
           </mu-list>
-        </mu-bottom-sheet>
-          <mu-dialog title="Phone Ringtone" width="360" :open.sync="openScroll">
+        </mu-bottom-sheet> -->
+          <mu-dialog title="Phone Ringtone" width="360" :open.sync="open">
       this is simple Dialog
           <mu-button slot="actions" flat color="primary" @click="opensnakbar">ok</mu-button>
         </mu-dialog>

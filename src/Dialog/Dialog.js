@@ -67,6 +67,9 @@ export default {
       if (!newValue) return;
       this.$nextTick(() => {
         this.setMaxDialogContentHeight();
+        const dialogEl = this.$refs.dialog;
+        if (!dialogEl) return;
+        dialogEl.focus();
       });
     }
   },
@@ -90,6 +93,9 @@ export default {
 
     const data = {
       staticClass: 'mu-dialog ' + convertClass(this.dialogClass).join(' '),
+      attrs: {
+        tabindex: -1
+      },
       class: {
         'mu-dialog-fullscreen': this.fullscreen,
         'mu-dialog-scrollable': this.scrollable,
