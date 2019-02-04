@@ -14,7 +14,7 @@ const plugins = [
   commonjs({
     include: 'node_modules/**',
     namedExports: {
-      'node_modules/body-scroll-lock/lib/bodyScrollLock.js': ['disableBodyScroll', 'enableBodyScroll', 'clearAllBodyScrollLocks']
+      'node_modules/body-scroll-lock/lib/bodyScrollLock.min.js': ['disableBodyScroll', 'enableBodyScroll', 'clearAllBodyScrollLocks']
     }
   }),
   babel({
