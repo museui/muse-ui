@@ -28,7 +28,8 @@ export default {
   render (h) {
     return h('transition', {
       props: {
-        name: 'mu-ripple'
+        name: 'mu-ripple',
+        appear: true
       }
     }, [
       h('div', {
