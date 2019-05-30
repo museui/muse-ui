@@ -35,6 +35,5 @@ function unbind (el, binding) {
 export default {
   name: 'scroll',
   inserted: bindScroll,
-  update: bindScroll,
   unbind: unbind
 };
