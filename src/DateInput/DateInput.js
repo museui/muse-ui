@@ -262,7 +262,8 @@ export default {
         },
         ref: 'popover',
         on: {
-          close: this.closePicker
+          close: this.closePicker,
+          click: e => { e.stopPropagation() }
         }
       }, [this.createPicker(h)])
     ]);
