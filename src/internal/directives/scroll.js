@@ -16,8 +16,12 @@ function bindScroll (el, binding) {
   const handleScroll = function (e) {
     callback(target, e);
   };
-  if (el._onScroll && target !== el._onScroll.target) unbind(el, binding);
 
+  if (el._onScroll && target !== el._onScroll.target) {
+    unbind(el, binding);
+  } else if (el._onScroll) {
+    return;
+  }
   target.addEventListener('scroll', handleScroll, options);
 
   el._onScroll = {
