@@ -7,9 +7,10 @@ import replace from 'rollup-plugin-replace';
 import packageJson from './package.json';
 
 const { name, version } = packageJson;
-const banner = `/* ${name} myron.liu version ${version} */`;
+const shortName = name.split('/').pop()
+const banner = `/* ${name} version ${version} (original by myron.liu) */`;
 const plugins = [
-  postcss({ extensions: ['.less'], extract: `dist/${name}.css` }),
+  postcss({ extensions: ['.less'], extract: `dist/${shortName}.css` }),
   resolve({ jsnext: true, main: true, browser: true }),
   commonjs({
     include: 'node_modules/**',
@@ -41,11 +42,11 @@ export default [{
   input: 'src/index.js',
   output: [{
     banner,
-    file: `dist/${name}.common.js`,
+    file: `dist/${shortName}.common.js`,
     format: 'cjs'
   }, {
     banner,
-    file: `dist/${name}.esm.js`,
+    file: `dist/${shortName}.esm.js`,
     format: 'es'
   }],
   plugins: plugins,
@@ -53,7 +54,7 @@ export default [{
 }, {
   input: 'src/index.js',
   output: {
-    file: `dist/${name}.js`,
+    file: `dist/${shortName}.js`,
     format: 'umd',
     name: 'MuseUI',
     globals: {
