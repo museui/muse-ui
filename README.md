@@ -5,7 +5,7 @@
   </a>
 </p>
 
-<h1 align="center">Muse-UI</h1>
+<h1 align="center">Muse-UI [不再维护]</h1>
 
 <p align="center">
   <a href="https://material.io/">Material Design</a>
@@ -58,16 +58,6 @@ Please make sure to read the contributing guide ([中文](https://muse-ui.org/#/
 ## Changelog
 
 Detailed changes for each release are documented in the [release notes](https://muse-ui.org/#/zh-CN/changelog).
-
-## Documentation
-
-Check out our [documentation website](https://muse-ui.org).
-
-## Supporting Muse-UI
-
-If you find Muse-UI useful, you can buy us a cup of coffee
-
-[支持 Muse-UI](https://muse-ui.org/#/zh-CN/support)
 
 ## Licence
 
